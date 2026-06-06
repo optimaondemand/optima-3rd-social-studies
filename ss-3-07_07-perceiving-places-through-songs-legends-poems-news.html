@@ -1,0 +1,2682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optima Academy Online — Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+*,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', 'Century Gothic', 'Arial Rounded MT Bold', Verdana, sans-serif;
+  background: #F0F2F8;
+  color: #0E1C42;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  box-shadow: 0 0 40px rgba(14, 28, 66, 0.08);
+}
+
+/* ═══════════ PROGRESS BAR ═══════════ */
+.progress-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: #0E1C42;
+  padding: 8px 20px 10px;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.progress-label {
+  font-size: 12px;
+  color: #55C8E8;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+}
+.progress-track {
+  flex: 1;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  /* ✏️ GRADE ACCENT: Update gradient per grade identity */
+  background: linear-gradient(90deg, #55C8E8, #7FD8F0, #1A8A7D);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+.progress-pct {
+  font-size: 13px;
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  font-weight: 800;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* ═══════════ HEADER ═══════════ */
+.header {
+  background: #0E1C42;
+  border-bottom: 6px solid #55C8E8;
+  padding: 20px 28px 18px;
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #55C8E8, #7FD8F0, #55C8E8);
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.header-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.header-logo img { width: 48px; height: 38px; }
+.header-org { font-size: 22px; color: #fff; font-weight: 800; line-height: 1.15; }
+.header-sub { font-size: 11px; color: #55C8E8; letter-spacing: 0.5px; }
+.header-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 28px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.header-title em {
+  /* ✏️ GRADE ACCENT: Tinted emphasis */
+  color: #A0E8DA;
+  font-style: italic;
+}
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(85, 200, 232, 0.15);
+  border: 1.5px solid rgba(85, 200, 232, 0.35);
+  border-radius: 28px;
+  padding: 6px 16px;
+}
+.header-badge-icon { font-size: 22px; }
+.header-badge-text { font-size: 18px; color: #fff; font-weight: 800; }
+
+/* ═══════════ INFO STRIP ═══════════ */
+.info-strip {
+  display: flex;
+  flex-wrap: wrap;
+  background: #FFFFFF;
+  border-bottom: 2px solid #E2E8F4;
+}
+.info-cell {
+  flex: 1;
+  min-width: 150px;
+  padding: 12px 16px;
+  border-right: 1px solid #E2E8F4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.info-cell:last-child { border-right: none; }
+.info-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.info-label {
+  font-size: 10px;
+  color: #7A88A8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+.info-value { font-size: 16px; color: #0E1C42; font-weight: 800; line-height: 1.2; }
+.info-detail { font-size: 11px; color: #3A4A6B; line-height: 1.3; }
+
+/* ═══════════ QUOTE STRIP ═══════════ */
+.quote-strip {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF3DC 100%);
+  border-bottom: 2px solid #F5E6C8;
+  padding: 14px 28px;
+  text-align: center;
+}
+.quote-strip-text {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #5A4A3A;
+  line-height: 1.6;
+}
+.quote-strip-attr {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: #7A88A8;
+  font-weight: 700;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════ INTRO COLLAPSIBLE ═══════════ */
+.intro-section { transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.25s ease; overflow: hidden; }
+.intro-section.collapsed .intro-2col,
+.intro-section.collapsed .need-strip { display: none; }
+.intro-collapsed-bar {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 28px;
+  background: #FFF8F0;
+  border-bottom: 2px solid #F5E6C8;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.intro-collapsed-bar:hover { background: #FFF3DC; }
+.intro-section.collapsed .intro-collapsed-bar { display: flex; }
+.intro-collapsed-icon { font-size: 18px; }
+.intro-collapsed-text {
+  font-size: 14px;
+  color: #5A4A3A;
+  font-weight: 700;
+  flex: 1;
+}
+.intro-collapsed-toggle {
+  font-size: 12px;
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════ INTRO 2-COL ═══════════ */
+.intro-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 20px 28px 4px;
+}
+.intro-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+}
+.intro-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 2px solid;
+}
+.intro-card-head-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.intro-card-head-label {
+  font-size: 10px;
+  color: #7A88A8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+.intro-card-head-title { font-size: 18px; color: #0E1C42; font-weight: 800; line-height: 1.2; }
+.intro-card-body { padding: 14px 18px; }
+.intro-card-body p { font-size: 15px; color: #3A4A6B; line-height: 1.65; margin-bottom: 8px; }
+.intro-card-body p:last-child { margin-bottom: 0; }
+.intro-card-body .obj-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 15px;
+  color: #0E1C42;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.intro-card-body .obj-line:last-child { margin-bottom: 0; }
+.intro-card-body .obj-icon { flex-shrink: 0; font-size: 17px; }
+.theme-question .intro-card-head { background: #FFF3DC; border-color: #F5E6C8; }
+.theme-question .intro-card-head-icon { background: #D4943A; }
+.theme-objectives .intro-card-head { background: #EAF8FD; border-color: #D6F2FB; }
+.theme-objectives .intro-card-head-icon { background: #55C8E8; }
+
+/* ═══════════ NEED STRIP ═══════════ */
+.need-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 28px 18px;
+}
+.need-strip-label {
+  font-size: 13px;
+  color: #3A4A6B;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.need-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #E3F8ED;
+  border: 1.5px solid #B8E8CF;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 13px;
+  color: #0E1C42;
+  font-weight: 700;
+}
+
+/* ═══════════ TODAY'S PATH ═══════════ */
+.todays-path {
+  background: #FAFBFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-top: 14px;
+}
+.todays-path-title {
+  font-size: 14px;
+  color: #0E1C42;
+  font-weight: 800;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.todays-path-steps {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #3A4A6B;
+  font-weight: 600;
+}
+.todays-path-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.todays-path-arrow { color: #B0B8CC; font-size: 11px; }
+
+/* ═══════════ TAB BAR ═══════════ */
+.tab-bar {
+  position: sticky;
+  top: 38px;
+  z-index: 100;
+  background: #FFFFFF;
+  border-bottom: 3px solid #E2E8F4;
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  box-shadow: 0 -4px 0 0 #0E1C42;
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex: 1;
+  min-width: 160px;
+  padding: 12px 8px 11px;
+  background: transparent;
+  border: none;
+  border-bottom: 4px solid transparent;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7A88A8;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  line-height: 1.3;
+  text-align: center;
+}
+.tab-btn:hover { color: #0E1C42; background: #EAF8FD; }
+.tab-btn.active {
+  color: #0E1C42;
+  border-bottom-color: #55C8E8;
+  background: #FFFFFF;
+}
+.tab-btn .tab-check {
+  display: none;
+  font-size: 12px;
+  color: #34B76F;
+  margin-left: 4px;
+  font-weight: 800;
+}
+.tab-btn.visited .tab-check { display: inline; }
+.tab-panel { display: none; padding: 24px 28px 36px; }
+.tab-panel.active { display: block; }
+
+/* ═══════════ VIDEO WRAP ═══════════ */
+.video-wrap {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid #E2E8F4;
+  box-shadow: 0 4px 20px rgba(14, 28, 66, 0.08);
+  background: #000;
+  margin: 0 0 22px;
+}
+.video-wrap-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  border-bottom: 2px solid rgba(85, 200, 232, 0.2);
+}
+.video-wrap-type {
+  font-size: 10px;
+  color: #55C8E8;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+.video-wrap-title { font-size: 16px; color: #fff; font-weight: 800; line-height: 1.2; }
+.video-ratio {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.video-placeholder {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+.video-placeholder-icon { font-size: 44px; margin-bottom: 10px; opacity: 0.55; }
+.video-placeholder-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+  line-height: 1.5;
+}
+.video-placeholder-id {
+  font-size: 11px;
+  color: rgba(85, 200, 232, 0.4);
+  font-family: monospace;
+  margin-top: 6px;
+}
+
+/* ═══════════ ACTIVITY CARDS ═══════════ */
+.activity {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+}
+/* ✏️ GRADE ACCENT: Change left-border color per grade */
+.activity.bl-accent { border-left: 6px solid #1A8A7D; }
+.activity.bl-cyan { border-left: 6px solid #55C8E8; }
+.activity.bl-gold { border-left: 6px solid #D4943A; }
+.activity.bl-green { border-left: 6px solid #34B76F; }
+.activity.bl-purple { border-left: 6px solid #8B6FC0; }
+.activity.bl-navy { border-left: 6px solid #0E1C42; }
+.activity-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px 14px 18px;
+  border-bottom: 1.5px solid #E2E8F4;
+}
+.activity-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.activity-title { font-size: 19px; color: #0E1C42; font-weight: 800; line-height: 1.2; }
+.activity-sub { font-size: 12px; color: #7A88A8; }
+.activity-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  margin-left: auto;
+}
+.activity-body { padding: 18px 22px; }
+.activity-body p { font-size: 17px; color: #3A4A6B; line-height: 1.75; margin-bottom: 12px; }
+.activity-body p:last-child { margin-bottom: 0; }
+
+/* ═══════════ CALLOUTS ═══════════ */
+.callout {
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.callout:last-child { margin-bottom: 0; }
+.callout-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+.callout p { font-size: 16px; color: #0E1C42; line-height: 1.65; margin: 0; }
+.callout-info { background: #EAF8FD; border: 2px solid #D6F2FB; }
+.callout-think { background: #FFF3DC; border: 2px solid #F5E6C8; }
+.callout-tip { background: #E3F8ED; border: 2px solid #B8E8CF; }
+.callout-vocab { background: #F0E8FF; border: 2px solid #D8CCF0; }
+.callout-virtue { background: #FDE8F0; border: 2px solid #F0B8CA; }
+
+/* ═══════════ VIRTUE SPOTLIGHT ═══════════ */
+.virtue-card {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF3DC 100%);
+  border: 2px solid #F5E6C8;
+  border-left: 6px solid #D4943A;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.virtue-label {
+  font-size: 12px;
+  color: #D4943A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.virtue-text { font-size: 15px; color: #0E1C42; line-height: 1.65; }
+
+/* ═══════════ KEY CONCEPT ═══════════ */
+.key-concept {
+  background: #FFF3DC;
+  border: 2px solid #F5E6C8;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.key-concept-label {
+  font-size: 12px;
+  color: #D4943A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.key-concept p { font-size: 15px; color: #0E1C42; line-height: 1.7; margin-bottom: 6px; }
+
+/* ═══════════ SOURCE STUDY CARD ═══════════ */
+.source-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.source-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  /* ✏️ GRADE ACCENT */
+  background: linear-gradient(135deg, #1A8A7D, #34B0A0);
+  border-bottom: 2px solid rgba(255,255,255,0.15);
+}
+.source-card-header-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.source-card-header-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+.source-card-header-title { font-size: 17px; color: #fff; font-weight: 800; }
+.source-image-placeholder {
+  width: 100%;
+  height: 240px;
+  background: linear-gradient(145deg, #E2E8F4, #D6E0F0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #E2E8F4;
+}
+.source-image-placeholder-text {
+  font-size: 14px;
+  color: #7A88A8;
+  font-weight: 700;
+  text-align: center;
+  padding: 20px;
+}
+.source-card-body { padding: 18px 22px; }
+.source-label-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: #3A4A6B;
+  font-weight: 700;
+}
+.source-label-bar .src-type {
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+}
+
+/* ═══════════ COPYWORK ═══════════ */
+.copywork-box {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF3DC 100%);
+  border: 2px solid #F5E6C8;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.copywork-label {
+  font-size: 12px;
+  color: #D4943A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.copywork-text {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px;
+  color: #0E1C42;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.copywork-instruction { font-size: 14px; color: #3A4A6B; line-height: 1.5; }
+
+/* ═══════════ COUNCIL CHAMBER ═══════════ */
+.council-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.council-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  border-bottom: 2px solid rgba(85, 200, 232, 0.2);
+}
+.council-header-icon { font-size: 26px; }
+.council-header-title { font-size: 17px; color: #fff; font-weight: 800; }
+.council-question {
+  padding: 16px 22px;
+  background: #FFF3DC;
+  border-bottom: 2px solid #F5E6C8;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px;
+  color: #0E1C42;
+  line-height: 1.6;
+  font-style: italic;
+}
+.council-perspectives {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.council-perspective {
+  padding: 16px 18px;
+  border-bottom: 2px solid #E2E8F4;
+}
+.council-perspective:first-child { border-right: 1px solid #E2E8F4; }
+.council-perspective-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.council-perspective-label.side-a { color: #2A7AB5; }
+.council-perspective-label.side-b { color: #D4663A; }
+.council-perspective p { font-size: 14px; color: #3A4A6B; line-height: 1.55; }
+.council-body { padding: 18px 22px; }
+
+/* ═══════════ TIMELINE CARD ═══════════ */
+.timeline-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  /* ✏️ GRADE ACCENT */
+  background: linear-gradient(135deg, #1A8A7D, #34B0A0);
+  border-bottom: 2px solid rgba(255,255,255,0.15);
+}
+.timeline-header-icon { font-size: 22px; color: #fff; }
+.timeline-header-title { font-size: 17px; color: #fff; font-weight: 800; }
+.timeline-events { padding: 18px 22px; }
+.timeline-event {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1.5px solid #E2E8F4;
+}
+.timeline-event:last-child { border-bottom: none; }
+.timeline-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  /* ✏️ GRADE ACCENT */
+  background: #1A8A7D;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.timeline-event-content { flex: 1; }
+.timeline-event-date { font-size: 13px; color: #1A8A7D; font-weight: 800; margin-bottom: 2px; }
+.timeline-event-text { font-size: 15px; color: #0E1C42; line-height: 1.55; }
+
+/* ═══════════ JOURNAL TEXT BOXES ═══════════ */
+.journal-box {
+  width: 100%;
+  min-height: 70px;
+  padding: 12px 14px;
+  border: 2px solid #E2E8F4;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: #0E1C42;
+  line-height: 1.6;
+  resize: vertical;
+  background: #FAFBFF;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
+}
+.journal-box:focus {
+  outline: none;
+  border-color: #55C8E8;
+  box-shadow: 0 0 0 3px rgba(85, 200, 232, 0.15);
+  background: #fff;
+}
+.journal-box::placeholder { color: #B0B8CC; font-style: italic; }
+.journal-label {
+  font-size: 12px;
+  color: #7A88A8;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.journal-label .saved-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #B0B8CC;
+  transition: background 0.3s;
+}
+.journal-label .saved-dot.saved { background: #34B76F; }
+
+/* ═══════════ PERSISTENT TEXTBOX PROMPT ═══════════ */
+.textbox-prompt {
+  font-size: 14px;
+  color: #0E1C42;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 8px 12px;
+  background: #EAF8FD;
+  border: 1.5px solid #D6F2FB;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  margin-top: 10px;
+}
+.textbox-prompt + .journal-box {
+  border-radius: 0 0 12px 12px;
+  margin-top: 0;
+}
+
+/* ═══════════ ASSIGNMENT QUESTIONS ═══════════ */
+.q-block {
+  background: #FAFBFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+}
+.q-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #55C8E8;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.q-text { font-size: 16px; color: #0E1C42; line-height: 1.65; margin-bottom: 4px; }
+
+/* ═══════════ TURN-IN CHECKLIST ═══════════ */
+.turn-in-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+  margin-top: 18px;
+}
+.turn-in-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #EAF8FD;
+  padding: 18px 22px;
+  border-bottom: 2px solid #D6F2FB;
+}
+.turn-in-header-icon { font-size: 36px; line-height: 1; flex-shrink: 0; }
+.turn-in-header-label {
+  font-size: 11px;
+  color: #1A6B8E;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+.turn-in-header-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 22px;
+  color: #0E1C42;
+  font-weight: 700;
+}
+.turn-in-body { padding: 18px 22px 20px; }
+.turn-in-intro { font-size: 15px; color: #3A4A6B; margin-bottom: 16px; line-height: 1.55; }
+.turn-in-checklist { display: flex; flex-direction: column; gap: 10px; }
+.turn-in-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.turn-in-item:hover { background: #EAF8FD; border-color: #B8E0F0; }
+.turn-in-item.checked { background: #E3F8ED; border-color: #B8E8CF; }
+.turn-in-item .turn-in-check {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 2px solid #B8E0F0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.turn-in-item.checked .turn-in-check { background: #34B76F; border-color: #34B76F; }
+.turn-in-item-text { font-size: 15px; color: #0E1C42; font-weight: 600; line-height: 1.55; flex: 1; }
+
+/* ═══════════ GATHERED ANSWERS ═══════════ */
+.gathered-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+  margin-top: 22px;
+}
+.gathered-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  padding: 16px 22px;
+  border-bottom: 2px solid rgba(85, 200, 232, 0.2);
+}
+.gathered-header-icon { font-size: 28px; }
+.gathered-header-label {
+  font-size: 11px;
+  color: #55C8E8;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.gathered-header-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+}
+.gathered-body { padding: 18px 22px 20px; }
+.gathered-intro { font-size: 15px; color: #3A4A6B; margin-bottom: 14px; line-height: 1.55; }
+.gathered-output {
+  width: 100%;
+  min-height: 250px;
+  padding: 16px 18px;
+  border: 2px solid #E2E8F4;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: #0E1C42;
+  line-height: 1.65;
+  background: #FAFBFF;
+  resize: vertical;
+  white-space: pre-wrap;
+}
+.gathered-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.gathered-btn {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.gathered-btn:hover { transform: translateY(-2px); }
+.gathered-btn-copy {
+  background: linear-gradient(135deg, #55C8E8, #7FD8F0);
+  color: #0E1C42;
+  box-shadow: 0 4px 14px rgba(85, 200, 232, 0.25);
+}
+.gathered-btn-pdf {
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  color: #fff;
+  border: 2px solid #55C8E8;
+  box-shadow: 0 4px 14px rgba(14, 28, 66, 0.25);
+}
+.gathered-copied {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #34B76F;
+  margin-top: 8px;
+  display: none;
+}
+.gathered-copied.show { display: block; }
+
+/* ═══════════ NARRATIVE TRANSITION ═══════════ */
+.tab-next-wrap { text-align: center; padding: 24px 0 8px; }
+.tab-transition-voice {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #5A4A3A;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.tab-next-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 30px;
+  background: linear-gradient(135deg, #55C8E8, #7FD8F0);
+  color: #0E1C42;
+  border: none;
+  border-radius: 28px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(85, 200, 232, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tab-next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(85, 200, 232, 0.4);
+}
+
+/* ═══════════ ROOT MATCH GAME ═══════════ */
+.root-match-game { margin: 14px 0; }
+.root-match-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.root-match-item {
+  padding: 12px 16px;
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #0E1C42;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.5;
+  transition: background 0.15s, border-color 0.2s, transform 0.15s;
+  user-select: none;
+}
+.root-match-item:hover { transform: translateY(-1px); border-color: #8B6FC0; }
+.root-match-item.selected { background: #F0E8FF; border-color: #8B6FC0; }
+.root-match-item.matched { background: #E3F8ED; border-color: #34B76F; pointer-events: none; opacity: 0.8; }
+.root-match-item.wrong-flash { background: #FFF0EC; border-color: #E8636B; animation: shake 0.4s ease; }
+.root-match-item.is-word { font-weight: 800; font-family: 'Lora', Georgia, serif; font-size: 16px; }
+.root-match-feedback {
+  text-align: center;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #34B76F;
+  display: none;
+}
+.root-match-feedback.show { display: block; }
+
+/* ═══════════ FLIP CARDS ═══════════ */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+.flip-card { perspective: 800px; height: 160px; cursor: pointer; }
+.flip-card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  text-align: center;
+  border: 2px solid #E2E8F4;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.06);
+}
+.flip-card-front { background: #FFFFFF; border-top: 5px solid #55C8E8; }
+.flip-card-front .fc-emoji { font-size: 24px; margin-bottom: 6px; }
+.flip-card-front .fc-word {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px; font-weight: 700; color: #0E1C42;
+}
+.flip-card-front .fc-tap { font-size: 11px; color: #7A88A8; font-weight: 600; margin-top: 4px; }
+.flip-card-back {
+  background: linear-gradient(145deg, #0E1C42, #1A2D5A);
+  border-color: #0E1C42;
+  transform: rotateY(180deg);
+}
+.flip-card-back .fc-def { font-size: 13px; color: #fff; line-height: 1.5; font-weight: 600; }
+.flip-card-back .fc-word-back {
+  font-size: 10px; color: #55C8E8; text-transform: uppercase;
+  letter-spacing: 1px; font-weight: 800; margin-bottom: 6px;
+}
+
+/* ═══════════ BACK TO TOP ═══════════ */
+.back-to-top {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  height: 44px;
+  padding: 0 18px 0 14px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  color: #fff;
+  border: 2px solid #55C8E8;
+  font-size: 14px; font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(14, 28, 66, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  z-index: 500;
+}
+.back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { box-shadow: 0 6px 24px rgba(14, 28, 66, 0.5); transform: translateY(-3px); }
+
+/* ═══════════ CONFETTI ═══════════ */
+#confettiCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+/* ═══════════ SELF-CHECK QUIZ ═══════════ */
+.quiz-card {
+  background: #fff;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.quiz-q {
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.quiz-q-text { font-size: 17px; color: #0E1C42; font-weight: 700; margin-bottom: 12px; line-height: 1.55; }
+.quiz-options { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  display: flex; align-items: center; gap: 12px;
+  background: #fff; border: 2px solid #E2E8F4; border-radius: 12px;
+  padding: 10px 14px; font-size: 15px; color: #0E1C42; font-weight: 600;
+  cursor: pointer; transition: all 0.15s;
+}
+.quiz-opt:hover { border-color: #55C8E8; background: #EAF8FD; }
+.quiz-opt.correct { background: #E3F8ED; border-color: #34B76F; color: #1a5c2e; }
+.quiz-opt.wrong { background: #FFF0EC; border-color: #E8636B; color: #8a3030; }
+.quiz-opt.disabled { opacity: 0.5; cursor: default; pointer-events: none; }
+.opt-letter {
+  width: 28px; height: 28px; border-radius: 50%; background: #E2E8F4;
+  font-size: 13px; font-weight: 800; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0; color: #3A4A6B;
+}
+.quiz-opt.correct .opt-letter { background: #34B76F; color: #fff; }
+.quiz-opt.wrong .opt-letter { background: #E8636B; color: #fff; }
+.quiz-feedback {
+  margin-top: 10px; padding: 10px 14px; border-radius: 10px;
+  font-size: 14px; font-weight: 600; line-height: 1.5; display: none;
+}
+.quiz-feedback.show { display: block; }
+.fb-correct { background: #E3F8ED; color: #1a5c2e; border: 1.5px solid #B8E8CF; }
+.fb-wrong { background: #FFF3DC; color: #5A4A3A; border: 1.5px solid #F5E6C8; }
+.quiz-score-box {
+  /* ✏️ GRADE ACCENT */
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  color: #fff; border-radius: 16px; padding: 20px 22px;
+  margin-top: 16px; text-align: center; display: none;
+}
+.quiz-score-box.show { display: block; }
+.quiz-score-num { font-size: 52px; font-weight: 900; line-height: 1; }
+.quiz-score-label { font-size: 14px; color: #55C8E8; margin-bottom: 4px; }
+.quiz-score-msg { font-size: 18px; font-weight: 700; margin-top: 8px; }
+.quiz-video-wrap { margin-top: 16px; display: none; }
+.quiz-video-wrap.show { display: block; }
+
+/* ═══════════ DISCOVERY FACT (hidden reward on game completion) ═══════════ */
+.discovery-fact {
+  display: none;
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #FFF8F0, #FFF3DC);
+  border: 2px solid #F5E6C8;
+  border-left: 5px solid #D4943A;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #5A4A3A;
+  line-height: 1.6;
+  animation: factReveal 0.5s ease;
+}
+.discovery-fact.show { display: block; }
+.discovery-fact-label {
+  font-size: 11px;
+  color: #D4943A;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+@keyframes factReveal {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════ HISTORIAN'S SEAL — certificate card with stamp ═══════════ */
+.historian-seal {
+  display: none;
+  margin-top: 20px;
+  animation: cardSlideUp 0.4s ease;
+}
+.historian-seal.show { display: block; }
+@keyframes cardSlideUp {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.seal-certificate {
+  position: relative;
+  background: linear-gradient(160deg, #FFFDF8, #FFF5E6, #FFFDF8);
+  border: 2px solid #E8D8C0;
+  border-radius: 14px;
+  padding: 22px 100px 22px 24px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(140, 120, 80, 0.1);
+}
+.seal-cert-message {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  color: #5A4A3A;
+  line-height: 1.55;
+  font-style: italic;
+}
+.seal-cert-message strong {
+  font-style: normal;
+  color: #3A2A1A;
+}
+.seal-stamp-wrap {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-8deg);
+  animation: stampBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+}
+@keyframes stampBounce {
+  0% { opacity: 0; transform: translateY(-50%) rotate(-8deg) scale(0); }
+  60% { opacity: 1; transform: translateY(-50%) rotate(-8deg) scale(1.2); }
+  100% { opacity: 1; transform: translateY(-50%) rotate(-8deg) scale(1); }
+}
+
+/* ═══════════ OPTIMA OWL BUDDY ═══════════ */
+.owl-buddy {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  margin: 18px 0;
+  box-shadow: 0 2px 12px rgba(14, 28, 66, 0.06);
+  position: relative;
+}
+.owl-buddy-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFF8F0, #FFF3DC);
+  border: 2.5px solid #F5E6C8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  flex-shrink: 0;
+  animation: owlBob 3s ease-in-out infinite;
+}
+@keyframes owlBob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-3px) rotate(2deg); }
+}
+.owl-buddy-bubble {
+  flex: 1;
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 12px 16px;
+  position: relative;
+  font-size: 15px;
+  color: #3A4A6B;
+  line-height: 1.6;
+}
+.owl-buddy-bubble::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 18px;
+  width: 14px;
+  height: 14px;
+  background: #FAFBFF;
+  border-left: 1.5px solid #E2E8F4;
+  border-bottom: 1.5px solid #E2E8F4;
+  transform: rotate(45deg);
+}
+.owl-buddy-name {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  margin-bottom: 4px;
+}
+
+/* ═══════════ TAB SECTION HEADERS ═══════════ */
+.tab-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0 18px;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #E2E8F4;
+}
+.tab-section-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  color: #fff;
+}
+.tab-section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 800;
+  color: #7A88A8;
+  margin-bottom: 1px;
+}
+.tab-section-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px;
+  color: #0E1C42;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ═══════════ SECTION DIVIDERS ═══════════ */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 0;
+  margin: 8px 0;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #E2E8F4, transparent);
+}
+.section-divider-dot {
+  font-size: 8px;
+  color: #D4D8E4;
+  letter-spacing: 6px;
+}
+
+/* ═══════════ STEP BADGES (for Explore tab progression) ═══════════ */
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px 4px 4px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+  /* ✏️ GRADE ACCENT */
+  background: rgba(26, 138, 125, 0.08);
+  color: #1A8A7D;
+}
+.step-badge-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  /* ✏️ GRADE ACCENT */
+  background: #1A8A7D;
+}
+
+/* ═══════════ FOOTER ═══════════ */
+.footer {
+  background: #0E1C42;
+  border-top: 4px solid #55C8E8;
+  padding: 18px 28px;
+  text-align: center;
+}
+.footer-main { font-size: 14px; color: #fff; margin-bottom: 4px; }
+.footer-main span { color: #55C8E8; font-weight: 700; }
+.footer-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 620px) {
+  .intro-2col { grid-template-columns: 1fr; }
+  .council-perspectives { grid-template-columns: 1fr; }
+  .vocab-grid { grid-template-columns: 1fr; }
+  .root-match-grid { grid-template-columns: 1fr; }
+}
+
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+
+/* ═══════════════════════════════════════════════════════
+   LISTENING STATION ENHANCEMENTS — expand buttons,
+   audio player, and styled pretend newspaper (lesson 3.07.07)
+   ═══════════════════════════════════════════════════════ */
+.story-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 18px;
+  border: 2px solid currentColor;
+  border-radius: 24px;
+  background: #FFFFFF;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.story-expand-btn:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,0.12); }
+.story-expand-btn:active { transform: translateY(0); }
+.story-expand-btn .chev { transition: transform 0.25s ease; display: inline-block; }
+.story-expand-btn.is-open .chev { transform: rotate(180deg); }
+.story-expand-content {
+  display: none;
+  margin-top: 12px;
+  padding: 14px 18px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  line-height: 1.7;
+  color: #0E1C42;
+  animation: fadeSlideIn 0.3s ease;
+}
+.story-expand-content.is-open { display: block; }
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.song-audio-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  margin-top: 12px;
+  background: #FFFFFF;
+  border: 2px solid #D4943A;
+  border-radius: 12px;
+}
+.song-audio-wrap .song-icon { font-size: 28px; flex-shrink: 0; }
+.song-audio-wrap audio { flex: 1; min-width: 0; height: 38px; }
+.song-note {
+  font-size: 12px;
+  color: #7A6A4A;
+  font-style: italic;
+  margin-top: 6px;
+}
+.poem-excerpt {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #2A1F4A;
+  padding: 14px 24px;
+  margin: 10px 0;
+  border-left: 3px solid #8B6FC0;
+  background: #FAF6FF;
+}
+.poem-excerpt .poem-attr {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 13px;
+  color: #6A4FA0;
+  font-weight: 600;
+}
+.pretend-newspaper {
+  background: #F6F1E3;
+  border: 2px solid #1A1A1A;
+  padding: 18px 22px;
+  margin: 12px 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #1A1A1A;
+  box-shadow: 2px 3px 0 rgba(0,0,0,0.15);
+}
+.newspaper-masthead {
+  text-align: center;
+  border-top: 3px double #1A1A1A;
+  border-bottom: 3px double #1A1A1A;
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+.newspaper-masthead .nm-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.newspaper-masthead .nm-sub {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  color: #4A3A2A;
+}
+.newspaper-dateline {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #4A3A2A;
+  border-bottom: 1px solid #4A3A2A;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+.newspaper-headline {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+  margin: 12px 0 4px;
+  color: #1A1A1A;
+}
+.newspaper-deck {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  text-align: center;
+  color: #3A2A1A;
+  border-bottom: 1px solid #8B7355;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+.newspaper-byline {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #4A3A2A;
+  margin-bottom: 8px;
+}
+.newspaper-body {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+}
+.newspaper-body p { margin-bottom: 10px; }
+.newspaper-body p:first-of-type::first-letter {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 36px;
+  font-weight: 700;
+  float: left;
+  line-height: 1;
+  margin: 4px 6px 0 0;
+  color: #1A1A1A;
+}
+</style>
+</head>
+<body><div id="pageTop"></div>
+
+<div class="page-wrap">
+
+<!-- ═══ PROGRESS BAR ═══ -->
+<div class="progress-wrap">
+  <div class="progress-label">🏛️ Progress</div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-pct" id="progressPct">0%</div>
+</div>
+
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+  <div class="header-brand">
+    <div class="header-logo"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" /></div>
+    <div>
+      <div class="header-org">Optima Academy Online</div>
+      <div class="header-sub">An Education Experience Company</div>
+    </div>
+  </div>
+  <div class="header-title">Stories of the Regions</div>
+  <div class="header-badge">
+    <span class="header-badge-icon">🌍</span>
+    <span class="header-badge-text">Lesson 3.07.07</span>
+  </div>
+</div>
+
+<!-- ═══ SVG HERO BANNER — LISTENING & READING STATION ═══ -->
+<svg viewBox="0 0 920 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+  <defs>
+    <linearGradient id="lsSky" x1="0" y1="0" x2="0" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A8C5E4"/>
+      <stop offset="55%" stop-color="#D8E0E8"/>
+      <stop offset="100%" stop-color="#E8DCB4"/>
+    </linearGradient>
+    <linearGradient id="lsStation" x1="0" y1="100" x2="0" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A86B3A"/>
+      <stop offset="100%" stop-color="#7A4A20"/>
+    </linearGradient>
+  </defs>
+  <rect width="920" height="260" fill="url(#lsSky)"/>
+  <rect x="0" y="200" width="920" height="60" fill="#8B7355"/>
+  <rect x="0" y="195" width="920" height="8" fill="#6B5B45"/>
+  <!-- Banner sign -->
+  <rect x="260" y="18" width="400" height="28" rx="6" fill="#1A8A7D" opacity="0.92"/>
+  <text x="460" y="38" fill="#FFF" font-family="'Nunito', sans-serif" font-size="14" font-weight="800" text-anchor="middle" letter-spacing="1">🎶 LISTENING &amp; READING STATION</text>
+
+  <!-- Five tiny alcove thumbnails along the top showing the existing gallery -->
+  <g transform="translate(70, 60)">
+    <g><rect x="0" y="0" width="32" height="40" rx="3" fill="#FFFFFF" stroke="#1A8A7D" stroke-width="1.5"/><text x="16" y="20" font-size="14" text-anchor="middle">🍁</text><text x="16" y="35" font-size="6" font-weight="800" fill="#1A8A7D" text-anchor="middle">NE</text></g>
+    <g transform="translate(40, 0)"><rect x="0" y="0" width="32" height="40" rx="3" fill="#FFFFFF" stroke="#D4943A" stroke-width="1.5"/><text x="16" y="20" font-size="14" text-anchor="middle">🌴</text><text x="16" y="35" font-size="6" font-weight="800" fill="#D4943A" text-anchor="middle">SE</text></g>
+    <g transform="translate(80, 0)"><rect x="0" y="0" width="32" height="40" rx="3" fill="#FFFFFF" stroke="#55C8E8" stroke-width="1.5"/><text x="16" y="20" font-size="14" text-anchor="middle">🌾</text><text x="16" y="35" font-size="6" font-weight="800" fill="#3AA8C8" text-anchor="middle">MW</text></g>
+    <g transform="translate(120, 0)"><rect x="0" y="0" width="32" height="40" rx="3" fill="#FFFFFF" stroke="#C0392B" stroke-width="1.5"/><text x="16" y="20" font-size="14" text-anchor="middle">🌵</text><text x="16" y="35" font-size="6" font-weight="800" fill="#C0392B" text-anchor="middle">SW</text></g>
+    <g transform="translate(160, 0)"><rect x="0" y="0" width="32" height="40" rx="3" fill="#FFFFFF" stroke="#8B6FC0" stroke-width="1.5"/><text x="16" y="20" font-size="14" text-anchor="middle">🏔️</text><text x="16" y="35" font-size="6" font-weight="800" fill="#8B6FC0" text-anchor="middle">W</text></g>
+    <!-- Connector line below thumbnails to listening station -->
+    <line x1="96" y1="48" x2="96" y2="58" stroke="#5D4E37" stroke-width="2" stroke-dasharray="3,2"/>
+  </g>
+
+  <!-- Listening station (big wooden cart) -->
+  <g transform="translate(300, 105)">
+    <!-- Station body -->
+    <rect x="0" y="0" width="320" height="90" rx="6" fill="url(#lsStation)" stroke="#5D3A1A" stroke-width="2"/>
+    <rect x="0" y="0" width="320" height="14" rx="3" fill="#5D3A1A"/>
+    <!-- Top label -->
+    <text x="160" y="10" fill="#F5E6C8" font-family="'Nunito', sans-serif" font-size="9" font-weight="800" text-anchor="middle" letter-spacing="1.5">LISTEN · READ · LEARN</text>
+
+    <!-- Tape player on left -->
+    <g transform="translate(15, 22)">
+      <rect x="0" y="0" width="80" height="55" rx="4" fill="#2C2A2E" stroke="#1A1A1E" stroke-width="1.5"/>
+      <!-- Tape window -->
+      <rect x="8" y="6" width="64" height="20" rx="2" fill="#1A1A1E" stroke="#5D5D5D" stroke-width="0.5"/>
+      <!-- Tape reels -->
+      <circle cx="22" cy="16" r="6" fill="#7D7A7E" stroke="#3D3A3E"/>
+      <circle cx="22" cy="16" r="2" fill="#1A1A1E"/>
+      <circle cx="58" cy="16" r="6" fill="#7D7A7E" stroke="#3D3A3E"/>
+      <circle cx="58" cy="16" r="2" fill="#1A1A1E"/>
+      <line x1="28" y1="16" x2="52" y2="16" stroke="#3D3A3E" stroke-width="1"/>
+      <!-- Buttons -->
+      <rect x="8" y="32" width="10" height="14" rx="1" fill="#5D5A5E"/>
+      <rect x="22" y="32" width="10" height="14" rx="1" fill="#5D5A5E"/>
+      <rect x="36" y="32" width="10" height="14" rx="1" fill="#5D5A5E"/>
+      <rect x="50" y="32" width="10" height="14" rx="1" fill="#5D5A5E"/>
+      <polygon points="13,38 13,42 16,40" fill="#FFFFFF"/>
+      <rect x="40" y="37" width="2" height="5" fill="#FFFFFF"/>
+      <rect x="44" y="37" width="2" height="5" fill="#FFFFFF"/>
+      <circle cx="55" cy="40" r="2" fill="#C03030"/>
+    </g>
+
+    <!-- Headphones hanging -->
+    <g transform="translate(105, 22)">
+      <path d="M0 18 Q0 0 18 0 Q36 0 36 18" stroke="#3A3838" stroke-width="2.5" fill="none"/>
+      <ellipse cx="-1" cy="20" rx="6" ry="8" fill="#5D5A5E" stroke="#3A3838" stroke-width="1"/>
+      <ellipse cx="37" cy="20" rx="6" ry="8" fill="#5D5A5E" stroke="#3A3838" stroke-width="1"/>
+      <ellipse cx="-1" cy="20" rx="3" ry="4" fill="#1A1A1E"/>
+      <ellipse cx="37" cy="20" rx="3" ry="4" fill="#1A1A1E"/>
+    </g>
+
+    <!-- Book of poems -->
+    <g transform="translate(160, 22)">
+      <rect x="0" y="0" width="42" height="52" rx="2" fill="#5B4A8B" stroke="#3D2E6B"/>
+      <rect x="2" y="2" width="38" height="48" rx="1" fill="#F5E6C8"/>
+      <line x1="21" y1="2" x2="21" y2="50" stroke="#A89070" stroke-width="0.6"/>
+      <!-- Lines of "text" -->
+      <g stroke="#5B5563" stroke-width="0.6">
+        <line x1="4" y1="10" x2="18" y2="10"/>
+        <line x1="4" y1="14" x2="20" y2="14"/>
+        <line x1="4" y1="18" x2="16" y2="18"/>
+        <line x1="4" y1="22" x2="19" y2="22"/>
+        <line x1="23" y1="10" x2="37" y2="10"/>
+        <line x1="23" y1="14" x2="38" y2="14"/>
+        <line x1="23" y1="18" x2="36" y2="18"/>
+        <line x1="23" y1="22" x2="38" y2="22"/>
+      </g>
+      <text x="21" y="44" fill="#3D2E6B" font-size="5" font-weight="800" text-anchor="middle">POEMS</text>
+    </g>
+
+    <!-- Folded songbook with note -->
+    <g transform="translate(212, 24)">
+      <rect x="0" y="0" width="42" height="48" rx="2" fill="#A8C8D8" stroke="#5B7B92"/>
+      <text x="21" y="14" fill="#3D5A7A" font-size="6" font-weight="800" text-anchor="middle">SONGS</text>
+      <!-- Music notes -->
+      <text x="10" y="28" font-size="14">♪</text>
+      <text x="25" y="32" font-size="14">♫</text>
+      <text x="14" y="42" font-size="11">♩</text>
+    </g>
+
+    <!-- Newspaper -->
+    <g transform="translate(262, 22)">
+      <rect x="0" y="0" width="46" height="52" rx="1" fill="#F5F0E0" stroke="#A89070"/>
+      <rect x="3" y="3" width="40" height="6" fill="#1A1A2E"/>
+      <text x="23" y="8" fill="#F5F0E0" font-size="5" font-weight="800" text-anchor="middle">DAILY NEWS</text>
+      <g stroke="#5B5563" stroke-width="0.5">
+        <line x1="3" y1="14" x2="40" y2="14"/>
+        <line x1="3" y1="17" x2="38" y2="17"/>
+        <line x1="3" y1="20" x2="40" y2="20"/>
+        <line x1="3" y1="23" x2="36" y2="23"/>
+        <rect x="3" y="27" width="14" height="10" fill="#C9B896"/>
+        <line x1="20" y1="29" x2="40" y2="29"/>
+        <line x1="20" y1="32" x2="40" y2="32"/>
+        <line x1="20" y1="35" x2="38" y2="35"/>
+        <line x1="3" y1="40" x2="40" y2="40"/>
+        <line x1="3" y1="43" x2="38" y2="43"/>
+        <line x1="3" y1="46" x2="40" y2="46"/>
+      </g>
+    </g>
+
+    <!-- Wheels -->
+    <circle cx="40" cy="90" r="8" fill="#3A3838" stroke="#1A1A1E" stroke-width="1.5"/>
+    <circle cx="40" cy="90" r="3" fill="#A89070"/>
+    <circle cx="280" cy="90" r="8" fill="#3A3838" stroke="#1A1A1E" stroke-width="1.5"/>
+    <circle cx="280" cy="90" r="3" fill="#A89070"/>
+  </g>
+
+  <!-- Music notes floating above the station -->
+  <g fill="#1A8A7D" opacity="0.7">
+    <text x="660" y="80" font-size="22">♪</text>
+    <text x="690" y="100" font-size="18">♫</text>
+    <text x="720" y="75" font-size="16">♩</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0;5,-5;0,0" dur="4s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Visitor curator listening (just an avatar circle by station) -->
+  <g transform="translate(770, 165)">
+    <circle cx="0" cy="0" r="14" fill="#F4D4B0" stroke="#A87060"/>
+    <circle cx="-4" cy="-2" r="1" fill="#1A1A2E"/>
+    <circle cx="4" cy="-2" r="1" fill="#1A1A2E"/>
+    <path d="M-4 5 Q0 8 4 5" stroke="#A03830" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <!-- Tiny headphones on visitor -->
+    <path d="M-12 -8 Q-12 -16 0 -16 Q12 -16 12 -8" stroke="#3A3838" stroke-width="1.5" fill="none"/>
+    <ellipse cx="-12" cy="-6" rx="2" ry="3" fill="#5D5A5E"/>
+    <ellipse cx="12" cy="-6" rx="2" ry="3" fill="#5D5A5E"/>
+  </g>
+</svg>
+
+<!-- ═══ INFO STRIP ═══ -->
+<div class="info-strip">
+  <div class="info-cell">
+    <div class="info-icon" style="background:#EAF8FD;">🏛️</div>
+    <div>
+      <div class="info-label">Unit</div>
+      <div class="info-value">U.S. Regions Gallery</div>
+    </div>
+  </div>
+  <div class="info-cell">
+    <div class="info-icon" style="background:#FFF3DC;">📅</div>
+    <div>
+      <div class="info-label">Week</div>
+      <div class="info-value">Week 22 · Q3</div>
+    </div>
+  </div>
+  <div class="info-cell">
+    <div class="info-icon" style="background:#E3F8ED;">📜</div>
+    <div>
+      <div class="info-label">Focus</div>
+      <div class="info-value">Geography, History & Evidence</div>
+    </div>
+  </div>
+  <div class="info-cell">
+    <div class="info-icon" style="background:#F0E8FF;">📋</div>
+    <div>
+      <div class="info-label">Standards</div>
+      <div class="info-value" style="font-size:12px;">SS.3.G.2.2–2.6 · SS.3.G.4.1, 4.4</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MUSEUM MEMO ═══ -->
+<div class="quote-strip">
+  <div class="quote-strip-text" style="font-style:normal;text-align:left;font-size:15px;line-height:1.65;">
+    All five alcoves are open. But the gallery isn't finished yet. A wooden cart has rolled into the middle of the room — a Listening &amp; Reading Station. On it: an old tape player, headphones, a book of poems, a folded songbook, and a stack of yellowed newspapers. "Visitors keep asking how people <em>feel</em> about these places," the museum director says. "Maps tell us where. Stories tell us why. Today we add the sound of the regions to your gallery."
+  </div>
+</div>
+
+<!-- ═══ INTRO SECTION ═══ -->
+<div class="intro-section" id="introSection">
+  <div class="intro-collapsed-bar" onclick="toggleIntro()">
+    <div class="intro-collapsed-icon">📍</div>
+    <div class="intro-collapsed-text">Today's Curator's Question & Objectives</div>
+    <div class="intro-collapsed-toggle">▼ Expand</div>
+  </div>
+
+  <div class="intro-2col">
+    <div class="intro-card theme-question">
+      <div class="intro-card-head">
+        <div class="intro-card-head-icon">✨</div>
+        <div>
+          <div class="intro-card-head-label">Curator's Question</div>
+          <div class="intro-card-head-title">Today's Big Question</div>
+        </div>
+      </div>
+      <div class="intro-card-body">
+        <p>How do songs, legends, poems, and news help us understand a place — in ways that a map cannot?</p>
+      </div>
+    </div>
+
+    <div class="intro-card theme-objectives">
+      <div class="intro-card-head">
+        <div class="intro-card-head-icon">🎯</div>
+        <div>
+          <div class="intro-card-head-label">Objectives</div>
+          <div class="intro-card-head-title">What You'll Learn</div>
+        </div>
+      </div>
+      <div class="intro-card-body">
+        <div class="obj-line"><span class="obj-icon">🎶</span> Listen to and read songs, legends, poems, and news from different regions.</div>
+        <div class="obj-line"><span class="obj-icon">🗺️</span> Match each story to the region it comes from.</div>
+        <div class="obj-line"><span class="obj-icon">📝</span> Explain what stories tell us about a place that a map cannot.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="need-strip">
+    <span class="need-strip-label">You'll need:</span>
+    <span class="need-chip">📓 Curator's Notebook</span>
+    <span class="need-chip">✏️ Pencil</span>
+    <span class="need-chip">🗺️ Lesson Page</span>
+  </div>
+</div>
+
+<!-- ═══ TAB BAR ═══ -->
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="switchTab('scene')" id="btn-scene">📍 Enter the Museum <span class="tab-check">✓</span></button>
+  <button class="tab-btn" onclick="switchTab('explore')" id="btn-explore">🔍 Explore <span class="tab-check">✓</span></button>
+  <button class="tab-btn" onclick="switchTab('check')" id="btn-check">🧠 Self-Check <span class="tab-check">✓</span></button>
+  <button class="tab-btn" onclick="switchTab('assignment')" id="btn-assignment">📝 Evidence &amp; Assignment <span class="tab-check">✓</span></button>
+</div>
+
+<!-- ═══ TAB 1: ENTER THE MUSEUM ═══ -->
+<div class="tab-panel active" id="panel-scene">
+
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #D4943A, #E0A050);">📍</div>
+    <div>
+      <div class="tab-section-title">Enter the Museum</div>
+    </div>
+  </div>
+
+  <div class="todays-path">
+    <div class="todays-path-title">🗺️ Today's Path</div>
+    <div class="todays-path-steps">
+      <span class="todays-path-step">📍 Visit the Listening & Reading Station & spotlight courtesy</span>
+      <span class="todays-path-arrow">→</span>
+      <span class="todays-path-step">🔍 Match four stories (song, legend, poem, news) to their regions</span>
+      <span class="todays-path-arrow">→</span>
+      <span class="todays-path-step">🧠 Check your understanding</span>
+      <span class="todays-path-arrow">→</span>
+      <span class="todays-path-step">📝 Explain what stories teach us about places</span>
+    </div>
+  </div>
+
+  <!-- Welcome Video -->
+  <div class="video-wrap" style="margin-top:18px;">
+    <div class="video-wrap-header">
+      <span style="font-size:20px;">🎬</span>
+      <div>
+        <div class="video-wrap-type">📍 WELCOME · ENTER THE MUSEUM</div>
+        <div class="video-wrap-title">Welcome to the Listening Station</div>
+      </div>
+    </div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text">
+          <strong>Teacher recording notes:</strong> Greet students warmly. Say: "Welcome back, Region Curators! The whole gallery is open — all five regions. But today we add something new: a Listening & Reading Station." Read the Curator's Question: "How do songs, legends, poems, and news help us understand a place — in ways that a map cannot?" Show the four kinds of stories: a folk song from the West, a tall-tale legend from the Midwest, a poem about a Northeast city, and a news headline from the Southeast. Mention courtesy: stories belong to real people, so we listen carefully. Under 2 minutes.
+        </div>
+        <div class="video-placeholder-id"><!-- slot: 3-07-07-welcome --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Virtue Spotlight -->
+  <div class="virtue-card">
+    <div class="virtue-label">🏛️ Virtue Spotlight — Courtesy</div>
+    <div class="virtue-text">Stories belong to the people who tell them. A folk song from the West was sung by real people around real campfires. A Cherokee legend has been told by Cherokee families for generations. Courtesy at the Listening Station means we slow down, listen first, and treat each story as a gift from the people who made it.</div>
+  </div>
+
+  <!-- Curator Role -->
+  <div class="callout callout-info">
+    <div class="callout-icon">🕯️</div>
+    <p><strong>Your Role Today:</strong> You are a <strong>U.S. Region Curator</strong> with a new station to set up. The maps and alcoves tell visitors <em>where</em> regions are. The Listening Station will tell them <em>how each region sounds and reads</em>. Your job is to match each story to its home region and explain what stories teach us about a place.</p>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-dot">···</span></div>
+
+  <div class="tab-next-wrap">
+    <p class="tab-transition-voice">The Listening Station is wheeled in and the headphones are waiting. Let's see what each region sounds like.</p>
+    <button class="tab-next-btn" onclick="switchTab('explore')">Continue to 🔍 Explore →</button>
+  </div>
+</div>
+
+<!-- ═══ TAB 2: EXPLORE ═══ -->
+<div class="tab-panel" id="panel-explore">
+
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #1A8A7D, #34B0A0);">🔍</div>
+    <div>
+      <div class="tab-section-title">Explore</div>
+    </div>
+  </div>
+
+  <!-- Explore Video -->
+  <div class="video-wrap">
+    <div class="video-wrap-header">
+      <span style="font-size:20px;">🎬</span>
+      <div>
+        <div class="video-wrap-type">🔍 TEACHING · EXPLORE</div>
+        <div class="video-wrap-title">How Stories Tell Us About Places</div>
+      </div>
+    </div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text">
+          <strong>Teacher recording notes:</strong> Explain that there are four kinds of stories at the station today: (1) <strong>Songs</strong> — folk songs people sang while working, traveling, or remembering home. (2) <strong>Legends</strong> — old stories told and retold, sometimes about real people, sometimes about made-up heroes. (3) <strong>Poems</strong> — short writing that captures how a place feels. (4) <strong>News</strong> — real reports about what happened in a place. Model an example: "A folk song called 'Home on the Range' talks about the wide open plains, the deer and antelope, and the big sky. Just from that song, you can already feel the Midwest and West." Remind students about courtesy. 3–5 minutes.
+        </div>
+        <div class="video-placeholder-id"><!-- slot: 3-07-07-explore-explainer --></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-badge"><div class="step-badge-num">1</div> Four Kinds of Stories</div>
+
+  <div class="activity bl-accent">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#1A8A7D;">📖</div>
+      <div>
+        <div class="activity-title">Four Kinds of Stories from the Regions</div>
+        <div class="activity-sub">Read each card carefully before you match them</div>
+      </div>
+    </div>
+    <div class="activity-body">
+      <p>The Listening Station holds four stories today — one song, one legend, one poem, and one news clipping. Each one comes from a different region. As you read each card, ask yourself: <em>What does this story tell me about the place it comes from?</em></p>
+
+      <!-- Story Card 1: SONG (with playable audio) -->
+      <div style="background:#FFF8EE;border-left:4px solid #D4943A;border-radius:8px;padding:14px 18px;margin:14px 0;">
+        <div style="font-size:13px;font-weight:800;color:#A06820;letter-spacing:1px;margin-bottom:6px;">🎵 STORY 1 · A FOLK SONG</div>
+        <div style="font-style:italic;color:#0E1C42;line-height:1.65;padding:8px 12px;background:#FFFFFF;border-radius:6px;border:1px dashed #C9A96E;">
+          A famous old American folk song called <strong>"Home on the Range"</strong> describes a place where buffalo roam, deer and antelope play, and the sky is wide and clear. People sang it on long cattle drives and around campfires. It became Kansas's official state song in 1947.
+        </div>
+        <p style="font-size:13px;color:#5B6680;margin-top:8px;"><strong>What's this song about?</strong> Wide open land, animals, big skies, and ranching life.</p>
+
+        <!-- 🎧 PLAYABLE AUDIO — drop the file at the path below in this lesson's folder -->
+        <div class="song-audio-wrap" style="color:#A06820;">
+          <span class="song-icon" aria-hidden="true">🎧</span>
+          <div style="flex:1;min-width:0;">
+            <div style="font-weight:700;font-size:14px;color:#0E1C42;margin-bottom:4px;">Press play to hear "Home on the Range"</div>
+            <audio controls preload="none" style="width:100%;">
+              <source src="audio-3-07-07-home-on-the-range.mp3" type="audio/mpeg">
+              <source src="audio-3-07-07-home-on-the-range.ogg" type="audio/ogg">
+              Your browser doesn't support audio. Ask your teacher to play the file.
+            </audio>
+            <div class="song-note">Public-domain recording. Drop <code>audio-3-07-07-home-on-the-range.mp3</code> in the lesson folder.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story Card 2: LEGEND (expandable) -->
+      <div style="background:#EAF8FD;border-left:4px solid #55C8E8;border-radius:8px;padding:14px 18px;margin:14px 0;">
+        <div style="font-size:13px;font-weight:800;color:#3A88A8;letter-spacing:1px;margin-bottom:6px;">🪵 STORY 2 · A TALL TALE LEGEND</div>
+        <div style="font-style:italic;color:#0E1C42;line-height:1.65;padding:8px 12px;background:#FFFFFF;border-radius:6px;border:1px dashed #5BA0C0;">
+          The legend of <strong>Paul Bunyan</strong> tells of a giant lumberjack so big he could chop down a hundred trees with one swing of his axe. Stories say his footprints made the Great Lakes. People in lumber camps in the upper Midwest and Northwest told these tall tales while they worked in the huge pine forests.
+        </div>
+        <p style="font-size:13px;color:#5B6680;margin-top:8px;"><strong>What's this legend about?</strong> Huge forests, hard work, and the kind of imagination that grew up in lumber country.</p>
+
+        <button class="story-expand-btn" style="color:#3A88A8;" onclick="toggleStoryExpand(this, 'story-legend-expand')" type="button">
+          <span aria-hidden="true">📖</span>
+          <span class="expand-label" data-closed="Read a short Paul Bunyan tale" data-open="Hide the tale">Read a short Paul Bunyan tale</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="story-expand-content" id="story-legend-expand">
+          <p style="font-weight:700;font-size:15px;color:#3A88A8;margin-bottom:8px;">🪵 How Paul Bunyan Made the Mississippi</p>
+          <p>One winter, the snow in Minnesota fell so deep that Paul Bunyan's beard froze solid. His ox, Babe (who was blue from the cold), couldn't even find the path home. Paul scratched his chilly head and said, "Babe, we need water — and we need it to <em>keep moving</em>, all the way to the sea."</p>
+          <p>So Paul grabbed his giant water pail, walked from Minnesota all the way down to Louisiana, and dragged that pail behind him the whole way. The pail had a tiny hole in the bottom, and a thin trickle leaked out as he walked. Babe stomped along beside him, plodding south.</p>
+          <p>By the time Paul reached the Gulf of Mexico, the trickle had grown into a river — a mighty river that kept flowing long after Paul went home. People called it the <strong>Mississippi</strong>. And every spring, when the snow melts up north and the river runs high, old lumberjacks wink and say, "That must be Paul, walking home again."</p>
+          <p style="font-size:12px;color:#5B6680;font-style:italic;margin-top:10px;">Traditional tall tale, retold for the Listening Station. Stories like this one were swapped around campfires and bunkhouses in the lumber camps of the upper Midwest and Northwest.</p>
+        </div>
+      </div>
+
+      <!-- Story Card 3: POEM (expandable Sandburg excerpt, public domain) -->
+      <div style="background:#F2EDFB;border-left:4px solid #8B6FC0;border-radius:8px;padding:14px 18px;margin:14px 0;">
+        <div style="font-size:13px;font-weight:800;color:#6A4FA0;letter-spacing:1px;margin-bottom:6px;">📜 STORY 3 · A POEM</div>
+        <div style="font-style:italic;color:#0E1C42;line-height:1.65;padding:8px 12px;background:#FFFFFF;border-radius:6px;border:1px dashed #A088C0;">
+          A poet named <strong>Carl Sandburg</strong> wrote a famous poem in 1914 simply called <strong>"Chicago."</strong> In it, he describes the city as a busy worker town, full of railroads, stockyards, and tough, hardworking people. The poem makes Chicago sound proud, noisy, and alive.
+        </div>
+        <p style="font-size:13px;color:#5B6680;margin-top:8px;"><strong>What's this poem about?</strong> A big Midwest city, busy with trains, workers, and industry.</p>
+
+        <button class="story-expand-btn" style="color:#6A4FA0;" onclick="toggleStoryExpand(this, 'story-poem-expand')" type="button">
+          <span aria-hidden="true">📖</span>
+          <span class="expand-label" data-closed="Read part of the poem" data-open="Hide the poem">Read part of the poem</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="story-expand-content" id="story-poem-expand">
+          <p style="font-weight:700;font-size:15px;color:#6A4FA0;margin-bottom:4px;">📜 From "Chicago" by Carl Sandburg (1914)</p>
+          <p style="font-size:12px;color:#5B6680;font-style:italic;margin-bottom:10px;">The opening lines that made the poem famous:</p>
+          <div class="poem-excerpt">
+            Hog Butcher for the World,<br>
+            Tool Maker, Stacker of Wheat,<br>
+            Player with Railroads and the Nation's Freight Handler;<br>
+            Stormy, husky, brawling,<br>
+            City of the Big Shoulders…
+            <span class="poem-attr">— Carl Sandburg, "Chicago" (1914) · Public domain</span>
+          </div>
+          <p style="margin-top:12px;"><strong>What's Sandburg saying?</strong> Chicago was where pigs were butchered for the country, where tools were made, where wheat was stacked high, and where railroads moved goods everywhere. He called it the "City of the Big Shoulders" because it carried so much of America's hardest work on its back.</p>
+          <p style="font-size:12px;color:#5B6680;font-style:italic;margin-top:8px;">"Husky" and "brawling" are old-fashioned ways of saying strong and a little rough. Sandburg meant it as a compliment.</p>
+        </div>
+      </div>
+
+      <!-- Story Card 4: NEWS (expandable pretend newspaper) -->
+      <div style="background:#E8F8F0;border-left:4px solid #1A8A7D;border-radius:8px;padding:14px 18px;margin:14px 0;">
+        <div style="font-size:13px;font-weight:800;color:#0E6058;letter-spacing:1px;margin-bottom:6px;">📰 STORY 4 · A NEWS HEADLINE</div>
+        <div style="font-style:italic;color:#0E1C42;line-height:1.65;padding:8px 12px;background:#FFFFFF;border-radius:6px;border:1px dashed #5BA098;">
+          A 1965 newspaper headline read: <strong>"Hurricane Betsy Pounds Louisiana Coast — Floodwaters Rise in New Orleans."</strong> The article told how thousands of families left their homes and how the city pulled together to help neighbors. News stories like this one show how Gulf Coast communities live with powerful storms.
+        </div>
+        <p style="font-size:13px;color:#5B6680;margin-top:8px;"><strong>What's this news about?</strong> Hurricane country — and how Southeast communities respond when big storms hit.</p>
+
+        <button class="story-expand-btn" style="color:#0E6058;" onclick="toggleStoryExpand(this, 'story-news-expand')" type="button">
+          <span aria-hidden="true">📰</span>
+          <span class="expand-label" data-closed="Read the newspaper article" data-open="Close the newspaper">Read the newspaper article</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="story-expand-content" id="story-news-expand" style="padding:0;background:transparent;border:none;">
+          <div class="pretend-newspaper">
+            <div class="newspaper-masthead">
+              <div class="nm-title">The Gulf Coast Times</div>
+              <div class="nm-sub">★ Serving Louisiana and the Coast Since 1879 ★</div>
+            </div>
+            <div class="newspaper-dateline">
+              <span>Vol. 86 · No. 254</span>
+              <span>New Orleans, La. · Friday, September 10, 1965</span>
+              <span>Price: 10¢</span>
+            </div>
+            <div class="newspaper-headline">HURRICANE BETSY POUNDS LOUISIANA COAST</div>
+            <div class="newspaper-deck">Floodwaters Rise in New Orleans · Thousands Take Shelter as Neighbors Help Neighbors</div>
+            <div class="newspaper-byline">By Special Correspondent</div>
+            <div class="newspaper-body">
+              <p>Hurricane Betsy roared ashore late Wednesday night with winds clocked at over 125 miles per hour, leaving large parts of southeast Louisiana underwater and many homes in the Lower Ninth Ward damaged or destroyed. Families who had been told to evacuate took shelter at schools and churches across the city.</p>
+              <p>By Thursday morning, fishermen along the bayou had launched their boats — not to fish, but to help search for neighbors stranded on rooftops. The Coast Guard joined the effort by the afternoon. "When the water came up, we just started knocking on doors," said one volunteer who paddled into a flooded neighborhood with his cousin.</p>
+              <p>Local officials reported that thousands of residents were without power and would likely remain so for days. Donations of canned food, dry clothing, and clean water were already pouring in from across the South. Schools throughout the region planned to remain closed through the weekend.</p>
+              <p style="font-style:italic;font-size:13px;color:#4A3A2A;border-top:1px solid #8B7355;padding-top:8px;margin-top:8px;">For neighbors helping neighbors and information on shelters, see Page 3.</p>
+            </div>
+          </div>
+          <p style="font-size:12px;color:#5B6680;font-style:italic;margin-top:10px;padding:0 12px;">Note: This is a pretend newspaper page, written for the Listening Station. Hurricane Betsy was a real storm that hit Louisiana on September 9, 1965 — and the community response described here reflects what really happened.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-think">
+    <div class="callout-icon">🤔</div>
+    <p><strong>Pause & Think:</strong> Which of the four stories painted the clearest picture in your mind? Why do you think THAT one stuck with you?</p>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-dot">···</span></div>
+
+  <div class="step-badge"><div class="step-badge-num">2</div> Map Quest: Match Stories to Regions</div>
+
+  <!-- Flip Cards: Portfolio Review -->
+  <div class="activity bl-accent">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#D4943A;">🔄</div>
+      <div>
+        <div class="activity-title">Story-to-Region Match</div>
+        <div class="activity-sub">Tap a story, then tap the region it comes from</div>
+      </div>
+    </div>
+    <div class="activity-body">
+      <p>You read four stories. Now match each one to the region it best fits. Tap a story clue, then tap the region. Get all four right!</p>
+
+      <div class="root-match-game">
+        <div class="root-match-grid">
+          <div class="root-match-item is-word" data-match="a" onclick="rootMatchClick(this)">🎵 "Home on the Range" — wide plains, buffalo, and big skies</div>
+          <div class="root-match-item" data-match="c" onclick="rootMatchClick(this)">🍁 Northeast / Midwest cities</div>
+          <div class="root-match-item is-word" data-match="b" onclick="rootMatchClick(this)">🪵 Paul Bunyan — giant lumberjack of the great pine forests</div>
+          <div class="root-match-item" data-match="a" onclick="rootMatchClick(this)">🌾 Midwest / West Plains</div>
+          <div class="root-match-item is-word" data-match="c" onclick="rootMatchClick(this)">📜 Carl Sandburg's "Chicago" — railroads, stockyards, hardworking city</div>
+          <div class="root-match-item" data-match="d" onclick="rootMatchClick(this)">🌴 Southeast / Gulf Coast</div>
+          <div class="root-match-item is-word" data-match="d" onclick="rootMatchClick(this)">📰 "Hurricane Betsy Pounds Louisiana" — flooding and neighbors helping</div>
+          <div class="root-match-item" data-match="b" onclick="rootMatchClick(this)">🏔️ Upper Midwest / Northwest forests</div>
+        </div>
+        <div class="root-match-feedback" id="rootMatchFeedback">🎉 You matched all four! Now the gallery has voices, not just maps.</div>
+        <div class="discovery-fact" id="rootDiscoveryFact">
+          <div class="discovery-fact-label">🔎 Discovery Fact</div>
+          The folk song "Home on the Range" was probably written in the 1870s by a Kansas doctor named Brewster Higley. It traveled west by word of mouth — cowboys would sing it on long cattle drives, changing words as they went.
+        </div>
+      </div>
+
+      <!-- Category 1 Bonus Source: a short Native legend (paraphrased, public domain tradition) -->
+      <div class="callout callout-info" style="margin-top:18px;background:#FFF0EC;border-left:4px solid #C0392B;">
+        <div class="callout-icon">📜</div>
+        <p><strong>Bonus Source — A Story From the Southwest:</strong></p>
+        <div style="background:#F2E8D2;border-left:3px solid #C0392B;border-radius:6px;padding:12px 16px;margin:10px 0;color:#0E1C42;font-style:italic;">
+          A traditional <strong>Hopi</strong> story tells of <strong>Spider Grandmother</strong>, a wise teacher who helped the first people find their way out of the dark and into the bright world. The Hopi people have lived in adobe villages in what is now Arizona for over a thousand years, and stories like this one are still told.
+        </div>
+        <p style="font-size:14px;margin-top:8px;"><strong>What does this Hopi story tell you about the Southwest that a map could not?</strong></p>
+        <textarea class="journal-box" id="journal-hopi" data-label="Southwest Story Reflection"
+          placeholder="This story tells me that the Southwest..."
+          oninput="autoSave(this,'dot-hopi');gatherAnswers();"></textarea>
+      </div>
+
+      <!-- Listening Reflection box -->
+      <div class="callout callout-think" style="margin-top:18px;">
+        <div class="callout-icon">🎧</div>
+        <p><strong>Listening Station Reflection:</strong> Pick ONE of the four stories you just read. What did that story teach you about its region that a map of the region could not?</p>
+        <div class="textbox-prompt">Pick one story and explain what it tells you that a map cannot.</div>
+        <textarea class="journal-box" id="journal-story" data-label="Listening Station Reflection"
+          placeholder="I picked ______. This story tells me about the region in a way a map cannot because..."
+          oninput="autoSave(this,'dot-story');gatherAnswers();"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Then & Now -->
+  <div class="callout callout-tip">
+    <div class="callout-icon">⏳</div>
+    <p><strong>Then & Now:</strong> Long ago, songs and legends were the main way people told stories about their region. Families gathered around fires or on front porches and passed stories from grandparents to children. Today, we still tell stories — but we also use songs on the radio, news on phones, and poems in books and online. What stayed the same about why people share stories of their places?</p>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-dot">···</span></div>
+
+  <div class="step-badge"><div class="step-badge-num">3</div> The Big Picture</div>
+
+  <!-- Exhibit Label -->
+  <div class="key-concept">
+    <div class="key-concept-label">🏷️ Exhibit Label</div>
+    <p>Places are understood through more than maps. Songs, legends, poems, and news show us how people <em>feel</em> about where they live — what they love, what they fear, what they remember, what they celebrate. Together, maps and stories make a region come alive in the visitor's mind.</p>
+  </div>
+
+  <!-- Opti -->
+  <div class="owl-buddy">
+    <div class="owl-buddy-avatar">🦉</div>
+    <div class="owl-buddy-bubble">
+      <div class="owl-buddy-name">🧭 Opti says…</div>
+      You know what I love about the Listening Station? Every region has its own sound. The Midwest creaks with windmills and trains. The Southeast hums with jazz and Gulf wind. The West echoes off mountain walls. Once you start listening, you can't un-hear a place.
+    </div>
+  </div>
+
+  <div class="tab-next-wrap">
+    <p class="tab-transition-voice">The Listening Station is humming. Let's check what you remember before you write your reflection.</p>
+    <button class="tab-next-btn" onclick="switchTab('check')">Continue to 🧠 Self-Check →</button>
+  </div>
+</div>
+
+<!-- ═══ TAB 3: SELF-CHECK ═══ -->
+<div class="tab-panel" id="panel-check">
+
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #8B6FC0, #A88AD4);">🧠</div>
+    <div>
+      <div class="tab-section-title">Quick Self-Check</div>
+    </div>
+  </div>
+
+  <div class="callout callout-info" style="margin-bottom:18px;">
+    <div class="callout-icon">🧠</div>
+    <p>Not graded — just for you! Answer these three questions before writing your Map Quest response.</p>
+  </div>
+
+  <div class="quiz-card">
+    <div style="padding:18px 22px;">
+
+      <!-- Q1 -->
+      <div class="quiz-q" data-answer="c">
+        <div class="quiz-q-text">1. What can a song or a poem tell us about a place that a map cannot?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-val="a" onclick="checkQuiz(this)"><span class="opt-letter">A</span>The exact distance between two cities</div>
+          <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>The names of every state</div>
+          <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>How people feel about the place — what they love, miss, or remember</div>
+        </div>
+        <div class="quiz-feedback fb-correct">Right! Maps show <em>where</em>. Stories show how people <em>feel</em> about a place.</div>
+        <div class="quiz-feedback fb-wrong">Distances and state names are what maps are good at. Think about what makes a song or poem powerful — it's about feelings.</div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-q" data-answer="b">
+        <div class="quiz-q-text">2. The Paul Bunyan tall tale about a giant lumberjack most likely comes from which kind of region?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-val="a" onclick="checkQuiz(this)"><span class="opt-letter">A</span>A hot desert region</div>
+          <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>A region with huge forests and lumber camps</div>
+          <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>A region near the ocean only</div>
+        </div>
+        <div class="quiz-feedback fb-correct">Yes! Paul Bunyan stories grew up among people who worked in the great forests of the upper Midwest and Northwest.</div>
+        <div class="quiz-feedback fb-wrong">A giant lumberjack story belongs in a place with lots of big trees. Think about which kind of region has those forests.</div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-q" data-answer="a">
+        <div class="quiz-q-text">3. Why is courtesy important when we listen to stories from a region?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-val="a" onclick="checkQuiz(this)"><span class="opt-letter">A</span>Because the stories belong to real people who created and shared them</div>
+          <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>Because we should pick favorites and ignore the rest</div>
+          <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>Because old stories are not true</div>
+        </div>
+        <div class="quiz-feedback fb-correct">Exactly! Every story comes from real people. Courtesy means we listen first, treat the stories with care, and never say one region's stories are "better" than another's.</div>
+        <div class="quiz-feedback fb-wrong">A good curator never ignores stories or says one region is better. Think about whose stories these are.</div>
+      </div>
+
+      <div class="quiz-score-box" id="quizScore">
+        <div class="quiz-score-label">Your Score</div>
+        <div class="quiz-score-num" id="quizScoreNum">0</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.7);">out of 3</div>
+        <div class="quiz-score-msg" id="quizScoreMsg"></div>
+      </div>
+
+      <div class="quiz-video-wrap" id="quizVideoCorrect">
+        <div class="video-wrap">
+          <div class="video-wrap-header">
+            <span style="font-size:20px;">⭐</span>
+            <div>
+              <div class="video-wrap-type">Perfect Score · Great Work!</div>
+              <div class="video-wrap-title">You nailed it!</div>
+            </div>
+          </div>
+          <div class="video-ratio">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">⭐</div>
+              <div class="video-placeholder-text"><strong>Teacher recording notes:</strong> Celebrate: "Perfect! You know that maps and stories together tell the whole truth about a place. Now write your reflection!" Under 30 seconds.</div>
+              <div class="video-placeholder-id"><!-- slot: 3-07-07-quiz-perfect --></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-video-wrap" id="quizVideoReview">
+        <div class="video-wrap">
+          <div class="video-wrap-header">
+            <span style="font-size:20px;">🔄</span>
+            <div>
+              <div class="video-wrap-type">Review · Keep Going!</div>
+              <div class="video-wrap-title">Let's review those tricky parts.</div>
+            </div>
+          </div>
+          <div class="video-ratio">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">🔄</div>
+              <div class="video-placeholder-text"><strong>Teacher recording notes:</strong> Walk through answers. Remind: "Maps show where; stories show how people feel. Paul Bunyan belongs in lumber country. Stories come from real people, so we listen with courtesy." Under 1 minute.</div>
+              <div class="video-placeholder-id"><!-- slot: 3-07-07-quiz-review --></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="tab-next-wrap">
+    <p class="tab-transition-voice">Good check! Now it's time to write your reflection for the Listening &amp; Reading Station.</p>
+    <button class="tab-next-btn" onclick="switchTab('assignment')">Continue to 📝 Evidence &amp; Assignment →</button>
+  </div>
+</div>
+
+<!-- ═══ TAB 4: EVIDENCE & ASSIGNMENT ═══ -->
+<div class="tab-panel" id="panel-assignment">
+
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #55C8E8, #7FD8F0);">📝</div>
+    <div>
+      <div class="tab-section-title">Evidence &amp; Assignment</div>
+    </div>
+  </div>
+
+  <div class="callout callout-info" style="margin-bottom:18px;">
+    <div class="callout-icon">📝</div>
+    <p>Time to show what you learned at the Listening Station. Answer the evidence questions and write your reflection. Your work will go up next to the station for visitors to read.</p>
+  </div>
+
+  <!-- Assignment Video -->
+  <div class="video-wrap">
+    <div class="video-wrap-header">
+      <span style="font-size:20px;">🎬</span>
+      <div>
+        <div class="video-wrap-type">📝 ASSIGNMENT · EVIDENCE</div>
+        <div class="video-wrap-title">Your Listening Station Reflection</div>
+      </div>
+    </div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text">
+          <strong>Teacher recording notes:</strong> Read Q1 and model: "I chose 'Home on the Range' because it sounds peaceful and helps me picture the wide plains." Read Q2 and Q3. Then explain the Curator Task: "Write 3–4 sentences for the Listening Station sign. Tell visitors what kinds of stories are at the station, name one story you remember, and explain why stories matter for understanding a place." Walk through the turn-in steps. 2–3 minutes.
+        </div>
+        <div class="video-placeholder-id"><!-- slot: 3-07-07-assignment-explainer --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part A: Evidence Questions -->
+  <div class="activity bl-cyan">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#55C8E8;">A</div>
+      <div>
+        <div class="activity-title">Evidence Questions</div>
+        <div class="activity-sub">Answer using details from what you've learned this year.</div>
+      </div>
+    </div>
+    <div class="activity-body">
+
+      <div class="q-block"><div class="q-text"><span class="q-num">1</span>Of the four stories you read today — a song, a legend, a poem, and a news article — which one stuck in your mind most? Why?</div></div>
+      <div class="textbox-prompt">Name the story and explain what made it memorable for you.</div>
+      <textarea class="journal-box" id="journal-q1" data-label="Q1: My Favorite Story"
+        placeholder="The story that stuck with me was ______. It stayed with me because..."
+        oninput="autoSave(this,'dot-q1');gatherAnswers();"></textarea>
+
+      <div class="q-block" style="margin-top:14px;"><div class="q-text"><span class="q-num">2</span>What is one thing a story can tell us about a region that a map cannot?</div></div>
+      <div class="textbox-prompt">Think about feelings, work, traditions, or what people remember.</div>
+      <textarea class="journal-box" id="journal-q2" data-label="Q2: Stories vs. Maps"
+        placeholder="A story can tell us ______ about a region, but a map cannot show..."
+        oninput="autoSave(this,'dot-q2');gatherAnswers();"></textarea>
+
+      <div class="q-block" style="margin-top:14px;"><div class="q-text"><span class="q-num">3</span>Think about the region where YOU live. What's one story (song, poem, news event, legend, or family story) that helps explain your region?</div></div>
+      <div class="textbox-prompt">It can be a song you sing, a story your family tells, or something on the news in your area.</div>
+      <textarea class="journal-box" id="journal-q3" data-label="Q3: A Story From My Region"
+        placeholder="One story from my region is ______. It helps explain my region because..."
+        oninput="autoSave(this,'dot-q3');gatherAnswers();"></textarea>
+
+    </div>
+  </div>
+
+  <!-- Part B: Curator Task -->
+  <div class="activity bl-gold">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#D4943A;">B</div>
+      <div>
+        <div class="activity-title">Curator Task: Listening Station Sign</div>
+        <div class="activity-sub">Write the sign that introduces visitors to the new station.</div>
+      </div>
+    </div>
+    <div class="activity-body">
+      <p>Visitors will read this sign at the new Listening &amp; Reading Station. Write 3–4 sentences telling them what kinds of stories are at the station (songs, legends, poems, news), why these stories matter, and one story that stuck with you. Use kind, careful words — these stories belong to real people.</p>
+
+      <div class="textbox-prompt">Describe the Listening Station for visitors. Mention the four kinds of stories and why they matter.</div>
+      <textarea class="journal-box" id="journal-assign" data-label="Curator Task: Listening Station Sign"
+        placeholder="Welcome to the Listening &amp; Reading Station. Here, you can hear and read..."
+        oninput="autoSave(this,'dot-assign');gatherAnswers();"></textarea>
+    </div>
+  </div>
+
+  <!-- Curator's Chronicle -->
+  <div class="activity bl-navy">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#0E1C42;">📜</div>
+      <div>
+        <div class="activity-title">Curator's Chronicle</div>
+        <div class="activity-sub">One sentence to capture today's exhibit work.</div>
+      </div>
+    </div>
+    <div class="activity-body">
+      <p>Finish this sentence in your own words:</p>
+      <div class="textbox-prompt">In this exhibit, I learned that ______ because ______.</div>
+      <textarea class="journal-box" id="journal-chronicle" data-label="Curator's Chronicle"
+        placeholder="In this exhibit, I learned that..."
+        oninput="autoSave(this,'dot-chronicle');gatherAnswers();"></textarea>
+    </div>
+  </div>
+
+  <!-- Gathered Answers -->
+  <div class="gathered-card">
+    <div class="gathered-header">
+      <div class="gathered-header-icon">📋</div>
+      <div>
+        <div class="gathered-header-label">Review Your Work</div>
+        <div class="gathered-header-title">Gathered Answers</div>
+      </div>
+    </div>
+    <div class="gathered-body">
+      <div class="gathered-intro">All your answers are gathered here. Review them, then copy or download to submit.</div>
+      <textarea class="gathered-output" id="gatheredOutput" readonly></textarea>
+      <div class="gathered-actions">
+        <button class="gathered-btn gathered-btn-copy" onclick="copyGathered()">📋 Copy to Clipboard</button>
+        <button class="gathered-btn gathered-btn-pdf" onclick="downloadJournal()">📄 Download as PDF</button>
+      </div>
+      <div class="gathered-copied" id="gatheredCopied">✅ Copied!</div>
+    </div>
+  </div>
+
+  <!-- Certificate with cliffhanger -->
+  <div class="historian-seal" id="historianSeal">
+    <div class="seal-certificate">
+      <div class="seal-cert-message">
+        <strong>Nice work, U.S. Region Curator!</strong> The Listening Station hums softly as visitors slip on headphones. A child smiles at the Paul Bunyan card. An older visitor lingers over the Sandburg poem. "Stories make the gallery <em>complete</em>," the director says. But she points to one last empty wall behind the station — wide and bare. "Tomorrow, we honor the people."
+      </div>
+      <div class="seal-stamp-wrap">
+        <svg viewBox="0 0 90 90" width="80" height="80" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 6px rgba(140,30,30,0.25));">
+          <defs>
+            <radialGradient id="stampGrad" cx="50%" cy="45%" r="50%">
+              <stop offset="0%" stop-color="#D94040"/>
+              <stop offset="100%" stop-color="#A02020"/>
+            </radialGradient>
+            <clipPath id="owlStampClip"><circle cx="45" cy="38" r="16"/></clipPath>
+          </defs>
+          <circle cx="45" cy="45" r="42" fill="url(#stampGrad)" stroke="#7A1818" stroke-width="1.5"/>
+          <circle cx="45" cy="45" r="37" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+          <image href="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png"
+                 x="27" y="20" width="36" height="36"
+                 clip-path="url(#owlStampClip)" opacity="0.3" style="filter:brightness(3) grayscale(1);"/>
+          <text x="45" y="72" fill="rgba(255,255,255,0.85)" font-family="'Nunito', sans-serif" font-size="9" font-weight="800" letter-spacing="2" text-anchor="middle">CERTIFIED</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Turn-In Checklist -->
+  <div class="turn-in-card">
+    <div class="turn-in-header">
+      <div class="turn-in-header-icon">✅</div>
+      <div>
+        <div class="turn-in-header-label">Submit Your Work</div>
+        <div class="turn-in-header-title">Turn-In Checklist</div>
+      </div>
+    </div>
+    <div class="turn-in-body">
+      <div class="turn-in-intro">Check each item as you finish. When all are checked, you're done!</div>
+      <div class="turn-in-checklist">
+        <div class="turn-in-item" onclick="toggleCheck(this)">
+          <div class="turn-in-check"></div>
+          <div class="turn-in-item-text">✅ I answered all three evidence questions.</div>
+        </div>
+        <div class="turn-in-item" onclick="toggleCheck(this)">
+          <div class="turn-in-check"></div>
+          <div class="turn-in-item-text">✅ I completed the Curator Task: Listening Station Sign.</div>
+        </div>
+        <div class="turn-in-item" onclick="toggleCheck(this)">
+          <div class="turn-in-check"></div>
+          <div class="turn-in-item-text">✅ I wrote my Curator's Chronicle.</div>
+        </div>
+        <div class="turn-in-item" onclick="toggleCheck(this)">
+          <div class="turn-in-check"></div>
+          <div class="turn-in-item-text">✅ I copied or downloaded my work and submitted to Canvas.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coming Up Next (REQUIRED on every lesson) -->
+  <div class="callout callout-tip" style="margin-top:18px;border-left:4px solid #D4943A;background:#FFF8EE;">
+    <div class="callout-icon">🔮</div>
+    <p><strong>Coming Up Next…</strong> The museum director points to the wide blank wall behind the Listening Station. "This is the Contributions Wall," she says. "It needs portraits, names, and short stories of people from every region who helped shape the United States — scientists, leaders, artists, athletes, and everyday heroes." A young volunteer rolls in a cart loaded with empty frames and blank name plaques. "Tomorrow we fill it in."</p>
+  </div>
+
+  <!-- Closing Video with cliffhanger -->
+  <div class="video-wrap" style="margin-top:18px;">
+    <div class="video-wrap-header">
+      <span style="font-size:20px;">🎬</span>
+      <div>
+        <div class="video-wrap-type">🎉 CLOSING · WRAP-UP</div>
+        <div class="video-wrap-title">Listening Station Open — Next: The Contributions Wall</div>
+      </div>
+    </div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text">
+          <strong>Teacher recording notes:</strong> Celebrate: "The Listening Station is open! You matched four stories to four regions and explained what stories teach us that maps cannot." Then build the bridge: "But there's one more piece of the gallery left — a big blank wall behind the station. The Contributions Wall. Tomorrow you'll add the people who helped shape every region: scientists, leaders, artists, athletes. The cart with empty frames is rolling in now." End warmly: "One last lesson — then the gallery is truly finished." Under 1 minute.
+        </div>
+        <div class="video-placeholder-id"><!-- slot: 3-07-07-closing --></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end panel-assignment -->
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  <div class="footer-main">🏫 <span>Optima Academy Online</span></div>
+  <div class="footer-sub">Social Studies · Grade 3 · Lesson 3.07.07</div>
+  <div class="footer-copy">© 2025 Optima Academy Online</div>
+</div>
+
+</div><!-- end page-wrap -->
+
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()">⬆ Top</button>
+<canvas id="confettiCanvas"></canvas>
+
+<script>
+var visited = { scene: true };
+
+function switchTab(tab) {
+  visited[tab] = true;
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('panel-' + tab).classList.add('active');
+  document.getElementById('btn-' + tab).classList.add('active');
+  Object.keys(visited).forEach(function(v) { document.getElementById('btn-' + v).classList.add('visited'); });
+  var intro = document.getElementById('introSection');
+  if (tab !== 'scene') { intro.classList.add('collapsed'); } else { intro.classList.remove('collapsed'); }
+  updateProgress(); scrollToTop();
+  if (tab === 'assignment') gatherAnswers();
+}
+function toggleIntro() { document.getElementById('introSection').classList.toggle('collapsed'); }
+function updateProgress() {
+  var total = 4, done = Object.keys(visited).length;
+  var pct = Math.round((done / total) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+}
+function autoSave(textarea, dotId) { var dot = document.getElementById(dotId); if (dot) dot.classList.add('saved'); }
+
+// Toggle expand/collapse for story cards (song/legend/poem/news) on lesson 3.07.07
+function toggleStoryExpand(btn, contentId) {
+  var content = document.getElementById(contentId);
+  if (!content) return;
+  var isOpen = content.classList.toggle('is-open');
+  btn.classList.toggle('is-open', isOpen);
+  var labelEl = btn.querySelector('.expand-label');
+  if (labelEl) {
+    var openText = labelEl.getAttribute('data-open') || 'Hide';
+    var closedText = labelEl.getAttribute('data-closed') || 'Read more';
+    labelEl.textContent = isOpen ? openText : closedText;
+  }
+}
+function gatherAnswers() {
+  var ids = ['journal-q1', 'journal-q2', 'journal-q3', 'journal-hopi', 'journal-story', 'journal-assign', 'journal-chronicle'];
+  var output = '';
+  ids.forEach(function(id) {
+    var el = document.getElementById(id); if (!el) return;
+    var label = el.getAttribute('data-label') || id;
+    output += label.toUpperCase() + '\n' + (el.value.trim() || '(no answer)') + '\n\n';
+  });
+  var gathered = document.getElementById('gatheredOutput');
+  if (gathered) gathered.value = output.trim();
+}
+function copyGathered() {
+  gatherAnswers(); var output = document.getElementById('gatheredOutput'); if (!output) return;
+  if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(output.value).then(function() { showCopied(); }); }
+  else { output.select(); document.execCommand('copy'); showCopied(); }
+}
+function showCopied() {
+  var msg = document.getElementById('gatheredCopied');
+  msg.classList.add('show'); setTimeout(function() { msg.classList.remove('show'); }, 2500);
+}
+function downloadJournal() {
+  gatherAnswers();
+  var ids = ['journal-q1', 'journal-q2', 'journal-q3', 'journal-hopi', 'journal-story', 'journal-assign', 'journal-chronicle'];
+  var html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Lesson 3.07.07 — My Work</title>';
+  html += '<style>body{font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:0 20px;color:#1a1a2e;line-height:1.7;}';
+  html += 'h1{font-size:22px;border-bottom:3px solid #55C8E8;padding-bottom:8px;margin-bottom:6px;}';
+  html += 'h2{font-size:14px;color:#7A88A8;margin-bottom:24px;}';
+  html += '.q-label{font-size:13px;font-weight:bold;color:#3A4A6B;margin:16px 0 2px;}';
+  html += '.q-answer{font-size:14px;color:#0E1C42;margin:0 0 4px;padding:6px 12px;background:#f8f9fc;border-left:3px solid #D6F2FB;border-radius:4px;white-space:pre-wrap;}';
+  html += '.no-answer{color:#B0B8CC;font-style:italic;}</style></head><body>';
+  html += '<h1>📓 My Work — Lesson 3.07.07</h1><h2>Stories of the Regions</h2>';
+  html += '<div style="font-size:16px;font-weight:bold;color:#0E1C42;margin:28px 0 4px;padding:8px 0 4px;border-bottom:2px solid #E2E8F4;">📝 EVIDENCE & ASSIGNMENT</div>';
+  ids.forEach(function(id) {
+    var el = document.getElementById(id); if (!el) return;
+    var label = el.getAttribute('data-label') || id;
+    var val = el.value.trim();
+    html += '<div class="q-label">' + label + '</div>';
+    html += val ? '<div class="q-answer">' + val.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>' : '<div class="q-answer no-answer">(no answer)</div>';
+  });
+  html += '</body></html>';
+  var win = window.open('', '_blank'); win.document.write(html); win.document.close();
+  setTimeout(function() { win.print(); }, 400);
+}
+
+var quizAnswered = 0, quizCorrect = 0;
+function checkQuiz(optEl) {
+  var q = optEl.closest('.quiz-q'); if (q.classList.contains('answered')) return;
+  q.classList.add('answered'); quizAnswered++;
+  var correct = q.getAttribute('data-answer'), chosen = optEl.getAttribute('data-val');
+  q.querySelectorAll('.quiz-opt').forEach(function(o) {
+    if (o.getAttribute('data-val') === correct) o.classList.add('correct'); else o.classList.add('disabled');
+  });
+  if (chosen === correct) { quizCorrect++; optEl.classList.add('correct'); var fb = q.querySelector('.fb-correct'); if (fb) fb.classList.add('show'); }
+  else { optEl.classList.add('wrong'); var fb = q.querySelector('.fb-wrong'); if (fb) fb.classList.add('show'); }
+  if (quizAnswered === 3) {
+    var scoreBox = document.getElementById('quizScore');
+    document.getElementById('quizScoreNum').textContent = quizCorrect;
+    if (quizCorrect === 3) { document.getElementById('quizScoreMsg').textContent = '⭐ Perfect! You got every question right!'; document.getElementById('quizVideoCorrect').classList.add('show'); fireConfetti(); }
+    else if (quizCorrect === 2) { document.getElementById('quizScoreMsg').textContent = '🏛️ Great job! Almost there!'; document.getElementById('quizVideoReview').classList.add('show'); }
+    else { document.getElementById('quizScoreMsg').textContent = '📜 Good effort! Review and try again.'; document.getElementById('quizVideoReview').classList.add('show'); }
+    scoreBox.classList.add('show');
+  }
+}
+
+/* Flip Cards */
+document.querySelectorAll('.flip-card').forEach(function(card) { card.addEventListener('click', function() { card.classList.toggle('flipped'); }); });
+
+function toggleCheck(item) {
+  item.classList.toggle('checked');
+  item.querySelector('.turn-in-check').textContent = item.classList.contains('checked') ? '✓' : '';
+  if (document.querySelectorAll('.turn-in-item.checked').length === document.querySelectorAll('.turn-in-item').length) {
+    fireConfetti(); var seal = document.getElementById('historianSeal'); if (seal) seal.classList.add('show');
+  }
+}
+
+function fireConfetti() {
+  var canvas = document.getElementById('confettiCanvas'), ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  var particles = [], colors = ['#55C8E8','#D4943A','#1A8A7D','#34B76F','#8B6FC0','#FFD700','#E8636B'];
+  var emojis = ['🏛️','📜','🗺️','🌍','🧭','🦉','🔔','⚖️','🏺','📋'];
+  for (var i = 0; i < 120; i++) particles.push({ type:'rect', x:Math.random()*canvas.width, y:Math.random()*canvas.height-canvas.height, r:Math.random()*6+3, c:colors[Math.floor(Math.random()*colors.length)], vx:(Math.random()-0.5)*4, vy:Math.random()*3+2, rot:Math.random()*360, rv:(Math.random()-0.5)*8 });
+  for (var j = 0; j < 18; j++) particles.push({ type:'emoji', x:Math.random()*canvas.width, y:Math.random()*canvas.height-canvas.height, emoji:emojis[Math.floor(Math.random()*emojis.length)], size:Math.random()*14+26, vx:(Math.random()-0.5)*3, vy:Math.random()*2.5+1.5, rot:Math.random()*360, rv:(Math.random()-0.5)*5 });
+  var frames = 0;
+  function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(function(p) { ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
+      if (p.type==='emoji') { ctx.font=p.size+'px serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(p.emoji,0,0); }
+      else { ctx.fillStyle=p.c; ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r); }
+      ctx.restore(); p.x+=p.vx; p.y+=p.vy; p.rot+=p.rv; p.vy+=0.04; });
+    frames++; if (frames<300) { if(frames>220) canvas.style.opacity=1-((frames-220)/80); requestAnimationFrame(animate); }
+    else { ctx.clearRect(0,0,canvas.width,canvas.height); canvas.style.opacity=1; }
+  }
+  animate();
+}
+
+function scrollToTop() {
+  var target = document.getElementById('pageTop');
+  if (target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+  try { window.parent.postMessage({ type:'scrollToTop' }, '*'); } catch(e) {}
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+(function() {
+  var btn = document.getElementById('backToTop');
+  var onScroll = function() { if ((window.pageYOffset||document.documentElement.scrollTop)>400) btn.classList.add('show'); else btn.classList.remove('show'); };
+  window.addEventListener('scroll', onScroll);
+  try { if (window.parent !== window) window.parent.addEventListener('scroll', onScroll); } catch(e) {}
+})();
+updateProgress();
+</script>
+</body>
+</html>
