@@ -1601,7 +1601,7 @@ body {
   <!-- Guided Source Study -->
   <div class="source-card">
     <div class="source-card-header"><div class="source-card-header-icon">📜</div><div><div class="source-card-header-label">Source Study · Guided Practice</div><div class="source-card-header-title">Study This Source Together</div></div></div>
-    <div class="source-image-placeholder"><div class="source-image-placeholder-text">🖼️ A historical photograph from the early 1900s — such as a one-room schoolhouse, a town square, or a market scene. Should have enough detail for students to practice all five question types.<br><br><strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-3-01-06-guided-practice.jpg</code></div></div>
+    <div class="source-image-placeholder" data-image="source-3-01-06-guided-practice"><div class="source-image-placeholder-text">🖼️ A historical photograph from the early 1900s — such as a one-room schoolhouse, a town square, or a market scene. Should have enough detail for students to practice all five question types.<br><br><strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-3-01-06-guided-practice.png</code></div></div>
     <div class="source-card-body">
       <div class="source-label-bar"><span class="src-type">Primary Source</span> · Historical photograph, early 1900s</div>
       <div class="callout callout-info"><div class="callout-icon">👁️</div><p><strong>Observation:</strong> What details do you notice? Look at objects, clothing, buildings, signs, tools — anything the source shows.</p></div>
@@ -1690,7 +1690,7 @@ body {
 
       <div class="source-card" style="margin:14px 0;">
         <div class="source-card-header"><div class="source-card-header-icon">🔎</div><div><div class="source-card-header-label">New Source · Your Official Entry</div><div class="source-card-header-title">Prove Your Curator Skills</div></div></div>
-        <div class="source-image-placeholder"><div class="source-image-placeholder-text">🖼️ A different historical primary source — such as a handwritten letter, an old advertisement, a tool or artifact photograph, or a street scene from a different era/location than the Explore tab source.<br><br><strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-3-01-06-assignment-official-entry.jpg</code></div></div>
+        <div class="source-image-placeholder" data-image="source-3-01-06-assignment-official-entry"><div class="source-image-placeholder-text">🖼️ A different historical primary source — such as a handwritten letter, an old advertisement, a tool or artifact photograph, or a street scene from a different era/location than the Explore tab source.<br><br><strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-3-01-06-assignment-official-entry.png</code></div></div>
         <div class="source-card-body"><div class="source-label-bar"><span class="src-type">Primary Source</span> · Historical photograph or artifact</div></div>
       </div>
 
@@ -1739,6 +1739,7 @@ function fireConfetti(){var canvas=document.getElementById('confettiCanvas');var
 function scrollToTop(){var target=document.getElementById('pageTop');if(target){target.scrollIntoView({behavior:'smooth',block:'start'})}try{window.parent.postMessage({type:'scrollToTop'},'*')}catch(e){}window.scrollTo({top:0,behavior:'smooth'})}
 (function(){var btn=document.getElementById('backToTop');window.addEventListener('scroll',function(){btn.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>400)});try{if(window.parent!==window)window.parent.addEventListener('scroll',function(){btn.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>400)})}catch(e){}})();
 updateProgress();
+(function(){var B='https://raw.githubusercontent.com/bbirchum1/optima-3rd-social-studies/main/images/';var EX=['.png','.jpg','.jpeg','.webp'];document.querySelectorAll('.source-image-placeholder[data-image]').forEach(function(el){tryImg(el,el.getAttribute('data-image'),0)});function tryImg(el,name,i){if(i>=EX.length)return;var img=new Image();img.onload=function(){img.style.width='100%';img.style.display='block';img.style.borderRadius='12px';img.alt=name.replace(/-/g,' ');el.innerHTML='';el.style.padding='0';el.style.border='none';el.style.background='none';el.style.minHeight='auto';el.appendChild(img)};img.onerror=function(){tryImg(el,name,i+1)};img.src=B+name+EX[i]}})();
 </script>
 </body>
 </html>

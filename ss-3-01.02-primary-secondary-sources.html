@@ -1607,7 +1607,7 @@ body {
   <!-- Source Study Card for guided practice -->
   <div class="source-card">
     <div class="source-card-header"><div class="source-card-header-icon">📜</div><div><div class="source-card-header-label">Source Study · Guided Practice</div><div class="source-card-header-title">Question Like a Historian</div></div></div>
-    <div class="source-image-placeholder"><div class="source-image-placeholder-text">🖼️ A historical photograph from the early 1900s showing everyday life — such as a classroom, a city street, or a family gathering.<br><br><strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-3-01-02-historical-photograph.jpg</code></div></div>
+    <div class="source-image-placeholder" data-image="source-3-01-02-historical-photograph"><div class="source-image-placeholder-text">🖼️ A historical photograph from the early 1900s showing everyday life — such as a classroom, a city street, or a family gathering.<br><br><strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-3-01-02-historical-photograph.png</code></div></div>
     <div class="source-card-body">
       <div class="source-label-bar"><span class="src-type">Primary Source</span> · Historical photograph, early 1900s</div>
       <div class="callout callout-info"><div class="callout-icon">👁️</div><p><strong>What do I see?</strong> Look carefully at every detail. What objects, people, or places do you notice?</p></div>
@@ -1728,7 +1728,7 @@ body {
       <p>Now it's your turn. Use the same "Question Like a Historian" skills you practiced earlier — but on a completely new source. Study the image below and answer the three questions on your own.</p>
       <div class="source-card" style="margin:14px 0;">
         <div class="source-card-header"><div class="source-card-header-icon">🔎</div><div><div class="source-card-header-label">New Source · Your Turn</div><div class="source-card-header-title">Question Like a Historian</div></div></div>
-        <div class="source-image-placeholder"><div class="source-image-placeholder-text">🖼️ A different historical photograph or artifact — such as an old tool, a storefront, a transportation scene, or a family gathering. Should contrast with the Explore tab source.<br><br><strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-3-01-02-assignment-new-source.jpg</code></div></div>
+        <div class="source-image-placeholder" data-image="source-3-01-02-assignment-new-source"><div class="source-image-placeholder-text">🖼️ A different historical photograph or artifact — such as an old tool, a storefront, a transportation scene, or a family gathering. Should contrast with the Explore tab source.<br><br><strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-3-01-02-assignment-new-source.png</code></div></div>
         <div class="source-card-body"><div class="source-label-bar"><span class="src-type">Primary Source</span> · Historical photograph or artifact</div></div>
       </div>
 
@@ -1827,6 +1827,7 @@ function fireConfetti(){var canvas=document.getElementById('confettiCanvas');var
 function scrollToTop(){var target=document.getElementById('pageTop');if(target){target.scrollIntoView({behavior:'smooth',block:'start'})}try{window.parent.postMessage({type:'scrollToTop'},'*')}catch(e){}window.scrollTo({top:0,behavior:'smooth'})}
 (function(){var btn=document.getElementById('backToTop');var onScroll=function(){var scrollY=window.pageYOffset||document.documentElement.scrollTop;if(scrollY>400){btn.classList.add('show')}else{btn.classList.remove('show')}};window.addEventListener('scroll',onScroll);try{if(window.parent!==window){window.parent.addEventListener('scroll',onScroll)}}catch(e){}})();
 updateProgress();
+(function(){var B='https://raw.githubusercontent.com/bbirchum1/optima-3rd-social-studies/main/images/';var EX=['.png','.jpg','.jpeg','.webp'];document.querySelectorAll('.source-image-placeholder[data-image]').forEach(function(el){tryImg(el,el.getAttribute('data-image'),0)});function tryImg(el,name,i){if(i>=EX.length)return;var img=new Image();img.onload=function(){img.style.width='100%';img.style.display='block';img.style.borderRadius='12px';img.alt=name.replace(/-/g,' ');el.innerHTML='';el.style.padding='0';el.style.border='none';el.style.background='none';el.style.minHeight='auto';el.appendChild(img)};img.onerror=function(){tryImg(el,name,i+1)};img.src=B+name+EX[i]}})();
 </script>
 </body>
 </html>
