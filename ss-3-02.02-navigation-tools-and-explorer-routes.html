@@ -1455,15 +1455,6 @@ body {
 
 @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
 </style>
-  html += '<style>';
-  html += 'body{font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:0 20px;color:#1a1a2e;line-height:1.7;}';
-  html += 'h1{font-size:22px;border-bottom:3px solid #55C8E8;padding-bottom:8px;margin-bottom:6px;}';
-  html += 'h2{font-size:14px;color:#7A88A8;margin-bottom:24px;}';
-  html += '.section-title{font-size:16px;font-weight:bold;color:#0E1C42;margin:28px 0 4px;padding:8px 0 4px;border-bottom:2px solid #E2E8F4;}';
-  html += '.q-label{font-size:13px;font-weight:bold;color:#3A4A6B;margin:16px 0 2px;}';
-  html += '.q-answer{font-size:14px;color:#0E1C42;margin:0 0 4px;padding:6px 12px;background:#f8f9fc;border-left:3px solid #D6F2FB;border-radius:4px;white-space:pre-wrap;}';
-  html += '.no-answer{color:#B0B8CC;font-style:italic;}';
-  html += '</style></head><body>';
 </head>
 <body>
 <div id="pageTop"></div>
@@ -1838,7 +1829,7 @@ body {
         <div class="source-card-header-title">A Mariner's Astrolabe</div>
       </div>
     </div>
-    <div class="source-image-placeholder">
+    <div class="source-image-placeholder" data-image="source-3-02-02-mariners-astrolabe">
       <div class="source-image-placeholder-text">
         🖼️ A photograph of a mariner's astrolabe — a heavy, circular brass instrument with degree markings around the rim and a rotating pointer (alidade) in the center. Used by sailors to measure the angle of the sun or stars above the horizon to determine latitude. Look for examples at the Smithsonian Open Access (si.edu/openaccess), the Metropolitan Museum of Art (metmuseum.org), or Wikimedia Commons (commons.wikimedia.org).<br><br>
         <strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-3-02-02-mariners-astrolabe.jpg</code>
@@ -2581,6 +2572,11 @@ function scrollToTop() {
 
 /* ═══════════ INIT ═══════════ */
 updateProgress();
+
+
+
+
+(function(){var B='https://raw.githubusercontent.com/bbirchum1/optima-3rd-social-studies/main/images/';var EX=['.png','.jpg','.jpeg','.webp'];document.querySelectorAll('.source-image-placeholder[data-image]').forEach(function(el){tryImg(el,el.getAttribute('data-image'),0)});function tryImg(el,name,i){if(i>=EX.length)return;var img=new Image();img.onload=function(){img.style.cssText='width:100%;height:auto;display:block;max-width:100%;';img.alt=name.replace(/-/g,' ');el.innerHTML='';el.style.cssText='padding:0;border:none;background:none;min-height:0;max-height:none;height:auto;overflow:visible;border-radius:12px;display:block;width:100%;';el.appendChild(img)};img.onerror=function(){tryImg(el,name,i+1)};img.src=B+name+EX[i]}})();
 </script>
 </body>
 </html>
