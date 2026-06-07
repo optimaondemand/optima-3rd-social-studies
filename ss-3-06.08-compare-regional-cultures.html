@@ -1,0 +1,2867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optima Academy Online — ✏️ Lesson Code: ✏️ Lesson Title (Grade 3 Museum)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+*,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', 'Century Gothic', 'Arial Rounded MT Bold', Verdana, sans-serif;
+  background: #F0F2F8;
+  color: #0E1C42;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  box-shadow: 0 0 40px rgba(14, 28, 66, 0.08);
+}
+
+/* ═══════════ PROGRESS BAR ═══════════ */
+.progress-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: #0E1C42;
+  padding: 8px 20px 10px;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.progress-label {
+  font-size: 12px;
+  color: #55C8E8;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+}
+.progress-track {
+  flex: 1;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  /* ✏️ GRADE ACCENT: Update gradient per grade identity */
+  background: linear-gradient(90deg, #55C8E8, #7FD8F0, #1A8A7D);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+.progress-pct {
+  font-size: 13px;
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  font-weight: 800;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* ═══════════ HEADER ═══════════ */
+.header {
+  background: #0E1C42;
+  border-bottom: 6px solid #55C8E8;
+  padding: 20px 28px 18px;
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #55C8E8, #7FD8F0, #55C8E8);
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.header-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.header-logo img { width: 48px; height: 38px; }
+.header-org { font-size: 22px; color: #fff; font-weight: 800; line-height: 1.15; }
+.header-sub { font-size: 11px; color: #55C8E8; letter-spacing: 0.5px; }
+.header-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 28px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.header-title em {
+  /* ✏️ GRADE ACCENT: Tinted emphasis */
+  color: #A0E8DA;
+  font-style: italic;
+}
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(85, 200, 232, 0.15);
+  border: 1.5px solid rgba(85, 200, 232, 0.35);
+  border-radius: 28px;
+  padding: 6px 16px;
+}
+.header-badge-icon { font-size: 22px; }
+.header-badge-text { font-size: 18px; color: #fff; font-weight: 800; }
+
+/* ═══════════ INFO STRIP ═══════════ */
+.info-strip {
+  display: flex;
+  flex-wrap: wrap;
+  background: #FFFFFF;
+  border-bottom: 2px solid #E2E8F4;
+}
+.info-cell {
+  flex: 1;
+  min-width: 150px;
+  padding: 12px 16px;
+  border-right: 1px solid #E2E8F4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.info-cell:last-child { border-right: none; }
+.info-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.info-label {
+  font-size: 10px;
+  color: #7A88A8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+.info-value { font-size: 16px; color: #0E1C42; font-weight: 800; line-height: 1.2; }
+.info-detail { font-size: 11px; color: #3A4A6B; line-height: 1.3; }
+
+/* ═══════════ QUOTE STRIP ═══════════ */
+.quote-strip {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF3DC 100%);
+  border-bottom: 2px solid #F5E6C8;
+  padding: 14px 28px;
+  text-align: center;
+}
+.quote-strip-text {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #5A4A3A;
+  line-height: 1.6;
+}
+.quote-strip-attr {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: #7A88A8;
+  font-weight: 700;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════ INTRO COLLAPSIBLE ═══════════ */
+.intro-section { transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.25s ease; overflow: hidden; }
+.intro-section.collapsed .intro-2col,
+.intro-section.collapsed .need-strip { display: none; }
+.intro-collapsed-bar {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 28px;
+  background: #FFF8F0;
+  border-bottom: 2px solid #F5E6C8;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.intro-collapsed-bar:hover { background: #FFF3DC; }
+.intro-section.collapsed .intro-collapsed-bar { display: flex; }
+.intro-collapsed-icon { font-size: 18px; }
+.intro-collapsed-text {
+  font-size: 14px;
+  color: #5A4A3A;
+  font-weight: 700;
+  flex: 1;
+}
+.intro-collapsed-toggle {
+  font-size: 12px;
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════ INTRO 2-COL ═══════════ */
+.intro-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 20px 28px 4px;
+}
+.intro-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+}
+.intro-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 2px solid;
+}
+.intro-card-head-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.intro-card-head-label {
+  font-size: 10px;
+  color: #7A88A8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+.intro-card-head-title { font-size: 18px; color: #0E1C42; font-weight: 800; line-height: 1.2; }
+.intro-card-body { padding: 14px 18px; }
+.intro-card-body p { font-size: 15px; color: #3A4A6B; line-height: 1.65; margin-bottom: 8px; }
+.intro-card-body p:last-child { margin-bottom: 0; }
+.intro-card-body .obj-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 15px;
+  color: #0E1C42;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.intro-card-body .obj-line:last-child { margin-bottom: 0; }
+.intro-card-body .obj-icon { flex-shrink: 0; font-size: 17px; }
+.theme-question .intro-card-head { background: #FFF3DC; border-color: #F5E6C8; }
+.theme-question .intro-card-head-icon { background: #D4943A; }
+.theme-objectives .intro-card-head { background: #EAF8FD; border-color: #D6F2FB; }
+.theme-objectives .intro-card-head-icon { background: #55C8E8; }
+
+/* ═══════════ NEED STRIP ═══════════ */
+.need-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 28px 18px;
+}
+.need-strip-label {
+  font-size: 13px;
+  color: #3A4A6B;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.need-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #E3F8ED;
+  border: 1.5px solid #B8E8CF;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 13px;
+  color: #0E1C42;
+  font-weight: 700;
+}
+
+/* ═══════════ TODAY'S PATH ═══════════ */
+.todays-path {
+  background: #FAFBFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-top: 14px;
+}
+.todays-path-title {
+  font-size: 14px;
+  color: #0E1C42;
+  font-weight: 800;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.todays-path-steps {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #3A4A6B;
+  font-weight: 600;
+}
+.todays-path-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.todays-path-arrow { color: #B0B8CC; font-size: 11px; }
+
+/* ═══════════ TAB BAR ═══════════ */
+.tab-bar {
+  position: sticky;
+  top: 38px;
+  z-index: 100;
+  background: #FFFFFF;
+  border-bottom: 3px solid #E2E8F4;
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  box-shadow: 0 -4px 0 0 #0E1C42;
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex: 1;
+  min-width: 160px;
+  padding: 12px 8px 11px;
+  background: transparent;
+  border: none;
+  border-bottom: 4px solid transparent;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7A88A8;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  line-height: 1.3;
+  text-align: center;
+}
+.tab-btn:hover { color: #0E1C42; background: #EAF8FD; }
+.tab-btn.active {
+  color: #0E1C42;
+  border-bottom-color: #55C8E8;
+  background: #FFFFFF;
+}
+.tab-btn .tab-check {
+  display: none;
+  font-size: 12px;
+  color: #34B76F;
+  margin-left: 4px;
+  font-weight: 800;
+}
+.tab-btn.visited .tab-check { display: inline; }
+.tab-panel { display: none; padding: 24px 28px 36px; }
+.tab-panel.active { display: block; }
+
+/* ═══════════ VIDEO WRAP ═══════════ */
+.video-wrap {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid #E2E8F4;
+  box-shadow: 0 4px 20px rgba(14, 28, 66, 0.08);
+  background: #000;
+  margin: 0 0 22px;
+}
+.video-wrap-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  border-bottom: 2px solid rgba(85, 200, 232, 0.2);
+}
+.video-wrap-type {
+  font-size: 10px;
+  color: #55C8E8;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+.video-wrap-title { font-size: 16px; color: #fff; font-weight: 800; line-height: 1.2; }
+.video-ratio {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.video-placeholder {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+.video-placeholder-icon { font-size: 44px; margin-bottom: 10px; opacity: 0.55; }
+.video-placeholder-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+  line-height: 1.5;
+}
+.video-placeholder-id {
+  font-size: 11px;
+  color: rgba(85, 200, 232, 0.4);
+  font-family: monospace;
+  margin-top: 6px;
+}
+
+/* ═══════════ ACTIVITY CARDS ═══════════ */
+.activity {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+}
+/* ✏️ GRADE ACCENT: Change left-border color per grade */
+.activity.bl-accent { border-left: 6px solid #1A8A7D; }
+.activity.bl-cyan { border-left: 6px solid #55C8E8; }
+.activity.bl-gold { border-left: 6px solid #D4943A; }
+.activity.bl-green { border-left: 6px solid #34B76F; }
+.activity.bl-purple { border-left: 6px solid #8B6FC0; }
+.activity.bl-navy { border-left: 6px solid #0E1C42; }
+.activity-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px 14px 18px;
+  border-bottom: 1.5px solid #E2E8F4;
+}
+.activity-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.activity-title { font-size: 19px; color: #0E1C42; font-weight: 800; line-height: 1.2; }
+.activity-sub { font-size: 12px; color: #7A88A8; }
+.activity-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  margin-left: auto;
+}
+.activity-body { padding: 18px 22px; }
+.activity-body p { font-size: 17px; color: #3A4A6B; line-height: 1.75; margin-bottom: 12px; }
+.activity-body p:last-child { margin-bottom: 0; }
+
+/* ═══════════ CALLOUTS ═══════════ */
+.callout {
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.callout:last-child { margin-bottom: 0; }
+.callout-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+.callout p { font-size: 16px; color: #0E1C42; line-height: 1.65; margin: 0; }
+.callout-info { background: #EAF8FD; border: 2px solid #D6F2FB; }
+.callout-think { background: #FFF3DC; border: 2px solid #F5E6C8; }
+.callout-tip { background: #E3F8ED; border: 2px solid #B8E8CF; }
+.callout-vocab { background: #F0E8FF; border: 2px solid #D8CCF0; }
+.callout-virtue { background: #FDE8F0; border: 2px solid #F0B8CA; }
+
+/* ═══════════ VIRTUE SPOTLIGHT ═══════════ */
+.virtue-card {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF3DC 100%);
+  border: 2px solid #F5E6C8;
+  border-left: 6px solid #D4943A;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.virtue-label {
+  font-size: 12px;
+  color: #D4943A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.virtue-text { font-size: 15px; color: #0E1C42; line-height: 1.65; }
+
+/* ═══════════ KEY CONCEPT ═══════════ */
+.key-concept {
+  background: #FFF3DC;
+  border: 2px solid #F5E6C8;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.key-concept-label {
+  font-size: 12px;
+  color: #D4943A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.key-concept p { font-size: 15px; color: #0E1C42; line-height: 1.7; margin-bottom: 6px; }
+
+/* ═══════════ SOURCE STUDY CARD ═══════════ */
+.source-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.source-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  /* ✏️ GRADE ACCENT */
+  background: linear-gradient(135deg, #1A8A7D, #34B0A0);
+  border-bottom: 2px solid rgba(255,255,255,0.15);
+}
+.source-card-header-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.source-card-header-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+.source-card-header-title { font-size: 17px; color: #fff; font-weight: 800; }
+.source-image-placeholder {
+  width: 100%;
+  height: 240px;
+  background: linear-gradient(145deg, #E2E8F4, #D6E0F0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #E2E8F4;
+}
+.source-image-placeholder-text {
+  font-size: 14px;
+  color: #7A88A8;
+  font-weight: 700;
+  text-align: center;
+  padding: 20px;
+}
+.source-card-body { padding: 18px 22px; }
+.source-label-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: #3A4A6B;
+  font-weight: 700;
+}
+.source-label-bar .src-type {
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+}
+
+/* ═══════════ COPYWORK ═══════════ */
+.copywork-box {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF3DC 100%);
+  border: 2px solid #F5E6C8;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.copywork-label {
+  font-size: 12px;
+  color: #D4943A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.copywork-text {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px;
+  color: #0E1C42;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.copywork-instruction { font-size: 14px; color: #3A4A6B; line-height: 1.5; }
+
+/* ═══════════ COUNCIL CHAMBER ═══════════ */
+.council-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.council-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  border-bottom: 2px solid rgba(85, 200, 232, 0.2);
+}
+.council-header-icon { font-size: 26px; }
+.council-header-title { font-size: 17px; color: #fff; font-weight: 800; }
+.council-question {
+  padding: 16px 22px;
+  background: #FFF3DC;
+  border-bottom: 2px solid #F5E6C8;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px;
+  color: #0E1C42;
+  line-height: 1.6;
+  font-style: italic;
+}
+.council-perspectives {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.council-perspective {
+  padding: 16px 18px;
+  border-bottom: 2px solid #E2E8F4;
+}
+.council-perspective:first-child { border-right: 1px solid #E2E8F4; }
+.council-perspective-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.council-perspective-label.side-a { color: #2A7AB5; }
+.council-perspective-label.side-b { color: #D4663A; }
+.council-perspective p { font-size: 14px; color: #3A4A6B; line-height: 1.55; }
+.council-body { padding: 18px 22px; }
+
+/* ═══════════ TIMELINE CARD ═══════════ */
+.timeline-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  /* ✏️ GRADE ACCENT */
+  background: linear-gradient(135deg, #1A8A7D, #34B0A0);
+  border-bottom: 2px solid rgba(255,255,255,0.15);
+}
+.timeline-header-icon { font-size: 22px; color: #fff; }
+.timeline-header-title { font-size: 17px; color: #fff; font-weight: 800; }
+.timeline-events { padding: 18px 22px; }
+.timeline-event {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1.5px solid #E2E8F4;
+}
+.timeline-event:last-child { border-bottom: none; }
+.timeline-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  /* ✏️ GRADE ACCENT */
+  background: #1A8A7D;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.timeline-event-content { flex: 1; }
+.timeline-event-date { font-size: 13px; color: #1A8A7D; font-weight: 800; margin-bottom: 2px; }
+.timeline-event-text { font-size: 15px; color: #0E1C42; line-height: 1.55; }
+
+/* ═══════════ JOURNAL TEXT BOXES ═══════════ */
+.journal-box {
+  width: 100%;
+  min-height: 70px;
+  padding: 12px 14px;
+  border: 2px solid #E2E8F4;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: #0E1C42;
+  line-height: 1.6;
+  resize: vertical;
+  background: #FAFBFF;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
+}
+.journal-box:focus {
+  outline: none;
+  border-color: #55C8E8;
+  box-shadow: 0 0 0 3px rgba(85, 200, 232, 0.15);
+  background: #fff;
+}
+.journal-box::placeholder { color: #B0B8CC; font-style: italic; }
+.journal-label {
+  font-size: 12px;
+  color: #7A88A8;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.journal-label .saved-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #B0B8CC;
+  transition: background 0.3s;
+}
+.journal-label .saved-dot.saved { background: #34B76F; }
+
+/* ═══════════ PERSISTENT TEXTBOX PROMPT ═══════════ */
+.textbox-prompt {
+  font-size: 14px;
+  color: #0E1C42;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 8px 12px;
+  background: #EAF8FD;
+  border: 1.5px solid #D6F2FB;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  margin-top: 10px;
+}
+.textbox-prompt + .journal-box {
+  border-radius: 0 0 12px 12px;
+  margin-top: 0;
+}
+
+/* ═══════════ ASSIGNMENT QUESTIONS ═══════════ */
+.q-block {
+  background: #FAFBFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+}
+.q-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #55C8E8;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.q-text { font-size: 16px; color: #0E1C42; line-height: 1.65; margin-bottom: 4px; }
+
+/* ═══════════ TURN-IN CHECKLIST ═══════════ */
+.turn-in-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+  margin-top: 18px;
+}
+.turn-in-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #EAF8FD;
+  padding: 18px 22px;
+  border-bottom: 2px solid #D6F2FB;
+}
+.turn-in-header-icon { font-size: 36px; line-height: 1; flex-shrink: 0; }
+.turn-in-header-label {
+  font-size: 11px;
+  color: #1A6B8E;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+.turn-in-header-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 22px;
+  color: #0E1C42;
+  font-weight: 700;
+}
+.turn-in-body { padding: 18px 22px 20px; }
+.turn-in-intro { font-size: 15px; color: #3A4A6B; margin-bottom: 16px; line-height: 1.55; }
+.turn-in-checklist { display: flex; flex-direction: column; gap: 10px; }
+.turn-in-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.turn-in-item:hover { background: #EAF8FD; border-color: #B8E0F0; }
+.turn-in-item.checked { background: #E3F8ED; border-color: #B8E8CF; }
+.turn-in-item .turn-in-check {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 2px solid #B8E0F0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.turn-in-item.checked .turn-in-check { background: #34B76F; border-color: #34B76F; }
+.turn-in-item-text { font-size: 15px; color: #0E1C42; font-weight: 600; line-height: 1.55; flex: 1; }
+
+/* ═══════════ GATHERED ANSWERS ═══════════ */
+.gathered-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+  margin-top: 22px;
+}
+.gathered-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  padding: 16px 22px;
+  border-bottom: 2px solid rgba(85, 200, 232, 0.2);
+}
+.gathered-header-icon { font-size: 28px; }
+.gathered-header-label {
+  font-size: 11px;
+  color: #55C8E8;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.gathered-header-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+}
+.gathered-body { padding: 18px 22px 20px; }
+.gathered-intro { font-size: 15px; color: #3A4A6B; margin-bottom: 14px; line-height: 1.55; }
+.gathered-output {
+  width: 100%;
+  min-height: 250px;
+  padding: 16px 18px;
+  border: 2px solid #E2E8F4;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: #0E1C42;
+  line-height: 1.65;
+  background: #FAFBFF;
+  resize: vertical;
+  white-space: pre-wrap;
+}
+.gathered-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.gathered-btn {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.gathered-btn:hover { transform: translateY(-2px); }
+.gathered-btn-copy {
+  background: linear-gradient(135deg, #55C8E8, #7FD8F0);
+  color: #0E1C42;
+  box-shadow: 0 4px 14px rgba(85, 200, 232, 0.25);
+}
+.gathered-btn-pdf {
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  color: #fff;
+  border: 2px solid #55C8E8;
+  box-shadow: 0 4px 14px rgba(14, 28, 66, 0.25);
+}
+.gathered-copied {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #34B76F;
+  margin-top: 8px;
+  display: none;
+}
+.gathered-copied.show { display: block; }
+
+/* ═══════════ NARRATIVE TRANSITION ═══════════ */
+.tab-next-wrap { text-align: center; padding: 24px 0 8px; }
+.tab-transition-voice {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #5A4A3A;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.tab-next-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 30px;
+  background: linear-gradient(135deg, #55C8E8, #7FD8F0);
+  color: #0E1C42;
+  border: none;
+  border-radius: 28px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(85, 200, 232, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tab-next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(85, 200, 232, 0.4);
+}
+
+/* ═══════════ ROOT MATCH GAME ═══════════ */
+.root-match-game { margin: 14px 0; }
+.root-match-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.root-match-item {
+  padding: 12px 16px;
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #0E1C42;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.5;
+  transition: background 0.15s, border-color 0.2s, transform 0.15s;
+  user-select: none;
+}
+.root-match-item:hover { transform: translateY(-1px); border-color: #8B6FC0; }
+.root-match-item.selected { background: #F0E8FF; border-color: #8B6FC0; }
+.root-match-item.matched { background: #E3F8ED; border-color: #34B76F; pointer-events: none; opacity: 0.8; }
+.root-match-item.wrong-flash { background: #FFF0EC; border-color: #E8636B; animation: shake 0.4s ease; }
+.root-match-item.is-word { font-weight: 800; font-family: 'Lora', Georgia, serif; font-size: 16px; }
+.root-match-feedback {
+  text-align: center;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #34B76F;
+  display: none;
+}
+.root-match-feedback.show { display: block; }
+
+/* ═══════════ FLIP CARDS ═══════════ */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+.flip-card { perspective: 800px; height: 160px; cursor: pointer; }
+.flip-card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  text-align: center;
+  border: 2px solid #E2E8F4;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.06);
+}
+.flip-card-front { background: #FFFFFF; border-top: 5px solid #55C8E8; }
+.flip-card-front .fc-emoji { font-size: 24px; margin-bottom: 6px; }
+.flip-card-front .fc-word {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px; font-weight: 700; color: #0E1C42;
+}
+.flip-card-front .fc-tap { font-size: 11px; color: #7A88A8; font-weight: 600; margin-top: 4px; }
+.flip-card-back {
+  background: linear-gradient(145deg, #0E1C42, #1A2D5A);
+  border-color: #0E1C42;
+  transform: rotateY(180deg);
+}
+.flip-card-back .fc-def { font-size: 13px; color: #fff; line-height: 1.5; font-weight: 600; }
+.flip-card-back .fc-word-back {
+  font-size: 10px; color: #55C8E8; text-transform: uppercase;
+  letter-spacing: 1px; font-weight: 800; margin-bottom: 6px;
+}
+
+/* ═══════════ BACK TO TOP ═══════════ */
+.back-to-top {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  height: 44px;
+  padding: 0 18px 0 14px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  color: #fff;
+  border: 2px solid #55C8E8;
+  font-size: 14px; font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(14, 28, 66, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  z-index: 500;
+}
+.back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { box-shadow: 0 6px 24px rgba(14, 28, 66, 0.5); transform: translateY(-3px); }
+
+/* ═══════════ CONFETTI ═══════════ */
+#confettiCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+/* ═══════════ SELF-CHECK QUIZ ═══════════ */
+.quiz-card {
+  background: #fff;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.quiz-q {
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.quiz-q-text { font-size: 17px; color: #0E1C42; font-weight: 700; margin-bottom: 12px; line-height: 1.55; }
+.quiz-options { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  display: flex; align-items: center; gap: 12px;
+  background: #fff; border: 2px solid #E2E8F4; border-radius: 12px;
+  padding: 10px 14px; font-size: 15px; color: #0E1C42; font-weight: 600;
+  cursor: pointer; transition: all 0.15s;
+}
+.quiz-opt:hover { border-color: #55C8E8; background: #EAF8FD; }
+.quiz-opt.correct { background: #E3F8ED; border-color: #34B76F; color: #1a5c2e; }
+.quiz-opt.wrong { background: #FFF0EC; border-color: #E8636B; color: #8a3030; }
+.quiz-opt.disabled { opacity: 0.5; cursor: default; pointer-events: none; }
+.opt-letter {
+  width: 28px; height: 28px; border-radius: 50%; background: #E2E8F4;
+  font-size: 13px; font-weight: 800; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0; color: #3A4A6B;
+}
+.quiz-opt.correct .opt-letter { background: #34B76F; color: #fff; }
+.quiz-opt.wrong .opt-letter { background: #E8636B; color: #fff; }
+.quiz-feedback {
+  margin-top: 10px; padding: 10px 14px; border-radius: 10px;
+  font-size: 14px; font-weight: 600; line-height: 1.5; display: none;
+}
+.quiz-feedback.show { display: block; }
+.fb-correct { background: #E3F8ED; color: #1a5c2e; border: 1.5px solid #B8E8CF; }
+.fb-wrong { background: #FFF3DC; color: #5A4A3A; border: 1.5px solid #F5E6C8; }
+.quiz-score-box {
+  /* ✏️ GRADE ACCENT */
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  color: #fff; border-radius: 16px; padding: 20px 22px;
+  margin-top: 16px; text-align: center; display: none;
+}
+.quiz-score-box.show { display: block; }
+.quiz-score-num { font-size: 52px; font-weight: 900; line-height: 1; }
+.quiz-score-label { font-size: 14px; color: #55C8E8; margin-bottom: 4px; }
+.quiz-score-msg { font-size: 18px; font-weight: 700; margin-top: 8px; }
+.quiz-video-wrap { margin-top: 16px; display: none; }
+.quiz-video-wrap.show { display: block; }
+
+/* ═══════════ DISCOVERY FACT (hidden reward on game completion) ═══════════ */
+.discovery-fact {
+  display: none;
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #FFF8F0, #FFF3DC);
+  border: 2px solid #F5E6C8;
+  border-left: 5px solid #D4943A;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #5A4A3A;
+  line-height: 1.6;
+  animation: factReveal 0.5s ease;
+}
+.discovery-fact.show { display: block; }
+.discovery-fact-label {
+  font-size: 11px;
+  color: #D4943A;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+@keyframes factReveal {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════ HISTORIAN'S SEAL — certificate card with stamp ═══════════ */
+.historian-seal {
+  display: none;
+  margin-top: 20px;
+  animation: cardSlideUp 0.4s ease;
+}
+.historian-seal.show { display: block; }
+@keyframes cardSlideUp {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.seal-certificate {
+  position: relative;
+  background: linear-gradient(160deg, #FFFDF8, #FFF5E6, #FFFDF8);
+  border: 2px solid #E8D8C0;
+  border-radius: 14px;
+  padding: 22px 100px 22px 24px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(140, 120, 80, 0.1);
+}
+.seal-cert-message {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  color: #5A4A3A;
+  line-height: 1.55;
+  font-style: italic;
+}
+.seal-cert-message strong {
+  font-style: normal;
+  color: #3A2A1A;
+}
+.seal-stamp-wrap {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-8deg);
+  animation: stampBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+}
+@keyframes stampBounce {
+  0% { opacity: 0; transform: translateY(-50%) rotate(-8deg) scale(0); }
+  60% { opacity: 1; transform: translateY(-50%) rotate(-8deg) scale(1.2); }
+  100% { opacity: 1; transform: translateY(-50%) rotate(-8deg) scale(1); }
+}
+
+/* ═══════════ OPTIMA OWL BUDDY ═══════════ */
+.owl-buddy {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  margin: 18px 0;
+  box-shadow: 0 2px 12px rgba(14, 28, 66, 0.06);
+  position: relative;
+}
+.owl-buddy-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFF8F0, #FFF3DC);
+  border: 2.5px solid #F5E6C8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  flex-shrink: 0;
+  animation: owlBob 3s ease-in-out infinite;
+}
+@keyframes owlBob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-3px) rotate(2deg); }
+}
+.owl-buddy-bubble {
+  flex: 1;
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 12px 16px;
+  position: relative;
+  font-size: 15px;
+  color: #3A4A6B;
+  line-height: 1.6;
+}
+.owl-buddy-bubble::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 18px;
+  width: 14px;
+  height: 14px;
+  background: #FAFBFF;
+  border-left: 1.5px solid #E2E8F4;
+  border-bottom: 1.5px solid #E2E8F4;
+  transform: rotate(45deg);
+}
+.owl-buddy-name {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  margin-bottom: 4px;
+}
+
+/* ═══════════ TAB SECTION HEADERS ═══════════ */
+.tab-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0 18px;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #E2E8F4;
+}
+.tab-section-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  color: #fff;
+}
+.tab-section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 800;
+  color: #7A88A8;
+  margin-bottom: 1px;
+}
+.tab-section-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px;
+  color: #0E1C42;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ═══════════ SECTION DIVIDERS ═══════════ */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 0;
+  margin: 8px 0;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #E2E8F4, transparent);
+}
+.section-divider-dot {
+  font-size: 8px;
+  color: #D4D8E4;
+  letter-spacing: 6px;
+}
+
+/* ═══════════ STEP BADGES (for Explore tab progression) ═══════════ */
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px 4px 4px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+  /* ✏️ GRADE ACCENT */
+  background: rgba(26, 138, 125, 0.08);
+  color: #1A8A7D;
+}
+.step-badge-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  /* ✏️ GRADE ACCENT */
+  background: #1A8A7D;
+}
+
+/* ═══════════ FOOTER ═══════════ */
+.footer {
+  background: #0E1C42;
+  border-top: 4px solid #55C8E8;
+  padding: 18px 28px;
+  text-align: center;
+}
+.footer-main { font-size: 14px; color: #fff; margin-bottom: 4px; }
+.footer-main span { color: #55C8E8; font-weight: 700; }
+.footer-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 620px) {
+  .intro-2col { grid-template-columns: 1fr; }
+  .council-perspectives { grid-template-columns: 1fr; }
+  .vocab-grid { grid-template-columns: 1fr; }
+  .root-match-grid { grid-template-columns: 1fr; }
+}
+
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+</style>
+<style>
+/* === Sort game styles === */
+.sort-row { padding: 12px 14px; background:#FAFCFF; border:1px solid #E2E8F4; border-radius:10px; transition: all 0.3s; }
+.sort-row.correct { background:linear-gradient(135deg,#E3F8ED,#D4F1E0); border-color:#1A8A7D; }
+.sort-row.locked .sort-opt { pointer-events:none; opacity:0.55; }
+.sort-row.locked .sort-opt.right { opacity:1; background:#1A8A7D; color:#FFF; border-color:#1A8A7D; }
+.sort-name { font-size:14px; color:#0E1C42; line-height:1.5; margin-bottom:9px; }
+.sort-picks { display:grid; grid-template-columns:repeat(auto-fit, minmax(120px, 1fr)); gap:7px; }
+.sort-opt { padding:8px 10px; background:#FFF; border:1.5px solid #C9D4E5; border-radius:8px; font-size:13px; font-weight:700; color:#0E1C42; cursor:pointer; font-family:'Nunito', sans-serif; transition: all 0.2s; }
+.sort-opt:hover { border-color:#1A8A7D; background:#EAF8F5; }
+.sort-opt.wrong { animation: shake 0.35s; background:#FFEDED; border-color:#D94040; color:#D94040; }
+
+/* === Coming Up Next story card === */
+.coming-next-card {
+  margin: 24px 0 18px 0;
+  background: linear-gradient(135deg, #FBF4E0, #F5E6BD);
+  border-left: 5px solid #8B5E20;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(139, 94, 32, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+.coming-next-card::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 90px; height: 90px;
+  background: radial-gradient(circle at top right, rgba(139,94,32,0.08), transparent 70%);
+  pointer-events: none;
+}
+.coming-next-header {
+  padding: 14px 18px 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px dashed rgba(139, 94, 32, 0.3);
+  position: relative;
+}
+.coming-next-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, #B8842C, #8B5E20);
+  color: #FFF8E7;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(139, 94, 32, 0.3);
+}
+.coming-next-label {
+  font-size: 11px; font-weight: 800; color: #8B5E20;
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.coming-next-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px; font-weight: 700; color: #0E1C42;
+  margin-top: 2px;
+}
+.coming-next-body {
+  padding: 14px 18px 18px 18px;
+  position: relative;
+}
+.coming-next-body p {
+  font-size: 14.5px; line-height: 1.65; color: #3A2818;
+  margin: 0;
+}
+.coming-next-body em { color: #8B5E20; font-weight: 700; font-style: normal; }
+</style>
+<style>
+/* === Regional Observer Badge Award Card === */
+.badge-award-card {
+  margin: 24px 0 18px 0;
+  background: linear-gradient(135deg, #2A4A3A 0%, #1F3A2C 100%);
+  border: 2px solid #E0B048;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(224, 176, 72, 0.25), inset 0 0 30px rgba(224, 176, 72, 0.08);
+}
+.badge-award-shine {
+  position: absolute;
+  top: 0; left: -50%; right: -50%; height: 100%;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 224, 144, 0.12) 50%, transparent 70%);
+  pointer-events: none;
+}
+.badge-award-inner {
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  position: relative;
+}
+.badge-award-medal {
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+.badge-award-text {
+  flex: 1;
+  color: #FFFFFF;
+}
+.badge-award-label {
+  font-size: 11px; font-weight: 800; color: #FFE090;
+  letter-spacing: 2.2px; margin-bottom: 4px;
+}
+.badge-award-name {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 24px; font-weight: 700; color: #FFFFFF;
+  margin-bottom: 8px; line-height: 1.1;
+}
+.badge-award-blurb {
+  font-size: 14px; line-height: 1.6; color: #E8E4D8;
+  font-family: 'Nunito', sans-serif;
+}
+@media (max-width: 540px) {
+  .badge-award-inner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+<div id="pageTop"></div>
+<div class="page-wrap">
+
+<div class="progress-wrap">
+  <div class="progress-label">🏛️ Progress</div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-pct" id="progressPct">0%</div>
+</div>
+
+<div class="header">
+  <div class="header-brand">
+    <div class="header-logo"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" /></div>
+    <div>
+      <div class="header-org">Optima Academy Online</div>
+      <div class="header-sub">An Education Experience Company</div>
+    </div>
+  </div>
+  <div class="header-title">Compare <em>Regional Cultural Characteristics</em></div>
+  <div class="header-badge">
+    <span class="header-badge-icon">🌍</span>
+    <span class="header-badge-text">Lesson 3.06.08</span>
+  </div>
+</div>
+
+<svg viewBox="0 0 920 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+  <defs>
+    <linearGradient id="wallBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F2E5C9"/>
+      <stop offset="100%" stop-color="#E0CFA5"/>
+    </linearGradient>
+    <linearGradient id="canadaSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C5DDEF"/>
+      <stop offset="100%" stop-color="#E8F0F8"/>
+    </linearGradient>
+    <linearGradient id="usSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A8C8DC"/>
+      <stop offset="100%" stop-color="#E8E4C8"/>
+    </linearGradient>
+    <linearGradient id="mexSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD17A"/>
+      <stop offset="100%" stop-color="#F0A55C"/>
+    </linearGradient>
+    <linearGradient id="caribSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7FD0E8"/>
+      <stop offset="100%" stop-color="#A8E4C8"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#FFE090"/>
+      <stop offset="60%" stop-color="#E0B048"/>
+      <stop offset="100%" stop-color="#8B5E20"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Wall background -->
+  <rect width="920" height="260" fill="url(#wallBg)"/>
+  <line x1="0" y1="38" x2="920" y2="38" stroke="#C9B888" stroke-width="0.4" opacity="0.4"/>
+  <line x1="0" y1="225" x2="920" y2="225" stroke="#C9B888" stroke-width="0.4" opacity="0.4"/>
+
+  <!-- ═══ Title banner ═══ -->
+  <rect x="280" y="6" width="360" height="22" fill="#F0E4C8" stroke="#5C3A1E" stroke-width="1.5" rx="3"/>
+  <text x="460" y="22" fill="#3A2818" font-family="'Lora', Georgia, serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="2.2">REGIONAL CHARACTERISTICS COMPARISON</text>
+
+  <!-- ═══ 4 panels, each ~200 wide ═══ -->
+
+  <!-- ───── PANEL 1: CANADA ───── x: 30 -->
+  <g>
+    <rect x="30" y="38" width="200" height="170" fill="url(#canadaSky)" stroke="#5C3A1E" stroke-width="1.5"/>
+    <!-- Snow ground -->
+    <rect x="30" y="170" width="200" height="38" fill="#F0F4F8"/>
+    <ellipse cx="80" cy="180" rx="40" ry="6" fill="#FFFFFF" opacity="0.8"/>
+    <ellipse cx="180" cy="185" rx="50" ry="7" fill="#FFFFFF" opacity="0.7"/>
+
+    <!-- Parliament building silhouette (background) -->
+    <g transform="translate(130, 170)">
+      <rect x="-40" y="-30" width="80" height="30" fill="#7A6048" stroke="#3A2818" stroke-width="0.7"/>
+      <!-- Central tower -->
+      <rect x="-8" y="-55" width="16" height="25" fill="#7A6048" stroke="#3A2818" stroke-width="0.7"/>
+      <polygon points="-12,-55 12,-55 0,-68" fill="#3A6048" stroke="#3A2818" stroke-width="0.7"/>
+      <!-- Side towers (smaller) -->
+      <rect x="-32" y="-40" width="8" height="10" fill="#7A6048" stroke="#3A2818" stroke-width="0.5"/>
+      <polygon points="-34,-40 -22,-40 -28,-46" fill="#3A6048" stroke="#3A2818" stroke-width="0.5"/>
+      <rect x="24" y="-40" width="8" height="10" fill="#7A6048" stroke="#3A2818" stroke-width="0.5"/>
+      <polygon points="22,-40 34,-40 28,-46" fill="#3A6048" stroke="#3A2818" stroke-width="0.5"/>
+      <!-- Windows -->
+      <rect x="-26" y="-25" width="3" height="6" fill="#FFD888"/>
+      <rect x="-18" y="-25" width="3" height="6" fill="#FFD888"/>
+      <rect x="-3" y="-50" width="6" height="8" fill="#FFD888"/>
+      <rect x="14" y="-25" width="3" height="6" fill="#FFD888"/>
+      <rect x="22" y="-25" width="3" height="6" fill="#FFD888"/>
+    </g>
+
+    <!-- Maple leaf (foreground left) -->
+    <g transform="translate(65, 95)">
+      <!-- Maple leaf shape -->
+      <path d="M 0 22 L -4 8 L -16 12 L -10 0 L -22 -4 L -12 -10 L -18 -22 L -6 -18 L 0 -28 L 6 -18 L 18 -22 L 12 -10 L 22 -4 L 10 0 L 16 12 L 4 8 Z" fill="#E84A4A" stroke="#A02020" stroke-width="1"/>
+      <line x1="0" y1="22" x2="0" y2="30" stroke="#7A4A20" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Hockey stick + puck (foreground right) -->
+    <g transform="translate(180, 155)">
+      <!-- Stick handle -->
+      <rect x="-2" y="-50" width="4" height="46" fill="#A07848" stroke="#5C3A1E" stroke-width="0.6" transform="rotate(-15)"/>
+      <!-- Blade -->
+      <path d="M 12 -2 L 28 -2 L 30 4 L 14 5 Z" fill="#3A2818" stroke="#1A0F08" stroke-width="0.7"/>
+      <!-- Puck -->
+      <ellipse cx="40" cy="3" rx="6" ry="2.5" fill="#1A0F08" stroke="#000000" stroke-width="0.5"/>
+    </g>
+
+    <!-- Snowflake (top corner) -->
+    <g transform="translate(195, 60)" stroke="#7AAEDF" stroke-width="1.5" stroke-linecap="round">
+      <line x1="0" y1="-10" x2="0" y2="10"/>
+      <line x1="-10" y1="0" x2="10" y2="0"/>
+      <line x1="-7" y1="-7" x2="7" y2="7"/>
+      <line x1="-7" y1="7" x2="7" y2="-7"/>
+      <line x1="-2" y1="-10" x2="2" y2="-10"/>
+      <line x1="-2" y1="10" x2="2" y2="10"/>
+    </g>
+
+    <!-- Label -->
+    <rect x="55" y="210" width="150" height="14" fill="#F0E4C8" stroke="#5C3A1E" stroke-width="0.8"/>
+    <text x="130" y="221" fill="#3A2818" font-family="'Nunito', sans-serif" font-size="9" font-weight="800" text-anchor="middle" letter-spacing="1.2">CANADA</text>
+  </g>
+
+  <!-- ───── PANEL 2: UNITED STATES ───── x: 240 -->
+  <g>
+    <rect x="240" y="38" width="200" height="170" fill="url(#usSky)" stroke="#5C3A1E" stroke-width="1.5"/>
+    <!-- Plains/ground -->
+    <rect x="240" y="170" width="200" height="38" fill="#C8B868"/>
+    <!-- Grass tufts -->
+    <line x1="260" y1="195" x2="260" y2="188" stroke="#7A8B40" stroke-width="0.7"/>
+    <line x1="285" y1="200" x2="285" y2="193" stroke="#7A8B40" stroke-width="0.7"/>
+    <line x1="325" y1="198" x2="325" y2="191" stroke="#7A8B40" stroke-width="0.7"/>
+    <line x1="360" y1="200" x2="360" y2="193" stroke="#7A8B40" stroke-width="0.7"/>
+    <line x1="400" y1="195" x2="400" y2="188" stroke="#7A8B40" stroke-width="0.7"/>
+    <line x1="425" y1="200" x2="425" y2="193" stroke="#7A8B40" stroke-width="0.7"/>
+
+    <!-- US flag (left, prominent) -->
+    <g transform="translate(290, 110)">
+      <!-- Pole -->
+      <line x1="-30" y1="55" x2="-30" y2="-30" stroke="#5C3A1E" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Pole top knob -->
+      <circle cx="-30" cy="-30" r="2.5" fill="#E0B048"/>
+      <!-- Flag rectangle -->
+      <rect x="-30" y="-28" width="55" height="34" fill="#FFFFFF" stroke="#5C3A1E" stroke-width="0.6"/>
+      <!-- Red stripes (7 stripes total, white between) -->
+      <rect x="-30" y="-28" width="55" height="3" fill="#E84A4A"/>
+      <rect x="-30" y="-22" width="55" height="3" fill="#E84A4A"/>
+      <rect x="-30" y="-16" width="55" height="3" fill="#E84A4A"/>
+      <rect x="-30" y="-10" width="55" height="3" fill="#E84A4A"/>
+      <rect x="-30" y="-4" width="55" height="3" fill="#E84A4A"/>
+      <rect x="-30" y="2" width="55" height="3" fill="#E84A4A"/>
+      <!-- Blue canton -->
+      <rect x="-30" y="-28" width="22" height="16" fill="#1A4FA0"/>
+      <!-- Stars (simplified dots) -->
+      <g fill="#FFFFFF">
+        <circle cx="-27" cy="-25" r="0.8"/>
+        <circle cx="-23" cy="-25" r="0.8"/>
+        <circle cx="-19" cy="-25" r="0.8"/>
+        <circle cx="-15" cy="-25" r="0.8"/>
+        <circle cx="-11" cy="-25" r="0.8"/>
+        <circle cx="-27" cy="-21" r="0.8"/>
+        <circle cx="-23" cy="-21" r="0.8"/>
+        <circle cx="-19" cy="-21" r="0.8"/>
+        <circle cx="-15" cy="-21" r="0.8"/>
+        <circle cx="-11" cy="-21" r="0.8"/>
+        <circle cx="-27" cy="-17" r="0.8"/>
+        <circle cx="-23" cy="-17" r="0.8"/>
+        <circle cx="-19" cy="-17" r="0.8"/>
+        <circle cx="-15" cy="-17" r="0.8"/>
+        <circle cx="-11" cy="-17" r="0.8"/>
+      </g>
+      <!-- Flag wave on right -->
+      <path d="M 25 -28 L 28 -24 L 25 -20 L 28 -16 L 25 -12 L 28 -8 L 25 -4 L 28 0 L 25 4 L 25 6" fill="none" stroke="#5C3A1E" stroke-width="0.6"/>
+    </g>
+
+    <!-- Baseball + bat (right side) -->
+    <g transform="translate(395, 155)">
+      <!-- Bat -->
+      <rect x="-2" y="-50" width="4" height="46" fill="#C9A878" stroke="#5C3A1E" stroke-width="0.6" rx="2" transform="rotate(25)"/>
+      <!-- Handle wrap -->
+      <rect x="-2" y="-48" width="4" height="10" fill="#7A4A20" transform="rotate(25)"/>
+      <!-- Baseball -->
+      <circle cx="-20" cy="-10" r="7" fill="#F0E4C8" stroke="#5C3A1E" stroke-width="0.8"/>
+      <!-- Baseball stitching -->
+      <path d="M -25 -13 Q -20 -10 -15 -7" fill="none" stroke="#E84A4A" stroke-width="0.6"/>
+      <path d="M -15 -13 Q -20 -10 -25 -7" fill="none" stroke="#E84A4A" stroke-width="0.6"/>
+    </g>
+
+    <!-- Eagle silhouette (top) -->
+    <g transform="translate(345, 70)">
+      <path d="M -22 0 Q -18 -8 -8 -6 Q 0 -10 8 -6 Q 18 -8 22 0 Q 12 4 0 2 Q -12 4 -22 0 Z" fill="#5C3A1E" opacity="0.55"/>
+      <!-- Body -->
+      <ellipse cx="0" cy="0" rx="4" ry="2.5" fill="#5C3A1E" opacity="0.6"/>
+    </g>
+
+    <!-- Sun -->
+    <circle cx="395" cy="65" r="11" fill="#FFE090" opacity="0.8"/>
+
+    <!-- Label -->
+    <rect x="265" y="210" width="150" height="14" fill="#F0E4C8" stroke="#5C3A1E" stroke-width="0.8"/>
+    <text x="340" y="221" fill="#3A2818" font-family="'Nunito', sans-serif" font-size="9" font-weight="800" text-anchor="middle" letter-spacing="1.2">UNITED STATES</text>
+  </g>
+
+  <!-- ───── PANEL 3: MEXICO ───── x: 450 -->
+  <g>
+    <rect x="450" y="38" width="200" height="170" fill="url(#mexSky)" stroke="#5C3A1E" stroke-width="1.5"/>
+    <!-- Ground (warm earth) -->
+    <rect x="450" y="170" width="200" height="38" fill="#A06848"/>
+    <ellipse cx="510" cy="190" rx="40" ry="5" fill="#8B5230" opacity="0.6"/>
+
+    <!-- Sun (high) -->
+    <circle cx="550" cy="68" r="16" fill="#FFE090"/>
+    <g stroke="#FFE090" stroke-width="2" stroke-linecap="round">
+      <line x1="550" y1="48" x2="550" y2="44"/>
+      <line x1="550" y1="92" x2="550" y2="88"/>
+      <line x1="530" y1="68" x2="534" y2="68"/>
+      <line x1="566" y1="68" x2="570" y2="68"/>
+      <line x1="538" y1="56" x2="540" y2="58"/>
+      <line x1="562" y1="56" x2="560" y2="58"/>
+    </g>
+
+    <!-- Stepped pyramid (Maya silhouette) -->
+    <g transform="translate(510, 170)">
+      <polygon points="-32,0 32,0 32,-10 28,-10 28,-20 24,-20 24,-30 20,-30 20,-40 14,-40 14,-50 8,-50 8,-58 -8,-58 -8,-50 -14,-50 -14,-40 -20,-40 -20,-30 -24,-30 -24,-20 -28,-20 -28,-10 -32,-10" fill="#C9A878" stroke="#7A5430" stroke-width="0.9"/>
+      <!-- Steps -->
+      <line x1="-28" y1="-10" x2="28" y2="-10" stroke="#7A5430" stroke-width="0.4"/>
+      <line x1="-24" y1="-20" x2="24" y2="-20" stroke="#7A5430" stroke-width="0.4"/>
+      <line x1="-20" y1="-30" x2="20" y2="-30" stroke="#7A5430" stroke-width="0.4"/>
+      <line x1="-14" y1="-40" x2="14" y2="-40" stroke="#7A5430" stroke-width="0.4"/>
+      <line x1="-8" y1="-50" x2="8" y2="-50" stroke="#7A5430" stroke-width="0.4"/>
+      <!-- Central stair -->
+      <rect x="-3" y="-58" width="6" height="58" fill="#A88858" stroke="#7A5430" stroke-width="0.5"/>
+      <!-- Top temple -->
+      <rect x="-6" y="-66" width="12" height="8" fill="#A88858" stroke="#7A5430" stroke-width="0.6"/>
+    </g>
+
+    <!-- Agave plant (right side) -->
+    <g transform="translate(610, 170)">
+      <path d="M 0 0 L -3 -20 L 0 -22 L 3 -20 Z" fill="#7AA08A"/>
+      <path d="M 0 0 L -10 -16 L -6 -22 L 0 -18 Z" fill="#5C8068"/>
+      <path d="M 0 0 L 10 -16 L 6 -22 L 0 -18 Z" fill="#5C8068"/>
+      <path d="M 0 0 L -16 -8 L -10 -16 L -2 -8 Z" fill="#3A6048"/>
+      <path d="M 0 0 L 16 -8 L 10 -16 L 2 -8 Z" fill="#3A6048"/>
+    </g>
+
+    <!-- Papel picado bunting (top decorative) -->
+    <g>
+      <line x1="455" y1="50" x2="645" y2="50" stroke="#5C3A1E" stroke-width="0.5"/>
+      <!-- Bunting triangles -->
+      <polygon points="467,50 477,50 472,60" fill="#E84A4A"/>
+      <polygon points="487,50 497,50 492,60" fill="#FFE090"/>
+      <polygon points="507,50 517,50 512,60" fill="#5BB8D4"/>
+      <polygon points="527,50 537,50 532,60" fill="#E84A4A"/>
+      <polygon points="585,50 595,50 590,60" fill="#5BB8D4"/>
+      <polygon points="605,50 615,50 610,60" fill="#FFE090"/>
+      <polygon points="625,50 635,50 630,60" fill="#E84A4A"/>
+    </g>
+
+    <!-- Label -->
+    <rect x="475" y="210" width="150" height="14" fill="#F0E4C8" stroke="#5C3A1E" stroke-width="0.8"/>
+    <text x="550" y="221" fill="#3A2818" font-family="'Nunito', sans-serif" font-size="9" font-weight="800" text-anchor="middle" letter-spacing="1.2">MEXICO</text>
+  </g>
+
+  <!-- ───── PANEL 4: CARIBBEAN ───── x: 660 -->
+  <g>
+    <rect x="660" y="38" width="200" height="170" fill="url(#caribSky)" stroke="#5C3A1E" stroke-width="1.5"/>
+    <!-- Sea -->
+    <rect x="660" y="158" width="200" height="22" fill="#3FA8C2"/>
+    <path d="M 660 162 Q 685 159 705 162 T 745 162 T 785 162 T 825 162 T 860 162" fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.6"/>
+    <path d="M 660 170 Q 690 167 715 170 T 760 170 T 810 170 T 860 170" fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"/>
+    <!-- Beach -->
+    <rect x="660" y="180" width="200" height="28" fill="#F5DE9A"/>
+
+    <!-- Sun -->
+    <circle cx="720" cy="70" r="15" fill="#FFE090"/>
+    <circle cx="720" cy="70" r="10" fill="#FFFFFF" opacity="0.55"/>
+
+    <!-- Palm tree (left) -->
+    <g transform="translate(710, 180)">
+      <path d="M 0 0 Q 2 -30 4 -55" fill="none" stroke="#5C3A1E" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 4 -55 Q -10 -62 -22 -58 Q -10 -55 0 -53" fill="#3A8050"/>
+      <path d="M 4 -55 Q 18 -62 30 -58 Q 18 -55 8 -53" fill="#3A8050"/>
+      <path d="M 4 -55 Q -4 -70 -12 -78 Q -2 -70 2 -60" fill="#3A8050"/>
+      <path d="M 4 -55 Q 12 -70 20 -78 Q 10 -70 6 -60" fill="#3A8050"/>
+      <path d="M 4 -55 Q -6 -50 -16 -42 Q -2 -50 4 -52" fill="#3A8050"/>
+      <path d="M 4 -55 Q 14 -50 24 -42 Q 10 -50 4 -52" fill="#3A8050"/>
+      <!-- Coconuts -->
+      <circle cx="3" cy="-54" r="2.5" fill="#5C3A1E"/>
+      <circle cx="7" cy="-55" r="2.5" fill="#5C3A1E"/>
+    </g>
+
+    <!-- Steel drum -->
+    <g transform="translate(800, 165)">
+      <!-- Drum body (silver cylinder) -->
+      <ellipse cx="0" cy="-25" rx="22" ry="6" fill="#D8D8D8" stroke="#3A4050" stroke-width="0.8"/>
+      <rect x="-22" y="-25" width="44" height="22" fill="#A8B0BC" stroke="#3A4050" stroke-width="0.8"/>
+      <ellipse cx="0" cy="-3" rx="22" ry="6" fill="#7A8090" stroke="#3A4050" stroke-width="0.8"/>
+      <!-- Top playing surface details -->
+      <ellipse cx="-10" cy="-26" rx="6" ry="2" fill="none" stroke="#3A4050" stroke-width="0.6"/>
+      <ellipse cx="6" cy="-26" rx="5" ry="1.7" fill="none" stroke="#3A4050" stroke-width="0.6"/>
+      <ellipse cx="-2" cy="-22" rx="4" ry="1.5" fill="none" stroke="#3A4050" stroke-width="0.5"/>
+      <ellipse cx="10" cy="-22" rx="4" ry="1.5" fill="none" stroke="#3A4050" stroke-width="0.5"/>
+      <!-- Sticks crossed -->
+      <line x1="-14" y1="-40" x2="2" y2="-26" stroke="#5C3A1E" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="14" y1="-40" x2="-2" y2="-26" stroke="#5C3A1E" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="-14" cy="-40" r="2" fill="#7A4A20"/>
+      <circle cx="14" cy="-40" r="2" fill="#7A4A20"/>
+    </g>
+
+    <!-- Sailboat (far right, on sea) -->
+    <g transform="translate(745, 156)">
+      <polygon points="0,0 0,-18 12,0" fill="#FFFFFF" stroke="#5C3A1E" stroke-width="0.6"/>
+      <line x1="0" y1="-18" x2="0" y2="2" stroke="#5C3A1E" stroke-width="1"/>
+      <path d="M -5 2 L 13 2 L 11 5 L -3 5 Z" fill="#A04830" stroke="#5C3A1E" stroke-width="0.6"/>
+    </g>
+
+    <!-- Hibiscus flowers -->
+    <g transform="translate(675, 196)">
+      <circle r="3" fill="#E84A6B"/>
+      <circle r="1.2" fill="#FFD17A"/>
+    </g>
+    <g transform="translate(855, 200)">
+      <circle r="2.5" fill="#E84A6B"/>
+      <circle r="1" fill="#FFD17A"/>
+    </g>
+
+    <!-- Label -->
+    <rect x="685" y="210" width="150" height="14" fill="#F0E4C8" stroke="#5C3A1E" stroke-width="0.8"/>
+    <text x="760" y="221" fill="#3A2818" font-family="'Nunito', sans-serif" font-size="9" font-weight="800" text-anchor="middle" letter-spacing="1.2">CARIBBEAN</text>
+  </g>
+
+  <!-- ═══ Regional Observer Badge (top-right corner overlay) ═══ -->
+  <g transform="translate(875, 30)">
+    <!-- Outer rope ring -->
+    <circle r="22" fill="url(#badgeGrad)" stroke="#5C3A1E" stroke-width="1.5"/>
+    <circle r="17" fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.5"/>
+    <!-- Inner area -->
+    <circle r="15" fill="#3A6048"/>
+    <!-- Globe icon -->
+    <circle r="9" fill="#5BB8D4" stroke="#1A4FA0" stroke-width="0.8"/>
+    <path d="M -9 -1 Q 0 -3 9 -1" fill="none" stroke="#FFFFFF" stroke-width="0.8"/>
+    <path d="M -8 3 Q 0 4 8 3" fill="none" stroke="#FFFFFF" stroke-width="0.8"/>
+    <line x1="0" y1="-9" x2="0" y2="9" stroke="#FFFFFF" stroke-width="0.6" opacity="0.6"/>
+    <!-- Ribbon hanging below -->
+    <polygon points="-8,15 -8,22 -4,20 0,24 4,20 8,22 8,15" fill="#E84A4A" stroke="#7A1818" stroke-width="0.6"/>
+  </g>
+
+  <!-- Floor -->
+  <rect y="225" width="920" height="35" fill="#6B5238"/>
+  <line x1="0" y1="225" x2="920" y2="225" stroke="#3A2818" stroke-width="1.5"/>
+</svg>
+
+<div class="info-strip">
+  <div class="info-cell"><div class="info-icon" style="background:#EAF8FD;">🏛️</div><div><div class="info-label">Unit</div><div class="info-value">North America &amp; the Caribbean</div></div></div>
+  <div class="info-cell"><div class="info-icon" style="background:#FFF3DC;">📅</div><div><div class="info-label">Week</div><div class="info-value">Week 18 · Q3</div></div></div>
+  <div class="info-cell"><div class="info-icon" style="background:#E3F8ED;">🎖️</div><div><div class="info-label">Focus</div><div class="info-value">Unit Closer · Regional Observer</div></div></div>
+  <div class="info-cell"><div class="info-icon" style="background:#F0E8FF;">📋</div><div><div class="info-label">Standards</div><div class="info-value" style="font-size:12px;">SS.3.G.4.1 · SS.3.G.4.3 · SS.3.G.4.4</div></div></div>
+</div>
+
+<div class="quote-strip">
+  <div class="quote-strip-text" style="font-style:normal;text-align:left;font-size:15px;line-height:1.65;">
+    Four large panels have just been hung along the gallery wall, side by side — one for <strong>Canada</strong>, one for the <strong>United States</strong>, one for <strong>Mexico</strong>, one for the <strong>Caribbean</strong>. Each panel shows a different language, a different sport, different foods, different music. The museum director smiles: <em>"Today's the day you complete the gallery — and earn your Regional Observer badge."</em> Your last job as Regional Curators: compare what makes each part of this region distinct… and what connects them.
+  </div>
+</div>
+
+<div class="intro-section" id="introSection">
+  <div class="intro-collapsed-bar" onclick="toggleIntro()">
+    <div class="intro-collapsed-icon">📍</div>
+    <div class="intro-collapsed-text">Today's Curator's Question &amp; Objectives</div>
+    <div class="intro-collapsed-toggle">▼ Expand</div>
+  </div>
+
+  <div class="intro-2col">
+    <div class="intro-card theme-question">
+      <div class="intro-card-head"><div class="intro-card-head-icon">✨</div><div><div class="intro-card-head-label">Curator's Question</div><div class="intro-card-head-title">Today's Big Question</div></div></div>
+      <div class="intro-card-body">What makes Canada, the United States, Mexico, and the Caribbean culturally distinct from one another — and what connects them?</div>
+    </div>
+    <div class="intro-card theme-objectives">
+      <div class="intro-card-head"><div class="intro-card-head-icon">🎯</div><div><div class="intro-card-head-label">Objectives</div><div class="intro-card-head-title">What You'll Learn</div></div></div>
+      <div class="intro-card-body">
+        <div class="obj-line"><span class="obj-icon">🌎</span> Name cultural characteristics of each part of the region.</div>
+        <div class="obj-line"><span class="obj-icon">🔍</span> Compare two regional places fairly and respectfully.</div>
+        <div class="obj-line"><span class="obj-icon">📝</span> Write a comparison that shows both differences and connections.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="need-strip">
+    <span class="need-strip-label">You'll need:</span>
+    <span class="need-chip">📓 Curator's Notebook</span>
+    <span class="need-chip">✏️ Pencil</span>
+    <span class="need-chip">🗺️ Lesson Page</span>
+  </div>
+</div>
+
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="switchTab('scene')" id="btn-scene">📍 Enter the Museum <span class="tab-check">✓</span></button>
+  <button class="tab-btn" onclick="switchTab('explore')" id="btn-explore">🔍 Explore <span class="tab-check">✓</span></button>
+  <button class="tab-btn" onclick="switchTab('check')" id="btn-check">🧠 Self-Check <span class="tab-check">✓</span></button>
+  <button class="tab-btn" onclick="switchTab('assignment')" id="btn-assignment">📝 Evidence &amp; Assignment <span class="tab-check">✓</span></button>
+</div>
+
+<div class="tab-panel active" id="panel-scene">
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #D4943A, #E0A050);">📍</div>
+    <div><div class="tab-section-title">Enter the Museum</div></div>
+  </div>
+
+  <div class="todays-path">
+    <div class="todays-path-title">🗺️ Today's Path</div>
+    <div class="todays-path-steps">
+      <span class="todays-path-step">📍 Step up to the four comparison panels &amp; spotlight courtesy</span>
+      <span class="todays-path-arrow">→</span>
+      <span class="todays-path-step">🔍 Match cultural characteristics to the right region</span>
+      <span class="todays-path-arrow">→</span>
+      <span class="todays-path-step">🧠 Check your understanding</span>
+      <span class="todays-path-arrow">→</span>
+      <span class="todays-path-step">📝 Write a comparison and earn the Regional Observer badge</span>
+    </div>
+  </div>
+
+  <div class="video-wrap" style="margin-top:18px;">
+    <div class="video-wrap-header"><span style="font-size:20px;">🎬</span><div><div class="video-wrap-type">📍 WELCOME · ENTER THE MUSEUM</div><div class="video-wrap-title">The Last Stop in the Gallery</div></div></div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text"><strong>Teacher recording notes:</strong> Welcome back. Make this feel like a big moment: "This is the LAST lesson in our North America and Caribbean Gallery. You've come a long way — countries, features, landmarks, climate, resources, cultures, settlement. Today is the final comparison." Read the Curator's Question aloud: "What makes Canada, the United States, Mexico, and the Caribbean culturally distinct from one another — and what connects them?" Spotlight courtesy: each region is described on its own terms, never ranked. Tease the badge: "Finish today, and you earn the Regional Observer badge." Under 2 minutes.</div>
+        <div class="video-placeholder-id"><!-- slot: 3-06-08-welcome --></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="virtue-card">
+    <div class="virtue-label">🏛️ Virtue Spotlight — Courtesy</div>
+    <div class="virtue-text">Comparing regions is tricky. It's easy to slip into ranking — "this region is better than that one." Courtesy means describing each region on its own terms. Hockey isn't better than soccer; salsa music isn't better than country music; they're each true to their place. A good comparison shows the differences AND the shared connections.</div>
+  </div>
+
+  <div class="callout callout-info">
+    <div class="callout-icon">🕯️</div>
+    <p><strong>Your Role Today:</strong> You are a <strong>Regional Curator</strong> — your last gallery task. Today, you'll match cultural characteristics to the right region and write a comparison panel that helps visitors see both how the regions differ and how they connect.</p>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-dot">···</span></div>
+
+  <div class="tab-next-wrap">
+    <p class="tab-transition-voice">Four panels are waiting along the wall. Let's walk down the line.</p>
+    <button class="tab-next-btn" onclick="switchTab('explore')">Continue to 🔍 Explore →</button>
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-explore">
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #1A8A7D, #34B0A0);">🔍</div>
+    <div><div class="tab-section-title">Explore</div></div>
+  </div>
+
+  <div class="video-wrap">
+    <div class="video-wrap-header"><span style="font-size:20px;">🎬</span><div><div class="video-wrap-type">🔍 TEACHING · EXPLORE</div><div class="video-wrap-title">Four Regions, Side by Side</div></div></div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text"><strong>Teacher recording notes:</strong> Walk students through each panel. Canada: two official languages (English &amp; French), parliament government, hockey is the national winter sport, maple leaf as national symbol. United States: English most spoken, many cultures from around the world live together, the Stars and Stripes flag, baseball, jazz and country music. Mexico: Spanish is most spoken, Maya/Aztec heritage still alive, Day of the Dead, mariachi music, foods like tortillas and tamales. Caribbean: many islands speaking Spanish, English, French, Dutch, Creole; reggae, calypso, salsa; African and Indigenous Taíno heritage; sugarcane, beaches, sailing. Emphasize: each region is distinct, but they share a continent, and many cultures cross from one region into another. 3–5 minutes.</div>
+        <div class="video-placeholder-id"><!-- slot: 3-06-08-explore-explainer --></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-badge"><div class="step-badge-num">1</div> Learn the Story</div>
+
+  <div class="activity bl-accent">
+    <div class="activity-head"><div class="activity-num" style="background:#1A8A7D;">📖</div><div><div class="activity-title">Four Regional Panels</div><div class="activity-sub">What makes each part of the region distinct</div></div></div>
+    <div class="activity-body">
+      <p>This region — North America and the Caribbean — is made up of four big areas. Each one has its own mix of languages, traditions, foods, music, and symbols. Let's walk past each panel.</p>
+
+      <p>🍁 <strong>Canada</strong> is huge — the second-largest country in the world by land. It has <strong>two official languages</strong>: English and French. The country is governed by a parliament, and the leader is called a Prime Minister. <strong>Hockey</strong> is the beloved national winter sport. The red maple leaf on the flag stands for the maple trees that grow across the country — and for the maple syrup that comes from them.</p>
+
+      <p>🇺🇸 <strong>The United States</strong> is a mix of many cultures from many parts of the world. English is the most-spoken language, but you'll hear Spanish, Chinese, Vietnamese, Arabic, and many more in everyday life. The flag — the <strong>Stars and Stripes</strong> — has 50 stars for the 50 states. <strong>Baseball</strong> is sometimes called the national pastime. American <strong>jazz, blues, and country music</strong> all started here and traveled around the world.</p>
+
+      <p>🌶️ <strong>Mexico</strong> blends Indigenous heritage (Maya, Aztec, and many others) with Spanish heritage from the colonial period. <strong>Spanish</strong> is the most-spoken language, but millions of people also speak Indigenous languages like Nahuatl and Maya. The <strong>Day of the Dead</strong> (Día de Muertos) honors family members who have passed on. <strong>Mariachi</strong> music, with trumpets and violins, is the national sound. Foods like tortillas, tamales, and chocolate all come from Mexico.</p>
+
+      <p>🏝️ <strong>The Caribbean</strong> is made up of <em>many</em> islands, each with its own culture. Different islands speak different languages — Spanish in Cuba and the Dominican Republic, English in Jamaica and the Bahamas, French in Haiti, Dutch on islands like Curaçao, and Creole languages blending all of them. <strong>Reggae, calypso, and salsa</strong> music all started in the Caribbean and shaped music around the world. The islands share warm climate, palm-fringed beaches, and a heritage that blends African, Indigenous Taíno, and European cultures.</p>
+
+      <p>Even though each region is distinct, they connect in many ways: they share the same continent, many of the same Indigenous peoples whose homelands cross modern borders, and centuries of trade. A song from one region often shows up in another. A food from one region travels through the others.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-think">
+    <div class="callout-icon">🤔</div>
+    <p><strong>Pause &amp; Think:</strong> A jazz song born in New Orleans might be played in Toronto, Mexico City, and Havana — all in the same week. What does that tell you about how regions are connected, even though they're different?</p>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-dot">···</span></div>
+
+  <div class="step-badge"><div class="step-badge-num">2</div> Study the Comparison</div>
+
+  <div class="source-card">
+    <div class="source-card-header"><div class="source-card-header-icon">🌎</div><div><div class="source-card-header-label">Source Image</div><div class="source-card-header-title">A Cultural Map of the Region</div></div></div>
+    <div class="source-image-placeholder" data-image="source-3-06-08-regional-cultural-map">
+      <div class="source-image-placeholder-text">🖼️ A clear public-domain cultural map of North America and the Caribbean showing the four regional areas — Canada, the United States, Mexico, and the Caribbean — ideally with notes or icons indicating major languages spoken, major cultural symbols, or shared cultural traits across the region. A languages-of-North-America map works well, as does a "cultural regions" overview map. Look for examples at the National Geographic MapMaker (mapmaker.nationalgeographic.org), the U.S. Department of State (state.gov), the Smithsonian (si.edu), or Wikimedia Commons (search "North America cultural map public domain" or "languages of North America map").<br><br><strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-3-06-08-regional-cultural-map.jpg</code></div>
+    </div>
+    <div class="source-card-body">
+      <div class="source-label-bar"><span class="src-type">Map Source</span> · Regional cultural characteristics across North America and the Caribbean</div>
+      <div class="callout callout-info"><div class="callout-icon">👁️</div><p><strong>What do I see?</strong> Look at the map. Where is each of the four regional areas? What languages or symbols stand out?</p></div>
+      <div class="callout callout-think"><div class="callout-icon">💭</div><p><strong>What does it mean?</strong> Pick two regional areas. Name one BIG difference between them and one thing that CONNECTS them.</p></div>
+      <div class="callout callout-tip"><div class="callout-icon">⚖️</div><p><strong>Why does it matter?</strong> A curator who sees both differences AND connections tells a fuller, fairer story than one who only points out one or the other.</p></div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-dot">···</span></div>
+
+  <div class="step-badge"><div class="step-badge-num">3</div> Match the Characteristics</div>
+
+  <div class="activity bl-purple">
+    <div class="activity-head"><div class="activity-num" style="background:#8B6FC0;">🎭</div><div><div class="activity-title">Map Quest: Match the Characteristic to the Region</div><div class="activity-sub">Tap each card, then tap the region it belongs to.</div></div></div>
+    <div class="activity-body">
+      <p style="font-size:14px;color:#3A4A6B;margin-bottom:12px;">Eight cultural characteristics. Four regional panels. Read each card and tap the region where it best fits.</p>
+
+      <div id="sortGame" style="display:flex;flex-direction:column;gap:10px;">
+
+        <div class="sort-row" data-answer="canada">
+          <div class="sort-name"><strong>Two official languages — English and French</strong> — spoken side by side in this country's government, schools, and signs.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="canada" onclick="sortPick(this)">🍁 Canada</button>
+            <button class="sort-opt" data-pick="usa" onclick="sortPick(this)">🇺🇸 United States</button>
+            <button class="sort-opt" data-pick="mexico" onclick="sortPick(this)">🌶️ Mexico</button>
+            <button class="sort-opt" data-pick="caribbean" onclick="sortPick(this)">🏝️ Caribbean</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="mexico">
+          <div class="sort-name"><strong>The Day of the Dead (Día de Muertos)</strong> — a colorful holiday in early November when families honor relatives who have passed on.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="canada" onclick="sortPick(this)">🍁 Canada</button>
+            <button class="sort-opt" data-pick="usa" onclick="sortPick(this)">🇺🇸 United States</button>
+            <button class="sort-opt" data-pick="mexico" onclick="sortPick(this)">🌶️ Mexico</button>
+            <button class="sort-opt" data-pick="caribbean" onclick="sortPick(this)">🏝️ Caribbean</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="caribbean">
+          <div class="sort-name"><strong>Reggae and calypso music</strong> — musical styles born on the islands, with roots in African and local traditions, that spread around the world.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="canada" onclick="sortPick(this)">🍁 Canada</button>
+            <button class="sort-opt" data-pick="usa" onclick="sortPick(this)">🇺🇸 United States</button>
+            <button class="sort-opt" data-pick="mexico" onclick="sortPick(this)">🌶️ Mexico</button>
+            <button class="sort-opt" data-pick="caribbean" onclick="sortPick(this)">🏝️ Caribbean</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="usa">
+          <div class="sort-name"><strong>The Stars and Stripes flag with 50 stars</strong> — one star for each of the 50 states that make up the country.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="canada" onclick="sortPick(this)">🍁 Canada</button>
+            <button class="sort-opt" data-pick="usa" onclick="sortPick(this)">🇺🇸 United States</button>
+            <button class="sort-opt" data-pick="mexico" onclick="sortPick(this)">🌶️ Mexico</button>
+            <button class="sort-opt" data-pick="caribbean" onclick="sortPick(this)">🏝️ Caribbean</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="canada">
+          <div class="sort-name"><strong>Hockey as the national winter sport</strong> — played outdoors on frozen ponds and indoors in arenas across this snowy country.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="canada" onclick="sortPick(this)">🍁 Canada</button>
+            <button class="sort-opt" data-pick="usa" onclick="sortPick(this)">🇺🇸 United States</button>
+            <button class="sort-opt" data-pick="mexico" onclick="sortPick(this)">🌶️ Mexico</button>
+            <button class="sort-opt" data-pick="caribbean" onclick="sortPick(this)">🏝️ Caribbean</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="mexico">
+          <div class="sort-name"><strong>Mariachi music with trumpets, violins, and guitars</strong> — a beloved national sound, often played at weddings, birthdays, and big celebrations.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="canada" onclick="sortPick(this)">🍁 Canada</button>
+            <button class="sort-opt" data-pick="usa" onclick="sortPick(this)">🇺🇸 United States</button>
+            <button class="sort-opt" data-pick="mexico" onclick="sortPick(this)">🌶️ Mexico</button>
+            <button class="sort-opt" data-pick="caribbean" onclick="sortPick(this)">🏝️ Caribbean</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="caribbean">
+          <div class="sort-name"><strong>Many islands with many languages</strong> — Spanish, English, French, Dutch, and several Creole languages are all spoken across this group of islands.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="canada" onclick="sortPick(this)">🍁 Canada</button>
+            <button class="sort-opt" data-pick="usa" onclick="sortPick(this)">🇺🇸 United States</button>
+            <button class="sort-opt" data-pick="mexico" onclick="sortPick(this)">🌶️ Mexico</button>
+            <button class="sort-opt" data-pick="caribbean" onclick="sortPick(this)">🏝️ Caribbean</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="usa">
+          <div class="sort-name"><strong>Baseball as the national pastime</strong> — a summer sport with leagues, hot dogs at the park, and a World Series every fall.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="canada" onclick="sortPick(this)">🍁 Canada</button>
+            <button class="sort-opt" data-pick="usa" onclick="sortPick(this)">🇺🇸 United States</button>
+            <button class="sort-opt" data-pick="mexico" onclick="sortPick(this)">🌶️ Mexico</button>
+            <button class="sort-opt" data-pick="caribbean" onclick="sortPick(this)">🏝️ Caribbean</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="sortSuccess" style="display:none;margin-top:14px;padding:14px 18px;background:linear-gradient(135deg,#E3F8ED,#D4F1E0);border-left:4px solid #1A8A7D;border-radius:8px;">
+        <div style="font-weight:800;color:#0E6B5E;margin-bottom:6px;">🎉 Gallery complete!</div>
+        <div style="font-size:14px;color:#0E1C42;">🔎 <strong>Discovery Fact:</strong> Baseball is loved in the United States, but it's also huge in Mexico, Cuba, and the Dominican Republic. Many of the best baseball players in the U.S. major leagues come from the Caribbean. Cultural characteristics belong to a region — but they also travel between regions.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-tip"><div class="callout-icon">⏳</div><p><strong>Then &amp; Now:</strong> Hundreds of years ago, these four regional areas were already culturally distinct — different languages, different music, different ways of life. Today, with the internet and travel, cultures share more than ever. Mariachi songs play in Toronto; hockey is played in Florida; reggae fills cafés in Mexico City. The regions are still distinct, but the connections are stronger than ever.</p></div>
+
+  <div class="section-divider"><span class="section-divider-dot">···</span></div>
+
+  <div class="step-badge"><div class="step-badge-num">4</div> Connect the Ideas</div>
+
+  <div class="key-concept">
+    <div class="key-concept-label">🏷️ Exhibit Label</div>
+    <p>North America and the Caribbean is made of four regional areas — Canada, the United States, Mexico, and the Caribbean — each with its own languages, traditions, music, sports, and symbols. But the region shares a continent, shared histories, and cultures that move freely across borders. A good curator describes each one fairly AND shows what connects them.</p>
+  </div>
+
+  <div class="owl-buddy">
+    <div class="owl-buddy-avatar">🦉</div>
+    <div class="owl-buddy-bubble">
+      <div class="owl-buddy-name">🧭 Opti says…</div>
+      One last curator tip: cultures don't stop at borders. A song born in Jamaica might be sung in Toronto next week; a recipe from Mexico might be loved in Chicago. When you compare regions, show what's distinct AND show what travels between them. That's a complete story.
+    </div>
+  </div>
+
+  <div class="tab-next-wrap">
+    <p class="tab-transition-voice">You've sorted the panels. One last check before your final comparison.</p>
+    <button class="tab-next-btn" onclick="switchTab('check')">Continue to 🧠 Self-Check →</button>
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-check">
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #8B6FC0, #A88AD4);">🧠</div>
+    <div><div class="tab-section-title">Quick Self-Check</div></div>
+  </div>
+
+  <div class="callout callout-info" style="margin-bottom:18px;"><div class="callout-icon">🧠</div><p>Not graded — just for you! Answer these three questions before writing your final comparison.</p></div>
+
+  <div class="quiz-card">
+    <div style="padding:18px 22px;">
+
+      <div class="quiz-q" data-answer="b">
+        <div class="quiz-q-text">1. Which country has TWO official languages — English and French?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-val="a" onclick="checkQuiz(this)"><span class="opt-letter">A</span>Mexico</div>
+          <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>Canada</div>
+          <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>The United States</div>
+        </div>
+        <div class="quiz-feedback fb-correct">Right! Canada has two official languages — English and French — both spoken across the country, especially French in the province of Quebec.</div>
+        <div class="quiz-feedback fb-wrong">Think about where French settlers landed long ago and where French is still widely spoken today.</div>
+      </div>
+
+      <div class="quiz-q" data-answer="c">
+        <div class="quiz-q-text">2. The Day of the Dead and mariachi music are cultural characteristics of which region?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-val="a" onclick="checkQuiz(this)"><span class="opt-letter">A</span>Canada</div>
+          <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>The Caribbean</div>
+          <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>Mexico</div>
+        </div>
+        <div class="quiz-feedback fb-correct">Yes! Both the Day of the Dead and mariachi music come from Mexico. Both blend Indigenous and Spanish heritage.</div>
+        <div class="quiz-feedback fb-wrong">Mariachi bands use trumpets and violins, and Día de Muertos is a colorful November holiday honoring relatives. Where do these come from?</div>
+      </div>
+
+      <div class="quiz-q" data-answer="a">
+        <div class="quiz-q-text">3. What is one thing that CONNECTS the four regions of North America and the Caribbean?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-val="a" onclick="checkQuiz(this)"><span class="opt-letter">A</span>Music, food, and traditions move freely between the regions.</div>
+          <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>All four regions speak only one language.</div>
+          <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>The four regions never trade with each other.</div>
+        </div>
+        <div class="quiz-feedback fb-correct">Exactly! Cultures don't stop at borders. A song from Jamaica might be popular in Toronto. A Mexican dish might be loved in Chicago. The regions are distinct AND connected.</div>
+        <div class="quiz-feedback fb-wrong">The regions speak many different languages and trade together every day. What's something cultural that travels between them?</div>
+      </div>
+
+      <div class="quiz-score-box" id="quizScore">
+        <div class="quiz-score-label">Your Score</div>
+        <div class="quiz-score-num" id="quizScoreNum">0</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.7);">out of 3</div>
+        <div class="quiz-score-msg" id="quizScoreMsg"></div>
+      </div>
+
+      <div class="quiz-video-wrap" id="quizVideoCorrect">
+        <div class="video-wrap">
+          <div class="video-wrap-header"><span style="font-size:20px;">⭐</span><div><div class="video-wrap-type">Perfect Score · Great Work!</div><div class="video-wrap-title">You nailed it!</div></div></div>
+          <div class="video-ratio">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">⭐</div>
+              <div class="video-placeholder-text"><strong>Teacher recording notes:</strong> Celebrate: "You can compare four regions, name their characteristics, and see what connects them. You're ready for your final Curator Task — and the badge." Under 30 seconds.</div>
+              <div class="video-placeholder-id"><!-- slot: 3-06-08-quiz-perfect --></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-video-wrap" id="quizVideoReview">
+        <div class="video-wrap">
+          <div class="video-wrap-header"><span style="font-size:20px;">🔄</span><div><div class="video-wrap-type">Review · Keep Going!</div><div class="video-wrap-title">Let's look at those tricky questions.</div></div></div>
+          <div class="video-ratio">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">🔄</div>
+              <div class="video-placeholder-text"><strong>Teacher recording notes:</strong> Reteach: Canada = two languages (English/French), hockey. USA = Stars and Stripes, baseball, many cultures. Mexico = Spanish + Indigenous, Day of the Dead, mariachi. Caribbean = many islands, many languages, reggae and calypso. They connect through trade, music, food, and shared continent. Under 1 minute. Encouraging.</div>
+              <div class="video-placeholder-id"><!-- slot: 3-06-08-quiz-review --></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="tab-next-wrap">
+    <p class="tab-transition-voice">Now it's time for your final comparison — the one that earns the badge.</p>
+    <button class="tab-next-btn" onclick="switchTab('assignment')">Continue to 📝 Evidence &amp; Assignment →</button>
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-assignment">
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #55C8E8, #7FD8F0);">📝</div>
+    <div><div class="tab-section-title">Evidence &amp; Assignment</div></div>
+  </div>
+
+  <div class="callout callout-info" style="margin-bottom:18px;"><div class="callout-icon">📝</div><p>Time for your final gallery task. Answer the evidence questions and write your comparison. Your answers will be gathered at the bottom so you can copy or download them for Canvas.</p></div>
+
+  <div class="video-wrap">
+    <div class="video-wrap-header"><span style="font-size:20px;">🎬</span><div><div class="video-wrap-type">📝 ASSIGNMENT · EVIDENCE</div><div class="video-wrap-title">Your Final Curator Task</div></div></div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text"><strong>Teacher recording notes:</strong> Read each evidence question aloud. Model Q1: "Canada and Mexico are very different — Canada is cold with hockey and French, Mexico is warm with mariachi and Spanish — but they both have Indigenous peoples who lived there long before European settlers arrived." Then explain the Curator Task: "Pick TWO of the four regional areas. Write a comparison panel that gives one specific cultural characteristic of each, ONE difference, and ONE thing that connects them. This is the panel that earns you the Regional Observer badge." 2–3 minutes.</div>
+        <div class="video-placeholder-id"><!-- slot: 3-06-08-assignment-explainer --></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity bl-cyan">
+    <div class="activity-head"><div class="activity-num" style="background:#55C8E8;">A</div><div><div class="activity-title">Evidence Questions</div><div class="activity-sub">Answer using what you read.</div></div></div>
+    <div class="activity-body">
+
+      <div class="q-block"><div class="q-text"><span class="q-num">1</span>Name one cultural characteristic of Canada and one cultural characteristic of Mexico. Use details from today's lesson.</div></div>
+      <div class="textbox-prompt">Pick a language, a holiday, a sport, music, or a symbol — one specific thing from each.</div>
+      <textarea class="journal-box" id="journal-q1" data-label="Q1: One Canada and one Mexico characteristic" placeholder="One cultural characteristic of Canada is ___. One cultural characteristic of Mexico is..." oninput="autoSave(this,'dot-q1');gatherAnswers();"></textarea>
+
+      <div class="q-block" style="margin-top:14px;"><div class="q-text"><span class="q-num">2</span>The Caribbean has MANY languages spoken on different islands. Why? Use one detail from today's lesson.</div></div>
+      <div class="textbox-prompt">Think about who settled different Caribbean islands over the centuries.</div>
+      <textarea class="journal-box" id="journal-q2" data-label="Q2: Why Caribbean has many languages" placeholder="The Caribbean has many languages because..." oninput="autoSave(this,'dot-q2');gatherAnswers();"></textarea>
+
+      <div class="q-block" style="margin-top:14px;"><div class="q-text"><span class="q-num">3</span>What is one way these four regions are CONNECTED, not just different? Use a detail from today's lesson.</div></div>
+      <div class="textbox-prompt">Think about music, food, people, or sports that cross borders.</div>
+      <textarea class="journal-box" id="journal-q3" data-label="Q3: One connection across the regions" placeholder="The four regions are connected because..." oninput="autoSave(this,'dot-q3');gatherAnswers();"></textarea>
+
+    </div>
+  </div>
+
+  <div class="activity bl-gold">
+    <div class="activity-head"><div class="activity-num" style="background:#D4943A;">B</div><div><div class="activity-title">Curator Task: Final Comparison Panel</div><div class="activity-sub">The label that earns you the Regional Observer badge.</div></div></div>
+    <div class="activity-body">
+      <p>Pick <strong>two</strong> of the four regional areas (Canada, the United States, Mexico, or the Caribbean). Write a 4–5 sentence comparison panel. Include:</p>
+      <ul style="margin:8px 0 12px 22px;padding:0;font-size:14px;color:#3A4A6B;line-height:1.6;">
+        <li>One specific cultural characteristic of the first region</li>
+        <li>One specific cultural characteristic of the second region</li>
+        <li>One clear <strong>difference</strong> between them</li>
+        <li>One thing that <strong>connects</strong> them</li>
+      </ul>
+      <div class="textbox-prompt">Your panel should help visitors see BOTH what makes each region distinct AND what links them together.</div>
+      <textarea class="journal-box" id="journal-assign" data-label="Curator Task: Final Comparison Panel" placeholder="This panel compares ___ and ___. In ___, ... In ___, ... One big difference is ... One way they connect is..." oninput="autoSave(this,'dot-assign');gatherAnswers();"></textarea>
+    </div>
+  </div>
+
+  <div class="activity bl-navy">
+    <div class="activity-head"><div class="activity-num" style="background:#0E1C42;">📜</div><div><div class="activity-title">Curator's Chronicle</div><div class="activity-sub">One sentence to capture the WHOLE gallery's work.</div></div></div>
+    <div class="activity-body">
+      <p>This is your last chronicle for this gallery. Finish this sentence in your own words:</p>
+      <div class="textbox-prompt">Walking through this gallery, I learned that ______ because ______.</div>
+      <textarea class="journal-box" id="journal-chronicle" data-label="Curator's Chronicle" placeholder="Walking through this gallery, I learned that..." oninput="autoSave(this,'dot-chronicle');gatherAnswers();"></textarea>
+    </div>
+  </div>
+
+  <div class="gathered-card">
+    <div class="gathered-header"><div class="gathered-header-icon">📋</div><div><div class="gathered-header-label">Review Your Work</div><div class="gathered-header-title">Gathered Answers</div></div></div>
+    <div class="gathered-body">
+      <div class="gathered-intro">All your answers are gathered here. Review them, then copy or download to submit.</div>
+      <textarea class="gathered-output" id="gatheredOutput" readonly></textarea>
+      <div class="gathered-actions">
+        <button class="gathered-btn gathered-btn-copy" onclick="copyGathered()">📋 Copy to Clipboard</button>
+        <button class="gathered-btn gathered-btn-pdf" onclick="downloadJournal()">📄 Download as PDF</button>
+      </div>
+      <div class="gathered-copied" id="gatheredCopied">✅ Copied!</div>
+    </div>
+  </div>
+
+  <!-- Regional Observer Badge Card -->
+  <div class="badge-award-card">
+    <div class="badge-award-shine"></div>
+    <div class="badge-award-inner">
+      <div class="badge-award-medal">
+        <svg viewBox="0 0 100 100" width="78" height="78" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="medalGrad" cx="50%" cy="40%" r="55%">
+              <stop offset="0%" stop-color="#FFE090"/>
+              <stop offset="60%" stop-color="#E0B048"/>
+              <stop offset="100%" stop-color="#8B5E20"/>
+            </radialGradient>
+          </defs>
+          <circle cx="50" cy="50" r="46" fill="url(#medalGrad)" stroke="#5C3A1E" stroke-width="2"/>
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+          <circle cx="50" cy="50" r="32" fill="#3A6048"/>
+          <!-- Globe -->
+          <circle cx="50" cy="50" r="20" fill="#5BB8D4" stroke="#1A4FA0" stroke-width="1.2"/>
+          <path d="M 30 48 Q 50 44 70 48" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+          <path d="M 32 55 Q 50 58 68 55" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+          <line x1="50" y1="30" x2="50" y2="70" stroke="#FFFFFF" stroke-width="0.8" opacity="0.6"/>
+          <!-- Star at top -->
+          <polygon points="50,12 53,20 61,20 55,25 57,32 50,28 43,32 45,25 39,20 47,20" fill="#FFE090" stroke="#8B5E20" stroke-width="0.5"/>
+        </svg>
+      </div>
+      <div class="badge-award-text">
+        <div class="badge-award-label">🎖️ BADGE EARNED</div>
+        <div class="badge-award-name">Regional Observer</div>
+        <div class="badge-award-blurb">You walked the whole North America &amp; Caribbean Gallery — countries, features, landmarks, climate, resources, cultures, settlements, and characteristics. You can describe a region fairly, accurately, and with curiosity. The museum is proud to award you the Regional Observer badge.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="historian-seal" id="historianSeal">
+    <div class="seal-certificate">
+      <div class="seal-cert-message"><strong>Nice work, Regional Curator!</strong> You completed the gallery, compared four regional areas with fairness, and wrote a comparison panel that shows both what's distinct and what connects.</div>
+      <div class="seal-stamp-wrap">
+        <svg viewBox="0 0 90 90" width="80" height="80" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 6px rgba(140,30,30,0.25));">
+          <defs>
+            <radialGradient id="stampGrad" cx="50%" cy="45%" r="50%"><stop offset="0%" stop-color="#D94040"/><stop offset="100%" stop-color="#A02020"/></radialGradient>
+            <clipPath id="owlStampClip"><circle cx="45" cy="38" r="16"/></clipPath>
+          </defs>
+          <circle cx="45" cy="45" r="42" fill="url(#stampGrad)" stroke="#7A1818" stroke-width="1.5"/>
+          <circle cx="45" cy="45" r="37" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+          <image href="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" x="27" y="20" width="36" height="36" clip-path="url(#owlStampClip)" opacity="0.3" style="filter:brightness(3) grayscale(1);"/>
+          <text x="45" y="72" fill="rgba(255,255,255,0.85)" font-family="'Nunito', sans-serif" font-size="9" font-weight="800" letter-spacing="2" text-anchor="middle">CERTIFIED</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="turn-in-card">
+    <div class="turn-in-header"><div class="turn-in-header-icon">✅</div><div><div class="turn-in-header-label">Submit Your Work</div><div class="turn-in-header-title">Turn-In Checklist</div></div></div>
+    <div class="turn-in-body">
+      <div class="turn-in-intro">Check each item as you finish. When all are checked, you're done!</div>
+      <div class="turn-in-checklist">
+        <div class="turn-in-item" onclick="toggleCheck(this)"><div class="turn-in-check"></div><div class="turn-in-item-text">✅ I answered the evidence questions.</div></div>
+        <div class="turn-in-item" onclick="toggleCheck(this)"><div class="turn-in-check"></div><div class="turn-in-item-text">✅ I completed the Curator Task: Final Comparison Panel.</div></div>
+        <div class="turn-in-item" onclick="toggleCheck(this)"><div class="turn-in-check"></div><div class="turn-in-item-text">✅ I wrote my Curator's Chronicle.</div></div>
+        <div class="turn-in-item" onclick="toggleCheck(this)"><div class="turn-in-check"></div><div class="turn-in-item-text">✅ I copied or downloaded my work and submitted to Canvas.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="coming-next-card">
+    <div class="coming-next-header">
+      <div class="coming-next-icon">🗓️</div>
+      <div>
+        <div class="coming-next-label">Coming Up Next at the Museum</div>
+        <div class="coming-next-title">Next Gallery · United States Regions Gallery</div>
+      </div>
+    </div>
+    <div class="coming-next-body">
+      <p>The North America &amp; Caribbean Gallery is complete and the doors close behind you. Across the hallway, the museum director gestures toward a new doorway with five empty alcoves inside — the <strong>United States Regions Gallery</strong>. <em>"You learned that this region holds four big areas,"</em> she says. <em>"But one of those countries — the United States — has FIVE distinct regions of its own. Next time, you'll start a brand-new role: United States Region Curator. One country, many regions. Ready?"</em></p>
+    </div>
+  </div>
+
+  <div class="video-wrap" style="margin-top:18px;">
+    <div class="video-wrap-header"><span style="font-size:20px;">🎬</span><div><div class="video-wrap-type">🎉 CLOSING · UNIT WRAP-UP</div><div class="video-wrap-title">Regional Observer Badge Earned!</div></div></div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text"><strong>Teacher recording notes — UNIT 6 CLOSER:</strong> Celebrate the whole unit. "You walked the entire North America and Caribbean Gallery. Countries, physical features, landmarks, climate, resources, cultures, settlements, regional characteristics — eight lessons of careful curator work. You've earned the <strong>Regional Observer</strong> badge." Then deliver the unit cliffhanger: "But here's the thing — one of the countries we studied, the United States, has FIVE distinct regions of its own. Northeast, Southeast, Midwest, Southwest, West. Next time, you walk through the doorway into the United States Regions Gallery — and your role changes from Regional Curator to United States Region Curator. One country, many regions. See you there." Aim for 1–1.5 minutes. Big, warm, celebratory.</div>
+        <div class="video-placeholder-id"><!-- slot: 3-06-08-closing --></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-main">🏫 <span>Optima Academy Online</span></div>
+  <div class="footer-sub">Social Studies · Grade 3 · Lesson 3.06.08 · Unit 6 Closer</div>
+  <div class="footer-copy">© 2025 Optima Academy Online</div>
+</div>
+
+</div>
+
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()">⬆ Top</button>
+<canvas id="confettiCanvas"></canvas>
+
+<script>
+/* ═══════════ TAB SWITCHING ═══════════ */
+var visited = { scene: true };
+
+function switchTab(tab) {
+  visited[tab] = true;
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('panel-' + tab).classList.add('active');
+  document.getElementById('btn-' + tab).classList.add('active');
+
+  Object.keys(visited).forEach(function(v) {
+    document.getElementById('btn-' + v).classList.add('visited');
+  });
+
+  // Collapse intro on non-scene tabs
+  var intro = document.getElementById('introSection');
+  if (tab !== 'scene') {
+    intro.classList.add('collapsed');
+  } else {
+    intro.classList.remove('collapsed');
+  }
+
+  updateProgress();
+  scrollToTop();
+  if (tab === 'assignment') gatherAnswers();
+}
+
+function toggleIntro() {
+  document.getElementById('introSection').classList.toggle('collapsed');
+}
+
+/* ═══════════ PROGRESS ═══════════ */
+function updateProgress() {
+  var total = 4;
+  var done = Object.keys(visited).length;
+  var pct = Math.round((done / total) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+}
+
+/* ═══════════ AUTO-SAVE ═══════════ */
+function autoSave(textarea, dotId) {
+  var dot = document.getElementById(dotId);
+  if (dot) {
+    dot.classList.add('saved');
+    clearTimeout(textarea._saveTimeout);
+    textarea._saveTimeout = setTimeout(function() {}, 300);
+  }
+}
+
+/* ═══════════ GATHER ANSWERS ═══════════ */
+function gatherAnswers() {
+  var ids = ['journal-q1', 'journal-q2', 'journal-q3', 'journal-assign', 'journal-chronicle'];
+  var output = '';
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var label = el.getAttribute('data-label') || id;
+    var val = el.value.trim();
+    output += label.toUpperCase() + '\n';
+    output += (val || '(no answer)') + '\n\n';
+  });
+
+  // Mini-game status
+  output += 'MINI-GAME RESULTS\n';
+  output += (window._rootMatchDone ? '✅' : '⬜') + ' Word Roots Match\n';
+
+  var gathered = document.getElementById('gatheredOutput');
+  if (gathered) gathered.value = output.trim();
+}
+
+/* ═══════════ COPY TO CLIPBOARD ═══════════ */
+function copyGathered() {
+  gatherAnswers();
+  var output = document.getElementById('gatheredOutput');
+  if (!output) return;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(output.value).then(function() {
+      showCopied();
+    });
+  } else {
+    output.select();
+    document.execCommand('copy');
+    showCopied();
+  }
+}
+function showCopied() {
+  var msg = document.getElementById('gatheredCopied');
+  msg.classList.add('show');
+  setTimeout(function() { msg.classList.remove('show'); }, 2500);
+}
+
+/* ═══════════ DOWNLOAD AS PDF ═══════════ */
+function downloadJournal() {
+  gatherAnswers();
+  var ids = ['journal-q1', 'journal-q2', 'journal-q3', 'journal-assign', 'journal-chronicle'];
+  var html = '<!DOCTYPE html><html><head><meta charset="UTF-8">';
+  html += '<title>✏️ Lesson Code — My Work</title>';
+  html += '<style>';
+  html += 'body{font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:0 20px;color:#1a1a2e;line-height:1.7;}';
+  html += 'h1{font-size:22px;border-bottom:3px solid #55C8E8;padding-bottom:8px;margin-bottom:6px;}';
+  html += 'h2{font-size:14px;color:#7A88A8;margin-bottom:24px;}';
+  html += '.section-title{font-size:16px;font-weight:bold;color:#0E1C42;margin:28px 0 4px;padding:8px 0 4px;border-bottom:2px solid #E2E8F4;}';
+  html += '.q-label{font-size:13px;font-weight:bold;color:#3A4A6B;margin:16px 0 2px;}';
+  html += '.q-answer{font-size:14px;color:#0E1C42;margin:0 0 4px;padding:6px 12px;background:#f8f9fc;border-left:3px solid #D6F2FB;border-radius:4px;white-space:pre-wrap;}';
+  html += '.no-answer{color:#B0B8CC;font-style:italic;}';
+  html += '</style></head><body>';
+  html += '<h1>📓 My Work — ✏️ Lesson Code</h1>';
+  html += '<h2>✏️ Lesson Title</h2>';
+
+  html += '<div class="section-title">📝 EVIDENCE QUESTIONS</div>';
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var label = el.getAttribute('data-label') || id;
+    var val = el.value.trim();
+    html += '<div class="q-label">' + label + '</div>';
+    html += val
+      ? '<div class="q-answer">' + val.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>'
+      : '<div class="q-answer no-answer">(no answer)</div>';
+  });
+
+  html += '</body></html>';
+  var win = window.open('', '_blank');
+  win.document.write(html);
+  win.document.close();
+  setTimeout(function() { win.print(); }, 400);
+}
+
+/* ═══════════ SELF-CHECK QUIZ ═══════════ */
+var quizAnswered = 0, quizCorrect = 0;
+function checkQuiz(optEl) {
+  var q = optEl.closest('.quiz-q');
+  if (q.classList.contains('answered')) return;
+  q.classList.add('answered');
+  quizAnswered++;
+  var correct = q.getAttribute('data-answer');
+  var chosen = optEl.getAttribute('data-val');
+  q.querySelectorAll('.quiz-opt').forEach(function(o) {
+    if (o.getAttribute('data-val') === correct) { o.classList.add('correct'); }
+    else { o.classList.add('disabled'); }
+  });
+  if (chosen === correct) {
+    quizCorrect++;
+    optEl.classList.add('correct');
+    var fb = q.querySelector('.fb-correct');
+    if (fb) fb.classList.add('show');
+  } else {
+    optEl.classList.add('wrong');
+    var fb = q.querySelector('.fb-wrong');
+    if (fb) fb.classList.add('show');
+  }
+  if (quizAnswered === 3) {
+    var scoreBox = document.getElementById('quizScore');
+    document.getElementById('quizScoreNum').textContent = quizCorrect;
+    if (quizCorrect === 3) {
+      document.getElementById('quizScoreMsg').textContent = '⭐ Perfect! You got every question right!';
+      document.getElementById('quizVideoCorrect').classList.add('show');
+      fireConfetti();
+    } else if (quizCorrect === 2) {
+      document.getElementById('quizScoreMsg').textContent = '🏛️ Great job! Almost there!';
+      document.getElementById('quizVideoReview').classList.add('show');
+    } else {
+      document.getElementById('quizScoreMsg').textContent = '📜 Good effort! Review the lesson and try again.';
+      document.getElementById('quizVideoReview').classList.add('show');
+    }
+    scoreBox.classList.add('show');
+  }
+}
+
+/* ═══════════ ROOT MATCH GAME ═══════════ */
+var rootFirst = null;
+var rootCount = 0;
+window._rootMatchDone = false;
+
+function rootMatchClick(item) {
+  if (item.classList.contains('matched')) return;
+
+  if (!rootFirst) {
+    rootFirst = item;
+    item.classList.add('selected');
+    return;
+  }
+
+  if (rootFirst === item) {
+    rootFirst.classList.remove('selected');
+    rootFirst = null;
+    return;
+  }
+
+  var key1 = rootFirst.getAttribute('data-match');
+  var key2 = item.getAttribute('data-match');
+
+  if (key1 === key2 && rootFirst.classList.contains('is-word') !== item.classList.contains('is-word')) {
+    rootFirst.classList.remove('selected');
+    rootFirst.classList.add('matched');
+    item.classList.add('matched');
+    rootCount++;
+    rootFirst = null;
+    if (rootCount >= 4) {
+      document.getElementById('rootMatchFeedback').classList.add('show');
+      var fact = document.getElementById('rootDiscoveryFact');
+      if (fact) setTimeout(function() { fact.classList.add('show'); }, 600);
+      window._rootMatchDone = true;
+    }
+  } else {
+    item.classList.add('wrong-flash');
+    rootFirst.classList.add('wrong-flash');
+    var a = rootFirst;
+    var b = item;
+    setTimeout(function() {
+      a.classList.remove('wrong-flash', 'selected');
+      b.classList.remove('wrong-flash');
+    }, 500);
+    rootFirst = null;
+  }
+}
+
+/* ═══════════ FLIP CARDS ═══════════ */
+document.querySelectorAll('.flip-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    card.classList.toggle('flipped');
+  });
+});
+
+/* ═══════════ TURN-IN CHECKLIST ═══════════ */
+function toggleCheck(item) {
+  item.classList.toggle('checked');
+  var check = item.querySelector('.turn-in-check');
+  check.textContent = item.classList.contains('checked') ? '✓' : '';
+
+  var allChecked = document.querySelectorAll('.turn-in-item.checked').length ===
+                   document.querySelectorAll('.turn-in-item').length;
+  if (allChecked) {
+    fireConfetti();
+    var seal = document.getElementById('historianSeal');
+    if (seal) seal.classList.add('show');
+  }
+}
+
+/* ═══════════ CONFETTI ═══════════ */
+function fireConfetti() {
+  var canvas = document.getElementById('confettiCanvas');
+  var ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  var particles = [];
+  var colors = ['#55C8E8','#D4943A','#1A8A7D','#34B76F','#8B6FC0','#FFD700','#E8636B'];
+  var emojis = ['🏛️','📜','🗺️','🌍','🧭','🏛️','🦉','🔔','⚖️','🌍','🏺','📋'];
+
+  // Regular confetti pieces
+  for (var i = 0; i < 120; i++) {
+    particles.push({
+      type: 'rect',
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      r: Math.random() * 6 + 3,
+      c: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 4,
+      vy: Math.random() * 3 + 2,
+      rot: Math.random() * 360,
+      rv: (Math.random() - 0.5) * 8
+    });
+  }
+  // Emoji particles mixed in
+  for (var j = 0; j < 18; j++) {
+    particles.push({
+      type: 'emoji',
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      emoji: emojis[Math.floor(Math.random() * emojis.length)],
+      size: Math.random() * 14 + 26,
+      vx: (Math.random() - 0.5) * 3,
+      vy: Math.random() * 2.5 + 1.5,
+      rot: Math.random() * 360,
+      rv: (Math.random() - 0.5) * 5
+    });
+  }
+
+  var frames = 0;
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(function(p) {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI / 180);
+      if (p.type === 'emoji') {
+        ctx.font = p.size + 'px serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(p.emoji, 0, 0);
+      } else {
+        ctx.fillStyle = p.c;
+        ctx.fillRect(-p.r, -p.r / 2, p.r * 2, p.r);
+      }
+      ctx.restore();
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.rv;
+      p.vy += 0.04;
+    });
+    frames++;
+    if (frames < 300) {
+      // Fade out during the last 80 frames
+      if (frames > 220) {
+        canvas.style.opacity = 1 - ((frames - 220) / 80);
+      }
+      requestAnimationFrame(animate);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      canvas.style.opacity = 1;
+    }
+  }
+  animate();
+}
+
+/* ═══════════ BACK TO TOP ═══════════ */
+function scrollToTop() {
+  var target = document.getElementById('pageTop');
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  // Fallback for iframe
+  try { window.parent.postMessage({ type: 'scrollToTop' }, '*'); } catch(e) {}
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Show/hide back-to-top button
+(function() {
+  var btn = document.getElementById('backToTop');
+  var onScroll = function() {
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollY > 400) { btn.classList.add('show'); }
+    else { btn.classList.remove('show'); }
+  };
+  window.addEventListener('scroll', onScroll);
+  // Also listen in parent if iframe
+  try {
+    if (window.parent !== window) {
+      window.parent.addEventListener('scroll', onScroll);
+    }
+  } catch(e) {}
+})();
+
+/* ═══════════ INIT ═══════════ */
+updateProgress();
+</script>
+<script>
+/* === Sort game logic === */
+(function(){
+  var solved = 0;
+  var total = document.querySelectorAll('#sortGame .sort-row').length;
+  window.sortPick = function(btn) {
+    var row = btn.closest('.sort-row');
+    if (row.classList.contains('locked')) return;
+    var answer = row.getAttribute('data-answer');
+    var pick = btn.getAttribute('data-pick');
+    if (pick === answer) {
+      btn.classList.add('right');
+      row.classList.add('correct','locked');
+      solved++;
+      if (solved === total) {
+        var msg = document.getElementById('sortSuccess');
+        if (msg) msg.style.display = 'block';
+      }
+    } else {
+      btn.classList.add('wrong');
+      setTimeout(function(){ btn.classList.remove('wrong'); }, 400);
+    }
+  };
+})();
+</script>
+<script>
+(function(){
+  var B='https://raw.githubusercontent.com/bbirchum1/optima-3rd-social-studies/main/images/';
+  var EX=['.png','.jpg','.jpeg','.webp'];
+  document.querySelectorAll('.source-image-placeholder[data-image]').forEach(function(el){
+    tryImg(el,el.getAttribute('data-image'),0)
+  });
+  function tryImg(el,name,i){
+    if(i>=EX.length)return;
+    var img=new Image();
+    img.onload=function(){
+      img.style.cssText='width:100%;height:auto;display:block;max-width:100%;';
+      img.alt=name.replace(/-/g,' ');
+      el.innerHTML='';
+      el.style.cssText='padding:0;border:none;background:none;min-height:0;max-height:none;height:auto;overflow:visible;border-radius:12px;display:block;width:100%;';
+      el.appendChild(img)
+    };
+    img.onerror=function(){tryImg(el,name,i+1)};
+    img.src=B+name+EX[i]
+  }
+})();
+</script>
+</body>
+</html>

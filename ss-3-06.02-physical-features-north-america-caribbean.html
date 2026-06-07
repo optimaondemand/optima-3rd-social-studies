@@ -1,0 +1,2720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optima Academy Online — ✏️ Lesson Code: ✏️ Lesson Title (Grade 3 Museum)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+*,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', 'Century Gothic', 'Arial Rounded MT Bold', Verdana, sans-serif;
+  background: #F0F2F8;
+  color: #0E1C42;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  box-shadow: 0 0 40px rgba(14, 28, 66, 0.08);
+}
+
+/* ═══════════ PROGRESS BAR ═══════════ */
+.progress-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: #0E1C42;
+  padding: 8px 20px 10px;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.progress-label {
+  font-size: 12px;
+  color: #55C8E8;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+}
+.progress-track {
+  flex: 1;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  /* ✏️ GRADE ACCENT: Update gradient per grade identity */
+  background: linear-gradient(90deg, #55C8E8, #7FD8F0, #1A8A7D);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+.progress-pct {
+  font-size: 13px;
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  font-weight: 800;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* ═══════════ HEADER ═══════════ */
+.header {
+  background: #0E1C42;
+  border-bottom: 6px solid #55C8E8;
+  padding: 20px 28px 18px;
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #55C8E8, #7FD8F0, #55C8E8);
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.header-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.header-logo img { width: 48px; height: 38px; }
+.header-org { font-size: 22px; color: #fff; font-weight: 800; line-height: 1.15; }
+.header-sub { font-size: 11px; color: #55C8E8; letter-spacing: 0.5px; }
+.header-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 28px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.header-title em {
+  /* ✏️ GRADE ACCENT: Tinted emphasis */
+  color: #A0E8DA;
+  font-style: italic;
+}
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(85, 200, 232, 0.15);
+  border: 1.5px solid rgba(85, 200, 232, 0.35);
+  border-radius: 28px;
+  padding: 6px 16px;
+}
+.header-badge-icon { font-size: 22px; }
+.header-badge-text { font-size: 18px; color: #fff; font-weight: 800; }
+
+/* ═══════════ INFO STRIP ═══════════ */
+.info-strip {
+  display: flex;
+  flex-wrap: wrap;
+  background: #FFFFFF;
+  border-bottom: 2px solid #E2E8F4;
+}
+.info-cell {
+  flex: 1;
+  min-width: 150px;
+  padding: 12px 16px;
+  border-right: 1px solid #E2E8F4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.info-cell:last-child { border-right: none; }
+.info-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.info-label {
+  font-size: 10px;
+  color: #7A88A8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+.info-value { font-size: 16px; color: #0E1C42; font-weight: 800; line-height: 1.2; }
+.info-detail { font-size: 11px; color: #3A4A6B; line-height: 1.3; }
+
+/* ═══════════ QUOTE STRIP ═══════════ */
+.quote-strip {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF3DC 100%);
+  border-bottom: 2px solid #F5E6C8;
+  padding: 14px 28px;
+  text-align: center;
+}
+.quote-strip-text {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #5A4A3A;
+  line-height: 1.6;
+}
+.quote-strip-attr {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: #7A88A8;
+  font-weight: 700;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════ INTRO COLLAPSIBLE ═══════════ */
+.intro-section { transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.25s ease; overflow: hidden; }
+.intro-section.collapsed .intro-2col,
+.intro-section.collapsed .need-strip { display: none; }
+.intro-collapsed-bar {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 28px;
+  background: #FFF8F0;
+  border-bottom: 2px solid #F5E6C8;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.intro-collapsed-bar:hover { background: #FFF3DC; }
+.intro-section.collapsed .intro-collapsed-bar { display: flex; }
+.intro-collapsed-icon { font-size: 18px; }
+.intro-collapsed-text {
+  font-size: 14px;
+  color: #5A4A3A;
+  font-weight: 700;
+  flex: 1;
+}
+.intro-collapsed-toggle {
+  font-size: 12px;
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════ INTRO 2-COL ═══════════ */
+.intro-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 20px 28px 4px;
+}
+.intro-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+}
+.intro-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 2px solid;
+}
+.intro-card-head-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.intro-card-head-label {
+  font-size: 10px;
+  color: #7A88A8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+.intro-card-head-title { font-size: 18px; color: #0E1C42; font-weight: 800; line-height: 1.2; }
+.intro-card-body { padding: 14px 18px; }
+.intro-card-body p { font-size: 15px; color: #3A4A6B; line-height: 1.65; margin-bottom: 8px; }
+.intro-card-body p:last-child { margin-bottom: 0; }
+.intro-card-body .obj-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 15px;
+  color: #0E1C42;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.intro-card-body .obj-line:last-child { margin-bottom: 0; }
+.intro-card-body .obj-icon { flex-shrink: 0; font-size: 17px; }
+.theme-question .intro-card-head { background: #FFF3DC; border-color: #F5E6C8; }
+.theme-question .intro-card-head-icon { background: #D4943A; }
+.theme-objectives .intro-card-head { background: #EAF8FD; border-color: #D6F2FB; }
+.theme-objectives .intro-card-head-icon { background: #55C8E8; }
+
+/* ═══════════ NEED STRIP ═══════════ */
+.need-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 28px 18px;
+}
+.need-strip-label {
+  font-size: 13px;
+  color: #3A4A6B;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.need-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #E3F8ED;
+  border: 1.5px solid #B8E8CF;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 13px;
+  color: #0E1C42;
+  font-weight: 700;
+}
+
+/* ═══════════ TODAY'S PATH ═══════════ */
+.todays-path {
+  background: #FAFBFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-top: 14px;
+}
+.todays-path-title {
+  font-size: 14px;
+  color: #0E1C42;
+  font-weight: 800;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.todays-path-steps {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #3A4A6B;
+  font-weight: 600;
+}
+.todays-path-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.todays-path-arrow { color: #B0B8CC; font-size: 11px; }
+
+/* ═══════════ TAB BAR ═══════════ */
+.tab-bar {
+  position: sticky;
+  top: 38px;
+  z-index: 100;
+  background: #FFFFFF;
+  border-bottom: 3px solid #E2E8F4;
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  box-shadow: 0 -4px 0 0 #0E1C42;
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex: 1;
+  min-width: 160px;
+  padding: 12px 8px 11px;
+  background: transparent;
+  border: none;
+  border-bottom: 4px solid transparent;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7A88A8;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  line-height: 1.3;
+  text-align: center;
+}
+.tab-btn:hover { color: #0E1C42; background: #EAF8FD; }
+.tab-btn.active {
+  color: #0E1C42;
+  border-bottom-color: #55C8E8;
+  background: #FFFFFF;
+}
+.tab-btn .tab-check {
+  display: none;
+  font-size: 12px;
+  color: #34B76F;
+  margin-left: 4px;
+  font-weight: 800;
+}
+.tab-btn.visited .tab-check { display: inline; }
+.tab-panel { display: none; padding: 24px 28px 36px; }
+.tab-panel.active { display: block; }
+
+/* ═══════════ VIDEO WRAP ═══════════ */
+.video-wrap {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid #E2E8F4;
+  box-shadow: 0 4px 20px rgba(14, 28, 66, 0.08);
+  background: #000;
+  margin: 0 0 22px;
+}
+.video-wrap-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  border-bottom: 2px solid rgba(85, 200, 232, 0.2);
+}
+.video-wrap-type {
+  font-size: 10px;
+  color: #55C8E8;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+.video-wrap-title { font-size: 16px; color: #fff; font-weight: 800; line-height: 1.2; }
+.video-ratio {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.video-placeholder {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+.video-placeholder-icon { font-size: 44px; margin-bottom: 10px; opacity: 0.55; }
+.video-placeholder-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+  line-height: 1.5;
+}
+.video-placeholder-id {
+  font-size: 11px;
+  color: rgba(85, 200, 232, 0.4);
+  font-family: monospace;
+  margin-top: 6px;
+}
+
+/* ═══════════ ACTIVITY CARDS ═══════════ */
+.activity {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+}
+/* ✏️ GRADE ACCENT: Change left-border color per grade */
+.activity.bl-accent { border-left: 6px solid #1A8A7D; }
+.activity.bl-cyan { border-left: 6px solid #55C8E8; }
+.activity.bl-gold { border-left: 6px solid #D4943A; }
+.activity.bl-green { border-left: 6px solid #34B76F; }
+.activity.bl-purple { border-left: 6px solid #8B6FC0; }
+.activity.bl-navy { border-left: 6px solid #0E1C42; }
+.activity-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px 14px 18px;
+  border-bottom: 1.5px solid #E2E8F4;
+}
+.activity-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.activity-title { font-size: 19px; color: #0E1C42; font-weight: 800; line-height: 1.2; }
+.activity-sub { font-size: 12px; color: #7A88A8; }
+.activity-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  margin-left: auto;
+}
+.activity-body { padding: 18px 22px; }
+.activity-body p { font-size: 17px; color: #3A4A6B; line-height: 1.75; margin-bottom: 12px; }
+.activity-body p:last-child { margin-bottom: 0; }
+
+/* ═══════════ CALLOUTS ═══════════ */
+.callout {
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.callout:last-child { margin-bottom: 0; }
+.callout-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+.callout p { font-size: 16px; color: #0E1C42; line-height: 1.65; margin: 0; }
+.callout-info { background: #EAF8FD; border: 2px solid #D6F2FB; }
+.callout-think { background: #FFF3DC; border: 2px solid #F5E6C8; }
+.callout-tip { background: #E3F8ED; border: 2px solid #B8E8CF; }
+.callout-vocab { background: #F0E8FF; border: 2px solid #D8CCF0; }
+.callout-virtue { background: #FDE8F0; border: 2px solid #F0B8CA; }
+
+/* ═══════════ VIRTUE SPOTLIGHT ═══════════ */
+.virtue-card {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF3DC 100%);
+  border: 2px solid #F5E6C8;
+  border-left: 6px solid #D4943A;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.virtue-label {
+  font-size: 12px;
+  color: #D4943A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.virtue-text { font-size: 15px; color: #0E1C42; line-height: 1.65; }
+
+/* ═══════════ KEY CONCEPT ═══════════ */
+.key-concept {
+  background: #FFF3DC;
+  border: 2px solid #F5E6C8;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.key-concept-label {
+  font-size: 12px;
+  color: #D4943A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.key-concept p { font-size: 15px; color: #0E1C42; line-height: 1.7; margin-bottom: 6px; }
+
+/* ═══════════ SOURCE STUDY CARD ═══════════ */
+.source-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.source-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  /* ✏️ GRADE ACCENT */
+  background: linear-gradient(135deg, #1A8A7D, #34B0A0);
+  border-bottom: 2px solid rgba(255,255,255,0.15);
+}
+.source-card-header-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.source-card-header-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+.source-card-header-title { font-size: 17px; color: #fff; font-weight: 800; }
+.source-image-placeholder {
+  width: 100%;
+  height: 240px;
+  background: linear-gradient(145deg, #E2E8F4, #D6E0F0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #E2E8F4;
+}
+.source-image-placeholder-text {
+  font-size: 14px;
+  color: #7A88A8;
+  font-weight: 700;
+  text-align: center;
+  padding: 20px;
+}
+.source-card-body { padding: 18px 22px; }
+.source-label-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: #3A4A6B;
+  font-weight: 700;
+}
+.source-label-bar .src-type {
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+}
+
+/* ═══════════ COPYWORK ═══════════ */
+.copywork-box {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF3DC 100%);
+  border: 2px solid #F5E6C8;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.copywork-label {
+  font-size: 12px;
+  color: #D4943A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.copywork-text {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px;
+  color: #0E1C42;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.copywork-instruction { font-size: 14px; color: #3A4A6B; line-height: 1.5; }
+
+/* ═══════════ COUNCIL CHAMBER ═══════════ */
+.council-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.council-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  border-bottom: 2px solid rgba(85, 200, 232, 0.2);
+}
+.council-header-icon { font-size: 26px; }
+.council-header-title { font-size: 17px; color: #fff; font-weight: 800; }
+.council-question {
+  padding: 16px 22px;
+  background: #FFF3DC;
+  border-bottom: 2px solid #F5E6C8;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px;
+  color: #0E1C42;
+  line-height: 1.6;
+  font-style: italic;
+}
+.council-perspectives {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.council-perspective {
+  padding: 16px 18px;
+  border-bottom: 2px solid #E2E8F4;
+}
+.council-perspective:first-child { border-right: 1px solid #E2E8F4; }
+.council-perspective-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.council-perspective-label.side-a { color: #2A7AB5; }
+.council-perspective-label.side-b { color: #D4663A; }
+.council-perspective p { font-size: 14px; color: #3A4A6B; line-height: 1.55; }
+.council-body { padding: 18px 22px; }
+
+/* ═══════════ TIMELINE CARD ═══════════ */
+.timeline-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  /* ✏️ GRADE ACCENT */
+  background: linear-gradient(135deg, #1A8A7D, #34B0A0);
+  border-bottom: 2px solid rgba(255,255,255,0.15);
+}
+.timeline-header-icon { font-size: 22px; color: #fff; }
+.timeline-header-title { font-size: 17px; color: #fff; font-weight: 800; }
+.timeline-events { padding: 18px 22px; }
+.timeline-event {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1.5px solid #E2E8F4;
+}
+.timeline-event:last-child { border-bottom: none; }
+.timeline-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  /* ✏️ GRADE ACCENT */
+  background: #1A8A7D;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.timeline-event-content { flex: 1; }
+.timeline-event-date { font-size: 13px; color: #1A8A7D; font-weight: 800; margin-bottom: 2px; }
+.timeline-event-text { font-size: 15px; color: #0E1C42; line-height: 1.55; }
+
+/* ═══════════ JOURNAL TEXT BOXES ═══════════ */
+.journal-box {
+  width: 100%;
+  min-height: 70px;
+  padding: 12px 14px;
+  border: 2px solid #E2E8F4;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: #0E1C42;
+  line-height: 1.6;
+  resize: vertical;
+  background: #FAFBFF;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
+}
+.journal-box:focus {
+  outline: none;
+  border-color: #55C8E8;
+  box-shadow: 0 0 0 3px rgba(85, 200, 232, 0.15);
+  background: #fff;
+}
+.journal-box::placeholder { color: #B0B8CC; font-style: italic; }
+.journal-label {
+  font-size: 12px;
+  color: #7A88A8;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.journal-label .saved-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #B0B8CC;
+  transition: background 0.3s;
+}
+.journal-label .saved-dot.saved { background: #34B76F; }
+
+/* ═══════════ PERSISTENT TEXTBOX PROMPT ═══════════ */
+.textbox-prompt {
+  font-size: 14px;
+  color: #0E1C42;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 8px 12px;
+  background: #EAF8FD;
+  border: 1.5px solid #D6F2FB;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  margin-top: 10px;
+}
+.textbox-prompt + .journal-box {
+  border-radius: 0 0 12px 12px;
+  margin-top: 0;
+}
+
+/* ═══════════ ASSIGNMENT QUESTIONS ═══════════ */
+.q-block {
+  background: #FAFBFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+}
+.q-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #55C8E8;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.q-text { font-size: 16px; color: #0E1C42; line-height: 1.65; margin-bottom: 4px; }
+
+/* ═══════════ TURN-IN CHECKLIST ═══════════ */
+.turn-in-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+  margin-top: 18px;
+}
+.turn-in-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #EAF8FD;
+  padding: 18px 22px;
+  border-bottom: 2px solid #D6F2FB;
+}
+.turn-in-header-icon { font-size: 36px; line-height: 1; flex-shrink: 0; }
+.turn-in-header-label {
+  font-size: 11px;
+  color: #1A6B8E;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+.turn-in-header-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 22px;
+  color: #0E1C42;
+  font-weight: 700;
+}
+.turn-in-body { padding: 18px 22px 20px; }
+.turn-in-intro { font-size: 15px; color: #3A4A6B; margin-bottom: 16px; line-height: 1.55; }
+.turn-in-checklist { display: flex; flex-direction: column; gap: 10px; }
+.turn-in-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.turn-in-item:hover { background: #EAF8FD; border-color: #B8E0F0; }
+.turn-in-item.checked { background: #E3F8ED; border-color: #B8E8CF; }
+.turn-in-item .turn-in-check {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 2px solid #B8E0F0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.turn-in-item.checked .turn-in-check { background: #34B76F; border-color: #34B76F; }
+.turn-in-item-text { font-size: 15px; color: #0E1C42; font-weight: 600; line-height: 1.55; flex: 1; }
+
+/* ═══════════ GATHERED ANSWERS ═══════════ */
+.gathered-card {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.04);
+  margin-top: 22px;
+}
+.gathered-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  padding: 16px 22px;
+  border-bottom: 2px solid rgba(85, 200, 232, 0.2);
+}
+.gathered-header-icon { font-size: 28px; }
+.gathered-header-label {
+  font-size: 11px;
+  color: #55C8E8;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.gathered-header-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+}
+.gathered-body { padding: 18px 22px 20px; }
+.gathered-intro { font-size: 15px; color: #3A4A6B; margin-bottom: 14px; line-height: 1.55; }
+.gathered-output {
+  width: 100%;
+  min-height: 250px;
+  padding: 16px 18px;
+  border: 2px solid #E2E8F4;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: #0E1C42;
+  line-height: 1.65;
+  background: #FAFBFF;
+  resize: vertical;
+  white-space: pre-wrap;
+}
+.gathered-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.gathered-btn {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.gathered-btn:hover { transform: translateY(-2px); }
+.gathered-btn-copy {
+  background: linear-gradient(135deg, #55C8E8, #7FD8F0);
+  color: #0E1C42;
+  box-shadow: 0 4px 14px rgba(85, 200, 232, 0.25);
+}
+.gathered-btn-pdf {
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  color: #fff;
+  border: 2px solid #55C8E8;
+  box-shadow: 0 4px 14px rgba(14, 28, 66, 0.25);
+}
+.gathered-copied {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #34B76F;
+  margin-top: 8px;
+  display: none;
+}
+.gathered-copied.show { display: block; }
+
+/* ═══════════ NARRATIVE TRANSITION ═══════════ */
+.tab-next-wrap { text-align: center; padding: 24px 0 8px; }
+.tab-transition-voice {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #5A4A3A;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.tab-next-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 30px;
+  background: linear-gradient(135deg, #55C8E8, #7FD8F0);
+  color: #0E1C42;
+  border: none;
+  border-radius: 28px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(85, 200, 232, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tab-next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(85, 200, 232, 0.4);
+}
+
+/* ═══════════ ROOT MATCH GAME ═══════════ */
+.root-match-game { margin: 14px 0; }
+.root-match-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.root-match-item {
+  padding: 12px 16px;
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #0E1C42;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.5;
+  transition: background 0.15s, border-color 0.2s, transform 0.15s;
+  user-select: none;
+}
+.root-match-item:hover { transform: translateY(-1px); border-color: #8B6FC0; }
+.root-match-item.selected { background: #F0E8FF; border-color: #8B6FC0; }
+.root-match-item.matched { background: #E3F8ED; border-color: #34B76F; pointer-events: none; opacity: 0.8; }
+.root-match-item.wrong-flash { background: #FFF0EC; border-color: #E8636B; animation: shake 0.4s ease; }
+.root-match-item.is-word { font-weight: 800; font-family: 'Lora', Georgia, serif; font-size: 16px; }
+.root-match-feedback {
+  text-align: center;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #34B76F;
+  display: none;
+}
+.root-match-feedback.show { display: block; }
+
+/* ═══════════ FLIP CARDS ═══════════ */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+.flip-card { perspective: 800px; height: 160px; cursor: pointer; }
+.flip-card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  text-align: center;
+  border: 2px solid #E2E8F4;
+  box-shadow: 0 2px 10px rgba(14, 28, 66, 0.06);
+}
+.flip-card-front { background: #FFFFFF; border-top: 5px solid #55C8E8; }
+.flip-card-front .fc-emoji { font-size: 24px; margin-bottom: 6px; }
+.flip-card-front .fc-word {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px; font-weight: 700; color: #0E1C42;
+}
+.flip-card-front .fc-tap { font-size: 11px; color: #7A88A8; font-weight: 600; margin-top: 4px; }
+.flip-card-back {
+  background: linear-gradient(145deg, #0E1C42, #1A2D5A);
+  border-color: #0E1C42;
+  transform: rotateY(180deg);
+}
+.flip-card-back .fc-def { font-size: 13px; color: #fff; line-height: 1.5; font-weight: 600; }
+.flip-card-back .fc-word-back {
+  font-size: 10px; color: #55C8E8; text-transform: uppercase;
+  letter-spacing: 1px; font-weight: 800; margin-bottom: 6px;
+}
+
+/* ═══════════ BACK TO TOP ═══════════ */
+.back-to-top {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  height: 44px;
+  padding: 0 18px 0 14px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  color: #fff;
+  border: 2px solid #55C8E8;
+  font-size: 14px; font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(14, 28, 66, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  z-index: 500;
+}
+.back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { box-shadow: 0 6px 24px rgba(14, 28, 66, 0.5); transform: translateY(-3px); }
+
+/* ═══════════ CONFETTI ═══════════ */
+#confettiCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+/* ═══════════ SELF-CHECK QUIZ ═══════════ */
+.quiz-card {
+  background: #fff;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.quiz-q {
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.quiz-q-text { font-size: 17px; color: #0E1C42; font-weight: 700; margin-bottom: 12px; line-height: 1.55; }
+.quiz-options { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  display: flex; align-items: center; gap: 12px;
+  background: #fff; border: 2px solid #E2E8F4; border-radius: 12px;
+  padding: 10px 14px; font-size: 15px; color: #0E1C42; font-weight: 600;
+  cursor: pointer; transition: all 0.15s;
+}
+.quiz-opt:hover { border-color: #55C8E8; background: #EAF8FD; }
+.quiz-opt.correct { background: #E3F8ED; border-color: #34B76F; color: #1a5c2e; }
+.quiz-opt.wrong { background: #FFF0EC; border-color: #E8636B; color: #8a3030; }
+.quiz-opt.disabled { opacity: 0.5; cursor: default; pointer-events: none; }
+.opt-letter {
+  width: 28px; height: 28px; border-radius: 50%; background: #E2E8F4;
+  font-size: 13px; font-weight: 800; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0; color: #3A4A6B;
+}
+.quiz-opt.correct .opt-letter { background: #34B76F; color: #fff; }
+.quiz-opt.wrong .opt-letter { background: #E8636B; color: #fff; }
+.quiz-feedback {
+  margin-top: 10px; padding: 10px 14px; border-radius: 10px;
+  font-size: 14px; font-weight: 600; line-height: 1.5; display: none;
+}
+.quiz-feedback.show { display: block; }
+.fb-correct { background: #E3F8ED; color: #1a5c2e; border: 1.5px solid #B8E8CF; }
+.fb-wrong { background: #FFF3DC; color: #5A4A3A; border: 1.5px solid #F5E6C8; }
+.quiz-score-box {
+  /* ✏️ GRADE ACCENT */
+  background: linear-gradient(135deg, #0E1C42, #1A2D5A);
+  color: #fff; border-radius: 16px; padding: 20px 22px;
+  margin-top: 16px; text-align: center; display: none;
+}
+.quiz-score-box.show { display: block; }
+.quiz-score-num { font-size: 52px; font-weight: 900; line-height: 1; }
+.quiz-score-label { font-size: 14px; color: #55C8E8; margin-bottom: 4px; }
+.quiz-score-msg { font-size: 18px; font-weight: 700; margin-top: 8px; }
+.quiz-video-wrap { margin-top: 16px; display: none; }
+.quiz-video-wrap.show { display: block; }
+
+/* ═══════════ DISCOVERY FACT (hidden reward on game completion) ═══════════ */
+.discovery-fact {
+  display: none;
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #FFF8F0, #FFF3DC);
+  border: 2px solid #F5E6C8;
+  border-left: 5px solid #D4943A;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #5A4A3A;
+  line-height: 1.6;
+  animation: factReveal 0.5s ease;
+}
+.discovery-fact.show { display: block; }
+.discovery-fact-label {
+  font-size: 11px;
+  color: #D4943A;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+@keyframes factReveal {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════ HISTORIAN'S SEAL — certificate card with stamp ═══════════ */
+.historian-seal {
+  display: none;
+  margin-top: 20px;
+  animation: cardSlideUp 0.4s ease;
+}
+.historian-seal.show { display: block; }
+@keyframes cardSlideUp {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.seal-certificate {
+  position: relative;
+  background: linear-gradient(160deg, #FFFDF8, #FFF5E6, #FFFDF8);
+  border: 2px solid #E8D8C0;
+  border-radius: 14px;
+  padding: 22px 100px 22px 24px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(140, 120, 80, 0.1);
+}
+.seal-cert-message {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  color: #5A4A3A;
+  line-height: 1.55;
+  font-style: italic;
+}
+.seal-cert-message strong {
+  font-style: normal;
+  color: #3A2A1A;
+}
+.seal-stamp-wrap {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-8deg);
+  animation: stampBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+}
+@keyframes stampBounce {
+  0% { opacity: 0; transform: translateY(-50%) rotate(-8deg) scale(0); }
+  60% { opacity: 1; transform: translateY(-50%) rotate(-8deg) scale(1.2); }
+  100% { opacity: 1; transform: translateY(-50%) rotate(-8deg) scale(1); }
+}
+
+/* ═══════════ OPTIMA OWL BUDDY ═══════════ */
+.owl-buddy {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #FFFFFF;
+  border: 2px solid #E2E8F4;
+  border-radius: 18px;
+  margin: 18px 0;
+  box-shadow: 0 2px 12px rgba(14, 28, 66, 0.06);
+  position: relative;
+}
+.owl-buddy-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFF8F0, #FFF3DC);
+  border: 2.5px solid #F5E6C8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  flex-shrink: 0;
+  animation: owlBob 3s ease-in-out infinite;
+}
+@keyframes owlBob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-3px) rotate(2deg); }
+}
+.owl-buddy-bubble {
+  flex: 1;
+  background: #FAFBFF;
+  border: 1.5px solid #E2E8F4;
+  border-radius: 14px;
+  padding: 12px 16px;
+  position: relative;
+  font-size: 15px;
+  color: #3A4A6B;
+  line-height: 1.6;
+}
+.owl-buddy-bubble::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 18px;
+  width: 14px;
+  height: 14px;
+  background: #FAFBFF;
+  border-left: 1.5px solid #E2E8F4;
+  border-bottom: 1.5px solid #E2E8F4;
+  transform: rotate(45deg);
+}
+.owl-buddy-name {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* ✏️ GRADE ACCENT */
+  color: #1A8A7D;
+  margin-bottom: 4px;
+}
+
+/* ═══════════ TAB SECTION HEADERS ═══════════ */
+.tab-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0 18px;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #E2E8F4;
+}
+.tab-section-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  color: #fff;
+}
+.tab-section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 800;
+  color: #7A88A8;
+  margin-bottom: 1px;
+}
+.tab-section-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px;
+  color: #0E1C42;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ═══════════ SECTION DIVIDERS ═══════════ */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 0;
+  margin: 8px 0;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #E2E8F4, transparent);
+}
+.section-divider-dot {
+  font-size: 8px;
+  color: #D4D8E4;
+  letter-spacing: 6px;
+}
+
+/* ═══════════ STEP BADGES (for Explore tab progression) ═══════════ */
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px 4px 4px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+  /* ✏️ GRADE ACCENT */
+  background: rgba(26, 138, 125, 0.08);
+  color: #1A8A7D;
+}
+.step-badge-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  /* ✏️ GRADE ACCENT */
+  background: #1A8A7D;
+}
+
+/* ═══════════ FOOTER ═══════════ */
+.footer {
+  background: #0E1C42;
+  border-top: 4px solid #55C8E8;
+  padding: 18px 28px;
+  text-align: center;
+}
+.footer-main { font-size: 14px; color: #fff; margin-bottom: 4px; }
+.footer-main span { color: #55C8E8; font-weight: 700; }
+.footer-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 620px) {
+  .intro-2col { grid-template-columns: 1fr; }
+  .council-perspectives { grid-template-columns: 1fr; }
+  .vocab-grid { grid-template-columns: 1fr; }
+  .root-match-grid { grid-template-columns: 1fr; }
+}
+
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+</style>
+<style>
+/* === Sort game styles (lesson B Map Quest) === */
+.sort-row { padding: 12px 14px; background:#FAFCFF; border:1px solid #E2E8F4; border-radius:10px; transition: all 0.3s; }
+.sort-row.correct { background:linear-gradient(135deg,#E3F8ED,#D4F1E0); border-color:#1A8A7D; }
+.sort-row.locked .sort-opt { pointer-events:none; opacity:0.55; }
+.sort-row.locked .sort-opt.right { opacity:1; background:#1A8A7D; color:#FFF; border-color:#1A8A7D; }
+.sort-name { font-size:14px; color:#0E1C42; line-height:1.5; margin-bottom:9px; }
+.sort-picks { display:grid; grid-template-columns:repeat(auto-fit, minmax(120px, 1fr)); gap:7px; }
+.sort-opt { padding:8px 10px; background:#FFF; border:1.5px solid #C9D4E5; border-radius:8px; font-size:13px; font-weight:700; color:#0E1C42; cursor:pointer; font-family:'Nunito', sans-serif; transition: all 0.2s; }
+.sort-opt:hover { border-color:#1A8A7D; background:#EAF8F5; }
+.sort-opt.wrong { animation: shake 0.35s; background:#FFEDED; border-color:#D94040; color:#D94040; }
+</style>
+</head>
+<body>
+<div id="pageTop"></div>
+<div class="page-wrap">
+
+<!-- ═══ PROGRESS BAR ═══ -->
+<div class="progress-wrap">
+  <div class="progress-label">🏛️ Progress</div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-pct" id="progressPct">0%</div>
+</div>
+
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+  <div class="header-brand">
+    <div class="header-logo"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" /></div>
+    <div>
+      <div class="header-org">Optima Academy Online</div>
+      <div class="header-sub">An Education Experience Company</div>
+    </div>
+  </div>
+  <div class="header-title">Physical Features of <em>North America &amp; the Caribbean</em></div>
+  <div class="header-badge">
+    <span class="header-badge-icon">🌍</span>
+    <span class="header-badge-text">Lesson 3.06.02</span>
+  </div>
+</div>
+
+<!-- ═══ SVG HERO BANNER — cross-section landscape: mountains, plains, river, islands ═══ -->
+<svg viewBox="0 0 920 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+  <defs>
+    <linearGradient id="skyB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#BFE7F2"/>
+      <stop offset="100%" stop-color="#EDF7FB"/>
+    </linearGradient>
+    <linearGradient id="mtnFarB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7A8DA8"/>
+      <stop offset="100%" stop-color="#5C7090"/>
+    </linearGradient>
+    <linearGradient id="mtnNearB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B6F50"/>
+      <stop offset="100%" stop-color="#6B5238"/>
+    </linearGradient>
+    <linearGradient id="snowB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E0E8F0"/>
+    </linearGradient>
+    <linearGradient id="plainB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D8C870"/>
+      <stop offset="100%" stop-color="#B8A848"/>
+    </linearGradient>
+    <linearGradient id="riverB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5BB0D4"/>
+      <stop offset="100%" stop-color="#2A7AA8"/>
+    </linearGradient>
+    <linearGradient id="seaB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2A9BB5"/>
+      <stop offset="100%" stop-color="#1A7A95"/>
+    </linearGradient>
+    <linearGradient id="islandB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7DBE6A"/>
+      <stop offset="100%" stop-color="#4A8D3A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="920" height="260" fill="url(#skyB)"/>
+
+  <!-- Soft clouds -->
+  <ellipse cx="120" cy="40" rx="28" ry="7" fill="#FFFFFF" opacity="0.7"/>
+  <ellipse cx="145" cy="42" rx="22" ry="6" fill="#FFFFFF" opacity="0.7"/>
+  <ellipse cx="450" cy="32" rx="32" ry="8" fill="#FFFFFF" opacity="0.6"/>
+  <ellipse cx="478" cy="34" rx="22" ry="6" fill="#FFFFFF" opacity="0.6"/>
+
+  <!-- Far mountains (Appalachians / Sierra style) -->
+  <path d="M 0 160 L 50 110 L 90 130 L 130 95 L 170 120 L 210 100 L 250 140 L 290 105 L 330 135 L 380 110 L 420 145 L 460 115 L 500 140 L 540 110 L 580 145 L 620 125 L 660 150 L 700 130 L 740 160 L 780 140 L 820 165 L 860 145 L 920 175 L 920 200 L 0 200 Z"
+        fill="url(#mtnFarB)"/>
+
+  <!-- Snowy peaks on far mountains -->
+  <path d="M 130 95 L 140 105 L 120 105 Z M 290 105 L 300 115 L 280 115 Z M 460 115 L 470 125 L 450 125 Z M 700 130 L 710 138 L 690 138 Z" fill="url(#snowB)"/>
+
+  <!-- Near mountains (Rocky Mountain style, left side) -->
+  <path d="M 0 200 L 30 130 L 70 175 L 110 110 L 150 165 L 190 90 L 230 150 L 270 125 L 310 175 L 350 200 L 0 200 Z"
+        fill="url(#mtnNearB)"/>
+
+  <!-- Snow caps on near mountains -->
+  <path d="M 110 110 L 122 125 L 98 125 Z M 190 90 L 204 108 L 176 108 Z M 30 130 L 42 142 L 18 142 Z" fill="url(#snowB)"/>
+
+  <!-- Great Plains (wide flat band) -->
+  <path d="M 0 200 Q 200 195 400 200 Q 600 205 920 200 L 920 230 L 0 230 Z" fill="url(#plainB)"/>
+
+  <!-- Plains texture: tiny grass tufts -->
+  <g fill="#9B8B38" opacity="0.55">
+    <circle cx="380" cy="210" r="1.5"/>
+    <circle cx="420" cy="215" r="1.5"/>
+    <circle cx="460" cy="208" r="1.5"/>
+    <circle cx="500" cy="218" r="1.5"/>
+    <circle cx="540" cy="212" r="1.5"/>
+    <circle cx="580" cy="220" r="1.5"/>
+    <circle cx="620" cy="210" r="1.5"/>
+    <circle cx="350" cy="220" r="1.5"/>
+    <circle cx="395" cy="225" r="1.5"/>
+    <circle cx="445" cy="222" r="1.5"/>
+  </g>
+
+  <!-- River (Mississippi style) curving down through plains -->
+  <path d="M 470 130 Q 460 160 480 185 Q 490 205 475 225 Q 465 240 470 260" fill="none" stroke="url(#riverB)" stroke-width="7" stroke-linecap="round"/>
+  <!-- River shine -->
+  <path d="M 470 130 Q 460 160 480 185 Q 490 205 475 225 Q 465 240 470 260" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
+
+  <!-- Sea on right side (Caribbean) -->
+  <rect x="660" y="195" width="260" height="65" fill="url(#seaB)"/>
+
+  <!-- Soft waves -->
+  <path d="M 660 210 Q 690 205 720 210 T 780 210 T 840 210 T 920 210" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+  <path d="M 660 222 Q 690 218 720 222 T 780 222 T 840 222 T 920 222" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.3"/>
+
+  <!-- Caribbean islands -->
+  <ellipse cx="730" cy="218" rx="22" ry="6" fill="url(#islandB)" stroke="#3A6B30" stroke-width="1"/>
+  <ellipse cx="800" cy="228" rx="14" ry="5" fill="url(#islandB)" stroke="#3A6B30" stroke-width="1"/>
+  <ellipse cx="860" cy="222" rx="10" ry="4" fill="url(#islandB)" stroke="#3A6B30" stroke-width="1"/>
+  <ellipse cx="880" cy="240" rx="8" ry="3" fill="url(#islandB)" stroke="#3A6B30" stroke-width="0.8"/>
+  <!-- Tiny palm tree silhouette on biggest island -->
+  <g transform="translate(730, 215)">
+    <line x1="0" y1="0" x2="0" y2="-12" stroke="#5C3A1E" stroke-width="1.5"/>
+    <path d="M 0 -12 Q -6 -14 -9 -12 M 0 -12 Q 6 -14 9 -12 M 0 -12 Q -4 -16 -6 -18 M 0 -12 Q 4 -16 6 -18" fill="none" stroke="#3A6B30" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Feature labels (subtle) -->
+  <text x="150" y="80" fill="#3A4A6B" font-family="'Nunito', sans-serif" font-size="11" font-weight="800" letter-spacing="1.5" opacity="0.75">ROCKY MOUNTAINS</text>
+  <text x="490" y="218" fill="#0E1C42" font-family="'Nunito', sans-serif" font-size="10" font-weight="800" letter-spacing="1.2" opacity="0.85">GREAT PLAINS</text>
+  <text x="475" y="125" fill="#0A4A60" font-family="'Nunito', sans-serif" font-size="10" font-weight="800" letter-spacing="1.2" opacity="0.85">MISSISSIPPI</text>
+  <text x="770" y="186" fill="#0A4A60" font-family="'Nunito', sans-serif" font-size="11" font-weight="800" letter-spacing="1.5" opacity="0.85">CARIBBEAN ISLANDS</text>
+
+  <!-- Sun -->
+  <circle cx="780" cy="55" r="22" fill="#FFD17A" opacity="0.85">
+    <animate attributeName="opacity" dur="4s" values="0.85;0.7;0.85" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="780" cy="55" r="16" fill="#FFE8A0"/>
+
+  <!-- Birds -->
+  <path d="M 320 60 q 5 -4 10 0 q 5 -4 10 0" fill="none" stroke="#3A4A6B" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M 350 75 q 4 -3 8 0 q 4 -3 8 0" fill="none" stroke="#3A4A6B" stroke-width="1.2" stroke-linecap="round"/>
+</svg>
+
+<!-- ═══ INFO STRIP ═══ -->
+<div class="info-strip">
+  <div class="info-cell">
+    <div class="info-icon" style="background:#EAF8FD;">🏛️</div>
+    <div>
+      <div class="info-label">Unit</div>
+      <div class="info-value">North America &amp; the Caribbean</div>
+    </div>
+  </div>
+  <div class="info-cell">
+    <div class="info-icon" style="background:#FFF3DC;">📅</div>
+    <div>
+      <div class="info-label">Week</div>
+      <div class="info-value">Week 15 · Q2</div>
+    </div>
+  </div>
+  <div class="info-cell">
+    <div class="info-icon" style="background:#E3F8ED;">🏔️</div>
+    <div>
+      <div class="info-label">Focus</div>
+      <div class="info-value">Physical Geography</div>
+    </div>
+  </div>
+  <div class="info-cell">
+    <div class="info-icon" style="background:#F0E8FF;">📋</div>
+    <div>
+      <div class="info-label">Standards</div>
+      <div class="info-value" style="font-size:12px;">SS.3.G.2.1 · SS.3.G.2.4 · SS.3.G.4.1</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MUSEUM MEMO ═══ -->
+<div class="quote-strip">
+  <div class="quote-strip-text" style="font-style:normal;text-align:left;font-size:15px;line-height:1.65;">
+    The country labels you placed last time are up on the wall map. Now a curator has wheeled in a tray of <em>physical feature</em> labels — mountains, rivers, plains, and islands — that belong on the same map. Without them, visitors only see borders. With them, visitors can actually see the <strong>land itself</strong>. As Regional Curators, your job today is to study what the region's land really looks like and place those feature labels where they belong.
+  </div>
+</div>
+
+<!-- ═══ INTRO SECTION ═══ -->
+<div class="intro-section" id="introSection">
+  <div class="intro-collapsed-bar" onclick="toggleIntro()">
+    <div class="intro-collapsed-icon">📍</div>
+    <div class="intro-collapsed-text">Today's Curator's Question &amp; Objectives</div>
+    <div class="intro-collapsed-toggle">▼ Expand</div>
+  </div>
+
+  <div class="intro-2col">
+    <div class="intro-card theme-question">
+      <div class="intro-card-head">
+        <div class="intro-card-head-icon">✨</div>
+        <div>
+          <div class="intro-card-head-label">Curator's Question</div>
+          <div class="intro-card-head-title">Today's Big Question</div>
+        </div>
+      </div>
+      <div class="intro-card-body">
+        What does the land of North America and the Caribbean actually look like — and where are the biggest mountains, rivers, plains, and islands?
+      </div>
+    </div>
+
+    <div class="intro-card theme-objectives">
+      <div class="intro-card-head">
+        <div class="intro-card-head-icon">🎯</div>
+        <div>
+          <div class="intro-card-head-label">Objectives</div>
+          <div class="intro-card-head-title">What You'll Learn</div>
+        </div>
+      </div>
+      <div class="intro-card-body">
+        <div class="obj-line"><span class="obj-icon">🏔️</span> Name and locate major mountains, rivers, plains, and islands of the region.</div>
+        <div class="obj-line"><span class="obj-icon">🗺️</span> Use a physical map to find features by where they sit on the land.</div>
+        <div class="obj-line"><span class="obj-icon">📝</span> Explain how the land of one part of the region is different from another part.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="need-strip">
+    <span class="need-strip-label">You'll need:</span>
+    <span class="need-chip">📓 Curator's Notebook</span>
+    <span class="need-chip">✏️ Pencil</span>
+    <span class="need-chip">🗺️ Lesson Page</span>
+  </div>
+</div>
+
+<!-- ═══ TAB BAR ═══ -->
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="switchTab('scene')" id="btn-scene">📍 Enter the Museum <span class="tab-check">✓</span></button>
+  <button class="tab-btn" onclick="switchTab('explore')" id="btn-explore">🔍 Explore <span class="tab-check">✓</span></button>
+  <button class="tab-btn" onclick="switchTab('check')" id="btn-check">🧠 Self-Check <span class="tab-check">✓</span></button>
+  <button class="tab-btn" onclick="switchTab('assignment')" id="btn-assignment">📝 Evidence &amp; Assignment <span class="tab-check">✓</span></button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ═══ TAB 1: ENTER THE MUSEUM ═══ -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="tab-panel active" id="panel-scene">
+
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #D4943A, #E0A050);">📍</div>
+    <div>
+      <div class="tab-section-title">Enter the Museum</div>
+    </div>
+  </div>
+
+  <div class="todays-path">
+    <div class="todays-path-title">🗺️ Today's Path</div>
+    <div class="todays-path-steps">
+      <span class="todays-path-step">📍 Return to the gallery &amp; spotlight courtesy</span>
+      <span class="todays-path-arrow">→</span>
+      <span class="todays-path-step">🔍 Study a physical map and sort mountains, rivers, plains, and islands</span>
+      <span class="todays-path-arrow">→</span>
+      <span class="todays-path-step">🧠 Check your understanding</span>
+      <span class="todays-path-arrow">→</span>
+      <span class="todays-path-step">📝 Write a label comparing the land in two parts of the region</span>
+    </div>
+  </div>
+
+  <!-- Welcome Video -->
+  <div class="video-wrap" style="margin-top:18px;">
+    <div class="video-wrap-header">
+      <span style="font-size:20px;">🎬</span>
+      <div>
+        <div class="video-wrap-type">📍 WELCOME · ENTER THE MUSEUM</div>
+        <div class="video-wrap-title">From Country Labels to the Land Itself</div>
+      </div>
+    </div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text">
+          <strong>Teacher recording notes:</strong> Welcome back. Remind them: "Last time we put up the country labels — Canada, the United States, Mexico, the Caribbean. Today we look at the land underneath those borders." Read the Curator's Question aloud: "What does the land of North America and the Caribbean actually look like — and where are the biggest mountains, rivers, plains, and islands?" Mention courtesy again — naming features carefully is part of curator work. Under 2 minutes.
+        </div>
+        <div class="video-placeholder-id"><!-- slot: 3-06-02-welcome --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Virtue Spotlight -->
+  <div class="virtue-card">
+    <div class="virtue-label">🏛️ Virtue Spotlight — Courtesy</div>
+    <div class="virtue-text">Many of the names you'll learn today come from the peoples who lived here long before there were countries — Mississippi, Appalachian, and many others. Saying these names carefully and getting them right is one way curators show courtesy to the places we study.</div>
+  </div>
+
+  <!-- Curator Role -->
+  <div class="callout callout-info">
+    <div class="callout-icon">🕯️</div>
+    <p><strong>Your Role Today:</strong> You are a <strong>Regional Curator</strong> — your job is to help visitors understand what makes this region's land special. Today, you'll read a physical map and sort feature labels into the right place.</p>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-dot">···</span></div>
+
+  <!-- Tab Transition -->
+  <div class="tab-next-wrap">
+    <p class="tab-transition-voice">The feature labels are ready. Time to see what the land looks like and where each one belongs.</p>
+    <button class="tab-next-btn" onclick="switchTab('explore')">Continue to 🔍 Explore →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ═══ TAB 2: EXPLORE ═══ -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-explore">
+
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #1A8A7D, #34B0A0);">🔍</div>
+    <div>
+      <div class="tab-section-title">Explore</div>
+    </div>
+  </div>
+
+  <!-- Explore Explainer Video -->
+  <div class="video-wrap">
+    <div class="video-wrap-header">
+      <span style="font-size:20px;">🎬</span>
+      <div>
+        <div class="video-wrap-type">🔍 TEACHING · EXPLORE</div>
+        <div class="video-wrap-title">Mountains, Rivers, Plains, and Islands</div>
+      </div>
+    </div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text">
+          <strong>Teacher recording notes:</strong> Walk through the four feature types on a real physical map: Rocky Mountains down the western side of Canada and the U.S., Appalachian Mountains on the eastern side, Mississippi River running down the middle of the U.S., Great Plains stretching across the central U.S. and into Canada, and the Caribbean islands scattered in the warm sea. Show how colors on a physical map mean elevation — brown/gray for mountains, green for low land, blue for water. Then introduce the Sort &amp; Compare game below. 3–5 minutes.
+        </div>
+        <div class="video-placeholder-id"><!-- slot: 3-06-02-explore-explainer --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1: Learn -->
+  <div class="step-badge"><div class="step-badge-num">1</div> Learn the Story</div>
+
+  <!-- Content Section -->
+  <div class="activity bl-accent">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#1A8A7D;">📖</div>
+      <div>
+        <div class="activity-title">Reading the Land</div>
+        <div class="activity-sub">The big physical features of the region</div>
+      </div>
+    </div>
+    <div class="activity-body">
+      <p>If you flew over North America and the Caribbean, you wouldn't see country borders from the sky — but you <em>would</em> see the shape of the land. Curators call these shapes <strong>physical features</strong>. There are four big kinds in this region.</p>
+      <p>🏔️ <strong>Mountains</strong> are the tallest land. Two long mountain ranges shape this region. The <strong>Rocky Mountains</strong> run down the western side, all the way from Canada through the United States and into Mexico. The <strong>Appalachian Mountains</strong> are older and lower, and they run down the eastern side of Canada and the United States.</p>
+      <p>🌊 <strong>Rivers</strong> carry water across the land. The <strong>Mississippi River</strong> is the longest in the region — it cuts right through the middle of the United States. The <strong>Rio Grande</strong> forms part of the border between the United States and Mexico.</p>
+      <p>🌾 <strong>Plains</strong> are wide, flat lands. The <strong>Great Plains</strong> stretch across the middle of the United States and into Canada. The land here is mostly flat with grass and farms — very different from the mountains.</p>
+      <p>🏝️ <strong>Islands</strong> are land surrounded by water. The Caribbean is mostly made of islands — big ones like <strong>Cuba</strong> and <strong>Hispaniola</strong>, and smaller ones like Jamaica and Puerto Rico.</p>
+    </div>
+  </div>
+
+  <!-- Pause & Think -->
+  <div class="callout callout-think">
+    <div class="callout-icon">🤔</div>
+    <p><strong>Pause &amp; Think:</strong> The Rocky Mountains and the Great Plains sit right next to each other. How do you think the land feels different if you're walking in the mountains versus walking across the plains?</p>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-dot">···</span></div>
+
+  <!-- STEP 2: Map Quest source map -->
+  <div class="step-badge"><div class="step-badge-num">2</div> Investigate the Map</div>
+
+  <!-- Source Map: real physical map placeholder -->
+  <div class="source-card">
+    <div class="source-card-header">
+      <div class="source-card-header-icon">🗺️</div>
+      <div>
+        <div class="source-card-header-label">Source Map</div>
+        <div class="source-card-header-title">Physical Map of North America &amp; the Caribbean</div>
+      </div>
+    </div>
+    <div class="source-image-placeholder" data-image="source-3-06-02-physical-map-north-america-caribbean">
+      <div class="source-image-placeholder-text">
+        🖼️ A clear, public-domain physical (relief) map of North America and the Caribbean — showing elevation with colors (brown/gray for mountains, green for lowlands, blue for water) and labels for the Rocky Mountains, Appalachian Mountains, Mississippi River, Rio Grande, Great Plains, and the major Caribbean islands (Cuba, Hispaniola, Jamaica, Puerto Rico). Look for examples at the U.S. Geological Survey (usgs.gov — National Map and educational resources), the CIA World Factbook (cia.gov/the-world-factbook), the Library of Congress map collection (loc.gov/maps), NOAA (noaa.gov), or Wikimedia Commons (search "physical map North America public domain" or "shaded relief North America"). The National Geographic MapMaker site (mapmaker.nationalgeographic.org) also has free educator maps.<br><br>
+        <strong>Save your image as:</strong> <code>source-3-06-02-physical-map-north-america-caribbean.jpg</code>
+      </div>
+    </div>
+    <div class="source-card-body">
+      <div class="source-label-bar">
+        <span class="src-type">Map Source</span> · Physical (relief) map showing mountains, rivers, plains, and islands of the region
+      </div>
+      <div class="callout callout-info">
+        <div class="callout-icon">👁️</div>
+        <p><strong>What do I see?</strong> What colors do you notice on the map? Where is the brown or gray (mountains)? Where is the green (lower land)? Where is the blue (water)?</p>
+      </div>
+      <div class="callout callout-think">
+        <div class="callout-icon">💭</div>
+        <p><strong>What does it mean?</strong> Find the Rocky Mountains on the western side of the map. Then find the Appalachian Mountains on the eastern side. What's between them in the middle?</p>
+      </div>
+      <div class="callout callout-tip">
+        <div class="callout-icon">⚖️</div>
+        <p><strong>Why does it matter?</strong> Why is a physical map helpful for visitors even if a political map already shows where the countries are?</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-dot">···</span></div>
+
+  <!-- STEP 3: Map Quest Sort game -->
+  <div class="step-badge"><div class="step-badge-num">3</div> Sort the Feature Labels</div>
+
+  <div class="activity bl-purple">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#8B6FC0;">🧭</div>
+      <div>
+        <div class="activity-title">Map Quest: Sort &amp; Place the Features</div>
+        <div class="activity-sub">Drag-and-tap each feature into the right category.</div>
+      </div>
+    </div>
+    <div class="activity-body">
+      <p style="font-size:14px;color:#3A4A6B;margin-bottom:12px;">Tap each feature, then tap the type of feature it is. The card locks green when you get it right.</p>
+
+      <div id="sortGame" style="display:flex;flex-direction:column;gap:10px;">
+
+        <div class="sort-row" data-answer="mountain">
+          <div class="sort-name"><strong>Rocky Mountains</strong> — long range running down the western side of Canada and the U.S.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="mountain" onclick="sortPick(this)">🏔️ Mountain</button>
+            <button class="sort-opt" data-pick="river" onclick="sortPick(this)">🌊 River</button>
+            <button class="sort-opt" data-pick="plain" onclick="sortPick(this)">🌾 Plain</button>
+            <button class="sort-opt" data-pick="island" onclick="sortPick(this)">🏝️ Island</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="river">
+          <div class="sort-name"><strong>Mississippi River</strong> — long river that cuts through the middle of the United States.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="mountain" onclick="sortPick(this)">🏔️ Mountain</button>
+            <button class="sort-opt" data-pick="river" onclick="sortPick(this)">🌊 River</button>
+            <button class="sort-opt" data-pick="plain" onclick="sortPick(this)">🌾 Plain</button>
+            <button class="sort-opt" data-pick="island" onclick="sortPick(this)">🏝️ Island</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="plain">
+          <div class="sort-name"><strong>Great Plains</strong> — wide, flat grassland stretching through the middle of the U.S. into Canada.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="mountain" onclick="sortPick(this)">🏔️ Mountain</button>
+            <button class="sort-opt" data-pick="river" onclick="sortPick(this)">🌊 River</button>
+            <button class="sort-opt" data-pick="plain" onclick="sortPick(this)">🌾 Plain</button>
+            <button class="sort-opt" data-pick="island" onclick="sortPick(this)">🏝️ Island</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="island">
+          <div class="sort-name"><strong>Cuba</strong> — the largest piece of land in the Caribbean Sea.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="mountain" onclick="sortPick(this)">🏔️ Mountain</button>
+            <button class="sort-opt" data-pick="river" onclick="sortPick(this)">🌊 River</button>
+            <button class="sort-opt" data-pick="plain" onclick="sortPick(this)">🌾 Plain</button>
+            <button class="sort-opt" data-pick="island" onclick="sortPick(this)">🏝️ Island</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="mountain">
+          <div class="sort-name"><strong>Appalachian Mountains</strong> — older, lower range running down the eastern side of Canada and the U.S.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="mountain" onclick="sortPick(this)">🏔️ Mountain</button>
+            <button class="sort-opt" data-pick="river" onclick="sortPick(this)">🌊 River</button>
+            <button class="sort-opt" data-pick="plain" onclick="sortPick(this)">🌾 Plain</button>
+            <button class="sort-opt" data-pick="island" onclick="sortPick(this)">🏝️ Island</button>
+          </div>
+        </div>
+
+        <div class="sort-row" data-answer="river">
+          <div class="sort-name"><strong>Rio Grande</strong> — river that forms part of the border between the U.S. and Mexico.</div>
+          <div class="sort-picks">
+            <button class="sort-opt" data-pick="mountain" onclick="sortPick(this)">🏔️ Mountain</button>
+            <button class="sort-opt" data-pick="river" onclick="sortPick(this)">🌊 River</button>
+            <button class="sort-opt" data-pick="plain" onclick="sortPick(this)">🌾 Plain</button>
+            <button class="sort-opt" data-pick="island" onclick="sortPick(this)">🏝️ Island</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="sortSuccess" style="display:none;margin-top:14px;padding:14px 18px;background:linear-gradient(135deg,#E3F8ED,#D4F1E0);border-left:4px solid #1A8A7D;border-radius:8px;">
+        <div style="font-weight:800;color:#0E6B5E;margin-bottom:6px;">🎉 All six features sorted!</div>
+        <div style="font-size:14px;color:#0E1C42;">🔎 <strong>Discovery Fact:</strong> The Mississippi River is over 2,300 miles long — water that starts as a small stream in northern Minnesota travels all the way to the Gulf of Mexico, passing through ten states on the way.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Then & Now -->
+  <div class="callout callout-tip">
+    <div class="callout-icon">⏳</div>
+    <p><strong>Then &amp; Now:</strong> In the past, the Mississippi River was the main highway for moving people and goods through the middle of the continent — boats carried everything from food to mail. Today, we mostly use trucks, trains, and planes. What stayed the same? Rivers still water the farms on the Great Plains and shape the land just like they always did.</p>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-dot">···</span></div>
+
+  <!-- STEP 4: Connect -->
+  <div class="step-badge"><div class="step-badge-num">4</div> Connect the Ideas</div>
+
+  <!-- Exhibit Label -->
+  <div class="key-concept">
+    <div class="key-concept-label">🏷️ Exhibit Label</div>
+    <p>The land of North America and the Caribbean is made of four big kinds of physical features: mountains on the eastern and western sides, plains in the middle, rivers cutting across, and islands in the warm Caribbean Sea. Each part of the region looks and feels different.</p>
+  </div>
+
+  <!-- Opti the Owl -->
+  <div class="owl-buddy">
+    <div class="owl-buddy-avatar">🦉</div>
+    <div class="owl-buddy-bubble">
+      <div class="owl-buddy-name">🧭 Opti says…</div>
+      Here's a curator's eye trick: when you look at a physical map, follow the color from west to east across the United States. Brown mountains, then green plains, then brown mountains again. The land tells you a story before you even read a label.
+    </div>
+  </div>
+
+  <!-- Tab Transition -->
+  <div class="tab-next-wrap">
+    <p class="tab-transition-voice">You've sorted the features. Let's see how well you can match each one to its type.</p>
+    <button class="tab-next-btn" onclick="switchTab('check')">Continue to 🧠 Self-Check →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ═══ TAB 3: SELF-CHECK ═══ -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-check">
+
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #8B6FC0, #A88AD4);">🧠</div>
+    <div>
+      <div class="tab-section-title">Quick Self-Check</div>
+    </div>
+  </div>
+
+  <div class="callout callout-info" style="margin-bottom:18px;">
+    <div class="callout-icon">🧠</div>
+    <p>Not graded — just for you! Answer these three questions to see how much you remember before writing your evidence responses.</p>
+  </div>
+
+  <div class="quiz-card">
+    <div style="padding:18px 22px;">
+
+      <div class="quiz-q" data-answer="b">
+        <div class="quiz-q-text">1. Which mountain range runs down the western side of Canada and the United States?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-val="a" onclick="checkQuiz(this)"><span class="opt-letter">A</span>The Appalachian Mountains</div>
+          <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>The Rocky Mountains</div>
+          <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>The Great Plains</div>
+        </div>
+        <div class="quiz-feedback fb-correct">Right! The Rocky Mountains run from Canada down through the U.S. and into Mexico, on the western side.</div>
+        <div class="quiz-feedback fb-wrong">Two mountain ranges run through this region. One is in the east, one is in the west. Which one is on the west?</div>
+      </div>
+
+      <div class="quiz-q" data-answer="c">
+        <div class="quiz-q-text">2. What kind of physical feature is the Great Plains?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-val="a" onclick="checkQuiz(this)"><span class="opt-letter">A</span>A mountain range</div>
+          <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>A group of islands</div>
+          <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>A wide, flat area of land</div>
+        </div>
+        <div class="quiz-feedback fb-correct">Yes! The Great Plains is a huge area of flat grassland in the middle of the U.S. and into Canada.</div>
+        <div class="quiz-feedback fb-wrong">The word "plains" is a clue. Plains are not mountains and they aren't surrounded by water. What kind of land are they?</div>
+      </div>
+
+      <div class="quiz-q" data-answer="a">
+        <div class="quiz-q-text">3. Why is a physical map helpful even if you already have a political map?</div>
+        <div class="quiz-options">
+          <div class="quiz-opt" data-val="a" onclick="checkQuiz(this)"><span class="opt-letter">A</span>It shows what the land actually looks like — mountains, plains, rivers, and islands.</div>
+          <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>It shows the names of every city in the region.</div>
+          <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>It tells you which language people speak.</div>
+        </div>
+        <div class="quiz-feedback fb-correct">Exactly! Political maps show borders. Physical maps show the actual land — mountains, plains, rivers, and islands.</div>
+        <div class="quiz-feedback fb-wrong">Think about what we studied today. A physical map uses colors to show one specific thing. What does it show?</div>
+      </div>
+
+      <!-- Score Box -->
+      <div class="quiz-score-box" id="quizScore">
+        <div class="quiz-score-label">Your Score</div>
+        <div class="quiz-score-num" id="quizScoreNum">0</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.7);">out of 3</div>
+        <div class="quiz-score-msg" id="quizScoreMsg"></div>
+      </div>
+
+      <div class="quiz-video-wrap" id="quizVideoCorrect">
+        <div class="video-wrap">
+          <div class="video-wrap-header">
+            <span style="font-size:20px;">⭐</span>
+            <div>
+              <div class="video-wrap-type">Perfect Score · Great Work!</div>
+              <div class="video-wrap-title">You nailed it!</div>
+            </div>
+          </div>
+          <div class="video-ratio">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">⭐</div>
+              <div class="video-placeholder-text"><strong>Teacher recording notes:</strong> Celebrate: "You can read a physical map like a curator now. You know the Rockies are west, the Appalachians are east, plains are in the middle, and islands make up the Caribbean." Under 30 seconds.</div>
+              <div class="video-placeholder-id"><!-- slot: 3-06-02-quiz-perfect --></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-video-wrap" id="quizVideoReview">
+        <div class="video-wrap">
+          <div class="video-wrap-header">
+            <span style="font-size:20px;">🔄</span>
+            <div>
+              <div class="video-wrap-type">Review · Keep Going!</div>
+              <div class="video-wrap-title">Let's look at those tricky questions.</div>
+            </div>
+          </div>
+          <div class="video-ratio">
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">🔄</div>
+              <div class="video-placeholder-text"><strong>Teacher recording notes:</strong> Reteach with a physical map: Rockies = west, Appalachians = east, Great Plains = middle &amp; flat, Caribbean = islands in warm water. Show one of each. Under 1 minute. Encouraging.</div>
+              <div class="video-placeholder-id"><!-- slot: 3-06-02-quiz-review --></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="tab-next-wrap">
+    <p class="tab-transition-voice">Now that you've checked your understanding, time to put your thinking into words.</p>
+    <button class="tab-next-btn" onclick="switchTab('assignment')">Continue to 📝 Evidence &amp; Assignment →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ═══ TAB 4: EVIDENCE & ASSIGNMENT ═══ -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-assignment">
+
+  <div class="tab-section-header">
+    <div class="tab-section-icon" style="background:linear-gradient(135deg, #55C8E8, #7FD8F0);">📝</div>
+    <div>
+      <div class="tab-section-title">Evidence &amp; Assignment</div>
+    </div>
+  </div>
+
+  <div class="callout callout-info" style="margin-bottom:18px;">
+    <div class="callout-icon">📝</div>
+    <p>Time to show what you know. Answer the evidence questions and complete your Curator Task. Your answers will be gathered at the bottom so you can copy or download them for Canvas.</p>
+  </div>
+
+  <!-- Assignment Explainer Video -->
+  <div class="video-wrap">
+    <div class="video-wrap-header">
+      <span style="font-size:20px;">🎬</span>
+      <div>
+        <div class="video-wrap-type">📝 ASSIGNMENT · EVIDENCE</div>
+        <div class="video-wrap-title">What You'll Turn In</div>
+      </div>
+    </div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text">
+          <strong>Teacher recording notes:</strong> Read each evidence question aloud. Model Q1: "I'd say the Rocky Mountains are on the western side. I know that because the lesson and the map both showed them running from Canada down through the U.S. on the west." Then explain the Curator Task: "You're writing the label that goes next to a physical map of the region. Pick two parts of the region with different land and say what makes them different." 2–3 minutes.
+        </div>
+        <div class="video-placeholder-id"><!-- slot: 3-06-02-assignment-explainer --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part A: Evidence Questions -->
+  <div class="activity bl-cyan">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#55C8E8;">A</div>
+      <div>
+        <div class="activity-title">Evidence Questions</div>
+        <div class="activity-sub">Answer using what you read and the physical map.</div>
+      </div>
+    </div>
+    <div class="activity-body">
+
+      <!-- Q1 -->
+      <div class="q-block"><div class="q-text"><span class="q-num">1</span>Name two mountain ranges in this region. Tell where each one is — eastern side or western side.</div></div>
+      <div class="textbox-prompt">Use the names from the lesson and direction words.</div>
+      <textarea class="journal-box" id="journal-q1" data-label="Q1: Two mountain ranges and where they are"
+        placeholder="One mountain range is the ___, on the ___ side..."
+        oninput="autoSave(this,'dot-q1');gatherAnswers();"></textarea>
+
+      <!-- Q2 -->
+      <div class="q-block" style="margin-top:14px;"><div class="q-text"><span class="q-num">2</span>What kind of land is the Great Plains, and where in the region is it? Give one detail from the lesson.</div></div>
+      <div class="textbox-prompt">Describe the land — flat, hilly, watery — and where it sits on the map.</div>
+      <textarea class="journal-box" id="journal-q2" data-label="Q2: Great Plains description and location"
+        placeholder="The Great Plains is..."
+        oninput="autoSave(this,'dot-q2');gatherAnswers();"></textarea>
+
+      <!-- Q3 -->
+      <div class="q-block" style="margin-top:14px;"><div class="q-text"><span class="q-num">3</span>How is the land in the Caribbean different from the land in the middle of the United States? Use evidence from today's lesson.</div></div>
+      <div class="textbox-prompt">Think about what each one is mostly made of — land, water, mountains, or plains.</div>
+      <textarea class="journal-box" id="journal-q3" data-label="Q3: Caribbean vs middle U.S."
+        placeholder="The land in the Caribbean is ___, but the land in the middle of the United States is..."
+        oninput="autoSave(this,'dot-q3');gatherAnswers();"></textarea>
+
+    </div>
+  </div>
+
+  <!-- Part B: Curator Task -->
+  <div class="activity bl-gold">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#D4943A;">B</div>
+      <div>
+        <div class="activity-title">Curator Task: Physical Features Display Label</div>
+        <div class="activity-sub">Write the label that goes next to the gallery's physical map.</div>
+      </div>
+    </div>
+    <div class="activity-body">
+      <p>Write a 3–4 sentence label for the physical map display. Name at least three physical features from today's lesson (one mountain range, one river, and one more feature of your choice — a plain, an island, or another mountain range). For each one, say where it is in the region. End with one sentence about why studying the land matters.</p>
+
+      <div class="textbox-prompt">Your label should answer: Which physical features are in this region? Where is each one? Why should visitors care about the land, not just the borders?</div>
+      <textarea class="journal-box" id="journal-assign" data-label="Curator Task: Physical Features Display Label"
+        placeholder="This region has many physical features. The ___ are..."
+        oninput="autoSave(this,'dot-assign');gatherAnswers();"></textarea>
+    </div>
+  </div>
+
+  <!-- Curator's Chronicle -->
+  <div class="activity bl-navy">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#0E1C42;">📜</div>
+      <div>
+        <div class="activity-title">Curator's Chronicle</div>
+        <div class="activity-sub">One sentence to capture today's exhibit work.</div>
+      </div>
+    </div>
+    <div class="activity-body">
+      <p>Finish this sentence in your own words:</p>
+      <div class="textbox-prompt">In this exhibit, I learned that ______ because ______.</div>
+      <textarea class="journal-box" id="journal-chronicle" data-label="Curator's Chronicle"
+        placeholder="In this exhibit, I learned that..."
+        oninput="autoSave(this,'dot-chronicle');gatherAnswers();"></textarea>
+    </div>
+  </div>
+
+  <!-- Gathered Answers -->
+  <div class="gathered-card">
+    <div class="gathered-header">
+      <div class="gathered-header-icon">📋</div>
+      <div>
+        <div class="gathered-header-label">Review Your Work</div>
+        <div class="gathered-header-title">Gathered Answers</div>
+      </div>
+    </div>
+    <div class="gathered-body">
+      <div class="gathered-intro">All your answers are gathered here. Review them, then copy or download to submit.</div>
+      <textarea class="gathered-output" id="gatheredOutput" readonly></textarea>
+      <div class="gathered-actions">
+        <button class="gathered-btn gathered-btn-copy" onclick="copyGathered()">📋 Copy to Clipboard</button>
+        <button class="gathered-btn gathered-btn-pdf" onclick="downloadJournal()">📄 Download as PDF</button>
+      </div>
+      <div class="gathered-copied" id="gatheredCopied">✅ Copied!</div>
+    </div>
+  </div>
+
+  <!-- Historian's Certificate -->
+  <div class="historian-seal" id="historianSeal">
+    <div class="seal-certificate">
+      <div class="seal-cert-message">
+        <strong>Nice work, Regional Curator!</strong> You read a physical map, sorted the region's mountains, rivers, plains, and islands, and wrote a label that shows visitors what the land really looks like.
+      </div>
+      <div class="seal-stamp-wrap">
+        <svg viewBox="0 0 90 90" width="80" height="80" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 6px rgba(140,30,30,0.25));">
+          <defs>
+            <radialGradient id="stampGrad" cx="50%" cy="45%" r="50%">
+              <stop offset="0%" stop-color="#D94040"/>
+              <stop offset="100%" stop-color="#A02020"/>
+            </radialGradient>
+            <clipPath id="owlStampClip"><circle cx="45" cy="38" r="16"/></clipPath>
+          </defs>
+          <circle cx="45" cy="45" r="42" fill="url(#stampGrad)" stroke="#7A1818" stroke-width="1.5"/>
+          <circle cx="45" cy="45" r="37" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+          <image href="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png"
+                 x="27" y="20" width="36" height="36"
+                 clip-path="url(#owlStampClip)" opacity="0.3" style="filter:brightness(3) grayscale(1);"/>
+          <text x="45" y="72" fill="rgba(255,255,255,0.85)" font-family="'Nunito', sans-serif" font-size="9" font-weight="800" letter-spacing="2" text-anchor="middle">CERTIFIED</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Turn-In Checklist -->
+  <div class="turn-in-card">
+    <div class="turn-in-header">
+      <div class="turn-in-header-icon">✅</div>
+      <div>
+        <div class="turn-in-header-label">Submit Your Work</div>
+        <div class="turn-in-header-title">Turn-In Checklist</div>
+      </div>
+    </div>
+    <div class="turn-in-body">
+      <div class="turn-in-intro">Check each item as you finish. When all are checked, you're done!</div>
+      <div class="turn-in-checklist">
+        <div class="turn-in-item" onclick="toggleCheck(this)">
+          <div class="turn-in-check"></div>
+          <div class="turn-in-item-text">✅ I answered the evidence questions.</div>
+        </div>
+        <div class="turn-in-item" onclick="toggleCheck(this)">
+          <div class="turn-in-check"></div>
+          <div class="turn-in-item-text">✅ I completed the Curator Task: Physical Features Display Label.</div>
+        </div>
+        <div class="turn-in-item" onclick="toggleCheck(this)">
+          <div class="turn-in-check"></div>
+          <div class="turn-in-item-text">✅ I wrote my Curator's Chronicle.</div>
+        </div>
+        <div class="turn-in-item" onclick="toggleCheck(this)">
+          <div class="turn-in-check"></div>
+          <div class="turn-in-item-text">✅ I copied or downloaded my work and submitted to Canvas.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Closing Video -->
+  <div class="video-wrap" style="margin-top:18px;">
+    <div class="video-wrap-header">
+      <span style="font-size:20px;">🎬</span>
+      <div>
+        <div class="video-wrap-type">🎉 CLOSING · WRAP-UP</div>
+        <div class="video-wrap-title">Great Work, Regional Curator!</div>
+      </div>
+    </div>
+    <div class="video-ratio">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">🎬</div>
+        <div class="video-placeholder-text">
+          <strong>Teacher recording notes:</strong> Celebrate: "You can now read the land of North America and the Caribbean. The country labels and the physical feature labels are both up on the gallery wall." Tease next lesson: "Next time, we'll meet the most famous landmarks in the region — some are natural like the Grand Canyon, and some are built by people like the Statue of Liberty. You'll help sort them on the Landmark Photo Wall." Under 1 minute.
+        </div>
+        <div class="video-placeholder-id"><!-- slot: 3-06-02-closing --></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end panel-assignment -->
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  <div class="footer-main">🏫 <span>Optima Academy Online</span></div>
+  <div class="footer-sub">Social Studies · Grade 3 · Lesson 3.06.02</div>
+  <div class="footer-copy">© 2025 Optima Academy Online</div>
+</div>
+
+</div><!-- end page-wrap -->
+
+<!-- ═══ BACK TO TOP ═══ -->
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()">⬆ Top</button>
+
+<!-- ═══ CONFETTI CANVAS ═══ -->
+<canvas id="confettiCanvas"></canvas>
+
+<script>
+/* ═══════════ TAB SWITCHING ═══════════ */
+var visited = { scene: true };
+
+function switchTab(tab) {
+  visited[tab] = true;
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('panel-' + tab).classList.add('active');
+  document.getElementById('btn-' + tab).classList.add('active');
+
+  Object.keys(visited).forEach(function(v) {
+    document.getElementById('btn-' + v).classList.add('visited');
+  });
+
+  // Collapse intro on non-scene tabs
+  var intro = document.getElementById('introSection');
+  if (tab !== 'scene') {
+    intro.classList.add('collapsed');
+  } else {
+    intro.classList.remove('collapsed');
+  }
+
+  updateProgress();
+  scrollToTop();
+  if (tab === 'assignment') gatherAnswers();
+}
+
+function toggleIntro() {
+  document.getElementById('introSection').classList.toggle('collapsed');
+}
+
+/* ═══════════ PROGRESS ═══════════ */
+function updateProgress() {
+  var total = 4;
+  var done = Object.keys(visited).length;
+  var pct = Math.round((done / total) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+}
+
+/* ═══════════ AUTO-SAVE ═══════════ */
+function autoSave(textarea, dotId) {
+  var dot = document.getElementById(dotId);
+  if (dot) {
+    dot.classList.add('saved');
+    clearTimeout(textarea._saveTimeout);
+    textarea._saveTimeout = setTimeout(function() {}, 300);
+  }
+}
+
+/* ═══════════ GATHER ANSWERS ═══════════ */
+function gatherAnswers() {
+  var ids = ['journal-q1', 'journal-q2', 'journal-q3', 'journal-assign', 'journal-chronicle'];
+  var output = '';
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var label = el.getAttribute('data-label') || id;
+    var val = el.value.trim();
+    output += label.toUpperCase() + '\n';
+    output += (val || '(no answer)') + '\n\n';
+  });
+
+  // Mini-game status
+  output += 'MINI-GAME RESULTS\n';
+  output += (window._rootMatchDone ? '✅' : '⬜') + ' Word Roots Match\n';
+
+  var gathered = document.getElementById('gatheredOutput');
+  if (gathered) gathered.value = output.trim();
+}
+
+/* ═══════════ COPY TO CLIPBOARD ═══════════ */
+function copyGathered() {
+  gatherAnswers();
+  var output = document.getElementById('gatheredOutput');
+  if (!output) return;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(output.value).then(function() {
+      showCopied();
+    });
+  } else {
+    output.select();
+    document.execCommand('copy');
+    showCopied();
+  }
+}
+function showCopied() {
+  var msg = document.getElementById('gatheredCopied');
+  msg.classList.add('show');
+  setTimeout(function() { msg.classList.remove('show'); }, 2500);
+}
+
+/* ═══════════ DOWNLOAD AS PDF ═══════════ */
+function downloadJournal() {
+  gatherAnswers();
+  var ids = ['journal-q1', 'journal-q2', 'journal-q3', 'journal-assign', 'journal-chronicle'];
+  var html = '<!DOCTYPE html><html><head><meta charset="UTF-8">';
+  html += '<title>✏️ Lesson Code — My Work</title>';
+  html += '<style>';
+  html += 'body{font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:0 20px;color:#1a1a2e;line-height:1.7;}';
+  html += 'h1{font-size:22px;border-bottom:3px solid #55C8E8;padding-bottom:8px;margin-bottom:6px;}';
+  html += 'h2{font-size:14px;color:#7A88A8;margin-bottom:24px;}';
+  html += '.section-title{font-size:16px;font-weight:bold;color:#0E1C42;margin:28px 0 4px;padding:8px 0 4px;border-bottom:2px solid #E2E8F4;}';
+  html += '.q-label{font-size:13px;font-weight:bold;color:#3A4A6B;margin:16px 0 2px;}';
+  html += '.q-answer{font-size:14px;color:#0E1C42;margin:0 0 4px;padding:6px 12px;background:#f8f9fc;border-left:3px solid #D6F2FB;border-radius:4px;white-space:pre-wrap;}';
+  html += '.no-answer{color:#B0B8CC;font-style:italic;}';
+  html += '</style></head><body>';
+  html += '<h1>📓 My Work — ✏️ Lesson Code</h1>';
+  html += '<h2>✏️ Lesson Title</h2>';
+
+  html += '<div class="section-title">📝 EVIDENCE QUESTIONS</div>';
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var label = el.getAttribute('data-label') || id;
+    var val = el.value.trim();
+    html += '<div class="q-label">' + label + '</div>';
+    html += val
+      ? '<div class="q-answer">' + val.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>'
+      : '<div class="q-answer no-answer">(no answer)</div>';
+  });
+
+  html += '</body></html>';
+  var win = window.open('', '_blank');
+  win.document.write(html);
+  win.document.close();
+  setTimeout(function() { win.print(); }, 400);
+}
+
+/* ═══════════ SELF-CHECK QUIZ ═══════════ */
+var quizAnswered = 0, quizCorrect = 0;
+function checkQuiz(optEl) {
+  var q = optEl.closest('.quiz-q');
+  if (q.classList.contains('answered')) return;
+  q.classList.add('answered');
+  quizAnswered++;
+  var correct = q.getAttribute('data-answer');
+  var chosen = optEl.getAttribute('data-val');
+  q.querySelectorAll('.quiz-opt').forEach(function(o) {
+    if (o.getAttribute('data-val') === correct) { o.classList.add('correct'); }
+    else { o.classList.add('disabled'); }
+  });
+  if (chosen === correct) {
+    quizCorrect++;
+    optEl.classList.add('correct');
+    var fb = q.querySelector('.fb-correct');
+    if (fb) fb.classList.add('show');
+  } else {
+    optEl.classList.add('wrong');
+    var fb = q.querySelector('.fb-wrong');
+    if (fb) fb.classList.add('show');
+  }
+  if (quizAnswered === 3) {
+    var scoreBox = document.getElementById('quizScore');
+    document.getElementById('quizScoreNum').textContent = quizCorrect;
+    if (quizCorrect === 3) {
+      document.getElementById('quizScoreMsg').textContent = '⭐ Perfect! You got every question right!';
+      document.getElementById('quizVideoCorrect').classList.add('show');
+      fireConfetti();
+    } else if (quizCorrect === 2) {
+      document.getElementById('quizScoreMsg').textContent = '🏛️ Great job! Almost there!';
+      document.getElementById('quizVideoReview').classList.add('show');
+    } else {
+      document.getElementById('quizScoreMsg').textContent = '📜 Good effort! Review the lesson and try again.';
+      document.getElementById('quizVideoReview').classList.add('show');
+    }
+    scoreBox.classList.add('show');
+  }
+}
+
+/* ═══════════ ROOT MATCH GAME ═══════════ */
+var rootFirst = null;
+var rootCount = 0;
+window._rootMatchDone = false;
+
+function rootMatchClick(item) {
+  if (item.classList.contains('matched')) return;
+
+  if (!rootFirst) {
+    rootFirst = item;
+    item.classList.add('selected');
+    return;
+  }
+
+  if (rootFirst === item) {
+    rootFirst.classList.remove('selected');
+    rootFirst = null;
+    return;
+  }
+
+  var key1 = rootFirst.getAttribute('data-match');
+  var key2 = item.getAttribute('data-match');
+
+  if (key1 === key2 && rootFirst.classList.contains('is-word') !== item.classList.contains('is-word')) {
+    rootFirst.classList.remove('selected');
+    rootFirst.classList.add('matched');
+    item.classList.add('matched');
+    rootCount++;
+    rootFirst = null;
+    if (rootCount >= 4) {
+      document.getElementById('rootMatchFeedback').classList.add('show');
+      var fact = document.getElementById('rootDiscoveryFact');
+      if (fact) setTimeout(function() { fact.classList.add('show'); }, 600);
+      window._rootMatchDone = true;
+    }
+  } else {
+    item.classList.add('wrong-flash');
+    rootFirst.classList.add('wrong-flash');
+    var a = rootFirst;
+    var b = item;
+    setTimeout(function() {
+      a.classList.remove('wrong-flash', 'selected');
+      b.classList.remove('wrong-flash');
+    }, 500);
+    rootFirst = null;
+  }
+}
+
+/* ═══════════ FLIP CARDS ═══════════ */
+document.querySelectorAll('.flip-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    card.classList.toggle('flipped');
+  });
+});
+
+/* ═══════════ TURN-IN CHECKLIST ═══════════ */
+function toggleCheck(item) {
+  item.classList.toggle('checked');
+  var check = item.querySelector('.turn-in-check');
+  check.textContent = item.classList.contains('checked') ? '✓' : '';
+
+  var allChecked = document.querySelectorAll('.turn-in-item.checked').length ===
+                   document.querySelectorAll('.turn-in-item').length;
+  if (allChecked) {
+    fireConfetti();
+    var seal = document.getElementById('historianSeal');
+    if (seal) seal.classList.add('show');
+  }
+}
+
+/* ═══════════ CONFETTI ═══════════ */
+function fireConfetti() {
+  var canvas = document.getElementById('confettiCanvas');
+  var ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  var particles = [];
+  var colors = ['#55C8E8','#D4943A','#1A8A7D','#34B76F','#8B6FC0','#FFD700','#E8636B'];
+  var emojis = ['🏛️','📜','🗺️','🌍','🧭','🏛️','🦉','🔔','⚖️','🌍','🏺','📋'];
+
+  // Regular confetti pieces
+  for (var i = 0; i < 120; i++) {
+    particles.push({
+      type: 'rect',
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      r: Math.random() * 6 + 3,
+      c: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 4,
+      vy: Math.random() * 3 + 2,
+      rot: Math.random() * 360,
+      rv: (Math.random() - 0.5) * 8
+    });
+  }
+  // Emoji particles mixed in
+  for (var j = 0; j < 18; j++) {
+    particles.push({
+      type: 'emoji',
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      emoji: emojis[Math.floor(Math.random() * emojis.length)],
+      size: Math.random() * 14 + 26,
+      vx: (Math.random() - 0.5) * 3,
+      vy: Math.random() * 2.5 + 1.5,
+      rot: Math.random() * 360,
+      rv: (Math.random() - 0.5) * 5
+    });
+  }
+
+  var frames = 0;
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(function(p) {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI / 180);
+      if (p.type === 'emoji') {
+        ctx.font = p.size + 'px serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(p.emoji, 0, 0);
+      } else {
+        ctx.fillStyle = p.c;
+        ctx.fillRect(-p.r, -p.r / 2, p.r * 2, p.r);
+      }
+      ctx.restore();
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.rv;
+      p.vy += 0.04;
+    });
+    frames++;
+    if (frames < 300) {
+      // Fade out during the last 80 frames
+      if (frames > 220) {
+        canvas.style.opacity = 1 - ((frames - 220) / 80);
+      }
+      requestAnimationFrame(animate);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      canvas.style.opacity = 1;
+    }
+  }
+  animate();
+}
+
+/* ═══════════ BACK TO TOP ═══════════ */
+function scrollToTop() {
+  var target = document.getElementById('pageTop');
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  // Fallback for iframe
+  try { window.parent.postMessage({ type: 'scrollToTop' }, '*'); } catch(e) {}
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Show/hide back-to-top button
+(function() {
+  var btn = document.getElementById('backToTop');
+  var onScroll = function() {
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollY > 400) { btn.classList.add('show'); }
+    else { btn.classList.remove('show'); }
+  };
+  window.addEventListener('scroll', onScroll);
+  // Also listen in parent if iframe
+  try {
+    if (window.parent !== window) {
+      window.parent.addEventListener('scroll', onScroll);
+    }
+  } catch(e) {}
+})();
+
+/* ═══════════ INIT ═══════════ */
+updateProgress();
+</script>
+<script>
+/* === Sort game logic (lesson B) === */
+(function(){
+  var solved = 0;
+  var total = document.querySelectorAll('#sortGame .sort-row').length;
+  window.sortPick = function(btn) {
+    var row = btn.closest('.sort-row');
+    if (row.classList.contains('locked')) return;
+    var answer = row.getAttribute('data-answer');
+    var pick = btn.getAttribute('data-pick');
+    if (pick === answer) {
+      btn.classList.add('right');
+      row.classList.add('correct','locked');
+      solved++;
+      if (solved === total) {
+        var msg = document.getElementById('sortSuccess');
+        if (msg) msg.style.display = 'block';
+      }
+    } else {
+      btn.classList.add('wrong');
+      setTimeout(function(){ btn.classList.remove('wrong'); }, 400);
+    }
+  };
+})();
+</script>
+<script>
+(function(){
+  var B='https://raw.githubusercontent.com/bbirchum1/optima-3rd-social-studies/main/images/';
+  var EX=['.png','.jpg','.jpeg','.webp'];
+  document.querySelectorAll('.source-image-placeholder[data-image]').forEach(function(el){
+    tryImg(el,el.getAttribute('data-image'),0)
+  });
+  function tryImg(el,name,i){
+    if(i>=EX.length)return;
+    var img=new Image();
+    img.onload=function(){
+      img.style.cssText='width:100%;height:auto;display:block;max-width:100%;';
+      img.alt=name.replace(/-/g,' ');
+      el.innerHTML='';
+      el.style.cssText='padding:0;border:none;background:none;min-height:0;max-height:none;height:auto;overflow:visible;border-radius:12px;display:block;width:100%;';
+      el.appendChild(img)
+    };
+    img.onerror=function(){tryImg(el,name,i+1)};
+    img.src=B+name+EX[i]
+  }
+})();
+</script>
+</body>
+</html>
