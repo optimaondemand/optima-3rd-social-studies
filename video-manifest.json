@@ -7,7 +7,7 @@
       "file": "ss-3-01.01-what-historians-study.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=f6348e4d-0967-4896-b6a7-2d63bcf26fba&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-01-welcome.mp4\"></iframe>",
+      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=f6348e4d-0967-4896-b6a7-2d63bcf26fba&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-01-welcome.mp4\"></iframe>",
       "status": "ready"
     },
     "3-01-01-explore-explainer": {
@@ -15,7 +15,7 @@
       "file": "ss-3-01.01-what-historians-study.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=72685103-7dce-4155-822d-9a3c17d46997&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-01-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=72685103-7dce-4155-822d-9a3c17d46997&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-01-explore-explainer.mp4\"></iframe>",
       "status": "ready"
     },
     "3-01-01-quiz-perfect": {
@@ -39,7 +39,7 @@
       "file": "ss-3-01.01-what-historians-study.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=bd430575-965e-4904-bb80-badc2337a39d&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-01-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=bd430575-965e-4904-bb80-badc2337a39d&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-01-assignment-explainer.mp4\"></iframe>",
       "status": "ready"
     },
     "3-01-01-closing": {
@@ -47,7 +47,7 @@
       "file": "ss-3-01.01-what-historians-study.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=48fc4db6-5700-4624-b1a3-f847fd42ea5d&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-01-closing.mp4\"></iframe>",
+      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=48fc4db6-5700-4624-b1a3-f847fd42ea5d&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-01-closing.mp4\"></iframe>",
       "status": "ready"
     },
     "3-01-02-welcome": {
@@ -87,16 +87,16 @@
       "file": "ss-3-01.02-primary-secondary-sources.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=a7b66134-8b4b-4b16-9071-86bbcb8ccb59&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-02-assignment-explainer.mp4\"></iframe>",
+      "status": "ready"
     },
     "3-01-02-closing": {
       "lesson": "Optima Academy Online — Secondary Sources",
       "file": "ss-3-01.02-primary-secondary-sources.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=683c20ce-18bf-4e72-b44d-74ee34e720ad&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-02-closing.mp4\"></iframe>",
+      "status": "ready"
     },
     "3-01-03-welcome": {
       "lesson": "Optima Academy Online — Questions",

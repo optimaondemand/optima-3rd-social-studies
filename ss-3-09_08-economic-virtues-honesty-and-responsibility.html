@@ -2883,6 +2883,7 @@ updateProgress();
 </script>
 
 
+
   <!-- Video Manifest Loader -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -2907,13 +2908,12 @@ updateProgress();
           wrapper.innerHTML = video.embed;
           var iframe = wrapper.firstElementChild;
           if (iframe) {
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.position = 'absolute';
-            iframe.style.top = '0';
-            iframe.style.left = '0';
-            iframe.style.border = 'none';
-            placeholder.replaceWith(iframe);
+            iframe.removeAttribute('width');
+            iframe.removeAttribute('height');
+            iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+            placeholder.innerHTML = '';
+            placeholder.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;padding:0;background:#000;';
+            placeholder.appendChild(iframe);
           }
         });
       })
