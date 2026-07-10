@@ -2665,7 +2665,7 @@ updateProgress();
 </script>
 <script>
 (function(){
-  var B='https://raw.githubusercontent.com/bbirchum1/optima-3rd-social-studies/main/images/';
+  var B='https://raw.githubusercontent.com/optimaondemand/optima-3rd-social-studies/main/images/';
   var EX=['.png','.jpg','.jpeg','.webp'];
   document.querySelectorAll('.source-image-placeholder[data-image]').forEach(function(el){
     tryImg(el,el.getAttribute('data-image'),0)
@@ -2691,7 +2691,7 @@ updateProgress();
   <!-- Video Manifest Loader -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var MANIFEST_URL = 'https://raw.githubusercontent.com/bbirchum1/optima-3rd-social-studies/main/video-manifest.json';
+    var MANIFEST_URL = 'https://raw.githubusercontent.com/optimaondemand/optima-3rd-social-studies/main/video-manifest.json';
     fetch(MANIFEST_URL + '?_=' + Date.now())
       .then(function(r) { return r.json(); })
       .then(function(manifest) {

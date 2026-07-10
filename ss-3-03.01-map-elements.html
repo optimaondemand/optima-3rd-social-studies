@@ -1579,7 +1579,7 @@ body {
     <div class="info-icon" style="background:#FFF3DC;">📅</div>
     <div>
       <div class="info-label">Week</div>
-      <div class="info-value">Week 7</div>
+      <div class="info-value">Week 7 · Q1</div>
     </div>
   </div>
   <div class="info-cell">
@@ -1789,29 +1789,76 @@ body {
     </div>
     <div class="activity-body">
       <p>Each of the four maps on the wall is missing a different element. Flip each card to learn what it does — and why the map can't work without it.</p>
-      <div class="flip-grid" id="flipGrid">
+      <div class="vocab-grid" id="flipGrid">
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">🗺️<br><strong>Title</strong></div>
-            <div class="flip-back">The <strong>title</strong> tells you what the map is about. It might say "North America" or "Zoo Map." Without a title, visitors don't know what place they're looking at.</div>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">🗺️</div>
+              <div class="fc-word">Title</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def">The <strong>title</strong> tells you what the map is about. It might say "North America" or "Zoo Map." Without a title, visitors don't know what place they're looking at.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">🧭</div>
+              <div class="fc-word">Compass Rose</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def">The <strong>compass rose</strong> shows directions — north, south, east, and west. Without it, you can't tell which way is up on the map.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">📏</div>
+              <div class="fc-word">Scale</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def">The <strong>scale</strong> shows how far apart things really are. One inch on the map might equal 100 miles in real life. Without a scale, you can't tell if two cities are close or far apart.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">🔑</div>
+              <div class="fc-word">Legend</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def">The <strong>legend</strong> (also called a key) explains what symbols and colors mean. A blue line might be a river. A red dot might be a city. Without the legend, symbols are just mystery shapes.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">🧭<br><strong>Compass Rose</strong></div>
+            <div class="flip-card-back">The <strong>compass rose</strong> shows directions — north, south, east, and west. Without it, you can't tell which way is up on the map.</div>
           </div>
         </div>
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">🧭<br><strong>Compass Rose</strong></div>
-            <div class="flip-back">The <strong>compass rose</strong> shows directions — north, south, east, and west. Without it, you can't tell which way is up on the map.</div>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">📏<br><strong>Scale</strong></div>
+            <div class="flip-card-back">The <strong>scale</strong> shows how far apart things really are. One inch on the map might equal 100 miles in real life. Without a scale, you can't tell if two cities are close or far apart.</div>
           </div>
         </div>
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">📏<br><strong>Scale</strong></div>
-            <div class="flip-back">The <strong>scale</strong> shows how far apart things really are. One inch on the map might equal 100 miles in real life. Without a scale, you can't tell if two cities are close or far apart.</div>
-          </div>
-        </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">🔑<br><strong>Legend</strong></div>
-            <div class="flip-back">The <strong>legend</strong> (also called a key) explains what symbols and colors mean. A blue line might be a river. A red dot might be a city. Without the legend, symbols are just mystery shapes.</div>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">🔑<br><strong>Legend</strong></div>
+            <div class="flip-card-back">The <strong>legend</strong> (also called a key) explains what symbols and colors mean. A blue line might be a river. A red dot might be a city. Without the legend, symbols are just mystery shapes.</div>
           </div>
         </div>
       </div>
@@ -2518,7 +2565,7 @@ updateProgress();
   <!-- Video Manifest Loader -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var MANIFEST_URL = 'https://raw.githubusercontent.com/bbirchum1/optima-3rd-social-studies/main/video-manifest.json';
+    var MANIFEST_URL = 'https://raw.githubusercontent.com/optimaondemand/optima-3rd-social-studies/main/video-manifest.json';
     fetch(MANIFEST_URL + '?_=' + Date.now())
       .then(function(r) { return r.json(); })
       .then(function(manifest) {

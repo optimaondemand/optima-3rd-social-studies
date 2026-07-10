@@ -1564,7 +1564,7 @@ body {
     <div class="info-icon" style="background:#FFF3DC;">📅</div>
     <div>
       <div class="info-label">Week</div>
-      <div class="info-value">Week 9</div>
+      <div class="info-value">Week 9 · Q1</div>
     </div>
   </div>
   <div class="info-cell">
@@ -1764,29 +1764,53 @@ body {
     </div>
     <div class="activity-body">
       <p>Both globes and flat maps are useful — but for different reasons. Flip each card to see what each one does well and what it doesn't.</p>
-      <div class="flip-grid" id="flipGrid">
+      <div class="vocab-grid" id="flipGrid">
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">🌍<br><strong>Globe: Shapes</strong></div>
-            <div class="flip-back"><strong>✅ Accurate.</strong> A globe shows the real shapes and sizes of continents and oceans because it's round, just like the Earth.</div>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">🌍</div>
+              <div class="fc-word">Globe: Shapes</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def"><strong>✅ Accurate.</strong> A globe shows the real shapes and sizes of continents and oceans because it's round, just like the Earth.</div>
+            </div>
           </div>
         </div>
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">🗺️<br><strong>Flat Map: Shapes</strong></div>
-            <div class="flip-back"><strong>⚠️ Distorted.</strong> A flat map stretches and squeezes shapes — especially near the top and bottom. Places near the poles look bigger than they really are.</div>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">🗺️</div>
+              <div class="fc-word">Flat Map: Shapes</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def"><strong>⚠️ Distorted.</strong> A flat map stretches and squeezes shapes — especially near the top and bottom. Places near the poles look bigger than they really are.</div>
+            </div>
           </div>
         </div>
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">🌍<br><strong>Globe: Convenience</strong></div>
-            <div class="flip-back"><strong>⚠️ Hard to carry.</strong> Globes are big, heavy, and you can only see half the Earth at a time. You can't fold a globe and put it in your pocket!</div>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">🌍</div>
+              <div class="fc-word">Globe: Convenience</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def"><strong>⚠️ Hard to carry.</strong> Globes are big, heavy, and you can only see half the Earth at a time. You can't fold a globe and put it in your pocket!</div>
+            </div>
           </div>
         </div>
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">🗺️<br><strong>Flat Map: Convenience</strong></div>
-            <div class="flip-back"><strong>✅ Easy to use.</strong> Flat maps can be printed in a book, hung on a wall, or folded up. You can see the whole world at once — much easier for travel and display.</div>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">🗺️</div>
+              <div class="fc-word">Flat Map: Convenience</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def"><strong>✅ Easy to use.</strong> Flat maps can be printed in a book, hung on a wall, or folded up. You can see the whole world at once — much easier for travel and display.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -2400,7 +2424,7 @@ updateProgress();
   <!-- Video Manifest Loader -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var MANIFEST_URL = 'https://raw.githubusercontent.com/bbirchum1/optima-3rd-social-studies/main/video-manifest.json';
+    var MANIFEST_URL = 'https://raw.githubusercontent.com/optimaondemand/optima-3rd-social-studies/main/video-manifest.json';
     fetch(MANIFEST_URL + '?_=' + Date.now())
       .then(function(r) { return r.json(); })
       .then(function(manifest) {

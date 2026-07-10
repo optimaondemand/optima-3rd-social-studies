@@ -1572,7 +1572,7 @@ body {
     <div class="info-icon" style="background:#FFF3DC;">📅</div>
     <div>
       <div class="info-label">Week</div>
-      <div class="info-value">Week 8</div>
+      <div class="info-value">Week 8 · Q1</div>
     </div>
   </div>
   <div class="info-cell">
@@ -1782,29 +1782,53 @@ body {
     </div>
     <div class="activity-body">
       <p>Each drawer in the cabinet should hold one type of map. Flip each card to learn what it shows and when a curator would choose it.</p>
-      <div class="flip-grid" id="flipGrid">
+      <div class="vocab-grid" id="flipGrid">
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">🏔️<br><strong>Physical Map</strong></div>
-            <div class="flip-back">A <strong>physical map</strong> shows the natural features of the land — mountains, rivers, lakes, deserts, and oceans. Use it when you need to know what the land looks like. Colors usually go from green (low) to brown (high).</div>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">🏔️</div>
+              <div class="fc-word">Physical Map</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def">A <strong>physical map</strong> shows the natural features of the land — mountains, rivers, lakes, deserts, and oceans. Use it when you need to know what the land looks like. Colors usually go from green (low) to brown (high).</div>
+            </div>
           </div>
         </div>
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">🏳️<br><strong>Political Map</strong></div>
-            <div class="flip-back">A <strong>political map</strong> shows borders between countries, states, or cities. It uses bright colors to help you tell one place from another. Use it when you need to know where one country ends and another begins.</div>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">🏳️</div>
+              <div class="fc-word">Political Map</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def">A <strong>political map</strong> shows borders between countries, states, or cities. It uses bright colors to help you tell one place from another. Use it when you need to know where one country ends and another begins.</div>
+            </div>
           </div>
         </div>
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">⛰️<br><strong>Elevation Map</strong></div>
-            <div class="flip-back">An <strong>elevation map</strong> shows how high or low the land is above sea level. It uses layers of color — green at sea level, brown and white at the highest peaks. Use it when you need to find the tallest mountains or lowest valleys.</div>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">⛰️</div>
+              <div class="fc-word">Elevation Map</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def">An <strong>elevation map</strong> shows how high or low the land is above sea level. It uses layers of color — green at sea level, brown and white at the highest peaks. Use it when you need to find the tallest mountains or lowest valleys.</div>
+            </div>
           </div>
         </div>
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-inner">
-            <div class="flip-front">👥<br><strong>Population Map</strong></div>
-            <div class="flip-back">A <strong>population map</strong> shows where people live. Darker colors or bigger dots mean more people. Lighter areas mean fewer people. Use it when you need to know which places are crowded and which are empty.</div>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="fc-emoji">👥</div>
+              <div class="fc-word">Population Map</div>
+              <div class="fc-tap">tap to flip</div>
+            </div>
+            <div class="flip-card-back">
+              <div class="fc-def">A <strong>population map</strong> shows where people live. Darker colors or bigger dots mean more people. Lighter areas mean fewer people. Use it when you need to know which places are crowded and which are empty.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -2542,7 +2566,7 @@ updateProgress();
   <!-- Video Manifest Loader -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var MANIFEST_URL = 'https://raw.githubusercontent.com/bbirchum1/optima-3rd-social-studies/main/video-manifest.json';
+    var MANIFEST_URL = 'https://raw.githubusercontent.com/optimaondemand/optima-3rd-social-studies/main/video-manifest.json';
     fetch(MANIFEST_URL + '?_=' + Date.now())
       .then(function(r) { return r.json(); })
       .then(function(manifest) {
