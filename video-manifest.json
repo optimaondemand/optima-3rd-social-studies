@@ -3,15 +3,15 @@
   "_manifest_url": "https://raw.githubusercontent.com/bbirchum1/optima-3rd-social-studies/main/video-manifest.json",
   "videos": {
     "3-01-01-welcome": {
-      "lesson": "Optima Academy Online — Historians Study",
+      "lesson": "Optima Academy Online \u2014 Historians Study",
       "file": "ss-3-01.01-what-historians-study.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=f6348e4d-0967-4896-b6a7-2d63bcf26fba&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-01-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/ZFUaHqjgJfU?si=XPVTzrZDDuRh4KVL&amp;controls=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-01-explore-explainer": {
-      "lesson": "Optima Academy Online — Historians Study",
+      "lesson": "Optima Academy Online \u2014 Historians Study",
       "file": "ss-3-01.01-what-historians-study.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -19,7 +19,7 @@
       "status": "ready"
     },
     "3-01-01-quiz-perfect": {
-      "lesson": "Optima Academy Online — Historians Study",
+      "lesson": "Optima Academy Online \u2014 Historians Study",
       "file": "ss-3-01.01-what-historians-study.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -27,7 +27,7 @@
       "status": "pending"
     },
     "3-01-01-quiz-review": {
-      "lesson": "Optima Academy Online — Historians Study",
+      "lesson": "Optima Academy Online \u2014 Historians Study",
       "file": "ss-3-01.01-what-historians-study.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -35,7 +35,7 @@
       "status": "pending"
     },
     "3-01-01-assignment-explainer": {
-      "lesson": "Optima Academy Online — Historians Study",
+      "lesson": "Optima Academy Online \u2014 Historians Study",
       "file": "ss-3-01.01-what-historians-study.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -43,7 +43,7 @@
       "status": "ready"
     },
     "3-01-01-closing": {
-      "lesson": "Optima Academy Online — Historians Study",
+      "lesson": "Optima Academy Online \u2014 Historians Study",
       "file": "ss-3-01.01-what-historians-study.html",
       "type": "Closing",
       "section": "Closing",
@@ -51,7 +51,7 @@
       "status": "ready"
     },
     "3-01-02-welcome": {
-      "lesson": "Optima Academy Online — Secondary Sources",
+      "lesson": "Optima Academy Online \u2014 Secondary Sources",
       "file": "ss-3-01.02-primary-secondary-sources.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -59,7 +59,7 @@
       "status": "ready"
     },
     "3-01-02-explore-explainer": {
-      "lesson": "Optima Academy Online — Secondary Sources",
+      "lesson": "Optima Academy Online \u2014 Secondary Sources",
       "file": "ss-3-01.02-primary-secondary-sources.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -67,7 +67,7 @@
       "status": "ready"
     },
     "3-01-02-quiz-perfect": {
-      "lesson": "Optima Academy Online — Secondary Sources",
+      "lesson": "Optima Academy Online \u2014 Secondary Sources",
       "file": "ss-3-01.02-primary-secondary-sources.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -75,7 +75,7 @@
       "status": "pending"
     },
     "3-01-02-quiz-review": {
-      "lesson": "Optima Academy Online — Secondary Sources",
+      "lesson": "Optima Academy Online \u2014 Secondary Sources",
       "file": "ss-3-01.02-primary-secondary-sources.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -83,7 +83,7 @@
       "status": "pending"
     },
     "3-01-02-assignment-explainer": {
-      "lesson": "Optima Academy Online — Secondary Sources",
+      "lesson": "Optima Academy Online \u2014 Secondary Sources",
       "file": "ss-3-01.02-primary-secondary-sources.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -91,7 +91,7 @@
       "status": "ready"
     },
     "3-01-02-closing": {
-      "lesson": "Optima Academy Online — Secondary Sources",
+      "lesson": "Optima Academy Online \u2014 Secondary Sources",
       "file": "ss-3-01.02-primary-secondary-sources.html",
       "type": "Closing",
       "section": "Closing",
@@ -99,7 +99,7 @@
       "status": "ready"
     },
     "3-01-03-welcome": {
-      "lesson": "Optima Academy Online — Questions",
+      "lesson": "Optima Academy Online \u2014 Questions",
       "file": "ss-3-01.03-asking-questions.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -107,7 +107,7 @@
       "status": "ready"
     },
     "3-01-03-explore-explainer": {
-      "lesson": "Optima Academy Online — Questions",
+      "lesson": "Optima Academy Online \u2014 Questions",
       "file": "ss-3-01.03-asking-questions.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -115,7 +115,7 @@
       "status": "ready"
     },
     "3-01-03-quiz-perfect": {
-      "lesson": "Optima Academy Online — Questions",
+      "lesson": "Optima Academy Online \u2014 Questions",
       "file": "ss-3-01.03-asking-questions.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -123,7 +123,7 @@
       "status": "pending"
     },
     "3-01-03-quiz-review": {
-      "lesson": "Optima Academy Online — Questions",
+      "lesson": "Optima Academy Online \u2014 Questions",
       "file": "ss-3-01.03-asking-questions.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -131,7 +131,7 @@
       "status": "pending"
     },
     "3-01-03-assignment-explainer": {
-      "lesson": "Optima Academy Online — Questions",
+      "lesson": "Optima Academy Online \u2014 Questions",
       "file": "ss-3-01.03-asking-questions.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -139,7 +139,7 @@
       "status": "ready"
     },
     "3-01-03-closing": {
-      "lesson": "Optima Academy Online — Questions",
+      "lesson": "Optima Academy Online \u2014 Questions",
       "file": "ss-3-01.03-asking-questions.html",
       "type": "Closing",
       "section": "Closing",
@@ -147,7 +147,7 @@
       "status": "ready"
     },
     "3-01-04-welcome": {
-      "lesson": "Optima Academy Online — Reliable Info",
+      "lesson": "Optima Academy Online \u2014 Reliable Info",
       "file": "ss-3-01.04-technology-reliable-info.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -155,7 +155,7 @@
       "status": "ready"
     },
     "3-01-04-explore-explainer": {
-      "lesson": "Optima Academy Online — Reliable Info",
+      "lesson": "Optima Academy Online \u2014 Reliable Info",
       "file": "ss-3-01.04-technology-reliable-info.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -163,7 +163,7 @@
       "status": "ready"
     },
     "3-01-04-quiz-perfect": {
-      "lesson": "Optima Academy Online — Reliable Info",
+      "lesson": "Optima Academy Online \u2014 Reliable Info",
       "file": "ss-3-01.04-technology-reliable-info.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -171,7 +171,7 @@
       "status": "pending"
     },
     "3-01-04-quiz-review": {
-      "lesson": "Optima Academy Online — Reliable Info",
+      "lesson": "Optima Academy Online \u2014 Reliable Info",
       "file": "ss-3-01.04-technology-reliable-info.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -179,7 +179,7 @@
       "status": "pending"
     },
     "3-01-04-assignment-explainer": {
-      "lesson": "Optima Academy Online — Reliable Info",
+      "lesson": "Optima Academy Online \u2014 Reliable Info",
       "file": "ss-3-01.04-technology-reliable-info.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -187,7 +187,7 @@
       "status": "ready"
     },
     "3-01-04-closing": {
-      "lesson": "Optima Academy Online — Reliable Info",
+      "lesson": "Optima Academy Online \u2014 Reliable Info",
       "file": "ss-3-01.04-technology-reliable-info.html",
       "type": "Closing",
       "section": "Closing",
@@ -195,7 +195,7 @@
       "status": "ready"
     },
     "3-01-05-welcome": {
-      "lesson": "Optima Academy Online — Roots",
+      "lesson": "Optima Academy Online \u2014 Roots",
       "file": "ss-3-01.05-word-roots.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -203,7 +203,7 @@
       "status": "ready"
     },
     "3-01-05-explore-explainer": {
-      "lesson": "Optima Academy Online — Roots",
+      "lesson": "Optima Academy Online \u2014 Roots",
       "file": "ss-3-01.05-word-roots.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -211,7 +211,7 @@
       "status": "ready"
     },
     "3-01-05-quiz-perfect": {
-      "lesson": "Optima Academy Online — Roots",
+      "lesson": "Optima Academy Online \u2014 Roots",
       "file": "ss-3-01.05-word-roots.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -219,7 +219,7 @@
       "status": "pending"
     },
     "3-01-05-quiz-review": {
-      "lesson": "Optima Academy Online — Roots",
+      "lesson": "Optima Academy Online \u2014 Roots",
       "file": "ss-3-01.05-word-roots.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -227,7 +227,7 @@
       "status": "pending"
     },
     "3-01-05-assignment-explainer": {
-      "lesson": "Optima Academy Online — Roots",
+      "lesson": "Optima Academy Online \u2014 Roots",
       "file": "ss-3-01.05-word-roots.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -235,7 +235,7 @@
       "status": "ready"
     },
     "3-01-05-closing": {
-      "lesson": "Optima Academy Online — Roots",
+      "lesson": "Optima Academy Online \u2014 Roots",
       "file": "ss-3-01.05-word-roots.html",
       "type": "Closing",
       "section": "Closing",
@@ -243,7 +243,7 @@
       "status": "ready"
     },
     "3-01-06-welcome": {
-      "lesson": "Optima Academy Online — Evidence Entry",
+      "lesson": "Optima Academy Online \u2014 Evidence Entry",
       "file": "ss-3-01.06-first-evidence-entry.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -251,7 +251,7 @@
       "status": "ready"
     },
     "3-01-06-explore-explainer": {
-      "lesson": "Optima Academy Online — Evidence Entry",
+      "lesson": "Optima Academy Online \u2014 Evidence Entry",
       "file": "ss-3-01.06-first-evidence-entry.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -259,7 +259,7 @@
       "status": "ready"
     },
     "3-01-06-quiz-perfect": {
-      "lesson": "Optima Academy Online — Evidence Entry",
+      "lesson": "Optima Academy Online \u2014 Evidence Entry",
       "file": "ss-3-01.06-first-evidence-entry.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -267,7 +267,7 @@
       "status": "pending"
     },
     "3-01-06-quiz-review": {
-      "lesson": "Optima Academy Online — Evidence Entry",
+      "lesson": "Optima Academy Online \u2014 Evidence Entry",
       "file": "ss-3-01.06-first-evidence-entry.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -275,7 +275,7 @@
       "status": "pending"
     },
     "3-01-06-assignment-explainer": {
-      "lesson": "Optima Academy Online — Evidence Entry",
+      "lesson": "Optima Academy Online \u2014 Evidence Entry",
       "file": "ss-3-01.06-first-evidence-entry.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -283,7 +283,7 @@
       "status": "ready"
     },
     "3-01-06-closing": {
-      "lesson": "Optima Academy Online — Evidence Entry",
+      "lesson": "Optima Academy Online \u2014 Evidence Entry",
       "file": "ss-3-01.06-first-evidence-entry.html",
       "type": "Closing",
       "section": "Closing",
@@ -291,7 +291,7 @@
       "status": "ready"
     },
     "3-02-01-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
       "file": "ss-3-02.01-why-people-explore.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -299,7 +299,7 @@
       "status": "ready"
     },
     "3-02-01-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
       "file": "ss-3-02.01-why-people-explore.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -307,7 +307,7 @@
       "status": "ready"
     },
     "3-02-01-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
       "file": "ss-3-02.01-why-people-explore.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -315,7 +315,7 @@
       "status": "pending"
     },
     "3-02-01-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
       "file": "ss-3-02.01-why-people-explore.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -323,7 +323,7 @@
       "status": "pending"
     },
     "3-02-01-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
       "file": "ss-3-02.01-why-people-explore.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -331,7 +331,7 @@
       "status": "ready"
     },
     "3-02-01-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
       "file": "ss-3-02.01-why-people-explore.html",
       "type": "Closing",
       "section": "Closing",
@@ -339,7 +339,7 @@
       "status": "ready"
     },
     "3-02-02-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
       "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -347,7 +347,7 @@
       "status": "ready"
     },
     "3-02-02-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
       "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -355,7 +355,7 @@
       "status": "ready"
     },
     "3-02-02-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
       "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -363,7 +363,7 @@
       "status": "pending"
     },
     "3-02-02-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
       "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -371,7 +371,7 @@
       "status": "pending"
     },
     "3-02-02-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
       "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -379,7 +379,7 @@
       "status": "ready"
     },
     "3-02-02-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
       "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
       "type": "Closing",
       "section": "Closing",
@@ -387,7 +387,7 @@
       "status": "ready"
     },
     "3-02-03-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
       "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -395,7 +395,7 @@
       "status": "ready"
     },
     "3-02-03-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
       "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -403,7 +403,7 @@
       "status": "ready"
     },
     "3-02-03-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
       "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -411,7 +411,7 @@
       "status": "pending"
     },
     "3-02-03-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
       "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -419,7 +419,7 @@
       "status": "pending"
     },
     "3-02-03-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
       "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -427,7 +427,7 @@
       "status": "ready"
     },
     "3-02-03-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
       "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
       "type": "Closing",
       "section": "Closing",
@@ -435,7 +435,7 @@
       "status": "ready"
     },
     "3-02-04-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
       "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -443,7 +443,7 @@
       "status": "ready"
     },
     "3-02-04-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
       "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -451,7 +451,7 @@
       "status": "ready"
     },
     "3-02-04-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
       "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -459,7 +459,7 @@
       "status": "pending"
     },
     "3-02-04-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
       "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -467,7 +467,7 @@
       "status": "pending"
     },
     "3-02-04-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
       "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -475,7 +475,7 @@
       "status": "ready"
     },
     "3-02-04-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
       "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
       "type": "Closing",
       "section": "Closing",
@@ -483,7 +483,7 @@
       "status": "ready"
     },
     "3-02-05-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
       "file": "ss-3-02.05-consequences-of-exploration.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -491,7 +491,7 @@
       "status": "ready"
     },
     "3-02-05-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
       "file": "ss-3-02.05-consequences-of-exploration.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -499,7 +499,7 @@
       "status": "ready"
     },
     "3-02-05-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
       "file": "ss-3-02.05-consequences-of-exploration.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -507,7 +507,7 @@
       "status": "pending"
     },
     "3-02-05-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
       "file": "ss-3-02.05-consequences-of-exploration.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -515,7 +515,7 @@
       "status": "pending"
     },
     "3-02-05-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
       "file": "ss-3-02.05-consequences-of-exploration.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -523,7 +523,7 @@
       "status": "ready"
     },
     "3-02-05-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
       "file": "ss-3-02.05-consequences-of-exploration.html",
       "type": "Closing",
       "section": "Closing",
@@ -531,7 +531,7 @@
       "status": "ready"
     },
     "3-02-06-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
       "file": "ss-3-02.06-explorer-evidence-chart.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -539,7 +539,7 @@
       "status": "ready"
     },
     "3-02-06-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
       "file": "ss-3-02.06-explorer-evidence-chart.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -547,7 +547,7 @@
       "status": "ready"
     },
     "3-02-06-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
       "file": "ss-3-02.06-explorer-evidence-chart.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -555,7 +555,7 @@
       "status": "pending"
     },
     "3-02-06-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
       "file": "ss-3-02.06-explorer-evidence-chart.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -563,7 +563,7 @@
       "status": "pending"
     },
     "3-02-06-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
       "file": "ss-3-02.06-explorer-evidence-chart.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -571,7 +571,7 @@
       "status": "ready"
     },
     "3-02-06-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
       "file": "ss-3-02.06-explorer-evidence-chart.html",
       "type": "Closing",
       "section": "Closing",
@@ -579,7 +579,7 @@
       "status": "ready"
     },
     "3-03-01-welcome": {
-      "lesson": "Optima Academy Online — 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
       "file": "ss-3-03.01-map-elements.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -587,7 +587,7 @@
       "status": "ready"
     },
     "3-03-01-explore-explainer": {
-      "lesson": "Optima Academy Online — 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
       "file": "ss-3-03.01-map-elements.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -595,7 +595,7 @@
       "status": "ready"
     },
     "3-03-01-quiz-perfect": {
-      "lesson": "Optima Academy Online — 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
       "file": "ss-3-03.01-map-elements.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -603,7 +603,7 @@
       "status": "pending"
     },
     "3-03-01-quiz-review": {
-      "lesson": "Optima Academy Online — 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
       "file": "ss-3-03.01-map-elements.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -611,7 +611,7 @@
       "status": "pending"
     },
     "3-03-01-assignment-explainer": {
-      "lesson": "Optima Academy Online — 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
       "file": "ss-3-03.01-map-elements.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -619,7 +619,7 @@
       "status": "ready"
     },
     "3-03-01-closing": {
-      "lesson": "Optima Academy Online — 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
       "file": "ss-3-03.01-map-elements.html",
       "type": "Closing",
       "section": "Closing",
@@ -627,7 +627,7 @@
       "status": "ready"
     },
     "3-03-02-welcome": {
-      "lesson": "Optima Academy Online — 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
       "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -635,7 +635,7 @@
       "status": "ready"
     },
     "3-03-02-explore-explainer": {
-      "lesson": "Optima Academy Online — 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
       "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -643,7 +643,7 @@
       "status": "ready"
     },
     "3-03-02-quiz-perfect": {
-      "lesson": "Optima Academy Online — 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
       "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -651,7 +651,7 @@
       "status": "pending"
     },
     "3-03-02-quiz-review": {
-      "lesson": "Optima Academy Online — 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
       "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -659,7 +659,7 @@
       "status": "pending"
     },
     "3-03-02-assignment-explainer": {
-      "lesson": "Optima Academy Online — 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
       "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -667,7 +667,7 @@
       "status": "ready"
     },
     "3-03-02-closing": {
-      "lesson": "Optima Academy Online — 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
       "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
       "type": "Closing",
       "section": "Closing",
@@ -675,7 +675,7 @@
       "status": "ready"
     },
     "3-03-03-welcome": {
-      "lesson": "Optima Academy Online — 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
       "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -683,7 +683,7 @@
       "status": "ready"
     },
     "3-03-03-explore-explainer": {
-      "lesson": "Optima Academy Online — 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
       "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -691,7 +691,7 @@
       "status": "ready"
     },
     "3-03-03-quiz-perfect": {
-      "lesson": "Optima Academy Online — 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
       "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -699,7 +699,7 @@
       "status": "pending"
     },
     "3-03-03-quiz-review": {
-      "lesson": "Optima Academy Online — 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
       "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -707,7 +707,7 @@
       "status": "pending"
     },
     "3-03-03-assignment-explainer": {
-      "lesson": "Optima Academy Online — 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
       "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -715,7 +715,7 @@
       "status": "ready"
     },
     "3-03-03-closing": {
-      "lesson": "Optima Academy Online — 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
       "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
       "type": "Closing",
       "section": "Closing",
@@ -723,7 +723,7 @@
       "status": "ready"
     },
     "3-03-04-welcome": {
-      "lesson": "Optima Academy Online — 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
       "file": "ss-3-03.04-map-scale-and-measuring-distance.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -731,7 +731,7 @@
       "status": "ready"
     },
     "3-03-04-explore-explainer": {
-      "lesson": "Optima Academy Online — 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
       "file": "ss-3-03.04-map-scale-and-measuring-distance.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -739,7 +739,7 @@
       "status": "ready"
     },
     "3-03-04-quiz-perfect": {
-      "lesson": "Optima Academy Online — 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
       "file": "ss-3-03.04-map-scale-and-measuring-distance.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -747,7 +747,7 @@
       "status": "pending"
     },
     "3-03-04-quiz-review": {
-      "lesson": "Optima Academy Online — 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
       "file": "ss-3-03.04-map-scale-and-measuring-distance.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -755,7 +755,7 @@
       "status": "pending"
     },
     "3-03-04-assignment-explainer": {
-      "lesson": "Optima Academy Online — 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
       "file": "ss-3-03.04-map-scale-and-measuring-distance.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -763,7 +763,7 @@
       "status": "ready"
     },
     "3-03-04-closing": {
-      "lesson": "Optima Academy Online — 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
       "file": "ss-3-03.04-map-scale-and-measuring-distance.html",
       "type": "Closing",
       "section": "Closing",
@@ -771,7 +771,7 @@
       "status": "ready"
     },
     "3-03-05-welcome": {
-      "lesson": "Optima Academy Online — 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
       "file": "ss-3-03.05-maps-and-globes-understanding-distortion.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -779,7 +779,7 @@
       "status": "ready"
     },
     "3-03-05-explore-explainer": {
-      "lesson": "Optima Academy Online — 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
       "file": "ss-3-03.05-maps-and-globes-understanding-distortion.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -787,7 +787,7 @@
       "status": "ready"
     },
     "3-03-05-quiz-perfect": {
-      "lesson": "Optima Academy Online — 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
       "file": "ss-3-03.05-maps-and-globes-understanding-distortion.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -795,7 +795,7 @@
       "status": "pending"
     },
     "3-03-05-quiz-review": {
-      "lesson": "Optima Academy Online — 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
       "file": "ss-3-03.05-maps-and-globes-understanding-distortion.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -803,7 +803,7 @@
       "status": "pending"
     },
     "3-03-05-assignment-explainer": {
-      "lesson": "Optima Academy Online — 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
       "file": "ss-3-03.05-maps-and-globes-understanding-distortion.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -811,7 +811,7 @@
       "status": "ready"
     },
     "3-03-05-closing": {
-      "lesson": "Optima Academy Online — 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
       "file": "ss-3-03.05-maps-and-globes-understanding-distortion.html",
       "type": "Closing",
       "section": "Closing",
@@ -819,7 +819,7 @@
       "status": "ready"
     },
     "3-03-06-welcome": {
-      "lesson": "Optima Academy Online — 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
       "file": "ss-3-03.06-reading-tables-charts-graphs-photos.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -827,7 +827,7 @@
       "status": "ready"
     },
     "3-03-06-explore-explainer": {
-      "lesson": "Optima Academy Online — 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
       "file": "ss-3-03.06-reading-tables-charts-graphs-photos.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -835,7 +835,7 @@
       "status": "ready"
     },
     "3-03-06-quiz-perfect": {
-      "lesson": "Optima Academy Online — 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
       "file": "ss-3-03.06-reading-tables-charts-graphs-photos.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -843,7 +843,7 @@
       "status": "pending"
     },
     "3-03-06-quiz-review": {
-      "lesson": "Optima Academy Online — 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
       "file": "ss-3-03.06-reading-tables-charts-graphs-photos.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -851,7 +851,7 @@
       "status": "pending"
     },
     "3-03-06-assignment-explainer": {
-      "lesson": "Optima Academy Online — 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
       "file": "ss-3-03.06-reading-tables-charts-graphs-photos.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -859,7 +859,7 @@
       "status": "ready"
     },
     "3-03-06-closing": {
-      "lesson": "Optima Academy Online — 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
       "file": "ss-3-03.06-reading-tables-charts-graphs-photos.html",
       "type": "Closing",
       "section": "Closing",
@@ -867,7 +867,7 @@
       "status": "ready"
     },
     "3-03-07-welcome": {
-      "lesson": "Optima Academy Online — 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
       "file": "ss-3-03.07-create-map.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -875,7 +875,7 @@
       "status": "ready"
     },
     "3-03-07-explore-explainer": {
-      "lesson": "Optima Academy Online — 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
       "file": "ss-3-03.07-create-map.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -883,7 +883,7 @@
       "status": "ready"
     },
     "3-03-07-quiz-perfect": {
-      "lesson": "Optima Academy Online — 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
       "file": "ss-3-03.07-create-map.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -891,7 +891,7 @@
       "status": "pending"
     },
     "3-03-07-quiz-review": {
-      "lesson": "Optima Academy Online — 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
       "file": "ss-3-03.07-create-map.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -899,7 +899,7 @@
       "status": "pending"
     },
     "3-03-07-assignment-explainer": {
-      "lesson": "Optima Academy Online — 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
       "file": "ss-3-03.07-create-map.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -907,7 +907,7 @@
       "status": "ready"
     },
     "3-03-07-closing": {
-      "lesson": "Optima Academy Online — 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
       "file": "ss-3-03.07-create-map.html",
       "type": "Closing",
       "section": "Closing",
@@ -915,7 +915,7 @@
       "status": "ready"
     },
     "3-03-08-welcome": {
-      "lesson": "Optima Academy Online — 3.03.08: Map Skills Challenge (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.08: Map Skills Challenge (Grade 3 Museum)",
       "file": "ss-3-03.08-map-skills-challenge.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -923,7 +923,7 @@
       "status": "ready"
     },
     "3-03-08-explore-explainer": {
-      "lesson": "Optima Academy Online — 3.03.08: Map Skills Challenge (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.08: Map Skills Challenge (Grade 3 Museum)",
       "file": "ss-3-03.08-map-skills-challenge.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -931,7 +931,7 @@
       "status": "ready"
     },
     "3-03-08-quiz-perfect": {
-      "lesson": "Optima Academy Online — 3.03.08: Map Skills Challenge (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.08: Map Skills Challenge (Grade 3 Museum)",
       "file": "ss-3-03.08-map-skills-challenge.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -939,7 +939,7 @@
       "status": "pending"
     },
     "3-03-08-quiz-review": {
-      "lesson": "Optima Academy Online — 3.03.08: Map Skills Challenge (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.08: Map Skills Challenge (Grade 3 Museum)",
       "file": "ss-3-03.08-map-skills-challenge.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -947,7 +947,7 @@
       "status": "pending"
     },
     "3-03-08-assignment-explainer": {
-      "lesson": "Optima Academy Online — 3.03.08: Map Skills Challenge (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.08: Map Skills Challenge (Grade 3 Museum)",
       "file": "ss-3-03.08-map-skills-challenge.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -955,7 +955,7 @@
       "status": "ready"
     },
     "3-03-08-closing": {
-      "lesson": "Optima Academy Online — 3.03.08: Map Skills Challenge (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 3.03.08: Map Skills Challenge (Grade 3 Museum)",
       "file": "ss-3-03.08-map-skills-challenge.html",
       "type": "Closing",
       "section": "Closing",
@@ -963,7 +963,7 @@
       "status": "ready"
     },
     "3-04-01-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
       "file": "ss-3-04.01-connect-exploration-tools-maps.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -971,7 +971,7 @@
       "status": "pending"
     },
     "3-04-01-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
       "file": "ss-3-04.01-connect-exploration-tools-maps.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -979,7 +979,7 @@
       "status": "pending"
     },
     "3-04-01-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
       "file": "ss-3-04.01-connect-exploration-tools-maps.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -987,7 +987,7 @@
       "status": "pending"
     },
     "3-04-01-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
       "file": "ss-3-04.01-connect-exploration-tools-maps.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -995,7 +995,7 @@
       "status": "pending"
     },
     "3-04-01-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
       "file": "ss-3-04.01-connect-exploration-tools-maps.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1003,7 +1003,7 @@
       "status": "pending"
     },
     "3-04-01-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
       "file": "ss-3-04.01-connect-exploration-tools-maps.html",
       "type": "Closing",
       "section": "Closing",
@@ -1011,7 +1011,7 @@
       "status": "pending"
     },
     "3-04-02-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
       "file": "ss-3-04.02-cartographers-review-portfolio.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1019,7 +1019,7 @@
       "status": "pending"
     },
     "3-04-02-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
       "file": "ss-3-04.02-cartographers-review-portfolio.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1027,7 +1027,7 @@
       "status": "pending"
     },
     "3-04-02-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
       "file": "ss-3-04.02-cartographers-review-portfolio.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1035,7 +1035,7 @@
       "status": "pending"
     },
     "3-04-02-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
       "file": "ss-3-04.02-cartographers-review-portfolio.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1043,7 +1043,7 @@
       "status": "pending"
     },
     "3-04-02-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
       "file": "ss-3-04.02-cartographers-review-portfolio.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1051,7 +1051,7 @@
       "status": "pending"
     },
     "3-04-02-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
       "file": "ss-3-04.02-cartographers-review-portfolio.html",
       "type": "Closing",
       "section": "Closing",
@@ -1059,7 +1059,7 @@
       "status": "pending"
     },
     "3-05-01-welcome": {
-      "lesson": "Optima Academy Online — Continents Oceans",
+      "lesson": "Optima Academy Online \u2014 Continents Oceans",
       "file": "ss-3-05.01-label-continents-oceans.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1067,7 +1067,7 @@
       "status": "pending"
     },
     "3-05-01-explore-explainer": {
-      "lesson": "Optima Academy Online — Continents Oceans",
+      "lesson": "Optima Academy Online \u2014 Continents Oceans",
       "file": "ss-3-05.01-label-continents-oceans.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1075,7 +1075,7 @@
       "status": "pending"
     },
     "3-05-01-quiz-perfect": {
-      "lesson": "Optima Academy Online — Continents Oceans",
+      "lesson": "Optima Academy Online \u2014 Continents Oceans",
       "file": "ss-3-05.01-label-continents-oceans.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1083,7 +1083,7 @@
       "status": "pending"
     },
     "3-05-01-quiz-review": {
-      "lesson": "Optima Academy Online — Continents Oceans",
+      "lesson": "Optima Academy Online \u2014 Continents Oceans",
       "file": "ss-3-05.01-label-continents-oceans.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1091,7 +1091,7 @@
       "status": "pending"
     },
     "3-05-01-assignment-explainer": {
-      "lesson": "Optima Academy Online — Continents Oceans",
+      "lesson": "Optima Academy Online \u2014 Continents Oceans",
       "file": "ss-3-05.01-label-continents-oceans.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1099,7 +1099,7 @@
       "status": "pending"
     },
     "3-05-01-closing": {
-      "lesson": "Optima Academy Online — Continents Oceans",
+      "lesson": "Optima Academy Online \u2014 Continents Oceans",
       "file": "ss-3-05.01-label-continents-oceans.html",
       "type": "Closing",
       "section": "Closing",
@@ -1107,7 +1107,7 @@
       "status": "pending"
     },
     "3-05-02-welcome": {
-      "lesson": "Optima Academy Online — Bodies Of Water",
+      "lesson": "Optima Academy Online \u2014 Bodies Of Water",
       "file": "ss-3-05.02-landforms-bodies-of-water.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1115,7 +1115,7 @@
       "status": "pending"
     },
     "3-05-02-explore-explainer": {
-      "lesson": "Optima Academy Online — Bodies Of Water",
+      "lesson": "Optima Academy Online \u2014 Bodies Of Water",
       "file": "ss-3-05.02-landforms-bodies-of-water.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1123,7 +1123,7 @@
       "status": "pending"
     },
     "3-05-02-quiz-perfect": {
-      "lesson": "Optima Academy Online — Bodies Of Water",
+      "lesson": "Optima Academy Online \u2014 Bodies Of Water",
       "file": "ss-3-05.02-landforms-bodies-of-water.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1131,7 +1131,7 @@
       "status": "pending"
     },
     "3-05-02-quiz-review": {
-      "lesson": "Optima Academy Online — Bodies Of Water",
+      "lesson": "Optima Academy Online \u2014 Bodies Of Water",
       "file": "ss-3-05.02-landforms-bodies-of-water.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1139,7 +1139,7 @@
       "status": "pending"
     },
     "3-05-02-assignment-explainer": {
-      "lesson": "Optima Academy Online — Bodies Of Water",
+      "lesson": "Optima Academy Online \u2014 Bodies Of Water",
       "file": "ss-3-05.02-landforms-bodies-of-water.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1147,7 +1147,7 @@
       "status": "pending"
     },
     "3-05-02-closing": {
-      "lesson": "Optima Academy Online — Bodies Of Water",
+      "lesson": "Optima Academy Online \u2014 Bodies Of Water",
       "file": "ss-3-05.02-landforms-bodies-of-water.html",
       "type": "Closing",
       "section": "Closing",
@@ -1155,7 +1155,7 @@
       "status": "pending"
     },
     "3-05-03-welcome": {
-      "lesson": "Optima Academy Online — Vegetation Resources",
+      "lesson": "Optima Academy Online \u2014 Vegetation Resources",
       "file": "ss-3-05.03-climate-vegetation-resources.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1163,7 +1163,7 @@
       "status": "pending"
     },
     "3-05-03-explore-explainer": {
-      "lesson": "Optima Academy Online — Vegetation Resources",
+      "lesson": "Optima Academy Online \u2014 Vegetation Resources",
       "file": "ss-3-05.03-climate-vegetation-resources.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1171,7 +1171,7 @@
       "status": "pending"
     },
     "3-05-03-quiz-perfect": {
-      "lesson": "Optima Academy Online — Vegetation Resources",
+      "lesson": "Optima Academy Online \u2014 Vegetation Resources",
       "file": "ss-3-05.03-climate-vegetation-resources.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1179,7 +1179,7 @@
       "status": "pending"
     },
     "3-05-03-quiz-review": {
-      "lesson": "Optima Academy Online — Vegetation Resources",
+      "lesson": "Optima Academy Online \u2014 Vegetation Resources",
       "file": "ss-3-05.03-climate-vegetation-resources.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1187,7 +1187,7 @@
       "status": "pending"
     },
     "3-05-03-assignment-explainer": {
-      "lesson": "Optima Academy Online — Vegetation Resources",
+      "lesson": "Optima Academy Online \u2014 Vegetation Resources",
       "file": "ss-3-05.03-climate-vegetation-resources.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1195,7 +1195,7 @@
       "status": "pending"
     },
     "3-05-03-closing": {
-      "lesson": "Optima Academy Online — Vegetation Resources",
+      "lesson": "Optima Academy Online \u2014 Vegetation Resources",
       "file": "ss-3-05.03-climate-vegetation-resources.html",
       "type": "Closing",
       "section": "Closing",
@@ -1203,7 +1203,7 @@
       "status": "pending"
     },
     "3-05-04-welcome": {
-      "lesson": "Optima Academy Online — Relative Location",
+      "lesson": "Optima Academy Online \u2014 Relative Location",
       "file": "ss-3-05.04-absolute-relative-location.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1211,7 +1211,7 @@
       "status": "pending"
     },
     "3-05-04-explore-explainer": {
-      "lesson": "Optima Academy Online — Relative Location",
+      "lesson": "Optima Academy Online \u2014 Relative Location",
       "file": "ss-3-05.04-absolute-relative-location.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1219,7 +1219,7 @@
       "status": "pending"
     },
     "3-05-04-quiz-perfect": {
-      "lesson": "Optima Academy Online — Relative Location",
+      "lesson": "Optima Academy Online \u2014 Relative Location",
       "file": "ss-3-05.04-absolute-relative-location.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1227,7 +1227,7 @@
       "status": "pending"
     },
     "3-05-04-quiz-review": {
-      "lesson": "Optima Academy Online — Relative Location",
+      "lesson": "Optima Academy Online \u2014 Relative Location",
       "file": "ss-3-05.04-absolute-relative-location.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1235,7 +1235,7 @@
       "status": "pending"
     },
     "3-05-04-assignment-explainer": {
-      "lesson": "Optima Academy Online — Relative Location",
+      "lesson": "Optima Academy Online \u2014 Relative Location",
       "file": "ss-3-05.04-absolute-relative-location.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1243,7 +1243,7 @@
       "status": "pending"
     },
     "3-05-04-closing": {
-      "lesson": "Optima Academy Online — Relative Location",
+      "lesson": "Optima Academy Online \u2014 Relative Location",
       "file": "ss-3-05.04-absolute-relative-location.html",
       "type": "Closing",
       "section": "Closing",
@@ -1251,7 +1251,7 @@
       "status": "pending"
     },
     "3-05-05-welcome": {
-      "lesson": "Optima Academy Online — Terms Word Roots",
+      "lesson": "Optima Academy Online \u2014 Terms Word Roots",
       "file": "ss-3-05.05-geographic-terms-word-roots.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1259,7 +1259,7 @@
       "status": "pending"
     },
     "3-05-05-explore-explainer": {
-      "lesson": "Optima Academy Online — Terms Word Roots",
+      "lesson": "Optima Academy Online \u2014 Terms Word Roots",
       "file": "ss-3-05.05-geographic-terms-word-roots.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1267,7 +1267,7 @@
       "status": "pending"
     },
     "3-05-05-quiz-perfect": {
-      "lesson": "Optima Academy Online — Terms Word Roots",
+      "lesson": "Optima Academy Online \u2014 Terms Word Roots",
       "file": "ss-3-05.05-geographic-terms-word-roots.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1275,7 +1275,7 @@
       "status": "pending"
     },
     "3-05-05-quiz-review": {
-      "lesson": "Optima Academy Online — Terms Word Roots",
+      "lesson": "Optima Academy Online \u2014 Terms Word Roots",
       "file": "ss-3-05.05-geographic-terms-word-roots.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1283,7 +1283,7 @@
       "status": "pending"
     },
     "3-05-05-assignment-explainer": {
-      "lesson": "Optima Academy Online — Terms Word Roots",
+      "lesson": "Optima Academy Online \u2014 Terms Word Roots",
       "file": "ss-3-05.05-geographic-terms-word-roots.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1291,7 +1291,7 @@
       "status": "pending"
     },
     "3-05-05-closing": {
-      "lesson": "Optima Academy Online — Terms Word Roots",
+      "lesson": "Optima Academy Online \u2014 Terms Word Roots",
       "file": "ss-3-05.05-geographic-terms-word-roots.html",
       "type": "Closing",
       "section": "Closing",
@@ -1299,7 +1299,7 @@
       "status": "pending"
     },
     "3-05-06-welcome": {
-      "lesson": "Optima Academy Online — Map Explanation",
+      "lesson": "Optima Academy Online \u2014 Map Explanation",
       "file": "ss-3-05.06-world-map-explanation.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1307,7 +1307,7 @@
       "status": "pending"
     },
     "3-05-06-explore-explainer": {
-      "lesson": "Optima Academy Online — Map Explanation",
+      "lesson": "Optima Academy Online \u2014 Map Explanation",
       "file": "ss-3-05.06-world-map-explanation.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1315,7 +1315,7 @@
       "status": "pending"
     },
     "3-05-06-quiz-perfect": {
-      "lesson": "Optima Academy Online — Map Explanation",
+      "lesson": "Optima Academy Online \u2014 Map Explanation",
       "file": "ss-3-05.06-world-map-explanation.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1323,7 +1323,7 @@
       "status": "pending"
     },
     "3-05-06-quiz-review": {
-      "lesson": "Optima Academy Online — Map Explanation",
+      "lesson": "Optima Academy Online \u2014 Map Explanation",
       "file": "ss-3-05.06-world-map-explanation.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1331,7 +1331,7 @@
       "status": "pending"
     },
     "3-05-06-assignment-explainer": {
-      "lesson": "Optima Academy Online — Map Explanation",
+      "lesson": "Optima Academy Online \u2014 Map Explanation",
       "file": "ss-3-05.06-world-map-explanation.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1339,7 +1339,7 @@
       "status": "pending"
     },
     "3-05-06-closing": {
-      "lesson": "Optima Academy Online — Map Explanation",
+      "lesson": "Optima Academy Online \u2014 Map Explanation",
       "file": "ss-3-05.06-world-map-explanation.html",
       "type": "Closing",
       "section": "Closing",
@@ -1347,7 +1347,7 @@
       "status": "pending"
     },
     "3-06-01-welcome": {
-      "lesson": "Optima Academy Online — Us Mexico Caribbean",
+      "lesson": "Optima Academy Online \u2014 Us Mexico Caribbean",
       "file": "ss-3-06.01-canada-us-mexico-caribbean.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1355,7 +1355,7 @@
       "status": "pending"
     },
     "3-06-01-explore-explainer": {
-      "lesson": "Optima Academy Online — Us Mexico Caribbean",
+      "lesson": "Optima Academy Online \u2014 Us Mexico Caribbean",
       "file": "ss-3-06.01-canada-us-mexico-caribbean.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1363,7 +1363,7 @@
       "status": "pending"
     },
     "3-06-01-quiz-perfect": {
-      "lesson": "Optima Academy Online — Us Mexico Caribbean",
+      "lesson": "Optima Academy Online \u2014 Us Mexico Caribbean",
       "file": "ss-3-06.01-canada-us-mexico-caribbean.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1371,7 +1371,7 @@
       "status": "pending"
     },
     "3-06-01-quiz-review": {
-      "lesson": "Optima Academy Online — Us Mexico Caribbean",
+      "lesson": "Optima Academy Online \u2014 Us Mexico Caribbean",
       "file": "ss-3-06.01-canada-us-mexico-caribbean.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1379,7 +1379,7 @@
       "status": "pending"
     },
     "3-06-01-assignment-explainer": {
-      "lesson": "Optima Academy Online — Us Mexico Caribbean",
+      "lesson": "Optima Academy Online \u2014 Us Mexico Caribbean",
       "file": "ss-3-06.01-canada-us-mexico-caribbean.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1387,7 +1387,7 @@
       "status": "pending"
     },
     "3-06-01-closing": {
-      "lesson": "Optima Academy Online — Us Mexico Caribbean",
+      "lesson": "Optima Academy Online \u2014 Us Mexico Caribbean",
       "file": "ss-3-06.01-canada-us-mexico-caribbean.html",
       "type": "Closing",
       "section": "Closing",
@@ -1395,7 +1395,7 @@
       "status": "pending"
     },
     "3-06-02-welcome": {
-      "lesson": "Optima Academy Online — Features North America Caribbean",
+      "lesson": "Optima Academy Online \u2014 Features North America Caribbean",
       "file": "ss-3-06.02-physical-features-north-america-caribbean.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1403,7 +1403,7 @@
       "status": "pending"
     },
     "3-06-02-explore-explainer": {
-      "lesson": "Optima Academy Online — Features North America Caribbean",
+      "lesson": "Optima Academy Online \u2014 Features North America Caribbean",
       "file": "ss-3-06.02-physical-features-north-america-caribbean.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1411,7 +1411,7 @@
       "status": "pending"
     },
     "3-06-02-quiz-perfect": {
-      "lesson": "Optima Academy Online — Features North America Caribbean",
+      "lesson": "Optima Academy Online \u2014 Features North America Caribbean",
       "file": "ss-3-06.02-physical-features-north-america-caribbean.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1419,7 +1419,7 @@
       "status": "pending"
     },
     "3-06-02-quiz-review": {
-      "lesson": "Optima Academy Online — Features North America Caribbean",
+      "lesson": "Optima Academy Online \u2014 Features North America Caribbean",
       "file": "ss-3-06.02-physical-features-north-america-caribbean.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1427,7 +1427,7 @@
       "status": "pending"
     },
     "3-06-02-assignment-explainer": {
-      "lesson": "Optima Academy Online — Features North America Caribbean",
+      "lesson": "Optima Academy Online \u2014 Features North America Caribbean",
       "file": "ss-3-06.02-physical-features-north-america-caribbean.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1435,7 +1435,7 @@
       "status": "pending"
     },
     "3-06-02-closing": {
-      "lesson": "Optima Academy Online — Features North America Caribbean",
+      "lesson": "Optima Academy Online \u2014 Features North America Caribbean",
       "file": "ss-3-06.02-physical-features-north-america-caribbean.html",
       "type": "Closing",
       "section": "Closing",
@@ -1443,7 +1443,7 @@
       "status": "pending"
     },
     "3-06-03-welcome": {
-      "lesson": "Optima Academy Online — Natural And Man Made",
+      "lesson": "Optima Academy Online \u2014 Natural And Man Made",
       "file": "ss-3-06.03-landmarks-natural-and-man-made.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1451,7 +1451,7 @@
       "status": "pending"
     },
     "3-06-03-explore-explainer": {
-      "lesson": "Optima Academy Online — Natural And Man Made",
+      "lesson": "Optima Academy Online \u2014 Natural And Man Made",
       "file": "ss-3-06.03-landmarks-natural-and-man-made.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1459,7 +1459,7 @@
       "status": "pending"
     },
     "3-06-03-quiz-perfect": {
-      "lesson": "Optima Academy Online — Natural And Man Made",
+      "lesson": "Optima Academy Online \u2014 Natural And Man Made",
       "file": "ss-3-06.03-landmarks-natural-and-man-made.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1467,7 +1467,7 @@
       "status": "pending"
     },
     "3-06-03-quiz-review": {
-      "lesson": "Optima Academy Online — Natural And Man Made",
+      "lesson": "Optima Academy Online \u2014 Natural And Man Made",
       "file": "ss-3-06.03-landmarks-natural-and-man-made.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1475,7 +1475,7 @@
       "status": "pending"
     },
     "3-06-03-assignment-explainer": {
-      "lesson": "Optima Academy Online — Natural And Man Made",
+      "lesson": "Optima Academy Online \u2014 Natural And Man Made",
       "file": "ss-3-06.03-landmarks-natural-and-man-made.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1483,7 +1483,7 @@
       "status": "pending"
     },
     "3-06-03-closing": {
-      "lesson": "Optima Academy Online — Natural And Man Made",
+      "lesson": "Optima Academy Online \u2014 Natural And Man Made",
       "file": "ss-3-06.03-landmarks-natural-and-man-made.html",
       "type": "Closing",
       "section": "Closing",
@@ -1491,7 +1491,7 @@
       "status": "pending"
     },
     "3-06-04-welcome": {
-      "lesson": "Optima Academy Online — And Vegetation",
+      "lesson": "Optima Academy Online \u2014 And Vegetation",
       "file": "ss-3-06.04-climate-and-vegetation.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1499,7 +1499,7 @@
       "status": "pending"
     },
     "3-06-04-explore-explainer": {
-      "lesson": "Optima Academy Online — And Vegetation",
+      "lesson": "Optima Academy Online \u2014 And Vegetation",
       "file": "ss-3-06.04-climate-and-vegetation.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1507,7 +1507,7 @@
       "status": "pending"
     },
     "3-06-04-quiz-perfect": {
-      "lesson": "Optima Academy Online — And Vegetation",
+      "lesson": "Optima Academy Online \u2014 And Vegetation",
       "file": "ss-3-06.04-climate-and-vegetation.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1515,7 +1515,7 @@
       "status": "pending"
     },
     "3-06-04-quiz-review": {
-      "lesson": "Optima Academy Online — And Vegetation",
+      "lesson": "Optima Academy Online \u2014 And Vegetation",
       "file": "ss-3-06.04-climate-and-vegetation.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1523,7 +1523,7 @@
       "status": "pending"
     },
     "3-06-04-assignment-explainer": {
-      "lesson": "Optima Academy Online — And Vegetation",
+      "lesson": "Optima Academy Online \u2014 And Vegetation",
       "file": "ss-3-06.04-climate-and-vegetation.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1531,7 +1531,7 @@
       "status": "pending"
     },
     "3-06-04-closing": {
-      "lesson": "Optima Academy Online — And Vegetation",
+      "lesson": "Optima Academy Online \u2014 And Vegetation",
       "file": "ss-3-06.04-climate-and-vegetation.html",
       "type": "Closing",
       "section": "Closing",
@@ -1539,7 +1539,7 @@
       "status": "pending"
     },
     "3-06-05-welcome": {
-      "lesson": "Optima Academy Online — Resources",
+      "lesson": "Optima Academy Online \u2014 Resources",
       "file": "ss-3-06.05-natural-resources.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1547,7 +1547,7 @@
       "status": "pending"
     },
     "3-06-05-explore-explainer": {
-      "lesson": "Optima Academy Online — Resources",
+      "lesson": "Optima Academy Online \u2014 Resources",
       "file": "ss-3-06.05-natural-resources.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1555,7 +1555,7 @@
       "status": "pending"
     },
     "3-06-05-quiz-perfect": {
-      "lesson": "Optima Academy Online — Resources",
+      "lesson": "Optima Academy Online \u2014 Resources",
       "file": "ss-3-06.05-natural-resources.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1563,7 +1563,7 @@
       "status": "pending"
     },
     "3-06-05-quiz-review": {
-      "lesson": "Optima Academy Online — Resources",
+      "lesson": "Optima Academy Online \u2014 Resources",
       "file": "ss-3-06.05-natural-resources.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1571,7 +1571,7 @@
       "status": "pending"
     },
     "3-06-05-assignment-explainer": {
-      "lesson": "Optima Academy Online — Resources",
+      "lesson": "Optima Academy Online \u2014 Resources",
       "file": "ss-3-06.05-natural-resources.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1579,7 +1579,7 @@
       "status": "pending"
     },
     "3-06-05-closing": {
-      "lesson": "Optima Academy Online — Resources",
+      "lesson": "Optima Academy Online \u2014 Resources",
       "file": "ss-3-06.05-natural-resources.html",
       "type": "Closing",
       "section": "Closing",
@@ -1587,7 +1587,7 @@
       "status": "pending"
     },
     "3-06-06-welcome": {
-      "lesson": "Optima Academy Online — That Settled",
+      "lesson": "Optima Academy Online \u2014 That Settled",
       "file": "ss-3-06.06-cultures-that-settled.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1595,7 +1595,7 @@
       "status": "pending"
     },
     "3-06-06-explore-explainer": {
-      "lesson": "Optima Academy Online — That Settled",
+      "lesson": "Optima Academy Online \u2014 That Settled",
       "file": "ss-3-06.06-cultures-that-settled.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1603,7 +1603,7 @@
       "status": "pending"
     },
     "3-06-06-quiz-perfect": {
-      "lesson": "Optima Academy Online — That Settled",
+      "lesson": "Optima Academy Online \u2014 That Settled",
       "file": "ss-3-06.06-cultures-that-settled.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1611,7 +1611,7 @@
       "status": "pending"
     },
     "3-06-06-quiz-review": {
-      "lesson": "Optima Academy Online — That Settled",
+      "lesson": "Optima Academy Online \u2014 That Settled",
       "file": "ss-3-06.06-cultures-that-settled.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1619,7 +1619,7 @@
       "status": "pending"
     },
     "3-06-06-assignment-explainer": {
-      "lesson": "Optima Academy Online — That Settled",
+      "lesson": "Optima Academy Online \u2014 That Settled",
       "file": "ss-3-06.06-cultures-that-settled.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1627,7 +1627,7 @@
       "status": "pending"
     },
     "3-06-06-closing": {
-      "lesson": "Optima Academy Online — That Settled",
+      "lesson": "Optima Academy Online \u2014 That Settled",
       "file": "ss-3-06.06-cultures-that-settled.html",
       "type": "Closing",
       "section": "Closing",
@@ -1635,7 +1635,7 @@
       "status": "pending"
     },
     "3-06-07-welcome": {
-      "lesson": "Optima Academy Online — And Settlement",
+      "lesson": "Optima Academy Online \u2014 And Settlement",
       "file": "ss-3-06.07-environment-and-settlement.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1643,7 +1643,7 @@
       "status": "pending"
     },
     "3-06-07-explore-explainer": {
-      "lesson": "Optima Academy Online — And Settlement",
+      "lesson": "Optima Academy Online \u2014 And Settlement",
       "file": "ss-3-06.07-environment-and-settlement.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1651,7 +1651,7 @@
       "status": "pending"
     },
     "3-06-07-quiz-perfect": {
-      "lesson": "Optima Academy Online — And Settlement",
+      "lesson": "Optima Academy Online \u2014 And Settlement",
       "file": "ss-3-06.07-environment-and-settlement.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1659,7 +1659,7 @@
       "status": "pending"
     },
     "3-06-07-quiz-review": {
-      "lesson": "Optima Academy Online — And Settlement",
+      "lesson": "Optima Academy Online \u2014 And Settlement",
       "file": "ss-3-06.07-environment-and-settlement.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1667,7 +1667,7 @@
       "status": "pending"
     },
     "3-06-07-assignment-explainer": {
-      "lesson": "Optima Academy Online — And Settlement",
+      "lesson": "Optima Academy Online \u2014 And Settlement",
       "file": "ss-3-06.07-environment-and-settlement.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1675,7 +1675,7 @@
       "status": "pending"
     },
     "3-06-07-closing": {
-      "lesson": "Optima Academy Online — And Settlement",
+      "lesson": "Optima Academy Online \u2014 And Settlement",
       "file": "ss-3-06.07-environment-and-settlement.html",
       "type": "Closing",
       "section": "Closing",
@@ -1683,7 +1683,7 @@
       "status": "pending"
     },
     "3-06-08-welcome": {
-      "lesson": "Optima Academy Online — Regional Cultures",
+      "lesson": "Optima Academy Online \u2014 Regional Cultures",
       "file": "ss-3-06.08-compare-regional-cultures.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1691,7 +1691,7 @@
       "status": "pending"
     },
     "3-06-08-explore-explainer": {
-      "lesson": "Optima Academy Online — Regional Cultures",
+      "lesson": "Optima Academy Online \u2014 Regional Cultures",
       "file": "ss-3-06.08-compare-regional-cultures.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1699,7 +1699,7 @@
       "status": "pending"
     },
     "3-06-08-quiz-perfect": {
-      "lesson": "Optima Academy Online — Regional Cultures",
+      "lesson": "Optima Academy Online \u2014 Regional Cultures",
       "file": "ss-3-06.08-compare-regional-cultures.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1707,7 +1707,7 @@
       "status": "pending"
     },
     "3-06-08-quiz-review": {
-      "lesson": "Optima Academy Online — Regional Cultures",
+      "lesson": "Optima Academy Online \u2014 Regional Cultures",
       "file": "ss-3-06.08-compare-regional-cultures.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1715,7 +1715,7 @@
       "status": "pending"
     },
     "3-06-08-assignment-explainer": {
-      "lesson": "Optima Academy Online — Regional Cultures",
+      "lesson": "Optima Academy Online \u2014 Regional Cultures",
       "file": "ss-3-06.08-compare-regional-cultures.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1723,7 +1723,7 @@
       "status": "pending"
     },
     "3-06-08-closing": {
-      "lesson": "Optima Academy Online — Regional Cultures",
+      "lesson": "Optima Academy Online \u2014 Regional Cultures",
       "file": "ss-3-06.08-compare-regional-cultures.html",
       "type": "Closing",
       "section": "Closing",
@@ -1731,7 +1731,7 @@
       "status": "pending"
     },
     "3-07-03-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
       "file": "ss-3-07_03-southeast-region-study.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1739,7 +1739,7 @@
       "status": "pending"
     },
     "3-07-03-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
       "file": "ss-3-07_03-southeast-region-study.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1747,7 +1747,7 @@
       "status": "pending"
     },
     "3-07-03-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
       "file": "ss-3-07_03-southeast-region-study.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1755,7 +1755,7 @@
       "status": "pending"
     },
     "3-07-03-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
       "file": "ss-3-07_03-southeast-region-study.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1763,7 +1763,7 @@
       "status": "pending"
     },
     "3-07-03-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
       "file": "ss-3-07_03-southeast-region-study.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1771,7 +1771,7 @@
       "status": "pending"
     },
     "3-07-03-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
       "file": "ss-3-07_03-southeast-region-study.html",
       "type": "Closing",
       "section": "Closing",
@@ -1779,7 +1779,7 @@
       "status": "pending"
     },
     "3-07-05-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
       "file": "ss-3-07_05-southwest-region-study.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1787,7 +1787,7 @@
       "status": "pending"
     },
     "3-07-05-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
       "file": "ss-3-07_05-southwest-region-study.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1795,7 +1795,7 @@
       "status": "pending"
     },
     "3-07-05-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
       "file": "ss-3-07_05-southwest-region-study.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1803,7 +1803,7 @@
       "status": "pending"
     },
     "3-07-05-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
       "file": "ss-3-07_05-southwest-region-study.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1811,7 +1811,7 @@
       "status": "pending"
     },
     "3-07-05-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
       "file": "ss-3-07_05-southwest-region-study.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1819,7 +1819,7 @@
       "status": "pending"
     },
     "3-07-05-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
       "file": "ss-3-07_05-southwest-region-study.html",
       "type": "Closing",
       "section": "Closing",
@@ -1827,7 +1827,7 @@
       "status": "pending"
     },
     "3-07-06-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.07.06: West Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.06: West Region Study (Grade 3 Museum)",
       "file": "ss-3-07_06-west-region-study.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1835,7 +1835,7 @@
       "status": "pending"
     },
     "3-07-06-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.07.06: West Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.06: West Region Study (Grade 3 Museum)",
       "file": "ss-3-07_06-west-region-study.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1843,7 +1843,7 @@
       "status": "pending"
     },
     "3-07-06-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.07.06: West Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.06: West Region Study (Grade 3 Museum)",
       "file": "ss-3-07_06-west-region-study.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1851,7 +1851,7 @@
       "status": "pending"
     },
     "3-07-06-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.07.06: West Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.06: West Region Study (Grade 3 Museum)",
       "file": "ss-3-07_06-west-region-study.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1859,7 +1859,7 @@
       "status": "pending"
     },
     "3-07-06-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.07.06: West Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.06: West Region Study (Grade 3 Museum)",
       "file": "ss-3-07_06-west-region-study.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1867,7 +1867,7 @@
       "status": "pending"
     },
     "3-07-06-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.07.06: West Region Study (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.06: West Region Study (Grade 3 Museum)",
       "file": "ss-3-07_06-west-region-study.html",
       "type": "Closing",
       "section": "Closing",
@@ -1875,7 +1875,7 @@
       "status": "pending"
     },
     "3-07-07-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
       "file": "ss-3-07_07-perceiving-places-through-songs-legends-poems-news.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1883,7 +1883,7 @@
       "status": "pending"
     },
     "3-07-07-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
       "file": "ss-3-07_07-perceiving-places-through-songs-legends-poems-news.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1891,7 +1891,7 @@
       "status": "pending"
     },
     "3-07-07-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
       "file": "ss-3-07_07-perceiving-places-through-songs-legends-poems-news.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1899,7 +1899,7 @@
       "status": "pending"
     },
     "3-07-07-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
       "file": "ss-3-07_07-perceiving-places-through-songs-legends-poems-news.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1907,7 +1907,7 @@
       "status": "pending"
     },
     "3-07-07-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
       "file": "ss-3-07_07-perceiving-places-through-songs-legends-poems-news.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1915,7 +1915,7 @@
       "status": "pending"
     },
     "3-07-07-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
       "file": "ss-3-07_07-perceiving-places-through-songs-legends-poems-news.html",
       "type": "Closing",
       "section": "Closing",
@@ -1923,7 +1923,7 @@
       "status": "pending"
     },
     "3-07-08-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
       "file": "ss-3-07_08-contributions-from-diverse-groups.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1931,7 +1931,7 @@
       "status": "pending"
     },
     "3-07-08-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
       "file": "ss-3-07_08-contributions-from-diverse-groups.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1939,7 +1939,7 @@
       "status": "pending"
     },
     "3-07-08-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
       "file": "ss-3-07_08-contributions-from-diverse-groups.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1947,7 +1947,7 @@
       "status": "pending"
     },
     "3-07-08-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
       "file": "ss-3-07_08-contributions-from-diverse-groups.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -1955,7 +1955,7 @@
       "status": "pending"
     },
     "3-07-08-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
       "file": "ss-3-07_08-contributions-from-diverse-groups.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -1963,7 +1963,7 @@
       "status": "pending"
     },
     "3-07-08-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
       "file": "ss-3-07_08-contributions-from-diverse-groups.html",
       "type": "Closing",
       "section": "Closing",
@@ -1971,7 +1971,7 @@
       "status": "pending"
     },
     "3-09-01-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
       "file": "ss-3-09_01-scarcity-and-choice.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -1979,7 +1979,7 @@
       "status": "pending"
     },
     "3-09-01-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
       "file": "ss-3-09_01-scarcity-and-choice.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -1987,7 +1987,7 @@
       "status": "pending"
     },
     "3-09-01-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
       "file": "ss-3-09_01-scarcity-and-choice.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -1995,7 +1995,7 @@
       "status": "pending"
     },
     "3-09-01-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
       "file": "ss-3-09_01-scarcity-and-choice.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2003,7 +2003,7 @@
       "status": "pending"
     },
     "3-09-01-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
       "file": "ss-3-09_01-scarcity-and-choice.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2011,7 +2011,7 @@
       "status": "pending"
     },
     "3-09-01-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
       "file": "ss-3-09_01-scarcity-and-choice.html",
       "type": "Closing",
       "section": "Closing",
@@ -2019,7 +2019,7 @@
       "status": "pending"
     },
     "3-09-02-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
       "file": "ss-3-09_02-how-scarcity-results-in-trade.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2027,7 +2027,7 @@
       "status": "pending"
     },
     "3-09-02-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
       "file": "ss-3-09_02-how-scarcity-results-in-trade.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2035,7 +2035,7 @@
       "status": "pending"
     },
     "3-09-02-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
       "file": "ss-3-09_02-how-scarcity-results-in-trade.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2043,7 +2043,7 @@
       "status": "pending"
     },
     "3-09-02-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
       "file": "ss-3-09_02-how-scarcity-results-in-trade.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2051,7 +2051,7 @@
       "status": "pending"
     },
     "3-09-02-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
       "file": "ss-3-09_02-how-scarcity-results-in-trade.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2059,7 +2059,7 @@
       "status": "pending"
     },
     "3-09-02-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
       "file": "ss-3-09_02-how-scarcity-results-in-trade.html",
       "type": "Closing",
       "section": "Closing",
@@ -2067,7 +2067,7 @@
       "status": "pending"
     },
     "3-09-03-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
       "file": "ss-3-09_03-goods-services-buyers-sellers.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2075,7 +2075,7 @@
       "status": "pending"
     },
     "3-09-03-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
       "file": "ss-3-09_03-goods-services-buyers-sellers.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2083,7 +2083,7 @@
       "status": "pending"
     },
     "3-09-03-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
       "file": "ss-3-09_03-goods-services-buyers-sellers.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2091,7 +2091,7 @@
       "status": "pending"
     },
     "3-09-03-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
       "file": "ss-3-09_03-goods-services-buyers-sellers.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2099,7 +2099,7 @@
       "status": "pending"
     },
     "3-09-03-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
       "file": "ss-3-09_03-goods-services-buyers-sellers.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2107,7 +2107,7 @@
       "status": "pending"
     },
     "3-09-03-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
       "file": "ss-3-09_03-goods-services-buyers-sellers.html",
       "type": "Closing",
       "section": "Closing",
@@ -2115,7 +2115,7 @@
       "status": "pending"
     },
     "3-09-04-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
       "file": "ss-3-09_04-characteristics-of-money.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2123,7 +2123,7 @@
       "status": "pending"
     },
     "3-09-04-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
       "file": "ss-3-09_04-characteristics-of-money.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2131,7 +2131,7 @@
       "status": "pending"
     },
     "3-09-04-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
       "file": "ss-3-09_04-characteristics-of-money.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2139,7 +2139,7 @@
       "status": "pending"
     },
     "3-09-04-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
       "file": "ss-3-09_04-characteristics-of-money.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2147,7 +2147,7 @@
       "status": "pending"
     },
     "3-09-04-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
       "file": "ss-3-09_04-characteristics-of-money.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2155,7 +2155,7 @@
       "status": "pending"
     },
     "3-09-04-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
       "file": "ss-3-09_04-characteristics-of-money.html",
       "type": "Closing",
       "section": "Closing",
@@ -2163,7 +2163,7 @@
       "status": "pending"
     },
     "3-09-05-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
       "file": "ss-3-09_05-currencies-of-our-neighbors.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2171,7 +2171,7 @@
       "status": "pending"
     },
     "3-09-05-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
       "file": "ss-3-09_05-currencies-of-our-neighbors.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2179,7 +2179,7 @@
       "status": "pending"
     },
     "3-09-05-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
       "file": "ss-3-09_05-currencies-of-our-neighbors.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2187,7 +2187,7 @@
       "status": "pending"
     },
     "3-09-05-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
       "file": "ss-3-09_05-currencies-of-our-neighbors.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2195,7 +2195,7 @@
       "status": "pending"
     },
     "3-09-05-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
       "file": "ss-3-09_05-currencies-of-our-neighbors.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2203,7 +2203,7 @@
       "status": "pending"
     },
     "3-09-05-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
       "file": "ss-3-09_05-currencies-of-our-neighbors.html",
       "type": "Closing",
       "section": "Closing",
@@ -2211,7 +2211,7 @@
       "status": "pending"
     },
     "3-09-06-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
       "file": "ss-3-09_06-trade-routes-and-regional-resources.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2219,7 +2219,7 @@
       "status": "pending"
     },
     "3-09-06-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
       "file": "ss-3-09_06-trade-routes-and-regional-resources.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2227,7 +2227,7 @@
       "status": "pending"
     },
     "3-09-06-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
       "file": "ss-3-09_06-trade-routes-and-regional-resources.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2235,7 +2235,7 @@
       "status": "pending"
     },
     "3-09-06-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
       "file": "ss-3-09_06-trade-routes-and-regional-resources.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2243,7 +2243,7 @@
       "status": "pending"
     },
     "3-09-06-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
       "file": "ss-3-09_06-trade-routes-and-regional-resources.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2251,7 +2251,7 @@
       "status": "pending"
     },
     "3-09-06-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
       "file": "ss-3-09_06-trade-routes-and-regional-resources.html",
       "type": "Closing",
       "section": "Closing",
@@ -2259,7 +2259,7 @@
       "status": "pending"
     },
     "3-09-07-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.09.07: Marketplace Decision — Costs and Benefits (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.07: Marketplace Decision \u2014 Costs and Benefits (Grade 3 Museum)",
       "file": "ss-3-09_07-marketplace-decision-costs-and-benefits.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2267,7 +2267,7 @@
       "status": "pending"
     },
     "3-09-07-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.07: Marketplace Decision — Costs and Benefits (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.07: Marketplace Decision \u2014 Costs and Benefits (Grade 3 Museum)",
       "file": "ss-3-09_07-marketplace-decision-costs-and-benefits.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2275,7 +2275,7 @@
       "status": "pending"
     },
     "3-09-07-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.09.07: Marketplace Decision — Costs and Benefits (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.07: Marketplace Decision \u2014 Costs and Benefits (Grade 3 Museum)",
       "file": "ss-3-09_07-marketplace-decision-costs-and-benefits.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2283,7 +2283,7 @@
       "status": "pending"
     },
     "3-09-07-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.09.07: Marketplace Decision — Costs and Benefits (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.07: Marketplace Decision \u2014 Costs and Benefits (Grade 3 Museum)",
       "file": "ss-3-09_07-marketplace-decision-costs-and-benefits.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2291,7 +2291,7 @@
       "status": "pending"
     },
     "3-09-07-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.07: Marketplace Decision — Costs and Benefits (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.07: Marketplace Decision \u2014 Costs and Benefits (Grade 3 Museum)",
       "file": "ss-3-09_07-marketplace-decision-costs-and-benefits.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2299,7 +2299,7 @@
       "status": "pending"
     },
     "3-09-07-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.09.07: Marketplace Decision — Costs and Benefits (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.07: Marketplace Decision \u2014 Costs and Benefits (Grade 3 Museum)",
       "file": "ss-3-09_07-marketplace-decision-costs-and-benefits.html",
       "type": "Closing",
       "section": "Closing",
@@ -2307,7 +2307,7 @@
       "status": "pending"
     },
     "3-09-08-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.09.08: Economic Virtues — Honesty and Responsibility (Grade 3 Museum · Unit Closer)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.08: Economic Virtues \u2014 Honesty and Responsibility (Grade 3 Museum \u00b7 Unit Closer)",
       "file": "ss-3-09_08-economic-virtues-honesty-and-responsibility.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2315,7 +2315,7 @@
       "status": "pending"
     },
     "3-09-08-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.08: Economic Virtues — Honesty and Responsibility (Grade 3 Museum · Unit Closer)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.08: Economic Virtues \u2014 Honesty and Responsibility (Grade 3 Museum \u00b7 Unit Closer)",
       "file": "ss-3-09_08-economic-virtues-honesty-and-responsibility.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2323,7 +2323,7 @@
       "status": "pending"
     },
     "3-09-08-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.09.08: Economic Virtues — Honesty and Responsibility (Grade 3 Museum · Unit Closer)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.08: Economic Virtues \u2014 Honesty and Responsibility (Grade 3 Museum \u00b7 Unit Closer)",
       "file": "ss-3-09_08-economic-virtues-honesty-and-responsibility.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2331,7 +2331,7 @@
       "status": "pending"
     },
     "3-09-08-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.09.08: Economic Virtues — Honesty and Responsibility (Grade 3 Museum · Unit Closer)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.08: Economic Virtues \u2014 Honesty and Responsibility (Grade 3 Museum \u00b7 Unit Closer)",
       "file": "ss-3-09_08-economic-virtues-honesty-and-responsibility.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2339,7 +2339,7 @@
       "status": "pending"
     },
     "3-09-08-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.09.08: Economic Virtues — Honesty and Responsibility (Grade 3 Museum · Unit Closer)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.08: Economic Virtues \u2014 Honesty and Responsibility (Grade 3 Museum \u00b7 Unit Closer)",
       "file": "ss-3-09_08-economic-virtues-honesty-and-responsibility.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2347,7 +2347,7 @@
       "status": "pending"
     },
     "3-09-08-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.09.08: Economic Virtues — Honesty and Responsibility (Grade 3 Museum · Unit Closer)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.09.08: Economic Virtues \u2014 Honesty and Responsibility (Grade 3 Museum \u00b7 Unit Closer)",
       "file": "ss-3-09_08-economic-virtues-honesty-and-responsibility.html",
       "type": "Closing",
       "section": "Closing",
@@ -2355,7 +2355,7 @@
       "status": "pending"
     },
     "3-10-01-welcome": {
-      "lesson": "Optima Academy Online — Why Government Is Needed",
+      "lesson": "Optima Academy Online \u2014 Why Government Is Needed",
       "file": "ss-3-10_01-why-government-is-needed.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2363,7 +2363,7 @@
       "status": "pending"
     },
     "3-10-01-explore-explainer": {
-      "lesson": "Optima Academy Online — Why Government Is Needed",
+      "lesson": "Optima Academy Online \u2014 Why Government Is Needed",
       "file": "ss-3-10_01-why-government-is-needed.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2371,7 +2371,7 @@
       "status": "pending"
     },
     "3-10-01-quiz-perfect": {
-      "lesson": "Optima Academy Online — Why Government Is Needed",
+      "lesson": "Optima Academy Online \u2014 Why Government Is Needed",
       "file": "ss-3-10_01-why-government-is-needed.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2379,7 +2379,7 @@
       "status": "pending"
     },
     "3-10-01-quiz-review": {
-      "lesson": "Optima Academy Online — Why Government Is Needed",
+      "lesson": "Optima Academy Online \u2014 Why Government Is Needed",
       "file": "ss-3-10_01-why-government-is-needed.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2387,7 +2387,7 @@
       "status": "pending"
     },
     "3-10-01-assignment-explainer": {
-      "lesson": "Optima Academy Online — Why Government Is Needed",
+      "lesson": "Optima Academy Online \u2014 Why Government Is Needed",
       "file": "ss-3-10_01-why-government-is-needed.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2395,7 +2395,7 @@
       "status": "pending"
     },
     "3-10-01-closing": {
-      "lesson": "Optima Academy Online — Why Government Is Needed",
+      "lesson": "Optima Academy Online \u2014 Why Government Is Needed",
       "file": "ss-3-10_01-why-government-is-needed.html",
       "type": "Closing",
       "section": "Closing",
@@ -2403,7 +2403,7 @@
       "status": "pending"
     },
     "3-10-02-welcome": {
-      "lesson": "Optima Academy Online — Us Constitution And Power From The People",
+      "lesson": "Optima Academy Online \u2014 Us Constitution And Power From The People",
       "file": "ss-3-10_02-us-constitution-and-power-from-the-people.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2411,7 +2411,7 @@
       "status": "pending"
     },
     "3-10-02-explore-explainer": {
-      "lesson": "Optima Academy Online — Us Constitution And Power From The People",
+      "lesson": "Optima Academy Online \u2014 Us Constitution And Power From The People",
       "file": "ss-3-10_02-us-constitution-and-power-from-the-people.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2419,7 +2419,7 @@
       "status": "pending"
     },
     "3-10-02-quiz-perfect": {
-      "lesson": "Optima Academy Online — Us Constitution And Power From The People",
+      "lesson": "Optima Academy Online \u2014 Us Constitution And Power From The People",
       "file": "ss-3-10_02-us-constitution-and-power-from-the-people.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2427,7 +2427,7 @@
       "status": "pending"
     },
     "3-10-02-quiz-review": {
-      "lesson": "Optima Academy Online — Us Constitution And Power From The People",
+      "lesson": "Optima Academy Online \u2014 Us Constitution And Power From The People",
       "file": "ss-3-10_02-us-constitution-and-power-from-the-people.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2435,7 +2435,7 @@
       "status": "pending"
     },
     "3-10-02-assignment-explainer": {
-      "lesson": "Optima Academy Online — Us Constitution And Power From The People",
+      "lesson": "Optima Academy Online \u2014 Us Constitution And Power From The People",
       "file": "ss-3-10_02-us-constitution-and-power-from-the-people.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2443,7 +2443,7 @@
       "status": "pending"
     },
     "3-10-02-closing": {
-      "lesson": "Optima Academy Online — Us Constitution And Power From The People",
+      "lesson": "Optima Academy Online \u2014 Us Constitution And Power From The People",
       "file": "ss-3-10_02-us-constitution-and-power-from-the-people.html",
       "type": "Closing",
       "section": "Closing",
@@ -2451,7 +2451,7 @@
       "status": "pending"
     },
     "3-10-03-welcome": {
-      "lesson": "Optima Academy Online — Local State And National Government",
+      "lesson": "Optima Academy Online \u2014 Local State And National Government",
       "file": "ss-3-10_03-local-state-and-national-government.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2459,7 +2459,7 @@
       "status": "pending"
     },
     "3-10-03-explore-explainer": {
-      "lesson": "Optima Academy Online — Local State And National Government",
+      "lesson": "Optima Academy Online \u2014 Local State And National Government",
       "file": "ss-3-10_03-local-state-and-national-government.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2467,7 +2467,7 @@
       "status": "pending"
     },
     "3-10-03-quiz-perfect": {
-      "lesson": "Optima Academy Online — Local State And National Government",
+      "lesson": "Optima Academy Online \u2014 Local State And National Government",
       "file": "ss-3-10_03-local-state-and-national-government.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2475,7 +2475,7 @@
       "status": "pending"
     },
     "3-10-03-quiz-review": {
-      "lesson": "Optima Academy Online — Local State And National Government",
+      "lesson": "Optima Academy Online \u2014 Local State And National Government",
       "file": "ss-3-10_03-local-state-and-national-government.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2483,7 +2483,7 @@
       "status": "pending"
     },
     "3-10-03-assignment-explainer": {
-      "lesson": "Optima Academy Online — Local State And National Government",
+      "lesson": "Optima Academy Online \u2014 Local State And National Government",
       "file": "ss-3-10_03-local-state-and-national-government.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2491,7 +2491,7 @@
       "status": "pending"
     },
     "3-10-03-closing": {
-      "lesson": "Optima Academy Online — Local State And National Government",
+      "lesson": "Optima Academy Online \u2014 Local State And National Government",
       "file": "ss-3-10_03-local-state-and-national-government.html",
       "type": "Closing",
       "section": "Closing",
@@ -2499,7 +2499,7 @@
       "status": "pending"
     },
     "3-10-04-welcome": {
-      "lesson": "Optima Academy Online — Florida Constitution And Florida Symbols",
+      "lesson": "Optima Academy Online \u2014 Florida Constitution And Florida Symbols",
       "file": "ss-3-10_04-florida-constitution-and-florida-symbols.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2507,7 +2507,7 @@
       "status": "pending"
     },
     "3-10-04-explore-explainer": {
-      "lesson": "Optima Academy Online — Florida Constitution And Florida Symbols",
+      "lesson": "Optima Academy Online \u2014 Florida Constitution And Florida Symbols",
       "file": "ss-3-10_04-florida-constitution-and-florida-symbols.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2515,7 +2515,7 @@
       "status": "pending"
     },
     "3-10-04-quiz-perfect": {
-      "lesson": "Optima Academy Online — Florida Constitution And Florida Symbols",
+      "lesson": "Optima Academy Online \u2014 Florida Constitution And Florida Symbols",
       "file": "ss-3-10_04-florida-constitution-and-florida-symbols.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2523,7 +2523,7 @@
       "status": "pending"
     },
     "3-10-04-quiz-review": {
-      "lesson": "Optima Academy Online — Florida Constitution And Florida Symbols",
+      "lesson": "Optima Academy Online \u2014 Florida Constitution And Florida Symbols",
       "file": "ss-3-10_04-florida-constitution-and-florida-symbols.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2531,7 +2531,7 @@
       "status": "pending"
     },
     "3-10-04-assignment-explainer": {
-      "lesson": "Optima Academy Online — Florida Constitution And Florida Symbols",
+      "lesson": "Optima Academy Online \u2014 Florida Constitution And Florida Symbols",
       "file": "ss-3-10_04-florida-constitution-and-florida-symbols.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2539,7 +2539,7 @@
       "status": "pending"
     },
     "3-10-04-closing": {
-      "lesson": "Optima Academy Online — Florida Constitution And Florida Symbols",
+      "lesson": "Optima Academy Online \u2014 Florida Constitution And Florida Symbols",
       "file": "ss-3-10_04-florida-constitution-and-florida-symbols.html",
       "type": "Closing",
       "section": "Closing",
@@ -2547,7 +2547,7 @@
       "status": "pending"
     },
     "3-10-05-welcome": {
-      "lesson": "Optima Academy Online — Voting And Elections",
+      "lesson": "Optima Academy Online \u2014 Voting And Elections",
       "file": "ss-3-10_05-voting-and-elections.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2555,7 +2555,7 @@
       "status": "pending"
     },
     "3-10-05-explore-explainer": {
-      "lesson": "Optima Academy Online — Voting And Elections",
+      "lesson": "Optima Academy Online \u2014 Voting And Elections",
       "file": "ss-3-10_05-voting-and-elections.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2563,7 +2563,7 @@
       "status": "pending"
     },
     "3-10-05-quiz-perfect": {
-      "lesson": "Optima Academy Online — Voting And Elections",
+      "lesson": "Optima Academy Online \u2014 Voting And Elections",
       "file": "ss-3-10_05-voting-and-elections.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2571,7 +2571,7 @@
       "status": "pending"
     },
     "3-10-05-quiz-review": {
-      "lesson": "Optima Academy Online — Voting And Elections",
+      "lesson": "Optima Academy Online \u2014 Voting And Elections",
       "file": "ss-3-10_05-voting-and-elections.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2579,7 +2579,7 @@
       "status": "pending"
     },
     "3-10-05-assignment-explainer": {
-      "lesson": "Optima Academy Online — Voting And Elections",
+      "lesson": "Optima Academy Online \u2014 Voting And Elections",
       "file": "ss-3-10_05-voting-and-elections.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2587,7 +2587,7 @@
       "status": "pending"
     },
     "3-10-05-closing": {
-      "lesson": "Optima Academy Online — Voting And Elections",
+      "lesson": "Optima Academy Online \u2014 Voting And Elections",
       "file": "ss-3-10_05-voting-and-elections.html",
       "type": "Closing",
       "section": "Closing",
@@ -2595,7 +2595,7 @@
       "status": "pending"
     },
     "3-10-06-welcome": {
-      "lesson": "Optima Academy Online — Patriotic Holidays And Observances",
+      "lesson": "Optima Academy Online \u2014 Patriotic Holidays And Observances",
       "file": "ss-3-10_06-patriotic-holidays-and-observances.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2603,7 +2603,7 @@
       "status": "pending"
     },
     "3-10-06-explore-explainer": {
-      "lesson": "Optima Academy Online — Patriotic Holidays And Observances",
+      "lesson": "Optima Academy Online \u2014 Patriotic Holidays And Observances",
       "file": "ss-3-10_06-patriotic-holidays-and-observances.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2611,7 +2611,7 @@
       "status": "pending"
     },
     "3-10-06-quiz-perfect": {
-      "lesson": "Optima Academy Online — Patriotic Holidays And Observances",
+      "lesson": "Optima Academy Online \u2014 Patriotic Holidays And Observances",
       "file": "ss-3-10_06-patriotic-holidays-and-observances.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2619,7 +2619,7 @@
       "status": "pending"
     },
     "3-10-06-quiz-review": {
-      "lesson": "Optima Academy Online — Patriotic Holidays And Observances",
+      "lesson": "Optima Academy Online \u2014 Patriotic Holidays And Observances",
       "file": "ss-3-10_06-patriotic-holidays-and-observances.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2627,7 +2627,7 @@
       "status": "pending"
     },
     "3-10-06-assignment-explainer": {
-      "lesson": "Optima Academy Online — Patriotic Holidays And Observances",
+      "lesson": "Optima Academy Online \u2014 Patriotic Holidays And Observances",
       "file": "ss-3-10_06-patriotic-holidays-and-observances.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2635,7 +2635,7 @@
       "status": "pending"
     },
     "3-10-06-closing": {
-      "lesson": "Optima Academy Online — Patriotic Holidays And Observances",
+      "lesson": "Optima Academy Online \u2014 Patriotic Holidays And Observances",
       "file": "ss-3-10_06-patriotic-holidays-and-observances.html",
       "type": "Closing",
       "section": "Closing",
@@ -2643,7 +2643,7 @@
       "status": "pending"
     },
     "3-10-07-welcome": {
-      "lesson": "Optima Academy Online — Civic Virtues",
+      "lesson": "Optima Academy Online \u2014 Civic Virtues",
       "file": "ss-3-10_07-civic-virtues.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2651,7 +2651,7 @@
       "status": "pending"
     },
     "3-10-07-explore-explainer": {
-      "lesson": "Optima Academy Online — Civic Virtues",
+      "lesson": "Optima Academy Online \u2014 Civic Virtues",
       "file": "ss-3-10_07-civic-virtues.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2659,7 +2659,7 @@
       "status": "pending"
     },
     "3-10-07-quiz-perfect": {
-      "lesson": "Optima Academy Online — Civic Virtues",
+      "lesson": "Optima Academy Online \u2014 Civic Virtues",
       "file": "ss-3-10_07-civic-virtues.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2667,7 +2667,7 @@
       "status": "pending"
     },
     "3-10-07-quiz-review": {
-      "lesson": "Optima Academy Online — Civic Virtues",
+      "lesson": "Optima Academy Online \u2014 Civic Virtues",
       "file": "ss-3-10_07-civic-virtues.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2675,7 +2675,7 @@
       "status": "pending"
     },
     "3-10-07-assignment-explainer": {
-      "lesson": "Optima Academy Online — Civic Virtues",
+      "lesson": "Optima Academy Online \u2014 Civic Virtues",
       "file": "ss-3-10_07-civic-virtues.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2683,7 +2683,7 @@
       "status": "pending"
     },
     "3-10-07-closing": {
-      "lesson": "Optima Academy Online — Civic Virtues",
+      "lesson": "Optima Academy Online \u2014 Civic Virtues",
       "file": "ss-3-10_07-civic-virtues.html",
       "type": "Closing",
       "section": "Closing",
@@ -2691,7 +2691,7 @@
       "status": "pending"
     },
     "3-10-08-welcome": {
-      "lesson": "Optima Academy Online — Symbols Individuals Documents And Events",
+      "lesson": "Optima Academy Online \u2014 Symbols Individuals Documents And Events",
       "file": "ss-3-10_08-symbols-individuals-documents-and-events.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2699,7 +2699,7 @@
       "status": "pending"
     },
     "3-10-08-explore-explainer": {
-      "lesson": "Optima Academy Online — Symbols Individuals Documents And Events",
+      "lesson": "Optima Academy Online \u2014 Symbols Individuals Documents And Events",
       "file": "ss-3-10_08-symbols-individuals-documents-and-events.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2707,7 +2707,7 @@
       "status": "pending"
     },
     "3-10-08-quiz-perfect": {
-      "lesson": "Optima Academy Online — Symbols Individuals Documents And Events",
+      "lesson": "Optima Academy Online \u2014 Symbols Individuals Documents And Events",
       "file": "ss-3-10_08-symbols-individuals-documents-and-events.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2715,7 +2715,7 @@
       "status": "pending"
     },
     "3-10-08-quiz-review": {
-      "lesson": "Optima Academy Online — Symbols Individuals Documents And Events",
+      "lesson": "Optima Academy Online \u2014 Symbols Individuals Documents And Events",
       "file": "ss-3-10_08-symbols-individuals-documents-and-events.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2723,7 +2723,7 @@
       "status": "pending"
     },
     "3-10-08-assignment-explainer": {
-      "lesson": "Optima Academy Online — Symbols Individuals Documents And Events",
+      "lesson": "Optima Academy Online \u2014 Symbols Individuals Documents And Events",
       "file": "ss-3-10_08-symbols-individuals-documents-and-events.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2731,7 +2731,7 @@
       "status": "pending"
     },
     "3-10-08-closing": {
-      "lesson": "Optima Academy Online — Symbols Individuals Documents And Events",
+      "lesson": "Optima Academy Online \u2014 Symbols Individuals Documents And Events",
       "file": "ss-3-10_08-symbols-individuals-documents-and-events.html",
       "type": "Closing",
       "section": "Closing",
@@ -2739,7 +2739,7 @@
       "status": "pending"
     },
     "3-11-01-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.11.01: Review — See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.01: Review \u2014 See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
       "file": "ss-3-11_01-review-see-hear-follow.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2747,7 +2747,7 @@
       "status": "pending"
     },
     "3-11-01-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.11.01: Review — See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.01: Review \u2014 See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
       "file": "ss-3-11_01-review-see-hear-follow.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2755,7 +2755,7 @@
       "status": "pending"
     },
     "3-11-01-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.11.01: Review — See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.01: Review \u2014 See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
       "file": "ss-3-11_01-review-see-hear-follow.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2763,7 +2763,7 @@
       "status": "pending"
     },
     "3-11-01-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.11.01: Review — See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.01: Review \u2014 See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
       "file": "ss-3-11_01-review-see-hear-follow.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2771,7 +2771,7 @@
       "status": "pending"
     },
     "3-11-01-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.11.01: Review — See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.01: Review \u2014 See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
       "file": "ss-3-11_01-review-see-hear-follow.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2779,7 +2779,7 @@
       "status": "pending"
     },
     "3-11-01-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.11.01: Review — See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.01: Review \u2014 See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
       "file": "ss-3-11_01-review-see-hear-follow.html",
       "type": "Closing",
       "section": "Closing",
@@ -2787,7 +2787,7 @@
       "status": "pending"
     },
     "3-11-02-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
       "file": "ss-3-11_02-build-final-exhibit.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2795,7 +2795,7 @@
       "status": "pending"
     },
     "3-11-02-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
       "file": "ss-3-11_02-build-final-exhibit.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2803,7 +2803,7 @@
       "status": "pending"
     },
     "3-11-02-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
       "file": "ss-3-11_02-build-final-exhibit.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2811,7 +2811,7 @@
       "status": "pending"
     },
     "3-11-02-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
       "file": "ss-3-11_02-build-final-exhibit.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2819,7 +2819,7 @@
       "status": "pending"
     },
     "3-11-02-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
       "file": "ss-3-11_02-build-final-exhibit.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2827,7 +2827,7 @@
       "status": "pending"
     },
     "3-11-02-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
       "file": "ss-3-11_02-build-final-exhibit.html",
       "type": "Closing",
       "section": "Closing",
@@ -2835,7 +2835,7 @@
       "status": "pending"
     },
     "3-11-03-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.11.03: Present the Evidence — Map, Source, and Virtue (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.03: Present the Evidence \u2014 Map, Source, and Virtue (Grade 3 Museum)",
       "file": "ss-3-11_03-present-evidence.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2843,7 +2843,7 @@
       "status": "pending"
     },
     "3-11-03-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.11.03: Present the Evidence — Map, Source, and Virtue (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.03: Present the Evidence \u2014 Map, Source, and Virtue (Grade 3 Museum)",
       "file": "ss-3-11_03-present-evidence.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2851,7 +2851,7 @@
       "status": "pending"
     },
     "3-11-03-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.11.03: Present the Evidence — Map, Source, and Virtue (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.03: Present the Evidence \u2014 Map, Source, and Virtue (Grade 3 Museum)",
       "file": "ss-3-11_03-present-evidence.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2859,7 +2859,7 @@
       "status": "pending"
     },
     "3-11-03-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.11.03: Present the Evidence — Map, Source, and Virtue (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.03: Present the Evidence \u2014 Map, Source, and Virtue (Grade 3 Museum)",
       "file": "ss-3-11_03-present-evidence.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2867,7 +2867,7 @@
       "status": "pending"
     },
     "3-11-03-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.11.03: Present the Evidence — Map, Source, and Virtue (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.03: Present the Evidence \u2014 Map, Source, and Virtue (Grade 3 Museum)",
       "file": "ss-3-11_03-present-evidence.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2875,7 +2875,7 @@
       "status": "pending"
     },
     "3-11-03-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.11.03: Present the Evidence — Map, Source, and Virtue (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.03: Present the Evidence \u2014 Map, Source, and Virtue (Grade 3 Museum)",
       "file": "ss-3-11_03-present-evidence.html",
       "type": "Closing",
       "section": "Closing",
@@ -2883,7 +2883,7 @@
       "status": "pending"
     },
     "3-11-04-welcome": {
-      "lesson": "Optima Academy Online — Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
       "file": "ss-3-11_04-final-reflection.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
@@ -2891,7 +2891,7 @@
       "status": "pending"
     },
     "3-11-04-explore-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
       "file": "ss-3-11_04-final-reflection.html",
       "type": "Core Lesson",
       "section": "Explore",
@@ -2899,7 +2899,7 @@
       "status": "pending"
     },
     "3-11-04-quiz-perfect": {
-      "lesson": "Optima Academy Online — Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
       "file": "ss-3-11_04-final-reflection.html",
       "type": "Perfect Score",
       "section": "Quiz",
@@ -2907,7 +2907,7 @@
       "status": "pending"
     },
     "3-11-04-quiz-review": {
-      "lesson": "Optima Academy Online — Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
       "file": "ss-3-11_04-final-reflection.html",
       "type": "Review & Encouragement",
       "section": "Quiz",
@@ -2915,7 +2915,7 @@
       "status": "pending"
     },
     "3-11-04-assignment-explainer": {
-      "lesson": "Optima Academy Online — Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
       "file": "ss-3-11_04-final-reflection.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
@@ -2923,7 +2923,7 @@
       "status": "pending"
     },
     "3-11-04-closing": {
-      "lesson": "Optima Academy Online — Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
+      "lesson": "Optima Academy Online \u2014 Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
       "file": "ss-3-11_04-final-reflection.html",
       "type": "Closing",
       "section": "Closing",
