@@ -18,22 +18,6 @@
       "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/u8pRSlPQ9NQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
-    "3-01-01-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Historians Study",
-      "file": "ss-3-01.01-what-historians-study.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-01-01-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Historians Study",
-      "file": "ss-3-01.01-what-historians-study.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-01-01-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Historians Study",
       "file": "ss-3-01.01-what-historians-study.html",
@@ -66,22 +50,6 @@
       "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/vQBVBQ6P7qw\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
-    "3-01-02-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Secondary Sources",
-      "file": "ss-3-01.02-primary-secondary-sources.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-01-02-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Secondary Sources",
-      "file": "ss-3-01.02-primary-secondary-sources.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-01-02-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Secondary Sources",
       "file": "ss-3-01.02-primary-secondary-sources.html",
@@ -103,7 +71,7 @@
       "file": "ss-3-01.03-asking-questions.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=92ea7d23-6d99-432e-b2dc-cc1298ca708f&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-03-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/PlklfFAwai4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-03-explore-explainer": {
@@ -111,31 +79,15 @@
       "file": "ss-3-01.03-asking-questions.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=660d75a2-3921-4ebd-8163-6c206fe0818d&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-03-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/jQyHeCa4I0I\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-01-03-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Questions",
-      "file": "ss-3-01.03-asking-questions.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-01-03-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Questions",
-      "file": "ss-3-01.03-asking-questions.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-01-03-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Questions",
       "file": "ss-3-01.03-asking-questions.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=24e92422-752c-4c24-a028-163a9babbcb1&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-03-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/Kk30LrousIk\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-03-closing": {
@@ -143,7 +95,7 @@
       "file": "ss-3-01.03-asking-questions.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=581c3154-9fff-4931-bf2f-45141cd52711&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-03-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/vC6ftUzDfAE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-04-welcome": {
@@ -151,7 +103,7 @@
       "file": "ss-3-01.04-technology-reliable-info.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=14e014c8-13d9-4d25-b1ce-d77de0947bba&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-04-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/ULuBI0zK7eE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-04-explore-explainer": {
@@ -159,31 +111,15 @@
       "file": "ss-3-01.04-technology-reliable-info.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=e495f7f8-d2fd-4827-a325-e122890a0eb2&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-04-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/dqLfv4Y5exY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-01-04-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Reliable Info",
-      "file": "ss-3-01.04-technology-reliable-info.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-01-04-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Reliable Info",
-      "file": "ss-3-01.04-technology-reliable-info.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-01-04-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Reliable Info",
       "file": "ss-3-01.04-technology-reliable-info.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=68a6442d-7727-45f9-85cc-487f7c16a819&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-04-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/-qsE8zfxjRM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-04-closing": {
@@ -191,7 +127,7 @@
       "file": "ss-3-01.04-technology-reliable-info.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=11071d6a-17c4-45cf-bdb5-c84f349a912e&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-04-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/PcfRFamB5Zc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-05-welcome": {
@@ -199,7 +135,7 @@
       "file": "ss-3-01.05-word-roots.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=80073456-b91c-46b4-99ae-0108ef0ee5de&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-05-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/mb6T63Ly1hY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-05-explore-explainer": {
@@ -207,31 +143,15 @@
       "file": "ss-3-01.05-word-roots.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=e6459f93-4521-471e-bb9a-3b64542705b5&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-05-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/3Gpc1E6TYRk\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-01-05-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Roots",
-      "file": "ss-3-01.05-word-roots.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-01-05-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Roots",
-      "file": "ss-3-01.05-word-roots.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-01-05-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Roots",
       "file": "ss-3-01.05-word-roots.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=c2c8bcc2-8e4f-4a09-b75d-7ba26e838824&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-05-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/s0B2ynD5AJU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-05-closing": {
@@ -239,7 +159,7 @@
       "file": "ss-3-01.05-word-roots.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=c2ccb336-d6d9-4fc3-9b76-12dd1df757fa&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-05-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/yFhx9j28pJ8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-06-welcome": {
@@ -247,7 +167,7 @@
       "file": "ss-3-01.06-first-evidence-entry.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=38af9359-d59f-4d23-a432-94285999acf4&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-06-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/tVgTGfY6pfY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-06-explore-explainer": {
@@ -255,31 +175,15 @@
       "file": "ss-3-01.06-first-evidence-entry.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=667f0572-f60b-478e-950f-3bda0e5632da&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-06-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/l-7c7bB4H70\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-01-06-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Evidence Entry",
-      "file": "ss-3-01.06-first-evidence-entry.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-01-06-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Evidence Entry",
-      "file": "ss-3-01.06-first-evidence-entry.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-01-06-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Evidence Entry",
       "file": "ss-3-01.06-first-evidence-entry.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=8982c1ed-4407-43e9-ba2e-6284ac8c87a8&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-06-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/VcDjsifCXns\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-01-06-closing": {
@@ -287,7 +191,7 @@
       "file": "ss-3-01.06-first-evidence-entry.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=ab95d30f-4ca8-4a03-b922-bc6e81e0f3cd&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-01-06-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/gk0pVrtPLPg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-01-welcome": {
@@ -295,7 +199,7 @@
       "file": "ss-3-02.01-why-people-explore.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=43adf4b6-70c8-4151-82e9-7d0907b43cd8&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-01-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/ANoVjeDJRHY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-01-explore-explainer": {
@@ -303,31 +207,15 @@
       "file": "ss-3-02.01-why-people-explore.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=9942e858-9e01-4773-b7fc-9a6c39e4937c&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-01-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/GPT65o3H29Q\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-02-01-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
-      "file": "ss-3-02.01-why-people-explore.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-02-01-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
-      "file": "ss-3-02.01-why-people-explore.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-02-01-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.02.01: Why People Explore (Grade 3 Museum)",
       "file": "ss-3-02.01-why-people-explore.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=2e177f90-2a41-444b-bbe9-3f4e91f13eb1&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-01-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/YW-hjP1oDUU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-01-closing": {
@@ -335,7 +223,7 @@
       "file": "ss-3-02.01-why-people-explore.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=17d21ce7-170a-4f48-a2c1-9b573f0fd67e&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-01-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/OFEgMUotwV4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-02-welcome": {
@@ -343,7 +231,7 @@
       "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=771da263-64c4-4d2a-aec4-1c42db6d8caf&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-02-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/3aNogoL4FvY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-02-explore-explainer": {
@@ -351,31 +239,15 @@
       "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=5271184f-23eb-44e0-ae38-3230dd32f333&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-02-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/5MakNpRSv0I\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-02-02-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
-      "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-02-02-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
-      "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-02-02-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.02.02: Navigation Tools and Explorer Routes (Grade 3 Museum)",
       "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=bf8db064-7795-4f62-8c9f-edbbabf4d914&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-02-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/D-LOi6BERXY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-02-closing": {
@@ -383,7 +255,7 @@
       "file": "ss-3-02.02-navigation-tools-and-explorer-routes.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=1437ec01-b0b1-46ab-a539-70cdc2047cb3&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-02-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/wI8H8USJd04\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-03-welcome": {
@@ -391,7 +263,7 @@
       "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=026c6eed-3e84-4ade-8a93-e78efdd053da&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-03-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/KO9FoDG-sy8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-03-explore-explainer": {
@@ -399,31 +271,15 @@
       "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=d4dff2e0-dbfd-4d03-8e21-51629bee3e82&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-03-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/LB1WGVs181o\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-02-03-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
-      "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-02-03-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
-      "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-02-03-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.02.03: Famous Explorers and Discoveries (Grade 3 Museum)",
       "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=342244cc-7581-49ee-b737-d946004664e5&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-03-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/fdHtOBGFGWo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-03-closing": {
@@ -431,7 +287,7 @@
       "file": "ss-3-02.03-famous-explorers-and-discoveries.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=22b1dba8-eefb-4174-96a2-df9c14c424c7&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-03-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/HhlsxRWd8Wc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-04-welcome": {
@@ -439,7 +295,7 @@
       "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=5f4c1f22-991a-4c2a-b287-b3e5977a896e&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-04-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/I1B9N1Ip0c8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-04-explore-explainer": {
@@ -447,31 +303,15 @@
       "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=097b0749-63f7-4d34-90b3-c3b4fdb084b3&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-04-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/KW0tlhXdri0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-02-04-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
-      "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-02-04-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
-      "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-02-04-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.02.04: Maps, Ships, and the Science of Travel (Grade 3 Museum)",
       "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=8b9a03b0-a8d6-4a58-a236-79290c591852&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-04-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/LL6HiKMr0dc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-04-closing": {
@@ -479,7 +319,7 @@
       "file": "ss-3-02.04-maps-ships-and-the-science-of-travel.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=1846e714-1807-414d-af72-2b13efdd34e7&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-04-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/99FqjfX2mXs\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-05-welcome": {
@@ -487,7 +327,7 @@
       "file": "ss-3-02.05-consequences-of-exploration.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=edbfaef8-aa91-4375-8266-badac023c4ed&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-05-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/s6-TdRgYxD4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-05-explore-explainer": {
@@ -495,31 +335,15 @@
       "file": "ss-3-02.05-consequences-of-exploration.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=b60cb5fd-f268-4704-958e-1e91881d0eca&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-05-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/WImJK7v5YPQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-02-05-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
-      "file": "ss-3-02.05-consequences-of-exploration.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-02-05-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
-      "file": "ss-3-02.05-consequences-of-exploration.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-02-05-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.02.05: Consequences of Exploration (Grade 3 Museum)",
       "file": "ss-3-02.05-consequences-of-exploration.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=4e5d7c1a-4163-40a8-a555-b059592e27b9&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-05-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/vDAiQGvAeBg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-05-closing": {
@@ -527,7 +351,7 @@
       "file": "ss-3-02.05-consequences-of-exploration.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=93d330c6-7fa9-4dc9-82c1-236944a806d8&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-05-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/lDc169PIEV8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-06-welcome": {
@@ -535,7 +359,7 @@
       "file": "ss-3-02.06-explorer-evidence-chart.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=90a47d35-bfe1-439a-8e76-e270bd919903&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-06-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/n9K_PSA6y2I\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-06-explore-explainer": {
@@ -543,31 +367,15 @@
       "file": "ss-3-02.06-explorer-evidence-chart.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=2077c24c-9d22-4008-a617-6f834c852735&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-06-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/QLG3RncCfu0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-02-06-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
-      "file": "ss-3-02.06-explorer-evidence-chart.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-02-06-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
-      "file": "ss-3-02.06-explorer-evidence-chart.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-02-06-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.02.06: Explorer Evidence Chart (Grade 3 Museum)",
       "file": "ss-3-02.06-explorer-evidence-chart.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=fdf3bc31-0db4-4ce5-88a6-ff3d60baae63&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-06-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/iDt1IoXtNSo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-02-06-closing": {
@@ -575,7 +383,7 @@
       "file": "ss-3-02.06-explorer-evidence-chart.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=66924198-7cd6-4ad1-8bcc-687ad8f69b87&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-02-06-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/mZajV25xMSg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-03-01-welcome": {
@@ -583,7 +391,7 @@
       "file": "ss-3-03.01-map-elements.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=27b64fb1-cde6-46c2-a2d7-761a4010ecc5&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-01-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/htDbzG2qnso\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-03-01-explore-explainer": {
@@ -591,31 +399,15 @@
       "file": "ss-3-03.01-map-elements.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=32fe2fcb-91eb-4d6c-82e9-36619b7b8d09&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-01-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/J2S26nnXC2s\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-03-01-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
-      "file": "ss-3-03.01-map-elements.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-03-01-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
-      "file": "ss-3-03.01-map-elements.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-03-01-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 3.03.01: Map Elements: Title, Compass Rose, Scale, and Legend (Grade 3 Museum)",
       "file": "ss-3-03.01-map-elements.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=0e70e1d1-a7d3-4403-80b5-7245b8eb010d&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-01-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/Iw2tYlYb9pY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-03-01-closing": {
@@ -623,7 +415,7 @@
       "file": "ss-3-03.01-map-elements.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=e2d568f5-ffa3-4ad4-aa30-6c738105bb2a&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-01-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/IxUJAWxEKoI\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-03-02-welcome": {
@@ -631,7 +423,7 @@
       "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=7055e235-c051-46ab-a092-a48f81802da2&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-02-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/vXZALowT-_4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-03-02-explore-explainer": {
@@ -639,31 +431,15 @@
       "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=c9d31c70-8f2c-4c2e-ae4e-f74a2f0beeee&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-02-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/2SS5ptk3pxI\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-03-02-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
-      "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-03-02-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
-      "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-03-02-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 3.03.02: Cardinal and Intermediate Directions (Grade 3 Museum)",
       "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=41bc5559-9465-4dc3-9e00-6d0c8d998b10&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-02-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/3rokECmY-ho\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-03-02-closing": {
@@ -671,7 +447,7 @@
       "file": "ss-3-03.02-cardinal-and-intermediate-directions.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=61117663-d0b5-4790-a116-9701d0cb92fb&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-02-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/sHpblmVcX1w\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-03-03-welcome": {
@@ -679,7 +455,7 @@
       "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=ef69e2fd-57ea-48dc-a82e-510fb98dc1b6&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-03-welcome.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/zyVvjJl3HZk\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-03-03-explore-explainer": {
@@ -687,31 +463,15 @@
       "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=d4722ebf-44d5-4266-aa0d-d25577d46f2d&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-03-explore-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/-C4acaenPcw\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
-    },
-    "3-03-03-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
-      "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-03-03-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
-      "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-03-03-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 3.03.03: Physical, Political, Elevation, and Population Maps (Grade 3 Museum)",
       "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
       "type": "Assignment Explainer",
       "section": "Assignment",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=18924767-d0dc-48a6-8d71-479a75e20540&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-03-assignment-explainer.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/KskwouAj1lM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-03-03-closing": {
@@ -719,7 +479,7 @@
       "file": "ss-3-03.03-physical-political-elevation-population-maps.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=123231bb-2007-4832-a234-d82539621d77&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-03-closing.mp4\"></iframe>",
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/NG1nD_7LE90\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
       "status": "ready"
     },
     "3-03-04-welcome": {
@@ -737,22 +497,6 @@
       "section": "Explore",
       "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=d10724ce-efd4-4d99-a982-d6d849ee2b3b&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-04-explore-explainer.mp4\"></iframe>",
       "status": "ready"
-    },
-    "3-03-04-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
-      "file": "ss-3-03.04-map-scale-and-measuring-distance.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-03-04-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
-      "file": "ss-3-03.04-map-scale-and-measuring-distance.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-03-04-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 3.03.04: Map Scale and Measuring Distance (Grade 3 Museum)",
@@ -786,22 +530,6 @@
       "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=0e955e7b-bc6d-4d0a-9ff9-facbcc69bc6c&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-05-explore-explainer.mp4\"></iframe>",
       "status": "ready"
     },
-    "3-03-05-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
-      "file": "ss-3-03.05-maps-and-globes-understanding-distortion.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-03-05-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
-      "file": "ss-3-03.05-maps-and-globes-understanding-distortion.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-03-05-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 3.03.05: Maps and Globes: Understanding Distortion (Grade 3 Museum)",
       "file": "ss-3-03.05-maps-and-globes-understanding-distortion.html",
@@ -833,22 +561,6 @@
       "section": "Explore",
       "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=b8e1ec3b-7af6-42b7-9c4e-a7bb6073d1bc&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-06-explore-explainer.mp4\"></iframe>",
       "status": "ready"
-    },
-    "3-03-06-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
-      "file": "ss-3-03.06-reading-tables-charts-graphs-photos.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-03-06-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
-      "file": "ss-3-03.06-reading-tables-charts-graphs-photos.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
     },
     "3-03-06-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 3.03.06: Reading Tables, Charts, Graphs, and Photos (Grade 3 Museum)",
@@ -882,22 +594,6 @@
       "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=5b0c2a76-f7ca-4200-a4e4-df96c6b6a1d1&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-07-explore-explainer.mp4\"></iframe>",
       "status": "ready"
     },
-    "3-03-07-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
-      "file": "ss-3-03.07-create-map.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-03-07-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
-      "file": "ss-3-03.07-create-map.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-03-07-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 3.03.07: Create a Map with Essential Elements (Grade 3 Museum)",
       "file": "ss-3-03.07-create-map.html",
@@ -930,22 +626,6 @@
       "embed": "<iframe src=\"https://optimaedcom.sharepoint.com/sites/summercrew/_layouts/15/embed.aspx?UniqueId=a740e1a8-cd8a-434f-8b5e-d65f2fc4a695&embed=%7B%22hvm%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create\" width=\"640\" height=\"360\" frameborder=\"0\" scrolling=\"no\" allowfullscreen title=\"3-03-08-explore-explainer.mp4\"></iframe>",
       "status": "ready"
     },
-    "3-03-08-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 3.03.08: Map Skills Challenge (Grade 3 Museum)",
-      "file": "ss-3-03.08-map-skills-challenge.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-03-08-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 3.03.08: Map Skills Challenge (Grade 3 Museum)",
-      "file": "ss-3-03.08-map-skills-challenge.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-03-08-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 3.03.08: Map Skills Challenge (Grade 3 Museum)",
       "file": "ss-3-03.08-map-skills-challenge.html",
@@ -975,22 +655,6 @@
       "file": "ss-3-04.01-connect-exploration-tools-maps.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-04-01-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
-      "file": "ss-3-04.01-connect-exploration-tools-maps.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-04-01-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.04.01: Connect Exploration, Tools, and Maps (Grade 3 Museum)",
-      "file": "ss-3-04.01-connect-exploration-tools-maps.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -1026,22 +690,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-04-02-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
-      "file": "ss-3-04.02-cartographers-review-portfolio.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-04-02-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
-      "file": "ss-3-04.02-cartographers-review-portfolio.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-04-02-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.04.02: Cartographer's Review Portfolio (Grade 3 Museum)",
       "file": "ss-3-04.02-cartographers-review-portfolio.html",
@@ -1071,22 +719,6 @@
       "file": "ss-3-05.01-label-continents-oceans.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-05-01-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Continents Oceans",
-      "file": "ss-3-05.01-label-continents-oceans.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-05-01-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Continents Oceans",
-      "file": "ss-3-05.01-label-continents-oceans.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -1122,22 +754,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-05-02-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Bodies Of Water",
-      "file": "ss-3-05.02-landforms-bodies-of-water.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-05-02-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Bodies Of Water",
-      "file": "ss-3-05.02-landforms-bodies-of-water.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-05-02-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Bodies Of Water",
       "file": "ss-3-05.02-landforms-bodies-of-water.html",
@@ -1167,22 +783,6 @@
       "file": "ss-3-05.03-climate-vegetation-resources.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-05-03-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Vegetation Resources",
-      "file": "ss-3-05.03-climate-vegetation-resources.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-05-03-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Vegetation Resources",
-      "file": "ss-3-05.03-climate-vegetation-resources.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -1218,22 +818,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-05-04-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Relative Location",
-      "file": "ss-3-05.04-absolute-relative-location.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-05-04-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Relative Location",
-      "file": "ss-3-05.04-absolute-relative-location.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-05-04-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Relative Location",
       "file": "ss-3-05.04-absolute-relative-location.html",
@@ -1263,22 +847,6 @@
       "file": "ss-3-05.05-geographic-terms-word-roots.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-05-05-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Terms Word Roots",
-      "file": "ss-3-05.05-geographic-terms-word-roots.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-05-05-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Terms Word Roots",
-      "file": "ss-3-05.05-geographic-terms-word-roots.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -1314,22 +882,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-05-06-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Map Explanation",
-      "file": "ss-3-05.06-world-map-explanation.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-05-06-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Map Explanation",
-      "file": "ss-3-05.06-world-map-explanation.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-05-06-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Map Explanation",
       "file": "ss-3-05.06-world-map-explanation.html",
@@ -1359,22 +911,6 @@
       "file": "ss-3-06.01-canada-us-mexico-caribbean.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-01-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Us Mexico Caribbean",
-      "file": "ss-3-06.01-canada-us-mexico-caribbean.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-01-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Us Mexico Caribbean",
-      "file": "ss-3-06.01-canada-us-mexico-caribbean.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -1410,22 +946,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-06-02-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Features North America Caribbean",
-      "file": "ss-3-06.02-physical-features-north-america-caribbean.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-02-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Features North America Caribbean",
-      "file": "ss-3-06.02-physical-features-north-america-caribbean.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-06-02-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Features North America Caribbean",
       "file": "ss-3-06.02-physical-features-north-america-caribbean.html",
@@ -1455,22 +975,6 @@
       "file": "ss-3-06.03-landmarks-natural-and-man-made.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-03-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Natural And Man Made",
-      "file": "ss-3-06.03-landmarks-natural-and-man-made.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-03-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Natural And Man Made",
-      "file": "ss-3-06.03-landmarks-natural-and-man-made.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -1506,22 +1010,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-06-04-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 And Vegetation",
-      "file": "ss-3-06.04-climate-and-vegetation.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-04-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 And Vegetation",
-      "file": "ss-3-06.04-climate-and-vegetation.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-06-04-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 And Vegetation",
       "file": "ss-3-06.04-climate-and-vegetation.html",
@@ -1551,22 +1039,6 @@
       "file": "ss-3-06.05-natural-resources.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-05-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Resources",
-      "file": "ss-3-06.05-natural-resources.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-05-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Resources",
-      "file": "ss-3-06.05-natural-resources.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -1602,22 +1074,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-06-06-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 That Settled",
-      "file": "ss-3-06.06-cultures-that-settled.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-06-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 That Settled",
-      "file": "ss-3-06.06-cultures-that-settled.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-06-06-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 That Settled",
       "file": "ss-3-06.06-cultures-that-settled.html",
@@ -1647,22 +1103,6 @@
       "file": "ss-3-06.07-environment-and-settlement.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-07-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 And Settlement",
-      "file": "ss-3-06.07-environment-and-settlement.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-07-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 And Settlement",
-      "file": "ss-3-06.07-environment-and-settlement.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -1698,22 +1138,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-06-08-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Regional Cultures",
-      "file": "ss-3-06.08-compare-regional-cultures.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-06-08-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Regional Cultures",
-      "file": "ss-3-06.08-compare-regional-cultures.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-06-08-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Regional Cultures",
       "file": "ss-3-06.08-compare-regional-cultures.html",
@@ -1743,22 +1167,6 @@
       "file": "ss-3-07_03-southeast-region-study.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-07-03-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
-      "file": "ss-3-07_03-southeast-region-study.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-07-03-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.07.03: Southeast Region Study (Grade 3 Museum)",
-      "file": "ss-3-07_03-southeast-region-study.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -1794,22 +1202,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-07-05-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
-      "file": "ss-3-07_05-southwest-region-study.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-07-05-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
-      "file": "ss-3-07_05-southwest-region-study.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-07-05-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.07.05: Southwest Region Study (Grade 3 Museum)",
       "file": "ss-3-07_05-southwest-region-study.html",
@@ -1839,22 +1231,6 @@
       "file": "ss-3-07_06-west-region-study.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-07-06-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.07.06: West Region Study (Grade 3 Museum)",
-      "file": "ss-3-07_06-west-region-study.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-07-06-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.07.06: West Region Study (Grade 3 Museum)",
-      "file": "ss-3-07_06-west-region-study.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -1890,22 +1266,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-07-07-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
-      "file": "ss-3-07_07-perceiving-places-through-songs-legends-poems-news.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-07-07-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
-      "file": "ss-3-07_07-perceiving-places-through-songs-legends-poems-news.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-07-07-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.07.07: Perceiving Places Through Songs, Legends, Poems, and News (Grade 3 Museum)",
       "file": "ss-3-07_07-perceiving-places-through-songs-legends-poems-news.html",
@@ -1935,22 +1295,6 @@
       "file": "ss-3-07_08-contributions-from-diverse-groups.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-07-08-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
-      "file": "ss-3-07_08-contributions-from-diverse-groups.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-07-08-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.07.08: Contributions from Diverse Groups (Grade 3 Museum)",
-      "file": "ss-3-07_08-contributions-from-diverse-groups.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -1986,22 +1330,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-09-01-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
-      "file": "ss-3-09_01-scarcity-and-choice.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-01-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
-      "file": "ss-3-09_01-scarcity-and-choice.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-09-01-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.09.01: Scarcity and Choice (Grade 3 Museum)",
       "file": "ss-3-09_01-scarcity-and-choice.html",
@@ -2031,22 +1359,6 @@
       "file": "ss-3-09_02-how-scarcity-results-in-trade.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-02-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
-      "file": "ss-3-09_02-how-scarcity-results-in-trade.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-02-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.02: How Scarcity Results in Trade (Grade 3 Museum)",
-      "file": "ss-3-09_02-how-scarcity-results-in-trade.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -2082,22 +1394,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-09-03-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
-      "file": "ss-3-09_03-goods-services-buyers-sellers.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-03-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
-      "file": "ss-3-09_03-goods-services-buyers-sellers.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-09-03-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.09.03: Goods, Services, Buyers, and Sellers (Grade 3 Museum)",
       "file": "ss-3-09_03-goods-services-buyers-sellers.html",
@@ -2127,22 +1423,6 @@
       "file": "ss-3-09_04-characteristics-of-money.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-04-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
-      "file": "ss-3-09_04-characteristics-of-money.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-04-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.04: Characteristics of Money (Grade 3 Museum)",
-      "file": "ss-3-09_04-characteristics-of-money.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -2178,22 +1458,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-09-05-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
-      "file": "ss-3-09_05-currencies-of-our-neighbors.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-05-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
-      "file": "ss-3-09_05-currencies-of-our-neighbors.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-09-05-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.09.05: Currencies of Our Neighbors (Grade 3 Museum)",
       "file": "ss-3-09_05-currencies-of-our-neighbors.html",
@@ -2223,22 +1487,6 @@
       "file": "ss-3-09_06-trade-routes-and-regional-resources.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-06-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
-      "file": "ss-3-09_06-trade-routes-and-regional-resources.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-06-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.06: Trade Routes and Regional Resources (Grade 3 Museum)",
-      "file": "ss-3-09_06-trade-routes-and-regional-resources.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -2274,22 +1522,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-09-07-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.07: Marketplace Decision \u2014 Costs and Benefits (Grade 3 Museum)",
-      "file": "ss-3-09_07-marketplace-decision-costs-and-benefits.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-07-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.07: Marketplace Decision \u2014 Costs and Benefits (Grade 3 Museum)",
-      "file": "ss-3-09_07-marketplace-decision-costs-and-benefits.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-09-07-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.09.07: Marketplace Decision \u2014 Costs and Benefits (Grade 3 Museum)",
       "file": "ss-3-09_07-marketplace-decision-costs-and-benefits.html",
@@ -2319,22 +1551,6 @@
       "file": "ss-3-09_08-economic-virtues-honesty-and-responsibility.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-08-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.08: Economic Virtues \u2014 Honesty and Responsibility (Grade 3 Museum \u00b7 Unit Closer)",
-      "file": "ss-3-09_08-economic-virtues-honesty-and-responsibility.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-09-08-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.09.08: Economic Virtues \u2014 Honesty and Responsibility (Grade 3 Museum \u00b7 Unit Closer)",
-      "file": "ss-3-09_08-economic-virtues-honesty-and-responsibility.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -2370,22 +1586,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-10-01-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Why Government Is Needed",
-      "file": "ss-3-10_01-why-government-is-needed.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-01-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Why Government Is Needed",
-      "file": "ss-3-10_01-why-government-is-needed.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-10-01-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Why Government Is Needed",
       "file": "ss-3-10_01-why-government-is-needed.html",
@@ -2415,22 +1615,6 @@
       "file": "ss-3-10_02-us-constitution-and-power-from-the-people.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-02-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Us Constitution And Power From The People",
-      "file": "ss-3-10_02-us-constitution-and-power-from-the-people.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-02-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Us Constitution And Power From The People",
-      "file": "ss-3-10_02-us-constitution-and-power-from-the-people.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -2466,22 +1650,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-10-03-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Local State And National Government",
-      "file": "ss-3-10_03-local-state-and-national-government.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-03-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Local State And National Government",
-      "file": "ss-3-10_03-local-state-and-national-government.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-10-03-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Local State And National Government",
       "file": "ss-3-10_03-local-state-and-national-government.html",
@@ -2511,22 +1679,6 @@
       "file": "ss-3-10_04-florida-constitution-and-florida-symbols.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-04-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Florida Constitution And Florida Symbols",
-      "file": "ss-3-10_04-florida-constitution-and-florida-symbols.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-04-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Florida Constitution And Florida Symbols",
-      "file": "ss-3-10_04-florida-constitution-and-florida-symbols.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -2562,22 +1714,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-10-05-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Voting And Elections",
-      "file": "ss-3-10_05-voting-and-elections.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-05-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Voting And Elections",
-      "file": "ss-3-10_05-voting-and-elections.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-10-05-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Voting And Elections",
       "file": "ss-3-10_05-voting-and-elections.html",
@@ -2607,22 +1743,6 @@
       "file": "ss-3-10_06-patriotic-holidays-and-observances.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-06-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Patriotic Holidays And Observances",
-      "file": "ss-3-10_06-patriotic-holidays-and-observances.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-06-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Patriotic Holidays And Observances",
-      "file": "ss-3-10_06-patriotic-holidays-and-observances.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -2658,22 +1778,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-10-07-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Civic Virtues",
-      "file": "ss-3-10_07-civic-virtues.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-07-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Civic Virtues",
-      "file": "ss-3-10_07-civic-virtues.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-10-07-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Civic Virtues",
       "file": "ss-3-10_07-civic-virtues.html",
@@ -2703,22 +1807,6 @@
       "file": "ss-3-10_08-symbols-individuals-documents-and-events.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-08-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Symbols Individuals Documents And Events",
-      "file": "ss-3-10_08-symbols-individuals-documents-and-events.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-10-08-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Symbols Individuals Documents And Events",
-      "file": "ss-3-10_08-symbols-individuals-documents-and-events.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -2754,22 +1842,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-11-01-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.11.01: Review \u2014 See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
-      "file": "ss-3-11_01-review-see-hear-follow.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-11-01-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.11.01: Review \u2014 See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
-      "file": "ss-3-11_01-review-see-hear-follow.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-11-01-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.11.01: Review \u2014 See the Place, Hear the Voices, Follow the Story (Grade 3 Museum)",
       "file": "ss-3-11_01-review-see-hear-follow.html",
@@ -2799,22 +1871,6 @@
       "file": "ss-3-11_02-build-final-exhibit.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-11-02-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
-      "file": "ss-3-11_02-build-final-exhibit.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-11-02-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.11.02: Build the Final Community-in-the-World Exhibit (Grade 3 Museum)",
-      "file": "ss-3-11_02-build-final-exhibit.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
@@ -2850,22 +1906,6 @@
       "embed": "",
       "status": "pending"
     },
-    "3-11-03-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.11.03: Present the Evidence \u2014 Map, Source, and Virtue (Grade 3 Museum)",
-      "file": "ss-3-11_03-present-evidence.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-11-03-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.11.03: Present the Evidence \u2014 Map, Source, and Virtue (Grade 3 Museum)",
-      "file": "ss-3-11_03-present-evidence.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
     "3-11-03-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Lesson 3.11.03: Present the Evidence \u2014 Map, Source, and Virtue (Grade 3 Museum)",
       "file": "ss-3-11_03-present-evidence.html",
@@ -2895,22 +1935,6 @@
       "file": "ss-3-11_04-final-reflection.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-11-04-quiz-perfect": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
-      "file": "ss-3-11_04-final-reflection.html",
-      "type": "Perfect Score",
-      "section": "Quiz",
-      "embed": "",
-      "status": "pending"
-    },
-    "3-11-04-quiz-review": {
-      "lesson": "Optima Academy Online \u2014 Lesson 3.11.04: Final Historian-Citizen Reflection (Grade 3 Museum)",
-      "file": "ss-3-11_04-final-reflection.html",
-      "type": "Review & Encouragement",
-      "section": "Quiz",
       "embed": "",
       "status": "pending"
     },
