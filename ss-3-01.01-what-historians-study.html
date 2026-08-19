@@ -2050,7 +2050,42 @@ var visited={scene:true};
 function switchTab(tab){visited[tab]=true;document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active')});document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});document.getElementById('panel-'+tab).classList.add('active');document.getElementById('btn-'+tab).classList.add('active');Object.keys(visited).forEach(function(v){document.getElementById('btn-'+v).classList.add('visited')});var intro=document.getElementById('introSection');if(tab!=='scene'){intro.classList.add('collapsed')}else{intro.classList.remove('collapsed')}updateProgress();scrollToTop();if(tab==='assignment')gatherAnswers()}
 function toggleIntro(){document.getElementById('introSection').classList.toggle('collapsed')}
 function updateProgress(){var total=4;var done=Object.keys(visited).length;var pct=Math.round((done/total)*100);document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressPct').textContent=pct+'%'}
-function autoSave(textarea,dotId){var dot=document.getElementById(dotId);if(dot){dot.classList.add('saved');clearTimeout(textarea._saveTimeout);textarea._saveTimeout=setTimeout(function(){},300)}}
+/* ───── AUTO-SAVE ───── */
+var _lessonKey = (document.title || 'ss-lesson').replace(/[^a-zA-Z0-9]+/g,'-').toLowerCase();
+
+function autoSave(el,dotId){
+  var dot=document.getElementById(dotId);
+  if(dot&&el.value.trim().length>0){dot.classList.add('saved');}
+  else if(dot){dot.classList.remove('saved');}
+  try{ localStorage.setItem(_lessonKey+'-'+el.id, el.value); }catch(e){}
+}
+
+function restoreJournals(){
+  document.querySelectorAll('textarea.journal-box,textarea.reflection-textarea').forEach(function(t){
+    if(!t.id) return;
+    try{
+      var v = localStorage.getItem(_lessonKey+'-'+t.id);
+      if(v){ t.value = v; }
+    }catch(e){}
+    var oi = t.getAttribute('oninput');
+    if(oi){
+      var m = oi.match(/'(dot-[^']+)'/);
+      if(m){
+        var dot = document.getElementById(m[1]);
+        if(dot && t.value.trim().length>0){ dot.classList.add('saved'); }
+      }
+    }
+  });
+}
+restoreJournals();
+
+window.addEventListener('beforeunload', function(e){
+  var hasWork = false;
+  document.querySelectorAll('textarea.journal-box,textarea.reflection-textarea').forEach(function(t){
+    if(t.value && t.value.trim().length > 0){ hasWork = true; }
+  });
+  if(hasWork){ e.preventDefault(); e.returnValue = ''; }
+});,300)}}
 function gatherAnswers(){var ids=['journal-q1','journal-q2','journal-assign','journal-chronicle'];var output='';ids.forEach(function(id){var el=document.getElementById(id);if(!el)return;var label=el.getAttribute('data-label')||id;var val=el.value.trim();output+=label.toUpperCase()+'\n';output+=(val||'(no answer)')+'\n\n'});output+='MINI-GAME RESULTS\n';output+=(window._rootMatchDone?'✅':'⬜')+' Word Roots Match\n';var gathered=document.getElementById('gatheredOutput');if(gathered)gathered.value=output.trim()}
 function copyGathered(){gatherAnswers();var output=document.getElementById('gatheredOutput');if(!output)return;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(output.value).then(function(){showCopied()})}else{output.select();document.execCommand('copy');showCopied()}}
 function showCopied(){var msg=document.getElementById('gatheredCopied');msg.classList.add('show');setTimeout(function(){msg.classList.remove('show')},2500)}
