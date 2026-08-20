@@ -706,8 +706,6 @@ body {
 .quiz-score-num { font-size: 52px; font-weight: 900; line-height: 1; }
 .quiz-score-label { font-size: 14px; color: #55C8E8; margin-bottom: 4px; }
 .quiz-score-msg { font-size: 18px; font-weight: 700; margin-top: 8px; }
-.quiz-video-wrap { margin-top: 16px; display: none; }
-.quiz-video-wrap.show { display: block; }
 
 .discovery-fact { display: none; margin-top: 8px; padding: 12px 16px; background: linear-gradient(135deg, #FFF8F0, #FFF3DC); border: 2px solid #F5E6C8; border-left: 5px solid #D4943A; border-radius: 10px; font-size: 14px; color: #5A4A3A; line-height: 1.6; animation: factReveal 0.5s ease; }
 .discovery-fact.show { display: block; }
@@ -1849,9 +1847,9 @@ function checkQuiz(optEl) {
   if (quizAnswered === 3) {
     var scoreBox = document.getElementById('quizScore');
     document.getElementById('quizScoreNum').textContent = quizCorrect;
-    if (quizCorrect === 3) { document.getElementById('quizScoreMsg').textContent = '⭐ Perfect! You got every question right!'; document.getElementById('quizVideoCorrect').classList.add('show'); fireConfetti(); }
-    else if (quizCorrect === 2) { document.getElementById('quizScoreMsg').textContent = '🏛️ Great job! Almost there!'; document.getElementById('quizVideoReview').classList.add('show'); }
-    else { document.getElementById('quizScoreMsg').textContent = '📜 Good effort! Review and try again.'; document.getElementById('quizVideoReview').classList.add('show'); }
+    if (quizCorrect === 3) { document.getElementById('quizScoreMsg').textContent = '⭐ Perfect! You got every question right!';  fireConfetti(); }
+    else if (quizCorrect === 2) { document.getElementById('quizScoreMsg').textContent = '🏛️ Great job! Almost there!';  }
+    else { document.getElementById('quizScoreMsg').textContent = '📜 Good effort! Review and try again.';  }
     scoreBox.classList.add('show');
   }
 }

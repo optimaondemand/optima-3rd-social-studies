@@ -1206,8 +1206,6 @@ body {
 .quiz-score-num { font-size: 52px; font-weight: 900; line-height: 1; }
 .quiz-score-label { font-size: 14px; color: #55C8E8; margin-bottom: 4px; }
 .quiz-score-msg { font-size: 18px; font-weight: 700; margin-top: 8px; }
-.quiz-video-wrap { margin-top: 16px; display: none; }
-.quiz-video-wrap.show { display: block; }
 
 /* ═══════════ DISCOVERY FACT (hidden reward on game completion) ═══════════ */
 .discovery-fact {
@@ -2391,14 +2389,14 @@ function checkQuiz(optEl) {
     document.getElementById('quizScoreNum').textContent = quizCorrect;
     if (quizCorrect === 3) {
       document.getElementById('quizScoreMsg').textContent = '⭐ Perfect! You got every question right!';
-      document.getElementById('quizVideoCorrect').classList.add('show');
+      
       fireConfetti();
     } else if (quizCorrect === 2) {
       document.getElementById('quizScoreMsg').textContent = '🏛️ Great job! Almost there!';
-      document.getElementById('quizVideoReview').classList.add('show');
+      
     } else {
       document.getElementById('quizScoreMsg').textContent = '📜 Good effort! Review the lesson and try again.';
-      document.getElementById('quizVideoReview').classList.add('show');
+      
     }
     scoreBox.classList.add('show');
   }
