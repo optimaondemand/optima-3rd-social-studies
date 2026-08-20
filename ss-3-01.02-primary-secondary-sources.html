@@ -2053,7 +2053,7 @@ window.addEventListener('beforeunload', function(e){
     if(t.value && t.value.trim().length > 0){ hasWork = true; }
   });
   if(hasWork){ e.preventDefault(); e.returnValue = ''; }
-});}
+});
 function gatherAnswers(){var ids=['journal-q1','journal-q2','journal-assign','journal-q3','journal-matter','journal-chronicle'];var output='';ids.forEach(function(id){var el=document.getElementById(id);if(!el)return;var label=el.getAttribute('data-label')||id;var val=el.value.trim();output+=label.toUpperCase()+'\n';output+=(val||'(no answer)')+'\n\n'});var gathered=document.getElementById('gatheredOutput');if(gathered)gathered.value=output.trim()}
 function copyGathered(){gatherAnswers();var output=document.getElementById('gatheredOutput');if(!output)return;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(output.value).then(function(){showCopied()})}else{output.select();document.execCommand('copy');showCopied()}}
 function showCopied(){var msg=document.getElementById('gatheredCopied');msg.classList.add('show');setTimeout(function(){msg.classList.remove('show')},2500)}
