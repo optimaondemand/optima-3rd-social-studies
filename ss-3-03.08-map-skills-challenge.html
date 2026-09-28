@@ -1874,7 +1874,7 @@ body {
       <p>Before the challenge, review each skill. Tap a card to flip it and see the definition.</p>
       <div class="vocab-grid" style="grid-template-columns:1fr 1fr 1fr;">
 
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="fc-emoji">🗺️</div>
@@ -1887,7 +1887,7 @@ body {
           </div>
         </div>
 
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="fc-emoji">🧭</div>
@@ -1900,7 +1900,7 @@ body {
           </div>
         </div>
 
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="fc-emoji">📏</div>
@@ -1913,7 +1913,7 @@ body {
           </div>
         </div>
 
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="fc-emoji">🔑</div>
@@ -1926,7 +1926,7 @@ body {
           </div>
         </div>
 
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="fc-emoji">📂</div>
@@ -1939,7 +1939,7 @@ body {
           </div>
         </div>
 
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="fc-emoji">🌍</div>
@@ -2809,6 +2809,13 @@ updateProgress();
   else init();
   window.addEventListener('load', function(){ setTimeout(init, 300); });
 })();
+
+/* ═══════════ FLIP CARDS ═══════════ */
+document.querySelectorAll('.flip-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    card.classList.toggle('flipped');
+  });
+});
 </script>
 
 </body>
