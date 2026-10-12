@@ -1466,6 +1466,11 @@ body {
 .sort-opt:hover { border-color:#1A8A7D; background:#EAF8F5; }
 .sort-opt.wrong { animation: shake 0.35s; background:#FFEDED; border-color:#D94040; color:#D94040; }
 </style>
+<style id="oao-hide-empty-video">
+/* OAO-HIDE-EMPTY-VIDEO v1: a video slot with no recorded video keeps its placeholder, so hide the whole card.
+   When the manifest loader embeds a video it clears the placeholder, and the card shows again. */
+.video-wrap:has(.video-placeholder-id) { display: none !important; }
+</style>
 </head>
 <body>
 <div id="pageTop"></div>

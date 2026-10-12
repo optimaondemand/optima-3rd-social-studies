@@ -1463,6 +1463,11 @@ body {
   html += '.q-answer{font-size:14px;color:#0E1C42;margin:0 0 4px;padding:6px 12px;background:#f8f9fc;border-left:3px solid #D6F2FB;border-radius:4px;white-space:pre-wrap;}';
   html += '.no-answer{color:#B0B8CC;font-style:italic;}';
   html += '</style></head><body>';
+<style id="oao-hide-empty-video">
+/* OAO-HIDE-EMPTY-VIDEO v1: a video slot with no recorded video keeps its placeholder, so hide the whole card.
+   When the manifest loader embeds a video it clears the placeholder, and the card shows again. */
+.video-wrap:has(.video-placeholder-id) { display: none !important; }
+</style>
 </head>
 <body>
 <div class="page-wrap">
