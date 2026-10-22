@@ -839,16 +839,16 @@
       "file": "ss-3-05.05-geographic-terms-word-roots.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/bJ79tanv0mk?si=xYUo6YuGM2lQU6P7\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-05-explore-explainer": {
       "lesson": "Optima Academy Online \u2014 Terms Word Roots",
       "file": "ss-3-05.05-geographic-terms-word-roots.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/uMgCWtEsppU?si=OcF3LBao_QWLkBzO\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-05-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Terms Word Roots",
@@ -863,24 +863,24 @@
       "file": "ss-3-05.05-geographic-terms-word-roots.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width="560" height="315" src="https://www.youtube.com/embed/PdzgE_oiIkI?si=y2pEVEeo2jDql9S6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-06-welcome": {
       "lesson": "Optima Academy Online \u2014 Map Explanation",
       "file": "ss-3-05.06-world-map-explanation.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ZFK-37335_Q?si=p4L_5MQsjEWFxxaN\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-06-explore-explainer": {
       "lesson": "Optima Academy Online \u2014 Map Explanation",
       "file": "ss-3-05.06-world-map-explanation.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/h9cKyFteC-Y?si=_IMqtC4qxZA4fnpN\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-06-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Map Explanation",
@@ -895,8 +895,8 @@
       "file": "ss-3-05.06-world-map-explanation.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/1PFcSdAwOa4?si=cZs5gP7Y_0b3BOwm\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-06-01-welcome": {
       "lesson": "Optima Academy Online \u2014 Us Mexico Caribbean",
