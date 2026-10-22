@@ -711,16 +711,16 @@
       "file": "ss-3-05.01-label-continents-oceans.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/U6pPRjB6Gn8?si=-P6EZY7Y_lpsyw2x\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-01-explore-explainer": {
       "lesson": "Optima Academy Online \u2014 Continents Oceans",
       "file": "ss-3-05.01-label-continents-oceans.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/tS1pgIjrfvg?si=5WkuqzuQewyRgo3x\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-01-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Continents Oceans",
@@ -735,24 +735,24 @@
       "file": "ss-3-05.01-label-continents-oceans.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Bx-CwcVGU9M?si=UUINuSLJDh1WtWC3\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-02-welcome": {
       "lesson": "Optima Academy Online \u2014 Bodies Of Water",
       "file": "ss-3-05.02-landforms-bodies-of-water.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/MiJNIpwFaRQ?si=R2mTZs0ZpQQb1tXX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-02-explore-explainer": {
       "lesson": "Optima Academy Online \u2014 Bodies Of Water",
       "file": "ss-3-05.02-landforms-bodies-of-water.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mz8b5M7cJCw?si=0qLGkVcIbp-OmpPc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-02-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Bodies Of Water",
@@ -767,8 +767,8 @@
       "file": "ss-3-05.02-landforms-bodies-of-water.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/CbFoua_hSlw?si=CNvKzDa32pyMZwUa\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-03-welcome": {
       "lesson": "Optima Academy Online \u2014 Vegetation Resources",
