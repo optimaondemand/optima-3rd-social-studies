@@ -775,16 +775,16 @@
       "file": "ss-3-05.03-climate-vegetation-resources.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/qiSF1OMlWb0?si=m67M0-V9O2LyOU5L\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-03-explore-explainer": {
       "lesson": "Optima Academy Online \u2014 Vegetation Resources",
       "file": "ss-3-05.03-climate-vegetation-resources.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/yimr8RVGUvg?si=XQPTUkFiVWwciHq3\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-03-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Vegetation Resources",
@@ -799,24 +799,24 @@
       "file": "ss-3-05.03-climate-vegetation-resources.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/MvBm97foTG8?si=s2QLGoGLFKmepI1Q\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-04-welcome": {
       "lesson": "Optima Academy Online \u2014 Relative Location",
       "file": "ss-3-05.04-absolute-relative-location.html",
       "type": "Teacher Welcome",
       "section": "Welcome",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/nuurYXH9AGo?si=7MVaTZvMFxLr2Vs9\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-04-explore-explainer": {
       "lesson": "Optima Academy Online \u2014 Relative Location",
       "file": "ss-3-05.04-absolute-relative-location.html",
       "type": "Core Lesson",
       "section": "Explore",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/mCikxNAzY94?si=x9eLauQw5zMPjjd_\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-04-assignment-explainer": {
       "lesson": "Optima Academy Online \u2014 Relative Location",
@@ -831,8 +831,8 @@
       "file": "ss-3-05.04-absolute-relative-location.html",
       "type": "Closing",
       "section": "Closing",
-      "embed": "",
-      "status": "pending"
+      "embed": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/d62pDzXgwnw?si=zqzmc2fUbl6fZlA5\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+      "status": "ready"
     },
     "3-05-05-welcome": {
       "lesson": "Optima Academy Online \u2014 Terms Word Roots",
