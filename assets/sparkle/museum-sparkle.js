@@ -32,6 +32,15 @@
    - onequiz    Workroom: one question at a time
    - exhibit    Exhibit Floor: pick a specimen, the label fills as you write,
                 Open my exhibit (cover lifts, light warms, label settles)
+   Added for 3.06.01 (all DATA-driven; DATA.map / DATA.size hold the projected shapes):
+   - globe      Lobby: a real NASA-picture globe turns to North America, zooms in,
+                and the new gallery's doors open
+   - wallmap    Gallery: hang each place's label from a clue (one at a time), then
+                turn over each postcard and pin it where the photo was taken
+   - spacemap   Gallery source room: Earth from space; a slider adds the map lines
+   - sizescale  Gallery: lay the U.S. over Canada (same size), then show the people
+   Lesson specimens can be postcards (specimen.card = image); DATA.galleryNeeds names
+   the Gallery jobs; an Opti note's "at" may be a CSS selector.
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -357,7 +366,7 @@
       '<path d="M55 16 V36" stroke="#fff" stroke-width="3" opacity=".7"/></svg>'; }
   };
   var SPEC = DATA.specimens || {};
-  function specArt(id){ var s = SPEC[id]; return s && ART[s.art] ? ART[s.art]() : ''; }
+  function specArt(id){ var s = SPEC[id]; if (s && s.card) return '<span class="ms-pcart"><img alt="" src="'+img(s.card)+'"></span>'; return s && ART[s.art] ? ART[s.art]() : ''; }
 
   /* ── fly helper: a copy of an element travels from A to B ─── */
   function fly(fromEl, toEl, html, ms){
@@ -481,7 +490,7 @@
   };
   function placeOpti(){
     (DATA.opti || []).forEach(function(n){
-      var a = ANCHORS[n.at] && ANCHORS[n.at](); if (!a) return;
+      var a = ANCHORS[n.at] ? ANCHORS[n.at]() : (/^[#.]/.test(n.at||'') ? $(n.at) : null); if (!a) return;
       var c = opti(n); if (n.id) c.id = 'ms-opti-' + n.id;
       if (n.after) after(a, c); else a.parentNode.insertBefore(c, a);
       if (n.hidden && !(n.id && ST.shown && ST.shown[n.id])) c.style.display = 'none';
@@ -510,7 +519,7 @@
     var dots = ''; for (var i=1;i<=total;i++) dots += '<i class="'+(i<n?'done':(i===n?'on':''))+'"></i>';
     return '<div class="ms-stepcard"><div class="ms-sc-top"><span class="ms-sc-n">Step '+n+' of '+total+'</span><span class="ms-sc-dots">'+dots+'</span></div><h4>'+esc(title)+'</h4>'+body+'</div>';
   }
-  function galleryCheck(){ var g = ST.gal||{}; if (g.time && g.dial && g.wind && g.cases) markDone('explore'); }
+  function galleryCheck(){ var g = ST.gal||{}, need = DATA.galleryNeeds || ['time','dial','wind','cases']; if (need.every(function(k){ return g[k]; })) markDone('explore'); }
 
   function dragger(src, onDrop, targetSel){
     var ghost = null, over = null, sx = 0, sy = 0, moved = false;
@@ -937,8 +946,8 @@
       var s = SPEC[S.id];
       $$('.ms-exp', m).forEach(function(b){ b.classList.toggle('on', b.dataset.id === S.id); });
       $('.ms-exspec', m).innerHTML = s ? specArt(S.id) : '<span class="ms-exempty">?</span>';
-      $('.ms-ltitle', m).textContent = s ? s.name : (cfg.noPickT || 'Pick a resource above');
-      $('.ms-lacc', m).textContent = s ? 'Specimen '+s.acc+' · '+(s.foundIn||'') : '';
+      $('.ms-ltitle', m).textContent = cfg.titleFixed || (s ? s.name : (cfg.noPickT || 'Pick a resource above'));
+      $('.ms-lacc', m).textContent = s ? (s.accLine || ('Specimen '+s.acc+' · '+(s.foundIn||''))) : (cfg.titleFixed ? (cfg.noPickT||'') : '');
       var v = ta.value.trim();
       lt.textContent = v || (cfg.emptyT || 'Your label will appear here as you write it in the box above.');
       lt.classList.toggle('empty', !v);
@@ -1039,7 +1048,250 @@
     $$('.ms-mod, .ms-hero, .ms-opti').forEach(function(x){ io.observe(x); });
   }
 
-  var MODS = { crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit };
+  /* ══ MAP HELPERS (3.06.01) ═════════════════════════════════
+     DATA.map = {W,H, groups:{canada,usa,mexico,caribbean,other}, lakes, grat, pts:{key:[x,y]}, hit:{caribbean:[cx,cy,rx,ry]}}
+     Paths are already projected (orthographic, centered on North America). The layer only draws them. */
+  var PLACES = ['canada','usa','mexico','caribbean'];
+  function pct(M, p){ return 'left:'+(p[0]/M.W*100).toFixed(2)+'%;top:'+(p[1]/M.H*100).toFixed(2)+'%;'; }
+  function compassSVG(cx, cy, r){
+    return '<g class="ms-compass" transform="translate('+cx+' '+cy+')"><circle r="'+(r*1.08)+'" class="cr"/>'+
+      '<path d="M0 '+(-r)+' L'+(r*.2)+' 0 L0 '+r+' L'+(-r*.2)+' 0Z" class="ns"/><path d="M'+(-r)+' 0 L0 '+(r*.2)+' L'+r+' 0 L0 '+(-r*.2)+'Z" class="ew"/>'+
+      '<path d="M0 '+(-r)+' L'+(r*.2)+' 0 L'+(-r*.2)+' 0Z" class="n"/>'+
+      '<text y="'+(-r-10)+'" class="cl">N</text><text y="'+(r+28)+'" class="cl">S</text><text x="'+(r+18)+'" y="9" class="cl">E</text><text x="'+(-r-18)+'" y="9" class="cl">W</text></g>';
+  }
+  function mapSVG(M, opt){
+    opt = opt || {}; var g = M.groups, P = M.pts || {}, h = (M.hit||{}).caribbean;
+    var waters = (M.waters||[]).map(function(w){ var p = P[w.k]; return p ? '<text class="water" x="'+p[0]+'" y="'+p[1]+'">'+esc(w.t)+'</text>' : ''; }).join('');
+    var grays = (M.grays||[]).map(function(w){ var p = P[w.k]; return p ? '<text class="grayname" x="'+p[0]+'" y="'+p[1]+'">'+esc(w.t)+'</text>' : ''; }).join('');
+    return '<svg class="ms-map '+(opt.cls||'')+'" viewBox="0 0 '+M.W+' '+M.H+'" role="img" aria-label="'+esc(opt.label||'Map of North America and the Caribbean')+'">'+
+      '<rect class="sea" width="'+M.W+'" height="'+M.H+'"/><path class="grat" d="'+M.grat+'"/>'+
+      (h && opt.hits ? '<ellipse class="hit" data-k="caribbean" cx="'+h[0]+'" cy="'+h[1]+'" rx="'+h[2]+'" ry="'+h[3]+'"/>' : '')+
+      '<path class="other" d="'+g.other+'"/>'+
+      PLACES.map(function(k){ return '<path class="pl pl-'+k+'" data-k="'+k+'" d="'+g[k]+'"/>'; }).join('')+
+      '<path class="lakes" d="'+M.lakes+'"/>'+
+      (opt.names === false ? '' : waters + grays)+(opt.compass ? compassSVG(M.compass[0], M.compass[1], M.compass[2]) : '')+'</svg>';
+  }
+
+  /* ══ MODULE: globe (Lobby · the World Map Hall globe → the new gallery doors) ══
+     cfg: texture, steps[3] {title,text,btn}, plaque, doneT. Step 1 turn the globe, 2 zoom in, 3 open the doors. */
+  function modGlobe(cfg){
+    var sign = $('#panel-scene .ms-sign'); if (!sign) return;
+    ST.gl = ST.gl || {step:0};
+    var S = ST.gl, M = DATA.map;
+    var m = shell('ms-globe-mod', cfg);
+    m.insertAdjacentHTML('beforeend',
+      '<div class="ms-gl-stage" data-s="0"><div class="ms-gl-wall"></div>' +
+        '<div class="ms-gl-globe"><div class="ms-gl-ball"><canvas width="360" height="360" aria-label="A globe of the Earth"></canvas><span class="ms-gl-ring"></span></div><svg class="ms-gl-stand" viewBox="0 0 200 70" aria-hidden="true"><path d="M100 0 V44" stroke="#B8892E" stroke-width="9"/><path d="M40 70 Q100 30 160 70Z" fill="#7E5430"/><ellipse cx="100" cy="67" rx="64" ry="6" fill="#5E3D1C"/></svg></div>' +
+        '<div class="ms-gl-zoom">'+(M ? mapSVG(M, {cls:'ms-gl-map', names:false}) : '')+'<span class="ms-gl-zlab">'+esc(cfg.zoomLabel||'North America and the Caribbean')+'</span></div>' +
+        '<div class="ms-gl-door"><div class="ms-gl-plaque">'+esc(cfg.plaque||'North America & Caribbean Gallery')+'</div><div class="ms-gl-arch"><div class="ms-gl-inside">'+(M ? mapSVG(M, {cls:'ms-gl-map lit', names:false}) : '')+'</div><span class="ms-gl-leaf l"><i></i></span><span class="ms-gl-leaf r"><i></i></span></div></div>' +
+      '</div><div class="ms-gl-act"></div>');
+    after(sign, m);
+    var stage = $('.ms-gl-stage', m), act = $('.ms-gl-act', m), cv = $('canvas', m), ctx = cv.getContext('2d');
+    // ── the globe: a real orthographic view of the NASA picture, drawn pixel by pixel ──
+    var N = cv.width, TEX = null, TW = 0, TH = 0, PIX = null, lon = cfg.startLon != null ? cfg.startLon : 20, spin = null;
+    var LAT0 = (cfg.tilt != null ? cfg.tilt : 32) * Math.PI/180, TARGET = cfg.targetLon != null ? cfg.targetLon : -98;
+    function prep(){
+      PIX = []; var r = N/2 - 2;
+      for (var j=0;j<N;j++) for (var i=0;i<N;i++){
+        var x = (i - N/2 + .5)/r, y = -(j - N/2 + .5)/r, rho = Math.sqrt(x*x+y*y); if (rho >= 1) continue;
+        var c = Math.asin(rho), sc = Math.sin(c), cc = Math.cos(c);
+        var lat = rho ? Math.asin(cc*Math.sin(LAT0) + y*sc*Math.cos(LAT0)/rho) : LAT0;
+        var dl = rho ? Math.atan2(x*sc, rho*cc*Math.cos(LAT0) - y*sc*Math.sin(LAT0)) : 0;
+        var v = Math.min(TH-1, Math.max(0, Math.round((90 - lat*180/Math.PI)/180*TH - .5)));
+        PIX.push((j*N+i), v, dl*180/Math.PI, .5 + .5*cc);
+      }
+    }
+    function draw(){
+      if (!TEX) return; var out = ctx.createImageData(N, N), d = out.data;
+      for (var k=0;k<PIX.length;k+=4){
+        var u = Math.floor(((lon + PIX[k+2] + 540) % 360)/360*TW) % TW, t = (PIX[k+1]*TW + u)*4, o = PIX[k]*4, sh = PIX[k+3];
+        d[o] = TEX[t]*sh; d[o+1] = TEX[t+1]*sh; d[o+2] = TEX[t+2]*sh; d[o+3] = 255;
+      }
+      ctx.putImageData(out, 0, 0);
+    }
+    var im = new Image();
+    im.onload = function(){ var c2 = document.createElement('canvas'); TW = c2.width = im.naturalWidth; TH = c2.height = im.naturalHeight; var x2 = c2.getContext('2d'); x2.drawImage(im, 0, 0); try { TEX = x2.getImageData(0,0,TW,TH).data; } catch(e){ TEX = null; } if (TEX) { prep(); if (S.step >= 1) lon = TARGET; draw(); } };
+    im.src = img(cfg.texture || 'globe-tex.jpg');
+    // drag to turn it by hand
+    var dragX = null;
+    cv.addEventListener('pointerdown', function(e){ if (S.step) return; dragX = e.clientX; cv.setPointerCapture(e.pointerId); });
+    cv.addEventListener('pointermove', function(e){ if (dragX == null) return; lon -= (e.clientX - dragX) * .6; dragX = e.clientX; draw(); });
+    cv.addEventListener('pointerup', function(){ dragX = null; if (!S.step && Math.abs(((lon - TARGET + 540) % 360) - 180) < 22) turned(); });
+    function turned(){ if (S.step) return; spinTo(TARGET, function(){ S.step = 1; save(); SFX.chime(); render(); }); }
+    function spinTo(target, done){
+      cancelAnimationFrame(spin);
+      var from = lon, dist = ((from - target) % 360 + 360) % 360; if (dist < 30) dist += 360; // always turn west to east, at least most of a turn
+      if (calm() || !TEX) { lon = target; draw(); return done(); }
+      var t0 = performance.now(), dur = 2600;
+      (function f(now){ var k = Math.min(1, (now - t0)/dur), e = 1 - Math.pow(1-k, 3); lon = from - dist*e; draw(); if (k < 1) spin = requestAnimationFrame(f); else { lon = target; draw(); done(); } })(t0);
+    }
+    var ST3 = cfg.steps || [];
+    function render(){
+      stage.dataset.s = S.step;
+      var s = ST3[Math.min(S.step, 2)] || {};
+      if (S.step === 0) act.innerHTML = stepCard(1, 3, s.title, '<p>'+s.text+'</p><button type="button" class="ms-btn big ms-gl-go">'+esc(s.btn)+'</button>');
+      else if (S.step === 1) act.innerHTML = stepCard(2, 3, s.title, '<p>'+s.text+'</p><button type="button" class="ms-btn big ms-gl-go">'+esc(s.btn)+'</button>');
+      else if (S.step === 2) act.innerHTML = stepCard(3, 3, s.title, '<p>'+s.text+'</p><button type="button" class="ms-btn big ms-gl-go">'+esc(s.btn)+'</button>');
+      else act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>';
+      var b = $('.ms-gl-go', act); if (!b) return;
+      b.onclick = function(){ b.disabled = true; SFX.click();
+        if (S.step === 0) turned();
+        else if (S.step === 1) { stage.classList.add('zooming'); setTimeout(function(){ stage.classList.remove('zooming'); S.step = 2; save(); SFX.glass(); render(); }, calm() ? 40 : 1500); }
+        else { S.step = 3; save(); SFX.creak(); render(); setTimeout(function(){ SFX.fanfare(); markDone('scene'); }, calm() ? 0 : 900); }
+      };
+    }
+    render();
+  }
+
+  /* ══ MODULE: wallmap (Gallery · hang the labels, then pin the postcards) ══
+     cfg.labels: [{k, name, clue, hint}], cfg.cards: [specimen ids], cfg.miss {other}, cfg.partB {title,text}, cfg.finale */
+  function modWallmap(cfg){
+    var M = DATA.map; if (!M) return;
+    var anchor = $(cfg.anchor || '#panel-explore .ms-sign'); if (!anchor) return;
+    ST.wm = ST.wm || {hung:{}, flip:{}, pin:{}};
+    var S = ST.wm, L = cfg.labels || [], C = cfg.cards || [];
+    var names = {}; L.forEach(function(l){ names[l.k] = l.name; });
+    var m = shell('ms-wm-mod', cfg);
+    m.insertAdjacentHTML('beforeend',
+      '<div class="ms-wm-wall"><div class="ms-wm-title">'+esc(cfg.mapTitle||'North America and the Caribbean')+'</div><div class="ms-wm-frame">'+mapSVG(M, {cls:'ms-wm-map', hits:true, compass:true})+'<div class="ms-wm-ov"></div></div></div>' +
+      '<div class="ms-wm-act"></div><div class="ms-wm-fb" aria-live="polite"></div>');
+    if (cfg.where === 'before') anchor.parentNode.insertBefore(m, anchor); else after(anchor, m);
+    var svg = $('.ms-wm-map', m), ov = $('.ms-wm-ov', m), act = $('.ms-wm-act', m), fb = $('.ms-wm-fb', m), frame = $('.ms-wm-frame', m);
+    function curLabel(){ for (var i=0;i<L.length;i++) if (!S.hung[L[i].k]) return i; return -1; }
+    function curCard(){ for (var i=0;i<C.length;i++) if (!S.pin[C[i]]) return i; return -1; }
+    function paintMap(){
+      PLACES.forEach(function(k){ var p = $('.pl-'+k, svg); if (p) p.classList.toggle('on', !!S.hung[k]); });
+      svg.classList.toggle('all', curLabel() < 0);
+      ov.innerHTML = L.filter(function(l){ return S.hung[l.k]; }).map(function(l){ return '<span class="ms-wm-lbl lbl-'+l.k+'" style="'+pct(M, M.pts[l.k])+'">'+esc(l.name)+'</span>'; }).join('') +
+        C.filter(function(id){ return S.pin[id]; }).map(function(id){ var s = SPEC[id]; return '<button type="button" class="ms-wm-pin" data-id="'+id+'" style="'+pct(M, M.pts[s.pin])+'" aria-label="Postcard from '+esc(s.short)+'"><img alt="" src="'+img(s.card)+'"></button>'; }).join('');
+      $$('.ms-wm-pin', ov).forEach(function(b){ b.onclick = function(){ cardBox(b.dataset.id, true); }; });
+    }
+    function cardBox(id, big){
+      var s = SPEC[id];
+      lightbox('<div class="ms-lb-k">Postcard · '+esc(s.short)+'</div><h3>'+esc(s.name)+'</h3><div class="ms-pc-pair"><figure class="ms-pc front"><img alt="'+esc(s.photoAlt||'')+'" src="'+img(s.card)+'"></figure><div class="ms-pc back"><p>'+s.back+'</p><div class="ms-pc-stamp">'+esc(s.stamp||'')+'</div></div></div><p class="ms-credit">📷 '+esc(s.photoCredit||'')+'</p>');
+    }
+    function postcardHTML(id, flipped){
+      var s = SPEC[id];
+      return '<div class="ms-pc-card'+(flipped?' flipped':'')+'"><div class="ms-pc-in"><figure class="ms-pc front"><img alt="'+esc(s.photoAlt||'')+'" src="'+img(s.card)+'"><span class="ms-pc-greet">'+esc(cfg.greet||'Greetings from North America!')+'</span></figure>' +
+        '<div class="ms-pc back"><p>'+s.back+'</p><div class="ms-pc-stamp">'+esc(s.stamp||'')+'</div><div class="ms-pc-lines"><i></i><i></i><i></i></div></div></div></div>';
+    }
+    function render(){
+      paintMap(); fb.innerHTML = '';
+      var li = curLabel(), ci = curCard();
+      if (li >= 0) {
+        var l = L[li];
+        act.innerHTML = stepCard(li+1, L.length, 'Hang the '+l.name+' label', '<div class="ms-wm-tag"><span class="ms-wm-hole"></span><b>'+esc(l.name)+'</b><span class="clue">Clue: '+l.clue+'</span></div><p class="ms-wm-do">👆 '+esc(cfg.tapT||'Tap the place on the map where this label belongs.')+'</p>');
+        frame.dataset.mode = 'label';
+      } else if (ci >= 0) {
+        var id = C[ci], s = SPEC[id], fl = !!S.flip[id];
+        act.innerHTML = (ci === 0 && !fl ? '<div class="ms-win show">'+(cfg.finale||'')+'</div>' : '') +
+          '<div class="ms-wm-partb">'+esc(cfg.partBT||'Part 2 · Pin the postcards')+'</div>' +
+          stepCard(ci+1, C.length, 'Postcard '+(ci+1)+' of '+C.length, postcardHTML(id, fl) +
+            (fl ? '<p class="ms-wm-do">👆 '+esc(cfg.pinT||'Tap the place on the map where this photo was taken.')+'</p>' : '<button type="button" class="ms-btn big ms-pc-flip">🔄 '+esc(cfg.flipT||'Turn the postcard over')+'</button>'));
+        frame.dataset.mode = fl ? 'card' : '';
+        var fbtn = $('.ms-pc-flip', act); if (fbtn) fbtn.onclick = function(){ S.flip[id] = 1; save(); SFX.click(); var c = $('.ms-pc-card', act); if (c) c.classList.add('flipped'); fbtn.disabled = true; setTimeout(function(){ var p = el('p','ms-wm-do','👆 '+esc(cfg.pinT||'Tap the place on the map where this photo was taken.')); fbtn.parentNode.replaceChild(p, fbtn); frame.dataset.mode = 'card'; }, calm() ? 0 : 620); };
+        if (ci === 0 && !fl) showOpti('cards');
+      } else {
+        frame.dataset.mode = '';
+        act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div><button type="button" class="ms-mini ms-wm-again">🔁 '+esc(cfg.againT||'Start the wall map over')+'</button>';
+        $('.ms-wm-again', act).onclick = function(){ ST.wm = S = {hung:{}, flip:{}, pin:{}}; save(); render(); };
+        ST.gal = ST.gal || {}; if (!ST.gal.map) { ST.gal.map = 1; save(); galleryCheck(); }
+      }
+    }
+    function tapped(k){
+      var li = curLabel(), ci = curCard();
+      if (li >= 0) {
+        var want = L[li];
+        if (k === want.k) { S.hung[k] = 1; save(); SFX.stamp(); render(); var lb = $('.lbl-'+k, ov); if (lb && !calm()) lb.classList.add('drop'); if (curLabel() < 0) { SFX.fanfare(); } return; }
+        SFX.miss();
+        fb.innerHTML = '🤔 ' + (k === 'other' ? esc(cfg.grayT||'That gray land is not part of today\'s region.') : (S.hung[k] ? 'That is '+esc(names[k])+'. Its label is already up.' : 'That is '+esc(names[k])+'.')) + ' ' + want.hint;
+        return;
+      }
+      if (ci >= 0 && S.flip[C[ci]]) {
+        var s = SPEC[C[ci]];
+        if (k === s.place) { var from = $('.ms-pc-card', act); S.pin[C[ci]] = 1; save(); SFX.stamp(); fly(from, frame, '<img alt="" src="'+img(s.card)+'" style="width:100%">', 600).then(render); return; }
+        SFX.miss();
+        fb.innerHTML = '🤔 ' + (k === 'other' ? esc(cfg.grayT||'That gray land is not part of today\'s region.') : 'That is '+esc(names[k])+'.') + ' ' + esc(cfg.reread||'Read the back of the postcard again. It says where the photo was taken.');
+      }
+    }
+    $$('[data-k]', svg).forEach(function(p){ p.addEventListener('click', function(){ tapped(p.dataset.k); }); });
+    $('.other', svg).addEventListener('click', function(){ tapped('other'); });
+    render();
+  }
+
+  /* ══ MODULE: spacemap (Gallery source room · Earth from space vs. the map) ══
+     replaces the lesson's source-card picture; keeps its question prompts */
+  function modSpacemap(cfg){
+    var M = DATA.map, card = $('#panel-explore .source-card'); if (!M || !card) return;
+    ST.sp = ST.sp || {a1:null, slid:false, a2:null};
+    var S = ST.sp, Q1 = cfg.q1, Q2 = cfg.q2;
+    var m = shell('ms-sp-mod', cfg);
+    var g = M.groups;
+    m.insertAdjacentHTML('beforeend',
+      '<div class="ms-frame ms-sp-frame"><div class="ms-sp-stack"><img class="ms-sp-photo" alt="'+esc(cfg.alt||'')+'" src="'+img(cfg.photo)+'">' +
+        '<svg class="ms-sp-lines" viewBox="0 0 '+M.W+' '+M.H+'" aria-hidden="true"><path class="b" d="'+g.other+' '+PLACES.map(function(k){ return g[k]; }).join(' ')+'"/>' +
+        (cfg.names||[]).map(function(n){ var p = M.pts[n.k]; return p ? '<text x="'+p[0]+'" y="'+p[1]+'" class="'+(n.water?'w':'n')+'">'+esc(n.t)+'</text>' : ''; }).join('')+'</svg>' +
+        '<span class="ms-phtag l">'+esc(cfg.tagL||'')+'</span><span class="ms-phtag r ms-sp-tagr">'+esc(cfg.tagR||'')+'</span></div>' +
+        '<figcaption>'+cfg.credit+'</figcaption></div>' +
+      '<div class="ms-sp-slide"><span>🛰️ '+esc(cfg.leftT||'From space')+'</span><input type="range" min="0" max="100" value="'+(S.slid?100:0)+'" aria-label="'+esc(cfg.slideLabel||'Add the map lines')+'"><span>🗺️ '+esc(cfg.rightT||'Map lines')+'</span></div>' +
+      '<div class="ms-sp-act"></div>');
+    card.parentNode.insertBefore(m, card);
+    ['.source-card-header','.source-image-placeholder','.source-label-bar'].forEach(function(s){ var x = $(s, card); if (x) x.classList.add('ms-hide-on'); });
+    card.classList.add('ms-prompts');
+    var range = $('input', m), lines = $('.ms-sp-lines', m), act = $('.ms-sp-act', m), tagr = $('.ms-sp-tagr', m);
+    function setLines(){ var v = +range.value/100; lines.style.opacity = v; tagr.textContent = v > .5 ? (cfg.tagR2||'') : (cfg.tagR||''); }
+    range.addEventListener('input', function(){ setLines(); if (+range.value >= 90 && S.a1 != null && Q1.opts[S.a1].ok && !S.slid) { S.slid = true; save(); SFX.chime(); render(); } });
+    function choices(Q, ans, key){
+      return '<div class="ms-pchoices col">'+Q.opts.map(function(o,k){ return '<button type="button" class="ms-btn ms-spq'+(ans===k?(o.ok?' ok':' no'):'')+'" data-q="'+key+'" data-k="'+k+'">'+esc(o.t)+'</button>'; }).join('')+'</div>' +
+        '<div class="ms-exfb" aria-live="polite">'+(ans!=null ? (Q.opts[ans].ok ? '✅ ' : '🤔 ')+Q.opts[ans].fb : '')+'</div>';
+    }
+    function render(){
+      var ok1 = S.a1 != null && Q1.opts[S.a1].ok, ok2 = S.a2 != null && Q2.opts[S.a2].ok;
+      m.classList.toggle('can-slide', ok1);
+      range.disabled = !ok1;
+      if (!ok1) act.innerHTML = stepCard(1, 3, Q1.title, '<p>'+Q1.text+'</p>'+choices(Q1, S.a1, 'a1'));
+      else if (!S.slid) act.innerHTML = stepCard(2, 3, cfg.slideTitle, '<p>'+cfg.slideText+'</p><p class="ms-wm-do">👉 '+esc(cfg.slideDo)+'</p>');
+      else act.innerHTML = stepCard(3, 3, Q2.title, '<p>'+Q2.text+'</p>'+choices(Q2, S.a2, 'a2')) + (ok2 ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : '');
+      $$('.ms-spq', act).forEach(function(b){ b.onclick = function(){ var Q = b.dataset.q === 'a1' ? Q1 : Q2; S[b.dataset.q] = +b.dataset.k; save();
+        if (Q.opts[+b.dataset.k].ok) { SFX.chime(); if (b.dataset.q === 'a2') { ST.gal = ST.gal||{}; if (!ST.gal.space) { ST.gal.space = 1; save(); galleryCheck(); } } } else SFX.miss();
+        render(); }; });
+    }
+    if (S.slid) range.value = 100; setLines(); render();
+  }
+
+  /* ══ MODULE: sizescale (Gallery · same size, different numbers of people) ══
+     DATA.size = {CAN,USA,MEX paths (equal-area), box:[x,y,w,h], move:[dx,dy]}; cfg.people [{k,name,n,label}] (1 figure = cfg.per) */
+  function modSizescale(cfg){
+    var Z = DATA.size, anchor = $(cfg.anchor || '#panel-explore .source-card'); if (!Z || !anchor) return;
+    ST.sz = ST.sz || {moved:false, people:false, ans:null};
+    var S = ST.sz, Q = cfg.q, B = Z.box;
+    var m = shell('ms-sz-mod', cfg);
+    var figs = (cfg.people||[]).map(function(p){ var f = ''; for (var i=0;i<p.n;i++) f += '<i style="--d:'+(i*35)+'ms"></i>'; return '<div class="ms-sz-row r-'+p.k+'"><b>'+esc(p.name)+'</b><span class="ms-sz-figs">'+f+'</span><small>'+esc(p.label)+'</small></div>'; }).join('');
+    m.insertAdjacentHTML('beforeend',
+      '<div class="ms-sz-board"><svg class="ms-sz-svg" viewBox="'+B.join(' ')+'" role="img" aria-label="'+esc(cfg.alt||'')+'">' +
+        '<path class="can" d="'+Z.CAN+'"/><g class="usa-g"><path class="usa" d="'+Z.USA+'"/></g>' +
+        '<text class="t can-t" x="'+Z.lab.CAN[0]+'" y="'+Z.lab.CAN[1]+'">'+esc(cfg.canT||'Canada')+'</text><text class="t usa-t" x="'+Z.lab.USA[0]+'" y="'+Z.lab.USA[1]+'">'+esc(cfg.usaT||'United States')+'</text></svg>' +
+        '<div class="ms-sz-key"><span class="k can"></span>'+esc(cfg.canT||'Canada')+' <span class="k usa"></span>'+esc(cfg.usaT||'United States')+'</div></div>' +
+      '<div class="ms-sz-people"><div class="ms-sz-per">'+esc(cfg.perT||'')+'</div>'+figs+'</div>' +
+      '<div class="ms-sz-act"></div>');
+    if (cfg.where === 'before') anchor.parentNode.insertBefore(m, anchor); else after(anchor, m);
+    var svg = $('.ms-sz-svg', m), ug = $('.usa-g', m), act = $('.ms-sz-act', m), ppl = $('.ms-sz-people', m);
+    function place(){ ug.style.transform = S.moved ? 'translate('+Z.move[0]+'px,'+Z.move[1]+'px)' : ''; svg.classList.toggle('moved', S.moved); ppl.classList.toggle('show', S.people); }
+    var T = cfg.steps || [];
+    function render(){
+      place();
+      if (!S.moved) act.innerHTML = stepCard(1, 3, T[0].title, '<p>'+T[0].text+'</p><button type="button" class="ms-btn big ms-sz-go">'+esc(T[0].btn)+'</button>');
+      else if (!S.people) act.innerHTML = '<div class="ms-result">📏 '+cfg.sizeResult+'</div>' + stepCard(2, 3, T[1].title, '<p>'+T[1].text+'</p><button type="button" class="ms-btn big ms-sz-go">'+esc(T[1].btn)+'</button>');
+      else act.innerHTML = '<div class="ms-result">📏 '+cfg.sizeResult+'</div>' + stepCard(3, 3, Q.title, '<p>'+Q.text+'</p><div class="ms-pchoices col">'+Q.opts.map(function(o,k){ return '<button type="button" class="ms-btn ms-szq'+(S.ans===k?(o.ok?' ok':' no'):'')+'" data-k="'+k+'">'+esc(o.t)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite">'+(S.ans!=null ? (Q.opts[S.ans].ok?'✅ ':'🤔 ')+Q.opts[S.ans].fb : '')+'</div>') +
+        '<button type="button" class="ms-mini ms-sz-back">🔁 '+esc(cfg.againT||'Move the United States back')+'</button>';
+      var go = $('.ms-sz-go', act); if (go) go.onclick = function(){ SFX.click(); if (!S.moved) { S.moved = true; SFX.whir(); } else { S.people = true; SFX.pop(); } save(); render(); };
+      var bk = $('.ms-sz-back', act); if (bk) { var vis = true; bk.onclick = function(){ vis = !vis; ug.style.transform = vis ? 'translate('+Z.move[0]+'px,'+Z.move[1]+'px)' : ''; svg.classList.toggle('moved', vis); bk.textContent = '🔁 ' + (vis ? (cfg.againT||'Move the United States back') : (cfg.againT2||'Move it onto Canada again')); SFX.whir(); }; }
+      $$('.ms-szq', act).forEach(function(b){ b.onclick = function(){ S.ans = +b.dataset.k; save(); if (Q.opts[S.ans].ok) { SFX.chime(); ST.gal = ST.gal||{}; if (!ST.gal.size) { ST.gal.size = 1; save(); galleryCheck(); } } else SFX.miss(); render(); }; });
+    }
+    render();
+  }
+
+  var MODS = { crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
