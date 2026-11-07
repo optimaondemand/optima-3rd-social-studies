@@ -104,6 +104,42 @@
   function go(tab){ if (typeof window.switchTab === 'function') window.switchTab(tab); }
 
   /* ── THE TOP ───────────────────────────────────────────────── */
+  /* ── the museum hall around the page (wide screens only): wall, checkered floor, columns, a plant on each side ── */
+  function buildHall(){
+    if ($('.ms-hallbg')) return;
+    function plant(flip){
+      return '<svg class="ms-hplant" viewBox="0 0 140 230" aria-hidden="true"'+(flip?' style="transform:scaleX(-1)"':'')+'>' +
+        '<g class="ms-leaves">' +
+        '<path d="M70 150 C40 120 18 96 10 60 C38 74 58 104 70 150Z" fill="#3E8A55"/>' +
+        '<path d="M70 150 C98 116 122 98 132 66 C104 78 82 104 70 150Z" fill="#4E9E62"/>' +
+        '<path d="M70 150 C58 100 52 56 66 12 C84 54 82 104 70 150Z" fill="#5DB072"/>' +
+        '<path d="M70 150 C46 110 24 104 2 104 C26 122 48 136 70 150Z" fill="#2F7446"/>' +
+        '<path d="M70 150 C94 112 116 108 138 112 C114 128 92 140 70 150Z" fill="#3B8150"/>' +
+        '<path d="M66 12 C70 60 70 110 70 150" stroke="#2C6B40" stroke-width="2" fill="none"/>' +
+        '</g>' +
+        '<path d="M34 146 H106 L96 218 H44Z" fill="#B86A3C"/><rect x="28" y="140" width="84" height="16" rx="4" fill="#CF8250"/>' +
+        '<path d="M40 176 H100" stroke="#A35B30" stroke-width="3"/>' +
+        '<ellipse cx="70" cy="222" rx="38" ry="6" fill="rgba(0,0,0,.18)"/></svg>';
+    }
+    function column(){
+      return '<svg class="ms-hcol" viewBox="0 0 60 600" preserveAspectRatio="none" aria-hidden="true">' +
+        '<rect x="4" y="0" width="52" height="22" fill="#EFE5D2"/><rect x="0" y="22" width="60" height="10" fill="#F7F0E1"/>' +
+        '<rect x="8" y="32" width="44" height="532" fill="#F7F0E1"/>' +
+        '<path d="M18 36 V560 M30 36 V560 M42 36 V560" stroke="#DCCFB2" stroke-width="3"/>' +
+        '<rect x="0" y="564" width="60" height="12" fill="#F7F0E1"/><rect x="4" y="576" width="52" height="24" fill="#E6DAC2"/></svg>';
+    }
+    function sconce(){
+      return '<svg class="ms-hsconce" viewBox="0 0 60 90" aria-hidden="true"><circle cx="30" cy="34" r="30" fill="rgba(255,226,150,.35)"/>' +
+        '<rect x="26" y="40" width="8" height="34" rx="2" fill="#B8892E"/><path d="M14 74 H46 L40 84 H20Z" fill="#B8892E"/>' +
+        '<path d="M18 22 H42 L38 42 H22Z" fill="#FFF1C9" stroke="#B8892E" stroke-width="2"/></svg>';
+    }
+    var h = el('div','ms-hallbg ms-only');
+    h.setAttribute('aria-hidden','true');
+    h.innerHTML = '<div class="ms-hwall"></div><div class="ms-hrail"></div><div class="ms-hfloor"><i></i></div>' +
+      '<div class="ms-hside l">'+column()+sconce()+plant(false)+'</div><div class="ms-hside r">'+column()+sconce()+plant(true)+'</div>';
+    document.body.insertBefore(h, document.body.firstChild);
+  }
+
   function buildTop(){
     var hd = $('.header'); if (!hd) return;
     var hero = $('svg.ms-banner'); if (hero) hero.classList.add('ms-hero');
@@ -767,8 +803,14 @@
     var card = $('#panel-explore .source-card.ms-prompts'); if (card) anchor = card;
     ST.wind = ST.wind || {pred:null, blown:false, ans:null};
     var S = ST.wind;
-    function parts(x0, n, cls){ var s = ''; for (var i=0;i<n;i++){ var x = x0 + 8 + (i*37)%86, y = 98 - (i%5)*3 - (i%3); s += '<circle class="pa '+cls+'" cx="'+x+'" cy="'+y+'" r="'+(2+(i%3)*.6)+'" style="--dx:'+(80+(i*23)%140)+'px;--dy:'+(-20-(i*13)%50)+'px;--d:'+((i%7)*60)+'ms" fill="'+(i%2?'#8a6236':'#6e4a24')+'"/>'; } return s; }
-    var grass = ''; for (var g=0; g<26; g++){ var gx = 186 + g*3.6; grass += '<path d="M'+gx+' 94 q'+((g%3)-1)*3+' -10 '+((g%2)?3:-2)+' -16" stroke="'+(g%2?'#3f9a52':'#5cbf6c')+'" stroke-width="2" fill="none" class="blade"/>'; }
+    // soil crumbs sit IN the top of the soil heap (never above it), so nothing looks like it is floating
+    var HEAP = 82; // control-point height of the heap curve
+    function surf(x0, x){ var t = (x - x0) / 94; return 98 - 2*(98-HEAP)*t*(1-t); }
+    function parts(x0, n, cls){ var s = ''; for (var i=0;i<n;i++){ var x = x0 + 5 + (i*37)%84, y = surf(x0, x) + 1.6 + (i%4)*1.1, r = 1.7 + (i%3)*.5;
+      var sy = (98 - .3*(98 - surf(x0, x)) + (y - surf(x0, x))*.6) - y; // where it rests once the heap is lower
+      s += '<circle class="pa '+cls+'" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+r.toFixed(1)+'" style="--sy:'+sy.toFixed(1)+'px;--dx:'+(80+(i*23)%140)+'px;--dy:'+(-20-(i*13)%50)+'px;--d:'+((i%7)*60)+'ms" fill="'+(i%2?'#8a6236':'#5f3f1e')+'"/>'; } return s; }
+    function heap(x0, cls){ return '<path class="mound '+cls+'" d="M'+x0+' 98 Q'+(x0+47)+' '+HEAP+' '+(x0+94)+' 98 Z" fill="#7a5230"/>'; }
+    var grass = ''; for (var g=0; g<26; g++){ var gx = 191 + g*3.4, gy = (surf(188, gx) + 1.5).toFixed(1); grass += '<path d="M'+gx+' '+gy+' q'+((g%3)-1)*3+' -10 '+((g%2)?3:-2)+' -16" stroke="'+(g%2?'#3f9a52':'#5cbf6c')+'" stroke-width="2" fill="none" class="blade"/>'; }
     var roots = ''; for (var r=0;r<9;r++){ var rx = 190 + r*10; roots += '<path d="M'+rx+' 100 q'+(r%2?4:-4)+' 6 '+(r%2?1:-2)+' 14 q3 4 -2 6" stroke="#e8d6b0" stroke-width="1.3" fill="none"/>'; }
     var m = shell('ms-wind-mod', cfg);
     m.insertAdjacentHTML('beforeend',
@@ -776,8 +818,8 @@
         '<rect x="0" y="0" width="320" height="150" fill="#2C3B39"/><rect x="0" y="122" width="320" height="28" fill="#8A6236"/><rect x="0" y="120" width="320" height="5" fill="#B9824A"/>'+
         '<g class="fan" transform="translate(14 0)"><rect x="6" y="80" width="6" height="40" fill="#555"/><circle cx="9" cy="72" r="16" fill="#cfd6dc" stroke="#555" stroke-width="2"/><g class="blades"><path d="M9 72 L9 58 Q15 64 9 72 M9 72 L23 72 Q17 78 9 72 M9 72 L9 86 Q3 80 9 72 M9 72 L-5 72 Q1 66 9 72" fill="#7d8790"/></g><circle cx="9" cy="72" r="3" fill="#333"/></g>'+
         '<g class="wind">'+[56,70,84,98].map(function(y,i){ return '<path d="M30 '+y+' q40 -6 80 0 t80 0 t80 0 t60 0" stroke="#cfe9f5" stroke-width="2" fill="none" stroke-dasharray="14 12" style="--d:'+(i*90)+'ms"/>'; }).join('')+'</g>'+
-        '<path d="M40 96 L50 120 H140 L150 96 Z" fill="#a8763f" stroke="#6b4423" stroke-width="2"/><path d="M48 98 Q95 86 142 98 Z" fill="#7a5230"/>'+parts(48, 34, 'bare')+
-        '<path d="M180 96 L190 120 H280 L290 96 Z" fill="#a8763f" stroke="#6b4423" stroke-width="2"/><path d="M188 98 Q235 86 282 98 Z" fill="#7a5230"/><g class="rootcut"><rect x="196" y="100" width="78" height="18" fill="#7a5230" opacity=".9"/>'+roots+'</g>'+parts(188, 34, 'covered')+grass+
+        '<path d="M40 96 L50 120 H140 L150 96 Z" fill="#a8763f" stroke="#6b4423" stroke-width="2"/>'+heap(48,'bare')+parts(48, 34, 'bare')+
+        '<path d="M180 96 L190 120 H280 L290 96 Z" fill="#a8763f" stroke="#6b4423" stroke-width="2"/>'+heap(188,'covered')+'<g class="rootcut"><rect x="196" y="100" width="78" height="18" fill="#7a5230" opacity=".9"/>'+roots+'</g>'+parts(188, 34, 'covered')+grass+
         '<text x="95" y="140" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="11" fill="#fff">'+esc(cfg.trayA||'Bare soil')+'</text><text x="235" y="140" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="11" fill="#fff">'+esc(cfg.trayB||'Soil with plants')+'</text>'+
       '</svg></div>');
     m.insertBefore(el('div','ms-windact'), $('.ms-windtable', m));
@@ -1008,6 +1050,7 @@
   }
   function boot(){
     bindSay();
+    buildHall();
     buildTop();
     buildTabs();
     hookTabs();
