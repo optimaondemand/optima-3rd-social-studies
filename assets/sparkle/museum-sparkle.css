@@ -857,7 +857,7 @@ html.ms-calm .ms-gbtn, html.ms-calm .ms-guide.pop{ animation:none; }
 .ms-place-ph img{ width:100%; max-height:60vh; object-fit:contain; }
 /* ── v9: the museum hall around the page on wide screens (lobby look: cream wall, brass rail, checkered floor, columns, a plant each side) ── */
 .ms-hallbg{ display:none; }
-@media (min-width:1100px){
+@media all{
   html.ms-on body{ background:#EFE3C8; }
   html.ms-on .ms-hallbg{ display:block; position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden; }
   .ms-hwall{ position:absolute; inset:0 0 22vh 0;
@@ -886,7 +886,12 @@ html.ms-calm .ms-gbtn, html.ms-calm .ms-guide.pop{ animation:none; }
   .ms-hplant .ms-leaves{ transform-origin:70px 150px; animation:ms-sway 7s ease-in-out infinite alternate; }
   html.ms-calm .ms-hplant .ms-leaves{ animation:none; }
 }
-@media (min-width:1100px) and (max-width:1199px){ .ms-hplant, .ms-hsconce{ display:none; } }
+/* narrower screens: keep the wall and checkered floor; fit what decorations the side space allows */
+@media (max-width:1279px){ .ms-hsconce{ display:none; } .ms-hside{ --pw:clamp(44px, calc(100% - 84px), 150px); } }
+@media (max-width:1149px){ .ms-hcol{ display:none; }
+  .ms-hside{ --pw:clamp(30px, calc(100% - 18px), 120px); }
+  .ms-hside.l .ms-hplant{ left:calc((100% - var(--pw)) / 2); } .ms-hside.r .ms-hplant{ right:calc((100% - var(--pw)) / 2); } }
+@media (max-width:979px){ .ms-hplant{ display:none; } }
 @keyframes ms-sway{ from{ transform:rotate(-1.5deg); } to{ transform:rotate(1.5deg); } }
 @media (prefers-reduced-motion:reduce){ .ms-hplant .ms-leaves{ animation:none; } }
 /* v9: wind trays — the bare heap gets lower as the wind takes its soil; crumbs sit in the soil, not above it */
