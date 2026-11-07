@@ -429,7 +429,7 @@
     var toks = script.split(/(\s+)/), wi = 0;
     var trHTML = toks.map(function(w){ if (/^\s+$/.test(w)) return /\n\s*\n/.test(w) ? '<br><br>' : w; return '<span data-w="'+(wi++)+'">'+esc(w)+'</span>'; }).join('');
     var c = el('div','ms-opti ms-only'+(note.big?' big':'')); c.dataset.room = note.room || '';
-    c.innerHTML = '<div class="ms-perch"><img alt="Opti the owl" src="'+OWL+'"><span class="ms-point" aria-hidden="true">👉</span></div><div class="ms-ob"><div class="ms-on">Opti · your museum guide</div>' +
+    c.innerHTML = '<div class="ms-perch"><img alt="Opti the owl" src="'+OWL+'"></div><div class="ms-ob"><div class="ms-on">Opti · your museum guide</div>' +
       '<div class="ms-ctl"><button type="button" class="ms-play">▶ Listen to Opti</button><button type="button" class="ms-ra" aria-expanded="false">📄 Read along</button><span class="ms-onair" aria-hidden="true"><i></i><i></i><i></i> Opti is talking</span></div>' +
       '<div class="ms-tr">'+trHTML+'</div></div>';
     var b = $('.ms-play', c), ra = $('.ms-ra', c), tr = $('.ms-tr', c), wEls = $$('[data-w]', tr), last = -1, raf = 0;
