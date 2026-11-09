@@ -41,6 +41,13 @@
    - sizescale  Gallery: lay the U.S. over Canada (same size), then show the people
    Lesson specimens can be postcards (specimen.card = image); DATA.galleryNeeds names
    the Gallery jobs; an Opti note's "at" may be a CSS selector.
+   Added for 3.06.02 (DATA.geo holds the projected slice, rivers, borders and label points):
+   - cart       Lobby: a cart of covered labels rolls in; lift each cloth, read the clue,
+                put the label in its drawer (mountain / river / plain / island)
+   - relief     Gallery main attraction: the Relief Table; tilt the map into 3-D,
+                cut a slice west to east, walk across the side view, compare two parts
+   - reliefsrc  Gallery source room: a real physical map, a color key, borders on/off
+   - rain       Gallery: rain on the mountains; the rivers carry it downhill to the sea
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1291,7 +1298,295 @@
     render();
   }
 
-  var MODS = { crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+
+  /* ══ Added for 3.06.02 (DATA.geo holds the projected shapes: slice, rivers, borders, label points) ══ */
+  function geoLabels(G, list){
+    return (list||[]).map(function(n){ var p = G.pts[n.k]; if (!p) return '';
+      return '<text class="ms-geo-t '+(n.c||'')+'" x="'+(p[0]+(n.dx||0))+'" y="'+(p[1]+(n.dy||0))+'"'+(n.rot!=null?' transform="rotate('+n.rot+' '+(p[0]+(n.dx||0))+' '+(p[1]+(n.dy||0))+')"':'')+'>'+esc(n.t)+'</text>'; }).join('');
+  }
+  function choiceBlock(Q, ans, cls){
+    return '<div class="ms-pchoices col">'+Q.opts.map(function(o,k){ return '<button type="button" class="ms-btn '+cls+(ans===k?(o.ok?' ok':' no'):'')+'" data-k="'+k+'">'+esc(o.t)+'</button>'; }).join('')+'</div>' +
+      '<div class="ms-exfb" aria-live="polite">'+(ans!=null ? (Q.opts[ans].ok ? '✅ ' : '🤔 ')+Q.opts[ans].fb : '')+'</div>';
+  }
+
+  /* ══ MODULE: cart (Lobby · the label cart and the four drawers) ══
+     cfg.items: [specimen ids] in order; specimen.kind = a drawer key; cfg.drawers [{k,t,icon,def}] */
+  function modCart(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    ST.ct = ST.ct || {lift:{}, done:{}};
+    var S = ST.ct, IT = cfg.items || [], DR = cfg.drawers || [];
+    var m = shell('ms-ct-mod', cfg);
+    m.insertAdjacentHTML('beforeend',
+      '<div class="ms-ct-room"><div class="ms-ct-cab" role="group" aria-label="'+esc(cfg.cabT||'The specimen cabinet')+'"><div class="ms-ct-cabtop">'+esc(cfg.cabT||'Physical Features Cabinet')+'</div>' +
+        DR.map(function(d){ return '<button type="button" class="ms-ct-dr" data-k="'+d.k+'" aria-label="'+esc(d.t)+' drawer"><span class="ms-ct-tray"></span><span class="ms-ct-front"><span class="ms-ct-plate">'+d.icon+' '+esc(d.t)+'</span><i class="ms-ct-knob"></i></span></button>'; }).join('') +
+      '</div><div class="ms-ct-cart"><div class="ms-ct-cartlab">'+esc(cfg.cartT||'New labels')+'</div><div class="ms-ct-slots">' +
+        IT.map(function(id,i){ return '<span class="ms-ct-slot" data-i="'+i+'"><span class="ms-ct-cloth"></span><span class="ms-ct-num">'+(i+1)+'</span></span>'; }).join('') +
+      '</div><svg class="ms-ct-wheels" viewBox="0 0 300 40" aria-hidden="true"><rect x="10" y="2" width="280" height="8" rx="3" fill="#6B4423"/><circle cx="50" cy="26" r="11" fill="#3B2A1A"/><circle cx="50" cy="26" r="4" fill="#B8892E"/><circle cx="250" cy="26" r="11" fill="#3B2A1A"/><circle cx="250" cy="26" r="4" fill="#B8892E"/></svg></div></div>' +
+      '<div class="ms-ct-act"></div><div class="ms-ct-fb" aria-live="polite"></div>');
+    if (cfg.where === 'before') anchor.parentNode.insertBefore(m, anchor); else after(anchor, m);
+    var act = $('.ms-ct-act', m), fb = $('.ms-ct-fb', m), cab = $('.ms-ct-cab', m), cart = $('.ms-ct-cart', m);
+    var DN = {}; DR.forEach(function(d){ DN[d.k] = d; });
+    // the cart rolls in the first time it comes into view
+    if (!S.rolled && !calm() && 'IntersectionObserver' in window) {
+      cart.classList.add('away');
+      var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { io.disconnect(); cart.classList.remove('away'); cart.classList.add('roll'); SFX.whir(); S.rolled = 1; save(); } }, {threshold:.4});
+      io.observe($('.ms-ct-room', m));
+    }
+    function cur(){ for (var i=0;i<IT.length;i++) if (!S.done[i]) return i; return -1; }
+    function paint(){
+      var c = cur();
+      $$('.ms-ct-slot', m).forEach(function(s,i){ s.classList.toggle('done', !!S.done[i]); s.classList.toggle('now', i === c); s.classList.toggle('lifted', !!S.lift[i] && !S.done[i]); });
+      DR.forEach(function(d){ var tray = $('.ms-ct-dr[data-k="'+d.k+'"] .ms-ct-tray', m);
+        tray.innerHTML = IT.map(function(id,i){ var s = SPEC[id]; return (S.done[i] && s.kind === d.k) ? '<span class="ms-ct-chip" data-id="'+id+'"><img alt="" src="'+img(s.card)+'"><b>'+esc(s.short)+'</b></span>' : ''; }).join(''); });
+      cab.classList.toggle('pick', c >= 0 && !!S.lift[c]);
+    }
+    function labelCard(id){
+      var s = SPEC[id];
+      return '<div class="ms-ct-label"><figure><img alt="'+esc(s.photoAlt||'')+'" src="'+img(s.card)+'"><figcaption>📷 '+esc(s.photoCredit||'')+'</figcaption></figure>' +
+        '<div class="ms-ct-tag"><span class="ms-ct-hole"></span><b>'+esc(s.name)+'</b><span class="clue">'+s.clue+'</span></div></div>';
+    }
+    function render(){
+      paint();
+      var c = cur();
+      if (c < 0) {
+        act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div><p class="ms-ct-again">'+esc(cfg.againT||'Tap a label in a drawer to see its photo again.')+'</p>';
+        return;
+      }
+      var id = IT[c];
+      if (!S.lift[c]) act.innerHTML = stepCard(c+1, IT.length, 'Label '+(c+1)+' of '+IT.length, '<p>'+esc(cfg.liftT||'This label is under a cloth. Lift the cloth to see it.')+'</p><button type="button" class="ms-btn big ms-ct-lift">🧺 '+esc(cfg.liftBtn||'Lift the cloth')+'</button>');
+      else act.innerHTML = stepCard(c+1, IT.length, 'Label '+(c+1)+' of '+IT.length, labelCard(id) +
+        '<p class="ms-wm-do">👆 '+esc(cfg.pickT||'Which drawer does this label go in? Tap the drawer.')+'</p><div class="ms-ct-pick">'+DR.map(function(d){ return '<button type="button" class="ms-btn ms-ct-pk" data-k="'+d.k+'">'+d.icon+' '+esc(d.t)+'</button>'; }).join('')+'</div>');
+      var lb = $('.ms-ct-lift', act); if (lb) lb.onclick = function(){ lb.disabled = true; SFX.creak(); S.lift[c] = 1; save(); fb.innerHTML = ''; var sl = $('.ms-ct-slot[data-i="'+c+'"]', m); if (sl) sl.classList.add('lifting'); setTimeout(render, calm() ? 0 : 450); };
+      $$('.ms-ct-pk', act).forEach(function(b){ b.onclick = function(){ drop(b.dataset.k, b); }; });
+    }
+    function drop(k, from){
+      var c = cur(); if (c < 0 || !S.lift[c]) return;
+      var s = SPEC[IT[c]];
+      if (k !== s.kind) { SFX.miss(); fb.innerHTML = '🤔 That is the '+esc(DN[k].t)+' drawer. '+s.hint; return; }
+      var dr = $('.ms-ct-dr[data-k="'+k+'"]', m), card = $('.ms-ct-label figure', act) || from;
+      dr.classList.add('open'); SFX.glass();
+      fly(card, dr, '<img alt="" src="'+img(s.card)+'" style="width:100%">', 650).then(function(){
+        S.done[c] = 1; save(); SFX.stamp(); fb.innerHTML = '✅ '+s.ok; render();
+        setTimeout(function(){ dr.classList.remove('open'); }, calm() ? 0 : 900);
+        if (cur() < 0) { SFX.fanfare(); markDone('scene'); }
+      });
+    }
+    $$('.ms-ct-dr', m).forEach(function(d){ d.addEventListener('click', function(e){
+      var chip = e.target.closest && e.target.closest('.ms-ct-chip');
+      if (chip) { var s = SPEC[chip.dataset.id]; lightbox('<div class="ms-lb-k">'+esc(DN[s.kind].t)+' drawer</div><h3>'+esc(s.name)+'</h3><figure class="ms-ct-lbfig"><img alt="'+esc(s.photoAlt||'')+'" src="'+img(s.card)+'"></figure><p>'+s.clue+'</p><p class="ms-credit">📷 '+esc(s.photoCredit||'')+'</p>'); return; }
+      drop(d.dataset.k, d);
+    }); });
+    render();
+  }
+
+  /* ══ MODULE: relief (Gallery main attraction · the Relief Table) ══
+     Step 1 tilt the map (3-D), 2 cut the slice, 3 walk across it, 4 compare two parts.
+     cfg.height / cfg.texture = small PNGs (grid); DATA.geo.slice = {lon0,lon1,elev[],line[]} */
+  function modRelief(cfg){
+    var G = DATA.geo, anchor = $(cfg.anchor || '#panel-explore .ms-sign'); if (!G || !anchor) return;
+    ST.rt = ST.rt || {step:0, stop:0, ans:null};
+    var S = ST.rt, STOPS = cfg.stops || [], Q = cfg.q;
+    var m = shell('ms-rt-mod', cfg);
+    m.insertAdjacentHTML('beforeend',
+      '<div class="ms-rt-room"><div class="ms-rt-table"><canvas width="720" height="672" aria-label="'+esc(cfg.alt||'A model of the land of North America')+'"></canvas><span class="ms-rt-model">'+esc(cfg.modelT||'A simple model')+'</span></div>' +
+        '<div class="ms-rt-tilt"><span>🗺️ '+esc(cfg.flatT||'Flat')+'</span><input type="range" min="0" max="100" value="'+(S.step?100:0)+'" aria-label="'+esc(cfg.tiltLabel||'Tilt the map')+'"><span>⛰️ '+esc(cfg.upT||'Standing up')+'</span></div></div>' +
+      '<div class="ms-rt-side"><div class="ms-rt-sidet">'+esc(cfg.sideT||'The slice, seen from the side')+'</div><div class="ms-rt-sidebox"></div></div>' +
+      '<div class="ms-rt-act"></div>');
+    if (cfg.where === 'before') anchor.parentNode.insertBefore(m, anchor); else after(anchor, m);
+    var cv = $('canvas', m), ctx = cv.getContext('2d'), act = $('.ms-rt-act', m), range = $('.ms-rt-tilt input', m), side = $('.ms-rt-side', m), sideBox = $('.ms-rt-sidebox', m);
+    var CW = cv.width, CH = cv.height, GW = 0, GH = 0, HG = null, TX = null, tilt = S.step ? 1 : 0, MAXA = (cfg.maxTilt||56)*Math.PI/180, anim = 0;
+    var out = ctx.createImageData(CW, CH), buf = new Uint32Array(out.data.buffer), ybuf = new Int32Array(CW);
+    function load(name, cb){ var im = new Image(); im.onload = function(){ var c = document.createElement('canvas'); c.width = im.naturalWidth; c.height = im.naturalHeight; var x = c.getContext('2d'); x.drawImage(im,0,0); try { cb(x.getImageData(0,0,c.width,c.height).data, c.width, c.height); } catch(e){ cb(null); } }; im.src = img(name); }
+    var wall0 = [0xF2,0xEA,0xDA], wall1 = [0xE2,0xD3,0xB6];
+    function rgba(r,g,b){ return (255<<24)|(b<<16)|(g<<8)|r; }
+    function view(t){
+      var a = MAXA*t, s = (CW/GW)*(1 + .42*t), fx = GW*(.5 - .06*t), fy = GH*(.5 + .12*t);
+      return {a:a, c:Math.cos(a), sn:Math.sin(a), s:s, fx:fx, fy:fy, cx:CW/2, cy:CH*(.5 + .07*t), hk:(cfg.hScale||70)*t};
+    }
+    function hAt(i, j){ i = Math.max(0, Math.min(GW-1, i|0)); j = Math.max(0, Math.min(GH-1, j|0)); return HF ? HF[j*GW+i] : HG[(j*GW+i)*4]/255; }
+    var HF = null;
+    function prepH(){ // smooth the heights a little (3x3), as floats 0..1
+      HF = new Float32Array(GW*GH);
+      for (var j=0;j<GH;j++) for (var i=0;i<GW;i++){ var t = 0, n = 0;
+        for (var dj=-1;dj<=1;dj++) for (var di=-1;di<=1;di++){ var ii = i+di, jj = j+dj; if (ii<0||jj<0||ii>=GW||jj>=GH) continue; t += HG[(jj*GW+ii)*4]; n++; }
+        HF[j*GW+i] = HG[(j*GW+i)*4] ? t/n/255 : 0; }
+    }
+    function draw(){
+      if (!HG || !TX) return; if (!HF) prepH();
+      var V = view(tilt), x, j, y, top, k, sideCol = rgba(0x6B,0x44,0x23), lift = V.hk*V.sn*(1+.42*tilt), rowpx = V.c*V.s;
+      for (y=0;y<CH;y++){ var f = y/CH, wc = rgba(wall0[0]+(wall1[0]-wall0[0])*f|0, wall0[1]+(wall1[1]-wall0[1])*f|0, wall0[2]+(wall1[2]-wall0[2])*f|0); for (x=0;x<CW;x++) buf[y*CW+x] = wc; }
+      var thick = 16*V.sn*(1+.42*tilt);
+      for (x=0;x<CW;x++){
+        var gi = V.fx + (x - V.cx)/V.s; if (gi < 0 || gi > GW-1) { ybuf[x] = -1; continue; }
+        var i0 = Math.floor(gi), fi = gi - i0, i1 = Math.min(GW-1, i0+1);
+        var yf = Math.round(V.cy + (GH-1 - V.fy)*rowpx), ys = Math.min(CH, Math.round(yf + thick));
+        for (y=Math.max(0,yf); y<ys; y++) buf[y*CW+x] = sideCol;
+        var yb = Math.max(0, Math.min(CH, yf));
+        for (j=GH-1; j>=0; j--){
+          var h = HF[j*GW+i0]*(1-fi) + HF[j*GW+i1]*fi;
+          top = Math.round(V.cy + (j - V.fy)*rowpx - h*lift);
+          if (top < yb) {
+            k = (j*GW+(fi<.5?i0:i1))*4;
+            var sh = 1 - (1-V.c)*.25*(1 - j/GH), r = TX[k]*sh, g = TX[k+1]*sh, b = TX[k+2]*sh;
+            var col = rgba(r|0, g|0, b|0), wall = rgba(r*.74|0, g*.74|0, b*.74|0);
+            var faceEnd = Math.min(yb, top + Math.max(1, Math.ceil(rowpx)));
+            for (y=Math.max(0,top); y<faceEnd; y++) buf[y*CW+x] = col;
+            for (y=Math.max(0,faceEnd); y<yb; y++) buf[y*CW+x] = wall;
+            yb = Math.max(0, top);
+            if (yb <= 0) break;
+          }
+        }
+        ybuf[x] = yb;
+      }
+      ctx.putImageData(out, 0, 0);
+      // the slice line (step 2+), and labels once the land stands up
+      var ln = G.slice.line, kx = GW/G.W, ky = GH/G.H;
+      function P(p, lift){ var gi = p[0]*kx, gj = p[1]*ky; return [V.cx + (gi - V.fx)*V.s, V.cy + (gj - V.fy)*V.c*V.s - hAt(gi,gj)*V.hk*V.sn*(1+.42*tilt) - (lift||0)]; }
+      if (S.step >= 1 && tilt > .95) {
+        ctx.save(); ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        if (S.step >= 2) { ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.setLineDash([]); ctx.lineWidth = 6; ctx.beginPath(); ln.forEach(function(p,n){ var q = P(p,2); if (n) ctx.lineTo(q[0],q[1]); else ctx.moveTo(q[0],q[1]); }); ctx.stroke(); ctx.lineWidth = 3; ctx.strokeStyle = '#C0392B'; }
+        else { ctx.strokeStyle = '#C0392B'; ctx.setLineDash([10,8]); }
+        ctx.beginPath(); ln.forEach(function(p,n){ var q = P(p,2); if (n) ctx.lineTo(q[0],q[1]); else ctx.moveTo(q[0],q[1]); }); ctx.stroke(); ctx.restore();
+        var fz = Math.round(17 * Math.max(1, Math.min(2.2, 560/(cv.clientWidth||720)))); ctx.save(); ctx.font = '800 '+fz+'px Nunito, system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.lineJoin = 'round'; ctx.lineWidth = 5; ctx.strokeStyle = 'rgba(255,250,238,.95)';
+        (cfg.tableLabels||[]).forEach(function(L){ var p = G.pts[L.k]; if (!p) return; var q = P(p, L.lift||18); ctx.fillStyle = L.color||'#4A2E14'; ctx.strokeText(L.t, q[0], q[1]); ctx.fillText(L.t, q[0], q[1]); });
+        ctx.restore();
+      }
+    }
+    var got = 0;
+    load(cfg.height, function(d,w,h){ HG = d; GW = w; GH = h; if (++got === 2) draw(); });
+    load(cfg.texture, function(d){ TX = d; if (++got === 2) draw(); });
+    function tiltTo(t, done){
+      cancelAnimationFrame(anim); var t0 = performance.now(), from = tilt, dur = 1800;
+      if (calm()) { tilt = t; range.value = t*100; draw(); return done && done(); }
+      (function f(now){ var k = Math.min(1,(now-t0)/dur), e = k<.5 ? 2*k*k : 1-Math.pow(-2*k+2,2)/2; tilt = from + (t-from)*e; range.value = tilt*100; draw(); if (k < 1) anim = requestAnimationFrame(f); else done && done(); })(t0);
+    }
+    range.addEventListener('input', function(){ if (!S.step) { range.value = 0; return; } tilt = +range.value/100; draw(); });
+    // ── the side view (an SVG made from the real heights along the slice) ──
+    var E = G.slice.elev, SW = 900, SH = 250, SEA = 206, VK = cfg.sideScale || 0.04, L0 = G.slice.lon0, L1 = G.slice.lon1;
+    function sx(lon){ return 40 + (lon - L0)/(L1 - L0)*(SW-80); }
+    function sy(e){ return SEA - Math.max(0,e)*VK; }
+    function sideSVG(){
+      var pts = E.map(function(e,n){ return [40 + n/(E.length-1)*(SW-80), sy(e)]; });
+      var top = 'M'+pts.map(function(p){ return p[0].toFixed(1)+' '+p[1].toFixed(1); }).join(' L');
+      var d = 'M40 '+SH+' L'+pts.map(function(p){ return p[0].toFixed(1)+' '+p[1].toFixed(1); }).join(' L')+' L'+(SW-40)+' '+SH+' Z';
+      var g = '<linearGradient id="msRtGrad" gradientUnits="userSpaceOnUse" x1="0" y1="'+SEA+'" x2="0" y2="'+sy(3400)+'">' +
+        [[0,'#6CA660'],[200,'#96BE6E'],[500,'#CECF8C'],[1000,'#D6BA80'],[1600,'#BE9666'],[2400,'#9E7654'],[3200,'#AAA096']].map(function(s){ return '<stop offset="'+(s[0]/3400).toFixed(3)+'" stop-color="'+s[1]+'"/>'; }).join('')+'</linearGradient><linearGradient id="msRtEarth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9784A"/><stop offset="1" stop-color="#6B4423"/></linearGradient>';
+      var lab = STOPS.map(function(st,n){ var x = sx(st.lon), y = sy(E[Math.round((st.lon-L0)/(L1-L0)*(E.length-1))]); return '<g class="ms-rt-stop" data-n="'+n+'"><path d="M'+x+' '+(y-6)+' V'+(st.ly||40)+'" class="lead"/><text x="'+x+'" y="'+((st.ly||40)-6)+'" class="'+(st.c||'')+'">'+esc(st.t)+'</text></g>'; }).join('');
+      var gray = (cfg.grayStops||[]).map(function(st){ var x = sx(st.lon); return '<text x="'+x+'" y="'+(st.ly||150)+'" class="gray">'+esc(st.t)+'</text>'; }).join('');
+      return '<svg class="ms-rt-svg" viewBox="0 0 '+SW+' '+SH+'" role="img" aria-label="'+esc(cfg.sideAlt||'')+'"><defs>'+g+'</defs>' +
+        '<rect x="0" y="'+SEA+'" width="44" height="'+(SH-SEA)+'" class="sea"/><rect x="'+(SW-44)+'" y="'+SEA+'" width="44" height="'+(SH-SEA)+'" class="sea"/>' +
+        '<g class="ms-rt-land"><path d="'+d+'" fill="url(#msRtEarth)"/><path d="'+top+'" fill="none" stroke="url(#msRtGrad)" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/><path d="'+top+'" fill="none" stroke="#5E3D1C" stroke-width="1.5" stroke-linejoin="round" transform="translate(0 4.5)" opacity=".5"/></g>' +
+        '<text x="22" y="'+(SEA+30)+'" class="w">'+esc(cfg.westSea||'Pacific')+'</text><text x="'+(SW-22)+'" y="'+(SEA+30)+'" class="w">'+esc(cfg.eastSea||'Atlantic')+'</text>' +
+        '<text x="40" y="18" class="dir">⬅ '+esc(cfg.westT||'West')+'</text><text x="'+(SW-40)+'" y="18" class="dir e">'+esc(cfg.eastT||'East')+' ➡</text>' +
+        gray + lab + '<g class="ms-rt-walker" aria-hidden="true"><circle r="9"/><path d="M0 -9 V-26 l12 5 l-12 5"/></g></svg>' +
+        '<p class="ms-rt-note">'+esc(cfg.sideNote||'')+'</p>';
+    }
+    function placeWalker(n, animate){
+      var w = $('.ms-rt-walker', sideBox); if (!w) return; var st = STOPS[n]; if (!st) return;
+      var x = sx(st.lon), y = sy(E[Math.round((st.lon-L0)/(L1-L0)*(E.length-1))]);
+      w.style.transition = animate && !calm() ? 'transform 1.1s cubic-bezier(.4,0,.2,1)' : 'none';
+      w.style.transform = 'translate('+x+'px,'+y+'px)';
+      $$('.ms-rt-stop', sideBox).forEach(function(g){ g.classList.toggle('on', +g.dataset.n <= n); });
+    }
+    function render(){
+      side.classList.toggle('show', S.step >= 2);
+      if (S.step >= 2 && !$('svg', sideBox)) { sideBox.innerHTML = sideSVG(); if (S.stop > 0) placeWalker(S.stop-1, false); }
+      var T = cfg.steps || [];
+      if (S.step === 0) act.innerHTML = stepCard(1, 4, T[0].title, '<p>'+T[0].text+'</p><button type="button" class="ms-btn big ms-rt-go">'+esc(T[0].btn)+'</button>');
+      else if (S.step === 1) act.innerHTML = stepCard(2, 4, T[1].title, '<p>'+T[1].text+'</p><button type="button" class="ms-btn big ms-rt-go">'+esc(T[1].btn)+'</button>');
+      else if (S.step === 2) {
+        var n = S.stop, st = STOPS[n-1];
+        act.innerHTML = (st ? '<div class="ms-result">📍 <b>'+esc(st.t)+'.</b> '+st.say+'</div>' : '') +
+          stepCard(3, 4, T[2].title, '<p>'+(n ? (T[2].text2||T[2].text) : T[2].text)+'</p>' + (n < STOPS.length ? '<button type="button" class="ms-btn big ms-rt-go">👣 '+esc(n ? (T[2].btn2||T[2].btn) : T[2].btn)+'</button>' : ''));
+      }
+      else act.innerHTML = stepCard(4, 4, Q.title, '<p>'+Q.text+'</p>'+choiceBlock(Q, S.ans, 'ms-rtq')) + (S.ans!=null && Q.opts[S.ans].ok ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : '');
+      var b = $('.ms-rt-go', act);
+      if (b) b.onclick = function(){ b.disabled = true; SFX.click();
+        if (S.step === 0) { SFX.whir(); tiltTo(1, function(){ S.step = 1; save(); SFX.chime(); draw(); render(); }); }
+        else if (S.step === 1) { S.step = 2; S.stop = 0; save(); SFX.glass(); draw(); render(); side.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); }
+        else if (S.step === 2) { S.stop++; save(); SFX.tick(); placeWalker(S.stop-1, true); render(); if (S.stop >= STOPS.length) { setTimeout(function(){ S.step = 3; save(); render(); }, calm() ? 0 : 1300); } }
+      };
+      $$('.ms-rtq', act).forEach(function(q){ q.onclick = function(){ S.ans = +q.dataset.k; save(); if (Q.opts[S.ans].ok) { SFX.fanfare(); ST.gal = ST.gal||{}; if (!ST.gal.table) { ST.gal.table = 1; save(); galleryCheck(); } } else SFX.miss(); render(); }; });
+    }
+    render();
+  }
+
+  /* ══ MODULE: reliefsrc (Gallery source room · a real physical map + color key + borders) ══
+     replaces the lesson's source-card picture; keeps its question prompts */
+  function modReliefsrc(cfg){
+    var G = DATA.geo, card = $('#panel-explore .source-card'); if (!G || !card) return;
+    ST.rs = ST.rs || {a1:null, a2:null, b:false, a3:null};
+    var S = ST.rs;
+    var m = shell('ms-rs-mod', cfg);
+    var rv = (cfg.rivers||[]).map(function(k){ return G.rivers[k] ? '<path class="rv" d="'+G.rivers[k].d+'"/>' : ''; }).join('');
+    m.insertAdjacentHTML('beforeend',
+      '<div class="ms-frame ms-rs-frame"><div class="ms-rs-stack"><img class="ms-rs-img" alt="'+esc(cfg.alt||'')+'" src="'+img(cfg.photo)+'">' +
+        '<svg class="ms-rs-svg" viewBox="0 0 '+G.W+' '+G.H+'" aria-hidden="true"><path class="bd" d="'+G.borders+'"/>'+rv+geoLabels(G, cfg.labels)+'</svg>' +
+        '<div class="ms-rs-key"><b>'+esc(cfg.keyT||'How high is the land?')+'</b><span class="bar"></span><span class="ends"><i>'+esc(cfg.lowT||'Low land')+'</i><i>'+esc(cfg.highT||'High land')+'</i></span><span class="sw"><i class="w"></i>'+esc(cfg.waterT||'Water')+' <i class="r"></i>'+esc(cfg.riverT||'River')+'</span></div></div>' +
+        '<figcaption>'+cfg.credit+'</figcaption></div>' +
+      '<div class="ms-rs-act"></div>');
+    card.parentNode.insertBefore(m, card);
+    ['.source-card-header','.source-image-placeholder','.source-label-bar'].forEach(function(s){ var x = $(s, card); if (x) x.classList.add('ms-hide-on'); });
+    card.classList.add('ms-prompts');
+    var svg = $('.ms-rs-svg', m), act = $('.ms-rs-act', m), Q1 = cfg.q1, Q2 = cfg.q2, Q3 = cfg.q3;
+    function ok(Q, a){ return a != null && Q.opts[a].ok; }
+    function render(){
+      svg.classList.toggle('borders', S.b);
+      var o1 = ok(Q1,S.a1), o2 = ok(Q2,S.a2), o3 = ok(Q3,S.a3);
+      if (!o1) act.innerHTML = stepCard(1, 3, Q1.title, '<p>'+Q1.text+'</p>'+choiceBlock(Q1, S.a1, 'ms-rsq" data-q="a1'));
+      else if (!o2) act.innerHTML = stepCard(2, 3, Q2.title, '<p>'+Q2.text+'</p>'+choiceBlock(Q2, S.a2, 'ms-rsq" data-q="a2'));
+      else if (!S.b) act.innerHTML = stepCard(3, 3, cfg.bTitle, '<p>'+cfg.bText+'</p><button type="button" class="ms-btn big ms-rs-b">'+esc(cfg.bBtn)+'</button>');
+      else act.innerHTML = stepCard(3, 3, Q3.title, '<p>'+Q3.text+'</p>'+choiceBlock(Q3, S.a3, 'ms-rsq" data-q="a3')) + (o3 ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : '');
+      $$('.ms-rsq', act).forEach(function(b){ b.onclick = function(){ var key = b.dataset.q, Q = key==='a1'?Q1:key==='a2'?Q2:Q3; S[key] = +b.dataset.k; save();
+        if (Q.opts[S[key]].ok) { SFX.chime(); if (key === 'a3') { ST.gal = ST.gal||{}; if (!ST.gal.source) { ST.gal.source = 1; save(); galleryCheck(); } } } else SFX.miss();
+        if (Q.opts[S[key]].ok && key !== 'a3') setTimeout(render, calm() ? 0 : 1400); else render(); }; });
+      var bb = $('.ms-rs-b', act); if (bb) bb.onclick = function(){ S.b = true; save(); SFX.glass(); render(); };
+    }
+    // a right answer shows its feedback for a moment, then the next step appears
+    render();
+  }
+
+  /* ══ MODULE: rain (Gallery · make it rain on the mountains, follow the water) ══ */
+  function modRain(cfg){
+    var G = DATA.geo, anchor = $(cfg.anchor || '#panel-explore .source-card'); if (!G || !anchor) return;
+    ST.rn = ST.rn || {rained:false, ans:null};
+    var S = ST.rn, Q = cfg.q, R = cfg.rivers || [];
+    var m = shell('ms-rn-mod', cfg);
+    var starts = R.map(function(r){ return (G.rainStarts||{})[r.k]; }).filter(Boolean), clouds = '', drops = '';
+    starts.forEach(function(p, c){
+      clouds += '<g transform="translate('+p[0]+' '+(p[1]-62)+')"><ellipse cx="0" cy="0" rx="46" ry="20"/><ellipse cx="-28" cy="8" rx="30" ry="15"/><ellipse cx="30" cy="8" rx="32" ry="15"/></g>';
+      for (var i=0;i<9;i++){ var x = p[0]-40+(i*11), y = p[1]-44+((i*7)%14); drops += '<line x1="'+x+'" y1="'+y+'" x2="'+(x-5)+'" y2="'+(y+14)+'" style="animation-delay:'+(((i*97)+c*230)%900)+'ms"/>'; }
+    });
+    m.insertAdjacentHTML('beforeend',
+      '<div class="ms-frame ms-rn-frame"><div class="ms-rn-stack"><img alt="'+esc(cfg.alt||'')+'" src="'+img(cfg.photo)+'">' +
+        '<svg class="ms-rn-svg" viewBox="0 0 '+G.W+' '+G.H+'" aria-hidden="true">' +
+          '<g class="ms-rn-cloud">'+clouds+'</g><g class="ms-rn-drops">'+drops+'</g>' +
+          R.map(function(r){ return '<path class="ms-rn-rv" data-k="'+r.k+'" d="'+G.rain[r.k]+'" pathLength="1000"/>'; }).join('') +
+          R.map(function(r){ var e = G.rainEnds[r.k]; return '<g class="ms-rn-end" data-k="'+r.k+'"><circle cx="'+e[0]+'" cy="'+e[1]+'" r="9"/><text x="'+(e[0]+(r.dx||0))+'" y="'+(e[1]+(r.dy||0))+'">'+esc(r.to)+'</text></g>'; }).join('') +
+          R.map(function(r){ var p = G.pts[r.lab] || r.at; return p ? '<text class="ms-rn-name" data-k="'+r.k+'" x="'+(p[0]+(r.ndx||0))+'" y="'+(p[1]+(r.ndy||0))+'">'+esc(r.name)+'</text>' : ''; }).join('') +
+        '</svg><span class="ms-phtag l">'+esc(cfg.tag||'')+'</span></div><figcaption>'+cfg.credit+'</figcaption></div>' +
+      '<div class="ms-rn-act"></div>');
+    if (cfg.where === 'before') anchor.parentNode.insertBefore(m, anchor); else after(anchor, m);
+    var stack = $('.ms-rn-stack', m), act = $('.ms-rn-act', m);
+    function render(){
+      stack.classList.toggle('flowed', S.rained);
+      if (!S.rained) act.innerHTML = stepCard(1, 2, cfg.s1.title, '<p>'+cfg.s1.text+'</p><button type="button" class="ms-btn big ms-rn-go">'+esc(cfg.s1.btn)+'</button>');
+      else act.innerHTML = '<div class="ms-result">💧 '+cfg.result+'</div>' + stepCard(2, 2, Q.title, '<p>'+Q.text+'</p>'+choiceBlock(Q, S.ans, 'ms-rnq')) + (S.ans!=null && Q.opts[S.ans].ok ? '<div class="ms-win show">'+(cfg.win||'')+'</div><button type="button" class="ms-mini ms-rn-again">🔁 '+esc(cfg.againT||'Make it rain again')+'</button>' : '');
+      var b = $('.ms-rn-go', act); if (b) b.onclick = function(){ b.disabled = true; rain(function(){ S.rained = true; save(); render(); }); };
+      var a = $('.ms-rn-again', act); if (a) a.onclick = function(){ stack.classList.remove('flowed'); rain(function(){ stack.classList.add('flowed'); }); };
+      $$('.ms-rnq', act).forEach(function(q){ q.onclick = function(){ S.ans = +q.dataset.k; save(); if (Q.opts[S.ans].ok) { SFX.chime(); ST.gal = ST.gal||{}; if (!ST.gal.rain) { ST.gal.rain = 1; save(); galleryCheck(); } } else SFX.miss(); render(); }; });
+    }
+    function rain(done){
+      SFX.pour(); stack.classList.remove('flowing'); stack.classList.add('raining');
+      if (calm()) { stack.classList.remove('raining'); stack.classList.add('flowed'); return done(); }
+      setTimeout(function(){ stack.classList.add('flowing'); SFX.pour(); }, 1300);
+      setTimeout(function(){ stack.classList.remove('raining'); }, 2600);
+      setTimeout(function(){ stack.classList.remove('flowing'); stack.classList.add('flowed'); SFX.chime(); done(); }, 5200);
+    }
+    render();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
