@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 6 Family Guide · 3rd Grade Social Studies · Optima Academy Online</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;600;700;800;900&display=swap');
+:root{
+  /* Museum colors, from the 3rd grade lesson pages */
+  --navy:#0E1C42; --ink:#3A4A6B; --muted:#6B6250; --line:#E6D9BC;
+  --night:#22312F; --night-2:#2D403D;
+  --brass:#B8892E; --brass-lt:#E9C878; --brass-dk:#7E5A16;
+  --cream:#FBF5E6; --paper:#F6EEDB; --wall:#EFE5D2;
+  --teal:#1A8A7D; --teal-bg:#E2F4F1; --cyan:#55C8E8; --sky-bg:#EAF8FD;
+  --green-bg:#E3F8ED; --plum:#8B6FC0; --plum-bg:#F1ECFA; --rose-bg:#FDEEEE;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--night) radial-gradient(circle at 50% -10%, #3F5652 0, var(--night) 60%) fixed;color:var(--ink);font-family:"Nunito",sans-serif;font-size:18px;line-height:1.6;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 48px;}
+h1,h2,h3{font-family:"Lora",Georgia,serif;color:var(--navy);margin:0;}
+p{margin:0 0 10px;}
+strong{color:var(--navy);}
+a{color:#1F6FA8;font-weight:700;}
+
+/* header */
+.hero{background:var(--navy);color:#fff;border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1.25fr 1fr;border-bottom:5px solid var(--brass);}
+.hero-text{padding:28px 28px 26px;}
+.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:14px;}
+.brand img{width:38px;height:38px;border-radius:50%;background:#fff;}
+.hero h1{color:#fff;font-size:34px;line-height:1.2;margin-bottom:6px;}
+.hero h1 em{color:var(--brass-lt);}
+.hero .sub{font-size:19px;color:#DCE6F7;margin-bottom:16px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:rgba(233,200,120,.14);border:1.5px solid rgba(233,200,120,.5);border-radius:999px;padding:5px 13px;font-size:16px;font-weight:700;color:#fff;}
+.hero-art{background:#D8EFF4 center/cover no-repeat;min-height:260px;position:relative;}
+.hero-art .plaque{position:absolute;left:14px;bottom:14px;background:linear-gradient(#E9C878,#B8892E);color:#3A2A14;font:800 13px/1.3 "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:5px 10px;box-shadow:0 2px 6px rgba(0,0,0,.3);}
+.print-btn{display:inline-block;margin-top:16px;background:var(--brass);color:#fff;border:none;border-radius:999px;padding:9px 18px;font-family:"Nunito",sans-serif;font-weight:800;font-size:16px;cursor:pointer;}
+
+/* cards */
+.card{background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:16px;padding:22px 24px;margin-top:18px;box-shadow:0 4px 14px rgba(0,0,0,.12);}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.card-head .ico{font-size:26px;line-height:1;}
+.card-head h2{font-size:24px;}
+.card-head .tag{margin-left:auto;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.small{font-size:16px;color:var(--muted);}
+
+.grid2,.glance{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.glance3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.box{border-radius:12px;padding:14px 16px;font-size:17px;}
+.box-label{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+.b-sky{background:var(--sky-bg);} .b-sky .box-label{color:#1F8CB0;}
+.b-gold{background:var(--cream);border:1px solid var(--line);} .b-gold .box-label{color:var(--brass-dk);}
+.b-green{background:var(--green-bg);} .b-green .box-label{color:#1F8452;}
+.b-plum{background:var(--plum-bg);} .b-plum .box-label{color:#6A4FA3;}
+.b-teal{background:var(--teal-bg);} .b-teal .box-label{color:#14695F;}
+.quote{font-family:"Lora",Georgia,serif;font-style:italic;font-size:20px;color:var(--navy);border-left:4px solid var(--brass);padding:4px 0 4px 16px;margin:16px 0 0;}
+.quote small{display:block;font-family:"Nunito",sans-serif;font-style:normal;font-size:15px;color:var(--muted);margin-top:4px;}
+
+/* story box (the museum) */
+.story{background:var(--night-2);color:#E4ECE9;border:2px solid var(--brass);border-left-width:2px;}
+.story h2,.story strong{color:#fff;}
+.story .box{background:rgba(255,255,255,.08);color:#E4ECE9;}
+.story .box-label{color:var(--brass-lt);}
+.opti{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:start;}
+.opti img{width:76px;height:auto;}
+.rooms{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.room{background:rgba(255,255,255,.07);border:1.5px solid rgba(233,200,120,.45);border-radius:12px;padding:12px;text-align:center;font-size:16px;}
+.room i{font-style:normal;display:block;font-size:26px;line-height:1.2;}
+.room b{display:block;font-family:"Lora",Georgia,serif;font-size:19px;color:#fff;}
+.room span{display:block;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-lt);}
+
+/* lesson table */
+.days{width:100%;border-collapse:collapse;}
+.days th{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);}
+.days td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+.days tr:last-child td{border-bottom:none;}
+.day-n{font-family:"Lora",Georgia,serif;font-weight:700;font-size:20px;color:var(--navy);white-space:nowrap;}
+.day-n span{display:block;font-family:"Nunito",sans-serif;font-size:15px;font-weight:700;color:var(--muted);}
+.ch{font-weight:800;color:var(--navy);}
+.rm{display:block;margin-top:6px;}
+.rm b{font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--brass-dk);background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:1px 7px;margin-right:6px;}
+.pill{display:inline-block;font-size:14px;font-weight:800;border-radius:999px;padding:2px 10px;margin:6px 4px 0 0;}
+.p-virtue{background:var(--green-bg);color:#1F8452;}
+.p-source{background:var(--cream);color:var(--brass-dk);border:1px solid var(--line);}
+.p-vr{background:var(--plum-bg);color:#6A4FA3;}
+.vr-row td{background:var(--paper);}
+
+/* VR day */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.path{border-radius:14px;padding:16px 18px;font-size:17px;}
+.path h3{font-size:20px;margin-bottom:6px;}
+.path ol{margin:6px 0 0;padding-left:22px;}
+.path li{margin:3px 0;}
+.say{background:#fff;border:1px dashed var(--brass);border-radius:10px;padding:8px 12px;margin:8px 0;font-weight:700;color:var(--navy);}
+.tl{list-style:none;margin:8px 0 0;padding:0;}
+.tl li{display:grid;grid-template-columns:118px 1fr;gap:8px;padding:5px 0;border-bottom:1px dashed var(--line);font-size:16px;}
+.tl li:last-child{border-bottom:none;}
+.tl b{color:var(--brass-dk);}
+
+/* words */
+.words{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.word{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--cream);}
+.word b{font-family:"Lora",Georgia,serif;font-size:21px;color:var(--navy);display:block;}
+.word span{font-size:17px;}
+
+/* ask */
+.ask{list-style:none;margin:0;padding:0;counter-reset:q;}
+.ask li{counter-increment:q;position:relative;padding:12px 0 12px 50px;border-bottom:1px dashed var(--line);}
+.ask li:last-child{border-bottom:none;}
+.ask li::before{content:counter(q);position:absolute;left:0;top:11px;width:34px;height:34px;border-radius:50%;background:var(--cream);border:1.5px solid var(--brass);color:var(--brass-dk);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:17px;}
+.ask .q{font-weight:800;color:var(--navy);display:block;}
+.ask .listen{font-size:16px;color:var(--muted);}
+
+/* checklist */
+.check{list-style:none;margin:0;padding:0;}
+.check li{padding:7px 0 7px 34px;position:relative;}
+.check li::before{content:"✓";position:absolute;left:4px;top:6px;color:var(--teal);font-weight:900;font-size:19px;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+
+.next{background:var(--night-2);color:#E4ECE9;border:2px solid var(--brass);}
+.next h2{color:#fff;}
+.next strong{color:#fff;}
+.foot{text-align:center;font-size:15px;color:#C9D6D2;margin-top:26px;}
+.foot a{color:var(--brass-lt);}
+
+/* lesson mechanics */
+.howto{background:var(--cream);border:2px solid var(--brass);border-radius:16px;padding:18px 22px;margin-top:18px;}
+.howto h2{font-size:21px;margin-bottom:10px;}
+.howto ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;}
+.howto li{position:relative;padding-left:32px;font-size:17px;line-height:1.5;}
+.howto li span{position:absolute;left:0;top:0;font-size:20px;}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;}
+  .hero-art{min-height:200px;order:-1;}
+  .hero h1{font-size:29px;}
+  .glance,.glance3,.grid2,.words,.two,.paths,.howto ul{grid-template-columns:1fr;}
+  .rooms{grid-template-columns:1fr 1fr;}
+  .card{padding:18px 16px;}
+  .opti{grid-template-columns:56px 1fr;gap:12px;}
+  .opti img{width:56px;}
+  .tl li{grid-template-columns:1fr;gap:0;}
+  .days thead{display:none;}
+  .days tr{display:block;border-bottom:1px solid var(--line);padding:8px 0;}
+  .days td{display:block;border:none;padding:4px 0;}
+  .vr-row{border-radius:10px;}
+}
+@media print{
+  body{background:#fff;font-size:15px;}
+  .wrap{padding:0;}
+  .print-btn{display:none;}
+  .card,.howto,.path{break-inside:avoid;}
+  .card{margin-top:12px;padding:14px 16px;box-shadow:none;}
+  .hero,.next,.story{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .foot{color:#555;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-text">
+      <div class="brand"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy Online">Family Guide · 3rd Grade Social Studies</div>
+      <h1>Unit 6: North America <em>&amp; the Caribbean</em></h1>
+      <div class="sub">The museum’s new gallery · Lessons 3.06.01, 3.06.02, 3.06.05 and the 3.06.06 VR day</div>
+      <div class="chips">
+        <span class="chip">3 lessons</span>
+        <span class="chip">1 VR day</span>
+        <span class="chip">Weeks 15 and 17</span>
+      </div>
+      <button class="print-btn" onclick="window.print()">🖨️ Print this guide</button>
+    </div>
+    <div class="hero-art" style="background-image:url('images/relief-3-06-02.jpg');" role="img" aria-label="Physical map of North America and the Caribbean: green low land, brown and gray mountains, and blue water"><span class="plaque">North America &amp; Caribbean Gallery</span></div>
+  </header>
+
+  <!-- HOW THE LESSON PAGES WORK -->
+  <section class="howto">
+    <h2>🧭 How the Lesson Pages Work</h2>
+    <ul>
+      <li><span>🏛️</span><strong>Four rooms, in order:</strong> Lobby → Gallery → Workroom → Exhibit Floor. The room tabs sit at the top. A ✓ shows up when a room’s job is done, and a button at the bottom leads to the next room.</li>
+      <li><span>🦉</span><strong>Opti the owl is the museum guide.</strong> He gives a short voice note in each room. <strong>Read along</strong> shows his words on the screen.</li>
+      <li><span>🔤</span><strong>Dotted words</strong> show their meaning when your student taps them. Key words have a 🔊 button to hear the word said out loud.</li>
+      <li><span>🧠</span><strong>The Workroom is a 3-question self-check,</strong> one question at a time. It isn’t graded. It shows your student what to look at again before writing.</li>
+      <li><span>💾</span><strong>Answers save as you type</strong>, but only in that browser on that computer. Switching computers or clearing the browser loses them.</li>
+      <li><span>📄</span><strong>Everything is gathered at the end.</strong> At the bottom of the Exhibit Floor, Copy or Download as PDF saves the work. Use it to <strong>submit in Canvas</strong>. A lesson isn’t turned in until it’s submitted there.</li>
+      <li><span>🔊</span><strong>Read aloud</strong> at the top reads the page, with a speed control. <strong>Motion</strong> turns the moving parts on or off. <strong>Museum view</strong> switches to a plain page.</li>
+      <li><span>📓</span><strong>Keep a notebook and a pencil nearby.</strong> The lessons call it a Curator’s Notebook.</li>
+    </ul>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section class="card">
+    <div class="card-head"><span class="ico">🧭</span><h2>This Unit at a Glance</h2></div>
+    <p>Your student zooms in from the whole world to one region: Canada, the United States, Mexico, and the Caribbean. First they learn <em>where</em> the four places are. Then they read the land itself: mountains, rivers, plains, and islands. Then they look at what the land gives people, like wood, wheat, water, fish, copper, and oil, and which of those can grow back. The VR day visits a Haudenosaunee longhouse.</p>
+    <div class="glance3">
+      <div class="box b-sky"><div class="box-label">Geography skill</div><strong>Read two kinds of maps.</strong> A political map shows the countries and borders. A physical map shows the land: brown is high, green is low, blue is water.</div>
+      <div class="box b-green"><div class="box-label">Virtue lens</div><strong>Courtesy</strong> in 3.06.01 and 3.06.02: say and spell every place name with care. <strong>Honesty</strong> in 3.06.05: tell what a resource is good for <em>and</em> one thing that is hard about it.</div>
+      <div class="box b-gold"><div class="box-label">Big idea</div><strong>Renewable or not?</strong> Trees, wheat, fresh water, and fish can grow back or refill if people take care of them. Oil and copper took millions of years to form. No one can make more.</div>
+    </div>
+    <p class="quote">“Real land doesn’t come with lines on it. People draw the lines on maps.”<small>From Lesson 3.06.01, after the space picture</small></p>
+    <p class="small" style="margin-top:12px;"><strong>Good to know:</strong> The lessons correct a few common mix-ups. “America” is not the name of one country. <em>The Americas</em> means North America and South America together. Green on a physical map means low land, not grass. Oil did not come from dinosaurs. Most of it formed from tiny sea plants and animals buried long ago. On the no-headset VR timeline, one card says African peoples were brought here starting in the 1500s, and that most came against their will.</p>
+  </section>
+
+  <!-- THE STORY -->
+  <section class="card story">
+    <div class="card-head"><span class="ico">🏛️</span><h2>In the Museum</h2></div>
+    <div class="opti">
+      <img src="images/opti-owl.png" alt="Opti the owl, the museum guide">
+      <div>
+        <p>The 3rd grade course is set in a museum. Your student is a <strong>Regional Curator</strong>, a museum worker who takes care of one part of the world and tells visitors about it. <strong>Opti the owl</strong> is the museum guide.</p>
+        <p>The class just finished the World Map Hall. Now a new room opens: the <strong>North America &amp; Caribbean Gallery</strong>. In Week 15, your student hangs the country labels on the big wall map, then sorts a cart of new labels for mountains, rivers, plains, and islands. In Week 17, six crates arrive at the museum’s loading dock, each holding a natural resource. Every lesson ends with your student writing a label for visitors to read.</p>
+      </div>
+    </div>
+    <div class="rooms">
+      <div class="room"><i>🚪</i><span>Room 1</span><b>Lobby</b>Start the day’s job</div>
+      <div class="room"><i>🖼️</i><span>Room 2</span><b>Gallery</b>Maps, photos, and hands-on models</div>
+      <div class="room"><i>🔎</i><span>Room 3</span><b>Workroom</b>Check yourself</div>
+      <div class="room"><i>🏷️</i><span>Room 4</span><b>Exhibit Floor</b>Write the label</div>
+    </div>
+  </section>
+
+  <!-- LESSON BY LESSON -->
+  <section class="card">
+    <div class="card-head"><span class="ico">📅</span><h2>Lesson by Lesson</h2></div>
+    <table class="days">
+      <thead><tr><th>Lesson</th><th>What your student learns</th><th>What they write</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="day-n">3.06.01<span>Week 15</span></td>
+          <td><span class="ch">Canada, the United States, Mexico, and the Caribbean</span><br>Canada is farthest north. The United States is in the middle. Mexico is to the south. The Caribbean is many islands in a warm sea, south of Florida and east of Mexico.
+            <span class="rm"><b>Lobby</b>Turn a globe made from NASA pictures to North America, zoom in, and open the gallery doors.</span>
+            <span class="rm"><b>Gallery</b>Hang four labels on a wall map using clues and the compass rose. Turn over four postcards (Moraine Lake in Canada, Old Faithful in the United States, Copper Canyon in Mexico, Trunk Bay in the U.S. Virgin Islands) and pin each one where the photo was taken. Slide map lines onto a picture from space. Then a size puzzle: Canada and the United States are about the same size, but the United States has about 8 times as many people.</span>
+            <span class="pill p-source">Source: North America from space (NASA)</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+          <td>2 evidence questions, a <strong>Gallery Welcome Label</strong> (3–4 sentences): name all four places, say where each one is with direction words, and give one reason they are studied together.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.06.02<span>Week 15</span></td>
+          <td><span class="ch">Physical Features of North America &amp; the Caribbean</span><br>The Rocky Mountains run down the west side. The older, lower Appalachians run down the east. The Great Plains are wide and flat in the middle. The Mississippi River flows south to the Gulf of Mexico, and the Rio Grande forms part of the U.S.–Mexico border. The Caribbean is mostly islands, like Cuba and Hispaniola.
+            <span class="rm"><b>Lobby</b>Lift the cloth on six labels and put each one in the right drawer: mountains, rivers, plains, or islands.</span>
+            <span class="rm"><b>Gallery</b>Tilt the Relief Table so the land stands up, cut a slice across the United States, and “walk” it from west to east. Read a real physical map with a color key, then turn on the borders and see that the Rockies keep going into Canada. Make it rain on the Rocky Mountains and watch four rivers carry the water east, south, west, and north to the sea.</span>
+            <span class="pill p-source">Source: a physical map made for the lesson</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+          <td>3 evidence questions, a <strong>Physical Features Display Label</strong> (3–4 sentences): a mountain range, a river, and one more feature, where each one is, and why the land matters.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.06.05<span>Week 17</span></td>
+          <td><span class="ch">Natural Resources and How People Use Them</span><br>A natural resource is something useful that comes from nature. Renewable resources can grow back or refill if people take care of them. Nonrenewable resources are gone for a very long time once they are used up.
+            <span class="rm"><b>Lobby</b>Open six crates: timber, wheat, fresh water, a fish (Alaska pollock), copper ore, and oil. Each one shows what it becomes: paper, bread, faucet water, fish sticks, charger wires, and gasoline.</span>
+            <span class="rm"><b>Gallery</b>The Time-Lapse Case: guess, use the resources, then drag a time lever to 1 year, 30 years, and 1,000 years. The forest and one fish tank come back. The other tank (every fish caught) and the oil stay empty. Then three real photos of the Great Plains from 1920, 1936 (the Dust Bowl), and 1974, a wind test with bare soil and soil with grass, and sorting each object into one of two glass cases.</span>
+            <span class="pill p-source">Source: three Great Plains photos, 1920–1974</span><span class="pill p-virtue">Lens: Honesty</span></td>
+          <td>2 evidence questions, an <strong>Honest Exhibit Label</strong> (3–4 sentences) for one resource: what it is, where it’s found, how people use it, and one honest limit.</td>
+        </tr>
+        <tr class="vr-row">
+          <td class="day-n">3.06.06 VR<span>Week 17</span></td>
+          <td><span class="ch">Longhouse Diorama</span><br>About 15 minutes. It goes with Lesson 3.06.06. The museum is building a diorama of a Haudenosaunee longhouse, and Opti asks the curators to visit one. See the VR card below for both ways to do it.
+            <span class="pill p-vr">VR: Build the Diorama</span><span class="pill p-source">No headset: Collections Day</span></td>
+          <td><strong>One thing:</strong> a video of 30 seconds or less (VR), or a timeline plus 2 sentences saved as a PDF (no headset).</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- VR DAY -->
+  <section class="card">
+    <div class="card-head"><span class="ico">🥽</span><h2>VR Day: The Longhouse Diorama</h2><span class="tag">3.06.06 VR · Week 17</span></div>
+    <p>A <strong>diorama</strong> is a small, real-looking scene of a place. A <strong>longhouse</strong> is a long wooden home with a frame of wooden poles covered in tree bark. Many Haudenosaunee families lived in one longhouse together. The page shows a real longhouse built again at Ganondagan, New York.</p>
+    <div class="paths">
+      <div class="path b-plum">
+        <div class="box-label">With a headset</div>
+        <h3>🏛️ Build the Diorama (VR)</h3>
+        <ol>
+          <li>Practice the two sentences on the computer, with a 30-second timer.</li>
+          <li>In the On-Demand app: Explore → type <em>Longhouse</em> → Iroquois Longhouse → Begin Solo. (Iroquois is another name for the Haudenosaunee.)</li>
+          <li>Walk around and look at the walls and roof.</li>
+          <li>Record a video from the menu (Library → Camera) and send it to Canvas from the headset.</li>
+          <li>Quit, then check that the video is in the Canvas assignment.</li>
+        </ol>
+        <div class="say">“This is a Haudenosaunee longhouse, and I see ___.”<br>“It is so long because ___.”</div>
+        <p class="small" style="margin:0;"><strong>Full points:</strong> one video, 30 seconds or less, that shows the longhouse while your student says both sentences. VR curators also earn the Courtesy Ribbon. First time in VR? The page has a “Having trouble in VR?” section with pictures for connecting Canvas at xr.optimaed.com.</p>
+      </div>
+      <div class="path b-gold">
+        <div class="box-label">No headset</div>
+        <h3>🗂️ Collections Day</h3>
+        <p style="margin:0;">Put five museum cards on a timeline called “Who was here first?”</p>
+        <ul class="tl">
+          <li><b>Over 1,000 years ago</b><span>The Haudenosaunee (longhouses) and the Maya (stone pyramids)</span></li>
+          <li><b>Late 1400s</b><span>Spanish settlers (mission churches)</span></li>
+          <li><b>1500s</b><span>African peoples (music and stories)</span></li>
+          <li><b>1600s</b><span>French settlers (Quebec)</span></li>
+        </ul>
+        <p style="margin:10px 0 6px;">Then finish two sentence starters, with word buttons to help: <em>Who was here first?</em> and <em>What did they build or bring?</em></p>
+        <p class="small" style="margin:0;"><strong>Full points:</strong> a full timeline and 2 sentences with 20 words or more. Download the answers as a PDF and upload it to the Canvas assignment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORDS -->
+  <section class="card">
+    <div class="card-head"><span class="ico">🔤</span><h2>Words to Know</h2><span class="tag">Use them at home!</span></div>
+    <div class="words">
+      <div class="word"><b>region</b><span>a group of places that are close together or have something in common</span></div>
+      <div class="word"><b>border</b><span>a line that shows where one country ends and the next one begins</span></div>
+      <div class="word"><b>territory</b><span>a place that belongs to a country but is not a state, like Puerto Rico</span></div>
+      <div class="word"><b>physical map</b><span>a map that shows the shape of the land: mountains, rivers, plains, and islands</span></div>
+      <div class="word"><b>mountain range</b><span>a long line of mountains</span></div>
+      <div class="word"><b>plain</b><span>wide, flat land</span></div>
+      <div class="word"><b>natural resource</b><span>something useful that comes from nature, like trees, water, fish, or oil</span></div>
+      <div class="word"><b>renewable / nonrenewable</b><span>can grow back or fill up again if people take care of it / can’t be made again once it’s used up</span></div>
+      <div class="word"><b>Dust Bowl</b><span>a time in the 1930s when dry soil blew away in giant dust storms on the Great Plains</span></div>
+      <div class="word"><b>diorama</b><span>a small, real-looking scene of a place</span></div>
+    </div>
+  </section>
+
+  <!-- ASK AT HOME -->
+  <section class="card">
+    <div class="card-head"><span class="ico">💬</span><h2>Ask at Home</h2><span class="tag">Better than “How was school?”</span></div>
+    <ol class="ask">
+      <li><span class="q">Where are Canada, the United States, Mexico, and the Caribbean?</span><span class="listen">Listen for: Canada in the north, the United States in the middle, Mexico to the south, and the Caribbean islands to the southeast.</span></li>
+      <li><span class="q">Can you see the borders in a picture from space?</span><span class="listen">Listen for: no. People agree on where borders go and draw them on maps.</span></li>
+      <li><span class="q">Canada and the United States are about the same size. Which has more people?</span><span class="listen">Listen for: the United States, about 8 times as many.</span></li>
+      <li><span class="q">Which way do rivers flow?</span><span class="listen">Listen for: downhill, from high land to the sea. The Mackenzie River even flows north, to the Arctic Ocean.</span></li>
+      <li><span class="q">Why did only one fish tank fill up again?</span><span class="listen">Listen for: people left some grown-up fish, and they had babies. In the other tank, every fish was caught.</span></li>
+      <li><span class="q">Is oil renewable?</span><span class="listen">Listen for: no. It took millions of years to form, and no one can make more.</span></li>
+    </ol>
+  </section>
+
+  <!-- TURN IN + TRY AT HOME -->
+  <div class="two">
+    <section class="card">
+      <div class="card-head"><span class="ico">📬</span><h2>What Gets Turned In</h2></div>
+      <ul class="check">
+        <li><strong>Each lesson:</strong> the evidence questions, a Curator Task label, and a Curator’s Chronicle sentence (“In this exhibit, I learned that ___ because ___.”)</li>
+        <li>Copied or downloaded, then <strong>submitted in Canvas</strong></li>
+        <li><strong>VR day:</strong> just one thing, the video or the Collections Day PDF</li>
+      </ul>
+      <p class="small" style="margin-top:10px;"><strong>Done well looks like:</strong> real place names, direction words like north and south, and, for the resource label, one honest limit as well as the good parts.</p>
+    </section>
+    <section class="card">
+      <div class="card-head"><span class="ico">🏡</span><h2>Try at Home</h2><span class="tag">5 minutes</span></div>
+      <ul class="check">
+        <li><strong>Where did it start?</strong> Pick bread, paper, or a phone charger. Work backward to the land, like the crates did.</li>
+        <li><strong>Find north.</strong> On any map, find Canada, Mexico, and the Caribbean. Which way is each one from where you live?</li>
+        <li><strong>Practice the VR sentences.</strong> Say both out loud in under 30 seconds.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- NEXT -->
+  <section class="card next">
+    <div class="card-head"><span class="ico">🔭</span><h2>Coming Up: Cultures That Settled the Region</h2></div>
+    <p>The gallery isn’t only about land. It’s about people, too. In Lesson 3.06.06, a row of culture cases opens, each holding something a different group of people brought to this region: <strong>a longhouse, a Mayan pyramid, a Spanish mission, a French shield, and a drum</strong>. The story turns from what the land gives to who came here and what they brought with them. The longhouse VR day goes with this lesson.</p>
+  </section>
+
+  <p class="foot">Optima Academy Online · 3rd Grade Social Studies · Unit 6 Family Guide<br>Questions? Reach out to your student’s teacher anytime.</p>
+</div>
+</body>
+</html>
