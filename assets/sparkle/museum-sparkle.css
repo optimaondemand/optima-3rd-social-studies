@@ -1165,3 +1165,136 @@ html.ms-calm .ms-rn-drops line, html.ms-calm .ms-ct-cart.roll, html.ms-calm .ms-
   .ms-rt-stop text{ font-size:19px; }
 }
 .ms-ctx-list{ margin:6px 0 4px 1.1em; padding:0; font:600 15px/1.55 Nunito,sans-serif; } .ms-ctx-list li{ margin:2px 0; }
+
+/* ══ sliders v2 (Nov 2026 pilot: "hard to see the slider") ══════
+   one look for every slider in the layer: thick navy-edged track that fills teal,
+   a big brass knob with ↔ arrows, a brass well around it, and a glow + "drag" tag
+   while it's waiting to be used. */
+.ms-lever input[type=range], .ms-yearbar input[type=range], .ms-sp-slide input[type=range], .ms-rt-tilt input[type=range]{
+  -webkit-appearance:none; appearance:none; flex:1; width:100%; height:48px; margin:0; background:transparent; cursor:grab; accent-color:auto; touch-action:pan-y; }
+.ms-lever input[type=range]:active, .ms-yearbar input[type=range]:active, .ms-sp-slide input[type=range]:active, .ms-rt-tilt input[type=range]:active{ cursor:grabbing; }
+.ms-lever input[type=range]::-webkit-slider-runnable-track, .ms-yearbar input[type=range]::-webkit-slider-runnable-track, .ms-sp-slide input[type=range]::-webkit-slider-runnable-track, .ms-rt-tilt input[type=range]::-webkit-slider-runnable-track{
+  height:16px; border-radius:999px; border:3px solid var(--ms-navy); background:linear-gradient(90deg,var(--ms-teal) 0 var(--ms-fill,0%),#fff var(--ms-fill,0%)); }
+.ms-lever input[type=range]::-moz-range-track, .ms-yearbar input[type=range]::-moz-range-track, .ms-sp-slide input[type=range]::-moz-range-track, .ms-rt-tilt input[type=range]::-moz-range-track{
+  height:10px; border-radius:999px; border:3px solid var(--ms-navy); background:#fff; }
+.ms-lever input[type=range]::-moz-range-progress, .ms-yearbar input[type=range]::-moz-range-progress, .ms-sp-slide input[type=range]::-moz-range-progress, .ms-rt-tilt input[type=range]::-moz-range-progress{
+  height:10px; border-radius:999px; background:var(--ms-teal); }
+.ms-lever input[type=range]::-webkit-slider-thumb, .ms-yearbar input[type=range]::-webkit-slider-thumb, .ms-sp-slide input[type=range]::-webkit-slider-thumb, .ms-rt-tilt input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none; width:44px; height:44px; margin-top:-17px; border-radius:50%; border:3px solid var(--ms-navy);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cpath d='M9 22l7-6v12zM35 22l-7-6v12z' fill='%230E1C42'/%3E%3C/svg%3E") center/100% no-repeat, radial-gradient(circle at 35% 30%,#FFF1C4,#E9C878 45%,#B8892E 100%);
+  box-shadow:0 3px 8px rgba(0,0,0,.35); }
+.ms-lever input[type=range]::-moz-range-thumb, .ms-yearbar input[type=range]::-moz-range-thumb, .ms-sp-slide input[type=range]::-moz-range-thumb, .ms-rt-tilt input[type=range]::-moz-range-thumb{
+  width:38px; height:38px; border-radius:50%; border:3px solid var(--ms-navy);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cpath d='M9 22l7-6v12zM35 22l-7-6v12z' fill='%230E1C42'/%3E%3C/svg%3E") center/100% no-repeat, radial-gradient(circle at 35% 30%,#FFF1C4,#E9C878 45%,#B8892E 100%);
+  box-shadow:0 3px 8px rgba(0,0,0,.35); }
+.ms-lever input[type=range]:focus-visible, .ms-yearbar input[type=range]:focus-visible, .ms-sp-slide input[type=range]:focus-visible, .ms-rt-tilt input[type=range]:focus-visible{ outline:3px solid var(--ms-cyan); outline-offset:4px; border-radius:999px; }
+.ms-lever input[type=range]:disabled, .ms-yearbar input[type=range]:disabled, .ms-sp-slide input[type=range]:disabled, .ms-rt-tilt input[type=range]:disabled{ cursor:not-allowed; }
+/* the well: the same brass box the time lever and photo years already use */
+.ms-sp-slide, .ms-rt-tilt{ position:relative; max-width:600px; background:linear-gradient(180deg,#F3E2B6,#E2C77E); border:2px solid var(--ms-brass); border-radius:14px; padding:8px 16px; font:900 16px Nunito,sans-serif; color:var(--ms-ink); }
+.ms-sp-slide > span, .ms-rt-tilt > span{ white-space:nowrap; }
+.ms-sp-mod:not(.can-slide) .ms-sp-slide{ opacity:1; }
+.ms-sp-slide[hidden]{ display:none; }
+/* waiting to be used: glow + a "Drag me" tag above the knob */
+.ms-slide-wait{ animation:ms-slidewait 1.6s ease-in-out infinite; }
+.ms-slide-wait::before{ content:'👆 Drag the knob'; position:absolute; left:50%; top:-15px; transform:translateX(-50%); background:var(--ms-navy); color:#fff; font:900 13px Nunito,sans-serif; border-radius:999px; padding:3px 11px; white-space:nowrap; box-shadow:0 2px 6px rgba(0,0,0,.3); }
+@keyframes ms-slidewait{ 50%{ box-shadow:0 0 0 6px rgba(26,138,125,.35); } }
+html.ms-calm .ms-slide-wait{ animation:none; box-shadow:0 0 0 4px rgba(26,138,125,.35); }
+@media (prefers-reduced-motion:reduce){ .ms-slide-wait{ animation:none; box-shadow:0 0 0 4px rgba(26,138,125,.35); } }
+/* the slider sits inside the step card that asks for it */
+.ms-stepcard .ms-sp-slide{ margin:22px auto 6px; }
+@media (max-width:520px){ .ms-sp-slide, .ms-rt-tilt{ font-size:14px; gap:6px; padding:8px 10px; } }
+
+/* ══ buttons that aren't ready yet still look pressable; they say what's missing ══ */
+.ms-btn.ms-notready{ filter:saturate(.75); opacity:.9; }
+.ms-notyet{ margin-top:10px; background:#FFF6D8; border:2px dashed var(--ms-brass); border-radius:12px; padding:10px 14px; font:700 15.5px/1.5 Nunito,sans-serif; color:var(--ms-ink); }
+.ms-notyet.ok{ border-style:solid; border-color:var(--ms-teal); background:#E8F6F3; }
+
+/* ══ galintro (Exhibit Floor · gallery introduction) ══ */
+.ms-gi-act{ display:flex; flex-direction:column; align-items:center; margin-top:12px; }
+.ms-gi-act .ms-stepcard{ width:100%; }
+.ms-gi-row{ display:flex; align-items:center; justify-content:center; gap:4px; flex-wrap:nowrap; margin:6px 0 10px; }
+.ms-gi-card{ margin:0; width:118px; flex:0 1 118px; text-align:center; }
+.ms-gi-card .ms-pcart{ width:100%; }
+.ms-gi-card figcaption{ font:900 13.5px Nunito,sans-serif; color:var(--ms-navy); margin-top:6px; }
+.ms-gi-link{ flex:0 0 auto; display:flex; flex-direction:column; align-items:center; min-width:70px; padding:4px 2px; text-align:center; }
+.ms-gi-link b{ display:block; min-width:58px; font:900 15px Nunito,sans-serif; color:var(--ms-navy); background:#fff; border:2px dashed #B9A57A; border-radius:999px; padding:3px 8px; }
+.ms-gi-link small{ font:800 12px Nunito,sans-serif; color:#6B5A3A; margin-top:3px; }
+.ms-gi-link.cur b{ border:2px solid var(--ms-teal); box-shadow:0 0 0 4px rgba(26,138,125,.25); }
+.ms-gi-link.set b{ border:2px solid var(--ms-teal); background:#E8F6F3; }
+.ms-gi-sent{ font:700 19px/1.7 Lora,Georgia,serif; color:var(--ms-ink); text-align:center; margin:6px 0 4px; }
+.ms-gi-blank{ display:inline-block; min-width:62px; text-align:center; border-bottom:3px solid #B9A57A; color:#9A8A66; font-family:Nunito,sans-serif; }
+.ms-gi-blank.cur{ border-color:var(--ms-teal); color:var(--ms-teal); background:#E8F6F3; border-radius:6px 6px 0 0; }
+.ms-gi-blank.set{ border-color:var(--ms-teal); color:var(--ms-teal); }
+.ms-gi-dirs{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; max-width:520px; margin:8px auto 0; }
+.ms-gi-dirs .ms-btn{ background:#fff; color:var(--ms-navy); border:2px solid var(--ms-navy); font-size:16px; padding:10px 6px; }
+.ms-gi-dirs .ms-btn.no{ border-color:#C9A24A; background:#FFF6D8; }
+.ms-gi-map{ margin-top:12px; } .ms-gi-map summary{ cursor:pointer; font:800 15px Nunito,sans-serif; color:var(--ms-navy); }
+.ms-gi-map img{ display:block; max-width:100%; margin:8px auto 0; border-radius:10px; }
+.ms-gi-ok{ font-weight:800; color:var(--ms-teal); }
+.ms-gi-starts{ display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 10px; }
+.ms-gi-box textarea{ width:100%; min-height:150px; box-sizing:border-box; font:600 17px/1.6 Nunito,sans-serif; }
+.ms-gi-count{ margin-top:6px; }
+.ms-gi-nav{ display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center; margin-top:12px; }
+.ms-gi-nav .ms-gi-back[hidden]{ display:none; } .ms-gi-nav .ms-btn.big{ margin:0 0 0 auto; }
+/* the wall */
+.ms-gi-wall{ position:relative; margin-top:16px; padding:28px 22px 26px; border-radius:16px 16px 6px 6px; overflow:hidden; background:linear-gradient(180deg,#2D403D,#22312F); box-shadow:inset 0 -40px 0 #5A3B1E; }
+.ms-gi-wall[hidden]{ display:none; }
+.ms-gi-panel{ position:relative; max-width:760px; margin:0 auto; background:linear-gradient(180deg,#FFFDF6,#F7EDD3); border:3px solid var(--ms-brass); border-radius:6px; padding:18px 20px 14px; box-shadow:0 10px 22px rgba(0,0,0,.4); }
+.ms-gi-h{ font:700 24px Lora,Georgia,serif; color:var(--ms-navy); text-align:center; }
+.ms-gi-text{ font:italic 600 18px/1.65 Lora,Georgia,serif; color:var(--ms-ink); white-space:pre-wrap; margin-top:4px; }
+.ms-gi-by{ text-align:right; font:italic 600 14px Lora,Georgia,serif; color:#6B5A3A; margin-top:8px; }
+.ms-gi-panel .ms-draft{ position:absolute; top:10px; right:12px; }
+.ms-gi-wall.open .ms-draft{ display:none; }
+.ms-gi-curtain{ position:absolute; inset:0; z-index:3; background:repeating-linear-gradient(90deg,#7B1E2B 0 18px,#922636 18px 36px); transform-origin:50% 0; transition:transform 1.1s ease, opacity 1.1s ease; pointer-events:none; opacity:.0; }
+.ms-gi-wall.opening .ms-gi-curtain{ animation:ms-giup 1.4s ease forwards; }
+@keyframes ms-giup{ 0%{ opacity:1; transform:none; } 100%{ opacity:0; transform:translateY(-100%); } }
+.ms-gi-wall.open .ms-gi-panel{ box-shadow:0 0 0 4px #E9C878, 0 10px 30px rgba(233,200,120,.55); }
+html.ms-calm .ms-gi-wall.opening .ms-gi-curtain{ animation:none; }
+@media (prefers-reduced-motion:reduce){ .ms-gi-wall.opening .ms-gi-curtain{ animation:none; } }
+@media (max-width:640px){
+  .ms-gi-row{ flex-direction:column; gap:2px; }
+  .ms-gi-card{ width:150px; flex-basis:auto; }
+  .ms-gi-link{ flex-direction:row; gap:8px; } .ms-gi-link small{ margin:0; }
+  .ms-gi-dirs{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ms-gi-sent{ font-size:17px; } .ms-gi-wall{ padding:16px 10px; }
+}
+@media (max-width:640px){
+  .ms-gi-row{ align-items:stretch; }
+  .ms-gi-card{ display:flex; align-items:center; gap:12px; width:auto; text-align:left; }
+  .ms-gi-card .ms-pcart{ width:88px; flex:0 0 88px; }
+  .ms-gi-card figcaption{ margin:0; font-size:15px; }
+  .ms-gi-link{ justify-content:flex-start; padding:2px 0 2px 20px; }
+}
+@media (max-width:520px){
+  .ms-sp-slide, .ms-rt-tilt{ display:grid; grid-template-columns:1fr 1fr; row-gap:2px; }
+  .ms-sp-slide > span:last-child, .ms-rt-tilt > span:last-child{ text-align:right; grid-column:2; grid-row:1; }
+  .ms-sp-slide > input, .ms-rt-tilt > input{ grid-column:1 / -1; grid-row:2; }
+}
+.ms-exwin:has(.ms-notyet){ background:none; border:0; padding:0; box-shadow:none; }
+.ms-gl-again{ display:block; margin:10px auto 0; }
+
+/* ══ how-to video card (Lobby) ══ */
+.ms-howto{ max-width:760px; margin:16px auto 20px; background:var(--ms-cream); border:2px solid var(--ms-brass-lt); border-radius:16px; padding:12px 16px 16px; }
+.ms-howto[hidden]{ display:none; }
+.ms-howto-h{ display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+.ms-howto-h img{ height:52px; width:auto; }
+.ms-howto-k{ font:900 12.5px Nunito,sans-serif; letter-spacing:.7px; text-transform:uppercase; color:var(--ms-brass-dk); }
+.ms-howto-t{ font:700 22px Lora,Georgia,serif; color:var(--ms-navy); }
+.ms-howto video{ display:block; width:100%; border-radius:12px; background:#000; }
+
+/* ══ tap guide: 👆 on everything you can tap + the key line under the header ══ */
+.ms-hand{ display:none; }
+html.ms-on .ms-hand{ display:inline-block; margin-right:6px; font-size:1.05em; line-height:1; }
+html.ms-on .ms-was{ display:none; }
+.ms-tapkey{ display:flex; flex-wrap:wrap; gap:6px 20px; justify-content:center; align-items:center; padding:9px 16px; background:var(--ms-cream); border-bottom:2px solid var(--ms-brass-lt); font:700 15.5px Nunito,sans-serif; color:var(--ms-ink); }
+.ms-tapkey b{ margin-right:3px; }
+.ms-tapkey .ms-dotw{ font-weight:800; border-bottom:2px dotted var(--ms-brass); }
+.ms-tapkey .ms-ok{ color:var(--ms-teal); font-weight:900; }
+.ms-tapkey .ms-knob{ display:inline-block; width:22px; height:22px; vertical-align:-5px; border-radius:50%; border:2px solid var(--ms-navy);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cpath d='M9 22l7-6v12zM35 22l-7-6v12z' fill='%230E1C42'/%3E%3C/svg%3E") center/100% no-repeat, radial-gradient(circle at 35% 30%,#FFF1C4,#E9C878 45%,#B8892E 100%); }
+@media (max-width:520px){ .ms-tapkey{ font-size:14px; gap:4px 14px; justify-content:flex-start; } }
+html:not(.ms-on) .ms-hand{ display:none !important; } html:not(.ms-on) .ms-was{ display:inline !important; }
+html.ms-on .ms-gi-away{ display:none !important; }
+/* globe without the gallery doors (cfg.doors:false): the zoomed-in map stays as the finish */
+.ms-gl-stage.nodoors .ms-gl-door{ display:none; }
+.ms-gl-stage.nodoors[data-s="3"] .ms-gl-zoom{ opacity:1; transition:none; }

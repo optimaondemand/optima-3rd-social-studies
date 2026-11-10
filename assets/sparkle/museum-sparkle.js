@@ -961,16 +961,22 @@
       $('.ms-lby', m).textContent = '— ' + (nameIn.value.trim() || 'Junior Curator') + ', Regional Curator';
       var n = words(), ready = !!s && n >= NEED;
       chk.innerHTML = '<span class="ms-wc'+(n>=NEED?' ok':'')+'">📝 '+n+' of '+NEED+' words</span>' + CH.map(function(c){ var ok = new RegExp(c.re,'i').test(v); return '<span class="ms-chip'+(ok?' ok':'')+'">'+(ok?'✓ ':'')+esc(c.t)+'</span>'; }).join('');
-      un.disabled = !ready; un.hidden = S.open;
+      un.classList.toggle('ms-notready', !ready); un.hidden = S.open;
+      S.miss = !s ? [cfg.missPick || 'Pick one above.'] : [];
+      if (n < NEED) S.miss.push('Write '+(NEED-n)+' more word'+(NEED-n===1?'':'s')+' in the box.');
+      var need = CH.filter(function(c){ return !new RegExp(c.re,'i').test(v); }).map(function(c){ return c.t; });
+      if (need.length) S.miss.push((cfg.needT||'Your words still need:')+' '+need.join(' · ')+'.');
       $('.ms-edit', m).hidden = !S.open;
       alc.classList.toggle('open', S.open);
-      exwin.innerHTML = S.open ? (cfg.win||'') : (s ? '' : '');
+      if (S.open) exwin.innerHTML = cfg.win||'';
+      else if (!$('.ms-notyet', exwin) || !S.miss.length) exwin.innerHTML = S.miss.length ? '' : '<div class="ms-notyet ok">✅ Ready! Press <b>'+esc(cfg.openT||'Open my exhibit')+'</b>.</div>';
+      else exwin.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> Before you open it: '+S.miss.map(esc).join(' ')+'</div>';
       check();
     }
     $$('.ms-exp', m).forEach(function(b){ b.onclick = function(){ S.id = b.dataset.id; save(); SFX.click(); render(); }; });
     ta.addEventListener('input', render);
     nameIn.addEventListener('input', function(){ sset(NAMEK, nameIn.value.trim()); render(); });
-    un.onclick = function(){ if (un.disabled) return; S.open = true; save(); alc.classList.remove('opening'); void alc.offsetWidth; alc.classList.add('opening'); SFX.fanfare(); render();
+    un.onclick = function(){ if (S.miss && S.miss.length) { SFX.miss(); exwin.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> Before you open it: '+S.miss.map(esc).join(' ')+'</div>'; return; } S.open = true; save(); alc.classList.remove('opening'); void alc.offsetWidth; alc.classList.add('opening'); SFX.fanfare(); render();
       setTimeout(function(){ alc.classList.remove('opening'); }, 1600); optiNod('assignment'); alc.scrollIntoView({behavior: calm()?'auto':'smooth', block:'center'}); };
     $('.ms-edit', m).onclick = function(){ ta.focus(); ta.scrollIntoView({behavior: calm()?'auto':'smooth', block:'center'}); };
     var items = $$('#panel-assignment .turn-in-item');
@@ -980,6 +986,118 @@
     render();
   }
 
+  /* ══ MODULE: galintro (Exhibit Floor · the gallery introduction) ══
+     Nov 2026 pilot: replaces the welcome sign. Three steps, one at a time:
+     1 finish the direction sentence (a chain of places, one blank at a time)
+     2 the real Curator Task box moves in here; add one sentence of your own
+     3 read it on the gallery wall → Open my gallery (always clickable; says what's missing).
+     cfg: textarea, lead, places [spec ids in chain order], links [{a,b,ans,hint}], dirs, ownT, starters, ownMin, mapSel */
+  function modGalintro(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'); if (!ta) return;
+    ST.gi = ST.gi || {links:[], step:1, open:false};
+    var S = ST.gi, L = cfg.links || [], P = cfg.places || [], OWN = cfg.ownMin || 8;
+    var DIRS = cfg.dirs || [['north','⬆️'],['south','⬇️'],['east','➡️'],['west','⬅️']];
+    var ICON = {}; DIRS.forEach(function(d){ ICON[d[0]] = d[1]; });
+    var m = shell('ms-gi-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-gi-act"></div>' +
+      '<div class="ms-gi-wall" hidden><div class="ms-gi-panel"><div class="ms-gi-h">'+esc(cfg.wallT||'Gallery Introduction')+'</div><div class="ms-gi-chain"></div><div class="ms-gi-text"></div><div class="ms-gi-by"></div><span class="ms-draft">DRAFT</span></div><div class="ms-gi-curtain"><i></i></div></div>' +
+      '<div class="ms-gi-end"></div>');
+    // sits where the writing box was; the box itself moves into Step 2 (and goes home with the layer off)
+    var home = document.createComment('gi-home'); ta.parentNode.insertBefore(home, ta);
+    ta.parentNode.insertBefore(m, ta);
+    var tp = ta.parentNode.querySelector('.textbox-prompt'); if (tp) tp.classList.add('ms-hide-on');
+    var act = $('.ms-gi-act', m), wall = $('.ms-gi-wall', m), end = $('.ms-gi-end', m), curUpd = null;
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 2) curUpd(); });
+    function place(){ if (!root.classList.contains('ms-on')) { if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); } else render(); }
+    new MutationObserver(place).observe(root, {attributes:true, attributeFilter:['class']});
+    function name(id){ var s = SPEC[id]||{}; return s.short || s.name || id; }
+    function chainSentence(upto){ // "Canada is north of the United States, which is north of Mexico, which is west of the Caribbean."
+      var t = ''; L.forEach(function(l,k){ if (k >= upto) return; t += (k ? ', which is ' : l.a+' is ') + S.links[k] + ' of ' + l.b; }); return t ? t + '.' : '';
+    }
+    function full(){ return (cfg.lead ? cfg.lead+' ' : '') + chainSentence(L.length); }
+    function done1(){ return S.links.length >= L.length; }
+    function words(t){ return (t.trim().match(/\S+/g)||[]).length; }
+    function missing(){
+      var v = ta.value, miss = [];
+      if (!done1()) return [cfg.missChain || 'Finish the direction sentence first.'];
+      if (v.indexOf(chainSentence(L.length)) < 0) miss.push(cfg.missGone || 'Your direction sentence changed. Press ↩️ Put my sentence back.');
+      var own = words(v.replace(full(),'').replace(chainSentence(L.length),''));
+      if (own < OWN) miss.push('Add '+(OWN-own)+' more word'+(OWN-own===1?'':'s')+' of your own.');
+      return miss;
+    }
+    function chainHTML(live){ // the four postcards in sentence order with the direction between each pair
+      return '<div class="ms-gi-row">'+P.map(function(id,k){
+        var card = '<figure class="ms-gi-card"><span class="ms-ospec">'+specArt(id)+'</span><figcaption>'+esc(name(id))+'</figcaption></figure>';
+        if (k === P.length-1) return card;
+        var d = S.links[k], cur = live && k === S.links.length;
+        return card + '<span class="ms-gi-link'+(d?' set':'')+(cur?' cur':'')+'"><b>'+(d ? ICON[d]+' '+esc(d) : '?')+'</b><small>is '+(d?esc(d):'___')+' of</small></span>';
+      }).join('')+'</div>';
+    }
+    function sentenceHTML(){
+      return '<p class="ms-gi-sent">'+L.map(function(l,k){
+        var d = S.links[k], blank = d ? '<b class="ms-gi-blank set">'+esc(d)+'</b>' : '<b class="ms-gi-blank'+(k===S.links.length?' cur':'')+'">?</b>';
+        return (k ? ', which is ' : esc(l.a)+' is ') + blank + ' of ' + esc(l.b);
+      }).join('')+'.</p>';
+    }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      wall.hidden = S.step < 3; end.innerHTML = '';
+      ta.classList.toggle('ms-gi-away', S.step !== 2 || !done1()); // the box shows only in Step 2 (it lives inside that step)
+      if (S.step === 1 || !done1()) {
+        S.step = 1; var k = S.links.length, l = L[k];
+        act.innerHTML = stepCard(1, 3, cfg.s1T || 'Finish the direction sentence', chainHTML(true) + sentenceHTML() +
+          (l ? '<p class="ms-wm-do">👉 '+esc((cfg.s1Do||'Where is {a} compared to {b}? Tap the direction.').replace('{a}', l.a).replace('{b}', l.b))+'</p>' +
+            '<div class="ms-gi-dirs">'+DIRS.map(function(d){ return '<button type="button" class="ms-btn ms-gi-dir" data-d="'+d[0]+'">'+d[1]+' '+esc(d[0][0].toUpperCase()+d[0].slice(1))+'</button>'; }).join('')+'</div>' +
+            '<div class="ms-exfb" aria-live="polite"></div>' : '') +
+          (cfg.mapSel && $(cfg.mapSel) ? '<details class="ms-gi-map"><summary>🗺️ Show me the map</summary><img alt="'+esc($(cfg.mapSel).alt||'Map')+'" src="'+$(cfg.mapSel).src+'"></details>' : ''));
+        $$('.ms-gi-dir', act).forEach(function(b){ b.onclick = function(){
+          if (b.dataset.d === l.ans) { SFX.chime(); S.links.push(l.ans); save();
+            if (done1()) { var v = ta.value.trim(); if (v.indexOf(chainSentence(L.length)) < 0) { ta.value = full() + (v ? ' ' + v : ' '); ta.dispatchEvent(new Event('input',{bubbles:true})); } S.step = 2; save(); }
+            render();
+          } else { SFX.miss(); b.classList.add('no'); $('.ms-exfb', act).innerHTML = '🤔 '+(l.hint || 'Look at the map again.'); }
+        }; });
+        return;
+      }
+      if (S.step === 2) {
+        act.innerHTML = stepCard(2, 3, cfg.s2T || 'Add a sentence of your own', '<p class="ms-gi-ok">✅ '+esc(cfg.s2Got||'Your direction sentence is in the box.')+'</p><p>'+(cfg.ownT||'')+'</p>' +
+          '<div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(t)+'</button>'; }).join('')+'</div>' +
+          '<div class="ms-gi-box"></div><div class="ms-gi-count"></div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-gi-back">↩️ '+esc(cfg.backT||'Put my sentence back')+'</button><button type="button" class="ms-btn big ms-gi-next">'+esc(cfg.nextT||'Next: see it on the wall')+' ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(ta);
+        var back = $('.ms-gi-back', act), cnt = $('.ms-gi-count', act), fb = $('.ms-gi-fb', act);
+        function upd(){ var miss = missing(), own = words(ta.value.replace(full(),'').replace(chainSentence(L.length),''));
+          back.hidden = ta.value.indexOf(chainSentence(L.length)) >= 0;
+          cnt.innerHTML = '<span class="ms-wc'+(own>=OWN?' ok':'')+'">📝 '+Math.min(own,OWN)+' of '+OWN+' words of your own</span>';
+          $('.ms-gi-next', act).classList.toggle('ms-notready', !!miss.length);
+          if (fb.innerHTML && !miss.length) fb.innerHTML = ''; else if (fb.innerHTML) fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; }
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b,i){ b.onclick = function(){ var t = (cfg.starters||[])[i]; ta.value = ta.value.replace(/\s*$/,'') + ' ' + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        back.onclick = function(){ ta.value = full() + ' ' + ta.value.replace(full(),'').trim(); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); };
+        $('.ms-gi-next', act).onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+          SFX.click(); S.step = 3; save(); home.parentNode.insertBefore(ta, home.nextSibling); render(); wall.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return;
+      }
+      // step 3: the wall
+      if (ta.parentNode && ta.parentNode.classList && ta.parentNode.classList.contains('ms-gi-box')) home.parentNode.insertBefore(ta, home.nextSibling);
+      $('.ms-gi-chain', wall).innerHTML = chainHTML(false);
+      $('.ms-gi-text', wall).textContent = ta.value.replace(cfg.lead||'\u0000','').trim(); // the wall's own heading already says welcome
+      $('.ms-gi-by', wall).textContent = '— ' + (sget(NAMEK,'') || 'Junior Curator') + ', Regional Curator';
+      wall.classList.toggle('open', S.open);
+      act.innerHTML = S.open ? '' : stepCard(3, 3, cfg.s3T || 'Open your gallery', '<p>'+(cfg.s3Text||'Read your introduction on the wall below. Then open your gallery.')+'</p><button type="button" class="ms-btn big ms-gi-open">🎉 '+esc(cfg.openT||'Open my gallery')+'</button><div class="ms-gi-fb" aria-live="polite"></div>');
+      end.innerHTML = S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div><div class="ms-exbtns"><button type="button" class="ms-btn alt ms-gi-edit">✏️ '+esc(cfg.editT||'Edit my introduction')+'</button></div>'
+                             : '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-gi-edit">✏️ '+esc(cfg.editT||'Edit my introduction')+'</button></div>';
+      var ob = $('.ms-gi-open', act); if (ob) ob.onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); $('.ms-gi-fb', act).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); wall.classList.remove('opening'); void wall.offsetWidth; wall.classList.add('opening'); SFX.fanfare(); render();
+        setTimeout(function(){ wall.classList.remove('opening'); }, 1600); optiNod('assignment'); check(); };
+      $('.ms-gi-edit', end).onclick = function(){ S.open = false; S.step = 2; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
   /* ══ glossary ═══════════════════════════════════════════════ */
   function buildGlossary(){
     var G = DATA.glossary || []; if (!G.length) return;
@@ -987,7 +1105,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -1117,14 +1235,21 @@
       ctx.putImageData(out, 0, 0);
     }
     var im = new Image();
-    im.onload = function(){ var c2 = document.createElement('canvas'); TW = c2.width = im.naturalWidth; TH = c2.height = im.naturalHeight; var x2 = c2.getContext('2d'); x2.drawImage(im, 0, 0); try { TEX = x2.getImageData(0,0,TW,TH).data; } catch(e){ TEX = null; } if (TEX) { prep(); if (S.step >= 1) lon = TARGET; draw(); } };
+    im.onload = function(){ var c2 = document.createElement('canvas'); TW = c2.width = im.naturalWidth; TH = c2.height = im.naturalHeight; var x2 = c2.getContext('2d'); x2.drawImage(im, 0, 0); try { TEX = x2.getImageData(0,0,TW,TH).data; } catch(e){ TEX = null; } if (TEX) { prep(); if (S.step >= 1) lon = TARGET; draw(); idleOn(); } };
     im.src = img(cfg.texture || 'globe-tex.jpg');
     // drag to turn it by hand
     var dragX = null;
     cv.addEventListener('pointerdown', function(e){ if (S.step) return; dragX = e.clientX; cv.setPointerCapture(e.pointerId); });
     cv.addEventListener('pointermove', function(e){ if (dragX == null) return; lon -= (e.clientX - dragX) * .6; dragX = e.clientX; draw(); });
     cv.addEventListener('pointerup', function(){ dragX = null; if (!S.step && Math.abs(((lon - TARGET + 540) % 360) - 180) < 22) turned(); });
-    function turned(){ if (S.step) return; spinTo(TARGET, function(){ S.step = 1; save(); SFX.chime(); render(); }); }
+    function turned(){ if (S.step) return; idleOff(); spinTo(TARGET, function(){ S.step = 1; save(); SFX.chime(); render(); }); }
+    // a slow drift while the globe waits to be turned (Nov 2026: "why doesn't the globe spin?")
+    var idle = null, last = 0;
+    function idleOn(){ if (idle || S.step || calm()) return; last = performance.now();
+      (function f(now){ if (S.step || calm()) { idle = null; return; }
+        if (dragX == null && !m.classList.contains('ms-paused') && root.classList.contains('ms-on')) { lon -= (now - last) * .012; draw(); }
+        last = now; idle = requestAnimationFrame(f); })(last); }
+    function idleOff(){ cancelAnimationFrame(idle); idle = null; }
     function spinTo(target, done){
       cancelAnimationFrame(spin);
       var from = lon, dist = ((from - target) % 360 + 360) % 360; if (dist < 30) dist += 360; // always turn west to east, at least most of a turn
@@ -1132,18 +1257,23 @@
       var t0 = performance.now(), dur = 2600;
       (function f(now){ var k = Math.min(1, (now - t0)/dur), e = 1 - Math.pow(1-k, 3); lon = from - dist*e; draw(); if (k < 1) spin = requestAnimationFrame(f); else { lon = target; draw(); done(); } })(t0);
     }
-    var ST3 = cfg.steps || [];
+    var ST3 = cfg.steps || [], NODOORS = cfg.doors === false, TOT = NODOORS ? 2 : 3;
+    if (NODOORS) { stage.classList.add('nodoors'); if (S.step === 2) { S.step = 3; save(); } } // no doors: zooming in finishes the Lobby
     function render(){
       stage.dataset.s = S.step;
       var s = ST3[Math.min(S.step, 2)] || {};
-      if (S.step === 0) act.innerHTML = stepCard(1, 3, s.title, '<p>'+s.text+'</p><button type="button" class="ms-btn big ms-gl-go">'+esc(s.btn)+'</button>');
-      else if (S.step === 1) act.innerHTML = stepCard(2, 3, s.title, '<p>'+s.text+'</p><button type="button" class="ms-btn big ms-gl-go">'+esc(s.btn)+'</button>');
+      if (S.step === 0) act.innerHTML = stepCard(1, TOT, s.title, '<p>'+s.text+'</p><button type="button" class="ms-btn big ms-gl-go">'+esc(s.btn)+'</button>');
+      else if (S.step === 1) act.innerHTML = stepCard(2, TOT, s.title, '<p>'+s.text+'</p><button type="button" class="ms-btn big ms-gl-go">'+esc(s.btn)+'</button>');
       else if (S.step === 2) act.innerHTML = stepCard(3, 3, s.title, '<p>'+s.text+'</p><button type="button" class="ms-btn big ms-gl-go">'+esc(s.btn)+'</button>');
       else act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>';
+      if (S.step >= 1) act.insertAdjacentHTML('beforeend', '<button type="button" class="ms-btn alt ms-gl-again">🔄 '+esc(cfg.againT||'Spin the globe again')+'</button>');
+      var ag = $('.ms-gl-again', act); if (ag) ag.onclick = function(){ SFX.click(); ag.disabled = true; stage.dataset.s = 0; lon = TARGET + 180; draw(); spinTo(TARGET, function(){ setTimeout(function(){ stage.dataset.s = S.step; ag.disabled = false; }, calm() ? 0 : 700); }); };
       var b = $('.ms-gl-go', act); if (!b) return;
       b.onclick = function(){ b.disabled = true; SFX.click();
         if (S.step === 0) turned();
-        else if (S.step === 1) { stage.classList.add('zooming'); setTimeout(function(){ stage.classList.remove('zooming'); S.step = 2; save(); SFX.glass(); render(); }, calm() ? 40 : 1500); }
+        else if (S.step === 1) { stage.classList.add('zooming'); setTimeout(function(){ stage.classList.remove('zooming');
+          if (NODOORS) { S.step = 3; save(); render(); setTimeout(function(){ SFX.fanfare(); markDone('scene'); }, calm() ? 0 : 300); }
+          else { S.step = 2; save(); SFX.glass(); render(); } }, calm() ? 40 : 1500); }
         else { S.step = 3; save(); SFX.creak(); render(); setTimeout(function(){ SFX.fanfare(); markDone('scene'); }, calm() ? 0 : 900); }
       };
     }
@@ -1245,7 +1375,7 @@
     card.parentNode.insertBefore(m, card);
     ['.source-card-header','.source-image-placeholder','.source-label-bar'].forEach(function(s){ var x = $(s, card); if (x) x.classList.add('ms-hide-on'); });
     card.classList.add('ms-prompts');
-    var range = $('input', m), lines = $('.ms-sp-lines', m), act = $('.ms-sp-act', m), tagr = $('.ms-sp-tagr', m);
+    var range = $('input', m), lines = $('.ms-sp-lines', m), act = $('.ms-sp-act', m), tagr = $('.ms-sp-tagr', m); var slide = $('.ms-sp-slide', m), frame = $('.ms-sp-frame', m);
     function setLines(){ var v = +range.value/100; lines.style.opacity = v; tagr.textContent = v > .5 ? (cfg.tagR2||'') : (cfg.tagR||''); }
     range.addEventListener('input', function(){ setLines(); if (+range.value >= 90 && S.a1 != null && Q1.opts[S.a1].ok && !S.slid) { S.slid = true; save(); SFX.chime(); render(); } });
     function choices(Q, ans, key){
@@ -1256,9 +1386,12 @@
       var ok1 = S.a1 != null && Q1.opts[S.a1].ok, ok2 = S.a2 != null && Q2.opts[S.a2].ok;
       m.classList.toggle('can-slide', ok1);
       range.disabled = !ok1;
+      frame.parentNode.insertBefore(slide, act); // park it under the picture before the step card is redrawn
       if (!ok1) act.innerHTML = stepCard(1, 3, Q1.title, '<p>'+Q1.text+'</p>'+choices(Q1, S.a1, 'a1'));
-      else if (!S.slid) act.innerHTML = stepCard(2, 3, cfg.slideTitle, '<p>'+cfg.slideText+'</p><p class="ms-wm-do">👉 '+esc(cfg.slideDo)+'</p>');
+      else if (!S.slid) { act.innerHTML = stepCard(2, 3, cfg.slideTitle, '<p>'+cfg.slideText+'</p><p class="ms-wm-do">👉 '+esc(cfg.slideDo)+'</p>'); $('.ms-stepcard', act).appendChild(slide); }
       else act.innerHTML = stepCard(3, 3, Q2.title, '<p>'+Q2.text+'</p>'+choices(Q2, S.a2, 'a2')) + (ok2 ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : '');
+      slide.hidden = !ok1; // step 1 is about the picture alone: no slider yet
+      sliderPaint(range);
       $$('.ms-spq', act).forEach(function(b){ b.onclick = function(){ var Q = b.dataset.q === 'a1' ? Q1 : Q2; S[b.dataset.q] = +b.dataset.k; save();
         if (Q.opts[+b.dataset.k].ok) { SFX.chime(); if (b.dataset.q === 'a2') { ST.gal = ST.gal||{}; if (!ST.gal.space) { ST.gal.space = 1; save(); galleryCheck(); } } } else SFX.miss();
         render(); }; });
@@ -1586,7 +1719,7 @@
     render();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
@@ -1595,6 +1728,66 @@
       else if (b.dataset.clip) playClip('g3ss-' + DATA.lesson.replace(/\./g,'-') + '-' + b.dataset.clip + '.mp3', AUDIO, b);
     }, true);
   }
+
+  /* ══ sliders v2: teal fill + "waiting to be used" glow on every layer slider ══ */
+  var SLIDERS = '.ms-lever input[type=range],.ms-yearbar input[type=range],.ms-sp-slide input[type=range],.ms-rt-tilt input[type=range]';
+  function sliderPaint(r){
+    var lo = +r.min||0, hi = +r.max||100, f = hi>lo ? (+r.value-lo)/(hi-lo)*100 : 0;
+    r.style.setProperty('--ms-fill', f+'%');
+    var well = r.closest('.ms-lever,.ms-yearbar,.ms-sp-slide,.ms-rt-tilt');
+    if (well) well.classList.toggle('ms-slide-wait', !r.disabled && !r.dataset.used && !well.hidden && +r.value === lo);
+  }
+  function sliders(){
+    $$(SLIDERS).forEach(sliderPaint);
+    document.addEventListener('input', function(e){ var r = e.target; if (r.matches && r.matches(SLIDERS)) { r.dataset.used = 1; sliderPaint(r); } }, true);
+    // modules switch sliders on and off as steps change: repaint after any click
+    document.addEventListener('click', function(){ setTimeout(function(){ $$(SLIDERS).forEach(sliderPaint); }, 0); });
+  }
+
+
+  /* ══ how-to video: "Watch this first · How to use your lesson" (one video for every G3 SS museum lesson) ══ */
+  function buildHowTo(){
+    if (DATA.howto === false || $('.ms-howto')) return;
+    var sign = $('#panel-scene .ms-sign'); if (!sign) return;
+    var src = window.MS_HOWTO_SRC || DATA.howtoSrc || 'assets/video/g3ss-howto.mp4';
+    var poster = window.MS_HOWTO_POSTER || DATA.howtoPoster || 'assets/video/g3ss-howto.jpg';
+    var c = el('section', 'ms-howto ms-only', '<div class="ms-howto-h"><img alt="" src="'+img('opti-owl.png')+'"><div><div class="ms-howto-k">Watch this first</div><div class="ms-howto-t">How to use your lesson</div></div></div><video controls preload="metadata" playsinline></video>');
+    var v = $('video', c); v.poster = poster; v.src = src;
+    v.addEventListener('play', function(){ ALL_OPTI.forEach(function(o){ if (!o.paused) o.pause(); }); if (clipA && !clipA.paused) clipA.pause(); });
+    v.addEventListener('error', function(){ c.hidden = true; });
+    after(sign, c);
+  }
+
+
+  /* ══ tap guide (Nov 2026, like G3 ELA): anything you can tap shows 👆; a key line under the header says what each mark means ══ */
+  var TAP_SEL = '.ms-btn, .ms-play, .ms-ra, .tab-next-btn, .gathered-btn';
+  var LEADING = /^\s*((?:(?:\p{Extended_Pictographic}|[←-⇿■-◿])️?\s*)+)/u;
+  function markTaps(root){
+    $$(TAP_SEL, root || document).forEach(function(b){
+      if (b.querySelector('.ms-hand')) return;
+      var t = b.firstChild;
+      // one icon per button: a leading emoji is hidden (not removed) while the Museum view is on, so the plain page is unchanged
+      if (t && t.nodeType === 3 && !b.classList.contains('ms-gi-dir')) { var m = t.nodeValue.match(LEADING); if (m) { t.nodeValue = t.nodeValue.slice(m[0].length); var w = document.createElement('span'); w.className = 'ms-was'; w.textContent = m[1]; b.insertBefore(w, t); } }
+      var h = document.createElement('span'); h.className = 'ms-hand'; h.setAttribute('aria-hidden','true'); h.textContent = '👆';
+      b.insertBefore(h, b.firstChild);
+    });
+  }
+  function buildTaps(){
+    var hd = $('.header');
+    if (hd && !$('.ms-tapkey')) {
+      var n = hd; while (n.nextElementSibling && n.nextElementSibling.classList.contains('ms-hd-panel')) n = n.nextElementSibling;
+      after(n, el('div','ms-only ms-tapkey',
+        '<span><b>👆</b> You can tap it.</span>' +
+        '<span><b>🔊</b> You can listen.</span>' +
+        '<span><b class="ms-dotw">dotted word</b> Tap it to see what it means.</span>' +
+        '<span><b class="ms-knob" aria-hidden="true"></b> Drag the knob.</span>' +
+        '<span><b>🚪</b> Tap a door to go to that room. <b class="ms-ok">✓</b> means done.</span>'));
+    }
+    markTaps();
+    if (window.MutationObserver) { var tt = null;
+      new MutationObserver(function(){ clearTimeout(tt); tt = setTimeout(function(){ markTaps(); }, 30); }).observe(document.body, {childList:true, subtree:true}); }
+  }
+
   function boot(){
     bindSay();
     buildHall();
@@ -1603,10 +1796,13 @@
     hookTabs();
     buildSigns();
     buildLens();
+    try { buildTaps(); } catch(e){ console.error('ms taps', e); }
     (DATA.modules || []).forEach(function(c){ if (MODS[c.type]) try { MODS[c.type](c); } catch(e){ console.error('ms module', c.type, e); } });
     modOneQuiz();
+    sliders();
     (DATA.hideOn || []).forEach(function(q){ $$(q).forEach(function(x){ x.classList.add('ms-hide-on'); }); });
     placeOpti();
+    try { buildHowTo(); } catch(e){ console.error('ms howto', e); }
     buildGlossary();
     offscreenPause();
     paint();
