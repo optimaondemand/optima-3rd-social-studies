@@ -1807,6 +1807,19 @@
     offscreenPause();
     paint();
     ST.entered[current()] = 1;
+    try { oneStep(); } catch(e){ console.error('ms onestep', e); }
+  }
+  /* one part of a room at a time (ss-onestep.js, 11 Nov 2026); ?steps=0 turns it off */
+  function oneStep(){
+    if (/[?&]steps=0\b/.test(location.search) || window.SS_ONESTEP) return;
+    window.SS_ONESTEP = { root: 'ms-on', panels: '.tab-panel', always: '.ms-sign', word: 'Part', pad: 132,
+      glueNext: '.step-badge, .ms-opti, .callout-info',
+      gluePrev: '.ms-prompts, .callout-tip, .callout-think, .key-concept, .turn-in-card, .ms-nextdoor, .ms-lens, .coming-next-card, .ms-exhibit-mod',
+      door: '.ms-nextdoor', title: '.ms-mod h3, .activity-title, .ms-howto-t',
+      names: [['.gathered-card', 'Turn in your work'], ['.step-badge', null]] };
+    var base = (document.querySelector('script[src*="museum-sparkle.js"]') || {src:''}).src.replace(/museum-sparkle\.js.*$/, '');
+    var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'ss-onestep.css'; document.head.appendChild(l);
+    var s = document.createElement('script'); s.src = base + 'ss-onestep.js'; document.body.appendChild(s);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
