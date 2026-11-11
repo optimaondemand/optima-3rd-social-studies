@@ -2586,8 +2586,10 @@ function gatherAnswers() {
   });
 
   // Mini-game status
-  output += 'MINI-GAME RESULTS\n';
-  output += (window._rootMatchDone ? '✅' : '⬜') + ' Word Roots Match\n';
+  if (document.querySelector('.root-match-game')) {
+    output += 'MINI-GAME RESULTS\n';
+    output += (window._rootMatchDone ? '✅' : '⬜') + ' Word Roots Match\n';
+  }
 
   var gathered = document.getElementById('gatheredOutput');
   if (gathered) gathered.value = output.trim();

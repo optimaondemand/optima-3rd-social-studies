@@ -1317,7 +1317,7 @@
       var li = curLabel(), ci = curCard();
       if (li >= 0) {
         var l = L[li];
-        act.innerHTML = stepCard(li+1, L.length, 'Hang the '+l.name+' label', '<div class="ms-wm-tag"><span class="ms-wm-hole"></span><b>'+esc(l.name)+'</b><span class="clue">Clue: '+l.clue+'</span></div><p class="ms-wm-do">👆 '+esc(cfg.tapT||'Tap the place on the map where this label belongs.')+'</p>');
+        act.innerHTML = stepCard(li+1, L.length, 'Hang the '+String(l.name).replace(/^The /,'')+' label', '<div class="ms-wm-tag"><span class="ms-wm-hole"></span><b>'+esc(l.name)+'</b><span class="clue">Clue: '+l.clue+'</span></div><p class="ms-wm-do">👆 '+esc(cfg.tapT||'Tap the place on the map where this label belongs.')+'</p>');
         frame.dataset.mode = 'label';
       } else if (ci >= 0) {
         var id = C[ci], s = SPEC[id], fl = !!S.flip[id];
@@ -1341,14 +1341,14 @@
         var want = L[li];
         if (k === want.k) { S.hung[k] = 1; save(); SFX.stamp(); render(); var lb = $('.lbl-'+k, ov); if (lb && !calm()) lb.classList.add('drop'); if (curLabel() < 0) { SFX.fanfare(); } return; }
         SFX.miss();
-        fb.innerHTML = '🤔 ' + (k === 'other' ? esc(cfg.grayT||'That gray land is not part of today\'s region.') : (S.hung[k] ? 'That is '+esc(names[k])+'. Its label is already up.' : 'That is '+esc(names[k])+'.')) + ' ' + want.hint;
+        fb.innerHTML = '🤔 ' + (k === 'other' ? esc(cfg.grayT||'That gray land is not part of today\'s region.') : (S.hung[k] ? 'That is '+esc(names[k]).replace(/^The /,'the ')+'. Its label is already up.' : 'That is '+esc(names[k]).replace(/^The /,'the ')+'.')) + ' ' + want.hint;
         return;
       }
       if (ci >= 0 && S.flip[C[ci]]) {
         var s = SPEC[C[ci]];
         if (k === s.place) { var from = $('.ms-pc-card', act); S.pin[C[ci]] = 1; save(); SFX.stamp(); fly(from, frame, '<img alt="" src="'+img(s.card)+'" style="width:100%">', 600).then(render); return; }
         SFX.miss();
-        fb.innerHTML = '🤔 ' + (k === 'other' ? esc(cfg.grayT||'That gray land is not part of today\'s region.') : 'That is '+esc(names[k])+'.') + ' ' + esc(cfg.reread||'Read the back of the postcard again. It says where the photo was taken.');
+        fb.innerHTML = '🤔 ' + (k === 'other' ? esc(cfg.grayT||'That gray land is not part of today\'s region.') : 'That is '+esc(names[k]).replace(/^The /,'the ')+'.') + ' ' + esc(cfg.reread||'Read the back of the postcard again. It says where the photo was taken.');
       }
     }
     $$('[data-k]', svg).forEach(function(p){ p.addEventListener('click', function(){ tapped(p.dataset.k); }); });

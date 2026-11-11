@@ -5081,7 +5081,7 @@ body {
       </div>
     </div>
     <div class="coming-next-body">
-      <p>The Natural Resources Shelf is labeled. But the gallery isn't only about <em>land</em> — it's about people, too. Next time, a row of <em>culture cases</em> opens against the far wall, each holding something a different group of people brought to this region: a longhouse, a Mayan pyramid, a Spanish mission, a French shield, a drum. The story turns from what the land gives to <em>who came here, and what they brought with them</em>.</p>
+      <p>The Natural Resources Shelf is labeled. But the gallery isn't only about <em>land</em> — it's about people, too. Next time, a row of <em>culture cases</em> opens against the far wall, each holding something a different group of people brought to this region: a longhouse, a Maya pyramid, a Spanish mission, a French shield, a drum. The story turns from what the land gives to <em>who came here, and what they brought with them</em>.</p>
     </div>
   </div>
 
@@ -5201,8 +5201,10 @@ function gatherAnswers() {
   });
 
   // Mini-game status
-  output += 'MINI-GAME RESULTS\n';
-  output += (window._rootMatchDone ? '✅' : '⬜') + ' Word Roots Match\n';
+  if (document.querySelector('.root-match-game')) {
+    output += 'MINI-GAME RESULTS\n';
+    output += (window._rootMatchDone ? '✅' : '⬜') + ' Word Roots Match\n';
+  }
 
   var gathered = document.getElementById('gatheredOutput');
   if (gathered) gathered.value = output.trim();
