@@ -1377,20 +1377,20 @@
     card.classList.add('ms-prompts');
     var range = $('input', m), lines = $('.ms-sp-lines', m), act = $('.ms-sp-act', m), tagr = $('.ms-sp-tagr', m); var slide = $('.ms-sp-slide', m), frame = $('.ms-sp-frame', m);
     function setLines(){ var v = +range.value/100; lines.style.opacity = v; tagr.textContent = v > .5 ? (cfg.tagR2||'') : (cfg.tagR||''); }
-    range.addEventListener('input', function(){ setLines(); if (+range.value >= 90 && S.a1 != null && Q1.opts[S.a1].ok && !S.slid) { S.slid = true; save(); SFX.chime(); render(); } });
+    range.addEventListener('input', function(){ setLines(); if (+range.value >= 90 && !S.slid) { S.slid = true; save(); SFX.chime(); render(); } });
     function choices(Q, ans, key){
       return '<div class="ms-pchoices col">'+Q.opts.map(function(o,k){ return '<button type="button" class="ms-btn ms-spq'+(ans===k?(o.ok?' ok':' no'):'')+'" data-q="'+key+'" data-k="'+k+'">'+esc(o.t)+'</button>'; }).join('')+'</div>' +
         '<div class="ms-exfb" aria-live="polite">'+(ans!=null ? (Q.opts[ans].ok ? '✅ ' : '🤔 ')+Q.opts[ans].fb : '')+'</div>';
     }
     function render(){
+      // slider first (it is there from the start), then the questions (Bethany, 11 Nov: "do the questions after they do the slider")
       var ok1 = S.a1 != null && Q1.opts[S.a1].ok, ok2 = S.a2 != null && Q2.opts[S.a2].ok;
-      m.classList.toggle('can-slide', ok1);
-      range.disabled = !ok1;
+      m.classList.add('can-slide');
+      range.disabled = false; slide.hidden = false;
       frame.parentNode.insertBefore(slide, act); // park it under the picture before the step card is redrawn
-      if (!ok1) act.innerHTML = stepCard(1, 3, Q1.title, '<p>'+Q1.text+'</p>'+choices(Q1, S.a1, 'a1'));
-      else if (!S.slid) { act.innerHTML = stepCard(2, 3, cfg.slideTitle, '<p>'+cfg.slideText+'</p><p class="ms-wm-do">👉 '+esc(cfg.slideDo)+'</p>'); $('.ms-stepcard', act).appendChild(slide); }
+      if (!S.slid) { act.innerHTML = stepCard(1, 3, cfg.slideTitle, '<p>'+cfg.slideText+'</p><p class="ms-wm-do">👉 '+esc(cfg.slideDo)+'</p>'); $('.ms-stepcard', act).appendChild(slide); }
+      else if (!ok1) act.innerHTML = stepCard(2, 3, Q1.title, '<p>'+Q1.text+'</p>'+choices(Q1, S.a1, 'a1'));
       else act.innerHTML = stepCard(3, 3, Q2.title, '<p>'+Q2.text+'</p>'+choices(Q2, S.a2, 'a2')) + (ok2 ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : '');
-      slide.hidden = !ok1; // step 1 is about the picture alone: no slider yet
       sliderPaint(range);
       $$('.ms-spq', act).forEach(function(b){ b.onclick = function(){ var Q = b.dataset.q === 'a1' ? Q1 : Q2; S[b.dataset.q] = +b.dataset.k; save();
         if (Q.opts[+b.dataset.k].ok) { SFX.chime(); if (b.dataset.q === 'a2') { ST.gal = ST.gal||{}; if (!ST.gal.space) { ST.gal.space = 1; save(); galleryCheck(); } } } else SFX.miss();
