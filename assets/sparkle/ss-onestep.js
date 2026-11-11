@@ -43,28 +43,36 @@
     return '';
   }
 
-  /* cut a room into parts */
+  /* cut a room into parts. A block that is hidden right now (a note that shows later, a video that
+     has not loaded) never starts a part: it rides with its neighbour, so it turns up in the right part. */
   function cut(panel) {
-    var parts = [], cur = null, pull = false;
+    var parts = [], cur = null, pull = false, carry = [];
     [].slice.call(panel.children).forEach(function (k) {
-      if (!there(k) || is(k, C.always)) return;
+      if (k.nodeType !== 1 || k.classList.contains('ssos-bar') || is(k, C.always)) return;
+      if (getComputedStyle(k).display === 'none') { if (cur && !is(k, C.glueNext)) cur.push(k); else carry.push(k); return; }
       var join = cur && (pull || is(k, C.gluePrev));
       if (!join) { cur = []; parts.push(cur); }
+      if (carry.length) { [].push.apply(cur, carry); carry = []; }
       cur.push(k);
       pull = is(k, C.glueNext) || (pull && is(k, C.gluePrev));   // a small card between the guide's note and its activity doesn't break them apart
     });
+    if (carry.length && cur) [].push.apply(cur, carry);
     return parts;
   }
 
   function setup(panel) {
+    if (panel.getAttribute('data-ssos-room')) return;
     var parts = cut(panel); if (parts.length < 2) return;
+    panel.setAttribute('data-ssos-room', '1');
     var bar = el('div', 'ssos-bar'), back = el('button', 'ssos-back', '◂ Back'), dots = el('div', 'ssos-dots'),
         count = el('span', 'ssos-count'), next = el('button', 'ssos-next');
-    back.type = next.type = 'button'; bar.setAttribute('role', 'navigation'); bar.setAttribute('aria-label', 'Parts of this room');
+    back.type = next.type = 'button'; bar.setAttribute('role', 'navigation'); bar.setAttribute('aria-label', 'Parts of this page');
     parts.forEach(function () { dots.appendChild(el('span', 'ssos-dot')); });
     bar.appendChild(back); bar.appendChild(dots); bar.appendChild(count); bar.appendChild(next);
-    parts.forEach(function (p, j) { p.forEach(function (n) { n.classList.add('ssos-part'); n.setAttribute('data-ssos', j); }); });
+    function mark(n, j) { n.classList.add('ssos-part'); n.setAttribute('data-ssos', j); }
+    parts.forEach(function (p, j) { p.forEach(function (n) { mark(n, j); }); });
     var R = { panel: panel, parts: parts, at: 0, names: parts.map(nameOf) };
+    function seen(n) { return getComputedStyle(n).display !== 'none'; }
     function show(j, move) {
       j = Math.max(0, Math.min(parts.length - 1, j)); R.at = j; save(panel.id, j);
       parts.forEach(function (p, k) { p.forEach(function (n) { n.classList.toggle('ssos-hide', k !== j); }); });
@@ -73,19 +81,32 @@
       back.style.visibility = j ? 'visible' : 'hidden';
       var last = j === parts.length - 1;
       next.hidden = last; next.textContent = '';
-      if (!last) { var h = el('span', 'ssos-hand', '👆'); h.setAttribute('aria-hidden', 'true'); next.appendChild(h); next.appendChild(document.createTextNode(R.names[j + 1] ? 'Next: ' + R.names[j + 1] + ' ▸' : 'Next ▸')); }
+      if (!last) { var h = el('span', 'ssos-hand oao-hand', '👆');   /* oao-hand: the G4 / G5 tap guide sees a hand is already there and adds no second one */ h.setAttribute('aria-hidden', 'true'); next.appendChild(h); next.appendChild(document.createTextNode(R.names[j + 1] ? 'Next: ' + R.names[j + 1] + ' ▸' : 'Next ▸')); }
       /* the bar sits under the part; on the last part it sits above the next-room door */
-      var p = parts[j], tail = p[p.length - 1], door = last && C.door && is(tail, C.door) ? tail : null;
-      if (door) panel.insertBefore(bar, door); else panel.insertBefore(bar, tail.nextSibling);
+      var p = parts[j].filter(function (n) { return n.parentNode === panel; }), tail = p[p.length - 1], door = null;
+      if (last && C.door) for (var i = p.length - 1; i >= 0; i--) if (is(p[i], C.door)) { door = p[i]; break; }
+      if (door) panel.insertBefore(bar, door); else if (tail) panel.insertBefore(bar, tail.nextSibling);
       if (move && H.classList.contains(C.root)) {
-        var top = p[0].getBoundingClientRect().top + window.pageYOffset - (C.pad || 130);
-        window.scrollTo(0, Math.max(0, top));
+        var first = p.filter(seen)[0] || p[0];
+        if (first) window.scrollTo(0, Math.max(0, first.getBoundingClientRect().top + window.pageYOffset - (C.pad || 130)));
       }
       try { window.dispatchEvent(new Event('resize')); } catch (e) {}
     }
     R.show = show;
     next.addEventListener('click', function () { show(R.at + 1, true); });
     back.addEventListener('click', function () { show(R.at - 1, true); });
+    /* a block the layer adds later (or builds again) joins the part of the block beside it */
+    function known(n) { return n && n.hasAttribute && n.hasAttribute('data-ssos') && n.parentNode === panel; }
+    new MutationObserver(function (ms) {
+      ms.forEach(function (m) { [].forEach.call(m.addedNodes, function (n) {
+        if (n.nodeType !== 1 || n.parentNode !== panel || n === bar || n.hasAttribute('data-ssos') || is(n, C.always)) return;
+        var a = n.previousElementSibling, b = n.nextElementSibling;
+        while (a && !known(a)) a = a.previousElementSibling;
+        while (b && !known(b)) b = b.nextElementSibling;
+        var src = (is(n, C.glueNext) && b) || a || b; if (!src) return;
+        var j = +src.getAttribute('data-ssos'); parts[j].push(n); mark(n, j); n.classList.toggle('ssos-hide', j !== R.at);
+      }); });
+    }).observe(panel, { childList: true });
     ROOMS.push(R);
     var s = load()[panel.id]; show(typeof s === 'number' ? s : 0, false);
   }
@@ -100,10 +121,16 @@
   Element.prototype.scrollIntoView = function () { try { reveal(this); } catch (e) {} return siv.apply(this, arguments); };
   window.__ssSteps = { reveal: reveal, rooms: ROOMS };
 
-  function boot() {
-    if (!C.root || !document.querySelector(C.panels || '.tab-panel')) return;
+  function build() {
     H.classList.add('ssos');
     [].forEach.call(document.querySelectorAll(C.panels || '.tab-panel'), function (p) { try { setup(p); } catch (e) { if (window.console) console.error('ss-onestep', e); } });
+  }
+  function boot() {
+    if (!C.root || !document.querySelector(C.panels || '.tab-panel')) return;
+    if (H.classList.contains(C.root)) return build();
+    /* the layer is off right now (plain view): cut the page the first time it comes on */
+    var mo = new MutationObserver(function () { if (H.classList.contains(C.root)) { mo.disconnect(); setTimeout(build, 50); } });
+    mo.observe(H, { attributes: true, attributeFilter: ['class'] });
   }
   if (document.readyState === 'complete') setTimeout(boot, 400);
   else window.addEventListener('load', function () { setTimeout(boot, 400); });
