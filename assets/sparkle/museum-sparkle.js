@@ -48,6 +48,13 @@
                 cut a slice west to east, walk across the side view, compare two parts
    - reliefsrc  Gallery source room: a real physical map, a color key, borders on/off
    - rain       Gallery: rain on the mountains; the rivers carry it downhill to the sea
+   Added for 3.06.06 (DATA.cultures holds the five cultures; DATA.map = 3.06.01 wall map + rivers, areas, marks):
+   - cultcart   Lobby: things you used today; lift the cloth, read the tag, put it in its culture case
+   - timerail   Gallery main attraction: drag back 15,000 years, come back to today, one question
+   - cultmap    Gallery source room: a simple map we made, one culture at a time, one question
+   - visitors   Gallery: the Visitor Questions desk (send each visitor to the right case)
+   - wordroot   Workroom: one word root, one word at a time (tap the root, pick the meaning)
+   - caseex     Exhibit Floor: pick a case, write the label inside the step, open the case
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -445,7 +452,7 @@
     var toks = script.split(/(\s+)/), wi = 0;
     var trHTML = toks.map(function(w){ if (/^\s+$/.test(w)) return /\n\s*\n/.test(w) ? '<br><br>' : w; return '<span data-w="'+(wi++)+'">'+esc(w)+'</span>'; }).join('');
     var c = el('div','ms-opti ms-only'+(note.big?' big':'')); c.dataset.room = note.room || '';
-    c.innerHTML = '<div class="ms-perch"><img alt="Opti the owl" src="'+OWL+'"></div><div class="ms-ob"><div class="ms-on">Opti · your museum guide</div>' +
+    c.innerHTML = '<div class="ms-perch"><img alt="Opti the owl" src="'+OWL+'"></div><div class="ms-ob"><div class="ms-on">Opti · '+esc(note.topic||'your museum guide')+'</div>' +
       '<div class="ms-ctl"><button type="button" class="ms-play">▶ Listen to Opti</button><button type="button" class="ms-ra" aria-expanded="false">📄 Read along</button><span class="ms-onair" aria-hidden="true"><i></i><i></i><i></i> Opti is talking</span></div>' +
       '<div class="ms-tr">'+trHTML+'</div></div>';
     var b = $('.ms-play', c), ra = $('.ms-ra', c), tr = $('.ms-tr', c), wEls = $$('[data-w]', tr), last = -1, raf = 0;
@@ -1105,7 +1112,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -1719,7 +1726,357 @@
     render();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+
+  /* ══════════ Added for 3.06.06 (Cultures That Settled) ══════════
+     DATA.cultures = {key:{name, icon, word, say, where, still, spec}} in case order.
+     - cultcart  Lobby: "Things you used today": lift the cloth, read the tag, put it in its culture case
+     - timerail  Gallery main attraction: drag back 15,000 years, then come back to today
+     - cultmap   Gallery source room: a simple map we made; show each culture one at a time, then one question
+     - visitors  Gallery: the Visitor Questions desk; send each visitor to the right case
+     - wordroot  Workroom: one word root, one word at a time (tap the root, pick the meaning)
+     - caseex    Exhibit Floor: pick a case, write the label inside the step, open the case */
+  function cultOrder(){ return DATA.cultureOrder || Object.keys(DATA.cultures || {}); }
+  function cultName(k){ var c = (DATA.cultures||{})[k] || {}; return c.name || k; }
+  function cultSay(k){ var c = (DATA.cultures||{})[k] || {}; return c.word ? '<button type="button" class="ms-say ms-say-sm" data-word="'+esc(c.word)+'" aria-label="Hear the name '+esc(c.name)+'">🔊</button>' : ''; }
+  var CART_WHEELS = '<svg class="ms-ct-wheels" viewBox="0 0 300 40" aria-hidden="true"><rect x="10" y="2" width="280" height="8" rx="3" fill="#6B4423"/><circle cx="50" cy="26" r="11" fill="#3B2A1A"/><circle cx="50" cy="26" r="4" fill="#B8892E"/><circle cx="250" cy="26" r="11" fill="#3B2A1A"/><circle cx="250" cy="26" r="4" fill="#B8892E"/></svg>';
+
+  /* ══ MODULE: cultcart (Lobby · things you used today → the culture cases) ══
+     cfg.items: specimen ids in order; specimen.culture = a DATA.cultures key; specimen.everyday, .tag */
+  function modCultcart(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var IT = cfg.items || [], C = DATA.cultures || {};
+    ST.cc = ST.cc || {i:0, ph:0}; var S = ST.cc;
+    var m = shell('ms-cc-mod', cfg);
+    m.insertAdjacentHTML('beforeend',
+      '<div class="ms-cc-room"><div class="ms-cc-cases" role="group" aria-label="'+esc(cfg.casesT||'The culture cases')+'">'+IT.map(function(id,i){
+        return '<div class="ms-cc-case" data-i="'+i+'"><div class="ms-cc-glass"><span class="ms-cc-q">?</span><span class="ms-cc-in"></span></div><div class="ms-cc-plate">Case '+(i+1)+'</div></div>'; }).join('')+'</div>' +
+      '<div class="ms-cc-cart"><div class="ms-ct-cartlab">'+esc(cfg.cartT||'Things you used today')+'</div><div class="ms-cc-slots">'+IT.map(function(id,i){
+        return '<span class="ms-cc-slot" data-i="'+i+'"><span class="ms-cc-cloth"></span><span class="ms-cc-num">'+(i+1)+'</span></span>'; }).join('')+'</div>'+CART_WHEELS+'</div></div>' +
+      '<div class="ms-cc-act"></div>');
+    if (cfg.where === 'before') anchor.parentNode.insertBefore(m, anchor); else after(anchor, m);
+    var act = $('.ms-cc-act', m), cart = $('.ms-cc-cart', m);
+    if (!S.rolled && !calm() && 'IntersectionObserver' in window) {
+      cart.classList.add('away');
+      var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { io.disconnect(); cart.classList.remove('away'); cart.classList.add('roll'); SFX.whir(); S.rolled = 1; save(); } }, {threshold:.4});
+      io.observe($('.ms-cc-room', m));
+    }
+    function fillCase(i){
+      var id = IT[i], s = SPEC[id] || {}, c = C[s.culture] || {}, box = $('.ms-cc-case[data-i="'+i+'"]', m);
+      box.classList.add('lit');
+      $('.ms-cc-in', box).innerHTML = '<img alt="'+esc(s.photoAlt||s.name||'')+'" src="'+img(s.card)+'">';
+      $('.ms-cc-plate', box).innerHTML = '<span>'+(c.icon||'')+'</span> '+esc(c.name||'');
+      return box;
+    }
+    function paint(){
+      $$('.ms-cc-slot', m).forEach(function(sl,i){ sl.classList.toggle('done', i < S.i); sl.classList.toggle('now', i === S.i); sl.classList.toggle('lifted', i === S.i && S.ph > 0); });
+      for (var i=0;i<S.i;i++) fillCase(i);
+    }
+    function objCard(id){
+      var s = SPEC[id];
+      return '<div class="ms-cc-obj"><figure class="ms-cc-photo"><img alt="'+esc(s.cardAlt||s.name)+'" src="'+img(s.card)+'"><figcaption>📷 '+esc(s.cardCredit||'')+'</figcaption></figure>' +
+        '<div class="ms-cc-what"><b>'+esc(s.name)+'</b><p>'+s.everyday+'</p></div></div>';
+    }
+    function tagCard(id){
+      var s = SPEC[id], c = C[s.culture] || {};
+      return '<div class="ms-cc-tag"><span class="ms-ct-hole"></span><div class="ms-cc-tagk">Where did it come from?</div>' +
+        '<div class="ms-cc-tagn">'+(c.icon||'')+' <b>'+esc(c.name)+'</b> '+cultSay(s.culture)+'</div>' +
+        (c.say ? '<div class="ms-cc-sayit">Say it: '+esc(c.say)+'</div>' : '') +
+        '<p>'+s.tag+'</p>' + (s.photo ? '<button type="button" class="ms-btn alt ms-cc-ph">📷 See the place</button>' : '') + '</div>';
+    }
+    function render(){
+      paint();
+      var n = IT.length;
+      if (S.i >= n) {
+        act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div><p class="ms-ct-again">'+esc(cfg.againT||'')+'</p>';
+        return;
+      }
+      var id = IT[S.i], s = SPEC[id] || {}, c = C[s.culture] || {}, body;
+      if (S.ph === 0) body = stepCard(S.i+1, n, 'Lift the cloth', '<p>'+esc(cfg.liftT||'Something is hiding under this cloth. Lift the cloth to see it.')+'</p><button type="button" class="ms-btn big ms-cc-go">🧺 '+esc(cfg.liftBtn||'Lift the cloth')+'</button>');
+      else if (S.ph === 1) body = stepCard(S.i+1, n, 'What is it?', objCard(id) + '<button type="button" class="ms-btn big ms-cc-go">🏷️ '+esc(cfg.tagBtn||'Read its tag')+'</button>');
+      else body = stepCard(S.i+1, n, 'Where did it come from?', '<div class="ms-cc-two">'+objCard(id) + tagCard(id)+'</div>' +
+        '<button type="button" class="ms-btn big ms-cc-go">'+esc((cfg.putBtn||'Put it in Case {n}').replace('{n}', S.i+1))+' ➡️</button>');
+      act.innerHTML = body;
+      var ph = $('.ms-cc-ph', act); if (ph) ph.onclick = function(){ placePhoto(id); };
+      $('.ms-cc-go', act).onclick = function(){
+        var b = this; b.disabled = true;
+        if (S.ph === 0) { SFX.creak(); var sl = $('.ms-cc-slot[data-i="'+S.i+'"]', m); if (sl) sl.classList.add('lifting'); S.ph = 1; save(); setTimeout(render, calm() ? 0 : 420); return; }
+        if (S.ph === 1) { SFX.click(); S.ph = 2; save(); render(); return; }
+        var from = $('.ms-cc-photo img', act), i = S.i, box = $('.ms-cc-case[data-i="'+i+'"]', m);
+        fly(from, $('.ms-cc-glass', box), '<img alt="" src="'+img(s.card)+'" style="width:100%">', 650).then(function(){
+          fillCase(i); SFX.glass(); S.i = i + 1; S.ph = 0; save(); render();
+          if (S.i >= n) { SFX.fanfare(); markDone('scene'); }
+        });
+      };
+    }
+    $$('.ms-cc-case', m).forEach(function(b){ b.addEventListener('click', function(){ var i = +b.dataset.i; if (i < S.i) placePhoto(IT[i]); }); });
+    render();
+  }
+
+  /* ══ MODULE: timerail (Gallery main attraction · the long time rail) ══
+     Step 1 drag back to the start (the slider sits inside the step and works from the start),
+     2 come back to today, 3 one question about what the rail shows.
+     cfg: span (years), events [{y, k, when, t, zoom}], zoomFrom (years), steps, q, todayT, longT, shortT */
+  function modTimerail(cfg){
+    var anchor = $(cfg.anchor || '#panel-explore .step-badge'); if (!anchor) return;
+    var SPAN = cfg.span || 15000, EV = cfg.events || [], ZF = cfg.zoomFrom || 600, C = DATA.cultures || {};
+    ST.tr = ST.tr || {step:1, far:0, ans:null}; var S = ST.tr;
+    var m = shell('ms-tr-mod', cfg);
+    function xp(y){ return ((1 - y / SPAN) * 100).toFixed(2); }
+    function zp(y){ return ((1 - y / ZF) * 100).toFixed(2); }
+    function nice(y){ if (y <= 0) return 'Today'; var r = y < 1000 ? 10 : 50; y = Math.round(y / r) * r; return y.toLocaleString('en-US') + ' years ago'; }
+    var ticks = (cfg.ticks || [15000,10000,5000]).map(function(y){ return '<span class="ms-tr-tick" style="left:'+xp(y)+'%"><i></i>'+y.toLocaleString('en-US')+'</span>'; }).join('') + '<span class="ms-tr-tick now" style="left:100%"><i></i>Today</span>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-tr-act"></div>' +
+      '<div class="ms-tr-wall"><div class="ms-tr-title">'+esc(cfg.railT||'The Time Rail')+'</div>' +
+        '<div class="ms-tr-read" aria-live="polite"></div>' +
+        '<div class="ms-tr-rail"><div class="ms-tr-long" style="width:'+xp(cfg.splitAt||533)+'%"><span>'+esc(cfg.longT||'')+'</span></div><div class="ms-tr-short" style="left:'+xp(cfg.splitAt||533)+'%"><span>'+esc(cfg.shortT||'')+'</span></div>' +
+          EV.filter(function(e){ return !e.zoom; }).map(function(e,i){ return '<div class="ms-tr-ev'+(e.lane?' lane'+e.lane:'')+'" data-e="'+EV.indexOf(e)+'" style="left:'+xp(e.y)+'%"><b>'+((C[e.k]||{}).icon||e.icon||'•')+'</b></div>'; }).join('') +
+          '<div class="ms-tr-zb" style="left:'+xp(ZF)+'%"></div>' +
+          '<div class="ms-tr-pin"><i></i></div></div>' +
+        '<div class="ms-tr-ticks">'+ticks+'</div>' +
+        '<div class="ms-tr-zoom"><div class="ms-tr-zt">🔍 '+esc(cfg.zoomT||'The last 600 years, up close')+'</div><div class="ms-tr-zrail">' +
+          EV.filter(function(e){ return e.zoom; }).map(function(e){ return '<div class="ms-tr-zev'+(e.lane?' lane'+e.lane:'')+'" data-e="'+EV.indexOf(e)+'" style="left:'+zp(e.y)+'%"><b>'+((C[e.k]||{}).icon||'•')+'</b><small>'+esc(e.year||'')+'</small></div>'; }).join('') +
+          '<div class="ms-tr-zpin"><i></i></div></div><div class="ms-tr-zends"><span>'+(new Date().getFullYear()-ZF)+'</span><span>Today</span></div></div>' +
+        '<div class="ms-tr-card" aria-live="polite"></div>' +
+        '<div class="ms-tr-today"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-tr-act', m), read = $('.ms-tr-read', m), pin = $('.ms-tr-pin', m), zpin = $('.ms-tr-zpin', m), card = $('.ms-tr-card', m), wall = $('.ms-tr-wall', m), today = $('.ms-tr-today', m);
+    function show(y){
+      read.innerHTML = '🕰️ <b>'+esc(nice(y))+'</b>';
+      pin.style.left = xp(y) + '%';
+      zpin.style.left = Math.max(0, Math.min(100, +zp(Math.min(y, ZF)))) + '%'; zpin.classList.toggle('off', y > ZF);
+      if (y > S.far) { S.far = y; save(); }
+      EV.forEach(function(e,i){ var seen = e.y <= S.far; $$('[data-e="'+i+'"]', m).forEach(function(d){ d.classList.toggle('seen', seen); d.classList.remove('here'); }); });
+      var e = null; EV.forEach(function(x){ if (x.y <= y && (!e || x.y > e.y)) e = x; });
+      if (e && y > 0) { var k = EV.indexOf(e); $$('[data-e="'+k+'"]', m).forEach(function(d){ d.classList.add('here'); });
+        card.innerHTML = '<div class="ms-tr-ck">'+((C[e.k]||{}).icon||e.icon||'')+' <b>'+esc(e.when)+'</b></div><p>'+e.t+'</p>'; card.classList.add('on'); }
+      else if (y <= 0 && S.step < 2) { card.innerHTML = '<p>'+esc(cfg.startT||'')+'</p>'; card.classList.add('on'); }
+      else if (y <= 0) { card.innerHTML = ''; card.classList.remove('on'); }
+    }
+    function todayHTML(){
+      return '<div class="ms-tr-th">'+esc(cfg.todayT||'Today: every culture is still here')+'</div><div class="ms-tr-still">'+cultOrder().map(function(k){ var c = C[k]||{}; return '<div class="ms-tr-sc"><b>'+(c.icon||'')+' '+esc(c.name)+'</b><span>'+c.still+'</span></div>'; }).join('')+'</div>';
+    }
+    function render(){
+      wall.classList.toggle('split', S.step >= 3);
+      today.innerHTML = S.step >= 3 ? todayHTML() : ''; today.classList.toggle('on', S.step >= 3);
+      if (S.step === 1) {
+        act.innerHTML = stepCard(1, 3, cfg.s1T || 'Go back in time', '<p>'+(cfg.s1 || 'Drag the knob to the left, all the way to the start of the rail.')+'</p>' +
+          '<div class="ms-tr-slide" data-start="max"><span>⬅️ '+esc(cfg.leftT||'Long ago')+'</span><input type="range" min="0" max="'+SPAN+'" step="10" value="'+(SPAN - S.far)+'" aria-label="'+esc(cfg.sliderLabel||'Go back in time')+'"><span>'+esc(cfg.rightT||'Today')+'</span></div>' +
+          '<div class="ms-exfb" aria-live="polite"></div>');
+        var r = $('input', act), fb = $('.ms-exfb', act);
+        if (S.far > 0) r.dataset.used = 1;
+        sliderPaint(r);
+        r.addEventListener('input', function(){ var y = SPAN - (+r.value); show(y);
+          if (y >= SPAN - 10) { SFX.chime(); S.step = 2; save(); setTimeout(render, calm() ? 0 : 500); } });
+        show(SPAN - (+r.value));
+        return;
+      }
+      if (S.step === 2) {
+        show(SPAN);
+        act.innerHTML = stepCard(2, 3, cfg.s2T || 'Come back to today', '<p>'+(cfg.s2 || '')+'</p><button type="button" class="ms-btn big ms-tr-back">⏩ '+esc(cfg.backBtn||'Come back to today')+'</button>');
+        $('.ms-tr-back', act).onclick = function(){ this.disabled = true; SFX.whir();
+          var y = SPAN, t0 = performance.now(), dur = calm() ? 1 : 2600;
+          (function step(t){ var k = Math.min(1, (t - t0) / dur); y = Math.round(SPAN * (1 - k)); show(y);
+            if (k < 1) requestAnimationFrame(step); else { S.step = 3; save(); SFX.fanfare(); render(); } })(t0);
+        };
+        return;
+      }
+      show(0);
+      act.innerHTML = stepCard(3, 3, cfg.q.title, '<p>'+cfg.q.text+'</p>' + choiceBlock(cfg.q, S.ans, 'ms-tr-c') + (S.ans != null && cfg.q.opts[S.ans].ok ? '<div class="ms-win show">'+(cfg.win||'')+'</div><p class="ms-ct-again"><button type="button" class="ms-btn alt ms-tr-again">↩️ '+esc(cfg.againT||'Go back in time again')+'</button></p>' : ''));
+      $$('.ms-tr-c', act).forEach(function(b){ b.onclick = function(){ var k = +b.dataset.k, done = S.ans != null && cfg.q.opts[S.ans].ok;
+        if (!done) { S.ans = k; save(); }   // once right, the ✅ stays
+        if (cfg.q.opts[k].ok) { SFX.chime(); ST.gal = ST.gal||{}; if (!ST.gal.rail) { ST.gal.rail = 1; save(); galleryCheck(); } } else SFX.miss();
+        render(); }; });
+      var ag = $('.ms-tr-again', act); if (ag) ag.onclick = function(){ S.step = 1; S.far = 0; save(); render(); };
+    }
+    render();
+  }
+
+  /* ══ MODULE: cultmap (Gallery source room · a simple map we made) ══
+     DATA.map = wall-map shapes + rivers, areas, marks (projected). Step 1 shows one culture at a time; Step 2 one question. */
+  function modCultmap(cfg){
+    var M = DATA.map, anchor = $(cfg.anchor || '#panel-explore .source-card'); if (!M || !anchor) return;
+    var C = DATA.cultures || {}, K = cultOrder();
+    ST.cm = ST.cm || {shown:0, ans:null}; var S = ST.cm;
+    var m = shell('ms-cm-mod', cfg);
+    var svg = mapSVG(M, {label: cfg.alt, compass: true});
+    var extra = '<g class="ms-cm-riv">'+Object.keys(M.rivers||{}).map(function(k){ return '<path d="'+M.rivers[k]+'"/>'; }).join('')+'</g>' +
+      (cfg.rivLabels||[]).map(function(n){ var p = M.pts[n.k]; return p ? '<text class="ms-cm-rl" x="'+p[0]+'" y="'+p[1]+'"'+(n.rot!=null?' transform="rotate('+n.rot+' '+p[0]+' '+p[1]+')"':'')+'>'+esc(n.t)+'</text>' : ''; }).join('') +
+      K.map(function(k){ var c = C[k]||{}; return '<g class="ms-cm-g" data-k="'+k+'" style="--c:'+(c.color||'#0E1C42')+'">' +
+        (M.areas && M.areas[k] ? '<path class="ms-cm-area" d="'+M.areas[k]+'"/>' : '') +
+        ((M.marks||{})[k]||[]).map(function(p){ return '<g class="ms-cm-mk" transform="translate('+p[0]+' '+p[1]+')"><circle r="19"/><text y="8">'+(c.icon||'')+'</text></g>'; }).join('') + '</g>'; }).join('');
+    svg = svg.replace(/<\/svg>$/, extra + '</svg>');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-cm-wrap"><div class="ms-cm-map">'+svg+'<div class="ms-cm-tag">'+esc(cfg.tag||'')+'</div></div>' +
+      '<div class="ms-cm-keys">'+K.map(function(k,i){ var c = C[k]||{}; return '<span class="ms-cm-key" data-k="'+k+'" style="--c:'+(c.color||'#0E1C42')+'"><b>'+(c.icon||'')+'</b> '+esc(c.name)+'</span>'; }).join('')+'</div></div>' +
+      '<p class="ms-credit">🗺️ '+esc(cfg.credit||'')+'</p><div class="ms-cm-act"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-cm-act', m);
+    function paint(){ K.forEach(function(k,i){ var on = i < S.shown; $$('.ms-cm-g[data-k="'+k+'"], .ms-cm-key[data-k="'+k+'"]', m).forEach(function(g){ g.classList.toggle('on', on); g.classList.toggle('new', i === S.shown - 1); }); }); }
+    function render(){
+      paint();
+      if (S.shown < K.length) {
+        var k = K[S.shown], c = C[k] || {}, prev = S.shown ? K[S.shown-1] : null, pc = prev ? C[prev] : null;
+        act.innerHTML = stepCard(1, 2, (cfg.s1T || 'Meet the map') + ' · ' + (S.shown+1) + ' of ' + K.length,
+          (pc ? '<div class="ms-cm-card" style="--c:'+(pc.color||'#0E1C42')+'"><b>'+(pc.icon||'')+' '+esc(pc.name)+'</b> '+cultSay(prev)+'<p>'+pc.where+'</p></div>' : '<p>'+(cfg.s1||'')+'</p>') +
+          '<button type="button" class="ms-btn big ms-cm-show" style="--c:'+(c.color||'#0E1C42')+'">🗺️ '+esc((cfg.showBtn||'Show the {name} on the map').replace('{name}', c.mapName || c.name))+'</button>');
+        $('.ms-cm-show', act).onclick = function(){ SFX.pop(); S.shown++; save(); render(); };
+        return;
+      }
+      var last = C[K[K.length-1]] || {};
+      act.innerHTML = stepCard(2, 2, cfg.q.title, (S.ans == null ? '<div class="ms-cm-card" style="--c:'+(last.color||'#0E1C42')+'"><b>'+(last.icon||'')+' '+esc(last.name)+'</b> '+cultSay(K[K.length-1])+'<p>'+last.where+'</p></div>' : '') +
+        '<p>'+cfg.q.text+'</p>' + choiceBlock(cfg.q, S.ans, 'ms-cm-c') + (S.ans != null && cfg.q.opts[S.ans].ok ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : ''));
+      $$('.ms-cm-c', act).forEach(function(b){ b.onclick = function(){ var k = +b.dataset.k, done = S.ans != null && cfg.q.opts[S.ans].ok;
+        if (!done) { S.ans = k; save(); }
+        if (cfg.q.opts[k].ok) { SFX.chime(); ST.gal = ST.gal||{}; if (!ST.gal.map) { ST.gal.map = 1; save(); galleryCheck(); } } else SFX.miss();
+        render(); }; });
+    }
+    $$('.ms-cm-key', m).forEach(function(b){ b.addEventListener('click', function(){ var k = b.dataset.k, i = K.indexOf(k); if (i >= S.shown) return; var c = C[k];
+      lightbox('<div class="ms-lb-k">On the map</div><h3>'+(c.icon||'')+' '+esc(c.name)+'</h3><p>'+c.where+'</p>'); }); });
+    render();
+  }
+
+  /* ══ MODULE: visitors (Gallery · the Visitor Questions desk) ══
+     cfg.visitors [{who, look, q, ans, ok, hint}] in order; the five cases are the buttons. */
+  var LOOKS = [['#8D5524','#2E6DB4','#3B2A1A'],['#F1C27D','#C0392B','#7A4F27'],['#C68642','#1A8A7D','#111'],['#FFDBAC','#7D3C98','#B8892E'],['#5C3A21','#E67E22','#222'],['#E0AC69','#2C3E50','#8B5A2B']];
+  function visitorSVG(i){ var L = LOOKS[i % LOOKS.length];
+    return '<svg class="ms-vd-p" viewBox="0 0 80 100" aria-hidden="true"><path d="M10 100 C10 70 22 60 40 60 C58 60 70 70 70 100 Z" fill="'+L[1]+'"/><circle cx="40" cy="36" r="20" fill="'+L[0]+'"/>' +
+      '<path d="M20 34 C20 16 60 16 60 34 C56 24 26 24 20 34 Z" fill="'+L[2]+'"/><circle cx="33" cy="38" r="2.4" fill="#222"/><circle cx="47" cy="38" r="2.4" fill="#222"/><path d="M33 46 Q40 51 47 46" stroke="#222" stroke-width="2" fill="none" stroke-linecap="round"/></svg>'; }
+  function modVisitors(cfg){
+    var act0 = $(cfg.anchor || '#panel-explore .activity.bl-purple'); if (!act0) return;
+    var V = cfg.visitors || [], K = cultOrder(), C = DATA.cultures || {};
+    ST.vd = ST.vd || {i:0, ok:false}; var S = ST.vd;
+    var m = shell('ms-vd-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-vd-room"><div class="ms-vd-line"></div><div class="ms-vd-desk"><span>'+esc(cfg.deskT||'Visitor Questions')+'</span></div></div>' +
+      '<div class="ms-vd-act"></div>');
+    act0.parentNode.insertBefore(m, act0);
+    var act = $('.ms-vd-act', m), line = $('.ms-vd-line', m);
+    function caseBtns(){ return '<div class="ms-vd-cases">'+K.map(function(k){ var c = C[k]||{}, s = SPEC[c.spec]||{};
+      return '<button type="button" class="ms-vd-case" data-k="'+k+'"><span class="ms-vd-ci"><img alt="" src="'+img(s.card)+'"></span><b>'+(c.icon||'')+' '+esc(c.name)+'</b></button>'; }).join('')+'</div>'; }
+    function render(){
+      line.innerHTML = V.map(function(v,i){ return '<span class="ms-vd-w'+(i < S.i ? ' gone' : (i === S.i ? ' now' : ''))+'">'+visitorSVG(i)+'</span>'; }).join('');
+      if (S.i >= V.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      var v = V[S.i];
+      act.innerHTML = stepCard(S.i+1, V.length, 'Visitor '+(S.i+1)+' of '+V.length,
+        '<div class="ms-vd-ask">'+visitorSVG(S.i)+'<div class="ms-vd-bub"><small>'+esc(v.who||'A visitor asks:')+'</small>'+v.q+'</div></div>' +
+        (S.ok ? '<div class="ms-vd-thanks">✅ '+v.ok+'</div><button type="button" class="ms-btn big ms-vd-next">'+(S.i+1 < V.length ? esc(cfg.nextT||'Next visitor')+' ➡️' : esc(cfg.lastT||'That was the last visitor')+' ✓')+'</button>'
+              : '<p class="ms-wm-do">👆 '+esc(cfg.pickT||'Which case should this visitor go to? Tap the case.')+'</p>' + caseBtns() + '<div class="ms-exfb" aria-live="polite"></div>'));
+      $$('.ms-vd-case', act).forEach(function(b){ b.onclick = function(){
+        if (b.dataset.k === v.ans) { S.ok = true; save(); SFX.chime(); render(); }
+        else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); $('.ms-exfb', act).innerHTML = '🤔 '+v.hint; }
+      }; });
+      var nx = $('.ms-vd-next', act); if (nx) nx.onclick = function(){ SFX.click(); S.i++; S.ok = false; save();
+        if (S.i >= V.length) { SFX.fanfare(); ST.gal = ST.gal||{}; if (!ST.gal.desk) { ST.gal.desk = 1; save(); galleryCheck(); } }
+        render(); };
+    }
+    act0.classList.add('ms-hide-on');
+    render();
+  }
+
+  /* ══ MODULE: wordroot (Workroom · one word root) ══
+     cfg.root, cfg.means, words [{w, parts:[...], k (index of the root part), opts:[{t,ok}], fb}] */
+  function modWordroot(cfg){
+    var anchor = $(cfg.anchor || '#panel-check .quiz-card'); if (!anchor) return;
+    var W = cfg.words || []; ST.wr = ST.wr || {i:0, ph:0}; var S = ST.wr;
+    var m = shell('ms-wr-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-wr-card"><span class="ms-wr-root">'+esc(cfg.root)+'</span><span class="ms-wr-eq">=</span><span class="ms-wr-mean">'+esc(cfg.means)+'</span></div><div class="ms-wr-act"></div>');
+    after(anchor, m);
+    var act = $('.ms-wr-act', m);
+    function told(){ window._rootMatchDone = S.i >= W.length; if (typeof window.gatherAnswers === 'function') try { window.gatherAnswers(); } catch(e){} }
+    function render(){
+      told();
+      if (S.i >= W.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      var w = W[S.i];
+      var word = '<div class="ms-wr-word">'+w.parts.map(function(p,j){ return '<button type="button" class="ms-wr-part'+(S.ph>0 && j===w.k ? ' ok' : '')+'" data-j="'+j+'"'+(S.ph>0?' disabled':'')+'>'+esc(p)+'</button>'; }).join('')+'</div>';
+      if (S.ph === 0) act.innerHTML = stepCard(S.i+1, W.length, 'Word '+(S.i+1)+' of '+W.length+' · Find the root', word + '<p class="ms-wm-do">👆 '+esc((cfg.findT||'Tap the part of the word that says {root}.').replace('{root}', cfg.root))+'</p><div class="ms-exfb" aria-live="polite"></div>');
+      else act.innerHTML = stepCard(S.i+1, W.length, 'Word '+(S.i+1)+' of '+W.length+' · What does it mean?', word + '<p>'+esc((cfg.askT||'{root} means {means}. So what does {w} mean?').replace('{root}', cfg.root).replace('{means}', cfg.means).replace('{w}', w.w))+'</p>' +
+        '<div class="ms-pchoices col">'+w.opts.map(function(o,k){ return '<button type="button" class="ms-btn ms-wr-o'+(S.ph===2 && o.ok?' ok':'')+'" data-k="'+k+'">'+esc(o.t)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite">'+(S.ph===2 ? '✅ '+esc(w.ok||'') : '')+'</div>' +
+        (S.ph === 2 ? '<button type="button" class="ms-btn big ms-wr-next">'+(S.i+1 < W.length ? 'Next word ➡️' : 'Done ✓')+'</button>' : ''));
+      $$('.ms-wr-part', act).forEach(function(b){ b.onclick = function(){ if (+b.dataset.j === w.k) { SFX.chime(); S.ph = 1; save(); render(); } else { SFX.miss(); $('.ms-exfb', act).innerHTML = '🤔 Look for the letters <b>'+esc(cfg.root)+'</b>.'; } }; });
+      $$('.ms-wr-o', act).forEach(function(b){ b.onclick = function(){ if (S.ph === 2) return; var o = w.opts[+b.dataset.k]; if (o.ok) { SFX.chime(); S.ph = 2; save(); render(); } else { SFX.miss(); b.classList.add('no'); $('.ms-exfb', act).innerHTML = '🤔 '+esc(w.fb||''); } }; });
+      var nx = $('.ms-wr-next', act); if (nx) nx.onclick = function(){ S.i++; S.ph = 0; save(); SFX.click(); render(); };
+    }
+    render();
+  }
+
+  /* ══ MODULE: caseex (Exhibit Floor · your culture case) ══
+     1 pick a case, 2 the Curator Task box moves into this step: write the label (sentence count + courtesy checks),
+     3 see it in the case → Open my case (always pressable; says what's missing). */
+  function modCaseex(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'); if (!ta) return;
+    var C = DATA.cultures || {}, K = cultOrder(), NEED = cfg.sentences || 3;
+    ST.ce = ST.ce || {k:null, step:1, open:false}; var S = ST.ce;
+    var m = shell('ms-ce-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-ce-act"></div><div class="ms-ce-show" hidden><div class="ms-ce-case"><div class="ms-ce-glass"><div class="ms-ce-spec"></div></div><div class="ms-ce-label"><span class="ms-holder"></span><div class="ms-ce-lt"></div><div class="ms-ce-lx"></div><div class="ms-ce-by"></div><span class="ms-draft">DRAFT</span></div><div class="ms-ce-curtain"><i></i></div></div></div><div class="ms-ce-end"></div>');
+    var home = document.createComment('ce-home'); ta.parentNode.insertBefore(home, ta);
+    var host = ta.closest('.activity') || ta.parentNode; host.parentNode.insertBefore(m, host.nextSibling);
+    host.classList.add('ms-ce-host', 'ms-hide-on');
+    var act = $('.ms-ce-act', m), show = $('.ms-ce-show', m), end = $('.ms-ce-end', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function sentences(t){ return t.split(/[.!?]+/).filter(function(x){ return (x.trim().match(/\S+/g)||[]).length >= 3; }).length; }
+    function checks(){ var c = C[S.k] || {}; return (c.checks || []).map(function(x){ return {t:x.t, ok:new RegExp(x.re,'i').test(ta.value)}; }); }
+    function missing(){
+      var miss = []; if (!S.k) return [cfg.missPick || 'Pick a case first.'];
+      var n = sentences(ta.value); if (n < NEED) miss.push('Write '+(NEED-n)+' more sentence'+(NEED-n===1?'':'s')+'.');
+      var need = checks().filter(function(x){ return !x.ok; }).map(function(x){ return x.t; });
+      if (need.length) miss.push((cfg.needT||'Your label still needs:')+' '+need.join(' · ')+'.');
+      return miss;
+    }
+    function caseView(){
+      var c = C[S.k] || {}, s = SPEC[c.spec] || {};
+      $('.ms-ce-spec', show).innerHTML = s.card ? '<img alt="'+esc(s.cardAlt||'')+'" src="'+img(s.card)+'">' : '';
+      $('.ms-ce-lt', show).innerHTML = (c.icon||'')+' '+esc(c.name||'');
+      var v = ta.value.trim(); $('.ms-ce-lx', show).textContent = v || (cfg.emptyT || 'Your label will appear here as you write.'); $('.ms-ce-lx', show).classList.toggle('empty', !v);
+      $('.ms-ce-by', show).textContent = '— ' + (sget(NAMEK,'') || 'Junior Curator') + ', Regional Curator';
+      show.classList.toggle('open', !!S.open);
+    }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 2;
+      ta.classList.toggle('ms-gi-away', S.step !== 2);
+      if (S.step === 1 || !S.k) {
+        S.step = 1; goHome();
+        act.innerHTML = stepCard(1, 3, cfg.s1T || 'Pick a case', '<p>'+(cfg.s1||'')+'</p><div class="ms-vd-cases ms-ce-picks">'+K.map(function(k){ var c = C[k]||{}, s = SPEC[c.spec]||{};
+          return '<button type="button" class="ms-vd-case'+(S.k===k?' on':'')+'" data-k="'+k+'"><span class="ms-vd-ci"><img alt="" src="'+img(s.card)+'"></span><b>'+(c.icon||'')+' '+esc(c.name)+'</b></button>'; }).join('')+'</div>');
+        $$('.ms-vd-case', act).forEach(function(b){ b.onclick = function(){ S.k = b.dataset.k; S.step = 2; save(); SFX.click(); render(); }; });
+        return;
+      }
+      caseView();
+      if (S.step === 2) {
+        var c = C[S.k] || {};
+        act.innerHTML = stepCard(2, 3, cfg.s2T || 'Write your label', '<p>'+(cfg.s2||'').replace('{name}', esc(c.name))+'</p>' +
+          '<div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(t.replace('{name}', c.honor || c.name))+'</button>'; }).join('')+'</div>' +
+          '<div class="ms-gi-box"></div><div class="ms-excheck ms-ce-chk"></div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-ce-other">↩️ '+esc(cfg.otherT||'Pick a different case')+'</button><button type="button" class="ms-btn big ms-ce-next">'+esc(cfg.nextT||'Next: see it in the case')+' ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(ta);
+        var chk = $('.ms-ce-chk', act), fb = $('.ms-gi-fb', act);
+        function upd(){ var n = sentences(ta.value), miss = missing();
+          chk.innerHTML = '<span class="ms-wc'+(n>=NEED?' ok':'')+'">📝 '+Math.min(n,NEED)+' of '+NEED+' sentences</span>' + checks().map(function(x){ return '<span class="ms-chip'+(x.ok?' ok':'')+'">'+(x.ok?'✓ ':'')+esc(x.t)+'</span>'; }).join('');
+          $('.ms-ce-next', act).classList.toggle('ms-notready', !!miss.length); caseView();
+          if (fb.innerHTML) fb.innerHTML = miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>' : ''; }
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b,i){ b.onclick = function(){ var t = (cfg.starters||[])[i].replace('{name}', c.honor || c.name); ta.value = ta.value.replace(/\s*$/,'') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-ce-other', act).onclick = function(){ S.step = 1; save(); render(); };
+        $('.ms-ce-next', act).onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+          SFX.click(); S.step = 3; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return;
+      }
+      goHome();
+      act.innerHTML = S.open ? '' : stepCard(3, 3, cfg.s3T || 'Open your case', '<p>'+(cfg.s3||'')+'</p><button type="button" class="ms-btn big ms-ce-open">🎉 '+esc(cfg.openT||'Open my case')+'</button><div class="ms-gi-fb" aria-live="polite"></div>');
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : '') + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-ce-edit">✏️ '+esc(cfg.editT||'Edit my label')+'</button></div>';
+      var ob = $('.ms-ce-open', act); if (ob) ob.onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); $('.ms-gi-fb', act).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('opening'); void show.offsetWidth; show.classList.add('opening'); SFX.fanfare(); render();
+        setTimeout(function(){ show.classList.remove('opening'); }, 1600); optiNod('assignment'); check(); };
+      $('.ms-ce-edit', end).onclick = function(){ S.open = false; S.step = 2; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 2) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
@@ -1730,12 +2087,12 @@
   }
 
   /* ══ sliders v2: teal fill + "waiting to be used" glow on every layer slider ══ */
-  var SLIDERS = '.ms-lever input[type=range],.ms-yearbar input[type=range],.ms-sp-slide input[type=range],.ms-rt-tilt input[type=range]';
+  var SLIDERS = '.ms-lever input[type=range],.ms-yearbar input[type=range],.ms-sp-slide input[type=range],.ms-rt-tilt input[type=range],.ms-tr-slide input[type=range]';
   function sliderPaint(r){
     var lo = +r.min||0, hi = +r.max||100, f = hi>lo ? (+r.value-lo)/(hi-lo)*100 : 0;
     r.style.setProperty('--ms-fill', f+'%');
-    var well = r.closest('.ms-lever,.ms-yearbar,.ms-sp-slide,.ms-rt-tilt');
-    if (well) well.classList.toggle('ms-slide-wait', !r.disabled && !r.dataset.used && !well.hidden && +r.value === lo);
+    var well = r.closest('.ms-lever,.ms-yearbar,.ms-sp-slide,.ms-rt-tilt,.ms-tr-slide');
+    if (well) well.classList.toggle('ms-slide-wait', !r.disabled && !r.dataset.used && !well.hidden && +r.value === (well.dataset.start === 'max' ? hi : lo));
   }
   function sliders(){
     $$(SLIDERS).forEach(sliderPaint);
