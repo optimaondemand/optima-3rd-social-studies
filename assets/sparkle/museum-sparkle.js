@@ -55,6 +55,17 @@
    - visitors   Gallery: the Visitor Questions desk (send each visitor to the right case)
    - wordroot   Workroom: one word root, one word at a time (tap the root, pick the meaning)
    - caseex     Exhibit Floor: pick a case, write the label inside the step, open the case
+   Added for 3.06.07 (DATA.tokens = the four reason tokens; DATA.map + cities):
+   - tokens     Lobby: you lead the families; open each need, put its token in the tray
+   - towntable  Gallery main attraction: a simple model landscape, five spots; drop the town pin, the town grows
+   - magnify    Gallery source room: old pictures one at a time; move the magnifier to find each clue
+   - pinmap     Gallery: the Settlement Map; one city at a time, put the right token on its pin
+   - storypin   Exhibit Floor: pick a city, pick two tokens, write the story in the step, it hangs by the pin
+   Added for 3.06.08 (DATA.places, DATA.specs; slug() now drops accents, so Taíno → taino):
+   - wallpanels Lobby: walk past the finished rooms, unveil four panels, hang eight photo specimens
+   - threads    Gallery main attraction: tap where a sport or music started, send it traveling on a gold thread
+   - langmap    Gallery source room: a languages map; turn on each color, zoom in on the islands
+   - compare2   Exhibit Floor: two places, one thing each, a connection, four sentences, install → the gallery lights up
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -446,7 +457,7 @@
     if (btn) { btn.classList.add('on'); clipA.addEventListener('ended', function(){ btn.classList.remove('on'); }); clipA.addEventListener('error', function(){ btn.classList.remove('on'); btn.disabled = true; btn.title = 'Sound not found'; }); }
     clipA.play().catch(function(){ if (btn) btn.classList.remove('on'); });
   }
-  function slug(t){ return String(t).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+  function slug(t){ return String(t).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
   function opti(note){
     var script = note.script || String(note.text||'').replace(/<[^>]+>/g,'');
     var toks = script.split(/(\s+)/), wi = 0;
@@ -1112,7 +1123,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -2076,7 +2087,560 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+
+  /* ══════════ Added for 3.06.07 (Environment and Settlement) ══════════
+     DATA.tokens = {key:{name, short, need, gives, word}} in DATA.tokenOrder: the four reason tokens.
+     - tokens     Lobby: you lead the families; open each need, put its token in the tray
+     - towntable  Gallery main attraction: a simple model landscape, five spots; drop the town pin, the town grows
+     - magnify    Gallery source room: old pictures, one at a time; move the magnifier to find each clue
+     - pinmap     Gallery: the Settlement Map; one city at a time, put the right token on its pin
+     - storypin   Exhibit Floor: pick a city, pick two tokens, write the story in the step, it hangs by the pin */
+  function tokOrder(){ return DATA.tokenOrder || Object.keys(DATA.tokens || {}); }
+  function tokArt(k){
+    var inner = {
+      trade: '<path d="M10 33 Q32 41 54 33" stroke="#2D6FA8" stroke-width="3" fill="none"/><path d="M15 29 L49 29 L44 36 L20 36 Z" fill="#8A5A2E" stroke="#4E3218" stroke-width="1.5"/><path d="M32 29 V10" stroke="#4E3218" stroke-width="2"/><path d="M33 11 L46 26 L33 26 Z" fill="#FBF5E6" stroke="#7E5A16" stroke-width="1.2"/><path d="M31 13 L21 26 L31 26 Z" fill="#F3E2B6" stroke="#7E5A16" stroke-width="1.2"/>',
+      food: '<path d="M16 26 h22 l-3 13 h-16 z" fill="#B9824A" stroke="#6B4423" stroke-width="1.5"/><path d="M19 30 h16 M18 34 h18" stroke="#7A4F27" stroke-width="1"/><g fill="#E9B23A" stroke="#9A6A10" stroke-width=".8"><ellipse cx="22" cy="20" rx="3.2" ry="7"/><ellipse cx="28" cy="18" rx="3.2" ry="8"/><ellipse cx="34" cy="20" rx="3.2" ry="7"/></g><path d="M20 26 q-4 -10 2 -16 M36 26 q4 -10 -2 -16" stroke="#5E9A3A" stroke-width="2" fill="none"/><path d="M43 22 h8 l2 4 v12 q0 3 -3 3 h-6 q-3 0 -3 -3 v-12 z" fill="#6FA8D8" stroke="#2D6FA8" stroke-width="1.5"/><path d="M44 29 h8" stroke="#fff" stroke-width="1.5" opacity=".7"/>',
+      resource: '<path d="M14 36 L22 22 L32 18 L44 21 L50 33 L42 40 L24 41 Z" fill="#E2B83C" stroke="#8A6410" stroke-width="2"/><path d="M22 22 L28 31 L32 18 M28 31 L44 21 M28 31 L24 41 M28 31 L42 40" stroke="#B88A1E" stroke-width="1.2" fill="none"/><path d="M36 26 l1.5 -5 l1.5 5 l5 1.5 l-5 1.5 l-1.5 5 l-1.5 -5 l-5 -1.5 z" fill="#FFF6CF"/>',
+      defend: '<path d="M8 42 L8 24 L20 18 L24 42 Z" fill="#9A8466" stroke="#5E4E36" stroke-width="1.2"/><path d="M24 42 L20 18 L28 16 L30 42" fill="#B39D7C"/><path d="M28 10 h22 v14 q0 12 -11 17 q-11 -5 -11 -17 z" fill="#2D4C8C" stroke="#0E1C42" stroke-width="1.5"/><path d="M39 13 v24 M31 22 h16" stroke="#E9C878" stroke-width="2.4"/>'
+    }[k] || '';
+    return '<svg viewBox="0 0 64 52" class="ms-tk-art" aria-hidden="true">'+inner+'</svg>';
+  }
+  function tokCoin(k, cls){ var t = (DATA.tokens||{})[k] || {}; return '<span class="ms-tk '+(cls||'')+'" data-k="'+k+'" title="'+esc(t.name||'')+'"><span class="ms-tk-coin">'+tokArt(k)+'</span><b>'+esc(t.name||'')+'</b></span>'; }
+
+  /* ══ MODULE: tokens (Lobby · you lead the families) ══ */
+  function modTokens(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var K = tokOrder(), T = DATA.tokens || {};
+    ST.tk = ST.tk || {i:0, ph:0}; var S = ST.tk;
+    var m = shell('ms-tk-mod', cfg);
+    m.insertAdjacentHTML('beforeend',
+      '<div class="ms-tk-room"><svg class="ms-tk-scene" viewBox="0 0 600 120" aria-hidden="true"><rect width="600" height="120" fill="#F4EAD5"/><path d="M0 96 Q150 86 300 94 T600 92 V120 H0 Z" fill="#C9A877"/>' +
+        '<path d="M40 96 L92 48 L144 96 Z" fill="#8F8578"/><path d="M80 59 L92 48 L104 59 L97 57 L92 61 L86 57 Z" fill="#fff"/><path d="M120 96 L180 40 L240 96 Z" fill="#A39886"/><path d="M166 53 L180 40 L194 53 L187 50 L180 55 L173 50 Z" fill="#fff"/>' +
+        '<g transform="translate(380 62)"><rect x="0" y="6" width="58" height="22" rx="3" fill="#B9824A" stroke="#6B4423" stroke-width="2"/><path d="M2 8 Q29 -18 56 8" fill="#FBF5E6" stroke="#9A8452" stroke-width="2"/><circle cx="12" cy="32" r="7" fill="#4E3218"/><circle cx="46" cy="32" r="7" fill="#4E3218"/></g>' +
+        '<g fill="#5A4636"><circle cx="470" cy="70" r="5"/><rect x="466" y="75" width="8" height="18" rx="3"/><circle cx="488" cy="72" r="4"/><rect x="485" y="76" width="7" height="15" rx="3"/><circle cx="504" cy="70" r="5"/><rect x="500" y="75" width="8" height="18" rx="3"/></g>' +
+        '<text x="300" y="22" text-anchor="middle" font-family="Lora,Georgia,serif" font-size="15" fill="#3A2A14">'+esc(cfg.sceneT||'')+'</text></svg>' +
+      '<div class="ms-tk-tray"><div class="ms-tk-trayl">'+esc(cfg.trayT||'Your token tray')+'</div><div class="ms-tk-slots">'+K.map(function(k,i){ return '<span class="ms-tk-slot" data-i="'+i+'"><span class="ms-tk-empty">'+(i+1)+'</span></span>'; }).join('')+'</div></div></div>' +
+      '<div class="ms-tk-act"></div>');
+    if (cfg.where === 'before') anchor.parentNode.insertBefore(m, anchor); else after(anchor, m);
+    var act = $('.ms-tk-act', m);
+    function paint(){ $$('.ms-tk-slot', m).forEach(function(s,i){ s.innerHTML = i < S.i ? tokCoin(K[i]) : '<span class="ms-tk-empty">'+(i+1)+'</span>'; s.classList.toggle('now', i === S.i); }); }
+    function render(){
+      paint(); var n = K.length;
+      if (S.i >= n) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      var k = K[S.i], t = T[k] || {};
+      if (S.ph === 0) act.innerHTML = stepCard(S.i+1, n, 'Need '+(S.i+1)+' of '+n, '<p class="ms-tk-need">'+t.need+'</p><button type="button" class="ms-btn big ms-tk-go">🗝️ '+esc(cfg.openBtn||'Open the token box')+'</button>');
+      else act.innerHTML = stepCard(S.i+1, n, t.name, '<div class="ms-tk-show">'+tokCoin(k,'big')+'<p>'+t.gives+'</p></div><button type="button" class="ms-btn big ms-tk-go">'+esc((cfg.putBtn||'Put it in slot {n}').replace('{n}', S.i+1))+' ➡️</button>');
+      $('.ms-tk-go', act).onclick = function(){ this.disabled = true;
+        if (S.ph === 0) { SFX.creak(); S.ph = 1; save(); render(); return; }
+        var i = S.i, from = $('.ms-tk-show .ms-tk-coin', act), slot = $('.ms-tk-slot[data-i="'+i+'"]', m);
+        fly(from, slot, tokArt(K[i]), 600).then(function(){ SFX.stamp(); S.i = i + 1; S.ph = 0; save(); render(); if (S.i >= n) { SFX.fanfare(); markDone('scene'); } });
+      };
+    }
+    render();
+  }
+
+  /* ══ MODULE: towntable (Gallery main attraction · build a town) ══
+     cfg.spots [{k, n, x, y, grow:[tents,houses,extra...], tokens:[...], what, why}]; the model is drawn here (no images). */
+  function townArt(){
+    return '<defs><linearGradient id="ms-tt-sea" x1="0" x2="1"><stop offset="0" stop-color="#7FB5D6"/><stop offset="1" stop-color="#4F8FBF"/></linearGradient>' +
+      '<pattern id="ms-tt-dry" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#E6CF9A"/><circle cx="5" cy="6" r="1.2" fill="#C4A46A"/><circle cx="15" cy="16" r="1" fill="#C4A46A"/></pattern>' +
+      '<linearGradient id="ms-tt-cliff" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B8A07A"/><stop offset="1" stop-color="#7A6446"/></linearGradient></defs>' +
+      '<rect width="1000" height="560" fill="#B9D58F"/>' +
+      '<path d="M0 340 Q110 320 250 360 L320 560 L0 560 Z" fill="url(#ms-tt-dry)"/>' +
+      '<g fill="#5E8A3A" opacity=".55"><circle cx="70" cy="420" r="3"/><circle cx="210" cy="500" r="3"/><circle cx="120" cy="530" r="2.5"/></g>' +
+      '<g fill="#8F8578" stroke="#6E655C" stroke-width="2"><path d="M0 0 H430 L390 70 L340 30 L290 110 L240 50 L190 120 L130 60 L70 130 L0 80 Z"/></g>' +
+      '<g fill="#fff"><path d="M340 30 L355 55 L330 52 Z"/><path d="M240 50 L256 76 L228 72 Z"/><path d="M130 60 L146 86 L118 82 Z"/></g>' +
+      '<path d="M840 0 H1000 V560 H900 Q860 470 900 380 Q950 300 890 210 Q840 120 840 0 Z" fill="url(#ms-tt-sea)"/>' +
+      '<text x="950" y="300" font-family="Lora,Georgia,serif" font-style="italic" font-size="22" fill="#fff" text-anchor="middle" transform="rotate(90 950 300)">Sea</text>' +
+      '<ellipse cx="640" cy="105" rx="105" ry="50" fill="#6FA8D8" stroke="#4F8FBF" stroke-width="3"/>' +
+      '<path d="M720 300 L860 340 L862 360 L716 322 Z" fill="url(#ms-tt-cliff)" stroke="#5E4E36" stroke-width="2"/><path d="M690 250 Q760 262 860 300 L860 340 L720 300 Z" fill="#A3B87A"/>' +
+      '<g stroke="#5E4E36" stroke-width="1.5" opacity=".7"><path d="M740 306 l-3 12 M770 315 l-3 12 M800 323 l-3 12 M830 331 l-3 12"/></g>' +
+      '<path class="ms-tt-river" d="M290 120 C 330 230, 450 250, 560 280 S 700 330, 760 372 S 860 460, 905 470" fill="none" stroke="#4F8FBF" stroke-width="16" stroke-linecap="round"/>' +
+      '<text x="60" y="380" font-family="Nunito,sans-serif" font-weight="800" font-size="16" fill="#8A6A3A">dry plain</text>' +
+      '<text x="640" y="110" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#24548A" text-anchor="middle">lake</text>' +
+      '<text x="215" y="24" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#fff" text-anchor="middle">mountains</text>' +
+      '<text x="895" y="356" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#5E4423" text-anchor="end" transform="rotate(14 895 356)">cliff</text>' +
+      '<text x="470" y="292" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#24548A">river</text>';
+  }
+  function townGrow(sp){
+    var g = '', x = sp.x, y = sp.y, st = sp.grow || [];
+    function tent(dx,dy){ return '<path d="M'+(x+dx-9)+' '+(y+dy)+' L'+(x+dx)+' '+(y+dy-14)+' L'+(x+dx+9)+' '+(y+dy)+' Z" fill="#F3EAD6" stroke="#8A6A3A" stroke-width="1.5"/>'; }
+    function house(dx,dy,h){ h = h||14; return '<rect x="'+(x+dx-8)+'" y="'+(y+dy-h)+'" width="16" height="'+h+'" fill="#E8D2B0" stroke="#6B4423" stroke-width="1.3"/><path d="M'+(x+dx-10)+' '+(y+dy-h)+' L'+(x+dx)+' '+(y+dy-h-8)+' L'+(x+dx+10)+' '+(y+dy-h)+' Z" fill="#B23A2E"/>'; }
+    g += '<g class="ms-tt-g s1">'+tent(-14,4)+tent(0,-2)+tent(14,4)+'</g>';
+    if (st.indexOf('houses') >= 0) g += '<g class="ms-tt-g s2">'+house(-26,22)+house(-6,26)+house(16,22)+house(-16,44)+house(8,46)+'</g>';
+    if (st.indexOf('boats') >= 0) g += '<g class="ms-tt-g s3">'+[[44,8],[58,30],[36,40]].map(function(b){ return '<g transform="translate('+(x+b[0])+' '+(y+b[1])+')"><path d="M-10 0 h20 l-4 5 h-12 z" fill="#8A5A2E"/><path d="M0 0 v-14 l9 12 z" fill="#fff" stroke="#7E5A16" stroke-width=".8"/></g>'; }).join('')+'<rect x="'+(x+20)+'" y="'+(y+14)+'" width="22" height="5" fill="#6B4423"/></g>';
+    if (st.indexOf('fields') >= 0) g += '<g class="ms-tt-g s3">'+[[-70,10,'#E9C34A'],[-70,34,'#7FAE4A'],[-44,58,'#E9C34A'],[30,58,'#7FAE4A']].map(function(f){ return '<rect x="'+(x+f[0])+'" y="'+(y+f[1])+'" width="36" height="20" fill="'+f[2]+'" stroke="#6B8A3A" stroke-width="1"/>'; }).join('')+'</g>';
+    if (st.indexOf('mine') >= 0) g += '<g class="ms-tt-g s3"><path d="M'+(x-58)+' '+(y-10)+' q14 -24 28 0 z" fill="#3B2A1A" stroke="#6B4423" stroke-width="2"/><rect x="'+(x-50)+'" y="'+(y-4)+'" width="14" height="8" fill="#6B4423"/><circle cx="'+(x-47)+'" cy="'+(y+6)+'" r="2.5" fill="#222"/><circle cx="'+(x-39)+'" cy="'+(y+6)+'" r="2.5" fill="#222"/><path d="M'+(x-46)+' '+(y-6)+' l3 -4 l3 4 z" fill="#E2B83C"/></g>';
+    if (st.indexOf('walls') >= 0) g += '<g class="ms-tt-g s3"><path d="M'+(x-36)+' '+(y-24)+' h72 v-10 h-8 v5 h-8 v-5 h-8 v5 h-8 v-5 h-8 v5 h-8 v-5 h-8 v5 h-8 v-5 h-8 z" fill="#9A8466" stroke="#5E4E36" stroke-width="1.5"/></g>';
+    if (st.indexOf('city') >= 0) g += '<g class="ms-tt-g s4">'+house(-34,0,24)+house(28,2,28)+house(-2,-16,34)+'<rect x="'+(x+40)+'" y="'+(y-40)+'" width="12" height="42" fill="#D8C3A0" stroke="#6B4423" stroke-width="1.3"/></g>';
+    return '<g transform="translate('+x+' '+y+') scale(1.45) translate('+(-x)+' '+(-y)+')">'+g+'</g>';
+  }
+  function modTowntable(cfg){
+    var anchor = $(cfg.anchor || '#panel-explore .step-badge'); if (!anchor) return;
+    var SP = cfg.spots || [];
+    ST.tt = ST.tt || {tried:{}, cur:null, ans:null}; var S = ST.tt;
+    var m = shell('ms-tt-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-tt-act"></div>' +
+      '<div class="ms-tt-table"><div class="ms-tt-tag">'+esc(cfg.tag||'A simple model')+'</div><svg class="ms-tt-svg" viewBox="0 0 1000 560" role="img" aria-label="'+esc(cfg.alt||'')+'">'+townArt() +
+        SP.map(function(sp){ return '<g class="ms-tt-spot" data-k="'+sp.k+'" tabindex="0" role="button" aria-label="Spot '+sp.n+', '+esc(sp.label)+'"><circle class="ring" cx="'+sp.x+'" cy="'+sp.y+'" r="48"/><text class="lab" x="'+sp.x+'" y="'+(sp.y+(sp.ly||60))+'">Spot '+sp.n+'</text><g class="grow"></g></g>'; }).join('') +
+        '</svg><div class="ms-tt-pinwell"><span class="ms-tt-pin" title="Drag me to a spot">📍</span><small>'+esc(cfg.pinT||'Drag the pin, or tap a spot')+'</small></div></div>' +
+      '<div class="ms-tt-res" aria-live="polite"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-tt-act', m), res = $('.ms-tt-res', m), svg = $('.ms-tt-svg', m);
+    function spot(k){ for (var i=0;i<SP.length;i++) if (SP[i].k === k) return SP[i]; }
+    function tried(){ return SP.filter(function(s){ return S.tried[s.k]; }).length; }
+    function paint(){ $$('.ms-tt-spot', m).forEach(function(g){ var k = g.dataset.k, sp = spot(k); g.classList.toggle('tried', !!S.tried[k]); g.classList.toggle('cur', S.cur === k); var gr = $('.grow', g); if (S.tried[k] && !gr.innerHTML) gr.innerHTML = townGrow(sp); }); }
+    function result(sp){
+      return '<div class="ms-tt-card"><div class="ms-tt-ck">📍 Spot '+sp.n+' · '+esc(sp.label)+'</div><div class="ms-tt-toks">'+(sp.tokens.length ? sp.tokens.map(function(k){ return tokCoin(k,'sm'); }).join('') : '<span class="ms-tt-none">'+esc(cfg.noneT||'No tokens lit up')+'</span>')+'</div>' +
+        '<p><b>What happened:</b> '+sp.what+'</p><p><b>Why:</b> '+sp.why+'</p></div>';
+    }
+    function place(k){
+      var sp = spot(k); if (!sp) return;
+      var first = !S.tried[k]; S.tried[k] = 1; S.cur = k; save(); paint();
+      var g = $('.ms-tt-spot[data-k="'+k+'"]', m);
+      if (first && !calm()) { g.classList.remove('growing'); void g.getBBox(); g.classList.add('growing'); setTimeout(function(){ g.classList.remove('growing'); }, 2600); }
+      SFX.pop(); setTimeout(function(){ if (sp.tokens.length) SFX.chime(); }, calm() ? 0 : 1800);
+      res.innerHTML = result(sp); render();
+    }
+    $$('.ms-tt-spot', m).forEach(function(g){ g.addEventListener('click', function(){ place(g.dataset.k); }); g.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); place(g.dataset.k); } }); });
+    // drag the pin onto a spot
+    var pin = $('.ms-tt-pin', m);
+    pin.addEventListener('pointerdown', function(e){ e.preventDefault(); var gh = pin.cloneNode(true); gh.classList.add('ms-tt-ghost'); document.body.appendChild(gh);
+      function mv(ev){ gh.style.left = (ev.clientX - 16)+'px'; gh.style.top = (ev.clientY - 30)+'px'; }
+      function up(ev){ document.removeEventListener('pointermove', mv); gh.remove(); var t = document.elementFromPoint(ev.clientX, ev.clientY), s = t && t.closest && t.closest('.ms-tt-spot'); if (s) place(s.dataset.k); else SFX.miss(); }
+      mv(e); document.addEventListener('pointermove', mv); document.addEventListener('pointerup', up, {once:true}); });
+    function render(){
+      paint(); var n = tried();
+      if (n < SP.length || !S.step) {
+        if (n >= SP.length) { S.step = 2; save(); return render(); }
+        act.innerHTML = stepCard(1, 2, cfg.s1T || 'Try every spot', '<p>'+(cfg.s1||'')+'</p><div class="ms-tt-count">'+SP.map(function(s){ return '<i class="'+(S.tried[s.k]?'on':'')+'">'+s.n+'</i>'; }).join('')+'<span>'+n+' of '+SP.length+' spots tried</span></div>');
+        return;
+      }
+      act.innerHTML = stepCard(2, 2, cfg.q.title, '<p>'+cfg.q.text+'</p>' + choiceBlock(cfg.q, S.ans, 'ms-tt-c') + (S.ans != null && cfg.q.opts[S.ans].ok ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : ''));
+      $$('.ms-tt-c', act).forEach(function(b){ b.onclick = function(){ var k = +b.dataset.k, done = S.ans != null && cfg.q.opts[S.ans].ok;
+        if (!done) { S.ans = k; save(); }
+        if (cfg.q.opts[k].ok) { SFX.chime(); ST.gal = ST.gal||{}; if (!ST.gal.town) { ST.gal.town = 1; save(); galleryCheck(); } } else SFX.miss();
+        render(); }; });
+    }
+    if (S.cur) res.innerHTML = result(spot(S.cur));
+    render();
+  }
+
+  /* ══ MODULE: magnify (Gallery source room · old pictures, find the clue) ══
+     cfg.pics [{img, place, when, alt, credit, clues:[{x,y,r,t}]}] (x, y, r in % of the picture) */
+  function modMagnify(cfg){
+    var anchor = $(cfg.anchor || '#panel-explore .source-card'); if (!anchor) return;
+    var P = cfg.pics || [];
+    ST.mg = ST.mg || {i:0, found:{}}; var S = ST.mg;
+    var m = shell('ms-mg-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-mg-act"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-mg-act', m);
+    function key(i,j){ return i+'.'+j; }
+    function nfound(i){ return (P[i].clues||[]).filter(function(_,j){ return S.found[key(i,j)]; }).length; }
+    function render(){
+      if (S.i >= P.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div><p class="ms-ct-again"><button type="button" class="ms-btn alt ms-mg-again">🔍 '+esc(cfg.againT||'Look at the pictures again')+'</button></p>';
+        $('.ms-mg-again', act).onclick = function(){ S.i = 0; save(); render(); }; return; }
+      var p = P[S.i], C = p.clues || [], nf = nfound(S.i), all = nf >= C.length;
+      act.innerHTML = stepCard(S.i+1, P.length, 'Picture '+(S.i+1)+' of '+P.length+' · '+p.place,
+        '<p>'+(all ? (cfg.allT||'You found every clue!') : esc((cfg.findT||'Move the magnifier over the picture. Find {n} clue{s}.').replace('{n}', C.length).replace('{s}', C.length>1?'s':'')))+'</p>' +
+        '<div class="ms-mg-wrap"><figure class="ms-frame ms-mg-fig"><div class="ms-mg-pic"><img alt="'+esc(p.alt)+'" src="'+img(p.img)+'">' +
+          C.map(function(c,j){ return S.found[key(S.i,j)] ? '<span class="ms-mg-ring" style="left:'+c.x+'%;top:'+c.y+'%;width:'+(c.r*2)+'%;"></span>' : ''; }).join('') +
+          '<span class="ms-mg-lens" aria-hidden="true"></span></div><figcaption><b>'+esc(p.place)+', '+esc(p.when)+'</b><br><small>'+esc(p.credit)+'</small></figcaption></figure>' +
+        '<div class="ms-mg-side"><div class="ms-mg-found">'+C.map(function(c,j){ return '<div class="ms-mg-clue'+(S.found[key(S.i,j)]?' on':'')+'">'+(S.found[key(S.i,j)] ? '✅ '+c.t : '🔍 Clue '+(j+1)+': not found yet')+'</div>'; }).join('')+'</div>' +
+        (all ? '<button type="button" class="ms-btn big ms-mg-next">'+(S.i+1 < P.length ? esc(cfg.nextT||'Next picture')+' ➡️' : esc(cfg.lastT||'Done looking')+' ✓')+'</button>' : '<button type="button" class="ms-btn alt ms-mg-hint">💡 '+esc(cfg.hintT||'Show me where to look')+'</button>')+'</div></div>');
+      var pic = $('.ms-mg-pic', act), lens = $('.ms-mg-lens', act), im = $('img', pic);
+      function at(clientX, clientY){
+        var r = pic.getBoundingClientRect(), x = (clientX - r.left) / r.width * 100, y = (clientY - r.top) / r.height * 100;
+        if (x < 0 || y < 0 || x > 100 || y > 100) { lens.style.opacity = 0; return; }
+        lens.style.opacity = 1; lens.style.left = x+'%'; lens.style.top = y+'%';
+        lens.style.backgroundImage = 'url("'+im.src+'")'; lens.style.backgroundSize = (r.width*2.2)+'px '+(r.height*2.2)+'px';
+        lens.style.backgroundPosition = (-(x/100*r.width*2.2 - 55))+'px '+(-(y/100*r.height*2.2 - 55))+'px';
+        C.forEach(function(c,j){ if (S.found[key(S.i,j)]) return; var dx = x - c.x, dy = (y - c.y) * r.height / r.width; if (Math.sqrt(dx*dx+dy*dy) <= c.r) { S.found[key(S.i,j)] = 1; save(); SFX.chime(); setTimeout(render, calm() ? 0 : 350); } });
+      }
+      pic.addEventListener('pointermove', function(e){ at(e.clientX, e.clientY); });
+      pic.addEventListener('pointerdown', function(e){ at(e.clientX, e.clientY); });
+      pic.addEventListener('pointerleave', function(){ lens.style.opacity = 0; });
+      var nx = $('.ms-mg-next', act); if (nx) nx.onclick = function(){ SFX.click(); S.i++; save(); if (S.i >= P.length) { ST.gal = ST.gal||{}; if (!ST.gal.pics) { ST.gal.pics = 1; save(); galleryCheck(); } } render(); };
+      var hb = $('.ms-mg-hint', act); if (hb) hb.onclick = function(){ var j = C.findIndex(function(_,q){ return !S.found[key(S.i,q)]; }); if (j < 0) return; var c = C[j];
+        var h = el('span','ms-mg-hintdot'); h.style.left = c.x+'%'; h.style.top = c.y+'%'; pic.appendChild(h); setTimeout(function(){ h.remove(); }, 2600); SFX.click(); };
+    }
+    render();
+  }
+
+  /* ══ MODULE: pinmap (Gallery · pin the reasons on the Settlement Map) ══
+     DATA.map (+ cities, rivers); cfg.cities [{k, name, card, ans:[token,...], ok, hint, extraT}] in order */
+  function settleMap(M, cls){
+    var svg = mapSVG(M, {label: 'Settlement Map of North America and the Caribbean', compass: true, cls: cls||''});
+    var extra = '<g class="ms-cm-riv">'+Object.keys(M.rivers||{}).map(function(k){ return '<path d="'+M.rivers[k]+'"/>'; }).join('')+'</g>' +
+      (M.labels||[]).map(function(n){ var p = M.pts[n.k]; return p ? '<text class="ms-pm-ml '+(n.c||'')+'" x="'+p[0]+'" y="'+p[1]+'"'+(n.rot!=null?' transform="rotate('+n.rot+' '+p[0]+' '+p[1]+')"':'')+'>'+esc(n.t)+'</text>' : ''; }).join('') +
+      Object.keys(M.cities||{}).map(function(k){ var p = M.cities[k]; return '<g class="ms-pm-pin" data-k="'+k+'" transform="translate('+p[0]+' '+p[1]+')"><g class="bob"><path d="M0 0 L-9 -22 A11 11 0 1 1 9 -22 Z" fill="#C0392B" stroke="#7A1E15" stroke-width="2"/><circle cy="-25" r="4" fill="#fff"/></g><g class="toks"></g></g>'; }).join('');
+    return svg.replace(/<\/svg>$/, extra + '</svg>');
+  }
+  function modPinmap(cfg){
+    var M = DATA.map, act0 = $(cfg.anchor || '#panel-explore .activity.bl-purple'); if (!M || !act0) return;
+    var CI = cfg.cities || [], K = tokOrder();
+    ST.pm = ST.pm || {i:0, got:{}}; var S = ST.pm;
+    var m = shell('ms-pm-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-pm-wrap"><div class="ms-pm-map">'+settleMap(M)+'</div><div class="ms-pm-act"></div></div>');
+    act0.parentNode.insertBefore(m, act0); act0.classList.add('ms-hide-on');
+    var act = $('.ms-pm-act', m);
+    function cityName(k){ for (var i=0;i<CI.length;i++) if (CI[i].k === k) return CI[i].name; return k; }
+    function paint(){
+      $$('.ms-pm-pin', m).forEach(function(g){ var k = g.dataset.k, got = S.got[k] || [];
+        g.classList.toggle('now', CI[S.i] && CI[S.i].k === k);
+        $('.toks', g).innerHTML = got.map(function(t,j){ return '<g transform="translate('+(16+j*30)+' -44) scale(.5)"><circle cx="32" cy="26" r="30" fill="#F5DD95" stroke="#7E5A16" stroke-width="3"/>'+tokArt(t).replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'')+'</g>'; }).join('') +
+          (S.got[k] ? '<text class="ms-pm-cn" x="0" y="20">'+esc(cityName(k))+'</text>' : ''); });
+    }
+    function shuffled(i){ var a = K.slice(), s = (i*7+3) % a.length; return a.slice(s).concat(a.slice(0,s)); }
+    function render(){
+      paint();
+      if (S.i >= CI.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      var c = CI[S.i], got = S.got[c.k] || [], need = c.ans.filter(function(t){ return got.indexOf(t) < 0; }), second = got.length > 0;
+      if (!need.length) {
+        act.innerHTML = stepCard(S.i+1, CI.length, c.name, '<div class="ms-vd-thanks">✅ '+c.ok+'</div><button type="button" class="ms-btn big ms-pm-next">'+(S.i+1 < CI.length ? esc(cfg.nextT||'Next city')+' ➡️' : esc(cfg.lastT||'All six pins done')+' ✓')+'</button>');
+        $('.ms-pm-next', act).onclick = function(){ SFX.click(); S.i++; save(); if (S.i >= CI.length) { SFX.fanfare(); ST.gal = ST.gal||{}; if (!ST.gal.pins) { ST.gal.pins = 1; save(); galleryCheck(); } } render(); };
+        return;
+      }
+      act.innerHTML = stepCard(S.i+1, CI.length, c.name, '<p class="ms-pm-card">'+(second ? c.extraT : c.card)+'</p><p class="ms-wm-do">👆 '+esc(second ? (cfg.secondT||'This city has a second reason too. Tap that token.') : (cfg.pickT||'Why did people build here? Tap the token.'))+'</p>' +
+        '<div class="ms-pm-toks">'+shuffled(S.i).map(function(t){ return '<button type="button" class="ms-pm-tk'+(got.indexOf(t)>=0?' used':'')+'" data-k="'+t+'"'+(got.indexOf(t)>=0?' disabled':'')+'>'+tokCoin(t,'sm')+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div>');
+      $$('.ms-pm-tk', act).forEach(function(b){ b.onclick = function(){ var t = b.dataset.k;
+        if (need.indexOf(t) >= 0 && (second || t === c.ans[0])) { var pinEl = $('.ms-pm-pin[data-k="'+c.k+'"]', m);
+          fly($('.ms-tk-coin', b), pinEl, '<span class="ms-tk-coin">'+tokArt(t)+'</span>', 600).then(function(){ S.got[c.k] = got.concat([t]); save(); SFX.stamp(); render(); }); }
+        else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); $('.ms-exfb', act).innerHTML = '🤔 '+(second ? c.hint2 : c.hint); }
+      }; });
+    }
+    render();
+  }
+
+  /* ══ MODULE: storypin (Exhibit Floor · your settlement story) ══
+     1 pick a city, 2 pick its two clue tokens, 3 write the story in the step (sentence count + checks), 4 see it by the pin → open. */
+  function modStorypin(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'); if (!ta) return;
+    var CI = cfg.cities || [], K = tokOrder(), T = DATA.tokens || {}, NEED = cfg.sentences || 3;
+    ST.sp = ST.sp || {c:null, toks:[], step:1, open:false}; var S = ST.sp;
+    var m = shell('ms-spn-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-spn-act"></div><div class="ms-spn-show" hidden><div class="ms-spn-map">'+settleMap(DATA.map, 'ms-spn-svg')+'<div class="ms-spn-card"><span class="ms-spn-tack"></span><div class="ms-spn-ct"></div><div class="ms-spn-tk"></div><div class="ms-spn-tx"></div><div class="ms-spn-by"></div><span class="ms-draft">DRAFT</span></div><div class="ms-spn-curtain"><i></i></div></div></div><div class="ms-spn-end"></div>');
+    var home = document.createComment('spn-home'); ta.parentNode.insertBefore(home, ta);
+    var host = ta.closest('.activity') || ta.parentNode; host.parentNode.insertBefore(m, host.nextSibling); host.classList.add('ms-hide-on');
+    var act = $('.ms-spn-act', m), show = $('.ms-spn-show', m), end = $('.ms-spn-end', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function city(){ for (var i=0;i<CI.length;i++) if (CI[i].k === S.c) return CI[i]; return null; }
+    function sentences(t){ return t.split(/[.!?]+/).filter(function(x){ return (x.trim().match(/\S+/g)||[]).length >= 3; }).length; }
+    function checks(){ var c = city() || {}, v = ta.value, out = [{t:'the city', ok:new RegExp(c.re||'^$','i').test(v)}];
+      S.toks.forEach(function(k){ var t = T[k]||{}; out.push({t:t.clue||t.name, ok:new RegExp(t.re||'^$','i').test(v)}); }); return out; }
+    function missing(){ var miss = [], n = sentences(ta.value); if (n < NEED) miss.push('Write '+(NEED-n)+' more sentence'+(NEED-n===1?'':'s')+'.');
+      var need = checks().filter(function(x){ return !x.ok; }).map(function(x){ return x.t; }); if (need.length) miss.push((cfg.needT||'Your story still needs:')+' '+need.join(' · ')+'.'); return miss; }
+    function view(){
+      var c = city() || {}, svg = $('.ms-spn-svg', show), card = $('.ms-spn-card', show), p = (DATA.map.cities||{})[S.c];
+      $$('.ms-pm-pin', show).forEach(function(g){ g.classList.toggle('now', g.dataset.k === S.c); g.style.opacity = g.dataset.k === S.c ? 1 : .35; });
+      if (p) { var px = p[0]/DATA.map.W*100, py = p[1]/DATA.map.H*100; card.style.left = (px > 50 ? Math.max(2, px - 50) : Math.min(52, px + 4))+'%'; card.style.top = Math.min(58, Math.max(2, py - 18))+'%'; }
+      $('.ms-spn-ct', show).textContent = c.name || ''; $('.ms-spn-tk', show).innerHTML = S.toks.map(function(k){ return tokCoin(k,'xs'); }).join('');
+      var v = ta.value.trim(); $('.ms-spn-tx', show).textContent = v || (cfg.emptyT||'Your story will appear here as you write.'); $('.ms-spn-tx', show).classList.toggle('empty', !v);
+      $('.ms-spn-by', show).textContent = '— ' + (sget(NAMEK,'') || 'Junior Curator') + ', Regional Curator';
+      show.classList.toggle('open', !!S.open);
+    }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 3; ta.classList.toggle('ms-gi-away', S.step !== 3);
+      if (S.step === 1 || !S.c) { S.step = 1; goHome();
+        act.innerHTML = stepCard(1, 4, cfg.s1T || 'Pick a city', '<p>'+(cfg.s1||'')+'</p><div class="ms-spn-cities">'+CI.map(function(c){ return '<button type="button" class="ms-btn'+(S.c===c.k?'':' alt')+' ms-spn-city" data-k="'+c.k+'">📍 '+esc(c.name)+'</button>'; }).join('')+'</div>');
+        $$('.ms-spn-city', act).forEach(function(b){ b.onclick = function(){ if (S.c !== b.dataset.k) S.toks = []; S.c = b.dataset.k; S.step = 2; save(); SFX.click(); render(); }; });
+        return; }
+      var c = city();
+      if (S.step === 2) { goHome();
+        act.innerHTML = stepCard(2, 4, cfg.s2T || 'Pick two clue tokens', '<p class="ms-pm-card">'+c.card+'</p><p class="ms-wm-do">👆 '+esc(cfg.s2||'Which two reasons helped this city grow? Tap two tokens.')+'</p>' +
+          '<div class="ms-pm-toks">'+K.map(function(k){ return '<button type="button" class="ms-pm-tk'+(S.toks.indexOf(k)>=0?' on':'')+'" data-k="'+k+'" aria-pressed="'+(S.toks.indexOf(k)>=0)+'">'+tokCoin(k,'sm')+'</button>'; }).join('')+'</div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-spn-back">↩️ '+esc(cfg.otherT||'Pick a different city')+'</button><button type="button" class="ms-btn big ms-spn-next">'+esc(cfg.next2T||'Next: write the story')+' ➡️</button></div><div class="ms-exfb" aria-live="polite"></div>');
+        $$('.ms-pm-tk', act).forEach(function(b){ b.onclick = function(){ var k = b.dataset.k, i = S.toks.indexOf(k); if (i >= 0) S.toks.splice(i,1); else { S.toks.push(k); if (S.toks.length > 2) S.toks.shift(); } save(); SFX.click(); render(); }; });
+        $('.ms-spn-back', act).onclick = function(){ S.step = 1; save(); render(); };
+        $('.ms-spn-next', act).classList.toggle('ms-notready', !(S.toks.length === 2 && S.toks.every(function(k){ return c.ok.indexOf(k) >= 0; })));
+        $('.ms-spn-next', act).onclick = function(){ var fb = $('.ms-exfb', act);
+          if (S.toks.length < 2) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> Tap '+(2-S.toks.length)+' more token'+(S.toks.length===1?'':'s')+'.</div>'; return; }
+          var bad = S.toks.filter(function(k){ return c.ok.indexOf(k) < 0; }); if (bad.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🤔 '+esc(c.hint)+'</div>'; return; }
+          SFX.chime(); S.step = 3; save(); render(); };
+        return; }
+      view();
+      if (S.step === 3) {
+        act.innerHTML = stepCard(3, 4, cfg.s3T || 'Write the story', '<p>'+(cfg.s3||'')+'</p><div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(t.replace('{city}', c.name))+'</button>'; }).join('')+'</div>' +
+          '<div class="ms-gi-box"></div><div class="ms-excheck ms-spn-chk"></div><div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-spn-back">↩️ '+esc(cfg.backT||'Change the tokens')+'</button><button type="button" class="ms-btn big ms-spn-next">'+esc(cfg.next3T||'Next: see it on the map')+' ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(ta);
+        var chk = $('.ms-spn-chk', act), fb = $('.ms-gi-fb', act);
+        function upd(){ var n = sentences(ta.value), miss = missing();
+          chk.innerHTML = '<span class="ms-wc'+(n>=NEED?' ok':'')+'">📝 '+Math.min(n,NEED)+' of '+NEED+' sentences</span>' + checks().map(function(x){ return '<span class="ms-chip'+(x.ok?' ok':'')+'">'+(x.ok?'✓ ':'')+esc(x.t)+'</span>'; }).join('');
+          $('.ms-spn-next', act).classList.toggle('ms-notready', !!miss.length); view();
+          if (fb.innerHTML) fb.innerHTML = miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>' : ''; }
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b,i){ b.onclick = function(){ var t = (cfg.starters||[])[i].replace('{city}', c.name); ta.value = ta.value.replace(/\s*$/,'') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-spn-back', act).onclick = function(){ S.step = 2; save(); render(); };
+        $('.ms-spn-next', act).onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+          SFX.click(); S.step = 4; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome();
+      act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(4, 4, cfg.s4T || 'Open your exhibit', '<p>'+(cfg.s4||'')+'</p><button type="button" class="ms-btn big ms-spn-open">🎉 '+esc(cfg.openT||'Open my exhibit')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-spn-edit">✏️ '+esc(cfg.editT||'Edit my story')+'</button></div>';
+      var ob = $('.ms-spn-open', end); if (ob) ob.onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('opening'); void show.offsetWidth; show.classList.add('opening'); SFX.fanfare(); render(); setTimeout(function(){ show.classList.remove('opening'); }, 1600); optiNod('assignment'); check(); };
+      $('.ms-spn-edit', end).onclick = function(){ S.open = false; S.step = 3; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 3) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  /* ══════════ Added for 3.06.08 (Compare Regional Cultures · Unit 6 closer) ══════════
+     DATA.places = [{k,name,icon,line}] the four parts of the region; DATA.specs = the eight photo specimens.
+     - wallpanels  Lobby: walk past the finished rooms, unveil four panels, hang eight photo specimens (drag or tap)
+     - threads     Gallery main attraction: tap where a sport or music started, send it traveling; gold threads on the map
+     - langmap     Gallery source room: a languages map; turn on each color, zoom in on the islands, three questions
+     - compare2    Exhibit Floor: pick two places, one thing each, one connection, write four sentences, install → gallery lights up */
+  function placeOf(k){ var P = DATA.places || []; for (var i=0;i<P.length;i++) if (P[i].k === k) return P[i]; return {k:k, name:k, icon:''}; }
+  function specOf(k){ var S = DATA.specs || []; for (var i=0;i<S.length;i++) if (S[i].k === k) return S[i]; return null; }
+  function specPhoto(s, cls){ return '<img class="'+(cls||'')+'" src="'+img(s.img)+'" alt="'+esc(s.cap)+'">'; }
+  function rot(arr, i){ var s = (i*3+1) % arr.length; return arr.slice(s).concat(arr.slice(0,s)); }
+  function choiceQ(cfgq, i, onRight, fbSel){
+    // a full-sentence choice question; the order of the options moves with i
+    var opts = cfgq.opts.map(function(o,j){ return {o:o, j:j}; }); opts = rot(opts, i);
+    var h = '<p>'+cfgq.text+'</p><div class="ms-pchoices col">'+opts.map(function(x){ return '<button type="button" class="ms-btn ms-choice" data-j="'+x.j+'">'+esc(x.o.t)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div>';
+    return {html:h, bind:function(root){ $$('.ms-choice', root).forEach(function(b){ b.onclick = function(){ var o = cfgq.opts[+b.dataset.j], fb = $('.ms-exfb', root);
+      if (o.ok) { SFX.chime(); $$('.ms-choice', root).forEach(function(x){ x.classList.remove('no'); }); b.classList.add('ok'); fb.innerHTML = '<div class="ms-vd-thanks">✅ '+o.fb+'</div>'; onRight(); }
+      else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if (!root.querySelector('.ms-choice.ok')) fb.innerHTML = '<div class="ms-notyet">🤔 '+o.fb+'</div>'; } }; }); }};
+  }
+
+  /* ══ MODULE: wallpanels (Lobby · the last empty wall) ══ */
+  function modWallpanels(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var P = DATA.places || [], SP = DATA.specs || [], R = cfg.rooms || [];
+    ST.wp = ST.wp || {ph:1, u:{}, i:0}; var S = ST.wp;
+    var m = shell('ms-wp-mod', cfg);
+    m.insertAdjacentHTML('beforeend',
+      '<div class="ms-wp-strip">'+R.map(function(r,i){ return '<div class="ms-wp-room'+(i===R.length-1?' today':'')+'"><span class="ms-wp-ri">'+r.icon+'</span><b>'+esc(r.t)+'</b><span class="ms-wp-rd">'+esc(r.d)+'</span><span class="ms-wp-rn">'+esc(r.n)+'</span></div>'; }).join('')+'</div>' +
+      '<div class="ms-wp-wall">'+P.map(function(p){ return '<div class="ms-wp-pan" data-k="'+p.k+'" role="button" tabindex="0" aria-label="'+esc(p.name)+' panel"><div class="ms-wp-ph"><span>'+p.icon+'</span>'+esc(p.name)+'</div><div class="ms-wp-line">'+esc(p.line||'')+'</div><div class="ms-wp-slots"><span class="ms-wp-slot"></span><span class="ms-wp-slot"></span></div><div class="ms-wp-cloth"><i></i><b>'+esc(cfg.clothT||'Tap to unveil')+'</b></div></div>'; }).join('')+'</div>' +
+      '<div class="ms-wp-act"></div>');
+    if (cfg.where === 'before') anchor.parentNode.insertBefore(m, anchor); else after(anchor, m);
+    var act = $('.ms-wp-act', m), wall = $('.ms-wp-wall', m), strip = $('.ms-wp-strip', m);
+    function hungIn(pk){ return SP.slice(0, S.i).filter(function(s){ return s.p === pk; }); }
+    function paint(){
+      strip.hidden = S.ph !== 1; wall.hidden = S.ph === 1;
+      $$('.ms-wp-pan', m).forEach(function(pan){ var k = pan.dataset.k, up = !!S.u[k];
+        pan.classList.toggle('up', up); var h = hungIn(k);
+        $$('.ms-wp-slot', pan).forEach(function(sl, j){ var s = h[j]; sl.innerHTML = s ? '<button type="button" class="ms-wp-thumb" data-s="'+s.k+'" aria-label="Look closer: '+esc(s.name)+'">'+specPhoto(s)+'<span>'+esc(s.name)+'</span></button>' : ''; sl.classList.toggle('full', !!s); }); });
+      $$('.ms-wp-thumb', m).forEach(function(b){ b.onclick = function(e){ e.stopPropagation(); var s = specOf(b.dataset.s); lightbox('<figure class="ms-wp-lb">'+specPhoto(s)+'<figcaption><b>'+esc(s.name)+'</b> · '+esc(placeOf(s.p).name)+'<br>'+esc(s.cap)+'<br><small>'+esc(s.credit)+'</small></figcaption></figure>'); }; });
+    }
+    function choose(pk, from){
+      if (S.ph !== 3 || S.i >= SP.length) return;
+      var s = SP[S.i], fb = $('.ms-exfb', act);
+      if (pk !== s.p) { SFX.miss(); var b = $('.ms-wp-pick[data-k="'+pk+'"]', act); if (b) { b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); } if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 '+esc(s.hint)+'</div>'; return; }
+      var pan = $('.ms-wp-pan[data-k="'+pk+'"]', m), slot = $$('.ms-wp-slot', pan).filter(function(x){ return !x.classList.contains('full'); })[0] || pan;
+      $$('button', act).forEach(function(x){ x.disabled = true; });
+      var wr = wall.getBoundingClientRect(); if (wr.top < 60 || wr.bottom > innerHeight) wall.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'});
+      setTimeout(function(){ fly(from || $('.ms-wp-photo', act), slot, specPhoto(s), 650).then(function(){ SFX.stamp(); S.i++; save(); render(); if (S.i >= SP.length) { SFX.fanfare(); markDone('scene'); } }); }, calm() ? 0 : 320);
+    }
+    function render(){
+      paint();
+      if (S.ph === 1) {
+        act.innerHTML = stepCard(1, 3, cfg.s1T || 'Walk the gallery', '<p>'+(cfg.s1||'')+'</p><button type="button" class="ms-btn big ms-wp-go">🚶 '+esc(cfg.s1b||'Walk to the empty wall')+' ➡️</button>');
+        $('.ms-wp-go', act).onclick = function(){ SFX.click(); S.ph = 2; save(); render(); m.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      if (S.ph === 2) {
+        var left = P.filter(function(p){ return !S.u[p.k]; }).length;
+        act.innerHTML = stepCard(2, 3, cfg.s2T || 'Unveil the panels', '<p>'+(cfg.s2||'')+'</p><div class="ms-wp-picks">'+P.map(function(p){ return '<button type="button" class="ms-btn'+(S.u[p.k]?' alt':'')+' ms-wp-un" data-k="'+p.k+'"'+(S.u[p.k]?' disabled':'')+'>'+(S.u[p.k]?'✓ ':'🎭 ')+esc(p.name)+'</button>'; }).join('')+'</div>' +
+          (left ? '' : '<button type="button" class="ms-btn big ms-wp-go">'+esc(cfg.s2b||'Open the crate')+' ➡️</button>'));
+        $$('.ms-wp-un', act).forEach(function(b){ b.onclick = function(){ unveil(b.dataset.k); }; });
+        var g = $('.ms-wp-go', act); if (g) g.onclick = function(){ SFX.creak(); S.ph = 3; save(); render(); };
+        return; }
+      if (S.i >= SP.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      var s = SP[S.i];
+      act.innerHTML = stepCard(3, 3, (cfg.s3T || 'Hang the specimens')+' · '+(S.i+1)+' of '+SP.length,
+        '<div class="ms-wp-spec"><figure><span class="ms-wp-photo" title="Drag me to a panel">'+specPhoto(s)+'</span><figcaption>'+esc(s.capq||s.cap)+'</figcaption></figure><div class="ms-wp-txt"><b>'+esc(s.name)+'</b><p>'+esc(s.card)+'</p></div></div>' +
+        '<p class="ms-wm-do">👆 '+esc(cfg.s3||'Which panel does this specimen belong on?')+'</p><div class="ms-wp-picks">'+rot(P, S.i).map(function(p){ return '<button type="button" class="ms-btn alt ms-wp-pick" data-k="'+p.k+'">'+p.icon+' '+esc(p.name)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div><p class="ms-credit">'+esc(s.credit)+'</p>');
+      $$('.ms-wp-pick', act).forEach(function(b){ b.onclick = function(){ choose(b.dataset.k); }; });
+      var ph = $('.ms-wp-photo', act);
+      dragger(ph, function(moved, t){ if (moved && t) choose(t.dataset.k, t); }, '.ms-wp-pan');
+    }
+    function unveil(k){ if (S.u[k]) return; var pan = $('.ms-wp-pan[data-k="'+k+'"]', m); SFX.glass(); pan.classList.add('lift'); setTimeout(function(){ pan.classList.remove('lift'); S.u[k] = 1; save(); render(); }, calm() ? 0 : 520); }
+    $$('.ms-wp-pan', m).forEach(function(pan){ function go(){ if (S.ph === 2) unveil(pan.dataset.k); else if (S.ph === 3) choose(pan.dataset.k, pan); }
+      pan.addEventListener('click', go); pan.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }); });
+    render();
+  }
+
+  /* ══ MODULE: threads (Gallery main attraction · follow the threads) ══ */
+  function threadPath(a, b){ var mx = (a[0]+b[0])/2, my = (a[1]+b[1])/2, dx = b[0]-a[0], dy = b[1]-a[1], L = Math.sqrt(dx*dx+dy*dy)||1, k = Math.min(120, L*.35);
+    return 'M'+a[0]+' '+a[1]+' Q'+(mx - dy/L*k).toFixed(1)+' '+(my + dx/L*k).toFixed(1)+' '+b[0]+' '+b[1]; }
+  function placeLabels(M){ return (DATA.places||[]).map(function(p){ var q = (M.lab||{})[p.k] || M.pts[p.k]; return q ? '<text class="ms-th-pl" x="'+q[0]+'" y="'+q[1]+'">'+esc(p.name)+'</text>' : ''; }).join(''); }
+  function modThreads(cfg){
+    var M = DATA.map, anchor = cfg.anchorIdx != null ? $$(cfg.anchor)[cfg.anchorIdx] : $(cfg.anchor); if (!M || !anchor) return;
+    var T = cfg.trav || [], C = M.cities || {};
+    ST.th = ST.th || {i:0, ph:0, q:false}; var S = ST.th;
+    var m = shell('ms-th-mod', cfg);
+    var svg = mapSVG(M, {cls:'ms-th-svg', hits:true, compass:false, names:false, label:'Map of Canada, the United States, Mexico, and the Caribbean'});
+    m.insertAdjacentHTML('beforeend', '<div class="ms-th-wrap"><div class="ms-th-map">'+svg.replace(/<\/svg>$/, placeLabels(M)+'<g class="ms-th-lines"></g><g class="ms-th-dots"></g></svg>')+'</div><div class="ms-th-act"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-th-act', m), lines = $('.ms-th-lines', m), dots = $('.ms-th-dots', m);
+    if (M.thview) $('.ms-th-svg', m).setAttribute('viewBox', M.thview.join(' '));
+    function draw(fresh){
+      var hl = '', dl = '';
+      T.forEach(function(t, i){ var done = i < S.i || (i === S.i && S.ph === 2), cur = i === S.i && !S.q;
+        if (!done && !(cur && S.ph >= 1)) return; var a = C[t.start];
+        if (done) t.to.forEach(function(d){ var b = C[d.c]; hl += '<path class="ms-th-line'+(cur?' cur':'')+(fresh && cur?' new':'')+'" d="'+threadPath(a,b)+'"/>';
+          if (cur) dl += '<g class="ms-th-dest" transform="translate('+b[0]+' '+b[1]+')"><circle r="9"/><text '+(b[0] > 760 ? 'x="-12" text-anchor="end"' : 'x="12"')+' y="-12">'+esc(d.t)+'</text></g>'; });
+        dl += '<g class="ms-th-start'+(cur?' cur':'')+'" transform="translate('+a[0]+' '+a[1]+')"><circle r="'+(cur?13:8)+'"/>'+(cur?'<text y="-18">'+esc(t.name)+'</text>':'')+'</g>'; });
+      lines.innerHTML = hl; dots.innerHTML = dl;
+    }
+    function tapPlace(k){
+      if (S.q || S.i >= T.length || S.ph !== 0) return; var t = T[S.i], fb = $('.ms-exfb', act);
+      if (k === t.from) { SFX.chime(); S.ph = 1; save(); render(); }
+      else { SFX.miss(); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 That is '+esc(placeOf(k).name)+'. Read the card again: where did '+esc(t.name.toLowerCase())+' start?</div>'; }
+    }
+    $$('.pl, .hit', m).forEach(function(p){ p.addEventListener('click', function(){ tapPlace(p.dataset.k); }); });
+    function render(fresh){
+      draw(fresh); m.classList.toggle('pick', !S.q && S.i < T.length && S.ph === 0);
+      var n = T.length + 1;
+      if (S.q) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.i >= T.length) {
+        var q = choiceQ(cfg.q, 2, function(){ S.q = true; save(); ST.gal = ST.gal||{}; ST.gal.threads = 1; save(); galleryCheck(); setTimeout(function(){ render(); }, calm()?0:1600); });
+        act.innerHTML = stepCard(n, n, cfg.q.title, q.html); q.bind(act); return; }
+      var t = T[S.i], s = specOf(t.spec);
+      var head = '<div class="ms-th-card">'+(s ? specPhoto(s, 'ms-th-ph') : '')+'<p>'+esc(t.card)+'</p></div>';
+      if (S.ph === 0) { act.innerHTML = stepCard(S.i+1, n, t.name, head+'<p class="ms-wm-do">👆 '+esc((cfg.askT||'Where did {name} start? Tap that place on the map.').replace('{name}', t.name.toLowerCase()))+'</p><div class="ms-exfb" aria-live="polite"></div>'); return; }
+      if (S.ph === 1) { act.innerHTML = stepCard(S.i+1, n, t.name, head+'<div class="ms-vd-thanks">✅ '+esc(placeOf(t.from).name)+'!</div><button type="button" class="ms-btn big ms-th-go">🧵 '+esc(cfg.goT||'Send it traveling')+'</button>');
+        $('.ms-th-go', act).onclick = function(){ SFX.whir(); S.ph = 2; save(); render(true); }; return; }
+      act.innerHTML = stepCard(S.i+1, n, t.name, '<ul class="ms-th-went">'+t.to.map(function(d){ return '<li>🧵 '+esc(d.line)+'</li>'; }).join('')+'</ul><button type="button" class="ms-btn big ms-th-next">'+(S.i+1 < T.length ? esc(cfg.nextT||'Next thread')+' ➡️' : esc(cfg.lastT||'All threads done')+' ✓')+'</button>');
+      $('.ms-th-next', act).onclick = function(){ SFX.click(); S.i++; S.ph = 0; save(); render(); };
+    }
+    render();
+  }
+
+  /* ══ MODULE: langmap (Gallery source room · a map of languages) ══ */
+  function modLangmap(cfg){
+    var M = DATA.map, src = $(cfg.anchor || '#panel-explore .source-card'); if (!M || !src || !M.lang) return;
+    var LG = cfg.langs || [], col = {}; LG.forEach(function(l){ col[l.k] = l.c; });
+    ST.lm = ST.lm || {on:{}, step:1}; var S = ST.lm;
+    var m = shell('ms-lm-mod', cfg);
+    var svg = mapSVG(M, {cls:'ms-lm-svg', names:false, label:'A map of North America and the Caribbean, colored by the language most people speak'});
+    svg = svg.replace('<rect class="sea"', '<rect class="sea" x="-600" y="-600" width="2200" height="2200"/><rect class="sea"');
+    var layer = '<g class="ms-lm-ls">'+LG.map(function(l){ return '<path class="ms-lm-p" data-l="'+l.k+'" d="'+M.lang[l.k]+'" fill="'+l.c+'"/>'; }).join('')+'</g>' +
+      '<text class="ms-lm-qc" x="'+M.qc[0]+'" y="'+M.qc[1]+'">Quebec</text>' + placeLabels(M).replace(/ms-th-pl/g, 'ms-th-pl ms-lm-pl') +
+      '<g class="ms-lm-isl">'+(M.islands||[]).map(function(t){ var tx = t.a === 'end' ? 'x="-4" y="-3" text-anchor="end"' : t.a === 'below' ? 'x="0" y="11" text-anchor="middle"' : 'x="4" y="-3"'; return '<g transform="translate('+t.p[0]+' '+t.p[1]+')"><circle r="2.6" fill="'+(col[t.l]||'#999')+'" stroke="#0E1C42" stroke-width=".6"/><text '+tx+'>'+esc(t.t)+'</text></g>'; }).join('')+'</g>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-lm-wrap"><div class="ms-lm-left"><div class="ms-lm-map">'+svg.replace(/<\/svg>$/, layer+'</svg>')+'<span class="ms-phtag">'+esc(cfg.tag||'')+'</span></div><div class="ms-lm-key"></div></div><div class="ms-lm-act"></div></div>');
+    src.parentNode.insertBefore(m, src);
+    var act = $('.ms-lm-act', m), sv = $('.ms-lm-svg', m), key = $('.ms-lm-key', m), FULL = [0, 0, M.W, M.H], Z = M.zoom, cur = (S.step === 3) ? Z.slice() : FULL.slice(), anim = null;
+    sv.setAttribute('viewBox', cur.join(' '));
+    function zoomTo(box){ cancelAnimationFrame(anim); var from = cur.slice(), t0 = performance.now(), dur = calm() ? 0 : 900;
+      sv.classList.toggle('zoomed', box === Z);
+      (function f(now){ var k = dur ? Math.min(1, (now - t0)/dur) : 1, e = k<.5 ? 2*k*k : 1 - Math.pow(-2*k+2, 2)/2;
+        cur = from.map(function(v,i){ return v + (box[i]-v)*e; }); sv.setAttribute('viewBox', cur.map(function(v){ return v.toFixed(1); }).join(' ')); if (k < 1) anim = requestAnimationFrame(f); })(t0); }
+    function paint(){ $$('.ms-lm-p', m).forEach(function(p){ p.classList.toggle('on', !!S.on[p.dataset.l]); });
+      m.classList.toggle('fr-on', !!S.on.fr);
+      key.innerHTML = LG.map(function(l){ return '<span class="ms-lm-chip'+(S.on[l.k]?' on':'')+'"><i style="background:'+l.c+'"></i>'+esc(l.t)+'</span>'; }).join(''); }
+    function render(){
+      paint(); sv.classList.toggle('zoomed', S.step === 3);
+      if (S.step === 1) {
+        var all = LG.every(function(l){ return S.on[l.k]; });
+        act.innerHTML = stepCard(1, 4, cfg.s1T || 'Turn on the colors', '<p>'+(cfg.s1||'')+'</p><div class="ms-lm-btns">'+LG.map(function(l){ return '<button type="button" class="ms-btn'+(S.on[l.k]?'':' alt')+' ms-lm-b" data-l="'+l.k+'" aria-pressed="'+!!S.on[l.k]+'"><i style="background:'+l.c+'"></i>'+esc(l.t)+'</button>'; }).join('')+'</div>' +
+          (all ? '<button type="button" class="ms-btn big ms-lm-next">'+esc(cfg.nextT||'Next')+' ➡️</button>' : ''));
+        $$('.ms-lm-b', act).forEach(function(b){ b.onclick = function(){ S.on[b.dataset.l] = 1; SFX.pop(); save(); render(); }; });
+        var nx = $('.ms-lm-next', act); if (nx) nx.onclick = function(){ SFX.click(); S.step = 2; save(); render(); };
+        return; }
+      var Q = {2: cfg.q1, 3: cfg.q2, 4: cfg.q3}[S.step];
+      if (!Q) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      var q = choiceQ(Q, S.step, function(){ var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big ms-lm-next'; b.textContent = (S.step === 2 ? (cfg.zoomT||'Zoom in on the islands')+' 🔍' : S.step === 3 ? (cfg.backT||'Zoom back out')+' ↩️' : (cfg.doneT||'Done with the map')+' ✓'); $('.ms-stepcard', act).appendChild(b);
+        b.onclick = function(){ SFX.click(); S.step++; save(); if (S.step === 3) zoomTo(Z); if (S.step === 4) zoomTo(FULL); if (S.step > 4) { ST.gal = ST.gal||{}; ST.gal.map = 1; save(); galleryCheck(); SFX.fanfare(); } render(); }; });
+      act.innerHTML = stepCard(S.step, 4, Q.title, q.html); q.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: compare2 (Exhibit Floor · your comparison panel → the gallery lights up) ══ */
+  var PLACE_RE = {canada:'canad', usa:'united states|u\\.\\s?s\\b|america', mexico:'mexic', caribbean:'caribbean|island|jamaica|cuba|haiti|puerto|bahamas|trinidad|dominican'};
+  function modCompare2(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'); if (!ta) return;
+    var P = DATA.places || [], F = cfg.facts || {}, LK = cfg.links || [], NEED = cfg.sentences || 4;
+    var rooms = ((DATA.modules||[]).filter(function(x){ return x.type === 'wallpanels'; })[0] || {}).rooms || [];
+    ST.cp = ST.cp || {a:[], f:{}, link:null, step:1, open:false}; var S = ST.cp;
+    var m = shell('ms-cp-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-cp-act"></div><div class="ms-cp-show" hidden><div class="ms-cp-wallbg"><div class="ms-cp-panel"><div class="ms-cp-cols"></div><div class="ms-cp-tx"></div><div class="ms-cp-by"></div><span class="ms-draft">DRAFT</span></div></div><div class="ms-cp-gal"></div></div><div class="ms-cp-end"></div>');
+    var home = document.createComment('cp-home'); ta.parentNode.insertBefore(home, ta);
+    var host = ta.closest('.activity') || ta.parentNode; host.parentNode.insertBefore(m, host.nextSibling); host.classList.add('ms-hide-on');
+    var act = $('.ms-cp-act', m), show = $('.ms-cp-show', m), end = $('.ms-cp-end', m), gal = $('.ms-cp-gal', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function nm(k){ return placeOf(k).name === 'United States' ? 'the United States' : placeOf(k).name === 'Caribbean' ? 'the Caribbean' : placeOf(k).name; }
+    function links(){ return LK.filter(function(l){ return l.pairs === 'all' || (S.a.indexOf(l.pairs[0]) >= 0 && S.a.indexOf(l.pairs[1]) >= 0); }); }
+    function sentences(t){ return t.split(/[.!?]+/).filter(function(x){ return (x.trim().match(/\S+/g)||[]).length >= 3; }).length; }
+    function checks(){ var v = ta.value; return [
+      {t:nm(S.a[0]||''), ok:new RegExp(PLACE_RE[S.a[0]]||'^$','i').test(v)}, {t:nm(S.a[1]||''), ok:new RegExp(PLACE_RE[S.a[1]]||'^$','i').test(v)},
+      {t:'a difference', ok:/\b(but|different|differ|difference|while|unlike|instead|only)\b/i.test(v)},
+      {t:'a connection', ok:/\b(both|share|shares|connect|connects|connected|travel|travels|same|link|links)\b/i.test(v)}]; }
+    function missing(){ var miss = [], n = sentences(ta.value); if (n < NEED) miss.push('Write '+(NEED-n)+' more sentence'+(NEED-n===1?'':'s')+'.');
+      var need = checks().filter(function(x){ return !x.ok; }).map(function(x){ return x.t; }); if (need.length) miss.push('Your panel still needs: '+need.join(' · ')+'.'); return miss; }
+    function view(){
+      $('.ms-cp-cols', show).innerHTML = S.a.map(function(k){ var p = placeOf(k); return '<div class="ms-cp-col"><span>'+p.icon+'</span><b>'+esc(p.name)+'</b><i>'+esc(S.f[k]||'')+'</i></div>'; }).join('<div class="ms-cp-thread" aria-hidden="true"></div>');
+      var v = ta.value.trim(); $('.ms-cp-tx', show).textContent = v || 'Your panel text will appear here as you write.'; $('.ms-cp-tx', show).classList.toggle('empty', !v);
+      $('.ms-cp-by', show).textContent = '— ' + (sget(NAMEK,'') || 'Junior Curator') + ', Regional Curator';
+      show.classList.toggle('open', !!S.open);
+      gal.innerHTML = S.open ? '<div class="ms-cp-rooms">'+rooms.map(function(r,i){ return '<span class="ms-cp-room" style="--d:'+(i*.28)+'s"><i>'+r.icon+'</i>'+esc(r.t)+'</span>'; }).join('')+'</div><div class="ms-cp-badge"><svg viewBox="0 0 120 150" aria-hidden="true"><path d="M38 0 h18 l10 52 h-18z" fill="#2D4C8C"/><path d="M64 0 h18 l-10 52 h-18z" fill="#C0392B"/><circle cx="60" cy="96" r="44" fill="#E9C878" stroke="#8A6410" stroke-width="5"/><circle cx="60" cy="96" r="33" fill="none" stroke="#B8892E" stroke-width="2"/><path d="M60 72 l7 15 l16 2 l-12 11 l3 16 l-14 -8 l-14 8 l3 -16 l-12 -11 l16 -2z" fill="#FFF6CF" stroke="#8A6410" stroke-width="2"/></svg><b>'+esc(cfg.badgeT||'Regional Observer')+'</b></div>' : '';
+    }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 4; ta.classList.toggle('ms-gi-away', S.step !== 4);
+      if (S.step === 1 || S.a.length < 2) { S.step = 1; goHome();
+        act.innerHTML = stepCard(1, 5, cfg.s1T, '<p>'+(cfg.s1||'')+'</p><div class="ms-cp-places">'+P.map(function(p){ var on = S.a.indexOf(p.k) >= 0; return '<button type="button" class="ms-btn'+(on?'':' alt')+' ms-cp-pl" data-k="'+p.k+'" aria-pressed="'+on+'">'+p.icon+' '+esc(p.name)+'</button>'; }).join('')+'</div>' +
+          '<button type="button" class="ms-btn big ms-cp-next'+(S.a.length===2?'':' ms-notready')+'">'+esc(cfg.next1T||'Next: one thing from each')+' ➡️</button><div class="ms-gi-fb" aria-live="polite"></div>');
+        $$('.ms-cp-pl', act).forEach(function(b){ b.onclick = function(){ var k = b.dataset.k, i = S.a.indexOf(k); if (i >= 0) S.a.splice(i,1); else { S.a.push(k); if (S.a.length > 2) S.a.shift(); } S.f = {}; S.link = null; SFX.click(); save(); render(); }; });
+        $('.ms-cp-next', act).onclick = function(){ if (S.a.length < 2) { SFX.miss(); $('.ms-gi-fb', act).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> Tap '+(2-S.a.length)+' more place'+(S.a.length===1?'':'s')+'.</div>'; return; } SFX.chime(); S.step = 2; save(); render(); };
+        return; }
+      if (S.step === 2) { goHome();
+        act.innerHTML = stepCard(2, 5, cfg.s2T, '<p>'+(cfg.s2||'')+'</p>'+S.a.map(function(k){ var p = placeOf(k); return '<div class="ms-cp-row"><b>'+p.icon+' '+esc(p.name)+'</b><div class="ms-cp-chips">'+(F[k]||[]).map(function(f){ return '<button type="button" class="ms-chipbtn'+(S.f[k]===f?' on':'')+'" data-k="'+k+'" data-f="'+esc(f)+'" aria-pressed="'+(S.f[k]===f)+'">'+esc(f)+'</button>'; }).join('')+'</div></div>'; }).join('') +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-cp-back">↩️ '+esc(cfg.back1T||'Pick different places')+'</button><button type="button" class="ms-btn big ms-cp-next'+(S.a.every(function(k){ return S.f[k]; })?'':' ms-notready')+'">'+esc(cfg.next2T||'Next: what connects them')+' ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $$('.ms-chipbtn', act).forEach(function(b){ b.onclick = function(){ S.f[b.dataset.k] = b.dataset.f; SFX.click(); save(); render(); }; });
+        $('.ms-cp-back', act).onclick = function(){ S.step = 1; save(); render(); };
+        $('.ms-cp-next', act).onclick = function(){ var miss = S.a.filter(function(k){ return !S.f[k]; }); if (miss.length) { SFX.miss(); $('.ms-gi-fb', act).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> Pick one thing for '+esc(nm(miss[0]))+'.</div>'; return; } SFX.chime(); S.step = 3; save(); render(); };
+        return; }
+      if (S.step === 3) { goHome(); var L = links();
+        act.innerHTML = stepCard(3, 5, cfg.s3T, '<p>'+(cfg.s3||'')+'</p><div class="ms-cp-chips col">'+L.map(function(l){ return '<button type="button" class="ms-chipbtn'+(S.link===l.t?' on':'')+'" data-t="'+esc(l.t)+'" aria-pressed="'+(S.link===l.t)+'">🧵 '+esc(l.t)+'</button>'; }).join('')+'</div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-cp-back">↩️ '+esc(cfg.back2T||'Back')+'</button><button type="button" class="ms-btn big ms-cp-next'+(S.link?'':' ms-notready')+'">'+esc(cfg.next3T||'Next: write your panel')+' ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $$('.ms-chipbtn', act).forEach(function(b){ b.onclick = function(){ S.link = b.dataset.t; SFX.click(); save(); render(); }; });
+        $('.ms-cp-back', act).onclick = function(){ S.step = 2; save(); render(); };
+        $('.ms-cp-next', act).onclick = function(){ if (!S.link) { SFX.miss(); $('.ms-gi-fb', act).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> Tap one thing that connects them.</div>'; return; } SFX.chime(); S.step = 4; save(); render(); };
+        return; }
+      view();
+      if (S.step === 4) {
+        var A = nm(S.a[0]), B = nm(S.a[1]);
+        act.innerHTML = stepCard(4, 5, cfg.s4T, '<p>'+(cfg.s4||'')+'</p><div class="ms-cp-notes"><span>📌 '+esc(placeOf(S.a[0]).name)+': '+esc(S.f[S.a[0]])+'</span><span>📌 '+esc(placeOf(S.a[1]).name)+': '+esc(S.f[S.a[1]])+'</span><span>🧵 '+esc(S.link)+'</span></div>' +
+          '<div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(t.replace('{A}', A).replace('{B}', B))+'</button>'; }).join('')+'</div>' +
+          '<div class="ms-gi-box"></div><div class="ms-excheck ms-cp-chk"></div><div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-cp-back">↩️ '+esc(cfg.back3T||'Change the connection')+'</button><button type="button" class="ms-btn big ms-cp-next">'+esc(cfg.next4T||'Next: see it on the wall')+' ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(ta);
+        var chk = $('.ms-cp-chk', act), fb = $('.ms-gi-fb', act);
+        function upd(){ var n = sentences(ta.value), miss = missing();
+          chk.innerHTML = '<span class="ms-wc'+(n>=NEED?' ok':'')+'">📝 '+Math.min(n,NEED)+' of '+NEED+' sentences</span>' + checks().map(function(x){ return '<span class="ms-chip'+(x.ok?' ok':'')+'">'+(x.ok?'✓ ':'')+esc(x.t)+'</span>'; }).join('');
+          $('.ms-cp-next', act).classList.toggle('ms-notready', !!miss.length); view();
+          if (fb.innerHTML) fb.innerHTML = miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>' : ''; }
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b,i){ b.onclick = function(){ var t = (cfg.starters||[])[i].replace('{A}', A).replace('{B}', B); ta.value = ta.value.replace(/\s*$/,'') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-cp-back', act).onclick = function(){ S.step = 3; save(); render(); };
+        $('.ms-cp-next', act).onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+          SFX.click(); S.step = 5; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(5, 5, cfg.s5T, '<p>'+(cfg.s5||'')+'</p><button type="button" class="ms-btn big ms-cp-open">🎉 '+esc(cfg.openT||'Install my panel')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-cp-edit">✏️ '+esc(cfg.editT||'Edit my panel')+'</button></div>';
+      var ob = $('.ms-cp-open', end); if (ob) ob.onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('opening'); void show.offsetWidth; show.classList.add('opening'); SFX.fanfare(); render(); setTimeout(function(){ show.classList.remove('opening'); }, 3200); optiNod('assignment'); check(); };
+      $('.ms-cp-edit', end).onclick = function(){ S.open = false; S.step = 4; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 4) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){

@@ -1,0 +1,167 @@
+{
+ "id": "g3-u06-quiz",
+ "title": "Unit 6 Quiz · North America and the Caribbean",
+ "description": "10 questions about Unit 6. Read each question carefully. Pick the best answer. Some questions ask you to pick all the answers that are true.",
+ "points_each": 1,
+ "questions": [
+  {
+   "n": 1,
+   "type": "true_false_question",
+   "lesson": "3.06.01 Canada, U.S., Mexico, Caribbean",
+   "text": "True or false: The Caribbean is one big country south of Florida.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    1
+   ],
+   "why": "The Caribbean is not one country. It is a group of islands in a warm sea, south of Florida and east of Mexico."
+  },
+  {
+   "n": 2,
+   "type": "multiple_choice_question",
+   "lesson": "3.06.02 Physical Features",
+   "text": "Which mountain range runs down the western side of Canada and the United States?",
+   "options": [
+    "The Appalachian Mountains",
+    "The Sierra Madre",
+    "The Rocky Mountains",
+    "The Great Plains"
+   ],
+   "correct": [
+    2
+   ],
+   "why": "The Rocky Mountains run down the western side. The Appalachians are on the eastern side, the Sierra Madre is in Mexico, and the Great Plains are flat land, not mountains."
+  },
+  {
+   "n": 3,
+   "type": "multiple_choice_question",
+   "lesson": "3.06.03 Landmarks",
+   "text": "Which landmark is a natural landmark, made by nature and not built by people?",
+   "options": [
+    "The Grand Canyon",
+    "The Statue of Liberty",
+    "The CN Tower",
+    "The pyramid at Chichén Itzá"
+   ],
+   "correct": [
+    0
+   ],
+   "why": "The Grand Canyon was carved by the Colorado River over millions of years. The other three were built by people."
+  },
+  {
+   "n": 4,
+   "type": "multiple_choice_question",
+   "lesson": "3.06.04 Climate and Vegetation",
+   "text": "A saguaro cactus stores water inside its thick stem. Which climate zone does it grow in?",
+   "options": [
+    "The Arctic tundra in far northern Canada",
+    "The tropical Caribbean islands",
+    "The boreal forest across Canada",
+    "The desert in the southwestern United States and northern Mexico"
+   ],
+   "correct": [
+    3
+   ],
+   "why": "The desert is very hot and very dry. The saguaro can live there because it stores water in its stem."
+  },
+  {
+   "n": 5,
+   "type": "multiple_answers_question",
+   "lesson": "3.06.05 Natural Resources",
+   "text": "Which of these are renewable resources that can grow back? Pick ALL that are true.",
+   "options": [
+    "Trees (timber)",
+    "Wheat",
+    "Oil",
+    "Copper"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "why": "Trees grow back if new ones are planted, and wheat is planted and harvested every year. Oil and copper formed over millions of years and cannot be made again."
+  },
+  {
+   "n": 6,
+   "type": "multiple_choice_question",
+   "lesson": "3.06.05 Natural Resources",
+   "text": "Why is oil called a nonrenewable resource?",
+   "options": [
+    "It grows back every year if farmers plant it.",
+    "Rain and snow refill it every spring.",
+    "It took millions of years to form, and once it is used up, it is gone for a very long time.",
+    "It is only found on the Caribbean islands."
+   ],
+   "correct": [
+    2
+   ],
+   "why": "Oil formed deep in the Earth over millions of years. People can pump it up, but no one can make more."
+  },
+  {
+   "n": 7,
+   "type": "multiple_choice_question",
+   "lesson": "3.06.06 Cultures That Settled",
+   "text": "Which people built stone cities with stepped pyramids, and were one of the first peoples in the world to use a sign for zero?",
+   "options": [
+    "The Haudenosaunee",
+    "The Maya",
+    "French settlers",
+    "Spanish settlers"
+   ],
+   "correct": [
+    1
+   ],
+   "why": "Over 1,000 years ago, the Maya built stone cities with stepped pyramids, like Chichén Itzá. Millions of Maya people still live in Mexico, Guatemala, and Belize today."
+  },
+  {
+   "n": 8,
+   "type": "multiple_choice_question",
+   "lesson": "3.06.07 Environment and Settlement",
+   "text": "Why did many big cities, like New Orleans and Havana, grow next to a river or a harbor?",
+   "options": [
+    "Boats could carry goods in and out, so the water meant trade.",
+    "People wanted to live close to a place to swim.",
+    "Rivers and harbors always have the best weather.",
+    "Cities next to water never have storms."
+   ],
+   "correct": [
+    0
+   ],
+   "why": "A river or a harbor lets boats bring goods in and carry goods out. That is trade."
+  },
+  {
+   "n": 9,
+   "type": "multiple_choice_question",
+   "lesson": "3.06.07 Environment and Settlement",
+   "text": "Why did Denver, Colorado, grow into a big city?",
+   "options": [
+    "It has a deep ocean harbor for big ships.",
+    "It was built on an island in a lake.",
+    "The land near Denver is great for growing bananas.",
+    "Gold was found in the nearby Rocky Mountains."
+   ],
+   "correct": [
+    3
+   ],
+   "why": "Gold was found near Denver in 1858, and miners rushed in. Gold is something valuable, a resource."
+  },
+  {
+   "n": 10,
+   "type": "multiple_choice_question",
+   "lesson": "3.06.08 Comparing Cultures",
+   "text": "Baseball is loved in the United States, Mexico, Cuba, and the Dominican Republic. What does this show?",
+   "options": [
+    "Every place in the region now has the same culture.",
+    "Only the United States plays sports.",
+    "Cultures can travel between places, and each place still has its own culture.",
+    "Nobody in Canada plays any sport."
+   ],
+   "correct": [
+    2
+   ],
+   "why": "Sports, music, and food travel between places. Each place is still distinct: Canada still has hockey and two official languages, and Mexico still has mariachi."
+  }
+ ]
+}

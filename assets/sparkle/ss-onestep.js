@@ -33,10 +33,12 @@
   function nameOf(part) {
     var i, j, t;
     for (i = 0; i < part.length; i++) {
+      if (!there(part[i])) continue;
       t = C.title && (part[i].matches(C.title) ? part[i] : part[i].querySelector(C.title));
       if (t && tidy(t.textContent)) return tidy(t.textContent);
     }
     for (j = 0; j < (C.names || []).length; j++) for (i = 0; i < part.length; i++) {
+      if (!there(part[i])) continue;
       t = part[i].matches(C.names[j][0]) ? part[i] : part[i].querySelector(C.names[j][0]);
       if (t) { var s = C.names[j][1] || tidy(t.textContent); if (s && !C.names[j][1]) s = s.charAt(0) + s.slice(1).toLowerCase(); if (s) return s; }
     }
