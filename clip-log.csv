@@ -95,6 +95,15 @@ optima-3rd-social-studies,opti,"These five lake beds are empty. Fill them with w
 optima-3rd-social-studies,opti,"Hoo, curator! The third alcove is open: the Midwest. Look at this store shelf. Scan each thing, and find out which Midwest state it comes from.",143,audio/guide/g3ss-3-07-04-lobby-1.mp3,speech,ss-3-07.04-midwest-region-study.html,c480430b583d696c07ef8e18601f6836
 optima-3rd-social-studies,opti,"Buckle up! We're flying over the Midwest. From way up high, it looks like a quilt. Tap the glowing circles, then fly lower to see what's really down there.",155,audio/guide/g3ss-3-07-04-window-1.mp3,speech,ss-3-07.04-midwest-region-study.html,5976b44d4cfcefedf0fe8b7ff5b459ec
 optima-3rd-social-studies,opti,"Word puzzle time! The word root aqua means water. Find it in three words, and figure out what each word means.",110,audio/guide/g3ss-3-07-04-workroom-1.mp3,speech,ss-3-07.04-midwest-region-study.html,d4313f030ad820eafa209e211cb585b7
+optima-3rd-social-studies,opti,"This is my favorite model in the whole museum! A river runs across flat land made of rock layers. Drag the knob, and watch what millions of years can do.",153,audio/guide/g3ss-3-07-05-canyon-1.mp3,speech,ss-3-07_05-southwest-region-study.html,6ff4d405324b71a787815ba7028d5fda
+optima-3rd-social-studies,opti,"Last step for this alcove! Write a sign that tells visitors three things: where the Southwest is, what the land is like, and something about the people. Then install it, and watch the sunset.",191,audio/guide/g3ss-3-07-05-exhibit-1.mp3,speech,ss-3-07_05-southwest-region-study.html,c83abadadd2fea1b132a82ce74c55c15
+optima-3rd-social-studies,opti,Drag the knob to the right to run time forward. Then tap each rock layer.,73,audio/guide/g3ss-3-07-05-how-canyon.mp3,speech,ss-3-07_05-southwest-region-study.html,001bd526ea1f6f7831248bb37a547195
+optima-3rd-social-studies,opti,Start the rain. Then tap the jar you think is from Phoenix. Then open the crate.,80,audio/guide/g3ss-3-07-05-how-jars.mp3,speech,ss-3-07_05-southwest-region-study.html,7eba0050f3b496ff8c80207c6f6c5341
+optima-3rd-social-studies,opti,Pick one idea for each part. Write your sign in the box. Then install the alcove.,81,audio/guide/g3ss-3-07-05-how-sign.mp3,speech,ss-3-07_05-southwest-region-study.html,218dd8febbda05d3bb69f7fa0608b77a
+optima-3rd-social-studies,opti,"Hoo, curator! The fourth alcove is open: the Southwest. These three jars catch one whole year of rain. One of them is from Phoenix, Arizona. Can you figure out which one?",170,audio/guide/g3ss-3-07-05-lobby-1.mp3,speech,ss-3-07_05-southwest-region-study.html,9decbe052da9f7a3440de91668e7d602
+optima-3rd-social-studies,opti,"Two little houses sit in the desert. One has thin walls. One has thick walls. Let's see what happens inside each one, at noon and at midnight.",142,audio/guide/g3ss-3-07-05-walls-1.mp3,speech,ss-3-07_05-southwest-region-study.html,8cdb0ac31ea424928d8286c91e4d0c78
+optima-3rd-social-studies,opti,"Word puzzle time! The word root sol means sun. Find it in three words, and figure out what each word means.",107,audio/guide/g3ss-3-07-05-workroom-1.mp3,speech,ss-3-07_05-southwest-region-study.html,420e911f4e60c4095944d61ace05d596
+optima-3rd-social-studies,opti,adobe,5,audio/words/g3ss-word-adobe.mp3,speech,file name,d50b03300208047c06055dba760d20f7
 optima-3rd-social-studies,opti,alcove,6,audio/words/g3ss-word-alcove.mp3,speech,file name,797d500781f4153abf74ba6ae33c000f
 optima-3rd-social-studies,opti,appalachian mountains,21,audio/words/g3ss-word-appalachian-mountains.mp3,speech,file name,9d59e82edb6df28abde7960b5bc99cdf
 optima-3rd-social-studies,opti,atlantic ocean,14,audio/words/g3ss-word-atlantic-ocean.mp3,speech,file name,0029a7dc8bc6e98e2062743f6428c81e
@@ -104,6 +113,7 @@ optima-3rd-social-studies,opti,border,6,audio/words/g3ss-word-border.mp3,speech,
 optima-3rd-social-studies,opti,breadbasket,11,audio/words/g3ss-word-breadbasket.mp3,speech,file name,502b9b3fb2d994daaaf428c49d042a1b
 optima-3rd-social-studies,opti,cacao,5,audio/words/g3ss-word-cacao.mp3,speech,file name,db43964b05a6a9f321dd1a17f6b5e373
 optima-3rd-social-studies,opti,calypso,7,audio/words/g3ss-word-calypso.mp3,speech,file name,42ecba403d3e3c093bba684c08fc457a
+optima-3rd-social-studies,opti,canyon,6,audio/words/g3ss-word-canyon.mp3,speech,file name,c387e46ca80893b54dd423d368e8da24
 optima-3rd-social-studies,opti,capital,7,audio/words/g3ss-word-capital.mp3,speech,file name,ef13bfe730e77cc655a10daeb9dc694a
 optima-3rd-social-studies,opti,caribbean,9,audio/words/g3ss-word-caribbean.mp3,speech,file name,d21ff738887b2b32791a1ff82af57528
 optima-3rd-social-studies,opti,climate,7,audio/words/g3ss-word-climate.mp3,speech,file name,2766ce853a41f1aec5986498c5e1c4f0
@@ -120,6 +130,7 @@ optima-3rd-social-studies,opti,culture,7,audio/words/g3ss-word-culture.mp3,speec
 optima-3rd-social-studies,opti,curator,7,audio/words/g3ss-word-curator.mp3,speech,file name,208cde8bc4d6ab60c49341ae505209c8
 optima-3rd-social-studies,opti,day of the dead,15,audio/words/g3ss-word-day-of-the-dead.mp3,speech,file name,eef9e12d797cdec6c062624340bdeffc
 optima-3rd-social-studies,opti,defend,6,audio/words/g3ss-word-defend.mp3,speech,file name,124777e7474650abbdffdfe5a05b6ea8
+optima-3rd-social-studies,opti,desert,6,audio/words/g3ss-word-desert.mp3,speech,file name,0acb5d8f8e3bb3a49a388b5ec20fc7a6
 optima-3rd-social-studies,opti,directory,9,audio/words/g3ss-word-directory.mp3,speech,file name,9545c3f723730b62ffd802a0a108c48d
 optima-3rd-social-studies,opti,distinct,8,audio/words/g3ss-word-distinct.mp3,speech,file name,ce82cdc0c46c9215b18c8b17d94074ba
 optima-3rd-social-studies,opti,dust bowl,9,audio/words/g3ss-word-dust-bowl.mp3,speech,file name,fe30db780c92551a05413e55a6f9f44e
@@ -133,6 +144,7 @@ optima-3rd-social-studies,opti,gateway arch,12,audio/words/g3ss-word-gateway-arc
 optima-3rd-social-studies,opti,geo,3,audio/words/g3ss-word-geo.mp3,speech,file name,abbf0d1e8399c9c4dce3ae23429280d0
 optima-3rd-social-studies,opti,geographer,10,audio/words/g3ss-word-geographer.mp3,speech,file name,be29c027e7f67f759ae43b683aefb5dd
 optima-3rd-social-studies,opti,grain elevator,14,audio/words/g3ss-word-grain-elevator.mp3,speech,file name,86b708a9d8e008f65e5e7208714af556
+optima-3rd-social-studies,opti,grand canyon,12,audio/words/g3ss-word-grand-canyon.mp3,speech,file name,e4c12625c6bf9cb2a74ea77e94b4d769
 optima-3rd-social-studies,opti,great lakes,11,audio/words/g3ss-word-great-lakes.mp3,speech,file name,fc127bf82b80e7af5da7c6ca565484bd
 optima-3rd-social-studies,opti,great plains,12,audio/words/g3ss-word-great-plains.mp3,speech,file name,d161ae32fe26c3e8555a1dc2c30fc33e
 optima-3rd-social-studies,opti,great smoky mountains,21,audio/words/g3ss-word-great-smoky-mountains.mp3,speech,file name,7edb145edea3c598112094a89bbec956
@@ -155,12 +167,14 @@ optima-3rd-social-studies,opti,linguist,8,audio/words/g3ss-word-linguist.mp3,spe
 optima-3rd-social-studies,opti,maple syrup,11,audio/words/g3ss-word-maple-syrup.mp3,speech,file name,e27d6bad41f42139e718260f0377f1f1
 optima-3rd-social-studies,opti,mariachi,8,audio/words/g3ss-word-mariachi.mp3,speech,file name,67cb7ddaaf887ed918566287bb8cd783
 optima-3rd-social-studies,opti,maya,4,audio/words/g3ss-word-maya.mp3,speech,file name,776e507f73d4a26d49f88a007923ebc4
+optima-3rd-social-studies,opti,mesa,4,audio/words/g3ss-word-mesa.mp3,speech,file name,97150d30f4c1bcff12c58ea101c77462
 optima-3rd-social-studies,opti,midwest,7,audio/words/g3ss-word-midwest.mp3,speech,file name,08be6c30bac20ad496b0608e65a70173
 optima-3rd-social-studies,opti,mineral,7,audio/words/g3ss-word-mineral.mp3,speech,file name,84b40366dbefeca782752f58d7097f23
 optima-3rd-social-studies,opti,mission,7,audio/words/g3ss-word-mission.mp3,speech,file name,60f90b825c6cb92055be20a46969ea38
 optima-3rd-social-studies,opti,mississippi river,17,audio/words/g3ss-word-mississippi-river.mp3,speech,file name,260746957e13f86767937f67bddc8289
 optima-3rd-social-studies,opti,mountain range,14,audio/words/g3ss-word-mountain-range.mp3,speech,file name,05fe91838a8aa89ba0edc1ca935f45ce
 optima-3rd-social-studies,opti,natural resource,16,audio/words/g3ss-word-natural-resource.mp3,speech,file name,1b638c37b9a8b39500023b31559d361a
+optima-3rd-social-studies,opti,navajo,6,audio/words/g3ss-word-navajo.mp3,speech,file name,b16223aa77fa522df911cdd42c75e94b
 optima-3rd-social-studies,opti,new england,11,audio/words/g3ss-word-new-england.mp3,speech,file name,7f3815a95ba001ee39806086eaac275a
 optima-3rd-social-studies,opti,nonrenewable,12,audio/words/g3ss-word-nonrenewable.mp3,speech,file name,e32dd5ea8bbf5936c22f65f9041bbc73
 optima-3rd-social-studies,opti,northeast,9,audio/words/g3ss-word-northeast.mp3,speech,file name,bc2b98f215cd02e6021e0736a1d151d1
@@ -172,6 +186,7 @@ optima-3rd-social-studies,opti,physical map,12,audio/words/g3ss-word-physical-ma
 optima-3rd-social-studies,opti,plain,5,audio/words/g3ss-word-plain.mp3,speech,file name,8a8d35d3313b3fbc14315207d16bbed2
 optima-3rd-social-studies,opti,port,4,audio/words/g3ss-word-port.mp3,speech,file name,2c529053f035d21edf39732c1d7b7c27
 optima-3rd-social-studies,opti,prairie,7,audio/words/g3ss-word-prairie.mp3,speech,file name,0d3d46c1e98bfdcb52d2530894af4fab
+optima-3rd-social-studies,opti,pueblo,6,audio/words/g3ss-word-pueblo.mp3,speech,file name,5ef0c6a8b82127abad3c2fcca4ee98b4
 optima-3rd-social-studies,opti,quebec,6,audio/words/g3ss-word-quebec.mp3,speech,file name,f4b2322f1e6e663f2df5b7ab2cd7c101
 optima-3rd-social-studies,opti,reggae,6,audio/words/g3ss-word-reggae.mp3,speech,file name,d645d945bb160439c0015b3707a54cb7
 optima-3rd-social-studies,opti,region,6,audio/words/g3ss-word-region.mp3,speech,file name,44488a15d6b74b58756c994e4518ea28
@@ -179,6 +194,7 @@ optima-3rd-social-studies,opti,renewable,9,audio/words/g3ss-word-renewable.mp3,s
 optima-3rd-social-studies,opti,resource,8,audio/words/g3ss-word-resource.mp3,speech,file name,29a0ae62a859c9dc0ddc2999dab34609
 optima-3rd-social-studies,opti,rio grande,10,audio/words/g3ss-word-rio-grande.mp3,speech,file name,ea409b56000a14f5ac843dd46bff3192
 optima-3rd-social-studies,opti,rocky mountains,15,audio/words/g3ss-word-rocky-mountains.mp3,speech,file name,9d08a8377458173eb53de544bdffed7c
+optima-3rd-social-studies,opti,saguaro,7,audio/words/g3ss-word-saguaro.mp3,speech,file name,51c5ae522d08ef55bc4af2c696849817
 optima-3rd-social-studies,opti,sap,3,audio/words/g3ss-word-sap.mp3,speech,file name,15cb89d1a0e0f779ab0237e8a9d284bf
 optima-3rd-social-studies,opti,season,6,audio/words/g3ss-word-season.mp3,speech,file name,24750c2fb5bda21d5358e942098b33da
 optima-3rd-social-studies,opti,settle,6,audio/words/g3ss-word-settle.mp3,speech,file name,f865be3f21500a38260074cdfebe4326

@@ -89,6 +89,11 @@
    - window     Gallery main attraction: the Window Seat (three levels: fields, farm, town; tap 3 spots, fly lower)
    - lakes5     Gallery: fill the five Great Lake beds in order, HOMES, fresh-water questions
    - mwlabel    Exhibit Floor: pick the front object, label in the step, install; the alcove lights gold and the lakes glow
+   Added for 3.07.05 (DATA.items = the DESERT & CANYON crate; DATA.geo.swBox / rio / colorado / swPts):
+   - rainjars   Lobby: three jars fill with a year of rain; pick Phoenix; open the crate
+   - canyon     Gallery main attraction: Carve the Grand Canyon (knob through 6 million years, tap six rock layers)
+   - walls      Gallery: the thick walls test (thin hut vs thick adobe hut, noon and midnight)
+   - swsign     Exhibit Floor: Where / Land / People ideas, 3 sentences in the step, install; a sunset sweeps the alcove row
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1146,7 +1151,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -3600,7 +3605,254 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.07.05 (Southwest Region Study) ══════════
+     DATA.items = the DESERT & CANYON crate; DATA.geo.swBox / rio / colorado / swPts = the Southwest view.
+     - rainjars  Lobby: three jars fill with one year of rain (Chicago, Phoenix, Miami); pick Phoenix; then the crate opens
+     - canyon    Gallery main attraction: Carve the Grand Canyon (knob through 6 million years; tap the six rock layers)
+     - walls     Gallery: the thick walls test (thin hut vs thick adobe hut; noon, then midnight)
+     - swsign    Exhibit Floor: pick Where / Land / People, write 3 sentences in the step, install; a sunset sweeps the alcove row */
+  function swMapSVG(cls, label, extra, opt){ opt = opt || {}; var G = DATA.geo;
+    return usSVG(cls, label, '<path class="sw-co" d="'+G.colorado+'"/><path class="sw-rio" d="'+G.rio+'"/>' + (extra || ''), {vb: (opt.vb || G.swBox).join(' '), insetNames:false}); }
+  function swItemSVG(k){
+    if (k === 'rock') return '<svg viewBox="0 0 120 90" aria-hidden="true"><ellipse cx="60" cy="80" rx="44" ry="6" fill="rgba(0,0,0,.18)"/><path d="M18 70 C10 52 22 30 44 24 C66 16 92 22 104 42 C114 60 102 78 80 80 C58 82 30 82 18 70Z" fill="#B4533A"/><path d="M26 64 C24 50 34 36 50 32 C64 28 82 30 92 42" fill="none" stroke="#D9774A" stroke-width="5" stroke-linecap="round" opacity=".7"/><path d="M30 72 C50 76 76 76 96 66" fill="none" stroke="#7E3322" stroke-width="4" opacity=".5"/><circle cx="70" cy="50" r="3" fill="#8E3D28"/><circle cx="48" cy="58" r="2" fill="#8E3D28"/></svg>';
+    if (k === 'cactus') return '<svg viewBox="0 0 120 120" aria-hidden="true"><ellipse cx="60" cy="112" rx="32" ry="5" fill="rgba(0,0,0,.18)"/><path d="M50 70 V30 a10 10 0 0 1 20 0 V70Z" fill="#5E9A4A" stroke="#3E6E30" stroke-width="2"/><path d="M50 56 H40 a8 8 0 0 1 -8 -8 V40 a6 6 0 0 1 12 0 V46 H50Z M70 50 H80 V36 a6 6 0 0 1 12 0 V46 a8 8 0 0 1 -8 8 H70Z" fill="#5E9A4A" stroke="#3E6E30" stroke-width="2"/><path d="M60 22 V70 M55 26 V70 M65 26 V70" stroke="#3E6E30" stroke-width="1.2" opacity=".6"/><g stroke="#F4EBC8" stroke-width="1.4"><path d="M50 36 l-5 -2 M70 40 l5 -2 M50 50 l-5 -1 M70 60 l5 -1 M38 42 l-5 -2 M86 40 l5 -2"/></g><circle cx="60" cy="19" r="4" fill="#F2C3D6"/><path d="M34 70 H86 L80 110 H40Z" fill="#C8693E"/><rect x="30" y="66" width="60" height="10" rx="3" fill="#B25A32"/><path d="M42 88 h36" stroke="#E7A57A" stroke-width="3"/></svg>';
+    if (k === 'canyon') return '<svg viewBox="0 0 120 100" aria-hidden="true"><rect x="6" y="4" width="108" height="92" rx="3" fill="#FBF8F0" stroke="#D8CFB8" stroke-width="2"/><defs><linearGradient id="swPh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C4C8A"/><stop offset=".55" stop-color="#E9865A"/><stop offset="1" stop-color="#F8D07A"/></linearGradient></defs><rect x="12" y="10" width="96" height="66" fill="url(#swPh)"/><path d="M12 44 L40 44 L44 50 L58 50 L62 58 L76 58 L80 50 L96 50 L100 44 L108 44 V76 H12Z" fill="#9C4A30"/><path d="M12 56 L36 56 L44 64 L58 70 L72 70 L84 62 L108 60 V76 H12Z" fill="#6E3424"/><path d="M52 76 Q60 70 68 76" stroke="#6FB2D9" stroke-width="3" fill="none"/><circle cx="88" cy="30" r="7" fill="#FFE9A8"/><text x="60" y="89" text-anchor="middle" font-size="9" font-weight="800" fill="#7A6A4A" font-family="Nunito,sans-serif">Grand Canyon</text></svg>';
+    return '<svg viewBox="0 0 120 100" aria-hidden="true"><path d="M8 14 L40 6 L80 14 L112 6 V86 L80 94 L40 86 L8 94Z" fill="#F3E6C4" stroke="#B49A6A" stroke-width="2"/><path d="M40 6 V86 M80 14 V94" stroke="#D8C49A" stroke-width="2"/><path d="M30 12 C34 26 30 36 38 46 C46 56 44 62 54 68 C64 74 70 70 80 78 C88 84 96 84 104 90" stroke="#3E86C2" stroke-width="5" fill="none" stroke-linecap="round"/><text x="62" y="40" font-size="10" font-weight="900" fill="#2F4F7F" font-family="Nunito,sans-serif">RIO GRANDE</text><text x="22" y="80" font-size="8" font-weight="800" fill="#7A6A4A" font-family="Nunito,sans-serif">TEXAS</text><text x="84" y="64" font-size="8" font-weight="800" fill="#7A6A4A" font-family="Nunito,sans-serif">MEXICO</text></svg>';
+  }
+
+  /* ══ MODULE: rainjars (Lobby · three rain jars + the DESERT & CANYON crate) ══ */
+  function modRainjars(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor || !DATA.geo) return;
+    var J = cfg.jars || [], IT = DATA.items || [], P = DATA.geo.swPts || {}, MAXI = 70;
+    ST.rj = ST.rj || {step:1, poured:false, pick:null, seen:{}, open:false}; var S = ST.rj;
+    var m = shell('ms-rj-mod', cfg);
+    var pins = J.map(function(j, i){ var c = P[j.k]; return '<g class="cpin" data-k="'+j.k+'"><circle cx="'+c[0]+'" cy="'+c[1]+'" r="20"/><text class="n" x="'+c[0]+'" y="'+(c[1]+9)+'" style="text-anchor:middle">'+'ABC'[i]+'</text><text class="nm" x="'+(c[0]+(j.k==='miami'?-26:26))+'" y="'+(c[1]+(j.k==='miami'?-22:11))+'" style="text-anchor:'+(j.k==='miami'?'end':'start')+'">'+esc(j.city.split(',')[0])+'</text></g>'; }).join('');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-rj-wrap"><div class="ms-rj-jars">'+J.map(function(j, i){ return '<button type="button" class="ms-rj-jar" data-k="'+j.k+'" aria-label="Jar '+'ABC'[i]+'"><span class="lbl">Jar '+'ABC'[i]+'</span><span class="glass"><span class="water" style="--h:'+Math.round(j['in']/MAXI*100)+'%"></span><span class="marks"><i></i><i></i><i></i></span><span class="drops"></span></span><span class="cap"></span></button>'; }).join('')+'</div>' +
+      '<div class="ms-rj-map">'+usSVG('ms-rj-svg', 'A map of the United States with three cities: Chicago in the Midwest, Miami in the Southeast, and Phoenix in the Southwest.', '<g class="cpins">'+pins+'</g>', {insetNames:false})+'</div></div><div class="ms-rj-act"></div>');
+    after(anchor, m);
+    var act = $('.ms-rj-act', m), svg = $('.ms-rj-svg', m);
+    $$('.st', svg).forEach(function(s){ s.classList.toggle('lit', ['se','mw','sw'].indexOf(s.dataset.r) >= 0); });
+    function jarOf(k){ return J.filter(function(j){ return j.k === k; })[0]; }
+    function paint(){
+      m.classList.toggle('poured', !!S.poured); var named = S.pick === 'phoenix';
+      $$('.ms-rj-jar', m).forEach(function(b){ var j = jarOf(b.dataset.k); b.classList.toggle('me', named && j.k === 'phoenix'); b.classList.toggle('no', S.miss === j.k && !named);
+        $('.cap', b).innerHTML = named ? '<b>'+esc(j.city.split(',')[0])+'</b> '+esc(j.label) : (S.poured ? '?' : ''); });
+      $$('.cpin', svg).forEach(function(g){ g.classList.toggle('named', named); });
+    }
+    function pour(){ if (S.poured) return; SFX.whir(); S.poured = true; save(); paint(); render(); }
+    function pick(k){ if (!S.poured || S.step !== 2 || S.pick === 'phoenix') return;
+      if (k !== 'phoenix') { SFX.miss(); S.miss = k; paint(); var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 '+esc(cfg.pickWrong||'')+'</div>'; return; }
+      SFX.chime(); S.pick = 'phoenix'; S.miss = null; save(); paint(); render(); }
+    $$('.ms-rj-jar', m).forEach(function(b){ b.addEventListener('click', function(){ pick(b.dataset.k); }); });
+    function crateHTML(){ return '<div class="ms-cr-crate ms-rj-crate '+(S.open?'open':'')+'"><div class="ms-cr-lid"></div><div class="ms-cr-box"><b>DESERT &amp; CANYON</b><span>Fragile · Museum Objects</span></div><div class="ms-cr-tray">'+(S.open ? IT.map(function(it){ return '<button type="button" class="ms-cr-th'+(S.seen[it.k]?' seen':'')+'" data-k="'+it.k+'" aria-label="Look closer: '+esc(it.name)+'">'+swItemSVG(it.k)+'<span>'+(S.seen[it.k]?'✓ ':'')+it.icon+' '+esc(it.name)+'</span></button>'; }).join('') : '')+'</div></div>'; }
+    function look(k){ var it = itemOf(k); SFX.click(); S.seen[k] = 1; save();
+      var map = swMapSVG('ms-rj-lbmap', 'A map of the Southwest. '+it.state+' is lit.', '');
+      (it.states||[]).forEach(function(s){ map = map.replace('class="st" data-s="'+s+'"', 'class="st lit" data-s="'+s+'"'); });
+      lightbox('<figure class="ms-wp-lb ms-rj-lb"><div class="pic">'+swItemSVG(it.k)+'</div><div class="mp">'+map+'</div><figcaption><b>'+it.icon+' '+esc(it.name)+'</b> · from '+esc(it.state)+'<br>'+esc(it.tag)+'</figcaption></figure>', null, function(){ render(); }); render(); }
+    function bindCrate(){ $$('.ms-rj-crate .ms-cr-th', m).forEach(function(b){ b.onclick = function(){ look(b.dataset.k); }; }); }
+    function render(){
+      paint(); var N = 4;
+      if (S.step >= 5) { act.innerHTML = crateHTML() + '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; bindCrate(); return; }
+      if (S.step === 1) {
+        act.innerHTML = stepCard(1, N, 'Start the rain', S.poured ? '<p class="ms-wm-do">💧 One whole year of rain has fallen into each jar.</p><button type="button" class="ms-btn big ms-rj-go">Next ➡️</button>'
+          : '<p>Each jar is empty. Tap the button to let one whole year of rain fall into each jar.</p><button type="button" class="ms-btn big ms-rj-pour">🌧️ Start the rain</button>');
+        var p = $('.ms-rj-pour', act); if (p) p.onclick = pour;
+        var g = $('.ms-rj-go', act); if (g) g.onclick = function(){ SFX.click(); S.step = 2; save(); render(); }; return; }
+      if (S.step === 2) { var ok = S.pick === 'phoenix';
+        act.innerHTML = stepCard(2, N, 'Which jar is Phoenix?', ok ? '<div class="ms-sh-tag"><p>'+(cfg.pickOk||'')+'</p></div><button type="button" class="ms-btn big ms-rj-go">Next ➡️</button>'
+          : '<p class="ms-wm-do">👆 Phoenix, Arizona, is in a desert. Tap the jar you think is from Phoenix.</p><div class="ms-exfb" aria-live="polite"></div>');
+        var g2 = $('.ms-rj-go', act); if (g2) g2.onclick = function(){ SFX.click(); S.step = 3; save(); render(); }; return; }
+      if (S.step === 3) { var all = IT.every(function(it){ return S.seen[it.k]; });
+        act.innerHTML = stepCard(3, N, 'Open the crate', S.open ? '<p class="ms-wm-do">👆 Tap each object to read its tag.</p>' + crateHTML() + (all ? '<button type="button" class="ms-btn big ms-rj-go">Next ➡️</button>' : '<p class="ms-sw-left-n">'+IT.filter(function(it){ return !S.seen[it.k]; }).length+' more to look at.</p>')
+          : '<p>A heavy crate waits by the fourth alcove.</p>' + crateHTML() + '<button type="button" class="ms-btn big ms-rj-open">📦 '+esc(cfg.crateT||'Open the crate')+'</button>');
+        var o = $('.ms-rj-open', act); if (o) o.onclick = function(){ SFX.creak(); S.open = true; save(); render(); };
+        var g3 = $('.ms-rj-go', act); if (g3) g3.onclick = function(){ SFX.click(); S.step = 4; save(); render(); };
+        bindCrate(); return; }
+      var q = choiceQ(cfg.q, 4, function(){ setTimeout(function(){ S.step = 5; save(); render(); }, calm()?0:1500); markDone('scene'); SFX.fanfare(); });
+      act.innerHTML = stepCard(4, N, cfg.q.title, q.html); q.bind(act);
+    }
+    render(); if (S.step >= 5) markDone('scene');
+  }
+
+  /* ══ MODULE: canyon (Gallery main attraction · Carve the Grand Canyon) ══ */
+  function cyProfile(k, LY){
+    // y of each layer top (130 = the flat land); returns the polygon of the cut for depth fraction k
+    var top = 130, ys = [top], y = top; LY.forEach(function(l){ y += l.h; ys.push(y); });
+    var floor = top + k * (ys[ys.length-1] - 22 - top); if (k <= 0) return {d:'', w:'', floor:top, ys:ys};
+    var cx = 400, L = [], R = [], half = 10;
+    var pts = [[floor, half]];
+    for (var i = LY.length - 1; i >= 0; i--) { var yt = ys[i], yb = ys[i+1]; if (yt >= floor) continue;
+      var from = Math.min(yb, floor), dh = from - yt, l = LY[i];
+      if (l.hard === 2) { half += dh * .32; pts.push([yt, half]); }
+      else if (l.hard === 1) { half += dh * .22; pts.push([yt, half]); half += 6; pts.push([yt - .1, half]); }
+      else { half += dh * 1.15; pts.push([yt, half]); } }
+    pts.forEach(function(p){ L.push((cx - p[1] * 1.04).toFixed(1)+' '+p[0].toFixed(1)); R.push((cx + 18 + p[1] * .96).toFixed(1)+' '+p[0].toFixed(1)); });
+    var w = 'M' + L.reverse().join(' L') + ' L' + R.join(' L'), d = w + 'Z';
+    return {d: d, w: w, floor: floor, ys: ys, rim: pts[pts.length-1][1]};
+  }
+  function modCanyon(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var LY = cfg.layers || [], MY = cfg.maxYrs || 6, STEPS = 60;
+    ST.cy = ST.cy || {t:0, step:1, seen:{}, sel:null, ok:false}; var S = ST.cy;
+    var m = shell('ms-cy-mod', cfg);
+    var y = 130, lay = LY.map(function(l, i){ var g = '<g class="ly" data-k="'+l.k+'" role="button" tabindex="0" aria-label="'+esc(l.t)+'"><rect x="0" y="'+y+'" width="800" height="'+l.h+'" fill="'+l.c+'"/>' +
+      (l.k === 'coconino' ? '<path d="M0 '+(y+30)+' l40 -26 M60 '+(y+30)+' l40 -26 M120 '+(y+30)+' l40 -26 M560 '+(y+30)+' l40 -26 M620 '+(y+30)+' l40 -26 M680 '+(y+30)+' l40 -26 M740 '+(y+30)+' l40 -26" stroke="#D8C38E" stroke-width="2"/>' : '') +
+      (l.k === 'red' ? '<path d="M0 '+(y+22)+' H800 M0 '+(y+44)+' H800" stroke="#9A4430" stroke-width="2"/>' : '') +
+      (l.k === 'vishnu' ? '<path d="M0 '+(y+20)+' q40 -18 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 M0 '+(y+50)+' q40 18 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" stroke="#6E5A66" stroke-width="3" fill="none"/>' : '') +
+      '<rect class="hl" x="0" y="'+y+'" width="800" height="'+l.h+'"/><g class="tg" transform="translate(16 '+(y + l.h/2 + 6)+')"><circle r="13" cx="0" cy="-5"/><text class="n" y="0" style="text-anchor:middle">'+(i+1)+'</text><text class="ck" y="0" style="text-anchor:middle">✓</text></g></g>'; y += l.h; return g; }).join('');
+    var fy = 130, far = LY.map(function(l){ var r = '<rect x="0" y="'+fy+'" width="800" height="'+l.h+'" fill="'+l.c+'"/>'; fy += l.h; return r; }).join('');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-cy-stage"><svg class="ms-cy-svg" viewBox="0 0 800 460" role="img" aria-label="A simple model of the Grand Canyon: a slice of land with stacked rock layers. As time runs forward, the river cuts a deep canyon down through the layers.">' +
+      '<defs><linearGradient id="cySky" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="460"><stop offset="0" stop-color="#7FB6E2"/><stop offset="1" stop-color="#F6D9A8"/></linearGradient><clipPath id="cyCutClip"><path class="cutclip" d=""/></clipPath><linearGradient id="cyHaze" gradientUnits="userSpaceOnUse" x1="0" y1="130" x2="0" y2="460"><stop offset="0" stop-color="#FBE6CF" stop-opacity=".55"/><stop offset="1" stop-color="#8E7FA8" stop-opacity=".45"/></linearGradient></defs>' +
+      '<rect width="800" height="460" fill="url(#cySky)"/><g class="sun"><circle cx="680" cy="56" r="26" fill="#FFE39A"/></g>' +
+      '<path class="mesas" d="M0 131 V114 H70 L80 104 H170 L178 114 H250 L256 120 H520 L528 108 H540 L546 96 H556 L562 108 H600 L610 100 H720 L730 112 H800 V131Z"/>' +
+      '<g class="lys">'+lay+'</g><g class="far" clip-path="url(#cyCutClip)"><rect width="800" height="460" fill="url(#cySky)"/><g transform="translate(0 -4)">'+far+'</g><rect x="0" y="0" width="800" height="460" fill="url(#cyHaze)"/></g><path class="wall" d=""/>' +
+      '<g class="jun">'+[40,64,210,236,560,600,700,760].map(function(x, i){ return '<ellipse cx="'+x+'" cy="'+(127 - (i%2))+'" rx="'+(7 + i%3)+'" ry="5"/>'; }).join('')+'</g><path class="river" d=""/><path class="river0" d="M0 128 H800"/>' +
+      '<g class="hiker" transform="translate(150 130)"><circle cy="-22" r="4" fill="#5A3A2A"/><path d="M0 -18 V-6 M0 -6 l-4 8 M0 -6 l4 8 M0 -14 l-5 5 M0 -14 l5 4" stroke="#5A3A2A" stroke-width="2.4" stroke-linecap="round"/><path d="M6 -10 V4" stroke="#7A5A3A" stroke-width="1.6"/></g>' +
+      '<g class="ruler"><path class="rl" d=""/><text class="rt" x="0" y="0"></text></g>' +
+      '<text class="yrs" x="400" y="34" style="text-anchor:middle"></text></svg><div class="ms-cy-tag" aria-live="polite"></div></div><div class="ms-cy-act"></div><p class="ms-credit">A simple model. Real ages from the National Park Service.</p>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-cy-act', m), svg = $('.ms-cy-svg', m), tag = $('.ms-cy-tag', m);
+    function draw(){
+      var k = S.t / STEPS, P = cyProfile(k, LY);
+      $('.cutclip', svg).setAttribute('d', P.d); $('.wall', svg).setAttribute('d', P.w || '');
+      $('.river', svg).setAttribute('d', k > 0 ? 'M'+(392)+' '+(P.floor-2).toFixed(1)+' L'+(426)+' '+(P.floor-2).toFixed(1) : '');
+      $('.river0', svg).style.opacity = k > 0 ? 0 : 1;
+      $('.yrs', svg).textContent = S.t ? (S.t >= STEPS ? 'About ' + MY + ' million years later' : (S.t/10).toFixed(1) + ' million years go by…') : 'Long ago: flat land';
+      var rl = $('.rl', svg), rt = $('.rt', svg);
+      if (k >= 1) { var x = 409; rl.setAttribute('d', 'M'+x+' 134 V'+(P.floor-6)+' M'+(x-9)+' 134 H'+(x+9)+' M'+(x-9)+' '+(P.floor-6)+' H'+(x+9)+' M'+(x-6)+' 142 L'+x+' 134 L'+(x+6)+' 142 M'+(x-6)+' '+(P.floor-14)+' L'+x+' '+(P.floor-6)+' L'+(x+6)+' '+(P.floor-14)); rt.setAttribute('x', x); rt.setAttribute('y', 112); rt.textContent = '\u2195 ' + (cfg.depthT || ''); svg.classList.add('deep'); }
+      else { rl.setAttribute('d', ''); rt.textContent = ''; svg.classList.remove('deep'); }
+      $$('.ly', svg).forEach(function(g){ g.classList.toggle('seen', !!S.seen[g.dataset.k]); g.classList.toggle('sel', S.sel === g.dataset.k); });
+      svg.classList.toggle('tapme', S.step === 2);
+      var l = S.sel && LY.filter(function(x){ return x.k === S.sel; })[0];
+      tag.innerHTML = l ? '<b>'+esc(l.t)+'</b> <span class="age">'+esc(l.age)+'</span><br>'+esc(l.d) : ''; tag.classList.toggle('show', !!l);
+    }
+    function tapLayer(k){ if (S.step !== 2) return; S.seen[k] = 1; S.sel = k; SFX.chime(); save(); draw(); render(); }
+    $$('.ly', svg).forEach(function(g){ g.addEventListener('click', function(){ tapLayer(g.dataset.k); }); g.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tapLayer(g.dataset.k); } }); });
+    function render(){
+      draw(); var N = 4;
+      if (S.ok) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.step === 1) { var done = S.t >= STEPS;
+        act.innerHTML = stepCard(1, N, 'Run time forward', '<p class="ms-wm-do">👆 Drag the knob all the way to the right. Each step is a long, long time.</p>' +
+          '<div class="ms-tr-slide ms-cy-slide"><span>🏞️ Now</span><input type="range" min="0" max="'+STEPS+'" step="1" value="'+S.t+'" aria-label="Millions of years: drag to run time forward"><span>⏩ '+MY+' million years</span></div>' +
+          '<p class="ms-cy-say" aria-live="polite">'+(done ? '🌊 The river cut down through every layer. The canyon is more than a mile deep!' : (S.t ? '🌊 The river carries away sand and rock, bit by bit. Keep going!' : ''))+'</p>' + (done ? '<button type="button" class="ms-btn big ms-cy-go">Next ➡️</button>' : ''));
+        var r = $('input', act); r.addEventListener('input', function(){ var was = S.t; S.t = +r.value; if (S.t > was && S.t % 10 === 0) SFX.click(); save(); draw();
+          var say = $('.ms-cy-say', act); if (S.t >= STEPS) { render(); SFX.chime(); } else if (say) say.textContent = S.t ? '🌊 The river carries away sand and rock, bit by bit. Keep going!' : ''; });
+        var g = $('.ms-cy-go', act); if (g) g.onclick = function(){ SFX.click(); S.step = 2; S.sel = null; save(); render(); }; return; }
+      if (S.step === 2) { var n = LY.filter(function(l){ return S.seen[l.k]; }).length, all = n >= LY.length;
+        act.innerHTML = stepCard(2, N, 'Tap the rock layers', '<p class="ms-wm-do">👆 Tap each rock layer on the canyon wall, or tap its number here.</p><div class="ms-cy-list">'+LY.map(function(l, i){ var on = S.seen[l.k]; return '<button type="button" class="ms-cy-li'+(on?' ok':'')+(S.sel===l.k?' sel':'')+'" data-k="'+l.k+'"><span class="b" style="background:'+l.c+'">'+(on ? '✓' : (i+1))+'</span><span>'+(on ? '<b>'+esc(l.t)+'</b> · '+esc(l.age) : '<i>Layer '+(i+1)+'</i>')+'</span></button>'; }).join('')+'</div>' +
+          (all ? '<button type="button" class="ms-btn big ms-cy-go">Next ➡️</button>' : '<p class="ms-sw-left-n">'+(LY.length - n)+' more to tap.</p>'));
+        $$('.ms-cy-li', act).forEach(function(b){ b.onclick = function(){ tapLayer(b.dataset.k); }; });
+        var g2 = $('.ms-cy-go', act); if (g2) g2.onclick = function(){ SFX.click(); S.step = 3; S.sel = null; save(); render(); }; return; }
+      var Q = S.step === 3 ? cfg.q1 : cfg.q2;
+      var cq = choiceQ(Q, S.step, function(){ var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big ms-cy-next'; b.textContent = S.step < 4 ? 'Next question ➡️' : 'Done ✓'; $('.ms-stepcard', act).appendChild(b);
+        b.onclick = function(){ SFX.click(); if (S.step >= 4) { S.ok = true; ST.gal = ST.gal||{}; ST.gal.canyon = 1; galleryCheck(); SFX.fanfare(); } else S.step++; save(); render(); }; });
+      act.innerHTML = stepCard(S.step, N, Q.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: walls (Gallery · the thick walls test) ══ */
+  function wlHut(kind){
+    if (kind === 'thin') return '<g class="hut thin"><path d="M14 42 L80 14 L146 42" stroke="#8C7A5E" stroke-width="5" fill="none" stroke-linejoin="round"/><rect x="20" y="40" width="120" height="52" fill="#9C8768"/><rect class="room" x="23" y="43" width="114" height="49" fill="#F3E9D6"/><path d="M23 92 H137" stroke="#B9A88A" stroke-width="3"/><text class="cw" x="80" y="58" style="text-anchor:middle">inside</text></g>';
+    return '<g class="hut thick"><rect x="4" y="26" width="152" height="10" rx="3" fill="#A8714A"/><g fill="#6E4428"><circle cx="20" cy="31" r="4"/><circle cx="56" cy="31" r="4"/><circle cx="104" cy="31" r="4"/><circle cx="140" cy="31" r="4"/></g><rect x="8" y="34" width="144" height="58" fill="#C98A5E"/><g stroke="#B0744C" stroke-width="1.5"><path d="M8 48 H24 M8 62 H24 M8 76 H24 M136 48 H152 M136 62 H152 M136 76 H152 M16 34 V48 M16 62 V76 M144 48 V62 M144 76 V92"/></g><rect class="room" x="24" y="50" width="112" height="42" fill="#F3E9D6"/><path d="M24 92 H136" stroke="#B9A88A" stroke-width="3"/><text class="cw" x="80" y="64" style="text-anchor:middle">inside</text></g>';
+  }
+  function wlTherm(v, cls){ var h = Math.max(4, Math.min(56, (v - 40) / 70 * 56)), col = v >= 88 ? '#E2452F' : v >= 75 ? '#F08A2A' : v >= 65 ? '#E8C33A' : '#4F8FD6';
+    return '<g class="th '+(cls||'')+'"><rect x="-7" y="-64" width="14" height="66" rx="7" fill="#fff" stroke="#55606A" stroke-width="2"/><circle cy="8" r="9" fill="'+col+'" stroke="#55606A" stroke-width="2"/><rect class="merc" x="-3.5" y="'+(2-h)+'" width="7" height="'+h+'" rx="3" fill="'+col+'"/></g>'; }
+  function modWalls(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var TM = cfg.times || [];
+    ST.wl = ST.wl || {seen:{}, t:null, step:1, ok:false}; var S = ST.wl;
+    var m = shell('ms-wl-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-wl-stage"><svg class="ms-wl-svg" viewBox="0 0 720 300" role="img" aria-label="A simple model: two little houses on desert ground. House 1 has thin walls. House 2 has thick adobe walls. A thermometer is inside each house and one is outside.">' +
+      '<defs><linearGradient id="wlDay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FB3E6"/><stop offset="1" stop-color="#F7E2B4"/></linearGradient><linearGradient id="wlNight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1C42"/><stop offset="1" stop-color="#3A3F6E"/></linearGradient></defs>' +
+      '<rect class="sky day" width="720" height="300" fill="url(#wlDay)"/><rect class="sky night" width="720" height="300" fill="url(#wlNight)"/>' +
+      '<g class="stars">'+[[60,40],[140,70],[230,30],[330,60],[420,26],[520,50],[600,30],[680,70],[380,90],[90,100]].map(function(p){ return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="1.8" fill="#fff"/>'; }).join('')+'</g>' +
+      '<circle class="sunb" cx="360" cy="52" r="30" fill="#FFE07A"/><path class="moon" d="M372 36 a22 22 0 1 0 14 38 a18 18 0 1 1 -14 -38Z" fill="#F4F1DE"/>' +
+      '<path d="M0 230 Q180 214 360 226 T720 222 V300 H0Z" fill="#D9B07A"/><path d="M0 252 Q200 240 400 250 T720 246 V300 H0Z" fill="#C99C66"/>' +
+      '<g transform="translate(588 168)"><path d="M10 64 V14 a8 8 0 0 1 16 0 V64Z M10 40 H2 a6 6 0 0 1 -6 -6 V26 a4 4 0 0 1 8 0 V32 H10Z M26 34 H34 V22 a4 4 0 0 1 8 0 V32 a6 6 0 0 1 -6 6 H26Z" fill="#5E9A4A"/></g>' +
+      '<g class="ms-wl-huts"><g transform="translate(50 108) scale(1.35)">'+wlHut('thin')+'<g transform="translate(110 83) scale(.5)" class="in1"></g></g><text class="hn" x="158" y="262" style="text-anchor:middle">House 1: thin walls</text>' +
+      '<g transform="translate(318 108) scale(1.35)">'+wlHut('thick')+'<g transform="translate(112 83) scale(.5)" class="in2"></g></g><text class="hn" x="426" y="262" style="text-anchor:middle">House 2: thick adobe walls</text></g>' +
+      '<g transform="translate(668 232)" class="outth"></g><text class="hn out" x="668" y="262" style="text-anchor:middle">Outside</text>' +
+      '<g class="reads"></g></svg></div><p class="ms-credit">'+esc(cfg.note||'')+'</p><div class="ms-wl-act"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-wl-act', m), svg = $('.ms-wl-svg', m);
+    function tOf(k){ return TM.filter(function(t){ return t.k === k; })[0]; }
+    function draw(){ var t = S.t ? tOf(S.t) : null;
+      svg.classList.toggle('isnight', S.t === 'night'); svg.classList.toggle('isday', S.t === 'noon'); svg.classList.toggle('idle', !S.t);
+      $('.in1', svg).innerHTML = t ? wlTherm(t.h1) : ''; $('.in2', svg).innerHTML = t ? wlTherm(t.h2) : ''; $('.outth', svg).innerHTML = t ? wlTherm(t.out) : '';
+      $('.reads', svg).innerHTML = t ? '<g class="rd"><path d="M188 120 L198 134 L208 120Z"/><rect x="160" y="92" width="76" height="30" rx="7"/><text x="198" y="113" style="text-anchor:middle">🌡️'+t.h1+'°F</text></g><g class="rd"><path d="M462 128 L472 142 L482 128Z"/><rect x="434" y="100" width="76" height="30" rx="7"/><text x="472" y="121" style="text-anchor:middle">🌡️'+t.h2+'°F</text></g><g class="rd out"><rect x="630" y="124" width="76" height="30" rx="7"/><text x="668" y="145" style="text-anchor:middle">'+t.out+'°F</text></g>' : ''; }
+    function setT(k){ S.t = k; S.seen[k] = 1; SFX.chime(); save(); draw(); render(); }
+    function table(){ return '<table class="ms-wl-tab"><tr><th></th><th>Outside</th><th>House 1<br><small>thin</small></th><th>House 2<br><small>thick adobe</small></th></tr>' + TM.map(function(t){ return '<tr><th>'+t.t+'</th>'+(S.seen[t.k] ? '<td>'+t.out+'°F</td><td>'+t.h1+'°F</td><td>'+t.h2+'°F</td>' : '<td>?</td><td>?</td><td>?</td>')+'</tr>'; }).join('') + '</table>'; }
+    function render(){
+      draw(); var N = 3;
+      if (S.ok) { act.innerHTML = table() + '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.step <= 2) { var T = TM[S.step-1], seen = !!S.seen[T.k];
+        act.innerHTML = stepCard(S.step, N, 'Make it '+T.t.replace(/^\S+\s/, '').toLowerCase(), (seen ? '<p class="ms-wm-do">'+esc(T.line)+'</p>' : '<p class="ms-wm-do">👆 Tap the button to make it '+esc(T.t.replace(/^\S+\s/, '').toLowerCase())+'.</p><button type="button" class="ms-btn big ms-wl-t">'+T.t+'</button>') + table() + (seen ? '<button type="button" class="ms-btn big ms-wl-go">Next ➡️</button>' : ''));
+        var b = $('.ms-wl-t', act); if (b) b.onclick = function(){ setT(T.k); };
+        var g = $('.ms-wl-go', act); if (g) g.onclick = function(){ SFX.click(); S.step++; save(); render(); }; return; }
+      var q = choiceQ(cfg.q, 3, function(){ ST.gal = ST.gal||{}; ST.gal.walls = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.ok = true; save(); render(); }, calm()?0:1700); });
+      act.innerHTML = stepCard(3, N, cfg.q.title, table() + q.html); q.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: swsign (Exhibit Floor · the Southwest sign + the sunset sweep) ══ */
+  function modSwsign(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'); if (!ta) return;
+    var PT = cfg.parts || [], NEED = cfg.sentMin || 3;
+    ST.sws = ST.sws || {pick:{}, step:1, open:false}; var S = ST.sws;
+    var m = shell('ms-sws-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-sws-act"></div><div class="ms-sws-show" hidden><div class="ms-ne-alcove ms-sws-alcove" style="'+rcol()+'"><span class="ms-alc-glow"></span><div class="ms-sws-scene">'+swItemSVG('canyon')+'</div><div class="ms-ne-sign">Southwest</div><div class="ms-ne-label"><p class="tx"></p><p class="by"></p><span class="ms-draft">DRAFT</span></div></div><div class="ms-sws-rowwrap">'+alcoves('ms-sws-row')+'<span class="ms-sws-sweep"></span></div></div><div class="ms-sws-end"></div>');
+    var home = document.createComment('sws-home'); ta.parentNode.insertBefore(home, ta); ta.parentNode.insertBefore(m, ta);
+    var tp = ta.parentNode.querySelector('.textbox-prompt'); if (tp) tp.classList.add('ms-hide-on');
+    var act = $('.ms-sws-act', m), show = $('.ms-sws-show', m), end = $('.ms-sws-end', m), row = $('.ms-sws-row', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return (s.trim().match(/\S+/g)||[]).length >= 3; }).length; }
+    function allPicked(){ return PT.every(function(p){ return S.pick[p.k] != null; }); }
+    function missing(){ var miss = []; if (!allPicked()) miss.push('Pick one idea in each row.'); var n = sents(ta.value); if (n < NEED) miss.push('Write '+(NEED-n)+' more sentence'+(NEED-n===1?'':'s')+'.'); if (!/southwest/i.test(ta.value)) miss.push('Name the Southwest in your sign.'); return miss; }
+    function view(){
+      $('.tx', show).textContent = ta.value.trim() || 'Your sign will appear here.';
+      $('.by', show).textContent = 'Sign by ' + (sget(NAMEK,'') || 'Junior Curator') + ', United States Region Curator';
+      show.classList.toggle('open', !!S.open); lightAlcoves(row, S.open ? ['ne','se','mw','sw'] : ['ne','se','mw'], false);
+    }
+    function notes(){ return '<div class="ms-cp-notes">'+PT.map(function(p){ var c = p.chips[S.pick[p.k]]; return c != null ? '<span>'+p.t.split(' ')[0]+' '+esc(c)+'</span>' : ''; }).join('')+'</div>'; }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 3; ta.classList.toggle('ms-gi-away', S.step !== 2);
+      if (S.step === 1 || !allPicked()) { S.step = 1; goHome();
+        act.innerHTML = stepCard(1, 3, cfg.s1T, '<p class="ms-wm-do">👆 '+esc(cfg.s1||'')+'</p>' + PT.map(function(p){ return '<div class="ms-sws-part"><b>'+p.t+'</b><div class="ms-sws-chips">'+p.chips.map(function(c, i){ var on = S.pick[p.k] === i; return '<button type="button" class="ms-sws-chip'+(on?' on':'')+'" data-p="'+p.k+'" data-i="'+i+'" aria-pressed="'+on+'">'+esc(c)+'</button>'; }).join('')+'</div></div>'; }).join('') +
+          '<button type="button" class="ms-btn big ms-sws-next'+(allPicked()?'':' ms-notready')+'">Next: write your sign ➡️</button><div class="ms-gi-fb" aria-live="polite"></div>');
+        $$('.ms-sws-chip', act).forEach(function(b){ b.onclick = function(){ S.pick[b.dataset.p] = +b.dataset.i; SFX.click(); save(); render(); }; });
+        $('.ms-sws-next', act).onclick = function(){ if (!allPicked()) { SFX.miss(); var left = PT.filter(function(p){ return S.pick[p.k] == null; }).map(function(p){ return p.t.replace(/^\S+\s/, ''); }); $('.ms-gi-fb', act).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> Pick an idea for: '+esc(left.join(', '))+'.</div>'; return; } SFX.chime(); S.step = 2; save(); render(); };
+        return; }
+      if (S.step === 2) {
+        act.innerHTML = stepCard(2, 3, cfg.s2T, '<p>'+esc(cfg.s2||'')+'</p>' + notes() + '<div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-sws-chk"></div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-sws-back">↩️ Change my ideas</button><button type="button" class="ms-btn big ms-sws-next">Next: see the alcove ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(ta);
+        var chk = $('.ms-sws-chk', act), fb = $('.ms-gi-fb', act);
+        function upd(){ var n = sents(ta.value), miss = missing(), nm = /southwest/i.test(ta.value); chk.innerHTML = '<span class="ms-wc'+(n>=NEED?' ok':'')+'">📝 '+Math.min(n,NEED)+' of '+NEED+' sentences</span><span class="ms-chip'+(nm?' ok':'')+'">'+(nm?'✓ ':'')+'names the Southwest</span>';
+          $('.ms-sws-next', act).classList.toggle('ms-notready', !!miss.length); if (fb.innerHTML) fb.innerHTML = miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>' : ''; }
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b, i){ b.onclick = function(){ var t = (cfg.starters||[])[i]; ta.value = ta.value.replace(/\s*$/,'') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-sws-back', act).onclick = function(){ S.step = 1; save(); render(); };
+        $('.ms-sws-next', act).onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 3; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(3, 3, cfg.s3T, '<p>'+esc(cfg.s3||'')+'</p><button type="button" class="ms-btn big ms-sws-open">🎉 '+esc(cfg.openT||'Install')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-sws-edit">✏️ '+esc(cfg.editT||'Edit my sign')+'</button></div>';
+      var ob = $('.ms-sws-open', end); if (ob) ob.onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('opening'); void show.offsetWidth; show.classList.add('opening'); SFX.fanfare(); render(); setTimeout(function(){ show.classList.remove('opening'); }, 4200); optiNod('assignment'); check(); };
+      $('.ms-sws-edit', end).onclick = function(){ S.open = false; S.step = 2; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 2) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
