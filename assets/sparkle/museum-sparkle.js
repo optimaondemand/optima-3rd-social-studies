@@ -66,6 +66,18 @@
    - threads    Gallery main attraction: tap where a sport or music started, send it traveling on a gold thread
    - langmap    Gallery source room: a languages map; turn on each color, zoom in on the islands
    - compare2   Exhibit Floor: two places, one thing each, a connection, four sentences, install → the gallery lights up
+   Added for 3.07.01 (DATA.regions = the five U.S. regions, DATA.geo = the U.S. map we made, DATA.marks = ten landmark photos):
+   - findstate  Lobby: tap the state you live in, its region lights up, then all five alcoves
+   - lighttable Gallery main attraction: lay four see-through sheets (land, weather, resources, people), draw the region lines
+   - landmarks  Gallery: ten real landmark photos into the five alcoves (drag or tap)
+   - nightmap   Gallery source room: NASA's U.S. at night, three questions with circles
+   - directory  Exhibit Floor: finish the region sentence, pick a region, write in the step, open the gallery
+   Added for 3.07.02 (DATA.items = the crate objects, DATA.geo.neBox = the Northeast view of the map):
+   - cratepin   Lobby: lift each object out of the ATLANTIC COAST crate, read its tag, tap its state (a pin drops)
+   - seasons    Gallery main attraction: the Four Seasons Window (a Vermont hillside) + a brass season wheel
+   - oldmtn     Gallery: young sharp Rockies vs old worn Appalachians; run time forward
+   - harbor     Gallery source room: two real photos of New York Harbor ~100 years apart, three questions
+   - nelabel    Exhibit Floor: pick the front object, write the label in the step, install, the Northeast alcove lights
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1123,7 +1135,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -2640,7 +2652,516 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.07.01 (The Five Regions · Unit 7 opener, United States Regions Gallery) ══════════
+     DATA.regions = the five regions [{k,name,icon,c,where,line,states,facts}]; DATA.geo = the U.S. map we made
+     (Natural Earth states, Albers, Alaska and Hawaii in boxes); DATA.marks = ten landmark photos.
+     - findstate   Lobby: tap the state you live in → its region lights up → light up all five alcoves
+     - lighttable  Gallery main attraction: lay four see-through sheets (land, weather, resources, people),
+                   one question each, then draw the region lines; one question about Texas
+     - landmarks   Gallery: ten real landmark photos, one at a time, into the five alcoves (drag or tap)
+     - nightmap    Gallery source room: NASA's night picture of the U.S.; three questions with circles
+     - directory   Exhibit Floor: finish "A region is a group of ___ that share the same ___", pick a region,
+                   write a sentence in the step, open the gallery (all five alcoves light, the next door opens a crack) */
+  function regOf(k){ var R = DATA.regions || []; for (var i=0;i<R.length;i++) if (R[i].k === k) return R[i]; return {k:k, name:k, icon:'', states:[], facts:[]}; }
+  function regOfState(s){ var R = DATA.regions || []; for (var i=0;i<R.length;i++) if (R[i].states.indexOf(s) >= 0) return R[i]; return null; }
+  function rcol(){ return (DATA.regions||[]).map(function(r){ return '--rc-'+r.k+':'+r.c; }).join(';'); }
+  function usSVG(cls, label, extra, opt){
+    var G = DATA.geo; opt = opt || {}; if (!G) return '';
+    var st = Object.keys(G.states).map(function(n){ var s = G.states[n]; return '<path class="st" data-s="'+esc(n)+'" data-r="'+s.r+'" d="'+s.d+'"><title>'+esc(n)+'</title></path>'; }).join('');
+    var ak = G.inset.ak, hi = G.inset.hi;
+    return '<svg class="ms-us '+(cls||'')+'" viewBox="'+(opt.vb || ('0 0 '+G.W+' '+G.H))+'" style="'+rcol()+'" role="img" aria-label="'+esc(label||'Map of the United States')+'">' +
+      '<rect class="sea" x="-200" y="-200" width="'+(G.W+400)+'" height="'+(G.H+400)+'"/><path class="nb" d="'+G.nb+'"/>' +
+      '<rect class="inset" x="'+(ak[0]-10)+'" y="'+(ak[1]-10)+'" width="'+(ak[2]-ak[0]+20)+'" height="'+(ak[3]-ak[1]+18)+'" rx="6"/><rect class="inset" x="'+(hi[0]-10)+'" y="'+(hi[1]-14)+'" width="'+(hi[2]-hi[0]+20)+'" height="'+(hi[3]-hi[1]+20)+'" rx="6"/>' +
+      (opt.under || '') + '<g class="sts">'+st+'</g><path class="lakes" d="'+G.lakes+'"/>' +
+      (opt.insetNames === false ? '' : '<text class="inl" x="'+(ak[0]-4)+'" y="'+(ak[3]+2)+'">Alaska</text><text class="inl" x="'+(hi[0]-4)+'" y="'+(hi[3]+2)+'">Hawaii</text>') +
+      (extra || '') + '</svg>';
+  }
+  function alcoves(cls, slots){
+    return '<div class="ms-alc-row '+(cls||'')+'" style="'+rcol()+'">'+(DATA.regions||[]).map(function(r, i){
+      return '<div class="ms-alc" data-r="'+r.k+'" role="button" tabindex="0" aria-label="The '+esc(r.name)+' alcove"><div class="ms-alc-arch"><span class="ms-alc-glow"></span>' +
+        (slots ? '<div class="ms-alc-slots"><span class="ms-alc-slot"></span><span class="ms-alc-slot"></span></div>' : '<span class="ms-alc-ic">'+r.icon+'</span>') +
+        '</div><div class="ms-alc-sign"><b>'+esc(r.name)+'</b></div></div>'; }).join('')+'</div>';
+  }
+  function lightAlcoves(row, which, stagger){ $$('.ms-alc', row).forEach(function(a, i){ var on = which === 'all' || which.indexOf(a.dataset.r) >= 0;
+    a.style.setProperty('--d', (stagger && !calm() ? i*.32 : 0)+'s'); a.classList.toggle('lit', on); }); }
+
+  /* ══ MODULE: findstate (Lobby · find your state → its region → five alcoves) ══ */
+  function modFindstate(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor || !DATA.geo) return;
+    ST.fs = ST.fs || {s:null, step:1}; var S = ST.fs;
+    var m = shell('ms-fs-mod', cfg);
+    m.insertAdjacentHTML('beforeend', alcoves('ms-fs-alc') + '<div class="ms-fs-wrap"><div class="ms-fs-map">'+usSVG('ms-fs-svg', 'Map of the United States with all 50 states. Tap the state where you live.')+'</div><div class="ms-fs-act"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-fs-act', m), svg = $('.ms-fs-svg', m), row = $('.ms-fs-alc', m);
+    var names = Object.keys(DATA.geo.states).sort();
+    function pick(n){ if (S.step !== 1) return; S.s = n; SFX.pop(); save(); render(); }
+    $$('.st', svg).forEach(function(p){ p.addEventListener('click', function(){ pick(p.dataset.s); }); });
+    function paint(){ var me = S.s && regOfState(S.s);
+      $$('.st', svg).forEach(function(p){ var r = p.dataset.r;
+        p.classList.toggle('me', p.dataset.s === S.s);
+        p.classList.toggle('lit', S.step >= 3 || (S.step === 2 && me && r === me.k));
+        p.classList.toggle('dim', S.step === 2 && me && r !== me.k); });
+      svg.classList.toggle('pick', S.step === 1);
+      lightAlcoves(row, S.step >= 3 ? 'all' : (S.step === 2 && me ? [me.k] : []), false); }
+    function render(){
+      paint(); var me = S.s && regOfState(S.s);
+      if (S.step === 1) {
+        act.innerHTML = stepCard(1, 3, cfg.s1T, '<p class="ms-wm-do">👆 '+esc(cfg.s1)+'</p>' +
+          (S.s ? '<div class="ms-vd-thanks">📍 You picked <b>'+esc(S.s)+'</b>.</div><button type="button" class="ms-btn big ms-fs-go">'+esc(cfg.s1b||'See its region')+' ➡️</button>' : '') +
+          '<label class="ms-fs-pickl">'+esc(cfg.pickL||'Or pick your state from a list:')+' <select class="ms-fs-sel"><option value="">Choose…</option>'+names.map(function(n){ return '<option'+(n===S.s?' selected':'')+'>'+esc(n)+'</option>'; }).join('')+'</select></label>');
+        $('.ms-fs-sel', act).onchange = function(e){ if (e.target.value) pick(e.target.value); };
+        var g = $('.ms-fs-go', act); if (g) g.onclick = function(){ SFX.chime(); S.step = 2; save(); render(); };
+        return; }
+      if (S.step === 2) {
+        act.innerHTML = stepCard(2, 3, cfg.s2T, '<p>'+cfg.s2.replace(/\{state\}/g, '<b>'+esc(S.s)+'</b>').replace(/\{region\}/g, esc(me.name)).replace('{n}', me.states.length)+'</p>' +
+          '<div class="ms-fs-chips" style="--rc:'+me.c+'">'+me.states.map(function(n){ return '<span class="'+(n===S.s?'me':'')+'">'+esc(n)+'</span>'; }).join('')+'</div>' +
+          '<p class="ms-fs-note">💡 '+esc(cfg.s2note||'')+'</p>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-fs-back">↩️ Pick a different state</button><button type="button" class="ms-btn big ms-fs-go">✨ '+esc(cfg.s2b||'Light up all five regions')+'</button></div>');
+        $('.ms-fs-back', act).onclick = function(){ S.step = 1; save(); render(); };
+        $('.ms-fs-go', act).onclick = function(){ row.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); SFX.fanfare(); S.step = 3; save(); render(); lightAlcoves(row, 'all', true); markDone('scene'); };
+        return; }
+      act.innerHTML = stepCard(3, 3, cfg.s3T, '<p>'+esc(cfg.s3||'')+'</p><ul class="ms-fs-list" style="'+rcol()+'">'+(DATA.regions||[]).map(function(r){ return '<li data-r="'+r.k+'"><b>'+r.icon+' '+esc(r.name)+'</b> · '+r.states.length+' states'+(me && me.k === r.k ? ' · <i>your region</i>' : '')+'</li>'; }).join('')+'</ul><div class="ms-win show">'+(cfg.doneT||'')+'</div>' +
+        '<button type="button" class="ms-btn alt ms-fs-again">↩️ Start over</button>');
+      $('.ms-fs-again', act).onclick = function(){ S.step = 1; save(); render(); };
+    }
+    render(); if (S.step >= 3) markDone('scene');
+  }
+
+  /* ══ MODULE: lighttable (Gallery main attraction) ══ */
+  function modLighttable(cfg){
+    var anchor = cfg.anchorIdx != null ? $$(cfg.anchor)[cfg.anchorIdx] : $(cfg.anchor); if (!anchor || !DATA.geo) return;
+    var G = DATA.geo, SH = cfg.sheets || [], N = SH.length + 2;
+    ST.lt = ST.lt || {i:0, ph:0, lines:0, tx:false}; var S = ST.lt;
+    var m = shell('ms-lt-mod', cfg);
+    function sheetSVG(s){
+      var h = '<g class="ms-lt-sheet" data-k="'+s.k+'"><rect class="film" x="-6" y="-6" width="'+(G.W+12)+'" height="'+(G.H+12)+'" rx="10"/>';
+      if (s.k === 'land') h += '<image href="'+img('land-3-07-01.png')+'" x="0" y="0" width="'+G.W+'" height="'+G.H48+'"/>';
+      if (s.zones) h += '<g class="zones">'+s.zones.map(function(z){ var w = G.wx[z.k]; return '<path d="'+w.d+'" fill="'+z.c+'"/>'; }).join('')+'</g>' + s.zones.map(function(z){ var w = G.wx[z.k]; var q = z.lp || w.c; return '<text class="lab" x="'+q[0]+'" y="'+q[1]+'"'+(z.a?' style="text-anchor:'+z.a+'"':'')+'>'+esc(z.t)+'</text>'; }).join('');
+      (s.labels||[]).forEach(function(l){ h += '<text class="lab" x="'+l.p[0]+'" y="'+l.p[1]+'">'+esc(l.t)+'</text>'; });
+      (s.icons||[]).forEach(function(l){ h += '<g class="ico" transform="translate('+l.p[0]+' '+l.p[1]+')"><circle r="23"/><text class="em" y="10">'+l.i+'</text><text class="lab sm" y="'+(l.p[0] > 920 ? -32 : 46)+'"'+(l.p[0] > 920 ? ' x="12" style="text-anchor:end"' : '')+'>'+esc(l.t)+'</text></g>'; });
+      (s.cities||[]).forEach(function(c){ h += '<g class="city" transform="translate('+c.p[0]+' '+c.p[1]+')"><circle r="8"/><text class="lab sm" x="'+(c.a==='end'?-11:11)+'" y="'+(-8+(c.dy||0))+'" style="text-anchor:'+(c.a||'start')+'">'+esc(c.t)+'</text></g>'; });
+      (s.notes||[]).forEach(function(n){ h += '<text class="note" x="'+n.p[0]+'" y="'+n.p[1]+'"'+(n.a?' style="text-anchor:'+n.a+'"':'')+'>'+esc(n.t)+'</text>'; });
+      h += '<text class="tab" x="'+(G.W-14)+'" y="30">'+s.icon+' '+esc(s.t)+' sheet</text></g>';
+      return h;
+    }
+    var lines = '<g class="ms-lt-lines">'+(DATA.regions||[]).map(function(r){ var g = G.regs[r.k]; return '<path class="rl" data-r="'+r.k+'" d="'+g.d+'"/>'; }).join('') +
+      (DATA.regions||[]).map(function(r){ var g = G.regs[r.k]; return '<text class="rn" data-r="'+r.k+'" x="'+g.c[0]+'" y="'+g.c[1]+'">'+esc(r.name)+'</text>'; }).join('')+'</g>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-lt-wrap"><div class="ms-lt-left"><div class="ms-lt-table">'+usSVG('ms-lt-svg', 'The light table: a map of the United States with see-through sheets', '<defs><filter id="ms-lt-blur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="9"/></filter></defs><g class="ms-lt-sheets">'+SH.map(sheetSVG).join('')+'</g>'+lines, {insetNames:true})+'</div>' +
+      '<div class="ms-lt-stack">'+SH.map(function(s, i){ return '<span class="ms-lt-chip" data-i="'+i+'">'+s.icon+' '+esc(s.t)+'</span>'; }).join('')+'</div></div><div class="ms-lt-act"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-lt-act', m), svg = $('.ms-lt-svg', m);
+    function paint(fresh){
+      $$('.ms-lt-sheet', svg).forEach(function(g, i){ var laid = i < S.i || (i === S.i && S.ph >= 1);
+        g.classList.toggle('on', laid); g.classList.toggle('cur', laid && i === S.i && S.i < SH.length && !S.lines); g.classList.toggle('old', laid && (i < S.i || S.lines > 0)); g.classList.toggle('drop', !!fresh && i === S.i); });
+      $$('.ms-lt-chip', m).forEach(function(c, i){ c.classList.toggle('used', i < S.i || (i === S.i && S.ph >= 1)); c.classList.toggle('next', i === S.i && S.ph === 0); });
+      svg.classList.toggle('lines', S.lines > 0); svg.classList.toggle('drawn', S.lines > 0 && !fresh);
+    }
+    function lay(){ if (S.i >= SH.length || S.ph !== 0) return; SFX.glass(); S.ph = 1; save(); render(true); var t = $('.ms-lt-table', m).getBoundingClientRect(); if (t.top < 60 || t.bottom > innerHeight + 200) $('.ms-lt-table', m).scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); }
+    function render(fresh){
+      paint(fresh);
+      if (S.tx) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.i < SH.length) {
+        var s = SH[S.i];
+        if (S.ph === 0) {
+          act.innerHTML = stepCard(S.i+1, N, 'Sheet '+(S.i+1)+' of '+SH.length+' · '+s.t, '<div class="ms-lt-card" title="Drag me onto the table"><span>'+s.icon+'</span><b>'+esc(s.t)+' sheet</b></div><p>'+esc(s.what)+'</p><button type="button" class="ms-btn big ms-lt-lay">🗂️ '+esc((cfg.layT||'Lay down the {t} sheet').replace('{t}', s.t))+'</button>');
+          $('.ms-lt-lay', act).onclick = lay;
+          dragger($('.ms-lt-card', act), function(moved, t){ if (moved && t) lay(); }, '.ms-lt-table');
+          return; }
+        var q = choiceQ(s.q, S.i, function(){ var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big ms-lt-next';
+          b.textContent = (S.i+1 < SH.length ? (cfg.nextT||'Next sheet')+' ➡️' : (cfg.linesT||'Draw the region lines')+' ➡️'); $('.ms-stepcard', act).appendChild(b);
+          b.onclick = function(){ SFX.click(); S.i++; S.ph = 0; save(); render(); }; });
+        act.innerHTML = stepCard(S.i+1, N, s.q.title, '<p class="ms-lt-what">'+s.icon+' '+esc(s.what)+'</p>'+q.html); q.bind(act); return; }
+      if (!S.lines || S.lines === 1) {
+        act.innerHTML = stepCard(N-1, N, cfg.linesT || 'Draw the region lines', '<p>'+esc(cfg.lines||'')+'</p>' + (S.lines ? '<div class="ms-vd-thanks">✏️ '+(cfg.linesDone||'')+'</div><button type="button" class="ms-btn big ms-lt-next">'+esc(cfg.linesNext||'One more question')+' ➡️</button>' : '<button type="button" class="ms-btn big ms-lt-draw">✏️ '+esc(cfg.linesB||'Draw the region lines')+'</button>'));
+        var d = $('.ms-lt-draw', act); if (d) d.onclick = function(){ SFX.whir(); S.lines = 1; save(); render(true); setTimeout(function(){ SFX.fanfare(); }, calm()?0:1800); };
+        var nx = $('.ms-lt-next', act); if (nx) nx.onclick = function(){ SFX.click(); S.lines = 2; save(); render(); };
+        return; }
+      var tq = choiceQ(cfg.tx, 1, function(){ ST.gal = ST.gal||{}; ST.gal.light = 1; save(); galleryCheck(); setTimeout(function(){ S.tx = true; save(); render(); optiNod('explore'); }, calm()?0:1700); });
+      act.innerHTML = stepCard(N, N, cfg.tx.title, '<p class="ms-lt-what">🔎 Find Texas on the map: the big state in the <b>Southwest</b>.</p>'+tq.html); tq.bind(act);
+      svg.classList.add('tx');
+    }
+    render();
+  }
+
+  /* ══ MODULE: landmarks (Gallery · ten landmark photos into the five alcoves) ══ */
+  function modLandmarks(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var MK = DATA.marks || [], R = DATA.regions || [];
+    ST.lk = ST.lk || {i:0}; var S = ST.lk;
+    var m = shell('ms-lk-mod', cfg);
+    m.insertAdjacentHTML('beforeend', alcoves('ms-lk-alc', true) + '<div class="ms-lk-act"></div>');
+    after(anchor, m);
+    var act = $('.ms-lk-act', m), row = $('.ms-lk-alc', m);
+    function photo(k, cls){ var mk = MK.filter(function(x){ return x.k === k; })[0]; return '<img class="'+(cls||'')+'" src="'+img(mk.img)+'" alt="'+esc(mk.cap)+'">'; }
+    function paint(){ $$('.ms-alc', row).forEach(function(a){ var r = a.dataset.r, h = MK.slice(0, S.i).filter(function(x){ return x.r === r; });
+      $$('.ms-alc-slot', a).forEach(function(sl, j){ var x = h[j]; sl.innerHTML = x ? '<button type="button" class="ms-lk-th" data-k="'+x.k+'" aria-label="Look closer: '+esc(x.name)+'">'+photo(x.k)+'</button>' : ''; sl.classList.toggle('full', !!x); });
+      a.classList.toggle('lit', h.length >= 2); });
+      $$('.ms-lk-th', m).forEach(function(b){ b.onclick = function(e){ e.stopPropagation(); var x = MK.filter(function(y){ return y.k === b.dataset.k; })[0];
+        lightbox('<figure class="ms-wp-lb">'+photo(x.k)+'<figcaption><b>'+esc(x.name)+'</b> · '+esc(x.state)+' · '+esc(regOf(x.r).name)+'<br>'+esc(x.cap)+'<br><small>'+esc(x.credit)+'</small></figcaption></figure>'); }; }); }
+    function choose(r, from){
+      if (S.i >= MK.length) return; var x = MK[S.i], fb = $('.ms-exfb', act);
+      if (r !== x.r) { SFX.miss(); var b = $('.ms-lk-pick[data-r="'+r+'"]', act); if (b) { b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); }
+        if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 '+esc((cfg.hint||'').replace('{state}', x.state).replace('{where}', regOf(x.r).where))+'</div>'; return; }
+      var al = $('.ms-alc[data-r="'+r+'"]', row), slot = $$('.ms-alc-slot', al).filter(function(z){ return !z.classList.contains('full'); })[0] || al;
+      $$('button', act).forEach(function(z){ z.disabled = true; });
+      var rr = row.getBoundingClientRect(); if (rr.top < 60 || rr.bottom > innerHeight) row.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'});
+      setTimeout(function(){ fly(from || $('.ms-lk-photo', act), slot, photo(x.k), 650).then(function(){ SFX.stamp(); S.i++; save(); render(); if (S.i >= MK.length) { SFX.fanfare(); ST.gal = ST.gal||{}; ST.gal.land = 1; save(); galleryCheck(); } }); }, calm() ? 0 : 280);
+    }
+    $$('.ms-alc', row).forEach(function(a){ function go(){ choose(a.dataset.r, a); } a.addEventListener('click', go); a.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }); });
+    function render(){
+      paint();
+      if (S.i >= MK.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      var x = MK[S.i];
+      act.innerHTML = stepCard(S.i+1, MK.length, (cfg.s1T||'Which alcove?')+' · '+(S.i+1)+' of '+MK.length,
+        '<div class="ms-lk-card"><figure><span class="ms-lk-photo" title="Drag me to an alcove">'+photo(x.k)+'</span><figcaption>'+esc(x.cap)+'</figcaption></figure>' +
+        '<div class="ms-lk-txt"><span class="ms-lk-kind '+x.kind+'">'+(x.kind === 'natural' ? '🌿 Natural landmark' : '🏗️ Built landmark')+'</span><b>'+esc(x.name)+'</b><p>'+esc(x.card)+'</p>' +
+        '<div class="ms-lk-mini">'+usSVG('ms-lk-svg', 'A small map with '+x.state+' lit up', '', {insetNames:false})+'<span>📍 '+esc(x.state)+'</span></div></div></div>' +
+        '<p class="ms-wm-do">👆 '+esc((cfg.do||'').replace('{state}', x.state))+'</p><div class="ms-wp-picks ms-lk-picks" style="'+rcol()+'">'+rot(R, S.i).map(function(r){ return '<button type="button" class="ms-btn alt ms-lk-pick" data-r="'+r.k+'">'+r.icon+' '+esc(r.name)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div><p class="ms-credit">'+esc(x.credit)+'</p>');
+      $$('.ms-lk-svg .st', act).forEach(function(p){ p.classList.toggle('me', p.dataset.s === x.state); });
+      $$('.ms-lk-pick', act).forEach(function(b){ b.onclick = function(){ choose(b.dataset.r); }; });
+      dragger($('.ms-lk-photo', act), function(moved, t){ if (moved && t) choose(t.dataset.r, t); }, '.ms-alc');
+    }
+    render();
+  }
+
+  /* ══ MODULE: nightmap (Gallery source room · the U.S. at night) ══ */
+  function modNightmap(cfg){
+    var src = $(cfg.anchor); if (!src) return;
+    var Q = cfg.qs || [], RG = cfg.rings || {};
+    ST.nt = ST.nt || {i:0, ok:false}; var S = ST.nt;
+    var m = shell('ms-nt-mod', cfg);
+    var rings = Object.keys(RG).map(function(k){ var r = RG[k]; return '<circle class="ring" data-k="'+k+'" cx="'+r[0]+'" cy="'+r[1]+'" r="'+r[2]+'"/>'; }).join('');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-nt-wrap"><figure class="ms-nt-ph"><img src="'+img(cfg.img)+'" alt="A NASA picture of the United States at night. Bright city lights crowd the East, the Great Lakes, Florida, Texas and the Pacific coast. Much of the West is dark."><svg viewBox="0 0 1200 800" aria-hidden="true">'+rings+'</svg><span class="ms-phtag">'+esc(cfg.tag||'')+'</span></figure><div class="ms-nt-act"></div></div><p class="ms-credit">'+esc(cfg.credit||'')+'</p>');
+    src.parentNode.insertBefore(m, src);
+    var act = $('.ms-nt-act', m);
+    function show(keys){ $$('.ring', m).forEach(function(c){ c.classList.toggle('on', keys.indexOf(c.dataset.k) >= 0); }); }
+    function render(){
+      if (S.i >= Q.length) { show([]); act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      var q = Q[S.i]; show((q.ring||[]).concat(S.ok ? (q.after||[]) : []));
+      var cq = choiceQ(q, S.i + 2, function(){ S.ok = true; save(); show((q.ring||[]).concat(q.after||[]));
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big ms-nt-next'; b.textContent = S.i+1 < Q.length ? 'Next question ➡️' : 'Done with the picture ✓'; $('.ms-stepcard', act).appendChild(b);
+        b.onclick = function(){ SFX.click(); S.i++; S.ok = false; save(); if (S.i >= Q.length) { ST.gal = ST.gal||{}; ST.gal.night = 1; save(); galleryCheck(); SFX.fanfare(); } render(); }; });
+      act.innerHTML = stepCard(S.i+1, Q.length, q.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: directory (Exhibit Floor · the gallery directory sign → open the gallery) ══ */
+  function modDirectory(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'); if (!ta) return;
+    var B = cfg.blanks || [], R = DATA.regions || [], OWN = cfg.ownMin || 10;
+    ST.dir = ST.dir || {b:[], step:1, r:null, open:false}; var S = ST.dir;
+    var m = shell('ms-dir-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-dir-act"></div><div class="ms-dir-show" hidden><div class="ms-dir-sign"><div class="ms-dir-h">United States Regions Gallery</div><div class="ms-dir-sub">Directory</div><p class="ms-dir-def"></p><ol class="ms-dir-list" style="'+rcol()+'"></ol><div class="ms-dir-by"></div><span class="ms-draft">DRAFT</span></div>' +
+      alcoves('ms-dir-alc') + '<div class="ms-dir-door"><div class="ms-dir-leaf"></div><span>🚪 '+esc(cfg.doorT||'')+'</span></div></div><div class="ms-dir-end"></div>');
+    var home = document.createComment('dir-home'); ta.parentNode.insertBefore(home, ta);
+    ta.parentNode.insertBefore(m, ta);
+    var tp = ta.parentNode.querySelector('.textbox-prompt'); if (tp) tp.classList.add('ms-hide-on');
+    var act = $('.ms-dir-act', m), show = $('.ms-dir-show', m), end = $('.ms-dir-end', m), row = $('.ms-dir-alc', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function def(upto){ var k = 0; return (cfg.lead||'').replace(/\{(\d)\}/g, function(_, i){ i = +i; return i < upto ? S.b[i] : '___'; }); }
+    function full(){ return def(B.length); }
+    function words(t){ return (t.trim().match(/\S+/g)||[]).length; }
+    function own(){ return ta.value.replace(full(), '').trim(); }
+    function missing(){ var miss = [];
+      if (S.b.length < B.length) return ['Finish the sentence first.'];
+      if (ta.value.indexOf(full()) < 0) miss.push('Your sentence about regions changed. Press ↩️ Put my sentence back.');
+      if (!S.r) miss.push('Pick a region.');
+      var n = words(own()); if (n < OWN) miss.push('Add '+(OWN-n)+' more word'+(OWN-n===1?'':'s')+' of your own.');
+      if (S.r && !new RegExp(regOf(S.r).name, 'i').test(own())) miss.push('Name the '+regOf(S.r).name+' region in your sentence.');
+      return miss; }
+    function view(){
+      $('.ms-dir-def', show).textContent = full();
+      $('.ms-dir-list', show).innerHTML = R.map(function(r, i){ var mine = r.k === S.r; return '<li data-r="'+r.k+'" class="'+(mine?'mine':'')+'"><span class="n">'+(i+1)+'</span><b>'+r.icon+' '+esc(r.name)+'</b><i>'+esc(mine ? (own() || '…') : r.line)+'</i></li>'; }).join('');
+      $('.ms-dir-by', show).textContent = '— ' + (sget(NAMEK,'') || 'Junior Curator') + ', United States Region Curator';
+      show.classList.toggle('open', !!S.open); lightAlcoves(row, S.open ? 'all' : [], !!S.open);
+    }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 3; ta.classList.toggle('ms-gi-away', S.step !== 2);
+      if (S.step === 1 || S.b.length < B.length) { S.step = 1; goHome(); var k = S.b.length, bl = B[k];
+        act.innerHTML = stepCard(1, 3, cfg.s1T, '<p class="ms-dir-sent">'+esc(def(k)).replace('___', '<b class="ms-gi-blank cur">?</b>').replace(/___/g, '<b class="ms-gi-blank">?</b>')+'</p>' +
+          '<p class="ms-wm-do">👆 '+esc(cfg.s1||'')+'</p><div class="ms-pchoices col">'+bl.opts.map(function(o){ return '<button type="button" class="ms-btn ms-dir-o" data-o="'+esc(o)+'">'+esc(o)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div>');
+        $$('.ms-dir-o', act).forEach(function(b){ b.onclick = function(){
+          if (b.dataset.o === bl.ans) { SFX.chime(); S.b.push(bl.ans); save();
+            if (S.b.length >= B.length) { var v = ta.value.trim(); if (v.indexOf(full()) < 0) { ta.value = full() + (v ? ' ' + v : ' '); ta.dispatchEvent(new Event('input',{bubbles:true})); } S.step = 2; save(); }
+            render(); }
+          else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc(bl.hint||'')+'</div>'; } }; });
+        return; }
+      if (S.step === 2) { var rr = S.r && regOf(S.r);
+        act.innerHTML = stepCard(2, 3, cfg.s2T, '<p class="ms-gi-ok">✅ '+esc(cfg.s2Got||'')+'</p><p>'+esc(cfg.s2||'')+'</p><div class="ms-dir-regs" style="'+rcol()+'">'+R.map(function(r){ return '<button type="button" class="ms-btn'+(r.k===S.r?'':' alt')+' ms-dir-r" data-r="'+r.k+'" aria-pressed="'+(r.k===S.r)+'">'+r.icon+' '+esc(r.name)+'</button>'; }).join('')+'</div>' +
+          (rr ? '<p>'+esc(cfg.s2b||'')+'</p><div class="ms-cp-notes">'+rr.facts.map(function(f){ return '<span>📌 '+esc(f)+'</span>'; }).join('')+'</div><div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(t.replace('{R}', rr.name))+'</button>'; }).join('')+'</div>' : '') +
+          '<div class="ms-gi-box"></div><div class="ms-excheck ms-dir-chk"></div><div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-gi-back">↩️ Put my sentence back</button><button type="button" class="ms-btn big ms-dir-next">Next: see the sign ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(ta); ta.classList.toggle('ms-gi-away', !rr);
+        var chk = $('.ms-dir-chk', act), fb = $('.ms-gi-fb', act), back = $('.ms-gi-back', act);
+        function upd(){ var n = words(own()), miss = missing(); back.hidden = ta.value.indexOf(full()) >= 0;
+          chk.innerHTML = '<span class="ms-wc'+(n>=OWN?' ok':'')+'">📝 '+Math.min(n,OWN)+' of '+OWN+' words of your own</span>' + (rr ? '<span class="ms-chip'+(new RegExp(rr.name,'i').test(own())?' ok':'')+'">'+(new RegExp(rr.name,'i').test(own())?'✓ ':'')+'names the '+esc(rr.name)+'</span>' : '');
+          $('.ms-dir-next', act).classList.toggle('ms-notready', !!miss.length);
+          if (fb.innerHTML) fb.innerHTML = miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>' : ''; }
+        curUpd = upd; upd();
+        $$('.ms-dir-r', act).forEach(function(b){ b.onclick = function(){ S.r = b.dataset.r; SFX.click(); save(); render(); }; });
+        $$('.ms-gi-start', act).forEach(function(b, i){ b.onclick = function(){ var t = (cfg.starters||[])[i].replace('{R}', rr.name); ta.value = ta.value.replace(/\s*$/,'') + ' ' + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        back.onclick = function(){ ta.value = full() + ' ' + own(); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); };
+        $('.ms-dir-next', act).onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+          SFX.click(); S.step = 3; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(3, 3, cfg.s3T, '<p>'+esc(cfg.s3||'')+'</p><button type="button" class="ms-btn big ms-dir-open">🎉 '+esc(cfg.openT||'Open the gallery')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) +
+        '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-dir-edit">✏️ '+esc(cfg.editT||'Edit my sign')+'</button></div>';
+      var ob = $('.ms-dir-open', end); if (ob) ob.onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('opening'); void show.offsetWidth; show.classList.add('opening'); SFX.fanfare(); render(); setTimeout(function(){ show.classList.remove('opening'); }, 3400); optiNod('assignment'); check(); };
+      $('.ms-dir-edit', end).onclick = function(){ S.open = false; S.step = 2; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 2) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  /* ══════════ Added for 3.07.02 (Northeast Region Study) ══════════
+     DATA.items = the crate objects [{k,name,img,state,icon,tag,clue,shows,cap,credit}]; DATA.geo.neBox = the Northeast view of the U.S. map.
+     - cratepin   Lobby: lift each object out of the ATLANTIC COAST crate, read its tag, tap its state on a Northeast map (a pin drops)
+     - seasons    Gallery main attraction: the Four Seasons Window (a drawn Vermont hillside) + a brass season wheel
+     - oldmtn     Gallery: a simple model, young sharp Rockies vs old worn Appalachians; run time forward
+     - harbor     Gallery source room: two real photos of one harbor ~100 years apart; tap each, three questions
+     - nelabel    Exhibit Floor: pick the front object, write the label in the step, install → the Northeast alcove lights */
+  function itemOf(k){ var I = DATA.items || []; for (var i=0;i<I.length;i++) if (I[i].k === k) return I[i]; return null; }
+  function neMapSVG(cls, label){
+    var G = DATA.geo, B = G.neBox, lab = G.neLab || {};
+    var t = Object.keys(lab).map(function(n){ var s = G.states[n]; if (!s) return ''; var big = lab[n].length > 2;
+      return '<text class="nel'+(big?' big':'')+'" x="'+s.c[0]+'" y="'+s.c[1]+'">'+esc(lab[n])+'</text>'; }).join('');
+    return usSVG(cls + ' ms-ne-map', label, '<g class="nelabs">'+t+'</g><g class="pins"></g>', {vb: B.join(' '), insetNames:false});
+  }
+
+  /* ══ MODULE: cratepin (Lobby · the ATLANTIC COAST crate) ══ */
+  function modCratepin(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor || !DATA.geo) return;
+    var IT = DATA.items || [];
+    ST.cr = ST.cr || {i:0, ph:0, q:false}; var S = ST.cr;
+    var m = shell('ms-cr-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-cr-wrap"><div class="ms-cr-left"><div class="ms-cr-crate"><div class="ms-cr-lid"></div><div class="ms-cr-box"><b>ATLANTIC COAST</b><span>Fragile · Museum Objects</span></div><div class="ms-cr-tray"></div></div>' +
+      '<div class="ms-cr-map">'+neMapSVG('ms-cr-svg', 'A map of the 11 states of the Northeast')+'</div></div><div class="ms-cr-act"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-cr-act', m), svg = $('.ms-cr-svg', m), tray = $('.ms-cr-tray', m), crate = $('.ms-cr-crate', m);
+    function photo(it, cls){ return '<img class="'+(cls||'')+'" src="'+img(it.img)+'" alt="'+esc(it.cap)+'">'; }
+    function paint(){
+      var done = IT.slice(0, S.i);
+      tray.innerHTML = done.map(function(it){ return '<button type="button" class="ms-cr-th" data-k="'+it.k+'" aria-label="Look closer: '+esc(it.name)+'">'+photo(it)+'<span>'+it.icon+' '+esc(it.name)+'</span></button>'; }).join('');
+      $$('.ms-cr-th', m).forEach(function(b){ b.onclick = function(){ var it = itemOf(b.dataset.k); lightbox('<figure class="ms-wp-lb">'+photo(it)+'<figcaption><b>'+esc(it.name)+'</b> · '+esc(it.state)+'<br>'+esc(it.tag)+'<br><small>'+esc(it.credit)+'</small></figcaption></figure>'); }; });
+      var pins = {}; done.forEach(function(it){ (pins[it.state] = pins[it.state] || []).push(it); });
+      $('.pins', svg).innerHTML = Object.keys(pins).map(function(st){ var c = DATA.geo.states[st].c; return pins[st].map(function(it, j){ return '<g class="pin" transform="translate('+(c[0]+j*14-7*(pins[st].length-1))+' '+(c[1]-24)+')"><path class="stem" d="M0 8 L0 18"/><circle r="8"/><text y="4">'+it.icon+'</text></g>'; }).join(''); }).join('');
+      $$('.st', svg).forEach(function(p){ p.classList.toggle('ne', p.dataset.r === 'ne'); p.classList.toggle('lit', !!pins[p.dataset.s]); });
+      svg.classList.toggle('pick', S.i < IT.length && S.ph === 1);
+      crate.classList.toggle('empty', S.i >= IT.length); crate.classList.toggle('open', S.ph === 1 || S.i > 0);
+    }
+    function tap(st){
+      if (S.i >= IT.length || S.ph !== 1) return; var it = IT[S.i], fb = $('.ms-exfb', act);
+      if (st === it.state) { SFX.stamp(); S.i++; S.ph = 0; save(); render(); if (S.i >= IT.length) SFX.fanfare(); }
+      else { SFX.miss(); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 '+esc((cfg.hint||'').replace('{tapped}', st).replace('{clue}', it.clue))+'</div>'; }
+    }
+    $$('.st', svg).forEach(function(p){ p.addEventListener('click', function(){ tap(p.dataset.s); }); });
+    function render(){
+      paint();
+      if (S.q) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      var N = IT.length + 1;
+      if (S.i >= IT.length) {
+        var q = choiceQ(cfg.q, 1, function(){ S.q = true; save(); setTimeout(function(){ render(); }, calm()?0:1500); markDone('scene'); });
+        act.innerHTML = stepCard(N, N, cfg.q.title, q.html); q.bind(act); return; }
+      var it = IT[S.i];
+      if (S.ph === 0) {
+        act.innerHTML = stepCard(S.i+1, N, 'Object '+(S.i+1)+' of '+IT.length, '<p>One object is waiting in the crate.</p><button type="button" class="ms-btn big ms-cr-lift">📦 '+esc(cfg.liftT||'Lift it out')+'</button>');
+        $('.ms-cr-lift', act).onclick = function(){ SFX.creak(); crate.classList.remove('lifting'); void crate.offsetWidth; crate.classList.add('lifting'); setTimeout(function(){ S.ph = 1; save(); render(); }, calm()?0:450); };
+        return; }
+      act.innerHTML = stepCard(S.i+1, N, it.icon+' '+it.name, '<figure class="ms-cr-fig">'+photo(it)+'<figcaption>'+esc(it.cap)+'</figcaption></figure><div class="ms-cr-tag"><b>Tag:</b> '+esc(it.tag)+'</div><p class="ms-cr-clue">🔎 '+esc(it.clue)+'</p>' +
+        '<p class="ms-wm-do">👆 '+esc(cfg.doT||'')+'</p><div class="ms-exfb" aria-live="polite"></div><p class="ms-credit">'+esc(it.credit)+'</p>');
+    }
+    render(); if (S.q) markDone('scene');
+  }
+
+  /* ══ MODULE: seasons (Gallery main attraction · the Four Seasons Window) ══ */
+  function seasonScene(){
+    var trees = [[150,300,1],[245,290,.9],[330,305,1.1],[520,315,1],[610,300,.95]], t = '';
+    trees.forEach(function(p, i){ var x = p[0], y = p[1], s = p[2];
+      t += '<g class="tree" style="--i:'+i+'" transform="translate('+x+' '+y+') scale('+s+')"><rect class="trunk" x="-6" y="-10" width="12" height="60" rx="3"/>' +
+        '<path class="branches" d="M0 -6 L-26 -46 M0 -14 L22 -52 M-12 -26 L-30 -30 M10 -32 L32 -36 M0 -10 L0 -64"/>' +
+        '<g class="crown"><circle cx="-22" cy="-40" r="26"/><circle cx="20" cy="-42" r="26"/><circle cx="0" cy="-64" r="28"/><circle cx="0" cy="-30" r="24"/></g>' +
+        (i === 1 || i === 3 ? '<g class="bucket"><path d="M8 18 l12 0 l-2 14 l-8 0z"/><path class="drip" d="M14 12 l0 5"/></g>' : '') + '</g>'; });
+    var flakes = ''; for (var k=0;k<26;k++) flakes += '<circle class="flake" style="--d:'+(k%7)*.6+'s;--x:'+((k*67)%760+20)+'px" cx="0" cy="0" r="'+(2+k%3)+'"/>';
+    var leaves = ''; for (var k2=0;k2<12;k2++) leaves += '<path class="leaf" style="--d:'+(k2%6)*.7+'s;--x:'+((k2*113)%640+80)+'px" d="M0 -6 L4 0 L0 6 L-4 0z"/>';
+    return '<svg class="ms-sw-svg" viewBox="0 0 800 450" role="img" aria-label="A drawn hillside in Vermont with maple trees, a farmhouse, a sugar house, and a lake. It changes with the season.">' +
+      '<rect class="sky" width="800" height="450"/><circle class="sun" cx="660" cy="80" r="38"/>' +
+      '<path class="hill3" d="M0 200 Q120 120 260 170 T520 150 T800 175 V450 H0Z"/><path class="hill2" d="M0 250 Q160 190 330 235 T660 220 T800 240 V450 H0Z"/>' +
+      '<path class="ground" d="M0 310 Q200 280 400 300 T800 295 V450 H0Z"/><path class="lake" d="M430 360 Q560 330 720 352 Q770 380 700 410 Q560 432 450 405 Q400 385 430 360Z"/>' +
+      '<g class="boat"><path d="M560 382 h40 l-8 10 h-24z"/><path class="sail" d="M580 382 V346 L600 378Z"/></g>' +
+      '<g class="farm"><rect x="40" y="250" width="70" height="50"/><path class="roof" d="M34 252 L75 222 L116 252Z"/><rect class="door" x="68" y="275" width="14" height="25"/></g>' +
+      '<g class="sugar"><rect x="380" y="270" width="54" height="36"/><path class="roof" d="M374 272 L407 250 L440 272Z"/><rect class="vent" x="398" y="244" width="18" height="10"/><g class="steam"><circle cx="407" cy="232" r="8"/><circle cx="414" cy="216" r="10"/><circle cx="404" cy="198" r="12"/></g></g>' +
+      '<g class="snowcap"><path d="M34 252 L75 222 L116 252 L104 252 L75 232 L46 252Z"/><path d="M374 272 L407 250 L440 272 L430 272 L407 258 L384 272Z"/></g>' +
+      trees.map(function(){ return ''; }).join('') + '<g class="trees">'+t+'</g>' +
+      '<g class="sled"><path d="M240 360 l46 0 l6 -6"/><circle cx="262" cy="346" r="8"/><path d="M262 354 l0 6"/></g>' +
+      '<g class="apples"><path d="M640 300 h36 l-4 18 h-28z"/><circle cx="648" cy="298" r="5"/><circle cx="658" cy="296" r="5"/><circle cx="668" cy="298" r="5"/></g>' +
+      '<g class="flakes">'+flakes+'</g><g class="leaves">'+leaves+'</g></svg>';
+  }
+  function wheelSVG(SE){
+    var p = SE.map(function(s, i){ var a0 = (i*90 - 135) * Math.PI/180, a1 = (i*90 - 45) * Math.PI/180, r = 92;
+      var x0 = 100 + r*Math.cos(a0), y0 = 100 + r*Math.sin(a0), x1 = 100 + r*Math.cos(a1), y1 = 100 + r*Math.sin(a1), am = (i*90 - 90) * Math.PI/180;
+      return '<g class="seg" data-s="'+s.k+'" role="button" tabindex="0" aria-label="'+esc(s.t)+'"><path d="M100 100 L'+x0.toFixed(1)+' '+y0.toFixed(1)+' A'+r+' '+r+' 0 0 1 '+x1.toFixed(1)+' '+y1.toFixed(1)+'Z"/>' +
+        '<text x="'+(100+58*Math.cos(am)).toFixed(1)+'" y="'+(100+58*Math.sin(am)+2).toFixed(1)+'" class="ic">'+s.icon+'</text><text x="'+(100+58*Math.cos(am)).toFixed(1)+'" y="'+(100+58*Math.sin(am)+22).toFixed(1)+'" class="lb">'+esc(s.t)+'</text></g>'; }).join('');
+    return '<svg class="ms-sw-wheel" viewBox="0 0 200 200" aria-label="The season wheel"><circle cx="100" cy="100" r="98" class="rim"/>'+p+'<g class="hand"><path d="M100 100 L100 74" /><path class="tip" d="M93 76 L100 64 L107 76Z"/><circle cx="100" cy="100" r="12"/></g></svg>';
+  }
+  function modSeasons(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var SE = cfg.seasons || [];
+    ST.sw = ST.sw || {s:'winter', seen:{winter:1}, step:1}; var S = ST.sw;
+    var m = shell('ms-sw-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-sw-wrap"><div class="ms-sw-left"><div class="ms-sw-window"><div class="ms-sw-frame">'+seasonScene()+'</div><div class="ms-sw-line" aria-live="polite"></div></div>' +
+      '<div class="ms-sw-ctl"><button type="button" class="ms-btn alt ms-sw-prev" aria-label="Previous season">◀ Back</button>'+wheelSVG(SE)+'<button type="button" class="ms-btn alt ms-sw-next" aria-label="Next season">Next ▶</button></div></div><div class="ms-sw-act"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-sw-act', m), win = $('.ms-sw-window', m), wheel = $('.ms-sw-wheel', m);
+    function idx(){ for (var i=0;i<SE.length;i++) if (SE[i].k === S.s) return i; return 0; }
+    function setSeason(k){ if (S.s === k) return; S.s = k; S.seen[k] = 1; SFX.click(); save(); paint(); if (S.step === 1) render(); }
+    function paint(){
+      SE.forEach(function(s){ win.classList.toggle('s-'+s.k, s.k === S.s); });
+      var i = idx(); $('.hand', wheel).setAttribute('transform', 'rotate('+(i*90)+' 100 100)');
+      $$('.seg', wheel).forEach(function(g){ g.classList.toggle('on', g.dataset.s === S.s); g.classList.toggle('seen', !!S.seen[g.dataset.s]); });
+      $('.ms-sw-line', m).textContent = SE[i].line;
+    }
+    $$('.seg', wheel).forEach(function(g){ function go(){ setSeason(g.dataset.s); } g.addEventListener('click', go); g.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }); });
+    $('.ms-sw-prev', m).onclick = function(){ setSeason(SE[(idx()+SE.length-1)%SE.length].k); };
+    $('.ms-sw-next', m).onclick = function(){ setSeason(SE[(idx()+1)%SE.length].k); };
+    // drag around the wheel
+    wheel.addEventListener('pointerdown', function(e){ var r = wheel.getBoundingClientRect(); function at(ev){ var a = Math.atan2(ev.clientY - (r.top + r.height/2), ev.clientX - (r.left + r.width/2)) * 180/Math.PI + 90; a = (a + 360 + 45) % 360; setSeason(SE[Math.floor(a/90)].k); }
+      function mv(ev){ at(ev); } wheel.setPointerCapture && wheel.setPointerCapture(e.pointerId); wheel.addEventListener('pointermove', mv); wheel.addEventListener('pointerup', function up(){ wheel.removeEventListener('pointermove', mv); wheel.removeEventListener('pointerup', up); }); });
+    function render(){
+      paint();
+      if (S.step >= 4) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.step === 1) { var all = SE.every(function(s){ return S.seen[s.k]; });
+        act.innerHTML = stepCard(1, 3, cfg.s1T, '<p class="ms-wm-do">👆 '+esc(cfg.s1||'')+'</p><div class="ms-sw-chips">'+SE.map(function(s){ return '<span class="'+(S.seen[s.k]?'ok':'')+'">'+(S.seen[s.k]?'✓ ':'')+s.icon+' '+esc(s.t)+'</span>'; }).join('')+'</div>' +
+          (all ? '<button type="button" class="ms-btn big ms-sw-go">Next ➡️</button>' : '<p class="ms-sw-left-n">'+(SE.length - Object.keys(S.seen).length)+' more to visit.</p>'));
+        var g = $('.ms-sw-go', act); if (g) g.onclick = function(){ SFX.chime(); S.step = 2; save(); render(); };
+        return; }
+      var Q = S.step === 2 ? cfg.q1 : cfg.q2;
+      var q = choiceQ(Q, S.step + 1, function(){ var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big ms-sw-go'; b.textContent = S.step === 2 ? 'Next question ➡️' : 'Done ✓'; $('.ms-stepcard', act).appendChild(b);
+        b.onclick = function(){ SFX.click(); S.step++; save(); if (S.step >= 4) { ST.gal = ST.gal||{}; ST.gal.seasons = 1; save(); galleryCheck(); SFX.fanfare(); setSeason('fall'); } render(); }; });
+      act.innerHTML = stepCard(S.step, 3, Q.title, q.html); q.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: oldmtn (Gallery · old mountains, young mountains) ══ */
+  function modOldmtn(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    ST.om = ST.om || {run:false, ok:false}; var S = ST.om;
+    var m = shell('ms-om-mod', cfg);
+    var sharp = 'M0 260 L60 150 L90 185 L140 60 L175 120 L210 40 L250 140 L280 110 L330 260Z', round = 'M0 260 C40 230 60 195 90 200 C120 205 130 175 165 170 C200 165 215 190 240 195 C270 200 300 235 330 260Z';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-om-wrap"><svg class="ms-om-svg" viewBox="0 0 720 300" role="img" aria-label="A simple model: on the left, the tall sharp Rocky Mountains; on the right, the Appalachian Mountains, which wear down over millions of years.">' +
+      '<rect width="720" height="300" class="sky"/><g transform="translate(20 0)"><path class="mtn rk" d="'+sharp+'"/><path class="snow" d="M140 60 L152 80 L128 80Z M210 40 L222 62 L198 62Z"/><text x="165" y="290" class="ml">Rocky Mountains (young)</text></g>' +
+      '<g transform="translate(370 0)"><g class="apw"><path class="mtn ap old" d="'+sharp+'"/><path class="snow old" d="M140 60 L152 80 L128 80Z M210 40 L222 62 L198 62Z"/></g><path class="mtn ap new" d="'+round+'"/><text x="165" y="290" class="ml">Appalachian Mountains (old)</text></g>' +
+      '<g class="weather"><path class="rain" d="M430 20 l-8 18 M470 14 l-8 18 M520 22 l-8 18 M570 16 l-8 18 M620 24 l-8 18"/></g><text class="yrs" x="540" y="30">Long ago</text></svg><div class="ms-om-act"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-om-act', m), yrs = $('.yrs', m), svg = $('.ms-om-svg', m);
+    if (S.run) { yrs.textContent = 'Hundreds of millions of years later'; svg.classList.add('done'); }
+    function run(){ if (S.run) return; S.run = true; save(); SFX.whir(); svg.classList.add('running');
+      var t0 = performance.now(), dur = calm() ? 0 : 3200;
+      (function f(now){ var k = dur ? Math.min(1, (now - t0)/dur) : 1; yrs.textContent = k < 1 ? Math.round(k*300) + ' million years go by\u2026' : 'Hundreds of millions of years later';
+        svg.style.setProperty('--k', k.toFixed(3));
+        if (k < 1) requestAnimationFrame(f); else { svg.classList.remove('running'); svg.classList.add('done'); render(); } })(t0);
+    }
+    function render(){
+      if (S.ok) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (!S.run) { act.innerHTML = stepCard(1, 2, 'Run time forward', '<p>The right side starts tall and sharp, like the Rockies. Watch what millions of years of wind, rain, and ice do.</p><button type="button" class="ms-btn big ms-om-run">⏩ '+esc(cfg.runT||'Run time forward')+'</button>'); $('.ms-om-run', act).onclick = run; return; }
+      var q = choiceQ(cfg.q, 2, function(){ ST.gal = ST.gal||{}; ST.gal.mtn = 1; save(); galleryCheck(); setTimeout(function(){ S.ok = true; save(); render(); }, calm()?0:1700); });
+      act.innerHTML = stepCard(2, 2, cfg.q.title, q.html); q.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: harbor (Gallery source room · one harbor, 100 years apart) ══ */
+  function modHarbor(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var PH = cfg.photos || [], Q = cfg.qs || [];
+    ST.hb = ST.hb || {seen:{}, i:0, ok:false}; var S = ST.hb;
+    var m = shell('ms-hb-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-hb-pair">'+PH.map(function(p){ return '<figure class="ms-hb-ph" data-k="'+p.k+'"><button type="button" class="ms-hb-b" aria-label="Look closer: '+esc(p.cap)+'"><img src="'+img(p.img)+'" alt="'+esc(p.cap)+'"><span class="ms-hb-date">'+esc(p.date)+'</span><span class="ms-hb-zoom">🔍</span></button><figcaption>'+esc(p.cap)+'</figcaption></figure>'; }).join('')+'</div><div class="ms-hb-act"></div><p class="ms-credit">'+PH.map(function(p){ return esc(p.credit); }).join(' ')+'</p>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-hb-act', m);
+    $$('.ms-hb-ph', m).forEach(function(f){ $('.ms-hb-b', f).onclick = function(){ var p = PH.filter(function(x){ return x.k === f.dataset.k; })[0]; SFX.click(); S.seen[p.k] = 1; save();
+      lightbox('<figure class="ms-wp-lb"><img src="'+img(p.img)+'" alt="'+esc(p.cap)+'"><figcaption><b>'+esc(p.date)+'</b> · '+esc(p.cap)+'<br><small>'+esc(p.credit)+'</small></figcaption></figure>', null, function(){ render(); }); render(); }; });
+    function render(){
+      $$('.ms-hb-ph', m).forEach(function(f){ f.classList.toggle('seen', !!S.seen[f.dataset.k]); });
+      var N = Q.length + 1;
+      if (S.ok) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      var all = PH.every(function(p){ return S.seen[p.k]; });
+      if (!all || S.i < 0) { act.innerHTML = stepCard(1, N, cfg.s1T, '<p class="ms-wm-do">👆 '+esc(cfg.s1||'')+'</p><div class="ms-sw-chips">'+PH.map(function(p){ return '<span class="'+(S.seen[p.k]?'ok':'')+'">'+(S.seen[p.k]?'✓ ':'🔍 ')+esc(p.date)+'</span>'; }).join('')+'</div>'); return; }
+      var q = Q[S.i];
+      var cq = choiceQ(q, S.i + 1, function(){ var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big ms-hb-next'; b.textContent = S.i+1 < Q.length ? 'Next question ➡️' : 'Done with the photos ✓'; $('.ms-stepcard', act).appendChild(b);
+        b.onclick = function(){ SFX.click(); S.i++; if (S.i >= Q.length) { S.ok = true; ST.gal = ST.gal||{}; ST.gal.harbor = 1; galleryCheck(); SFX.fanfare(); } save(); render(); }; });
+      act.innerHTML = stepCard(S.i+2, N, q.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: nelabel (Exhibit Floor · the Northeast alcove) ══ */
+  function modNelabel(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'); if (!ta) return;
+    var IT = DATA.items || [], OWN = cfg.ownMin || 10;
+    ST.ne = ST.ne || {front:null, step:1, open:false}; var S = ST.ne;
+    var m = shell('ms-ne-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-ne-act"></div><div class="ms-ne-show" hidden><div class="ms-ne-alcove" style="'+rcol()+'"><span class="ms-alc-glow"></span><div class="ms-ne-sign">Northeast</div><div class="ms-ne-shelf"></div><div class="ms-ne-label"><p class="tx"></p><p class="by"></p><span class="ms-draft">DRAFT</span></div></div>'+alcoves('ms-ne-row')+'</div><div class="ms-ne-end"></div>');
+    var home = document.createComment('ne-home'); ta.parentNode.insertBefore(home, ta); ta.parentNode.insertBefore(m, ta);
+    var tp = ta.parentNode.querySelector('.textbox-prompt'); if (tp) tp.classList.add('ms-hide-on');
+    var act = $('.ms-ne-act', m), show = $('.ms-ne-show', m), end = $('.ms-ne-end', m), row = $('.ms-ne-row', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function words(t){ (cfg.starters||[]).forEach(function(s){ t = t.split(s).join(' '); }); return (t.trim().match(/\S+/g)||[]).length; }
+    function missing(){ var miss = []; if (!S.front) miss.push('Pick the front object.'); var n = words(ta.value); if (n < OWN) miss.push('Add '+(OWN-n)+' more word'+(OWN-n===1?'':'s')+'.'); if (!/northeast/i.test(ta.value)) miss.push('Name the Northeast in your label.'); return miss; }
+    function photo(it){ return '<img src="'+img(it.img)+'" alt="'+esc(it.cap)+'">'; }
+    function view(){
+      var order = S.front ? [itemOf(S.front)].concat(IT.filter(function(x){ return x.k !== S.front; })) : IT;
+      $('.ms-ne-shelf', show).innerHTML = order.map(function(it, i){ return '<figure class="'+(i===0?'front':'')+'">'+photo(it)+'<figcaption>'+esc(it.name)+'</figcaption></figure>'; }).join('');
+      $('.tx', show).textContent = ta.value.trim() || 'Your label will appear here.';
+      $('.by', show).textContent = 'Label by ' + (sget(NAMEK,'') || 'Junior Curator') + ', United States Region Curator';
+      show.classList.toggle('open', !!S.open); lightAlcoves(row, S.open ? ['ne'] : [], false);
+    }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 3; ta.classList.toggle('ms-gi-away', S.step !== 2);
+      if (S.step === 1 || !S.front) { S.step = 1; goHome();
+        act.innerHTML = stepCard(1, 3, cfg.s1T, '<p class="ms-wm-do">👆 '+esc(cfg.s1||'')+'</p><div class="ms-ne-picks">'+IT.map(function(it){ return '<button type="button" class="ms-ne-pick'+(S.front===it.k?' on':'')+'" data-k="'+it.k+'" aria-pressed="'+(S.front===it.k)+'">'+photo(it)+'<span>'+it.icon+' '+esc(it.name)+'</span></button>'; }).join('')+'</div>' +
+          '<button type="button" class="ms-btn big ms-ne-next'+(S.front?'':' ms-notready')+'">Next: write your label ➡️</button><div class="ms-gi-fb" aria-live="polite"></div>');
+        $$('.ms-ne-pick', act).forEach(function(b){ b.onclick = function(){ S.front = b.dataset.k; SFX.click(); save(); render(); }; });
+        $('.ms-ne-next', act).onclick = function(){ if (!S.front) { SFX.miss(); $('.ms-gi-fb', act).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> Tap one object first.</div>'; return; } SFX.chime(); S.step = 2; save(); render(); };
+        return; }
+      if (S.step === 2) { var it = itemOf(S.front);
+        act.innerHTML = stepCard(2, 3, cfg.s2T, '<div class="ms-ne-chosen">'+photo(it)+'<span>Front object: <b>'+esc(it.name)+'</b> (it shows '+esc(it.shows)+')</span></div><p>'+esc(cfg.s2||'')+'</p><div class="ms-cp-notes">'+(cfg.notes||[]).map(function(n){ return '<span>📌 '+esc(n)+'</span>'; }).join('')+'</div>' +
+          '<div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-ne-chk"></div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-ne-back">↩️ Pick a different object</button><button type="button" class="ms-btn big ms-ne-next">Next: see the alcove ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(ta);
+        var chk = $('.ms-ne-chk', act), fb = $('.ms-gi-fb', act);
+        function upd(){ var n = words(ta.value), miss = missing(); chk.innerHTML = '<span class="ms-wc'+(n>=OWN?' ok':'')+'">📝 '+Math.min(n,OWN)+' of '+OWN+' words of your own</span><span class="ms-chip'+(/northeast/i.test(ta.value)?' ok':'')+'">'+(/northeast/i.test(ta.value)?'✓ ':'')+'names the Northeast</span>';
+          $('.ms-ne-next', act).classList.toggle('ms-notready', !!miss.length); if (fb.innerHTML) fb.innerHTML = miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>' : ''; }
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b, i){ b.onclick = function(){ var t = (cfg.starters||[])[i]; ta.value = ta.value.replace(/\s*$/,'') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-ne-back', act).onclick = function(){ S.step = 1; save(); render(); };
+        $('.ms-ne-next', act).onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 3; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(3, 3, cfg.s3T, '<p>'+esc(cfg.s3||'')+'</p><button type="button" class="ms-btn big ms-ne-open">🎉 '+esc(cfg.openT||'Install')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-ne-edit">✏️ '+esc(cfg.editT||'Edit my label')+'</button></div>';
+      var ob = $('.ms-ne-open', end); if (ob) ob.onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('opening'); void show.offsetWidth; show.classList.add('opening'); SFX.fanfare(); render(); setTimeout(function(){ show.classList.remove('opening'); }, 3000); optiNod('assignment'); check(); };
+      $('.ms-ne-edit', end).onclick = function(){ S.open = false; S.step = 2; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 2) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
