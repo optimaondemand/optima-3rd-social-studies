@@ -94,6 +94,11 @@
    - canyon     Gallery main attraction: Carve the Grand Canyon (knob through 6 million years, tap six rock layers)
    - walls      Gallery: the thick walls test (thin hut vs thick adobe hut, noon and midnight)
    - swsign     Exhibit Floor: Where / Land / People ideas, 3 sentences in the step, install; a sunset sweeps the alcove row
+   Added for 3.07.06 (DATA.geo.big = Alaska + Hawaii in their real places):
+   - akhi       Lobby: zoom out, drag Alaska and Hawaii out of their boxes to their real places, lay Alaska over the lower 48
+   - rainshadow Gallery main attraction: wind over flat land, raise the Cascades, wind again (wet side vs rain shadow)
+   - hotspot    Gallery: move the ocean floor over the Hawaiian hot spot; four islands grow and age
+   - westfinale Exhibit Floor: West sign + gallery plaque (pattern + difference), install; all five alcoves, chandeliers, Region Guide badge
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1151,7 +1156,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -3852,7 +3857,249 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.07.06 (West Region Study) ══════════
+     DATA.geo.big = Alaska + Hawaii in their real places (same Albers frame), neighbours, LA→Honolulu.
+     - akhi        Lobby: zoom out, drag Alaska and Hawaii out of their inset boxes to their real places, lay Alaska over the lower 48
+     - rainshadow  Gallery main attraction: wind over flat land, raise the Cascades, wind again (wet side vs rain shadow)
+     - hotspot     Gallery: move the ocean floor over the Hawaiian hot spot; four islands grow and age
+     - westfinale  Exhibit Floor: West sign + gallery plaque (pattern + difference) → install → all five alcoves, chandeliers, Region Guide badge */
+  function vbAnim(svg, from, to, ms, done){
+    if (calm() || !ms) { svg.setAttribute('viewBox', to.join(' ')); if (done) done(); return; }
+    var t0 = performance.now();
+    (function f(now){ var k = Math.min(1, (now - t0) / ms), e = k < .5 ? 2*k*k : 1 - Math.pow(-2*k + 2, 2) / 2;
+      svg.setAttribute('viewBox', from.map(function(v, i){ return (v + (to[i] - v) * e).toFixed(1); }).join(' '));
+      if (k < 1) requestAnimationFrame(f); else if (done) done(); })(t0);
+  }
+  function bbOf(d){ var n = (d.match(/-?\d+(\.\d+)?/g) || []).map(Number), x = n.filter(function(v, i){ return i % 2 === 0; }), y = n.filter(function(v, i){ return i % 2 === 1; });
+    return [Math.min.apply(null, x), Math.min.apply(null, y), Math.max.apply(null, x), Math.max.apply(null, y)]; }
+
+  /* ══ MODULE: akhi (Lobby · where do Alaska and Hawaii really go?) ══ */
+  function modAkhi(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor || !DATA.geo || !DATA.geo.big) return;
+    var B = DATA.geo.big, G = DATA.geo, SP = cfg.steps || [];
+    ST.ak = ST.ak || {step:1, ak:false, hi:false, lay:false, q:false}; var S = ST.ak;
+    var m = shell('ms-ak-mod', cfg);
+    var la = B.pts.la, ho = B.pts.honolulu;
+    var extra = '<path class="ghost" data-k="ak" d="'+B.akReal+'"/><path class="ghost" data-k="hi" d="'+B.hiReal+'"/>' +
+      '<rect class="tgt" data-k="hi" x="'+(B.hiB[0]-60)+'" y="'+(B.hiB[1]-60)+'" width="'+(B.hiB[2]-B.hiB[0]+120)+'" height="'+(B.hiB[3]-B.hiB[1]+120)+'" rx="40"/><rect class="tgt" data-k="ak" x="'+B.akB[0]+'" y="'+B.akB[1]+'" width="'+(B.akB[2]-B.akB[0])+'" height="'+(B.akB[3]-B.akB[1])+'" rx="40"/>' +
+      '<path class="real" data-k="ak" d="'+B.akReal+'"/><path class="real" data-k="hi" d="'+B.hiReal+'"/><path class="over" d="'+B.akReal+'"/>' +
+      '<circle class="hiring" cx="'+((B.hiB[0]+B.hiB[2])/2)+'" cy="'+((B.hiB[1]+B.hiB[3])/2)+'" r="80"/><g class="dist"><path d="M'+la[0]+' '+la[1]+' Q'+((la[0]+ho[0])/2)+' '+(la[1]+70)+' '+ho[0]+' '+ho[1]+'"/><text x="'+((la[0]+ho[0])/2)+'" y="'+(la[1]+150)+'" style="text-anchor:middle">about 2,500 miles</text></g>' +
+      '<g class="lbl"><text data-k="ak" x="'+(B.akB[0]+(B.akB[2]-B.akB[0])*.45)+'" y="'+(B.akB[1]+(B.akB[3]-B.akB[1])*.55)+'">Alaska</text><text data-k="hi" x="'+(B.hiB[0]-20)+'" y="'+(B.hiB[1]-60)+'">Hawaii</text><text data-k="can" x="300" y="-120">CANADA</text><text data-k="pac" x="-420" y="420">PACIFIC OCEAN</text></g>';
+    var svgH = usSVG('ms-ak-svg', 'A map of North America. The lower 48 states, Canada, and Mexico. Alaska and Hawaii start in little boxes and move to where they really are.', extra, {under:'<path class="nbbig" d="'+B.nbBig+'"/>', insetNames:false});
+    function tile(k){ var d = G.states[k === 'ak' ? 'Alaska' : 'Hawaii'].d, b = bbOf(d), p = 6;
+      return '<button type="button" class="ms-ak-tile" data-k="'+k+'" aria-label="Drag '+(k==='ak'?'Alaska':'Hawaii')+'"><svg viewBox="'+(b[0]-p)+' '+(b[1]-p)+' '+(b[2]-b[0]+2*p)+' '+(b[3]-b[1]+2*p)+'" aria-hidden="true"><path d="'+d+'"/></svg><span>'+(k==='ak'?'Alaska':'Hawaii')+'</span></button>'; }
+    m.insertAdjacentHTML('beforeend', '<div class="ms-ak-wrap"><div class="ms-ak-map">'+svgH+'</div><div class="ms-ak-act"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-ak-act', m), svg = $('.ms-ak-svg', m), NORM = [0, 0, G.W, G.H], BIG = B.bigBox;
+    $$('.st', svg).forEach(function(s){ s.classList.toggle('w', s.dataset.r === 'w'); });
+    function flyIn(k){ var p = $('.real[data-k="'+k+'"]', svg), ib = bbOf(G.states[k==='ak'?'Alaska':'Hawaii'].d), rb = k === 'ak' ? B.akB : B.hiB;
+      var s = (ib[2]-ib[0]) / (rb[2]-rb[0]); p.style.transition = 'none'; p.style.transform = 'translate('+ib[0]+'px,'+ib[1]+'px) scale('+s+') translate('+(-rb[0])+'px,'+(-rb[1])+'px)';
+      void p.getBoundingClientRect(); p.style.transition = calm() ? 'none' : 'transform 1.4s cubic-bezier(.3,.7,.3,1)'; p.style.transform = 'none'; }
+    function paint(){
+      svg.classList.toggle('zoomed', S.step > 1); svg.classList.toggle('akin', S.ak); svg.classList.toggle('hiin', S.hi); svg.classList.toggle('lay', S.lay);
+      $$('.ghost, .tgt', svg).forEach(function(g){ g.classList.toggle('want', S.step === (g.dataset.k === 'ak' ? 2 : 3)); });
+      var o = $('.over', svg); o.style.transform = S.lay ? 'translate('+(B.c48[0]-B.akC[0])+'px,'+(B.c48[1]-B.akC[1])+'px)' : 'none';
+    }
+    function place(k){ var want = S.step === 2 ? 'ak' : S.step === 3 ? 'hi' : null; if (!want) return;
+      if (k !== want) { SFX.miss(); var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 '+esc(SP[S.step-2].fb)+'</div>'; return; }
+      S[k] = true; SFX.chime(); save(); paint(); flyIn(k); render(); }
+    $$('.tgt', svg).forEach(function(t){ t.addEventListener('click', function(){ place(t.dataset.k); }); });
+    function render(){
+      paint(); var N = 5;
+      if (S.q) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (S.step === 1) { act.innerHTML = stepCard(1, N, 'Zoom out', '<p class="ms-wm-do">Look at the two little boxes in the bottom left corner of the map. That is how most maps show Alaska and Hawaii.</p><button type="button" class="ms-btn big ms-ak-zoom">🔍 Zoom out to see the whole picture</button>');
+        $('.ms-ak-zoom', act).onclick = function(){ SFX.whir(); vbAnim(svg, NORM, BIG, 1600); S.step = 2; save(); render(); }; return; }
+      if (S.step <= 3) { var sp = SP[S.step-2], k = sp.k, done = S[k];
+        act.innerHTML = stepCard(S.step, N, sp.t, done ? '<div class="ms-sh-tag"><p>'+esc(sp.done)+'</p></div><button type="button" class="ms-btn big ms-ak-go">Next ➡️</button>'
+          : '<p class="ms-wm-do">👆 '+esc(sp.do)+'</p><div class="ms-ak-tray">'+tile(k)+'</div><div class="ms-exfb" aria-live="polite"></div>');
+        var t = $('.ms-ak-tile', act); if (t) { dragger(t, function(moved, tg){ if (moved && tg) place(tg.dataset.k); else if (moved) { SFX.miss(); $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc(sp.fb)+'</div>'; } }, '.ms-ak-svg .tgt');
+          t.addEventListener('click', function(){ var fb = $('.ms-exfb', act); fb.innerHTML = '<div class="ms-notyet">👆 Drag the shape onto the glowing outline on the map, or tap the outline.</div>'; }); }
+        var g = $('.ms-ak-go', act); if (g) g.onclick = function(){ SFX.click(); S.step++; save(); render(); }; return; }
+      if (S.step === 4) { act.innerHTML = stepCard(4, N, 'How big is Alaska?', S.lay ? '<div class="ms-sh-tag"><p>'+esc(cfg.layDone||'')+'</p></div><button type="button" class="ms-btn big ms-ak-go">Next ➡️</button>' : '<p>Alaska looked tiny in its box. Let\'s see how big it really is.</p><button type="button" class="ms-btn big ms-ak-lay">📏 '+esc(cfg.layT||'Compare')+'</button>');
+        var l = $('.ms-ak-lay', act); if (l) l.onclick = function(){ SFX.whir(); S.lay = true; save(); render(); };
+        var g2 = $('.ms-ak-go', act); if (g2) g2.onclick = function(){ SFX.click(); S.step = 5; save(); render(); }; return; }
+      var q = choiceQ(cfg.q, 5, function(){ setTimeout(function(){ S.q = true; save(); render(); }, calm()?0:1500); markDone('scene'); SFX.fanfare(); });
+      act.innerHTML = stepCard(5, N, cfg.q.title, q.html); q.bind(act);
+    }
+    if (S.step > 1) svg.setAttribute('viewBox', BIG.join(' '));
+    render(); if (S.q) markDone('scene');
+  }
+
+  /* ══ MODULE: rainshadow (Gallery main attraction · the rain shadow) ══ */
+  function modRainshadow(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var FL = cfg.flat || {w:20, e:18}, MT = cfg.mtn || {w:39, e:8};
+    ST.rs = ST.rs || {step:1, ran1:false, up:false, ran2:false, ok:false}; var S = ST.rs;
+    var m = shell('ms-rsh-mod', cfg);
+    function trees(x0, x1, n, big){ var s = ''; for (var i = 0; i < n; i++) { var x = x0 + (x1 - x0) * (i + .5) / n + ((i * 37) % 11 - 5), h = (big ? 34 : 22) + (i * 13) % 9;
+      s += '<path d="M'+x.toFixed(1)+' '+(300-h)+' l-'+(h*.32).toFixed(1)+' '+h+' h'+(h*.64).toFixed(1)+'z" />'; } return s; }
+    function sage(x0, x1, n){ var s = ''; for (var i = 0; i < n; i++) { var x = x0 + (x1 - x0) * (i + .5) / n + ((i * 29) % 9 - 4); s += '<ellipse cx="'+x.toFixed(1)+'" cy="297" rx="'+(7 + i % 3)+'" ry="4"/>'; } return s; }
+    function gauge(x, side){ return '<g class="gauge" data-s="'+side+'" transform="translate('+x+' 222)"><rect x="-13" y="0" width="26" height="78" rx="4" class="g-glass"/><rect x="-10" y="75" width="20" height="0" class="g-water"/><path d="M-13 0 h26" class="g-rim"/><g class="g-tick"><path d="M13 18 h5 M13 38 h5 M13 58 h5"/></g><rect x="-34" y="-30" width="68" height="24" rx="6" class="g-tag"/><text class="g-val" y="-13" style="text-anchor:middle">0 in</text></g>'; }
+    m.insertAdjacentHTML('beforeend', '<div class="ms-rsh-stage"><svg class="ms-rsh-svg" viewBox="0 0 800 400" role="img" aria-label="A simple model: wind blows wet air from the Pacific Ocean on the left toward land. A mountain range can rise in the middle. A rain gauge stands on each side.">' +
+      '<defs><linearGradient id="rsSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9CC8EA"/><stop offset="1" stop-color="#E4F1F8"/></linearGradient></defs>' +
+      '<rect width="800" height="400" fill="url(#rsSky)"/>' +
+      '<path class="sea" d="M0 302 H190 L210 400 H0Z"/><g class="waves"><path d="M10 312 q12 -6 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0"/><path d="M20 332 q12 -6 24 0 t24 0 t24 0 t24 0 t24 0 t24 0"/></g>' +
+      '<path class="land e" d="M190 300 H800 V400 H210Z"/><path class="land w" d="M190 300 H445 V400 H210Z"/>' +
+      '<g class="mtn"><path class="m1" d="M330 301 L388 238 L408 254 L450 120 L492 192 L522 166 L585 301Z"/><path class="snow" d="M450 120 L468 150 L458 146 L448 156 L438 146 L430 150Z M388 238 L397 249 L379 249Z"/><path class="mshade" d="M430 120 L480 200 L520 170 L600 301 L470 301Z"/></g>' +
+      '<g class="veg w">'+trees(248, 336, 6, true)+'</g><g class="veg e">'+sage(440, 790, 14)+'</g><g class="grass">'+trees(205, 790, 22, false)+'</g>' +
+      gauge(222, 'w') + gauge(690, 'e') +
+      '<g class="wind"><path d="M20 150 h70 m-12 -8 l12 8 l-12 8"/><path d="M30 190 h60 m-12 -8 l12 8 l-12 8"/></g>' +
+      '<g class="cloud" transform="translate(-200 0)"><g class="cl"><ellipse cx="0" cy="0" rx="46" ry="22"/><ellipse cx="-30" cy="8" rx="28" ry="16"/><ellipse cx="32" cy="8" rx="30" ry="16"/><ellipse cx="10" cy="-14" rx="26" ry="16"/></g><g class="drops"><path d="M-30 26 l-6 16 M-10 30 l-6 16 M10 26 l-6 16 M30 30 l-6 16 M-20 50 l-6 16 M0 54 l-6 16 M20 50 l-6 16"/></g></g>' +
+      '<g class="labs"><text class="lab w" x="262" y="390" style="text-anchor:middle">Wet side</text><text class="lab e" x="660" y="390" style="text-anchor:middle">Rain shadow (dry side)</text><text class="lab o" x="90" y="290" style="text-anchor:middle">Pacific Ocean</text><text class="lab mt" x="450" y="108" style="text-anchor:middle">Cascade Range</text></g>' +
+      '</svg></div><p class="ms-credit">A simple model. Real yearly rain: Seattle about 39 inches, Yakima about 8 inches (National Weather Service).</p><div class="ms-rsh-act"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-rsh-act', m), svg = $('.ms-rsh-svg', m), cloud = $('.cloud', svg);
+    function setG(side, v){ var g = $('.gauge[data-s="'+side+'"]', svg), h = Math.min(72, v / 40 * 72); $('.g-water', g).setAttribute('y', 75 - h); $('.g-water', g).setAttribute('height', h); $('.g-val', g).textContent = Math.round(v) + ' in'; }
+    function finalState(){
+      svg.classList.toggle('up', !!S.up); svg.classList.toggle('lush', !!S.ran2); svg.classList.toggle('flatrun', !!S.ran1 && !S.up);
+      if (S.ran2) { setG('w', MT.w); setG('e', MT.e); } else if (S.ran1 && !S.up) { setG('w', FL.w); setG('e', FL.e); } else { setG('w', 0); setG('e', 0); }
+    }
+    function blow(mtn, done){
+      SFX.whir(); svg.classList.add('blowing'); var dur = calm() ? 0 : 4200, t0 = performance.now(), G1 = mtn ? MT : FL;
+      setG('w', 0); setG('e', 0); var gw = 0, ge = 0;
+      (function f(now){ var k = dur ? Math.min(1, (now - t0) / dur) : 1, x = -60 + 900 * k, y = 120, sc = 1, rain = true;
+        if (mtn) { if (x < 300) y = 120; else if (x < 450) y = 120 - (x - 300) * .33; else y = 70 + (x - 450) * .12;
+          sc = x < 450 ? 1.1 - (x > 300 ? (x - 300) / 150 * .3 : 0) : .6; rain = x > 180 && x < 460; cloud.classList.toggle('heavy', x > 300 && x < 460); }
+        else { rain = x > 190; cloud.classList.remove('heavy'); }
+        cloud.setAttribute('transform', 'translate('+x.toFixed(1)+' '+y.toFixed(1)+') scale('+sc.toFixed(2)+')'); cloud.classList.toggle('raining', rain);
+        if (rain && x > 190 && x < 450) gw = G1.w * Math.min(1, (x - 190) / 250);
+        if (!mtn && x >= 450) ge = G1.e * Math.min(1, (x - 450) / 350); if (mtn && x >= 460) ge = G1.e * Math.min(1, (x - 460) / 340);
+        setG('w', gw); setG('e', ge);
+        if (k < 1) requestAnimationFrame(f); else { cloud.setAttribute('transform', 'translate(-200 0)'); cloud.classList.remove('raining', 'heavy'); svg.classList.remove('blowing'); setG('w', G1.w); setG('e', G1.e); done(); } })(t0);
+    }
+    function render(){
+      finalState(); var N = 5;
+      if (S.ok) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.step === 1) { act.innerHTML = stepCard(1, N, 'Blow the wind', S.ran1 ? '<p class="ms-wm-do">🌧️ With no mountains, the clouds rain about the same on both sides: '+FL.w+' inches and '+FL.e+' inches.</p><button type="button" class="ms-btn big ms-rsh-go">Next ➡️</button>'
+          : '<p class="ms-wm-do">The land is flat. Tap the button and watch the wet ocean air blow across.</p><button type="button" class="ms-btn big ms-rsh-blow">🌬️ Blow the wind</button>');
+        var b = $('.ms-rsh-blow', act); if (b) b.onclick = function(){ b.disabled = true; blow(false, function(){ S.ran1 = true; save(); render(); }); };
+        var g = $('.ms-rsh-go', act); if (g) g.onclick = function(){ SFX.click(); S.step = 2; save(); render(); }; return; }
+      if (S.step === 2) { act.innerHTML = stepCard(2, N, 'Raise the mountains', S.up ? '<p class="ms-wm-do">⛰️ The Cascade Range now stands between the ocean and the dry land. Its tops are covered in snow.</p><button type="button" class="ms-btn big ms-rsh-go">Next ➡️</button>'
+          : '<p class="ms-wm-do">Real mountains, the Cascade Range, stand here. Tap to raise them.</p><button type="button" class="ms-btn big ms-rsh-up">⛰️ Raise the mountains</button>');
+        var u = $('.ms-rsh-up', act); if (u) u.onclick = function(){ SFX.creak(); S.up = true; save(); render(); };
+        var g2 = $('.ms-rsh-go', act); if (g2) g2.onclick = function(){ SFX.click(); S.step = 3; save(); render(); }; return; }
+      if (S.step === 3) { act.innerHTML = stepCard(3, N, 'Blow the wind again', S.ran2 ? '<p class="ms-wm-do">🌧️ The clouds climbed the mountains and rained hard on the ocean side: '+MT.w+' inches. Only '+MT.e+' inches made it to the far side. That dry side is the <b>rain shadow</b>.</p><button type="button" class="ms-btn big ms-rsh-go">Next ➡️</button>'
+          : '<p class="ms-wm-do">Now the mountains are in the way. Blow the wind again and watch the clouds.</p><button type="button" class="ms-btn big ms-rsh-blow">🌬️ Blow the wind</button>');
+        var b2 = $('.ms-rsh-blow', act); if (b2) b2.onclick = function(){ b2.disabled = true; blow(true, function(){ S.ran2 = true; save(); render(); }); };
+        var g3 = $('.ms-rsh-go', act); if (g3) g3.onclick = function(){ SFX.click(); S.step = 4; save(); render(); }; return; }
+      var Q = S.step === 4 ? cfg.q1 : cfg.q2;
+      var cq = choiceQ(Q, S.step, function(){ var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big ms-rsh-next'; b.textContent = S.step < 5 ? 'Next question ➡️' : 'Done ✓'; $('.ms-stepcard', act).appendChild(b);
+        b.onclick = function(){ SFX.click(); if (S.step >= 5) { S.ok = true; ST.gal = ST.gal||{}; ST.gal.rain = 1; galleryCheck(); SFX.fanfare(); } else S.step++; save(); render(); }; });
+      act.innerHTML = stepCard(S.step, N, Q.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: hotspot (Gallery · grow an island chain) ══ */
+  function modHotspot(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var IS = cfg.islands || [], STEP = 140, HX = 600;
+    ST.hs = ST.hs || {n:0, ok:false}; var S = ST.hs;
+    var m = shell('ms-hs-mod', cfg);
+    var isl = IS.map(function(it, i){ var x = HX + i * STEP; return '<g class="isl" data-i="'+i+'" transform="translate('+x+' 230)"><g class="vol"><path class="v" d="M-70 0 C-40 -40 -22 -96 -8 -100 L8 -100 C22 -96 40 -40 70 0Z"/><path class="green" d="M-40 -40 C-26 -70 -16 -96 -8 -100 L8 -100 C16 -96 26 -70 40 -40 Q0 -48 -40 -40Z"/><path class="lava" d="M-6 -100 C-10 -80 -4 -66 -12 -50 M6 -100 C10 -84 4 -70 14 -56"/></g><g class="smoke"><circle cx="0" cy="-118" r="10"/><circle cx="12" cy="-134" r="13"/><circle cx="-6" cy="-152" r="15"/></g></g>'; }).join('');
+    var labs = IS.map(function(it, i){ var x = HX - (IS.length - 1 - i) * STEP; return '<g class="ilab" data-i="'+i+'" transform="translate('+x+' 290)"><text class="nm" style="text-anchor:middle">'+esc(it.t.replace(' (the Big Island)', ''))+'</text><text class="ag" y="18" style="text-anchor:middle">'+esc(it.short || it.age)+'</text></g>'; }).join('');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-hs-stage"><svg class="ms-hs-svg" viewBox="0 0 800 380" role="img" aria-label="A simple model: a slice through the ocean and the Earth. The ocean floor slides to the left over a hot spot. New volcano islands grow over the hot spot and slide away.">' +
+      '<defs><linearGradient id="hsSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4E9FD6"/><stop offset="1" stop-color="#1E4F80"/></linearGradient><radialGradient id="hsHot" cx="50%" cy="100%" r="70%"><stop offset="0" stop-color="#FFD24A"/><stop offset=".5" stop-color="#F0662A"/><stop offset="1" stop-color="#B8321A" stop-opacity="0"/></radialGradient><clipPath id="hsClip"><rect x="0" y="0" width="800" height="275"/></clipPath></defs>' +
+      '<rect width="800" height="130" fill="#BFE0F2"/><rect y="130" width="800" height="100" fill="url(#hsSea)"/>' +
+      '<rect y="275" width="800" height="105" fill="#8C3B22"/><path class="plume" d="M560 380 C570 330 580 300 585 275 L615 275 C620 300 630 330 640 380Z" fill="url(#hsHot)"/>' +
+      '<g class="plate" clip-path="url(#hsClip)"><g class="slide"><rect x="-900" y="230" width="2400" height="45" fill="#6E5A48"/><g class="stripes">'+Array.apply(null, Array(24)).map(function(_, i){ return '<path d="M'+(-900 + i*100)+' 245 h60"/>'; }).join('')+'</g>'+isl+'</g></g>' +
+      '<path class="sealine" d="M0 130 H800"/><text class="t-hot" x="600" y="345" style="text-anchor:middle">hot spot</text><text class="t-mv" x="160" y="262" style="text-anchor:middle">⬅ ocean floor moves northwest</text><text class="t-sea" x="20" y="150">sea level</text>' + labs +
+      '</svg></div><div class="ms-hs-act"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-hs-act', m), svg = $('.ms-hs-svg', m);
+    function paint(){ var n = S.n; $('.slide', svg).style.transform = 'translateX('+(-Math.max(0, n - 1) * STEP)+'px)';
+      $$('.isl', svg).forEach(function(g, i){ var made = i < n, a = n - 1 - i, h = made ? (170 - a * 20) / 100 : 0, w = made ? 1 - a * .08 : 0;
+        $('.vol', g).style.transform = 'scale('+w.toFixed(2)+','+h.toFixed(2)+')'; g.classList.toggle('made', made); g.classList.toggle('active', made && a === 0); g.classList.toggle('old', made && a >= 2); });
+      $$('.ilab', svg).forEach(function(l, i){ l.classList.toggle('on', n >= IS.length); });
+      svg.classList.toggle('done', n >= IS.length); }
+    function render(){
+      paint(); var N = 2;
+      if (S.ok) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.n < IS.length) { var nx = IS[S.n];
+        act.innerHTML = stepCard(1, N, 'Move the ocean floor', '<p class="ms-wm-do">👆 '+(S.n ? 'Tap again. The ocean floor slides over the hot spot, and a new volcano grows.' : 'Tap the button. Melted rock rises from the hot spot and builds a volcano.')+'</p>' +
+          (S.n ? '<div class="ms-sh-tag"><b>🌋 '+esc(IS[S.n-1].t)+'</b><p>A new island grew over the hot spot.</p></div>' : '') + '<button type="button" class="ms-btn big ms-hs-move">⬅ '+esc(cfg.moveT||'Move')+' ('+(S.n+1)+' of '+IS.length+')</button>');
+        $('.ms-hs-move', act).onclick = function(){ SFX.whir(); S.n++; save(); render(); }; return; }
+      var q = choiceQ(cfg.q, 2, function(){ ST.gal = ST.gal||{}; ST.gal.islands = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.ok = true; save(); render(); }, calm()?0:1700); });
+      act.innerHTML = stepCard(2, N, cfg.q.title, '<div class="ms-sh-tag"><p>Four islands in a row. Read the age under each one.</p></div>' + q.html); q.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: westfinale (Exhibit Floor · the West sign + gallery plaque + finale) ══ */
+  var BADGE = '<svg viewBox="0 0 120 150" aria-hidden="true"><path d="M38 0 L60 50 L82 0 L100 0 L72 64 H48 L20 0Z" fill="#8B6FC0"/><path d="M38 0 L52 32 L60 50 L45 50 L20 0Z" fill="#6E54A6"/><circle cx="60" cy="98" r="44" fill="#D9A92E" stroke="#8E6A14" stroke-width="5"/><circle cx="60" cy="98" r="34" fill="#F3D27A" stroke="#B88A2A" stroke-width="2"/><path d="M60 72 l7 15 16 2 -12 11 3 16 -14 -8 -14 8 3 -16 -12 -11 16 -2Z" fill="#B88A2A"/><text x="60" y="140" text-anchor="middle" font-size="0">Region Guide</text></svg>';
+  function chandelier(){ return '<svg viewBox="0 0 80 70" aria-hidden="true"><path d="M40 0 V18" stroke="#B88A2A" stroke-width="3"/><path d="M10 34 Q40 56 70 34" fill="none" stroke="#B88A2A" stroke-width="4"/><path d="M40 18 V44" stroke="#B88A2A" stroke-width="3"/>' + [10, 25, 40, 55, 70].map(function(x){ var y = x === 40 ? 46 : (x === 25 || x === 55 ? 42 : 34); return '<rect x="'+(x-3)+'" y="'+(y-14)+'" width="6" height="14" fill="#FBF5E6"/><ellipse class="fl" cx="'+x+'" cy="'+(y-19)+'" rx="4" ry="6"/>'; }).join('') + '</svg>'; }
+  function modWestfinale(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'), tb = document.getElementById(cfg.textarea2 || 'journal-pattern'); if (!ta || !tb) return;
+    var NEED = cfg.sentMin || 3;
+    ST.wf = ST.wf || {step:1, same:null, diff:null, open:false}; var S = ST.wf;
+    var m = shell('ms-wf-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-wf-act"></div><div class="ms-wf-show" hidden><div class="ms-wf-hall"><div class="ms-wf-chand">'+chandelier()+chandelier()+chandelier()+'</div>' +
+      '<div class="ms-ne-alcove ms-wf-alcove" style="'+rcol()+'"><span class="ms-alc-glow"></span><div class="ms-ne-sign">West</div><div class="ms-ne-label"><p class="tx"></p><p class="by"></p><span class="ms-draft">DRAFT</span></div></div>' +
+      '<div class="ms-wf-plaque"><div class="h">The United States Regions Gallery</div><p class="pt"></p></div>' + alcoves('ms-wf-row') + '<div class="ms-wf-badge" aria-hidden="true">'+BADGE+'<span>'+esc(cfg.badge||'Region Guide')+'</span></div></div></div><div class="ms-wf-end"></div>');
+    var homeA = document.createComment('wf-home-a'), homeB = document.createComment('wf-home-b');
+    ta.parentNode.insertBefore(homeA, ta); tb.parentNode.insertBefore(homeB, tb); ta.parentNode.insertBefore(m, ta);
+    $$('.textbox-prompt', ta.parentNode).forEach(function(p){ if (p.nextElementSibling === m || p.nextElementSibling === homeA) p.classList.add('ms-hide-on'); });
+    var tpb = tb.parentNode.querySelector('.textbox-prompt'); if (tpb) tpb.classList.add('ms-hide-on');
+    var act = $('.ms-wf-act', m), show = $('.ms-wf-show', m), end = $('.ms-wf-end', m), row = $('.ms-wf-row', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== homeA) homeA.parentNode.insertBefore(ta, homeA.nextSibling); if (tb.previousSibling !== homeB) homeB.parentNode.insertBefore(tb, homeB.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return (s.trim().match(/\S+/g)||[]).length >= 3; }).length; }
+    function base(){ return 'Pattern: ' + (cfg.same[S.same] || '') + ' Difference: ' + (cfg.diff[S.diff] || ''); }
+    function userPart(){ var v = tb.value, i = v.indexOf('\n'); return v.indexOf('Pattern:') === 0 ? (i >= 0 ? v.slice(i + 1) : '') : v; }
+    function setBase(){ var u = userPart(); tb.value = base() + '\n' + u.replace(/^\s+/, ''); tb.dispatchEvent(new Event('input', {bubbles:true})); }
+    function miss1(){ var miss = [], n = sents(ta.value); if (n < NEED) miss.push('Write '+(NEED-n)+' more sentence'+(NEED-n===1?'':'s')+'.'); if (!/alaska/i.test(ta.value)) miss.push('Name Alaska.'); if (!/hawai/i.test(ta.value)) miss.push('Name Hawaii.'); return miss; }
+    function miss2(){ var miss = []; if (S.same == null) miss.push('Pick a pattern.'); if (S.diff == null) miss.push('Pick a difference.'); if (sents(userPart()) < 1) miss.push('Add one example sentence of your own.'); return miss; }
+    function view(){
+      $('.tx', show).textContent = ta.value.trim() || 'Your sign will appear here.';
+      $('.by', show).textContent = 'Sign by ' + (sget(NAMEK,'') || 'Junior Curator') + ', United States Region Curator';
+      $('.pt', show).innerHTML = S.same != null ? '<b>One pattern:</b> ' + esc(cfg.same[S.same]) + '<br><b>One difference:</b> ' + esc(cfg.diff[S.diff]) + '<br>' + esc(userPart().trim()) : '';
+      show.classList.toggle('open', !!S.open); lightAlcoves(row, S.open ? 'all' : ['ne','se','mw','sw'], false);
+    }
+    function box(t, sel){ return '<div class="ms-gi-box '+sel+'"></div>'; }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 3; ta.classList.toggle('ms-gi-away', S.step !== 1); tb.classList.toggle('ms-gi-away', S.step !== 2);
+      if (S.step === 1) { goHome();
+        act.innerHTML = stepCard(1, 3, cfg.s1T, '<p>'+esc(cfg.s1||'')+'</p><div class="ms-cp-notes">'+(cfg.notes||[]).map(function(n){ return '<span>📌 '+esc(n)+'</span>'; }).join('')+'</div><div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(t)+'</button>'; }).join('')+'</div>' + box(ta, 'b1') + '<div class="ms-excheck ms-wf-chk"></div><div class="ms-gi-nav"><button type="button" class="ms-btn big ms-wf-next">Next: the gallery plaque ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.b1', act).appendChild(ta);
+        var chk = $('.ms-wf-chk', act), fb = $('.ms-gi-fb', act);
+        var upd = function(){ var n = sents(ta.value), a = /alaska/i.test(ta.value), h = /hawai/i.test(ta.value), miss = miss1();
+          chk.innerHTML = '<span class="ms-wc'+(n>=NEED?' ok':'')+'">📝 '+Math.min(n,NEED)+' of '+NEED+' sentences</span><span class="ms-chip'+(a?' ok':'')+'">'+(a?'✓ ':'')+'names Alaska</span><span class="ms-chip'+(h?' ok':'')+'">'+(h?'✓ ':'')+'names Hawaii</span>';
+          $('.ms-wf-next', act).classList.toggle('ms-notready', !!miss.length); if (fb.innerHTML) fb.innerHTML = miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b, i){ b.onclick = function(){ var t = (cfg.starters||[])[i]; ta.value = ta.value.replace(/\s*$/,'') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-wf-next', act).onclick = function(){ var miss = miss1(); if (miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; } SFX.chime(); S.step = 2; save(); render(); };
+        return; }
+      if (S.step === 2) { goHome();
+        act.innerHTML = stepCard(2, 3, cfg.s2T, '<p>'+esc(cfg.s2||'')+'</p><div class="ms-sws-part"><b>🔁 One pattern all five regions share</b><div class="ms-sws-chips">'+cfg.same.map(function(c, i){ return '<button type="button" class="ms-sws-chip ms-wf-c'+(S.same===i?' on':'')+'" data-g="same" data-i="'+i+'" aria-pressed="'+(S.same===i)+'">'+esc(c)+'</button>'; }).join('')+'</div></div>' +
+          '<div class="ms-sws-part"><b>↔️ One big difference</b><div class="ms-sws-chips">'+cfg.diff.map(function(c, i){ return '<button type="button" class="ms-sws-chip ms-wf-c'+(S.diff===i?' on':'')+'" data-g="diff" data-i="'+i+'" aria-pressed="'+(S.diff===i)+'">'+esc(c)+'</button>'; }).join('')+'</div></div>' +
+          '<p class="ms-wm-do">✏️ Under the first line, add one example sentence. (Example: The Southeast is wet, but the Southwest is dry.)</p>' + box(tb, 'b2') + '<div class="ms-excheck ms-wf-chk"></div><div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-wf-back">↩️ Back to my sign</button><button type="button" class="ms-btn big ms-wf-next">Next: see the gallery ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.b2', act).appendChild(tb);
+        var chk2 = $('.ms-wf-chk', act), fb2 = $('.ms-gi-fb', act);
+        var upd2 = function(){ var e = sents(userPart()) >= 1, miss = miss2();
+          chk2.innerHTML = '<span class="ms-chip'+(S.same!=null?' ok':'')+'">'+(S.same!=null?'✓ ':'')+'a pattern</span><span class="ms-chip'+(S.diff!=null?' ok':'')+'">'+(S.diff!=null?'✓ ':'')+'a difference</span><span class="ms-chip'+(e?' ok':'')+'">'+(e?'✓ ':'')+'an example sentence</span>';
+          $('.ms-wf-next', act).classList.toggle('ms-notready', !!miss.length); if (fb2.innerHTML) fb2.innerHTML = miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd2; upd2();
+        $$('.ms-wf-c', act).forEach(function(b){ b.onclick = function(){ S[b.dataset.g] = +b.dataset.i; SFX.click(); save(); if (S.same != null && S.diff != null) setBase(); render(); tb.focus(); tb.setSelectionRange(tb.value.length, tb.value.length); }; });
+        $('.ms-wf-back', act).onclick = function(){ S.step = 1; save(); render(); };
+        $('.ms-wf-next', act).onclick = function(){ var miss = miss2(); if (miss.length) { SFX.miss(); fb2.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 3; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(3, 3, cfg.s3T, '<p>'+esc(cfg.s3||'')+'</p><button type="button" class="ms-btn big ms-wf-open">🎉 '+esc(cfg.openT||'Install')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-wf-edit">✏️ '+esc(cfg.editT||'Edit my sign')+'</button></div>';
+      var ob = $('.ms-wf-open', end); if (ob) ob.onclick = function(){ var miss = miss1().concat(miss2()); if (miss.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('opening'); void show.offsetWidth; show.classList.add('opening'); SFX.fanfare(); render(); setTimeout(function(){ show.classList.remove('opening'); }, 5200); optiNod('assignment'); check(); };
+      $('.ms-wf-edit', end).onclick = function(){ S.open = false; S.step = 1; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 1) curUpd(); });
+    tb.addEventListener('input', function(){ if (curUpd && S.step === 2) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
