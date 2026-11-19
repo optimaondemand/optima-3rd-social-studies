@@ -79,6 +79,14 @@ optima-3rd-social-studies,opti,Turn the wheel to see all four seasons. Then answ
 optima-3rd-social-studies,opti,"Hoo, curator! The first alcove is open: the Northeast. A crate just arrived, labeled Atlantic Coast. Let's lift out each object, one at a time. Read its tag, and find where it comes from on the map.",198,audio/guide/g3ss-3-07-02-lobby-1.mp3,speech,ss-3-07.02-northeast-region-study.html,94f339406b624166f25eb5e3c3d85442
 optima-3rd-social-studies,opti,This window looks out on one hillside in Vermont. Turn the brass wheel to change the season. Watch the maple trees. They will show you how the Northeast changes all year long.,175,audio/guide/g3ss-3-07-02-seasons-1.mp3,speech,ss-3-07.02-northeast-region-study.html,c4108e5524634038dbef6d85d8ec227f
 optima-3rd-social-studies,opti,"Word puzzle time! The word root mar means sea. Find it in three words, and figure out what each word means.",107,audio/guide/g3ss-3-07-02-workroom-1.mp3,speech,ss-3-07.02-northeast-region-study.html,765b2add0f3e0b91f8f872f3aed4a784
+optima-3rd-social-studies,opti,"Time for twin labels! Pick one way the Northeast and the Southeast are alike, and one way they are different. Write both labels in your own words, and hang them between the two alcoves.",185,audio/guide/g3ss-3-07-03-exhibit-1.mp3,speech,ss-3-07_03-southeast-region-study.html,c682695432306035acc61a21dfc942dc
+optima-3rd-social-studies,opti,We're standing on a boardwalk in the Everglades. Look closely at the water and the plants. This wetland is full of life.,120,audio/guide/g3ss-3-07-03-glades-1.mp3,speech,ss-3-07_03-southeast-region-study.html,7c9b68bba758d0c8602c06609e002530
+optima-3rd-social-studies,opti,Tap a month to warm the ocean. Then start the storm and watch where it goes.,76,audio/guide/g3ss-3-07-03-how-storm.mp3,speech,ss-3-07_03-southeast-region-study.html,07257b050db96c10f86d8b8597e1d32f
+optima-3rd-social-studies,opti,Pick one way they are alike and one way they are different. Write both labels in the box. Then hang them.,105,audio/guide/g3ss-3-07-03-how-twins.mp3,speech,ss-3-07_03-southeast-region-study.html,3faa8df4776e5e5b2d79c8d8af811bfc
+optima-3rd-social-studies,opti,"Drag the thermometer into each window, or tap the window. Then open the crate.",78,audio/guide/g3ss-3-07-03-how-weather.mp3,speech,ss-3-07_03-southeast-region-study.html,7b33bf50e2fabe009c0f0f267255c7c8
+optima-3rd-social-studies,opti,"Hoo, curator! The second alcove is open: the Southeast. Look at these two windows. It's the same January day in Boston and in Miami. Check the thermometer in each one. Then open the new crate.",192,audio/guide/g3ss-3-07-03-lobby-1.mp3,speech,ss-3-07_03-southeast-region-study.html,e65d17a83cbe59a98c69684851a24a33
+optima-3rd-social-studies,opti,"This is a storm tracker. First, warm up the ocean, month by month. Then watch what a hurricane needs to grow, and where it goes.",128,audio/guide/g3ss-3-07-03-storm-1.mp3,speech,ss-3-07_03-southeast-region-study.html,de6926f82a36f5406adab98fce8cbc5c
+optima-3rd-social-studies,opti,"Word puzzle time! The word root therm means heat. Find it in three words, and figure out what each word means.",110,audio/guide/g3ss-3-07-03-workroom-1.mp3,speech,ss-3-07_03-southeast-region-study.html,36190b58db17eb1a69efead85f66e193
 optima-3rd-social-studies,opti,alcove,6,audio/words/g3ss-word-alcove.mp3,speech,file name,797d500781f4153abf74ba6ae33c000f
 optima-3rd-social-studies,opti,appalachian mountains,21,audio/words/g3ss-word-appalachian-mountains.mp3,speech,file name,9d59e82edb6df28abde7960b5bc99cdf
 optima-3rd-social-studies,opti,atlantic ocean,14,audio/words/g3ss-word-atlantic-ocean.mp3,speech,file name,0029a7dc8bc6e98e2062743f6428c81e
@@ -91,6 +99,7 @@ optima-3rd-social-studies,opti,capital,7,audio/words/g3ss-word-capital.mp3,speec
 optima-3rd-social-studies,opti,caribbean,9,audio/words/g3ss-word-caribbean.mp3,speech,file name,d21ff738887b2b32791a1ff82af57528
 optima-3rd-social-studies,opti,climate,7,audio/words/g3ss-word-climate.mp3,speech,file name,2766ce853a41f1aec5986498c5e1c4f0
 optima-3rd-social-studies,opti,coal,4,audio/words/g3ss-word-coal.mp3,speech,file name,d4d2bc93dcdd933cfe1507a465913326
+optima-3rd-social-studies,opti,coastal plain,13,audio/words/g3ss-word-coastal-plain.mp3,speech,file name,9dd5c5e9089c66fb94790c929286dd39
 optima-3rd-social-studies,opti,compare,7,audio/words/g3ss-word-compare.mp3,speech,file name,ebb336ee572c1fdf9e6293030ce93da7
 optima-3rd-social-studies,opti,connection,10,audio/words/g3ss-word-connection.mp3,speech,file name,c02640b05ba9a3d0c6704151c5b9fc09
 optima-3rd-social-studies,opti,contribution,12,audio/words/g3ss-word-contribution.mp3,speech,file name,c9869dbe21c372ded06da002031d7a00
@@ -107,17 +116,22 @@ optima-3rd-social-studies,opti,distinct,8,audio/words/g3ss-word-distinct.mp3,spe
 optima-3rd-social-studies,opti,dust bowl,9,audio/words/g3ss-word-dust-bowl.mp3,speech,file name,fe30db780c92551a05413e55a6f9f44e
 optima-3rd-social-studies,opti,ellis island,12,audio/words/g3ss-word-ellis-island.mp3,speech,file name,2938bfb2a433bae309b2828977bb785f
 optima-3rd-social-studies,opti,environment,11,audio/words/g3ss-word-environment.mp3,speech,file name,45404f3835c545a47dfee1c5ab761e26
+optima-3rd-social-studies,opti,everglades,10,audio/words/g3ss-word-everglades.mp3,speech,file name,094b9386323cc840a187c642c5e4d359
 optima-3rd-social-studies,opti,exhibit,7,audio/words/g3ss-word-exhibit.mp3,speech,file name,ef53f5657a1865ec7679213a233f4199
 optima-3rd-social-studies,opti,fertile,7,audio/words/g3ss-word-fertile.mp3,speech,file name,67a73492da41e7fd6b35f3d939053ee3
 optima-3rd-social-studies,opti,fresh water,11,audio/words/g3ss-word-fresh-water.mp3,speech,file name,bc86ebde6e4afc7a4b63869a6eb0bbc5
 optima-3rd-social-studies,opti,geo,3,audio/words/g3ss-word-geo.mp3,speech,file name,abbf0d1e8399c9c4dce3ae23429280d0
 optima-3rd-social-studies,opti,geographer,10,audio/words/g3ss-word-geographer.mp3,speech,file name,be29c027e7f67f759ae43b683aefb5dd
 optima-3rd-social-studies,opti,great plains,12,audio/words/g3ss-word-great-plains.mp3,speech,file name,d161ae32fe26c3e8555a1dc2c30fc33e
+optima-3rd-social-studies,opti,great smoky mountains,21,audio/words/g3ss-word-great-smoky-mountains.mp3,speech,file name,7edb145edea3c598112094a89bbec956
+optima-3rd-social-studies,opti,gulf of mexico,14,audio/words/g3ss-word-gulf-of-mexico.mp3,speech,file name,20ca73315b3ff5a800bdc005714693a6
 optima-3rd-social-studies,opti,harbor,6,audio/words/g3ss-word-harbor.mp3,speech,file name,076a4b80ed093f2761729e001d5fb9ac
 optima-3rd-social-studies,opti,harvest,7,audio/words/g3ss-word-harvest.mp3,speech,file name,8bac4861bdf7826e0f842b946d0f04bf
 optima-3rd-social-studies,opti,haudenosaunee,13,audio/words/g3ss-word-haudenosaunee.mp3,speech,file name,cb8163a079399d7bbbd9d1b09081036f
 optima-3rd-social-studies,opti,heritage,8,audio/words/g3ss-word-heritage.mp3,speech,file name,4825f98ed82c1c40306338f8304bbce4
 optima-3rd-social-studies,opti,hispaniola,10,audio/words/g3ss-word-hispaniola.mp3,speech,file name,3bcf03d0242b60a2726be9119b5b6955
+optima-3rd-social-studies,opti,humid,5,audio/words/g3ss-word-humid.mp3,speech,file name,b0703cb788a495f862768406790e865f
+optima-3rd-social-studies,opti,hurricane,9,audio/words/g3ss-word-hurricane.mp3,speech,file name,9432d0e941590bcc514302ab0fc8c7e5
 optima-3rd-social-studies,opti,indigenous,10,audio/words/g3ss-word-indigenous.mp3,speech,file name,d89b2b8f469751577af1ad9928fc6e45
 optima-3rd-social-studies,opti,island,6,audio/words/g3ss-word-island.mp3,speech,file name,72673f3e8f4cb75b74ad678c981848ac
 optima-3rd-social-studies,opti,lacrosse,8,audio/words/g3ss-word-lacrosse.mp3,speech,file name,5d473792702df5e0f86e4d74dff61f9c
@@ -137,6 +151,7 @@ optima-3rd-social-studies,opti,new england,11,audio/words/g3ss-word-new-england.
 optima-3rd-social-studies,opti,nonrenewable,12,audio/words/g3ss-word-nonrenewable.mp3,speech,file name,e32dd5ea8bbf5936c22f65f9041bbc73
 optima-3rd-social-studies,opti,northeast,9,audio/words/g3ss-word-northeast.mp3,speech,file name,bc2b98f215cd02e6021e0736a1d151d1
 optima-3rd-social-studies,opti,official language,17,audio/words/g3ss-word-official-language.mp3,speech,file name,096f5c49ef1134097969bca6f19d79f5
+optima-3rd-social-studies,opti,peninsula,9,audio/words/g3ss-word-peninsula.mp3,speech,file name,42e327f5d0c0c5539039ff166a4becbb
 optima-3rd-social-studies,opti,petroleum,9,audio/words/g3ss-word-petroleum.mp3,speech,file name,fd9cd5028171f6b8ca838f86e4558018
 optima-3rd-social-studies,opti,physical feature,16,audio/words/g3ss-word-physical-feature.mp3,speech,file name,c5cd55f8862ed317a449ae38183f8c52
 optima-3rd-social-studies,opti,physical map,12,audio/words/g3ss-word-physical-map.mp3,speech,file name,25269563df29441e08c7e22cfea96ae9
@@ -168,3 +183,4 @@ optima-3rd-social-studies,opti,timber,6,audio/words/g3ss-word-timber.mp3,speech,
 optima-3rd-social-studies,opti,trade,5,audio/words/g3ss-word-trade.mp3,speech,file name,caeeb63d0fb4087acedecc2addf2a34b
 optima-3rd-social-studies,opti,valley,6,audio/words/g3ss-word-valley.mp3,speech,file name,4153e622b5b88cd1ec74927b2159850e
 optima-3rd-social-studies,opti,west,4,audio/words/g3ss-word-west.mp3,speech,file name,1b56d32558efeb5bd2b7d204a9441a7c
+optima-3rd-social-studies,opti,wetland,7,audio/words/g3ss-word-wetland.mp3,speech,file name,8156276425cd69ee342b8af7e7c6909d

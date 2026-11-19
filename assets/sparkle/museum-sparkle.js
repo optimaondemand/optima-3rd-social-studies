@@ -78,6 +78,12 @@
    - oldmtn     Gallery: young sharp Rockies vs old worn Appalachians; run time forward
    - harbor     Gallery source room: two real photos of New York Harbor ~100 years apart, three questions
    - nelabel    Exhibit Floor: pick the front object, write the label in the step, install, the Northeast alcove lights
+   Added for 3.07.03 (DATA.items = the GULF & ATLANTIC crate; DATA.geo.seBox / flBox / pts):
+   - wxtwin     Lobby: weather twins (Boston + Miami windows, thermometer), why, then the crate opens
+   - storm      Gallery main attraction: the Storm Tracker (warm the ocean, a hurricane forms, lands, weakens)
+   - sponge     Gallery: rain on a paved city vs a wetland
+   - twinlab    Exhibit Floor: one alike + one different, two labels in the step, hung between the blue and green alcoves
+   nightmap now takes cfg.stKey / galKey / vb / alt (defaults keep 3.07.01 as it was)
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1135,7 +1141,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -2828,10 +2834,10 @@
   function modNightmap(cfg){
     var src = $(cfg.anchor); if (!src) return;
     var Q = cfg.qs || [], RG = cfg.rings || {};
-    ST.nt = ST.nt || {i:0, ok:false}; var S = ST.nt;
+    var SK = cfg.stKey || 'nt'; ST[SK] = ST[SK] || {i:0, ok:false}; var S = ST[SK];
     var m = shell('ms-nt-mod', cfg);
     var rings = Object.keys(RG).map(function(k){ var r = RG[k]; return '<circle class="ring" data-k="'+k+'" cx="'+r[0]+'" cy="'+r[1]+'" r="'+r[2]+'"/>'; }).join('');
-    m.insertAdjacentHTML('beforeend', '<div class="ms-nt-wrap"><figure class="ms-nt-ph"><img src="'+img(cfg.img)+'" alt="A NASA picture of the United States at night. Bright city lights crowd the East, the Great Lakes, Florida, Texas and the Pacific coast. Much of the West is dark."><svg viewBox="0 0 1200 800" aria-hidden="true">'+rings+'</svg><span class="ms-phtag">'+esc(cfg.tag||'')+'</span></figure><div class="ms-nt-act"></div></div><p class="ms-credit">'+esc(cfg.credit||'')+'</p>');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-nt-wrap"><figure class="ms-nt-ph"><img src="'+img(cfg.img)+'" alt="'+(cfg.alt ? esc(cfg.alt) : 'A NASA picture of the United States at night. Bright city lights crowd the East, the Great Lakes, Florida, Texas and the Pacific coast. Much of the West is dark.')+'"><svg viewBox="'+(cfg.vb || '0 0 1200 800')+'" aria-hidden="true">'+rings+'</svg><span class="ms-phtag">'+esc(cfg.tag||'')+'</span></figure><div class="ms-nt-act"></div></div><p class="ms-credit">'+esc(cfg.credit||'')+'</p>');
     src.parentNode.insertBefore(m, src);
     var act = $('.ms-nt-act', m);
     function show(keys){ $$('.ring', m).forEach(function(c){ c.classList.toggle('on', keys.indexOf(c.dataset.k) >= 0); }); }
@@ -2840,7 +2846,7 @@
       var q = Q[S.i]; show((q.ring||[]).concat(S.ok ? (q.after||[]) : []));
       var cq = choiceQ(q, S.i + 2, function(){ S.ok = true; save(); show((q.ring||[]).concat(q.after||[]));
         var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big ms-nt-next'; b.textContent = S.i+1 < Q.length ? 'Next question ➡️' : 'Done with the picture ✓'; $('.ms-stepcard', act).appendChild(b);
-        b.onclick = function(){ SFX.click(); S.i++; S.ok = false; save(); if (S.i >= Q.length) { ST.gal = ST.gal||{}; ST.gal.night = 1; save(); galleryCheck(); SFX.fanfare(); } render(); }; });
+        b.onclick = function(){ SFX.click(); S.i++; S.ok = false; save(); if (S.i >= Q.length) { ST.gal = ST.gal||{}; ST.gal[cfg.galKey || 'night'] = 1; save(); galleryCheck(); SFX.fanfare(); } render(); }; });
       act.innerHTML = stepCard(S.i+1, Q.length, q.title, cq.html); cq.bind(act);
     }
     render();
@@ -3161,7 +3167,203 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.07.03 (Southeast Region Study) ══════════
+     DATA.items = the GULF & ATLANTIC crate objects; DATA.geo.seBox / flBox = Southeast and Florida views; DATA.geo.pts = Boston + Miami.
+     - wxtwin   Lobby: two weather windows (Boston, Miami, same January day), a thermometer for each, why; then the crate opens
+     - storm    Gallery main attraction: the Storm Tracker (warm the ocean month by month, a hurricane forms, makes landfall, weakens)
+     - sponge   Gallery: a model, rain on a paved city vs a wetland
+     - twinlab  Exhibit Floor: one alike + one different, two labels written in the step, hung between the blue and green alcoves
+     (the Everglades photo reuses nightmap with cfg.stKey / galKey / vb / alt) */
+  function seMapSVG(cls, label, extra, vb){ return usSVG(cls, label, extra || '', {vb: (vb || DATA.geo.seBox).join(' '), insetNames:false}); }
+  function windowScene(k){
+    if (k === 'boston') return '<svg class="ms-wt-scene" viewBox="0 0 300 200" aria-hidden="true"><rect width="300" height="200" fill="#C9D3DC"/><circle cx="240" cy="40" r="18" fill="#EEF0EA"/>' +
+      '<rect x="20" y="60" width="70" height="100" fill="#9C4A36"/><rect x="90" y="75" width="60" height="85" fill="#7E3B2C"/><rect x="150" y="55" width="70" height="105" fill="#A85A42"/>' +
+      [30,55,100,125,160,190].map(function(x, i){ return '<rect x="'+x+'" y="'+(i%2?95:80)+'" width="14" height="18" fill="#F7E7A8" opacity=".8"/>'; }).join('') +
+      '<path d="M18 60 L55 40 L92 60Z M148 55 L185 36 L222 55Z" fill="#fff"/><rect y="160" width="300" height="40" fill="#F4F7FA"/>' +
+      '<path d="M250 160 V110 M250 125 L232 108 M250 120 L268 100 M250 140 L270 128" stroke="#5B4332" stroke-width="4" fill="none" stroke-linecap="round"/>' +
+      '<g transform="translate(118 150)"><circle cy="-30" r="7" fill="#F2C6A0"/><path d="M-6 -36 h12 v-4 h-12z" fill="#B23A2E"/><rect x="-9" y="-23" width="18" height="24" rx="5" fill="#2F4F7F"/><path d="M-6 1 v10 M6 1 v10" stroke="#333" stroke-width="4"/><path d="M-10 -20 l-6 10 M10 -20 l6 10" stroke="#2F4F7F" stroke-width="5" stroke-linecap="round"/></g>' +
+      '<g class="flk">'+[20,60,95,140,175,210,260,285,40,120,230].map(function(x, i){ return '<circle cx="'+x+'" cy="'+(10+i*13%140)+'" r="2.4" fill="#fff" style="--d:'+(i%5)*.5+'s"/>'; }).join('')+'</g></svg>';
+    return '<svg class="ms-wt-scene" viewBox="0 0 300 200" aria-hidden="true"><rect width="300" height="200" fill="#8FD0F2"/><circle cx="240" cy="38" r="22" fill="#FFD84A"/><rect y="118" width="300" height="34" fill="#2F8FC9"/><path d="M0 125 q20 -5 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" stroke="#BEE3F5" stroke-width="2" fill="none"/>' +
+      '<rect y="150" width="300" height="50" fill="#F2DDA4"/><path d="M70 160 Q66 110 78 70" stroke="#8A6A48" stroke-width="7" fill="none"/><g fill="#2E8B4E"><path d="M78 70 q-30 -6 -48 12 q26 -4 48 -12z"/><path d="M78 70 q30 -8 50 8 q-26 -2 -50 -8z"/><path d="M78 70 q-12 -26 -38 -30 q20 14 38 30z"/><path d="M78 70 q12 -28 40 -28 q-22 12 -40 28z"/></g>' +
+      '<g transform="translate(180 178)"><circle cy="-30" r="7" fill="#C98E64"/><rect x="-8" y="-23" width="16" height="15" rx="4" fill="#F2A63A"/><rect x="-8" y="-9" width="16" height="9" fill="#2F7FBF"/><path d="M-5 0 v12 M5 0 v12" stroke="#C98E64" stroke-width="4"/></g>' +
+      '<path d="M220 170 h40 l-4 -8 h-32z" fill="#D9534F"/><path d="M240 162 v-26 l14 22z" fill="#fff"/></svg>';
+  }
+  function thermSVG(t){ var h = Math.max(4, Math.min(100, t)) * 1.1; return '<svg class="ms-wt-therm-svg" viewBox="0 0 40 160" aria-hidden="true"><rect x="13" y="8" width="14" height="124" rx="7" fill="#fff" stroke="#3B2410" stroke-width="2"/><circle cx="20" cy="138" r="14" fill="#D9412E" stroke="#3B2410" stroke-width="2"/>' +
+    '<rect class="merc" x="16.5" y="'+(130-h)+'" width="7" height="'+(h+4)+'" fill="#D9412E"/>' + [0,1,2,3,4].map(function(i){ return '<path d="M27 '+(130-i*27.5)+' h6" stroke="#3B2410" stroke-width="1.5"/>'; }).join('') + '</svg>'; }
+
+  /* ══ MODULE: wxtwin (Lobby · weather twins + the GULF & ATLANTIC crate) ══ */
+  function modWxtwin(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor || !DATA.geo) return;
+    var WN = cfg.wins || [], IT = DATA.items || [];
+    ST.wt = ST.wt || {m:{}, step:1, seen:{}, open:false}; var S = ST.wt;
+    var m = shell('ms-wt-mod', cfg);
+    var p = DATA.geo.pts, pins = WN.map(function(w){ var c = p[w.k]; return '<g class="cpin" data-k="'+w.k+'"><circle cx="'+c[0]+'" cy="'+c[1]+'" r="11"/><text x="'+(c[0]+16)+'" y="'+(c[1]+6)+'" style="text-anchor:start">'+esc(w.city.split(',')[0])+'</text></g>'; }).join('');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-wt-wins">'+WN.map(function(w){ return '<figure class="ms-wt-win" data-k="'+w.k+'" role="button" tabindex="0" aria-label="'+esc(w.city)+' window. Tap to measure."><div class="ms-wt-frame">'+windowScene(w.k)+'<div class="ms-wt-slot"></div></div><figcaption><b>'+esc(w.city)+'</b><span class="ms-wt-read"></span></figcaption></figure>'; }).join('') +
+      '</div><div class="ms-wt-row"><div class="ms-wt-therm" role="img" aria-label="A thermometer you can drag">'+thermSVG(55)+'<span>Drag me</span></div><div class="ms-wt-map">'+usSVG('ms-wt-svg', 'A map of the United States. Boston is in the Northeast, Miami is far south in the Southeast.', '<g class="cpins">'+pins+'</g>', {insetNames:false})+'</div></div>' +
+      '<p class="ms-credit">'+esc(cfg.note||'')+'</p><div class="ms-wt-act"></div>');
+    after(anchor, m);
+    var act = $('.ms-wt-act', m), th = $('.ms-wt-therm', m);
+    $$('.ms-wt-svg .st', m).forEach(function(s){ s.classList.toggle('lit', s.dataset.r === 'ne' || s.dataset.r === 'se'); });
+    function measure(k){ if (S.m[k] || S.step !== 1) return; S.m[k] = 1; SFX.chime(); save(); paint(); render(); }
+    function paint(){ WN.forEach(function(w){ var f = $('.ms-wt-win[data-k="'+w.k+'"]', m), on = !!S.m[w.k];
+      f.classList.toggle('done', on); $('.ms-wt-slot', f).innerHTML = on ? thermSVG(w.temp) : ''; $('.ms-wt-read', f).innerHTML = on ? '🌡️ '+esc(w.reading)+'<br><small>'+esc(w.line)+'</small>' : '<small>👆 Measure me</small>'; });
+      th.classList.toggle('used', WN.every(function(w){ return S.m[w.k]; })); }
+    $$('.ms-wt-win', m).forEach(function(f){ f.addEventListener('click', function(){ measure(f.dataset.k); }); f.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); measure(f.dataset.k); } }); });
+    dragger(th, function(moved, t){ if (moved && t) measure(t.dataset.k); }, '.ms-wt-win');
+    function crateHTML(){ return '<div class="ms-cr-crate ms-wt-crate '+(S.open?'open':'')+'"><div class="ms-cr-lid"></div><div class="ms-cr-box"><b>GULF &amp; ATLANTIC</b><span>Fragile · Museum Objects</span></div><div class="ms-cr-tray">'+(S.open ? IT.map(function(it){ return '<button type="button" class="ms-cr-th'+(S.seen[it.k]?' seen':'')+'" data-k="'+it.k+'" aria-label="Look closer: '+esc(it.name)+'">'+itemPic(it)+'<span>'+(S.seen[it.k]?'✓ ':'')+it.icon+' '+esc(it.name)+'</span></button>'; }).join('') : '')+'</div></div>'; }
+    function itemPic(it){ if (it.img) return '<img src="'+img(it.img)+'" alt="'+esc(it.cap)+'">';
+      return usSVG('ms-wt-fl', it.cap, '', {vb: DATA.geo.flBox.join(' '), insetNames:false}).replace('class="st" data-s="Florida"', 'class="st lit" data-s="Florida"'); }
+    function look(k){ var it = itemOf(k); SFX.click(); S.seen[k] = 1; save();
+      lightbox('<figure class="ms-wp-lb">'+itemPic(it)+'<figcaption><b>'+it.icon+' '+esc(it.name)+'</b> · '+esc(it.state)+'<br>'+esc(it.tag)+'<br><small>'+esc(it.credit)+'</small></figcaption></figure>', null, function(){ render(); }); render(); }
+    function render(){
+      paint(); var N = 4;
+      if (S.step >= 5) { act.innerHTML = crateHTML() + '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; bindCrate(); return; }
+      if (S.step === 1) { var n = Object.keys(S.m).length;
+        act.innerHTML = stepCard(1, N, 'Check the thermometers', '<p class="ms-wm-do">👆 Drag the thermometer into each window, or tap a window.</p><p class="ms-sw-left-n">'+(n < WN.length ? (WN.length - n)+' more to measure.' : '')+'</p>' + (n >= WN.length ? '<button type="button" class="ms-btn big ms-wt-go">Next ➡️</button>' : ''));
+        var g = $('.ms-wt-go', act); if (g) g.onclick = function(){ SFX.click(); S.step = 2; save(); render(); }; return; }
+      if (S.step === 2) { var q = choiceQ(cfg.q, 2, function(){ var b = document.createElement('div'); b.className = 'ms-wt-mtn'; b.innerHTML = '<svg viewBox="0 0 120 60" aria-hidden="true"><path d="M0 60 L30 18 L48 34 L70 8 L100 40 L120 28 V60Z" fill="#6E8F7A"/><path d="M30 18 L37 28 L23 28Z M70 8 L79 20 L61 20Z" fill="#fff"/></svg><p>🏔️ '+esc(cfg.mtn||'')+'</p><button type="button" class="ms-btn big ms-wt-go">Next ➡️</button>';
+          $('.ms-stepcard', act).appendChild(b); $('.ms-wt-go', act).onclick = function(){ SFX.click(); S.step = 3; save(); render(); }; });
+        act.innerHTML = stepCard(2, N, cfg.q.title, q.html); q.bind(act); return; }
+      if (S.step === 3) { var all = IT.every(function(it){ return S.seen[it.k]; });
+        act.innerHTML = stepCard(3, N, 'Open the crate', S.open ? '<p class="ms-wm-do">👆 Tap each object to read its tag.</p>' + crateHTML() + (all ? '<button type="button" class="ms-btn big ms-wt-go">Next ➡️</button>' : '<p class="ms-sw-left-n">'+IT.filter(function(it){ return !S.seen[it.k]; }).length+' more to look at.</p>')
+          : '<p>A new crate sits in the alcove.</p>' + crateHTML() + '<button type="button" class="ms-btn big ms-wt-open">📦 '+esc(cfg.crateT||'Open the crate')+'</button>');
+        var o = $('.ms-wt-open', act); if (o) o.onclick = function(){ SFX.creak(); S.open = true; save(); render(); };
+        var g2 = $('.ms-wt-go', act); if (g2) g2.onclick = function(){ SFX.click(); S.step = 4; save(); render(); };
+        bindCrate(); return; }
+      var q2 = choiceQ(cfg.crateQ, 4, function(){ setTimeout(function(){ S.step = 5; save(); render(); }, calm()?0:1500); markDone('scene'); SFX.fanfare(); });
+      act.innerHTML = stepCard(4, N, cfg.crateQ.title, q2.html); q2.bind(act);
+    }
+    function bindCrate(){ $$('.ms-wt-crate .ms-cr-th', m).forEach(function(b){ b.onclick = function(){ look(b.dataset.k); }; }); }
+    render(); if (S.step >= 5) markDone('scene');
+  }
+
+  /* ══ MODULE: storm (Gallery main attraction · the Storm Tracker) ══ */
+  function modStorm(cfg){
+    var anchor = $(cfg.anchor); if (!anchor || !DATA.geo) return;
+    var MO = cfg.months || [], WM = cfg.warm || [], SEA = cfg.season || [], TR = cfg.track || [], LA = cfg.landAt || 0, LN = cfg.lines || [];
+    ST.st = ST.st || {mo:0, step:1, ran:false}; var S = ST.st;
+    var m = shell('ms-st-mod', cfg);
+    var path = 'M' + TR.map(function(p){ return p.join(' '); }).join(' L');
+    var swirl = '<g class="swirl"><g class="spin"><path d="M0 0 C 18 -26, 52 -14, 60 10" /><path d="M0 0 C -26 -18, -14 -52, 10 -60" /><path d="M0 0 C -18 26, -52 14, -60 -10" /><path d="M0 0 C 26 18, 14 52, -10 60" /><circle r="34" class="cl"/></g><circle r="6" class="eye"/></g>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-st-wrap"><div class="ms-st-left"><div class="ms-st-map">' + seMapSVG('ms-st-svg', 'A map of the Southeast with the Atlantic Ocean and the Gulf of Mexico. A storm track can appear over the ocean.',
+      '<path class="trk" d="'+path+'"/><g class="stormg" transform="translate('+TR[0][0]+' '+TR[0][1]+') scale(.01)">'+swirl+'</g><text class="wl" x="1045" y="330" style="text-anchor:end">Atlantic Ocean</text><text class="wl" x="650" y="585" style="text-anchor:middle">Gulf of Mexico</text>') +
+      '<div class="ms-st-line" aria-live="polite"></div></div><div class="ms-st-months" role="group" aria-label="Months">'+MO.map(function(t, i){ return '<button type="button" class="ms-st-mo'+(SEA.indexOf(i)>=0?' sea':'')+'" data-i="'+i+'">'+t+'</button>'; }).join('')+'</div></div><div class="ms-st-act"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-st-act', m), svg = $('.ms-st-svg', m), sg = $('.stormg', m), line = $('.ms-st-line', m);
+    $$('.st', svg).forEach(function(s){ s.classList.toggle('lit', s.dataset.r === 'se'); });
+    function seaColor(w){ var a = [150,190,214], b = [70,150,190], c = [214,150,120]; var k = Math.min(1, w); var mix = function(x, y, t){ return Math.round(x + (y - x) * t); };
+      var col = k < .5 ? [mix(a[0],b[0],k*2), mix(a[1],b[1],k*2), mix(a[2],b[2],k*2)] : [mix(b[0],c[0],(k-.5)*2), mix(b[1],c[1],(k-.5)*2), mix(b[2],c[2],(k-.5)*2)]; return 'rgb('+col.join(',')+')'; }
+    function paint(){ $('.sea', svg).style.fill = seaColor(WM[S.mo] || 0); $$('.ms-st-mo', m).forEach(function(b){ b.classList.toggle('on', +b.dataset.i === S.mo); });
+      m.classList.toggle('show-season', S.step > 1 || SEA.indexOf(S.mo) >= 0); svg.classList.toggle('ran', !!S.ran); if (S.ran) { place(TR.length - 1); } }
+    function place(i, f){ var p = TR[Math.min(TR.length-1, Math.floor(i))], q = TR[Math.min(TR.length-1, Math.floor(i)+1)], t = i - Math.floor(i);
+      var x = p[0] + (q[0]-p[0])*t, y = p[1] + (q[1]-p[1])*t, sc = i < LA ? .35 + .65*(i/LA) : Math.max(.35, 1 - .65*((i-LA)/(TR.length-1-LA)));
+      sg.setAttribute('transform', 'translate('+x.toFixed(1)+' '+y.toFixed(1)+') scale('+sc.toFixed(3)+')'); sg.classList.toggle('weak', i > LA + .5); }
+    $$('.ms-st-mo', m).forEach(function(b){ b.onclick = function(){ if (S.step > 2) return; S.mo = +b.dataset.i; SFX.click(); save(); paint(); if (S.step === 1) render(); }; });
+    function run(){ if (S.ran) return; SFX.whir(); svg.classList.add('running'); var t0 = performance.now(), dur = calm() ? 0 : 6000, n = TR.length - 1;
+      (function f(now){ var k = dur ? Math.min(1, (now - t0)/dur) : 1, i = k * n; place(i); svg.style.setProperty('--trk', (1-k).toFixed(3));
+        line.textContent = LN[i < LA*.45 ? 0 : i < LA ? 1 : i < LA + 1.2 ? 2 : 3] || '';
+        if (k < 1) requestAnimationFrame(f); else { svg.classList.remove('running'); S.ran = true; S.step = 3; save(); paint(); render(); } })(t0); }
+    function render(){
+      paint(); var N = 5;
+      if (S.step >= 6) { line.textContent = LN[3] || ''; act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.step === 1) { var ok = SEA.indexOf(S.mo) >= 0;
+        act.innerHTML = stepCard(1, N, cfg.s1T, '<p class="ms-wm-do">👆 '+esc(cfg.s1||'')+'</p>' + (ok ? '<div class="ms-win show">'+esc(cfg.s1ok||'')+'</div><button type="button" class="ms-btn big ms-st-go">Next ➡️</button>' : '<p class="ms-sw-left-n">Now showing: <b>'+esc(MO[S.mo])+'</b>. '+(WM[S.mo] < .5 ? 'Too cool for hurricanes.' : '')+'</p>'));
+        var g = $('.ms-st-go', act); if (g) g.onclick = function(){ SFX.chime(); S.step = 2; if (WM[S.mo] < 1) S.mo = 8; save(); render(); }; return; }
+      if (S.step === 2) { act.innerHTML = stepCard(2, N, cfg.s2T, '<p>The ocean is warm in <b>'+esc(MO[S.mo])+'</b>. Watch a storm form over the warm water.</p><button type="button" class="ms-btn big ms-st-run">🌀 '+esc(cfg.goT||'Start the storm')+'</button>'); $('.ms-st-run', act).onclick = function(){ this.disabled = true; run(); }; return; }
+      var Q = [cfg.q1, cfg.q2, cfg.q3][S.step - 3];
+      var cq = choiceQ(Q, S.step, function(){ var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big ms-st-next'; b.textContent = S.step < 5 ? 'Next question ➡️' : 'Done ✓'; $('.ms-stepcard', act).appendChild(b);
+        b.onclick = function(){ SFX.click(); S.step++; if (S.step >= 6) { ST.gal = ST.gal||{}; ST.gal.storm = 1; galleryCheck(); SFX.fanfare(); } save(); render(); }; });
+      act.innerHTML = stepCard(S.step, N, Q.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: sponge (Gallery · a paved city vs a wetland in the rain) ══ */
+  function modSponge(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    ST.sp = ST.sp || {rained:false, step:1}; var S = ST.sp;
+    var m = shell('ms-sp-mod', cfg);
+    var drops = ''; for (var i = 0; i < 28; i++) drops += '<path class="drop" style="--d:'+((i*37)%10)/10+'s" d="M'+(14 + (i*23)%296)+' 0 l-3 9"/>';
+    function tray(k, x){ var city = k === 'city';
+      return '<g class="tray '+k+'" transform="translate('+x+' 0)"><rect x="0" y="30" width="310" height="200" rx="8" class="bed"/>' +
+        (city ? '<rect x="0" y="170" width="310" height="60" class="pave"/><path d="M0 200 H310" class="lane"/><rect x="20" y="95" width="50" height="75" class="bld"/><rect x="85" y="70" width="40" height="100" class="bld"/><rect x="140" y="110" width="60" height="60" class="bld"/><rect x="215" y="85" width="45" height="85" class="bld"/>' +
+          '<rect class="flood" x="0" y="230" width="310" height="0"/><path class="run" d="M20 214 H300"/><path class="out" d="M300 214 q20 6 40 6"/>'
+        : '<rect class="wl" x="0" y="196" width="310" height="34"/>' + [20,48,76,104,132,160,188,216,244,272].map(function(gx, j){ return '<path class="saw" d="M'+gx+' 200 l6 -'+(38+j%3*10)+' l4 '+(38+j%3*10)+' M'+(gx+8)+' 200 l8 -'+(30+j%2*12)+'"/>'; }).join('') + '<path class="out" d="M310 214 q20 4 40 4"/>') +
+        '<g class="rain">'+drops+'</g><text x="155" y="22" style="text-anchor:middle" class="tt">'+esc(city ? cfg.cityT : cfg.wetT)+'</text></g>'; }
+    m.insertAdjacentHTML('beforeend', '<div class="ms-sp-stage"><svg class="ms-sp-svg" viewBox="0 0 700 240" role="img" aria-label="A model with two trays in the rain: a paved city on the left and a wetland on the right.">'+tray('city', 10)+tray('wet', 370)+'</svg><div class="ms-sp-res"><p class="c"></p><p class="w"></p></div></div><div class="ms-sp-act"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-sp-act', m), svg = $('.ms-sp-svg', m);
+    function paint(){ svg.classList.toggle('done', !!S.rained); $('.ms-sp-res .c', m).textContent = S.rained ? '🏙️ ' + cfg.cityR : ''; $('.ms-sp-res .w', m).textContent = S.rained ? '🌾 ' + cfg.wetR : ''; }
+    function render(){
+      paint(); var N = 3;
+      if (S.step >= 4) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.step === 1) { act.innerHTML = stepCard(1, N, 'Make it rain', '<p>Both trays get the same rain. Where will the water go?</p><button type="button" class="ms-btn big ms-sp-rain">🌧️ '+esc(cfg.rainT||'Make it rain')+'</button>');
+        $('.ms-sp-rain', act).onclick = function(){ this.disabled = true; SFX.whir(); svg.classList.add('raining'); setTimeout(function(){ svg.classList.remove('raining'); S.rained = true; S.step = 2; save(); render(); }, calm()?0:3600); }; return; }
+      var Q = S.step === 2 ? cfg.q1 : cfg.q2;
+      var cq = choiceQ(Q, S.step, function(){ var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big ms-sp-next'; b.textContent = S.step < 3 ? 'Next question ➡️' : 'Done ✓'; $('.ms-stepcard', act).appendChild(b);
+        b.onclick = function(){ SFX.click(); S.step++; if (S.step >= 4) { ST.gal = ST.gal||{}; ST.gal.sponge = 1; galleryCheck(); SFX.fanfare(); } save(); render(); }; });
+      act.innerHTML = stepCard(S.step, N, Q.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: twinlab (Exhibit Floor · twin labels between two alcoves) ══ */
+  function modTwinlab(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'); if (!ta) return;
+    var AL = cfg.alike || [], DF = cfg.diff || [], OWN = cfg.ownMin || 12;
+    ST.tl = ST.tl || {a:null, d:null, step:1, open:false}; var S = ST.tl;
+    var m = shell('ms-tl-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-tl-act"></div><div class="ms-tl-show" hidden><div class="ms-tl-pair" style="'+rcol()+'"><div class="ms-tl-alc ne"><span class="ms-alc-glow"></span><b>Northeast</b></div><div class="ms-tl-plaques"><div class="ms-tl-pl a"><i>Alike</i><p></p></div><div class="ms-tl-pl d"><i>Different</i><p></p></div><span class="ms-draft">DRAFT</span><div class="ms-tl-by"></div></div><div class="ms-tl-alc se"><span class="ms-alc-glow"></span><b>Southeast</b></div></div>'+alcoves('ms-tl-row')+'</div><div class="ms-tl-end"></div>');
+    var home = document.createComment('tl-home'); ta.parentNode.insertBefore(home, ta); ta.parentNode.insertBefore(m, ta);
+    var tp = ta.parentNode.querySelector('.textbox-prompt'); if (tp) tp.classList.add('ms-hide-on');
+    var act = $('.ms-tl-act', m), show = $('.ms-tl-show', m), end = $('.ms-tl-end', m), row = $('.ms-tl-row', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function own(t){ (cfg.starters||[]).forEach(function(s){ t = t.split(s).join(' '); }); return (t.trim().match(/\S+/g)||[]).length; }
+    function sents(){ return (ta.value.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[]).map(function(x){ return x.trim(); }).filter(function(x){ return x.split(/\s+/).length >= 3; }); }
+    function missing(){ var miss = []; if (!S.a || !S.d) miss.push('Pick one alike and one different.'); var n = own(ta.value); if (n < OWN) miss.push('Add '+(OWN-n)+' more word'+(OWN-n===1?'':'s')+' of your own.'); if (sents().length < 2) miss.push('Write two sentences: one alike, one different.'); return miss; }
+    function chip(list, which){ return list.map(function(c){ return '<button type="button" class="ms-chipbtn ms-tl-c'+(S[which]===c.k?' on':'')+'" data-w="'+which+'" data-k="'+c.k+'" aria-pressed="'+(S[which]===c.k)+'">'+esc(c.t)+'</button>'; }).join(''); }
+    function pick(list, k){ for (var i=0;i<list.length;i++) if (list[i].k === k) return list[i]; return null; }
+    function view(){ var s = sents(); $('.ms-tl-pl.a p', show).textContent = s[0] || 'Your alike label.'; $('.ms-tl-pl.d p', show).textContent = s.slice(1).join(' ') || 'Your different label.';
+      $('.ms-tl-by', show).textContent = 'Labels by ' + (sget(NAMEK,'') || 'Junior Curator') + ', United States Region Curator';
+      show.classList.toggle('open', !!S.open); lightAlcoves(row, S.open ? ['ne','se'] : ['ne'], false); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 3; ta.classList.toggle('ms-gi-away', S.step !== 2);
+      if (S.step === 1 || !S.a || !S.d) { S.step = 1; goHome();
+        act.innerHTML = stepCard(1, 3, cfg.s1T, '<p class="ms-wm-do">👆 '+esc(cfg.s1||'')+'</p><p class="ms-tl-h">🤝 Alike</p><div class="ms-tl-chips">'+chip(AL, 'a')+'</div><p class="ms-tl-h">↔️ Different</p><div class="ms-tl-chips">'+chip(DF, 'd')+'</div>' +
+          '<button type="button" class="ms-btn big ms-tl-next'+(S.a && S.d ? '' : ' ms-notready')+'">Next: write your labels ➡️</button><div class="ms-gi-fb" aria-live="polite"></div>');
+        $$('.ms-tl-c', act).forEach(function(b){ b.onclick = function(){ S[b.dataset.w] = b.dataset.k; SFX.click(); save(); render(); }; });
+        $('.ms-tl-next', act).onclick = function(){ if (!S.a || !S.d) { SFX.miss(); $('.ms-gi-fb', act).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> Pick one alike and one different.</div>'; return; } SFX.chime(); S.step = 2; save(); render(); };
+        return; }
+      if (S.step === 2) {
+        act.innerHTML = stepCard(2, 3, cfg.s2T, '<p>'+esc(cfg.s2||'')+'</p><div class="ms-cp-notes"><span>🤝 '+esc(pick(AL, S.a).t)+'</span><span>↔️ '+esc(pick(DF, S.d).t)+'</span></div>' +
+          '<div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-tl-chk"></div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-tl-back">↩️ Pick different twins</button><button type="button" class="ms-btn big ms-tl-next">Next: see the labels ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(ta);
+        var chk = $('.ms-tl-chk', act), fb = $('.ms-gi-fb', act);
+        function upd(){ var n = own(ta.value), k = sents().length, miss = missing(); chk.innerHTML = '<span class="ms-wc'+(n>=OWN?' ok':'')+'">📝 '+Math.min(n,OWN)+' of '+OWN+' words of your own</span><span class="ms-chip'+(k>=2?' ok':'')+'">'+(k>=2?'✓ ':'')+'two sentences</span>';
+          $('.ms-tl-next', act).classList.toggle('ms-notready', !!miss.length); if (fb.innerHTML) fb.innerHTML = miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>' : ''; }
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b, i){ b.onclick = function(){ var t = (cfg.starters||[])[i]; var v = ta.value.replace(/\s*$/,''); if (v && !/[.!?]$/.test(v)) v += '.'; ta.value = v + (v ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-tl-back', act).onclick = function(){ S.step = 1; save(); render(); };
+        $('.ms-tl-next', act).onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 3; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(3, 3, cfg.s3T, '<p>'+esc(cfg.s3||'')+'</p><button type="button" class="ms-btn big ms-tl-open">🎉 '+esc(cfg.openT||'Hang them')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-tl-edit">✏️ '+esc(cfg.editT||'Edit my labels')+'</button></div>';
+      var ob = $('.ms-tl-open', end); if (ob) ob.onclick = function(){ var miss = missing(); if (miss.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('opening'); void show.offsetWidth; show.classList.add('opening'); SFX.fanfare(); render(); setTimeout(function(){ show.classList.remove('opening'); }, 3000); optiNod('assignment'); check(); };
+      $('.ms-tl-edit', end).onclick = function(){ S.open = false; S.step = 2; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 2) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
