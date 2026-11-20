@@ -99,6 +99,11 @@
    - rainshadow Gallery main attraction: wind over flat land, raise the Cascades, wind again (wet side vs rain shadow)
    - hotspot    Gallery: move the ocean floor over the Hawaiian hot spot; four islands grow and age
    - westfinale Exhibit Floor: West sign + gallery plaque (pattern + difference), install; all five alcoves, chandeliers, Region Guide badge
+   Added for 3.07.07 (DATA.radioBase = radio clips; DATA.songURL = full Home on the Range):
+   - radio      Lobby: an old radio; power on, slide the dial across the U.S. (static between), five real old recordings, guess each region
+   - tapedeck   Gallery main attraction: five story tapes (song, legend, poem, news, Hopi story); read along, tap the home region
+   - newspaper  Gallery: unfold a 1965 front page, find what / when / where / who / how neighbors helped
+   - onair      Exhibit Floor: Listening Station sign (3 sentences in the step), flip the switch: ON AIR, waves, all five alcoves hum
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1156,7 +1161,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -4099,7 +4104,223 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.07.07 (Songs, Legends, Poems, and News) ══════════
+     DATA.radioBase = folder of the five radio clips; DATA.songURL = the full "Home on the Range" recording.
+     - radio      Lobby: an old radio; turn it on, slide the dial across the U.S., static between stations;
+                  each station plays a real old recording, read the clue, guess the region; one question
+     - tapedeck   Gallery main attraction: five story tapes (song, legend, poem, news, Hopi story); drag one into
+                  the player, the reels turn and the words scroll, tap the tape's home region on the map; two questions
+     - newspaper  Gallery hands-on: unfold a 1965 front page, then tap what / when / where / who / how neighbors helped
+     - onair      Exhibit Floor: Listening Station sign (3 sentences in the step) → flip the switch: ON AIR lamp,
+                  reels, sound waves, all five alcoves hum; the blank Contributions Wall waits behind */
+  function media(name, base){ return (window.MS_AUDIO && window.MS_AUDIO[name]) || ((base || '') + name); }
+  function regName(k){ var r = regOf(k); return r.name || k; }
+  function onTabLeave(tab, fn){ var p = $('#panel-' + tab); if (!p) return; new MutationObserver(function(){ if (!p.classList.contains('active')) fn(); }).observe(p, {attributes:true, attributeFilter:['class']});
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) fn(); }).observe(root, {attributes:true, attributeFilter:['class']}); }
+  function regionBtns(cls){ return '<div class="ms-rgbtns '+cls+'" style="'+rcol()+'">' + (DATA.regions||[]).map(function(r){ return '<button type="button" class="ms-rgbtn" data-r="'+r.k+'"><i></i>'+esc(r.name)+'</button>'; }).join('') + '</div>'; }
+  function litRegions(svg, list){ $$('.st', svg).forEach(function(s){ s.classList.toggle('lit', list.indexOf(s.dataset.r) >= 0); }); }
+
+  /* ══ MODULE: radio (Lobby · tune the old radio) ══ */
+  function modRadio(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var SN = cfg.stations || [];
+    ST.rd = ST.rd || {on:false, got:{}, pos:2, q:false}; var S = ST.rd;
+    var m = shell('ms-rd-mod', cfg);
+    var ticks = ''; for (var t = 0; t <= 100; t += 5) ticks += '<i style="left:'+t+'%" class="'+(t % 25 ? '' : 'big')+'"></i>';
+    var marks = SN.map(function(s){ return '<b class="ms-rd-mk" data-r="'+s.r+'" style="left:'+s.pos+'%"></b>'; }).join('');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-rd-wrap" style="'+rcol()+'"><div class="ms-rd-radio"><div class="ms-rd-top"></div><div class="ms-rd-face">' +
+      '<div class="ms-rd-grille" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>' +
+      '<div class="ms-rd-panel"><div class="ms-rd-window"><div class="ms-rd-scale">'+ticks+marks+'<span class="l w">WEST</span><span class="l e">NORTHEAST</span><div class="ms-rd-needle" aria-hidden="true"></div></div></div>' +
+      '<div class="ms-rd-knobs"><button type="button" class="ms-rd-power" aria-pressed="false"><span class="lamp"></span>POWER</button><span class="ms-rd-knob" aria-hidden="true"></span></div></div></div>' +
+      '<input type="range" class="ms-rd-dial" min="0" max="100" step="1" aria-label="Radio dial. Slide it from West to Northeast."></div>' +
+      '<div class="ms-rd-strip">'+usSVG('ms-rd-us', 'A map of the United States under the radio dial. Regions light up as you find their stations.')+'<div class="ms-rd-line" aria-hidden="true"></div></div></div>' +
+      '<p class="ms-credit">'+esc(cfg.credit||'')+'</p><div class="ms-rd-act" aria-live="polite"></div>');
+    after(anchor, m);
+    var act = $('.ms-rd-act', m), dial = $('.ms-rd-dial', m), needle = $('.ms-rd-needle', m), line = $('.ms-rd-line', m), pw = $('.ms-rd-power', m), radio = $('.ms-rd-radio', m), svg = $('.ms-rd-us', m);
+    var AUD = {}, noiseG = null, noiseS = null, curK = null;
+    function station(){ for (var i = 0; i < SN.length; i++) if (Math.abs(S.pos - SN[i].pos) <= 4) return SN[i]; return null; }
+    function startStatic(){ var c = ac(); if (!c || noiseS) return; if (c.state === 'suspended') c.resume();
+      var n = c.createBuffer(1, c.sampleRate * 2, c.sampleRate), ch = n.getChannelData(0); for (var i = 0; i < ch.length; i++) ch[i] = Math.random() * 2 - 1;
+      noiseS = c.createBufferSource(); noiseS.buffer = n; noiseS.loop = true; var f = c.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = 1400; f.Q.value = .7;
+      noiseG = c.createGain(); noiseG.gain.value = 0; noiseS.connect(f); f.connect(noiseG); noiseG.connect(c.destination); noiseS.start(); }
+    function stopAll(){ Object.keys(AUD).forEach(function(k){ AUD[k].pause(); }); if (noiseG) noiseG.gain.value = 0; radio.classList.remove('playing'); }
+    function mix(){
+      var st = S.on ? station() : null, d = st ? Math.abs(S.pos - st.pos) : 99;
+      if (noiseG) noiseG.gain.value = !S.on ? 0 : (calm() ? .012 : .035) * (st ? Math.min(1, d / 4) : 1);
+      Object.keys(AUD).forEach(function(k){ if (!st || st.r !== k) AUD[k].pause(); });
+      if (st) { var a = AUD[st.r] || (AUD[st.r] = new Audio(media(st.file, DATA.radioBase || 'audio/radio/'))); a.loop = true; a.volume = Math.max(.15, 1 - d / 5); if (a.paused) a.play().catch(function(){}); }
+      radio.classList.toggle('playing', !!st && S.on);
+    }
+    function paint(){ var p = S.pos + '%'; needle.style.left = p; line.style.left = p; dial.value = S.pos; pw.setAttribute('aria-pressed', !!S.on); radio.classList.toggle('on', !!S.on);
+      $('.ms-rd-knob', m).style.transform = 'rotate('+(S.pos * 2.7 - 135)+'deg)';
+      var got = Object.keys(S.got); litRegions(svg, got); $$('.ms-rd-mk', m).forEach(function(k){ k.classList.toggle('got', !!S.got[k.dataset.r]); }); }
+    function render(){
+      paint(); var N = SN.length + 2, got = Object.keys(S.got).length;
+      if (S.q) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (!S.on) { act.innerHTML = stepCard(1, N, 'Turn on the radio', '<p class="ms-wm-do">Press <b>POWER</b> on the radio. You will hear static, the crackly sound between stations. Turn your sound on!</p><button type="button" class="ms-btn big ms-rd-go">🔌 Turn on the radio</button>');
+        $('.ms-rd-go', act).onclick = function(){ turnOn(); }; return; }
+      if (got >= SN.length) { var q = choiceQ(cfg.q, N, function(){ markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q = true; save(); render(); }, calm()?0:1500); });
+        act.innerHTML = stepCard(N, N, cfg.q.title, q.html); q.bind(act); return; }
+      var st = station();
+      if (!st || Math.abs(S.pos - st.pos) > 2) { curK = null;
+        act.innerHTML = stepCard(got + 2, N, 'Find a station', '<p class="ms-wm-do">🎚️ Slide the dial slowly. Listen for music through the static. (Found '+got+' of '+SN.length+')</p><button type="button" class="ms-btn alt ms-rd-next">⏭ Jump to the next station</button>');
+        $('.ms-rd-next', act).onclick = jump; return; }
+      if (curK === st.r && $('.ms-rd-card', act)) return; curK = st.r;
+      var done = !!S.got[st.r];
+      act.innerHTML = stepCard(got + (done ? 1 : 2), N, done ? 'Station found' : 'You found a station!', '<div class="ms-rd-card"><p class="ms-rd-clue">🎧 <b>Clue:</b> '+esc(st.clue)+'</p>' +
+        (done ? '<div class="ms-sh-tag"><b>'+esc(regName(st.r))+' · '+esc(st.name)+'</b><p>'+esc(st.about)+'</p></div><button type="button" class="ms-btn big ms-rd-next">⏭ Next station</button>'
+              : '<p>Which region is this music from?</p>' + regionBtns('ms-rd-rg') + '<div class="ms-exfb" aria-live="polite"></div>') + '</div>');
+      var nx = $('.ms-rd-next', act); if (nx) nx.onclick = jump;
+      $$('.ms-rgbtn', act).forEach(function(b){ b.onclick = function(){
+        if (b.dataset.r !== st.r) { SFX.miss(); b.classList.add('no'); $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc(st.fb)+'</div>'; return; }
+        S.got[st.r] = true; save(); SFX.chime(); curK = null; render(); }; });
+    }
+    function turnOn(){ S.on = true; save(); startStatic(); SFX.click(); mix(); render(); }
+    function jump(){ var left = SN.filter(function(s){ return !S.got[s.r]; }), cur = S.pos;
+      var nx = left.filter(function(s){ return s.pos > cur + 2; })[0] || left[0] || SN.filter(function(s){ return s.pos > cur + 2; })[0] || SN[0];
+      S.pos = nx.pos; save(); if (S.on) { startStatic(); mix(); } curK = null; render(); }
+    pw.onclick = function(){ if (S.on) { S.on = false; save(); stopAll(); render(); } else turnOn(); };
+    dial.addEventListener('input', function(){ S.pos = +dial.value; save(); if (S.on) { startStatic(); mix(); } paint(); render(); });
+    onTabLeave('scene', function(){ stopAll(); });
+    render(); if (S.q) markDone('scene');
+  }
+
+  /* ══ MODULE: tapedeck (Gallery main attraction · the story tapes) ══ */
+  function cassette(t, small){ return '<span class="ms-td-cas'+(small?' sm':'')+'" style="--tc:'+t.col+'"><span class="lbl"><b>'+esc(t.kind)+'</b><em>'+esc(t.title)+'</em></span><span class="win"><i class="reel"></i><i class="reel"></i></span></span>'; }
+  function modTapedeck(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var T = cfg.tapes || [];
+    ST.td = ST.td || {cur:null, line:0, done:{}, qi:0, ok:false}; var S = ST.td;
+    var m = shell('ms-td-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-td-stage" style="'+rcol()+'"><div class="ms-td-shelf" role="list" aria-label="Five story tapes"></div>' +
+      '<div class="ms-td-deck"><div class="ms-td-slot" aria-label="Tape player slot"><span class="ms-td-empty">⏏ Put a tape in here</span></div><div class="ms-td-read" aria-live="polite"></div><div class="ms-td-ctl"></div></div>' +
+      '<div class="ms-td-act"></div><div class="ms-td-map">'+usSVG('ms-td-us', 'A map of the United States. Tap a state to choose a region.')+'<div class="ms-td-legend"></div></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var shelf = $('.ms-td-shelf', m), slot = $('.ms-td-slot', m), read = $('.ms-td-read', m), ctl = $('.ms-td-ctl', m), svg = $('.ms-td-us', m), legend = $('.ms-td-legend', m), act = $('.ms-td-act', m), deck = $('.ms-td-deck', m);
+    var timer = 0, song = null;
+    function tape(k){ for (var i = 0; i < T.length; i++) if (T[i].k === k) return T[i]; return null; }
+    function stopSong(){ if (song && !song.paused) song.pause(); var b = $('.ms-td-song', ctl); if (b) b.textContent = '🎵 Play the song'; }
+    function load(k){ if (S.cur || S.done[k]) return; S.cur = k; S.line = calm() ? 99 : 1; save(); SFX.click(); render(); tick(); }
+    function tick(){ clearTimeout(timer); var t = tape(S.cur); if (!t || S.line >= t.lines.length) return;
+      timer = setTimeout(function(){ if (!S.cur) return; S.line++; save(); render(); tick(); }, 3200); }
+    function eject(){ clearTimeout(timer); stopSong(); S.cur = null; S.line = 0; save(); SFX.click(); render(); }
+    function paint(){
+      shelf.innerHTML = T.map(function(t){ var d = !!S.done[t.k], here = S.cur === t.k;
+        return '<button type="button" role="listitem" class="ms-td-tape'+(d?' done':'')+(here?' in':'')+'" data-k="'+t.k+'" aria-label="'+esc(t.kind+': '+t.title)+(d?' (home found)':'')+'">'+cassette(t, true)+(d?'<span class="ms-td-home" style="background:var(--rc-'+t.r+')">'+esc(regName(t.r))+'</span>':'')+'</button>'; }).join('');
+      $$('.ms-td-tape', shelf).forEach(function(b){ var k = b.dataset.k; if (S.done[k] || S.cur) return;
+        dragger(b, function(moved, tg){ if (!moved) return; if (tg) load(k); else { SFX.miss(); } }, '.ms-td-slot');
+        b.addEventListener('click', function(){ load(k); }); });
+      var t = tape(S.cur); deck.classList.toggle('loaded', !!t); deck.classList.toggle('turning', !!t && S.line < t.lines.length);
+      slot.innerHTML = t ? cassette(t) : '<span class="ms-td-empty">⏏ Put a tape in here</span>';
+      litRegions(svg, Object.keys(S.done).map(function(k){ return tape(k).r; }));
+      svg.classList.toggle('pick', !!t && S.line >= t.lines.length && !S.done[S.cur]);
+      legend.innerHTML = T.filter(function(x){ return S.done[x.k]; }).map(function(x){ return '<span style="--tc:var(--rc-'+x.r+')"><i></i>'+esc(x.kind)+' → '+esc(regName(x.r))+'</span>'; }).join('');
+      if (t) { var n = Math.min(S.line, t.lines.length);
+        read.innerHTML = '<div class="ms-td-ttl">'+esc(t.kind)+': <b>'+esc(t.title)+'</b></div>' + t.lines.slice(0, n).map(function(l, i){ return '<p class="'+(i === n - 1 && n < t.lines.length + 1 ? 'new' : '')+'">'+esc(l)+'</p>'; }).join('');
+        ctl.innerHTML = (n < t.lines.length ? '<button type="button" class="ms-btn alt ms-td-more">⏩ Next line</button>' : '') + (t.play ? '<button type="button" class="ms-btn alt ms-td-song">'+(song && !song.paused ? '⏸ Pause the song' : '🎵 Play the song')+'</button>' : '') + (S.done[S.cur] ? '' : '');
+        var mo = $('.ms-td-more', ctl); if (mo) mo.onclick = function(){ S.line++; save(); render(); tick(); };
+        var sb = $('.ms-td-song', ctl); if (sb) sb.onclick = function(){ if (!song) song = new Audio(DATA.songURL || ''); if (song.paused) { song.play().catch(function(){}); sb.textContent = '⏸ Pause the song'; } else { song.pause(); sb.textContent = '🎵 Play the song'; } };
+      } else { read.innerHTML = '<p class="ms-td-hint">The words on the tape will show up here.</p>'; ctl.innerHTML = ''; }
+    }
+    $$('.st', svg).forEach(function(p){ p.addEventListener('click', function(){ var t = tape(S.cur); if (!t || S.line < t.lines.length || S.done[t.k]) return;
+      if (p.dataset.r !== t.r) { SFX.miss(); var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 That is the '+esc(regName(p.dataset.r))+'. Look at the clues on the tape: <b>'+esc(t.clues)+'</b>.</div>'; return; }
+      S.done[t.k] = true; save(); SFX.chime(); render(); }); });
+    function render(){
+      paint(); var t = tape(S.cur), nd = Object.keys(S.done).length, N = T.length + 2;
+      if (S.ok) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (t && S.done[t.k]) { act.innerHTML = stepCard(nd, N, 'Home found: the '+regName(t.r), '<div class="ms-sh-tag"><b>🗺️ What a map can\'t tell you</b><p>'+esc(t.map)+'</p></div><button type="button" class="ms-btn big ms-td-ej">⏏ Eject and pick '+(nd < T.length ? 'another tape' : 'the questions')+'</button>');
+        $('.ms-td-ej', act).onclick = eject; return; }
+      if (t) { var ready = S.line >= t.lines.length;
+        act.innerHTML = stepCard(nd + 1, N, ready ? 'Where is it from?' : 'Read along', ready ? '<p class="ms-wm-do">🗺️ Tap this tape\'s home region on the map.</p><p class="ms-td-clues">🔎 Clues: <b>'+esc(t.clues)+'</b></p><div class="ms-exfb" aria-live="polite"></div>' : '<p class="ms-wm-do">📼 The reels are turning. Read each line as it appears, or tap <b>Next line</b>.</p>'); return; }
+      if (nd < T.length) { act.innerHTML = stepCard(nd + 1, N, 'Pick a tape', '<p class="ms-wm-do">👆 Drag a tape into the player, or tap it. ('+nd+' of '+T.length+' tapes done)</p>'); return; }
+      var Q = S.qi ? cfg.q2 : cfg.q1;
+      var cq = choiceQ(Q, T.length + 1 + S.qi, function(){ var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big'; b.textContent = S.qi ? 'Done ✓' : 'Next question ➡️'; $('.ms-stepcard', act).appendChild(b);
+        b.onclick = function(){ SFX.click(); if (S.qi) { S.ok = true; ST.gal = ST.gal||{}; ST.gal.tapes = 1; galleryCheck(); SFX.fanfare(); } else S.qi = 1; save(); render(); }; });
+      act.innerHTML = stepCard(T.length + 1 + S.qi, N, Q.title, cq.html); cq.bind(act);
+    }
+    onTabLeave('explore', function(){ stopSong(); clearTimeout(timer); });
+    render(); if (S.cur) tick();
+  }
+
+  /* ══ MODULE: newspaper (Gallery hands-on · unfold the 1965 front page) ══ */
+  function modNewspaper(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var P = cfg.paper || {}, F = cfg.finds || [];
+    ST.np = ST.np || {open:0, i:0, found:{}, ok:false}; var S = ST.np;
+    var m = shell('ms-np-mod', cfg);
+    var sid = 0, body = (P.body || []).map(function(par){ return '<p>' + par.map(function(s){ var k = s[0];
+      return k ? '<span class="ms-np-s" role="button" tabindex="0" data-k="'+k+'" data-id="'+(sid++)+'">'+esc(s[1])+'</span>' : '<span class="ms-np-s plain" role="button" tabindex="0" data-k="" data-id="'+(sid++)+'">'+esc(s[1])+'</span>'; }).join('') + '</p>'; });
+    m.insertAdjacentHTML('beforeend', '<div class="ms-np-stage"><div class="ms-np-paper" data-open="0">' +
+      '<div class="ms-np-p p1"><div class="ms-np-mast">'+esc(P.name||'')+'</div><div class="ms-np-date"><span>Vol. 86</span><span>'+esc(P.date||'')+'</span><span>'+esc(P.price||'')+'</span></div><div class="ms-np-head">'+esc(P.head||'')+'</div><div class="ms-np-deck">'+esc(P.deck||'')+'</div></div>' +
+      '<div class="ms-np-p p2">'+(body[0]||'')+(body[1]||'')+'</div><div class="ms-np-p p3">'+(body[2]||'')+'<p class="ms-np-note">A pretend newspaper page, written for the Listening Station. Hurricane Betsy was real.</p></div></div></div><div class="ms-np-act"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var paper = $('.ms-np-paper', m), act = $('.ms-np-act', m), N = F.length + 1;
+    function paint(){ paper.dataset.open = S.open; paper.classList.toggle('hunt', S.open >= 2 && !S.ok && S.i < F.length);
+      $$('.ms-np-s', paper).forEach(function(s){ var hit = S.found[s.dataset.id]; s.classList.toggle('hit', !!hit); if (hit) s.dataset.tag = hit; else delete s.dataset.tag; }); }
+    function tapS(s){ if (S.open < 2 || S.ok || S.i >= F.length) return; var f = F[S.i];
+      if (s.dataset.k !== f.k) { SFX.miss(); var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 '+esc(f.fb)+'</div>'; return; }
+      S.found[s.dataset.id] = f.k.toUpperCase(); S.i++; save(); SFX.chime(); render(); }
+    $$('.ms-np-s', paper).forEach(function(s){ s.addEventListener('click', function(){ tapS(s); }); s.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tapS(s); } }); });
+    function render(){
+      paint();
+      if (S.ok) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.open < 2) { act.innerHTML = stepCard(1, N, 'Unfold the newspaper', '<p class="ms-wm-do">📰 The paper is folded. Tap to open it'+(S.open ? ' the rest of the way' : '')+'.</p><button type="button" class="ms-btn big ms-np-open">📰 Unfold '+(S.open ? 'again' : 'the paper')+'</button>');
+        $('.ms-np-open', act).onclick = function(){ S.open++; save(); SFX.creak(); render(); }; return; }
+      if (S.i >= F.length) { S.ok = true; ST.gal = ST.gal||{}; ST.gal.paper = 1; save(); galleryCheck(); SFX.fanfare(); render(); return; }
+      var f = F[S.i]; act.innerHTML = stepCard(S.i + 2, N, f.t, '<p class="ms-wm-do">👆 Tap the words in the newspaper that answer: <b>'+esc(f.t)+'</b></p><div class="ms-exfb" aria-live="polite"></div>');
+    }
+    render();
+  }
+
+  /* ══ MODULE: onair (Exhibit Floor · the Listening Station sign → ON AIR) ══ */
+  function modOnair(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'); if (!ta) return;
+    var NEED = cfg.sentMin || 3, KIND = new RegExp('\\b(' + (cfg.kinds || 'song|legend|poem|news|story') + ')\\b', 'i'), MINE = /\b(my|our)\s+(region|state|town|city|family|home)\b|\bwhere i live\b|\bin my\b/i;
+    ST.oa = ST.oa || {step:1, open:false}; var S = ST.oa;
+    var m = shell('ms-oa-mod', cfg);
+    var frames = ''; for (var i = 0; i < 5; i++) frames += '<span class="ms-oa-fr"><i>?</i></span>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-oa-act"></div><div class="ms-oa-show" hidden><div class="ms-oa-hall">' +
+      '<div class="ms-oa-wall"><div class="ms-oa-frames">'+frames+'</div><div class="ms-oa-wt">🖼️ '+esc(cfg.wallT||'')+'</div></div>' +
+      '<div class="ms-oa-station"><div class="ms-oa-lamp">ON AIR</div><div class="ms-oa-box"><i class="reel"></i><i class="reel"></i></div><div class="ms-oa-waves" aria-hidden="true"><i></i><i></i><i></i></div>' +
+      '<div class="ms-oa-sign"><div class="h">🎧 The Listening Station</div><p class="tx"></p><p class="by"></p><span class="ms-draft">DRAFT</span></div></div>' + alcoves('ms-oa-row') + '</div></div><div class="ms-oa-end"></div>');
+    var homeA = document.createComment('oa-home'); ta.parentNode.insertBefore(homeA, ta); ta.parentNode.insertBefore(m, ta);
+    $$('.textbox-prompt', ta.parentNode).forEach(function(p){ if (p.nextElementSibling === m || p.nextElementSibling === homeA) p.classList.add('ms-hide-on'); });
+    var act = $('.ms-oa-act', m), show = $('.ms-oa-show', m), end = $('.ms-oa-end', m), row = $('.ms-oa-row', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== homeA) homeA.parentNode.insertBefore(ta, homeA.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return (s.trim().match(/\S+/g)||[]).length >= 3; }).length; }
+    function miss1(){ var miss = [], n = sents(ta.value); if (n < NEED) miss.push('Write '+(NEED-n)+' more sentence'+(NEED-n===1?'':'s')+'.'); if (!KIND.test(ta.value)) miss.push('Name a kind of story (song, legend, poem, or news).'); return miss; }
+    function view(){ $('.tx', show).textContent = ta.value.trim() || 'Your sign will appear here.'; $('.by', show).textContent = 'Sign by ' + (sget(NAMEK,'') || 'Junior Curator') + ', United States Region Curator';
+      show.classList.toggle('open', !!S.open); lightAlcoves(row, S.open ? 'all' : [], false); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 2; ta.classList.toggle('ms-gi-away', S.step !== 1);
+      if (S.step === 1) { goHome();
+        act.innerHTML = stepCard(1, 2, cfg.s1T, '<p>'+esc(cfg.s1||'')+'</p><div class="ms-cp-notes">'+(cfg.notes||[]).map(function(n){ return '<span>📌 '+esc(n)+'</span>'; }).join('')+'</div><div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box b1"></div><div class="ms-excheck ms-oa-chk"></div><div class="ms-gi-nav"><button type="button" class="ms-btn big ms-oa-next">Next: go on the air ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.b1', act).appendChild(ta);
+        var chk = $('.ms-oa-chk', act), fb = $('.ms-gi-fb', act);
+        var upd = function(){ var n = sents(ta.value), k = KIND.test(ta.value), mine = MINE.test(ta.value), miss = miss1();
+          chk.innerHTML = '<span class="ms-wc'+(n>=NEED?' ok':'')+'">📝 '+Math.min(n,NEED)+' of '+NEED+' sentences</span><span class="ms-chip'+(k?' ok':'')+'">'+(k?'✓ ':'')+'names a kind of story</span><span class="ms-chip'+(mine?' ok':'')+'">'+(mine?'✓ ':'')+'a story from my region</span>';
+          $('.ms-oa-next', act).classList.toggle('ms-notready', !!miss.length); if (fb.innerHTML) fb.innerHTML = miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b, i){ b.onclick = function(){ var t = (cfg.starters||[])[i]; ta.value = ta.value.replace(/\s*$/,'') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-oa-next', act).onclick = function(){ var miss = miss1(); if (miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; } SFX.chime(); S.step = 2; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(2, 2, cfg.s2T, '<p>'+esc(cfg.s2||'')+'</p><button type="button" class="ms-btn big ms-oa-go">🔴 '+esc(cfg.openT||'ON AIR')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-oa-edit">✏️ '+esc(cfg.editT||'Edit my sign')+'</button></div>';
+      var ob = $('.ms-oa-go', end); if (ob) ob.onclick = function(){ var miss = miss1(); if (miss.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('opening'); void show.offsetWidth; show.classList.add('opening'); SFX.fanfare(); render(); lightAlcoves(row, 'all', true); setTimeout(function(){ show.classList.remove('opening'); }, 5200); optiNod('assignment'); check(); };
+      $('.ms-oa-edit', end).onclick = function(){ S.open = false; S.step = 1; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 1) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
