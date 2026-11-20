@@ -104,6 +104,11 @@
    - tapedeck   Gallery main attraction: five story tapes (song, legend, poem, news, Hopi story); read along, tap the home region
    - newspaper  Gallery: unfold a 1965 front page, find what / when / where / who / how neighbors helped
    - onair      Exhibit Floor: Listening Station sign (3 sentences in the step), flip the switch: ON AIR, waves, all five alcoves hum
+   Added for 3.07.08 (DATA.people = six contributors; DATA.cher = Cherokee glyph paths, Noto Sans Cherokee OFL):
+   - who        Lobby: cart of six covered objects; lift a cloth, read the clue, pick the person
+   - cwall      Gallery main attraction: hang six name plaques on their object frames; gold threads draw each life path on the U.S. map
+   - syllabary  Gallery: tap Sequoyah's symbols to write tsa-la-gi (Cherokee) and o-si-yo (hello)
+   - founder    Exhibit Floor: wall sign + a plaque for someone from your region, cut the ribbon: the whole gallery lights up
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1161,7 +1166,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -4320,7 +4325,195 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.07.08 (Contributions from Diverse Groups) ══════════
+     DATA.people = six contributors (object, clue, story, life path by state); DATA.cher = Cherokee glyph paths (Noto Sans Cherokee, OFL)
+     - who        Lobby: a cart of six covered objects; lift a cloth, read the clue, pick the person; one question
+     - cwall      Gallery main attraction: hang six name plaques on their object frames; a gold thread draws each life path on the U.S. map
+     - syllabary  Gallery hands-on: tap Sequoyah's symbols to write tsa-la-gi (Cherokee) and o-si-yo (hello); one question
+     - founder    Exhibit Floor: wall sign (3 sentences) + a plaque for someone from your region → cut the ribbon: the whole gallery lights up */
+  function person(k){ var P = DATA.people || []; for (var i = 0; i < P.length; i++) if (P[i].k === k) return P[i]; return null; }
+  var DRAW = {
+    memorial: '<svg viewBox="0 0 200 110" aria-hidden="true"><rect width="200" height="110" fill="#CFE3C4"/><path d="M0 70 H200 V110 H0Z" fill="#9CC48A"/><path d="M8 72 L100 40 L192 72 L192 80 L100 58 L8 80Z" fill="#1E2328"/><path d="M100 40 V58" stroke="#3A4148" stroke-width="1.5"/>' + (function(){ var s = ''; for (var i = 0; i < 9; i++) { s += '<path d="M'+(16+i*9)+' '+(72-i*3.1)+' h6" stroke="#9AA3AB" stroke-width="1"/><path d="M'+(110+i*9)+' '+(44+i*3.1)+' h6" stroke="#9AA3AB" stroke-width="1"/>'; } return s; })() + '<path d="M0 84 Q100 70 200 84" stroke="#E8E2CF" stroke-width="3" fill="none"/></svg>',
+    robe: '<svg viewBox="0 0 200 110" aria-hidden="true"><rect width="200" height="110" fill="#E9E1CF"/><path d="M78 14 Q100 8 122 14 L132 30 L150 104 H50 L68 30Z" fill="#1E2328"/><path d="M90 14 L100 34 L110 14" fill="#F7F3EA"/><path d="M68 30 L46 76 L58 80 L74 46 M132 30 L154 76 L142 80 L126 46" fill="#2A3036"/><path d="M100 34 V104" stroke="#3A4148" stroke-width="2"/></svg>',
+    grapes: '<svg viewBox="0 0 200 110" aria-hidden="true"><rect width="200" height="110" fill="#F3EAD4"/><path d="M62 18 q8 -10 18 -6" stroke="#5A7A2E" stroke-width="4" fill="none"/><path d="M70 20 q-24 -6 -30 12 q18 -2 30 -12z" fill="#6E9A3A"/>' + [[58,34],[74,34],[50,48],[66,48],[82,48],[58,62],[74,62],[66,76]].map(function(p){ return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="9" fill="#6B3E8E" stroke="#4E2A6A" stroke-width="1.5"/>'; }).join('') + '<circle cx="146" cy="56" r="38" fill="#C0392B" stroke="#7A1F18" stroke-width="3"/><circle cx="146" cy="56" r="31" fill="none" stroke="#F7E3C0" stroke-width="1.5"/><text x="146" y="50" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="11" fill="#fff">FAIR PAY</text><text x="146" y="64" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="9" fill="#fff">FOR FARM</text><text x="146" y="76" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="900" font-size="9" fill="#fff">WORKERS</text></svg>'
+  };
+  function objHTML(p){ return p.obj.img ? '<img src="'+img(p.obj.img)+'" alt="'+esc(p.obj.t)+'">' : (DRAW[p.obj.draw] || ''); }
+
+  /* ══ MODULE: who (Lobby · who made this?) ══ */
+  function modWho(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var P = DATA.people || [];
+    ST.who = ST.who || {open:{}, got:{}, cur:null, q:false}; var S = ST.who;
+    var m = shell('ms-who-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-who-cart"><div class="ms-who-shelf"></div><div class="ms-who-wheels" aria-hidden="true"><i></i><i></i></div></div><div class="ms-who-act" aria-live="polite"></div>');
+    after(anchor, m);
+    var shelf = $('.ms-who-shelf', m), act = $('.ms-who-act', m);
+    function paint(){
+      shelf.innerHTML = P.map(function(p, i){ var o = !!S.open[p.k], g = !!S.got[p.k];
+        return '<button type="button" class="ms-who-obj'+(o?' open':'')+(g?' got':'')+(S.cur===p.k?' cur':'')+'" data-k="'+p.k+'" aria-label="'+(o ? esc(p.obj.t) : 'Covered object '+(i+1)+'. Tap to lift the cloth.')+'">' +
+          '<span class="ob">'+objHTML(p)+'</span><span class="cloth" aria-hidden="true"><b>'+(i+1)+'</b></span><span class="tag">'+(g ? esc(p.name) : o ? esc(p.obj.t) : '?')+'</span></button>'; }).join('');
+      $$('.ms-who-obj', shelf).forEach(function(b){ b.onclick = function(){ var k = b.dataset.k; if (!S.open[k]) { S.open[k] = true; SFX.creak(); } S.cur = k; save(); render(); }; });
+    }
+    function render(){
+      paint(); var got = Object.keys(S.got).length, N = P.length + 1;
+      if (S.q) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (got >= P.length) { var q = choiceQ(cfg.q, N, function(){ markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q = true; save(); render(); }, calm()?0:1500); });
+        act.innerHTML = stepCard(N, N, cfg.q.title, q.html); q.bind(act); return; }
+      var p = S.cur && person(S.cur);
+      if (!p || !S.open[p.k]) { act.innerHTML = stepCard(got + 1, N, 'Lift a cloth', '<p class="ms-wm-do">👆 Tap a covered object on the cart to see what is under the cloth. ('+got+' of '+P.length+' found)</p>'); return; }
+      if (S.got[p.k]) { act.innerHTML = stepCard(got, N, p.name, '<div class="ms-sh-tag"><b>'+esc(p.obj.t)+'</b><p>'+esc(p.about)+'</p></div><p class="ms-wm-do">👆 Tap another covered object.</p>'); return; }
+      var opts = P.filter(function(x){ return !S.got[x.k]; });
+      act.innerHTML = stepCard(got + 1, N, 'Who made this?', '<p class="ms-who-clue">🔎 <b>Clue:</b> '+esc(p.clue)+'</p><div class="ms-who-names">'+opts.map(function(x){ return '<button type="button" class="ms-btn alt ms-who-nm" data-k="'+x.k+'">'+esc(x.name)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div>');
+      $$('.ms-who-nm', act).forEach(function(b){ b.onclick = function(){
+        if (b.dataset.k !== p.k) { SFX.miss(); b.classList.add('no'); var x = person(b.dataset.k); $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 Not '+esc(x.name)+'. Read the clue again: what kind of object is it?</div>'; return; }
+        S.got[p.k] = true; save(); SFX.chime(); render(); }; });
+    }
+    render(); if (S.q) markDone('scene');
+  }
+
+  /* ══ MODULE: cwall (Gallery main attraction · hang the Contributions Wall) ══ */
+  function stateC(n){ var s = DATA.geo && DATA.geo.states[n]; if (!s) return null; var b = bbOf(s.d); return [(b[0]+b[2])/2, (b[1]+b[3])/2]; }
+  function modCwall(cfg){
+    var anchor = $(cfg.anchor); if (!anchor || !DATA.geo) return;
+    var P = DATA.people || [];
+    ST.cw = ST.cw || {hung:{}, sel:null, last:null, ok:false}; var S = ST.cw;
+    var m = shell('ms-cw-mod', cfg);
+    var threads = P.map(function(p){ var pts = p.path.map(stateC).filter(Boolean);
+      var d = pts.map(function(c, i){ return (i ? 'L' : 'M') + c[0].toFixed(1) + ' ' + c[1].toFixed(1); }).join(' ');
+      return '<g class="thr" data-k="'+p.k+'"><path class="line" d="'+d+'" pathLength="100"/>' + pts.map(function(c, i){ return '<circle class="pin'+(i === pts.length - 1 ? ' end' : '')+'" cx="'+c[0].toFixed(1)+'" cy="'+c[1].toFixed(1)+'" r="'+(i === pts.length - 1 ? 13 : 9)+'"/>'; }).join('') + '</g>'; }).join('');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-cw-stage" style="'+rcol()+'"><div class="ms-cw-wall"><div class="ms-cw-title">THE CONTRIBUTIONS WALL</div><div class="ms-cw-frames">' +
+      P.map(function(p){ return '<div class="ms-cw-frame" data-k="'+p.k+'" role="button" tabindex="0" aria-label="Frame: '+esc(p.obj.t)+'"><span class="ob">'+objHTML(p)+'</span><span class="nm">'+esc(p.obj.t)+'</span></div>'; }).join('') +
+      '</div></div><div class="ms-cw-tray" aria-label="Name plaques"></div><div class="ms-cw-act" aria-live="polite"></div><div class="ms-cw-map">'+usSVG('ms-cw-us', 'A map of the United States. Gold threads show where each contributor lived.', '<g class="thrs">'+threads+'</g>')+'</div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var tray = $('.ms-cw-tray', m), act = $('.ms-cw-act', m), svg = $('.ms-cw-us', m);
+    function hang(k, fk){ if (S.ok || S.hung[k]) return; var p = person(k), f = person(fk);
+      if (k !== fk) { SFX.miss(); S.sel = null; save(); paint(); act.innerHTML = stepCard(Object.keys(S.hung).length + 1, P.length + 1, 'Not that frame', '<div class="ms-notyet">🤔 That frame holds '+esc(f.obj.t.toLowerCase())+'. Which person goes with it? Think back to the Lobby clue: '+esc(f.clue)+'</div>'); return; }
+      S.hung[k] = true; S.sel = null; S.last = k; save(); SFX.chime(); render(); }
+    function paint(){
+      tray.innerHTML = P.filter(function(p){ return !S.hung[p.k]; }).map(function(p){ return '<button type="button" class="ms-cw-plq'+(S.sel===p.k?' sel':'')+'" data-k="'+p.k+'">'+esc(p.name)+'</button>'; }).join('') || '<span class="ms-cw-full">✨ Every plaque is on the wall.</span>';
+      $$('.ms-cw-plq', tray).forEach(function(b){ var k = b.dataset.k;
+        dragger(b, function(moved, tg){ if (!moved) return; if (tg) hang(k, tg.dataset.k); else SFX.miss(); }, '.ms-cw-frame:not(.hung)');
+        b.addEventListener('click', function(){ S.sel = S.sel === k ? null : k; save(); SFX.click(); paint(); }); });
+      $$('.ms-cw-frame', m).forEach(function(f){ var k = f.dataset.k, h = !!S.hung[k], p = person(k);
+        f.classList.toggle('hung', h); f.classList.toggle('pick', !!S.sel && !h); f.classList.toggle('last', S.last === k);
+        $('.nm', f).textContent = h ? p.name : p.obj.t; });
+      $$('.thr', svg).forEach(function(t){ t.classList.toggle('on', !!S.hung[t.dataset.k]); });
+      litRegions(svg, P.filter(function(p){ return S.hung[p.k]; }).map(function(p){ return p.r; }));
+    }
+    $$('.ms-cw-frame', m).forEach(function(f){ var go = function(){ if (S.sel && !f.classList.contains('hung')) hang(S.sel, f.dataset.k); };
+      f.addEventListener('click', go); f.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }); });
+    function render(){
+      paint(); var n = Object.keys(S.hung).length, N = P.length + 1;
+      if (S.ok) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (n >= P.length && !S.last) { var q = choiceQ(cfg.q, N, function(){ ST.gal = ST.gal||{}; ST.gal.wall = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.ok = true; save(); render(); }, calm()?0:1600); });
+        act.innerHTML = stepCard(N, N, cfg.q.title, q.html); q.bind(act); return; }
+      if (S.last) { var p = person(S.last);
+        act.innerHTML = stepCard(n, N, p.name + ' (' + p.years + ')', '<div class="ms-sh-tag"><b>🧵 '+esc(p.pathT)+'</b><p>'+esc(p.about)+'</p></div><button type="button" class="ms-btn big ms-cw-go">'+(n < P.length ? 'Next plaque ➡️' : 'Next: the question ➡️')+'</button>');
+        $('.ms-cw-go', act).onclick = function(){ SFX.click(); S.last = null; save(); render(); }; return; }
+      act.innerHTML = stepCard(n + 1, N, 'Hang a plaque', '<p class="ms-wm-do">👆 Drag a name plaque onto its object. Or tap a plaque, then tap its frame. ('+n+' of '+P.length+' hung)</p>');
+    }
+    render();
+  }
+
+  /* ══ MODULE: syllabary (Gallery hands-on · write like Sequoyah) ══ */
+  function glyph(k){ var C = DATA.cher || {}, g = (C.g || {})[k]; if (!g) return ''; return '<svg viewBox="0 0 '+g.w+' '+C.h+'" aria-hidden="true"><path d="'+g.d+'"/></svg>'; }
+  function modSyllabary(cfg){
+    var anchor = $(cfg.anchor); if (!anchor || !DATA.cher) return;
+    var W = cfg.words || [];
+    ST.syl = ST.syl || {wi:0, n:0, ok:false}; var S = ST.syl;
+    var m = shell('ms-syl-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-syl-stage"><div class="ms-syl-board"></div><div class="ms-syl-tiles" role="group" aria-label="Cherokee symbols"></div></div><div class="ms-syl-act" aria-live="polite"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var board = $('.ms-syl-board', m), tiles = $('.ms-syl-tiles', m), act = $('.ms-syl-act', m);
+    tiles.innerHTML = (cfg.tiles || []).map(function(k){ return '<button type="button" class="ms-syl-t" data-k="'+k+'" aria-label="Symbol for '+esc(cfg.sounds[k]||k)+'">'+glyph(k)+'<b>'+esc(cfg.sounds[k]||k)+'</b></button>'; }).join('');
+    function paintBoard(){ var html = W.map(function(w, i){ var n = i < S.wi ? w.parts.length : i === S.wi ? S.n : 0;
+        if (i > S.wi) return ''; return '<div class="ms-syl-word'+(n >= w.parts.length ? ' done' : '')+'"><div class="en">'+esc(w.en)+'</div><div class="slots">'+w.parts.map(function(p, j){ return '<span class="sl'+(j < n ? ' in' : j === n ? ' next' : '')+'">'+(j < n ? glyph(p) : '')+'<i>'+esc(cfg.sounds[p]||p)+'</i></span>'; }).join('')+'</div></div>'; }).join('');
+      board.innerHTML = html; tiles.classList.toggle('off', S.wi >= W.length); }
+    $$('.ms-syl-t', tiles).forEach(function(t){ t.onclick = function(){ if (S.wi >= W.length) return; var w = W[S.wi], want = w.parts[S.n];
+      if (t.dataset.k !== want) { SFX.miss(); t.classList.add('no'); setTimeout(function(){ t.classList.remove('no'); }, 500); $('.ms-exfb', act) && ($('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 That symbol says <b>'+esc(cfg.sounds[t.dataset.k])+'</b>. Find the one that says <b>'+esc(cfg.sounds[want])+'</b>.</div>'); return; }
+      SFX.pop(); S.n++; if (S.n >= w.parts.length) { SFX.chime(); } save(); render(); }; });
+    function render(){
+      paintBoard(); var N = W.length + 1;
+      if (S.ok) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.wi < W.length) { var w = W[S.wi], full = S.n >= w.parts.length;
+        act.innerHTML = stepCard(S.wi + 1, N, 'Write "' + w.en + '"', full ? '<div class="ms-sh-tag"><b>'+esc(w.en)+' = '+esc(w.say)+'</b><p>'+esc(w.note)+'</p></div><button type="button" class="ms-btn big ms-syl-go">Next ➡️</button>'
+          : '<p class="ms-wm-do">👆 Say it: <b>'+esc(w.say)+'</b>. Tap the symbol for <b>'+esc(cfg.sounds[w.parts[S.n]])+'</b>.</p><div class="ms-exfb" aria-live="polite"></div>');
+        var g = $('.ms-syl-go', act); if (g) g.onclick = function(){ SFX.click(); S.wi++; S.n = 0; save(); render(); }; return; }
+      var q = choiceQ(cfg.q, N, function(){ ST.gal = ST.gal||{}; ST.gal.syl = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.ok = true; save(); render(); }, calm()?0:1600); });
+      act.innerHTML = stepCard(N, N, cfg.q.title, q.html); q.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: founder (Exhibit Floor · the last sign + my-region plaque → cut the ribbon) ══ */
+  var ROSETTE = '<svg viewBox="0 0 120 150" aria-hidden="true"><path d="M40 70 L28 146 L48 132 L58 150 L62 74Z" fill="#C0392B"/><path d="M80 70 L92 146 L72 132 L62 150 L58 74Z" fill="#A02E22"/>' + (function(){ var s = ''; for (var i = 0; i < 16; i++) { var a = i * Math.PI / 8; s += '<ellipse cx="'+(60 + Math.cos(a) * 34).toFixed(1)+'" cy="'+(56 + Math.sin(a) * 34).toFixed(1)+'" rx="12" ry="7" transform="rotate('+(i * 22.5)+' '+(60 + Math.cos(a) * 34).toFixed(1)+' '+(56 + Math.sin(a) * 34).toFixed(1)+')" fill="'+(i % 2 ? '#D9A92E' : '#F3D27A')+'"/>'; } return s; })() + '<circle cx="60" cy="56" r="26" fill="#C0392B" stroke="#F3D27A" stroke-width="4"/><path d="M60 40 l5 10 11 1.6 -8 7.8 2 11 -10 -5.2 -10 5.2 2 -11 -8 -7.8 11 -1.6Z" fill="#F3D27A"/></svg>';
+  function modFounder(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'), tb = document.getElementById(cfg.textarea2 || 'journal-mine'); if (!ta || !tb) return;
+    var NEED = cfg.sentMin || 3, NAMES = /sequoyah|douglass|maya lin|\blin\b|o.?connor|chavez|lili.?uokalani/i, IDEA = /\bpeople\b/i;
+    ST.fd = ST.fd || {step:1, open:false}; var S = ST.fd;
+    var m = shell('ms-fd-mod', cfg);
+    var frames = (DATA.people || []).map(function(p){ return '<span class="ms-fd-fr">'+objHTML(p)+'</span>'; }).join('');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-fd-act"></div><div class="ms-fd-show" hidden><div class="ms-fd-hall">' +
+      '<div class="ms-fd-rooms"><div class="ms-fd-room r1"><div class="h">Five Alcoves</div>'+alcoves('ms-fd-row')+'</div>' +
+      '<div class="ms-fd-room r2"><div class="h">Listening Station</div><div class="ms-fd-radio" aria-hidden="true"><i></i><i></i></div></div>' +
+      '<div class="ms-fd-room r3"><div class="h">Contributions Wall</div><div class="ms-fd-frames">'+frames+'</div></div></div>' +
+      '<div class="ms-fd-signs"><div class="ms-fd-sign"><div class="h">🖼️ The Contributions Wall</div><p class="tx"></p><p class="by"></p></div><div class="ms-fd-plq"><div class="h">⭐ From My Region</div><p class="tx2"></p></div></div>' +
+      '<div class="ms-fd-door" aria-hidden="true"><div class="post l"></div><div class="post r"></div><div class="rib l"></div><div class="rib r"></div><div class="bow"></div></div>' +
+      '<div class="ms-fd-badge" aria-hidden="true">'+ROSETTE+'<span>'+esc(cfg.badge||'Gallery Founder')+'</span></div></div></div><div class="ms-fd-end"></div>');
+    var homeA = document.createComment('fd-home-a'), homeB = document.createComment('fd-home-b');
+    ta.parentNode.insertBefore(homeA, ta); tb.parentNode.insertBefore(homeB, tb); ta.parentNode.insertBefore(m, ta);
+    $$('.textbox-prompt', ta.parentNode).forEach(function(p){ if (p.nextElementSibling === m || p.nextElementSibling === homeA) p.classList.add('ms-hide-on'); });
+    var tpb = tb.parentNode.querySelector('.textbox-prompt'); if (tpb) tpb.classList.add('ms-hide-on');
+    var act = $('.ms-fd-act', m), show = $('.ms-fd-show', m), end = $('.ms-fd-end', m), row = $('.ms-fd-row', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== homeA) homeA.parentNode.insertBefore(ta, homeA.nextSibling); if (tb.previousSibling !== homeB) homeB.parentNode.insertBefore(tb, homeB.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return (s.trim().match(/\S+/g)||[]).length >= 3; }).length; }
+    function miss1(){ var miss = [], n = sents(ta.value); if (n < NEED) miss.push('Write '+(NEED-n)+' more sentence'+(NEED-n===1?'':'s')+'.'); if (!NAMES.test(ta.value)) miss.push('Name one of the six contributors.'); if (!IDEA.test(ta.value)) miss.push('End with the big idea about land, stories, and people.'); return miss; }
+    function miss2(){ return sents(tb.value) < 1 ? ['Write one sentence about a person from your region.'] : []; }
+    function starters(list, box){ return '<div class="ms-gi-starts">'+(list||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start" data-t="'+esc(t)+'">✏️ '+esc(t)+'</button>'; }).join('')+'</div>'; }
+    function bindStarters(el, upd){ $$('.ms-gi-start', act).forEach(function(b){ b.onclick = function(){ var t = b.dataset.t; el.value = el.value.replace(/\s*$/,'') + (el.value.trim() ? ' ' : '') + t + ' '; el.focus(); el.setSelectionRange(el.value.length, el.value.length); el.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; }); }
+    function view(){ $('.tx', show).textContent = ta.value.trim() || 'Your sign will appear here.'; $('.by', show).textContent = 'Sign by ' + (sget(NAMEK,'') || 'Junior Curator') + ', United States Region Curator'; $('.tx2', show).textContent = tb.value.trim();
+      show.classList.toggle('open', !!S.open); lightAlcoves(row, S.open ? 'all' : [], false); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 3; ta.classList.toggle('ms-gi-away', S.step !== 1); tb.classList.toggle('ms-gi-away', S.step !== 2);
+      if (S.step === 1) { goHome();
+        act.innerHTML = stepCard(1, 3, cfg.s1T, '<p>'+esc(cfg.s1||'')+'</p><div class="ms-cp-notes">'+(cfg.notes||[]).map(function(n){ return '<span>📌 '+esc(n)+'</span>'; }).join('')+'</div>'+starters(cfg.starters)+'<div class="ms-gi-box b1"></div><div class="ms-excheck ms-fd-chk"></div><div class="ms-gi-nav"><button type="button" class="ms-btn big ms-fd-next">Next: your region\'s plaque ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.b1', act).appendChild(ta);
+        var chk = $('.ms-fd-chk', act), fb = $('.ms-gi-fb', act);
+        var upd = function(){ var n = sents(ta.value), nm = NAMES.test(ta.value), id = IDEA.test(ta.value), miss = miss1();
+          chk.innerHTML = '<span class="ms-wc'+(n>=NEED?' ok':'')+'">📝 '+Math.min(n,NEED)+' of '+NEED+' sentences</span><span class="ms-chip'+(nm?' ok':'')+'">'+(nm?'✓ ':'')+'names a contributor</span><span class="ms-chip'+(id?' ok':'')+'">'+(id?'✓ ':'')+'big idea (people)</span>';
+          $('.ms-fd-next', act).classList.toggle('ms-notready', !!miss.length); if (fb.innerHTML) fb.innerHTML = miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd(); bindStarters(ta, upd);
+        $('.ms-fd-next', act).onclick = function(){ var miss = miss1(); if (miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; } SFX.chime(); S.step = 2; save(); render(); };
+        return; }
+      if (S.step === 2) { goHome();
+        act.innerHTML = stepCard(2, 3, cfg.s2T, '<p>'+esc(cfg.s2||'')+'</p>'+starters(cfg.starters2)+'<div class="ms-gi-box b2"></div><div class="ms-excheck ms-fd-chk"></div><div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-fd-back">↩️ Back to my sign</button><button type="button" class="ms-btn big ms-fd-next">Next: opening day ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.b2', act).appendChild(tb);
+        var chk2 = $('.ms-fd-chk', act), fb2 = $('.ms-gi-fb', act);
+        var upd2 = function(){ var ok = !miss2().length; chk2.innerHTML = '<span class="ms-chip'+(ok?' ok':'')+'">'+(ok?'✓ ':'')+'one sentence about a person</span>'; $('.ms-fd-next', act).classList.toggle('ms-notready', !ok); if (fb2.innerHTML && ok) fb2.innerHTML = ''; };
+        curUpd = upd2; upd2(); bindStarters(tb, upd2);
+        $('.ms-fd-back', act).onclick = function(){ S.step = 1; save(); render(); };
+        $('.ms-fd-next', act).onclick = function(){ var miss = miss2(); if (miss.length) { SFX.miss(); fb2.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 3; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(3, 3, cfg.s3T, '<p>'+esc(cfg.s3||'')+'</p><button type="button" class="ms-btn big ms-fd-cut">✂️ '+esc(cfg.openT||'Cut the ribbon')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-fd-edit">✏️ '+esc(cfg.editT||'Edit my sign')+'</button></div>';
+      var cb = $('.ms-fd-cut', end); if (cb) cb.onclick = function(){ var miss = miss1().concat(miss2()); if (miss.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+miss.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('opening'); void show.offsetWidth; show.classList.add('opening'); SFX.fanfare(); render(); lightAlcoves(row, 'all', true); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'});
+        if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 1800);
+        setTimeout(function(){ show.classList.remove('opening'); }, 6000); optiNod('assignment'); check(); };
+      $('.ms-fd-edit', end).onclick = function(){ S.open = false; S.step = 1; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 1) curUpd(); });
+    tb.addEventListener('input', function(){ if (curUpd && S.step === 2) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
