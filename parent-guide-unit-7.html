@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 7 Family Guide · 3rd Grade Social Studies · Optima Academy Online</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;600;700;800;900&display=swap');
+:root{
+  /* Museum colors, from the 3rd grade lesson pages */
+  --navy:#0E1C42; --ink:#3A4A6B; --muted:#6B6250; --line:#E6D9BC;
+  --night:#22312F; --night-2:#2D403D;
+  --brass:#B8892E; --brass-lt:#E9C878; --brass-dk:#7E5A16;
+  --cream:#FBF5E6; --paper:#F6EEDB; --wall:#EFE5D2;
+  --teal:#1A8A7D; --teal-bg:#E2F4F1; --cyan:#55C8E8; --sky-bg:#EAF8FD;
+  --green-bg:#E3F8ED; --plum:#8B6FC0; --plum-bg:#F1ECFA; --rose-bg:#FDEEEE;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--night) radial-gradient(circle at 50% -10%, #3F5652 0, var(--night) 60%) fixed;color:var(--ink);font-family:"Nunito",sans-serif;font-size:18px;line-height:1.6;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 48px;}
+h1,h2,h3{font-family:"Lora",Georgia,serif;color:var(--navy);margin:0;}
+p{margin:0 0 10px;}
+strong{color:var(--navy);}
+a{color:#1F6FA8;font-weight:700;}
+
+/* header */
+.hero{background:var(--navy);color:#fff;border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1.25fr 1fr;border-bottom:5px solid var(--brass);}
+.hero-text{padding:28px 28px 26px;}
+.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:14px;}
+.brand img{width:38px;height:38px;border-radius:50%;background:#fff;}
+.hero h1{color:#fff;font-size:34px;line-height:1.2;margin-bottom:6px;}
+.hero h1 em{color:var(--brass-lt);}
+.hero .sub{font-size:19px;color:#DCE6F7;margin-bottom:16px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:rgba(233,200,120,.14);border:1.5px solid rgba(233,200,120,.5);border-radius:999px;padding:5px 13px;font-size:16px;font-weight:700;color:#fff;}
+.hero-art{background:#D8EFF4 center/cover no-repeat;min-height:260px;position:relative;}
+.hero-art .plaque{position:absolute;left:14px;bottom:14px;background:linear-gradient(#E9C878,#B8892E);color:#3A2A14;font:800 13px/1.3 "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:5px 10px;box-shadow:0 2px 6px rgba(0,0,0,.3);}
+.print-btn{display:inline-block;margin-top:16px;background:var(--brass);color:#fff;border:none;border-radius:999px;padding:9px 18px;font-family:"Nunito",sans-serif;font-weight:800;font-size:16px;cursor:pointer;}
+
+/* cards */
+.card{background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:16px;padding:22px 24px;margin-top:18px;box-shadow:0 4px 14px rgba(0,0,0,.12);}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.card-head .ico{font-size:26px;line-height:1;}
+.card-head h2{font-size:24px;}
+.card-head .tag{margin-left:auto;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.small{font-size:16px;color:var(--muted);}
+
+.grid2,.glance{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.glance3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.box{border-radius:12px;padding:14px 16px;font-size:17px;}
+.box-label{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+.b-sky{background:var(--sky-bg);} .b-sky .box-label{color:#1F8CB0;}
+.b-gold{background:var(--cream);border:1px solid var(--line);} .b-gold .box-label{color:var(--brass-dk);}
+.b-green{background:var(--green-bg);} .b-green .box-label{color:#1F8452;}
+.b-plum{background:var(--plum-bg);} .b-plum .box-label{color:#6A4FA3;}
+.b-teal{background:var(--teal-bg);} .b-teal .box-label{color:#14695F;}
+.quote{font-family:"Lora",Georgia,serif;font-style:italic;font-size:20px;color:var(--navy);border-left:4px solid var(--brass);padding:4px 0 4px 16px;margin:16px 0 0;}
+.quote small{display:block;font-family:"Nunito",sans-serif;font-style:normal;font-size:15px;color:var(--muted);margin-top:4px;}
+
+/* story box (the museum) */
+.story{background:var(--night-2);color:#E4ECE9;border:2px solid var(--brass);border-left-width:2px;}
+.story h2,.story strong{color:#fff;}
+.story .box{background:rgba(255,255,255,.08);color:#E4ECE9;}
+.story .box-label{color:var(--brass-lt);}
+.opti{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:start;}
+.opti img{width:76px;height:auto;}
+.rooms{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.room{background:rgba(255,255,255,.07);border:1.5px solid rgba(233,200,120,.45);border-radius:12px;padding:12px;text-align:center;font-size:16px;}
+.room i{font-style:normal;display:block;font-size:26px;line-height:1.2;}
+.room b{display:block;font-family:"Lora",Georgia,serif;font-size:19px;color:#fff;}
+.room span{display:block;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-lt);}
+
+/* lesson table */
+.days{width:100%;border-collapse:collapse;}
+.days th{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);}
+.days td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+.days tr:last-child td{border-bottom:none;}
+.day-n{font-family:"Lora",Georgia,serif;font-weight:700;font-size:20px;color:var(--navy);white-space:nowrap;}
+.day-n span{display:block;font-family:"Nunito",sans-serif;font-size:15px;font-weight:700;color:var(--muted);}
+.ch{font-weight:800;color:var(--navy);}
+.rm{display:block;margin-top:6px;}
+.rm b{font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--brass-dk);background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:1px 7px;margin-right:6px;}
+.pill{display:inline-block;font-size:14px;font-weight:800;border-radius:999px;padding:2px 10px;margin:6px 4px 0 0;}
+.p-virtue{background:var(--green-bg);color:#1F8452;}
+.p-source{background:var(--cream);color:var(--brass-dk);border:1px solid var(--line);}
+.p-vr{background:var(--plum-bg);color:#6A4FA3;}
+.vr-row td{background:var(--paper);}
+
+/* VR day */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.path{border-radius:14px;padding:16px 18px;font-size:17px;}
+.path h3{font-size:20px;margin-bottom:6px;}
+.path ol{margin:6px 0 0;padding-left:22px;}
+.path li{margin:3px 0;}
+.say{background:#fff;border:1px dashed var(--brass);border-radius:10px;padding:8px 12px;margin:8px 0;font-weight:700;color:var(--navy);}
+.tl{list-style:none;margin:8px 0 0;padding:0;}
+.tl li{display:grid;grid-template-columns:118px 1fr;gap:8px;padding:5px 0;border-bottom:1px dashed var(--line);font-size:16px;}
+.tl li:last-child{border-bottom:none;}
+.tl b{color:var(--brass-dk);}
+
+/* words */
+.words{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.word{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--cream);}
+.word b{font-family:"Lora",Georgia,serif;font-size:21px;color:var(--navy);display:block;}
+.word span{font-size:17px;}
+
+/* ask */
+.ask{list-style:none;margin:0;padding:0;counter-reset:q;}
+.ask li{counter-increment:q;position:relative;padding:12px 0 12px 50px;border-bottom:1px dashed var(--line);}
+.ask li:last-child{border-bottom:none;}
+.ask li::before{content:counter(q);position:absolute;left:0;top:11px;width:34px;height:34px;border-radius:50%;background:var(--cream);border:1.5px solid var(--brass);color:var(--brass-dk);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:17px;}
+.ask .q{font-weight:800;color:var(--navy);display:block;}
+.ask .listen{font-size:16px;color:var(--muted);}
+
+/* checklist */
+.check{list-style:none;margin:0;padding:0;}
+.check li{padding:7px 0 7px 34px;position:relative;}
+.check li::before{content:"✓";position:absolute;left:4px;top:6px;color:var(--teal);font-weight:900;font-size:19px;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+
+.next{background:var(--night-2);color:#E4ECE9;border:2px solid var(--brass);}
+.next h2{color:#fff;}
+.next strong{color:#fff;}
+.foot{text-align:center;font-size:15px;color:#C9D6D2;margin-top:26px;}
+.foot a{color:var(--brass-lt);}
+
+/* lesson mechanics */
+.howto{background:var(--cream);border:2px solid var(--brass);border-radius:16px;padding:18px 22px;margin-top:18px;}
+.howto h2{font-size:21px;margin-bottom:10px;}
+.howto ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;}
+.howto li{position:relative;padding-left:32px;font-size:17px;line-height:1.5;}
+.howto li span{position:absolute;left:0;top:0;font-size:20px;}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;}
+  .hero-art{min-height:200px;order:-1;}
+  .hero h1{font-size:29px;}
+  .glance,.glance3,.grid2,.words,.two,.paths,.howto ul{grid-template-columns:1fr;}
+  .rooms{grid-template-columns:1fr 1fr;}
+  .card{padding:18px 16px;}
+  .opti{grid-template-columns:56px 1fr;gap:12px;}
+  .opti img{width:56px;}
+  .tl li{grid-template-columns:1fr;gap:0;}
+  .days thead{display:none;}
+  .days tr{display:block;border-bottom:1px solid var(--line);padding:8px 0;}
+  .days td{display:block;border:none;padding:4px 0;}
+  .vr-row{border-radius:10px;}
+}
+@media print{
+  body{background:#fff;font-size:15px;}
+  .wrap{padding:0;}
+  .print-btn{display:none;}
+  .card,.howto,.path{break-inside:avoid;}
+  .card{margin-top:12px;padding:14px 16px;box-shadow:none;}
+  .hero,.next,.story{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .foot{color:#555;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-text">
+      <div class="brand"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy Online">Family Guide · 3rd Grade Social Studies</div>
+      <h1>Unit 7: The Regions <em>of the United States</em></h1>
+      <div class="sub">The United States Regions Gallery · Lessons 3.07.01 to 3.07.08</div>
+      <div class="chips">
+        <span class="chip">8 lessons</span>
+        <span class="chip">5 regions</span>
+        <span class="chip">Weeks 19 to 22</span>
+      </div>
+      <button class="print-btn" onclick="window.print()">🖨️ Print this guide</button>
+    </div>
+    <div class="hero-art" style="background-image:url('images/src-3-07-01-night.jpg');" role="img" aria-label="The United States at night, seen from space: city lights glow brightest in the East and along the coasts"><span class="plaque">United States Regions Gallery</span></div>
+  </header>
+
+  <!-- HOW THE LESSON PAGES WORK -->
+  <section class="howto">
+    <h2>🧭 How the Lesson Pages Work</h2>
+    <ul>
+      <li><span>🏛️</span><strong>Four rooms, in order:</strong> Lobby → Gallery → Workroom → Exhibit Floor. The room tabs sit at the top. A ✓ shows up when a room’s job is done, and a button at the bottom leads to the next room.</li>
+      <li><span>👣</span><strong>One part at a time.</strong> Each room shows one part, with ◂ Back and Next buttons and a “Part 2 of 5” count. The door to the next room shows on the last part.</li>
+      <li><span>🦉</span><strong>Opti the owl is the museum guide.</strong> He gives a short voice note in each room. <strong>Read along</strong> shows his words on the screen.</li>
+      <li><span>🔤</span><strong>Dotted words</strong> show their meaning when your student taps them. Key words have a 🔊 button to hear the word said out loud.</li>
+      <li><span>🧠</span><strong>The Workroom is a 3-question self-check,</strong> one question at a time. It isn’t graded. It shows your student what to look at again before writing.</li>
+      <li><span>💾</span><strong>Answers save as you type</strong>, but only in that browser on that computer. Switching computers or clearing the browser loses them.</li>
+      <li><span>📄</span><strong>Everything is gathered at the end.</strong> At the bottom of the Exhibit Floor, Copy or Download as PDF saves the work. Use it to <strong>submit in Canvas</strong>. A lesson isn’t turned in until it’s submitted there.</li>
+      <li><span>🔊</span><strong>Read aloud</strong> at the top reads the page, with a speed control. <strong>Motion</strong> turns the moving parts on or off. <strong>Museum view</strong> switches to a plain page.</li>
+      <li><span>📓</span><strong>Keep a notebook, a pencil, and a blank U.S. map nearby.</strong> The lessons call the notebook a Curator’s Notebook, and most lessons ask your student to label a map in it.</li>
+    </ul>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section class="card">
+    <div class="card-head"><span class="ico">🧭</span><h2>This Unit at a Glance</h2></div>
+    <p>Last unit looked at all of North America. This unit zooms in on one country. Geographers group the 50 states into <strong>five regions</strong>: the Northeast, the Southeast, the Midwest, the Southwest, and the West. States in a region are alike in their land, their weather, their resources, and the ways people live. Your student opens one region at a time, then adds two last rooms: songs, legends, poems, and news from each region, and the people from many regions and backgrounds who helped shape the country.</p>
+    <div class="glance3">
+      <div class="box b-sky"><div class="box-label">Geography skill</div><strong>Find the five regions on a U.S. map.</strong> Northeast: upper right. Southeast: lower right. Midwest: the middle. Southwest: lower middle, next to Mexico. West: the left side along the Pacific Ocean, plus Alaska and Hawaii.</div>
+      <div class="box b-green"><div class="box-label">Virtue lens</div><strong>Courtesy</strong> in every lesson: these are real places where real people live. Your student describes each region with kind, careful words, never “better” or “worse,” and treats every story and every person’s work with respect.</div>
+      <div class="box b-gold"><div class="box-label">Big idea</div><strong>Land, stories, and people.</strong> Each region is distinct, and every region adds something to the whole country. The last sign in the gallery says it: the United States is shaped by its land, its stories, and its people.</div>
+    </div>
+    <p class="quote">“The United States is shaped by its land, its stories, and its people.”<small>The big idea on the last sign in the gallery, Lesson 3.07.08</small></p>
+    <p class="small" style="margin-top:12px;"><strong>Good to know:</strong> The lessons correct a few common mix-ups. Alaska and Hawaii sit in small boxes on most U.S. maps, but they are really far away: Alaska is past Canada and is more than twice the size of Texas, and Hawaii is far out in the Pacific Ocean. A map can’t show everything about a place; stories and songs show what people love and remember. Paul Bunyan was never a real person: he comes from a tall tale. People don’t always stay in one region: Sequoyah was born in Tennessee and later lived in Oklahoma. And contributors are not only famous people: in the last lesson your student writes about someone from their own family or community.</p>
+  </section>
+
+  <!-- THE STORY -->
+  <section class="card story">
+    <div class="card-head"><span class="ico">🏛️</span><h2>In the Museum</h2></div>
+    <div class="opti">
+      <img src="images/opti-owl.png" alt="Opti the owl, the museum guide">
+      <div>
+        <p>The 3rd grade course is set in a museum. In this unit your student is a <strong>United States Region Curator</strong>, a museum worker who takes care of the regions of the United States and tells visitors about them. <strong>Opti the owl</strong> is the museum guide.</p>
+        <p>A new room opens across the hall: the <strong>United States Regions Gallery</strong>, with five empty alcoves (small rooms along one wall). In Week 19, your student finds their own state on a map, lights up all five regions, and opens the Northeast alcove. In Week 20, the Southeast and the Midwest alcoves open, and in Week 21 the Southwest and the West. When the West sign goes up, all five alcoves glow and your student earns the <strong>Region Guide</strong> badge. In Week 22, a Listening Station with an old radio and a tape player joins the gallery, and then the <strong>Contributions Wall</strong>. When your student cuts the ribbon on the wall, the whole gallery lights up, room by room, and they earn the <strong>Gallery Founder</strong> badge.</p>
+      </div>
+    </div>
+    <div class="rooms">
+      <div class="room"><i>🚪</i><span>Room 1</span><b>Lobby</b>Start the day’s job</div>
+      <div class="room"><i>🖼️</i><span>Room 2</span><b>Gallery</b>Maps, photos, and hands-on models</div>
+      <div class="room"><i>🔎</i><span>Room 3</span><b>Workroom</b>Check yourself</div>
+      <div class="room"><i>🏷️</i><span>Room 4</span><b>Exhibit Floor</b>Write the sign</div>
+    </div>
+  </section>
+
+  <!-- LESSON BY LESSON -->
+  <section class="card">
+    <div class="card-head"><span class="ico">📅</span><h2>Lesson by Lesson</h2></div>
+    <table class="days">
+      <thead><tr><th>Lesson</th><th>What your student learns</th><th>What they write</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="day-n">3.07.01<span>Week 19</span></td>
+          <td><span class="ch">The Five Regions of the United States</span><br>Many maps divide the United States into five regions. Geographers put states together when they share the same kind of land, weather, resources, and ways of life.
+            <span class="rm"><b>Lobby</b>Find your own state on a map of all 50 states and watch its region light up.</span>
+            <span class="rm"><b>Gallery</b>Lay four see-through sheets on a light table, one at a time (land, weather, resources, and where people live), then watch the five region lines draw themselves. Study a NASA photo of the United States at night. Hang ten real photos of landmarks, two for each region, in the right alcove.</span>
+            <span class="pill p-source">Source: the United States at night (NASA)</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+          <td>Label the five regions on a U.S. map in the notebook, 1 evidence question, and the <strong>Gallery Directory</strong> sign: “A region is a group of ___ that share the same ___,” plus one sentence of their own about one region.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.07.02<span>Week 19</span></td>
+          <td><span class="ch">The Northeast</span><br>The Northeast sits in the upper right, along the Atlantic Ocean. It has the old, rounded Appalachian Mountains, harbors and lighthouses, four clear seasons, maple syrup, and coal. New York Harbor and Ellis Island welcomed millions of new arrivals.
+            <span class="rm"><b>Lobby</b>Unpack the Atlantic Coast crate (a lobster trap, a maple leaf, coal, and a lighthouse) and pin each one on its state.</span>
+            <span class="rm"><b>Gallery</b>Turn a season wheel on a Vermont hillside and see when the maple sap runs. Compare two photos of New York Harbor, about 1912 and 2017. Run time forward to see why the Appalachians are rounder than the Rockies.</span>
+            <span class="pill p-source">Source: New York Harbor, about 1912 and 2017</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+          <td>Label the Northeast map, 1 evidence question, and the <strong>Northeast alcove label</strong>: one sentence of their own about what makes the Northeast distinct.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.07.03<span>Week 20</span></td>
+          <td><span class="ch">The Southeast</span><br>The Southeast sits in the lower right, between the Atlantic Ocean and the Gulf of Mexico. Winters are mild and summers are hot and humid. Hurricanes form over warm ocean water, mostly from June to November. Florida’s Everglades is a huge wetland.
+            <span class="rm"><b>Lobby</b>Weather twins: the same January day in Boston and in Miami. Then open the Gulf &amp; Atlantic crate (oranges, peanuts, the Florida coast, and Everglades water).</span>
+            <span class="rm"><b>Gallery</b>Warm the ocean month by month and track a hurricane as it grows over warm water and weakens over land. Study a photo from an Everglades boardwalk. Make it rain on a paved city and on a wetland, and see which one floods.</span>
+            <span class="pill p-source">Source: the Everglades boardwalk (National Park Service)</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+          <td>1 evidence question and <strong>Twin Labels</strong>: two sentences, one way the Northeast and the Southeast are alike and one way they are different.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.07.04<span>Week 20</span></td>
+          <td><span class="ch">The Midwest</span><br>The Midwest is the middle of the country, called the Heartland and the Breadbasket. Its flat land and rich soil grow huge amounts of corn, soybeans, and wheat. The five Great Lakes hold fresh water that millions of people drink.
+            <span class="rm"><b>Lobby</b>Scan four foods and things from a store shelf, like cereal and cheese, and see which Midwest state each one came from.</span>
+            <span class="rm"><b>Gallery</b>Look out a plane window at three heights over the farms. Study a photo of Chicago on Lake Michigan. Fill the five Great Lakes in order, with a memory trick for their names: HOMES (Huron, Ontario, Michigan, Erie, Superior).</span>
+            <span class="pill p-source">Source: Chicago from Lake Michigan</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+          <td>Label the Midwest map, 1 evidence question, and the <strong>Heartland Label</strong>: one sentence of their own about why the Midwest is called the Heartland.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.07.05<span>Week 21</span></td>
+          <td><span class="ch">The Southwest</span><br>The Southwest is in the lower middle, next to Mexico. Much of it is dry desert with mesas and canyons. The Colorado River carved the Grand Canyon over millions of years. Pueblo, Navajo, and Hopi nations have lived here for a very long time, along with Mexican-American families.
+            <span class="rm"><b>Lobby</b>Watch three jars fill with one year of rain and pick the one from Phoenix, Arizona (only about 7 inches). Then open the Desert &amp; Canyon crate.</span>
+            <span class="rm"><b>Gallery</b>Run time forward and watch a river carve a canyon through rock layers. Study a photo of Acoma Pueblo, a village on a mesa where people still live. Test a thin-walled house and a thick adobe house at noon and at midnight.</span>
+            <span class="pill p-source">Source: Acoma Pueblo, New Mexico</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+          <td>The <strong>Southwest Alcove Sign</strong>: 3 sentences about where the Southwest is, what the land looks like, and one thing about the people who live there.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.07.06<span>Week 21</span></td>
+          <td><span class="ch">The West</span><br>The West runs along the Pacific Ocean and through the Rocky Mountains, and it includes Alaska and Hawaii. Alaska is the biggest state. Hawaii is made of volcanic islands. Mountains can make one side wet and the other side dry (a rain shadow).
+            <span class="rm"><b>Lobby</b>Drag Alaska and Hawaii out of their little map boxes to where they really are.</span>
+            <span class="rm"><b>Gallery</b>Blow wind over flat land, then raise the mountains and see the rain shadow. Study a photo of lava from Kīlauea pouring into the sea. Slide the ocean floor over a hot spot and watch the Hawaiian islands grow.</span>
+            <span class="pill p-source">Source: Kīlauea, Hawaii (U.S. Geological Survey)</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+          <td>The <strong>West Alcove Sign</strong> (3 sentences, naming Alaska and Hawaii) and a <strong>Gallery Plaque</strong>: one pattern all five regions share, one big difference, and an example. This earns the Region Guide badge.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.07.07<span>Week 22</span></td>
+          <td><span class="ch">Songs, Legends, Poems, and News</span><br>Stories tell what a map can’t: what people love, miss, and remember about a place. The lesson has a song (“Home on the Range,” Midwest), a tall tale (Paul Bunyan, West), a poem (“The New Colossus” at the Statue of Liberty, Northeast), the news (Hurricane Betsy, 1965, Southeast), and a story from the Hopi people (Southwest).
+            <span class="rm"><b>Lobby</b>Tune an old radio across the country and guess each song’s region from real old recordings.</span>
+            <span class="rm"><b>Gallery</b>Play five story tapes and match each to its region. Study a photo of a rescue after Hurricane Betsy, then unfold a newspaper and find what, when, where, and who.</span>
+            <span class="pill p-source">Source: a 1965 Coast Guard rescue photo</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+          <td>The <strong>Listening Station Sign</strong>: 3 sentences that name a kind of story, one story they remember, and one story from their own region.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.07.08<span>Week 22</span></td>
+          <td><span class="ch">Contributions from Diverse Groups</span><br>A contributor is a person whose work helps others and shapes a place. The lesson meets six: Sequoyah (a writing system for the Cherokee language), Frederick Douglass (spoke and wrote against slavery), Maya Lin (designed the Vietnam Veterans Memorial), Sandra Day O’Connor (first woman on the Supreme Court), Cesar Chavez (brought farm workers together to ask for fair pay), and Queen Liliʻuokalani (the last queen of Hawaii).
+            <span class="rm"><b>Lobby</b>Lift the cloth on six objects and guess who made each one.</span>
+            <span class="rm"><b>Gallery</b>Hang the Contributions Wall and watch gold threads show where each person lived and moved. Study the first Cherokee Phoenix newspaper (1828), then tap Sequoyah’s symbols to write “Cherokee” and “hello.”</span>
+            <span class="pill p-source">Source: the Cherokee Phoenix, 1828</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+          <td>The <strong>Contributions Wall Closing Sign</strong> (naming at least one contributor) and a small <strong>plaque</strong> for one person from their own region, famous or from their family or community. Cutting the ribbon earns the Gallery Founder badge.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- WORDS -->
+  <section class="card">
+    <div class="card-head"><span class="ico">🔤</span><h2>Words to Know</h2><span class="tag">Use them at home!</span></div>
+    <div class="words">
+      <div class="word"><b>region</b><span>a group of states that are alike in many ways, like their land, weather, resources, or ways of life</span></div>
+      <div class="word"><b>geographer</b><span>a person who studies the earth and its places</span></div>
+      <div class="word"><b>climate</b><span>the usual weather of a place over many years</span></div>
+      <div class="word"><b>distinct</b><span>different in its own way</span></div>
+      <div class="word"><b>hurricane</b><span>a huge storm with very strong winds and heavy rain that forms over warm ocean water</span></div>
+      <div class="word"><b>wetland</b><span>land covered by shallow water and plants for much of the year, like the Everglades</span></div>
+      <div class="word"><b>Great Lakes</b><span>five huge freshwater lakes on the northern edge of the Midwest: Superior, Michigan, Huron, Erie, and Ontario</span></div>
+      <div class="word"><b>prairie</b><span>wide, flat land covered with tall grass</span></div>
+      <div class="word"><b>desert</b><span>land that gets very little rain. Many deserts are rocky, not sandy.</span></div>
+      <div class="word"><b>canyon / mesa</b><span>a deep valley with steep sides / a tall hill with a flat top and steep sides</span></div>
+      <div class="word"><b>adobe</b><span>a brick made of mud and straw, dried in the sun</span></div>
+      <div class="word"><b>volcano</b><span>an opening in the Earth where lava, ash, and gas come out</span></div>
+      <div class="word"><b>rain shadow</b><span>the dry side of a mountain range, where little rain falls</span></div>
+      <div class="word"><b>legend / tall tale</b><span>an old story people tell again and again / a funny legend that stretches the truth</span></div>
+      <div class="word"><b>contributor</b><span>a person whose work helps others and shapes a place</span></div>
+      <div class="word"><b>syllabary</b><span>a writing system where each symbol stands for a whole sound, like Sequoyah’s for the Cherokee language</span></div>
+    </div>
+  </section>
+
+  <!-- ASK AT HOME -->
+  <section class="card">
+    <div class="card-head"><span class="ico">💬</span><h2>Ask at Home</h2><span class="tag">Better than “How was school?”</span></div>
+    <ol class="ask">
+      <li><span class="q">Which region do we live in? How do you know?</span><span class="listen">Listen for: the region’s name, and something about its land, weather, or resources that fits.</span></li>
+      <li><span class="q">Can you name all five regions?</span><span class="listen">Listen for: the Northeast, Southeast, Midwest, Southwest, and West.</span></li>
+      <li><span class="q">Where does a hurricane get its strength?</span><span class="listen">Listen for: warm ocean water. Over land it gets weaker.</span></li>
+      <li><span class="q">Why is the Midwest called the Breadbasket?</span><span class="listen">Listen for: its flat land and rich soil grow huge amounts of corn, wheat, and other grains.</span></li>
+      <li><span class="q">How did the Grand Canyon get so deep?</span><span class="listen">Listen for: the Colorado River carved it a little at a time, over millions of years.</span></li>
+      <li><span class="q">Where are Alaska and Hawaii really?</span><span class="listen">Listen for: Alaska is far north, past Canada, and Hawaii is far out in the Pacific Ocean. They only look close on maps with little boxes.</span></li>
+      <li><span class="q">Was Paul Bunyan a real person?</span><span class="listen">Listen for: no. He is from a tall tale, a story that stretches the truth.</span></li>
+      <li><span class="q">Who is someone from our region whose work helped other people?</span><span class="listen">Listen for: a name and what they did. It can be a famous person or someone your student knows.</span></li>
+    </ol>
+  </section>
+
+  <!-- TURN IN + TRY AT HOME -->
+  <div class="two">
+    <section class="card">
+      <div class="card-head"><span class="ico">📬</span><h2>What Gets Turned In</h2></div>
+      <ul class="check">
+        <li><strong>Each lesson:</strong> the Curator Task (a sign or a label for the gallery), a Curator’s Chronicle sentence, and in the first four lessons one evidence question</li>
+        <li><strong>End of the unit:</strong> a 10-question Unit 7 quiz in Canvas</li>
+        <li>Copied or downloaded, then <strong>submitted in Canvas</strong></li>
+      </ul>
+      <p class="small" style="margin-top:10px;"><strong>Done well looks like:</strong> real place names, the region’s name, a fact about its land, water, or weather, and kind, careful words about the people who live there. For the Twin Labels and the Gallery Plaque, one way regions are alike <em>and</em> one way they are different.</p>
+    </section>
+    <section class="card">
+      <div class="card-head"><span class="ico">🏡</span><h2>Try at Home</h2><span class="tag">5 minutes</span></div>
+      <ul class="check">
+        <li><strong>Our region.</strong> On a U.S. map, find your state, then its region. Name one neighbor state in the same region.</li>
+        <li><strong>Where did breakfast come from?</strong> Pick one food in your kitchen and guess which region grew it.</li>
+        <li><strong>A song about a place.</strong> Sing or listen to a song about your state or town. What does it say people love about it?</li>
+        <li><strong>A family contributor.</strong> Tell your student about someone in your family or community whose work helped others.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- NEXT -->
+  <section class="card next">
+    <div class="card-head"><span class="ico">🔭</span><h2>Coming Up: The Regional Council Chamber</h2></div>
+    <p>With the United States Regions Gallery complete, a side door opens to the <strong>Regional Council Chamber</strong>, a long oak table where the museum council meets. Your student gathers evidence from all five regions and helps the council think about a hard question: when resources are limited, how do regions decide what to do?</p>
+  </section>
+
+  <p class="foot">Optima Academy Online · 3rd Grade Social Studies · Unit 7 Family Guide<br>Questions? Reach out to your student’s teacher anytime.</p>
+</div>
+</body>
+</html>

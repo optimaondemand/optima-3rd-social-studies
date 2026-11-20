@@ -1,0 +1,168 @@
+{
+ "id": "g3-u07-quiz",
+ "title": "Unit 7 Quiz · United States Regions",
+ "description": "10 questions about Unit 7. Read each question carefully. Pick the best answer. One question asks you to pick all the answers that are true.",
+ "points_each": 1,
+ "questions": [
+  {
+   "type": "multiple_answers_question",
+   "lesson": "3.07.01 Five Regions of the United States",
+   "text": "Geographers group states into regions. Which of these do they look at? Pick ALL that are true.",
+   "options": [
+    "How many letters are in each state's name",
+    "The land and the climate the states share",
+    "The resources the states share",
+    "The ways people live there"
+   ],
+   "correct": [
+    1,
+    2,
+    3
+   ],
+   "why": "A region is a group of states that are alike in their land, weather (climate), resources, and ways of life. The length of a state's name has nothing to do with it.",
+   "n": 1
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.07.01 Five Regions of the United States",
+   "text": "Which list names the five regions of the United States?",
+   "options": [
+    "North, South, East, West, and Middle",
+    "Northeast, Southeast, Midwest, Southwest, and West",
+    "Canada, United States, Mexico, Caribbean, and Alaska",
+    "Atlantic, Pacific, Gulf of Mexico, Great Lakes, and Rio Grande"
+   ],
+   "correct": [
+    1
+   ],
+   "why": "Many maps divide the United States into five regions: the Northeast, Southeast, Midwest, Southwest, and West.",
+   "n": 2
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.07.02 Northeast Region Study",
+   "text": "In early spring in Vermont, people collect sap from maple trees and boil it. What do they make?",
+   "options": [
+    "Coal",
+    "Cotton",
+    "Lobster traps",
+    "Maple syrup"
+   ],
+   "correct": [
+    3
+   ],
+   "why": "Cold nights and warm days in early spring make the sap run. People boil the sap into maple syrup. Vermont makes more maple syrup than any other state.",
+   "n": 3
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.07.03 Southeast Region Study",
+   "text": "Hurricanes often hit the Southeast. Where does a hurricane get its strength?",
+   "options": [
+    "From warm ocean water",
+    "From snow on the mountains",
+    "From dry desert wind",
+    "From the cold Great Lakes"
+   ],
+   "correct": [
+    0
+   ],
+   "why": "A hurricane forms over warm ocean water, and the warm water feeds it. When it moves over land, it has no warm water to feed it, so it gets weaker.",
+   "n": 4
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.07.04 Midwest Region Study",
+   "text": "Why are the Great Lakes so important to the Midwest?",
+   "options": [
+    "They are salty oceans full of whales.",
+    "They are mountains covered in snow.",
+    "They hold fresh water that millions of people drink.",
+    "They are dry lakes in the desert."
+   ],
+   "correct": [
+    2
+   ],
+   "why": "The Great Lakes are five large freshwater lakes. They hold about one fifth of all the fresh water on top of the Earth, and millions of people drink it.",
+   "n": 5
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.07.05 Southwest Region Study",
+   "text": "What carved the Grand Canyon in Arizona?",
+   "options": [
+    "An earthquake that happened in one day",
+    "The Colorado River, a little at a time, over millions of years",
+    "People with big digging machines",
+    "A glacier made of ice"
+   ],
+   "correct": [
+    1
+   ],
+   "why": "The Colorado River carved the Grand Canyon a little at a time, over millions of years. Now it is more than a mile deep.",
+   "n": 6
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.07.05 Southwest Region Study",
+   "text": "Many old houses in the Southwest desert have thick adobe walls. How do thick walls help?",
+   "options": [
+    "They make the house taller.",
+    "They keep the rain out, because it rains every day.",
+    "They keep snow off the roof all winter.",
+    "They keep the house cooler at noon and warmer at night."
+   ],
+   "correct": [
+    3
+   ],
+   "why": "Thick adobe walls soak up the heat slowly all day and give it back slowly at night. The house stays cooler at noon and warmer at midnight. Adobe is a brick made of mud and straw, dried in the sun.",
+   "n": 7
+  },
+  {
+   "type": "true_false_question",
+   "lesson": "3.07.06 West Region Study",
+   "text": "True or false: Hawaii is a U.S. state in the West region, made of islands that volcanoes built.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "why": "Hawaii is a West state made of volcanic islands in the Pacific Ocean. Lava from volcanoes like Kīlauea is still building new land.",
+   "n": 8
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.07.07 Songs, Legends, Poems, and News",
+   "text": "Paul Bunyan, the giant logger, comes from a tall tale. What is a tall tale?",
+   "options": [
+    "A true news story from a newspaper",
+    "A map that shows where forests are",
+    "A funny legend that stretches the truth",
+    "A poem about a real president"
+   ],
+   "correct": [
+    2
+   ],
+   "why": "A tall tale is a funny legend that stretches the truth. Paul Bunyan was never a real person, but his story tells us about a region with huge forests and logging camps.",
+   "n": 9
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.07.08 Contributions from Diverse Groups",
+   "text": "Sequoyah made a writing system for the Cherokee language. In his writing, what does each symbol stand for?",
+   "options": [
+    "A whole sound, like tsa or la",
+    "A whole sentence",
+    "A number",
+    "A picture of an animal"
+   ],
+   "correct": [
+    0
+   ],
+   "why": "Sequoyah's writing system is a syllabary: each symbol stands for one whole sound. Three symbols, tsa-la-gi, spell Cherokee. Soon many Cherokee people could read and write in their own language.",
+   "n": 10
+  }
+ ]
+}
