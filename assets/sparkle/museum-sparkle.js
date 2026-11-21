@@ -134,6 +134,11 @@
    - backpack     Gallery main attraction: the Backpack Test; goods drop into Max's backpack, services change Max
    - coinring     Gallery: Follow the Coins; five deals around a ring (one paid by trade); everyone ends a buyer AND a seller
    - boothsigns   Exhibit Floor: four label boxes move into the step → signs swing down over the booths, visitors walk to the right booths
+   Added for 3.09_04 (DATA.villagers, DATA.items + DATA.tests, DATA.stalls):
+   - barter       Lobby: trade a goat around a chain to get bread, then pay the baker with coins in one stop
+   - testbench    Gallery main attraction: the Money Test Bench; four machines test a coin, a bill, a shell, salt; the salt melts in the rain
+   - trustswitch  Gallery: one $5 bill buys at three stalls; flip the town's trust off and the same bill is refused
+   - chococase    Exhibit Floor: chocolate-bar test (4 rule boxes + final panel move into the steps) → it slides into the money case with a placard
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1191,7 +1196,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -5492,7 +5497,230 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.09_04 (Characteristics of Money) ══════════
+     DATA.villagers = the barter chain (potter, weaver, beekeeper, baker); DATA.items + DATA.tests = the Money Test Bench;
+     DATA.stalls = three stalls for the Trust Switch
+     - barter       Lobby: you hold a goat and want bread; offer it around a chain of trades; then pay the baker with coins in one step
+     - testbench    Gallery main attraction: four machines (rain, long walk, counting tray, visitors) test four items; the salt melts; scorecard fills
+     - trustswitch  Gallery: pay with one $5 bill at three stalls; flip the town's trust off; the same bill is refused
+     - chococase    Exhibit Floor: four rule boxes (Yes/No + because) + final panel move into the steps → the chocolate slides into the money case with a placard */
+
+  /* ══ MODULE: barter (Lobby · a goat for a loaf of bread) ══ */
+  function modBarter(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var V = DATA.villagers || [];
+    ST.bx = ST.bx || {hand:'🐐', handT:'a goat', tries:0, trades:0, step:1, coins:false, q:false}; var S = ST.bx;
+    var TIMES = ['🌅 Early morning', '☀️ Morning', '🌤️ Late morning', '🕛 Noon', '🌇 Afternoon', '🌆 Almost evening'];
+    var m = shell('ms-bx-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-bx-stage"><div class="ms-bx-top"><div class="ms-bx-hand"><small>You are holding</small><b></b></div><div class="ms-bx-clock"></div><div class="ms-bx-cnt"></div></div>' +
+      '<div class="ms-bx-row">'+V.map(function(v){ return '<button type="button" class="ms-bx-v" data-k="'+v.k+'"><span class="who">'+v.ic+'</span><b>'+esc(v.name)+'</b><span class="hw"><i class="h">HAS</i> '+v.has+' '+esc(v.hasT)+'</span><span class="hw"><i class="w">WANTS</i> '+v.wants+' '+esc(v.wantsT)+'</span></button>'; }).join('')+'</div></div><div class="ms-bx-act" aria-live="polite"></div>');
+    after(anchor, m);
+    var act = $('.ms-bx-act', m);
+    function vil(k){ for (var i = 0; i < V.length; i++) if (V[i].k === k) return V[i]; }
+    function paint(){
+      $('.ms-bx-hand b', m).textContent = S.hand + ' ' + S.handT;
+      $('.ms-bx-clock', m).textContent = S.step === 1 || !S.coins ? TIMES[Math.min(S.tries, TIMES.length - 1)] : '⏱️ One quick stop';
+      $('.ms-bx-cnt', m).textContent = S.step === 1 ? 'Trades so far: ' + S.trades : 'Barter: ' + S.trades + ' trades · Coins: ' + (S.coins ? '1 stop' : '?');
+    }
+    function offer(k, btn){
+      var v = vil(k), fb = $('.ms-exfb', act);
+      if (S.step === 1) {
+        if (S.hand === '🍞') return;
+        S.tries++;
+        if (v.wants === S.hand) { S.trades++; S.hand = v.has; S.handT = v.hasT; save(); SFX.chime(); btn.classList.add('swap'); setTimeout(function(){ btn.classList.remove('swap'); }, 700);
+          render(); var f2 = $('.ms-exfb', act); if (f2) f2.innerHTML = '<div class="ms-vd-thanks">🔄 '+esc(v.name)+' trades! You give '+esc(v.wantsT)+' and get '+esc(v.hasT)+'.</div>'; return; }
+        save(); SFX.miss(); btn.classList.remove('no'); void btn.offsetWidth; btn.classList.add('no'); paint();
+        var extra = (k === 'baker' && S.hand === '🐐') ? ' "A whole goat for one loaf? I can\'t cut a goat to give you change, and I don\'t need one."' : '';
+        if (fb) fb.innerHTML = '<div class="ms-notyet">🙅 '+esc(v.name)+' wants '+esc(v.wantsT)+', not '+esc(S.handT)+'.'+esc(extra)+' Look for someone who WANTS '+esc(S.handT)+'.</div>';
+        return; }
+      if (S.step === 2 && !S.coins) {
+        if (k !== 'baker') { SFX.miss(); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 You want bread. Who HAS bread?</div>'; return; }
+        S.coins = true; S.hand = '🍞'; S.handT = 'a loaf of bread'; save(); SFX.chime(); render(); }
+    }
+    $$('.ms-bx-v', m).forEach(function(b){ b.onclick = function(){ offer(b.dataset.k, b); }; });
+    function render(){
+      paint(); var N = 3;
+      if (S.q) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (S.step === 1) {
+        if (S.hand === '🍞') { act.innerHTML = stepCard(1, N, 'Trade your way to bread', '<div class="ms-vd-thanks">🍞 You got your bread! It took '+S.trades+' trades and most of the day.</div><button type="button" class="ms-btn big ms-bx-next">Next: try it with coins ➡️</button>');
+          $('.ms-bx-next', act).onclick = function(){ SFX.click(); S.step = 2; S.hand = '🪙🪙'; S.handT = 'two coins'; save(); render(); }; return; }
+        act.innerHTML = stepCard(1, N, 'Trade your way to bread', '<p class="ms-wm-do">👆 You are holding '+esc(S.hand+' '+S.handT)+'. Tap a person to offer it. Read what each person WANTS.</p><div class="ms-exfb" aria-live="polite"></div>'); return; }
+      if (S.step === 2) {
+        act.innerHTML = stepCard(2, N, 'Now try it with money', S.coins ? '<div class="ms-vd-thanks">🍞 The baker takes your coins and hands you bread. One stop! The baker can use the coins to buy anything she wants.</div><button type="button" class="ms-btn big ms-bx-next">Next ➡️</button>'
+          : '<p class="ms-wm-do">👆 Now you are holding two coins. Everyone in town takes coins. Tap the person who has bread.</p><div class="ms-exfb" aria-live="polite"></div>');
+        var nx = $('.ms-bx-next', act); if (nx) nx.onclick = function(){ SFX.click(); S.step = 3; save(); render(); }; return; }
+      var cq = choiceQ(cfg.q, 2, function(){ markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q = true; save(); render(); }, calm()?0:1500); });
+      act.innerHTML = stepCard(3, N, cfg.q.title, cq.html); cq.bind(act);
+    }
+    render(); if (S.q) markDone('scene');
+  }
+
+  /* ══ MODULE: testbench (Gallery main attraction · the Money Test Bench) ══ */
+  var SALTSVG = '<svg viewBox="0 0 60 44" aria-hidden="true"><ellipse class="pud" cx="30" cy="40" rx="24" ry="3.5" fill="#9EC7E8"/><g class="blk"><path d="M8 38 L14 14 L46 14 L52 38 Z" fill="#F6F3EC" stroke="#B9B2A3" stroke-width="2"/><path d="M14 14 L20 6 L52 6 L46 14 Z" fill="#FFFFFF" stroke="#B9B2A3" stroke-width="2"/><path d="M46 14 L52 6 L56 30 L52 38 Z" fill="#E6E0D3" stroke="#B9B2A3" stroke-width="2"/><path d="M18 22 l4 6 M30 18 l-3 8 M38 26 l5 4" stroke="#D8D0BF" stroke-width="1.5"/></g></svg>';
+  function modTestbench(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var I = DATA.items || [], T = DATA.tests || [];
+    ST.tb = ST.tb || {i:0, ran:false, q1:false, q2:false}; var S = ST.tb;
+    var m = shell('ms-tb-mod', cfg);
+    var MARK = {ok:'✅', kind:'⚠️', no:'❌'};
+    m.insertAdjacentHTML('beforeend', '<div class="ms-tb-stage"><div class="ms-tb-mach"><span class="ic"></span><b></b><small></small></div><div class="ms-tb-fx" aria-hidden="true"></div>' +
+      '<div class="ms-tb-bench">'+I.map(function(it){ return '<div class="ms-tb-it" data-k="'+it.k+'"><div class="obj">'+(it.k === 'salt' ? SALTSVG : '<span>'+it.ic+'</span>')+'<i class="xtra"></i></div><b>'+esc(it.t)+'</b><div class="res"></div></div>'; }).join('')+'</div>' +
+      '<table class="ms-tb-card"><thead><tr><th></th>'+T.map(function(t){ return '<th>'+t.ic+'<br>'+esc(t.col||t.rule)+'</th>'; }).join('')+'</tr></thead><tbody>'+I.map(function(it){ return '<tr data-k="'+it.k+'"><th>'+it.ic+' '+esc(it.t)+'</th>'+T.map(function(t){ return '<td data-t="'+t.k+'">?</td>'; }).join('')+'</tr>'; }).join('')+'</tbody></table></div><div class="ms-tb-act" aria-live="polite"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-tb-act', m), stage = $('.ms-tb-stage', m), busy = false;
+    function done(){ return S.i + (S.ran ? 1 : 0); }
+    function paint(){
+      var n = done(), cur = T[Math.min(S.i, T.length - 1)];
+      $('.ms-tb-mach .ic', m).textContent = S.i < T.length ? cur.ic : '📋';
+      $('.ms-tb-mach b', m).textContent = S.i < T.length ? cur.machine : 'All four tests done';
+      $('.ms-tb-mach small', m).textContent = S.i < T.length ? cur.rule : 'Read the scorecard';
+      T.forEach(function(t, j){ I.forEach(function(it){ var td = $('tr[data-k="'+it.k+'"] td[data-t="'+t.k+'"]', m); var r = t.res[it.k]; td.textContent = j < n ? MARK[r[0]] : '?'; td.className = j < n ? r[0] : ''; }); });
+      var show = S.ran && S.i < T.length ? T[S.i] : null;
+      I.forEach(function(it){ var el2 = $('.ms-tb-it[data-k="'+it.k+'"]', m), r = show ? show.res[it.k] : null;
+        $('.res', el2).innerHTML = r ? '<span class="'+r[0]+'">'+MARK[r[0]]+'</span> '+esc(r[1]) : '';
+        el2.className = 'ms-tb-it' + (r ? ' r-' + r[0] : '') + (show ? ' t-' + show.k : '');
+        if (it.k === 'salt') el2.classList.toggle('gone', n >= 1); });
+    }
+    function run(){
+      if (busy || S.ran) return; var t = T[S.i]; busy = true; SFX.click();
+      stage.classList.remove('fx-lasts','fx-carry','fx-count','fx-trust'); void stage.offsetWidth;
+      function finish(){ busy = false; S.ran = true; save(); stage.classList.remove('fx-' + t.k); paint(); render(); if (t.k === 'lasts') SFX.pop(); else SFX.chime(); }
+      stage.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'});
+      if (calm()) { finish(); return; }
+      stage.classList.add('fx-' + t.k);
+      $('.ms-tb-fx', m).innerHTML = t.k === 'lasts' ? '<span class="cloud">🌧️</span><span class="cloud c2">🌧️</span><span class="cloud c3">🌧️</span><span class="cloud c4">🌧️</span>' : t.k === 'carry' ? '<span class="walk">🚶</span>' : t.k === 'trust' ? '<span class="vis">🧳🧑‍🦱👩‍🦳</span>' : '<span class="cnt">1 · 2 · 3</span>';
+      setTimeout(finish, 2400);
+    }
+    function render(){
+      paint(); var N = T.length + 2;
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.i < T.length) { var t = T[S.i];
+        act.innerHTML = stepCard(S.i + 1, N, 'Test '+(S.i+1)+' of '+T.length+': '+t.machine, '<p><b>'+esc(t.rule)+'</b> '+esc(t.what)+'</p>' +
+          (S.ran ? '<p class="ms-wm-do">👀 Read what happened under each one. The scorecard filled in.</p><button type="button" class="ms-btn big ms-tb-next">'+(S.i + 1 < T.length ? 'Next test ➡️' : 'Next ➡️')+'</button>'
+                 : '<button type="button" class="ms-btn big ms-tb-run">'+esc(t.btn)+'</button>'));
+        var rb = $('.ms-tb-run', act); if (rb) rb.onclick = run;
+        var nx = $('.ms-tb-next', act); if (nx) nx.onclick = function(){ SFX.click(); S.i++; S.ran = false; save(); render(); };
+        return; }
+      var cq = choiceQ(S.q1 ? cfg.q2 : cfg.q1, S.q1 ? 3 : 1, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1400);
+        else { ST.gal = ST.gal||{}; ST.gal.bench = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1500); } });
+      act.innerHTML = stepCard(S.q1 ? N : N - 1, N, S.q1 ? cfg.q2.title : cfg.q1.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: trustswitch (Gallery · the same bill, with and without trust) ══ */
+  function modTrustswitch(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var L = DATA.stalls || [];
+    ST.tsw = ST.tsw || {paid:{}, off:false, refused:{}, q:false}; var S = ST.tsw;
+    var m = shell('ms-tsw-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-tsw-stage"><div class="ms-tsw-top"><div class="ms-tsw-bill" aria-label="A five dollar paper bill"><b>$5</b><span>FIVE DOLLARS</span></div>' +
+      '<button type="button" class="ms-tsw-sw" aria-pressed="true"><span class="knob"></span><b class="lab"></b></button></div>' +
+      '<div class="ms-tsw-row">'+L.map(function(s){ return '<button type="button" class="ms-tsw-st" data-k="'+s.k+'"><span class="aw" aria-hidden="true"></span><b>'+s.ic+' '+esc(s.t)+'</b><span class="kp" aria-hidden="true">🧑‍🍳</span><span class="say"></span></button>'; }).join('')+'</div></div><div class="ms-tsw-act" aria-live="polite"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-tsw-act', m), sw = $('.ms-tsw-sw', m);
+    function cnt(o){ return Object.keys(o).length; }
+    function phase(){ if (S.q) return 5; if (cnt(S.paid) < L.length) return 1; if (!S.off) return 2; if (cnt(S.refused) < L.length) return 3; return 4; }
+    function paint(){
+      var p = phase(), trustOn = !S.off || p === 5;
+      sw.classList.toggle('off', !trustOn); sw.setAttribute('aria-pressed', trustOn ? 'true' : 'false');
+      $('.lab', sw).textContent = trustOn ? 'TOWN TRUSTS THIS MONEY: ON' : 'TOWN TRUSTS THIS MONEY: OFF';
+      $('.ms-tsw-bill', m).classList.toggle('dull', !trustOn);
+      $$('.ms-tsw-st', m).forEach(function(b){ var k = b.dataset.k, s = L.filter(function(x){ return x.k === k; })[0];
+        var say = S.off && S.refused[k] && p !== 5 ? '✋ "No thanks. That\'s just paper now."' : (S.paid[k] && (!S.off || p === 5) ? '✅ "Thank you!" You get ' + s.got + '.' : (S.paid[k] && S.off ? '' : ''));
+        $('.say', b).textContent = say; b.classList.toggle('yes', !!S.paid[k] && (!S.off || p === 5)); b.classList.toggle('nope', !!(S.off && S.refused[k] && p !== 5)); });
+    }
+    $$('.ms-tsw-st', m).forEach(function(b){ b.onclick = function(){ var p = phase(), k = b.dataset.k;
+      if (p === 1) { if (!S.paid[k]) { S.paid[k] = 1; save(); SFX.chime(); } render(); return; }
+      if (p === 3) { if (!S.refused[k]) { S.refused[k] = 1; save(); SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); } render(); return; }
+      if (p === 2) { var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = '<div class="ms-notyet">👆 First flip the big switch.</div>'; } }; });
+    sw.onclick = function(){ var p = phase(); if (p === 2) { S.off = true; save(); SFX.click(); render(); } else if (p === 1) { var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = '<div class="ms-notyet">👆 First pay at all three stalls.</div>'; } };
+    function render(){
+      paint(); var p = phase(), N = 4;
+      if (p === 5) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (p === 1) { act.innerHTML = stepCard(1, N, 'Pay with the bill', '<p class="ms-wm-do">👆 Tap each stall to pay with your $5 bill. ('+cnt(S.paid)+' of '+L.length+')</p><div class="ms-exfb" aria-live="polite"></div>'); return; }
+      if (p === 2) { act.innerHTML = stepCard(2, N, 'Flip the switch', '<p>Imagine that one morning, everyone in town stops believing this paper is worth anything.</p><p class="ms-wm-do">👆 Tap the big switch to turn the town\'s trust OFF.</p><div class="ms-exfb" aria-live="polite"></div>'); return; }
+      if (p === 3) { act.innerHTML = stepCard(3, N, 'Try again', '<p class="ms-wm-do">👆 Tap each stall and try to pay with the same $5 bill. ('+cnt(S.refused)+' of '+L.length+')</p>'); return; }
+      var cq = choiceQ(cfg.q, 1, function(){ ST.gal = ST.gal||{}; ST.gal.trust = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.q = true; save(); render(); }, calm()?0:1500); });
+      act.innerHTML = stepCard(4, N, cfg.q.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: chococase (Exhibit Floor · four rule boxes + final panel → chocolate goes into the money case) ══ */
+  function modChococase(cfg){
+    var R = (cfg.rules || []).map(function(r){ var ta = document.getElementById(r.id); return ta ? {r:r, ta:ta, home:null} : null; }).filter(Boolean);
+    var P = document.getElementById(cfg.panel || 'journal-assign'); if (R.length < 4 || !P) return;
+    var NEED = cfg.ruleMin || 5, SN = cfg.sentMin || 2, I = DATA.items || [];
+    ST.ch = ST.ch || {step:1, v:null, open:false}; var S = ST.ch;
+    var m = shell('ms-ch-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-ch-act"></div><div class="ms-ch-stage" hidden><div class="ms-ch-case"><div class="glass" aria-hidden="true"></div><div class="lbl">THE MONEY CASE</div><div class="row">'+I.map(function(it){ return '<span class="it">'+it.ic+'<i>'+esc(it.t)+'</i></span>'; }).join('')+'<span class="it choc">🍫<i>Chocolate bar</i></span></div></div>' +
+      '<div class="ms-ch-plac"><div class="v"></div><ul class="rl"></ul><p class="tx"></p><p class="by"></p></div></div><div class="ms-ch-end"></div>');
+    var all = R.map(function(x){ return x.ta; }).concat([P]);
+    var blk = P.closest('.activity-body') || P.parentNode;
+    var homes = all.map(function(ta){ var h = document.createComment('ch-home'); ta.parentNode.insertBefore(h, ta); return {ta:ta, h:h}; });
+    var p0 = blk.querySelector('p'); if (p0 && p0.nextSibling) blk.insertBefore(m, p0.nextSibling); else blk.insertBefore(m, blk.firstChild); if (p0) p0.classList.add('ms-hide-on');
+    $$('.textbox-prompt', blk).forEach(function(tp){ tp.classList.add('ms-hide-on'); }); var ci = blk.querySelector('.callout'); if (ci) ci.classList.add('ms-hide-on');
+    var act = $('.ms-ch-act', m), show = $('.ms-ch-stage', m), end = $('.ms-ch-end', m), curUpd = null;
+    function goHome(){ homes.forEach(function(x){ if (x.ta.previousSibling !== x.h) x.h.parentNode.insertBefore(x.ta, x.h.nextSibling); }); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function words(t){ return (t.trim().match(/\S+/g)||[]).length; }
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return words(s) >= 3; }).length; }
+    function rOk(x){ return words(x.ta.value) >= NEED && /\b(yes|no)\b/i.test(x.ta.value); }
+    function miss1(){ var o = []; R.forEach(function(x, i){ if (!/\b(yes|no)\b/i.test(x.ta.value)) o.push('Rule '+(i+1)+': tap Yes or No.'); else if (words(x.ta.value) < NEED) o.push('Rule '+(i+1)+': add '+(NEED - words(x.ta.value))+' more word'+(NEED - words(x.ta.value) === 1 ? '' : 's')+' to give a reason.'); }); return o; }
+    function miss2(){ var o = [], n = sents(P.value); if (n < SN) o.push('Write '+(SN-n)+' more sentence'+(SN-n===1?'':'s')+' (3 words or more each).'); if (!/money/i.test(P.value)) o.push('Say whether it would work as money.'); if (!S.v) o.push('Pick your answer: works or doesn\'t work.'); return o; }
+    function view(){
+      $('.v', show).innerHTML = S.v === 'yes' ? esc(cfg.yesT) : esc(cfg.noT); $('.v', show).className = 'v ' + (S.v || '');
+      $('.rl', show).innerHTML = R.map(function(x){ return '<li><b>'+esc(x.r.t.replace(/^Rule \d: /,''))+'</b> '+esc(x.ta.value.trim())+'</li>'; }).join('');
+      $('.tx', show).textContent = P.value.trim(); var nm = sget(NAMEK,''); $('.by', show).textContent = nm ? 'Tested by ' + nm + ', Trade & Choice Curator' : 'Tested by a Trade & Choice Curator';
+      show.classList.toggle('open', !!S.open);
+    }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 3; all.forEach(function(ta){ ta.classList.toggle('ms-gi-away', !((S.step === 1 && ta !== P) || (S.step === 2 && ta === P))); });
+      var fb;
+      if (S.step === 1) { goHome();
+        act.innerHTML = stepCard(1, 3, cfg.s1T, '<p>'+esc(cfg.s1||'')+'</p><div class="ms-ch-item">🍫 <b>The item to test:</b> a store-bought chocolate bar.</div>' + R.map(function(x, i){ return '<div class="ms-bs-f ms-ch-f" data-i="'+i+'"><div class="ms-bs-fh"><b>'+esc(x.r.t)+'</b><button type="button" class="ms-btn alt ms-ch-yn" data-i="'+i+'" data-a="Yes">👍 Yes, because</button><button type="button" class="ms-btn alt ms-ch-yn" data-i="'+i+'" data-a="No">👎 No, because</button><span class="ms-chip"></span></div><div class="ms-bs-box"></div></div>'; }).join('') +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn big ms-ch-n1">Next: my final panel ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        R.forEach(function(x, i){ $('.ms-ch-f[data-i="'+i+'"] .ms-bs-box', act).appendChild(x.ta); });
+        fb = $('.ms-gi-fb', act);
+        var upd = function(){ R.forEach(function(x, i){ var c = $('.ms-ch-f[data-i="'+i+'"] .ms-chip', act), g = rOk(x); c.className = 'ms-chip' + (g ? ' ok' : ''); c.textContent = g ? '✓ ready' : Math.min(words(x.ta.value), NEED) + ' of ' + NEED + ' words'; });
+          var o = miss1(); $('.ms-ch-n1', act).classList.toggle('ms-notready', !!o.length); if (fb.innerHTML) fb.innerHTML = o.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $$('.ms-ch-yn', act).forEach(function(b){ b.onclick = function(){ var x = R[+b.dataset.i], t = b.dataset.a + ', because', rest = x.ta.value.replace(/^\s*(yes|no)\s*,?\s*(because)?\s*/i, '');
+          x.ta.value = t + ' ' + rest; x.ta.focus(); x.ta.setSelectionRange(x.ta.value.length, x.ta.value.length); x.ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-ch-n1', act).onclick = function(){ var o = miss1(); if (o.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 2; save(); goHome(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      if (S.step === 2) { goHome();
+        act.innerHTML = stepCard(2, 3, cfg.s2T, '<p>'+esc(cfg.s2||'')+'</p><div class="ms-gi-starts">'+(cfg.panelStarters||[]).map(function(t, i){ return '<button type="button" class="ms-btn alt ms-gi-start" data-i="'+i+'">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-ch-chk"></div>' +
+          '<div class="ms-pchoices ms-ch-v"><button type="button" class="ms-btn'+(S.v === 'yes' ? '' : ' alt')+'" data-v="yes" aria-pressed="'+(S.v === 'yes')+'">'+esc(cfg.yesT)+'</button><button type="button" class="ms-btn'+(S.v === 'no' ? '' : ' alt')+'" data-v="no" aria-pressed="'+(S.v === 'no')+'">'+esc(cfg.noT)+'</button></div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-ch-b">⬅️ Back to my tests</button><button type="button" class="ms-btn big ms-ch-n2">See my placard ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(P); fb = $('.ms-gi-fb', act);
+        var chk = $('.ms-ch-chk', act);
+        var upd2 = function(){ var n = sents(P.value), o = miss2(); chk.innerHTML = '<span class="ms-wc'+(n>=SN?' ok':'')+'">📝 '+Math.min(n,SN)+' of '+SN+' sentences</span><span class="ms-chip'+(/money/i.test(P.value)?' ok':'')+'">'+(/money/i.test(P.value)?'✓ ':'')+'says "money"</span>';
+          $('.ms-ch-n2', act).classList.toggle('ms-notready', !!o.length); if (fb.innerHTML) fb.innerHTML = o.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd2; upd2();
+        $$('.ms-gi-start', act).forEach(function(b){ b.onclick = function(){ var t = (cfg.panelStarters||[])[+b.dataset.i]; P.value = P.value.replace(/\s*$/,'') + (P.value.trim() ? ' ' : '') + t + ' '; P.focus(); P.setSelectionRange(P.value.length, P.value.length); P.dispatchEvent(new Event('input',{bubbles:true})); upd2(); }; });
+        $$('.ms-ch-v button', act).forEach(function(b){ b.onclick = function(){ S.v = b.dataset.v; save(); SFX.click(); $$('.ms-ch-v button', act).forEach(function(x){ var on = x.dataset.v === S.v; x.classList.toggle('alt', !on); x.setAttribute('aria-pressed', on); }); upd2(); }; });
+        $('.ms-ch-b', act).onclick = function(){ S.step = 1; save(); render(); };
+        $('.ms-ch-n2', act).onclick = function(){ var o = miss2(); if (o.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 3; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(3, 3, cfg.s3T, '<p>'+esc(cfg.s3||'')+'</p><button type="button" class="ms-btn big ms-ch-go">🍫 '+esc(cfg.openT||'Put it in the case')+'</button>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-ch-edit">✏️ '+esc(cfg.editT||'Edit')+'</button></div>';
+      var gb = $('.ms-ch-go', end); if (gb) gb.onclick = function(){ S.open = true; save(); show.classList.remove('in'); void show.offsetWidth; if (!calm()) show.classList.add('in'); SFX.fanfare(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'});
+        if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 1800);
+        setTimeout(function(){ show.classList.remove('in'); }, 3000); optiNod('assignment'); check(); };
+      $('.ms-ch-edit', end).onclick = function(){ S.open = false; S.step = 1; save(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    all.forEach(function(ta){ ta.addEventListener('input', function(){ if (curUpd && S.step < 3) curUpd(); }); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
