@@ -1,0 +1,102 @@
+{
+ "id": "g3-u08-quiz",
+ "title": "Unit 8 Quiz · Regions and Resources",
+ "description": "6 questions about Unit 8. Read each question carefully. Pick the best answer.",
+ "points_each": 1,
+ "questions": [
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.08.01 Regional Evidence Review",
+   "text": "Which of these is evidence, not an opinion?",
+   "options": [
+    "Phoenix is the best city to live in.",
+    "Phoenix gets about 7 inches of rain in a year.",
+    "Deserts are boring.",
+    "Everyone should visit the Southwest."
+   ],
+   "correct": [
+    1
+   ],
+   "why": "Evidence is a fact anyone can check, like how much rain falls in a year. The other answers are opinions: what someone thinks or feels.",
+   "n": 1
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.08.01 Regional Evidence Review",
+   "text": "From space, many farm fields on the Great Plains look like big green circles. What makes them green, even though this land gets little rain?",
+   "options": [
+    "Snow that melts on the fields every summer",
+    "Ocean water that floods the fields",
+    "Farmers pump water up from the Ogallala Aquifer, deep underground, and sprinklers water the crops.",
+    "The grass is painted green so it can be seen from space."
+   ],
+   "correct": [
+    2
+   ],
+   "why": "Farmers pump water from the Ogallala Aquifer, a huge store of water underground. A sprinkler turns in a circle to water the crops. This is called irrigation.",
+   "n": 2
+  },
+  {
+   "type": "true_false_question",
+   "lesson": "3.08.01 Regional Evidence Review",
+   "text": "True or false: Water under the ground never runs out, no matter how much people pump out.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    1
+   ],
+   "why": "False. Rain refills an aquifer only a tiny bit each year. If people pump out more water than the rain puts back, the water underground slowly goes down.",
+   "n": 3
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.08.02 Council Chamber: Which Region Needs This Resource?",
+   "text": "Which region gets the least rain, so it needs fresh water most?",
+   "options": [
+    "The Southeast",
+    "The Southwest",
+    "The Midwest",
+    "The Northeast"
+   ],
+   "correct": [
+    1
+   ],
+   "why": "The Southwest gets the least rain. Phoenix gets only about 7 inches in a whole year. Miami gets more than 60 inches.",
+   "n": 4
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.08.02 Council Chamber: Which Region Needs This Resource?",
+   "text": "Seven states and Mexico share the water of the Colorado River. What happens to the river in most years?",
+   "options": [
+    "It floods the ocean.",
+    "It turns into a glacier.",
+    "So much water is taken out that it dries up before it reaches the sea.",
+    "It gets bigger and bigger near the sea."
+   ],
+   "correct": [
+    2
+   ],
+   "why": "Farms and cities take water from the river through pipes and canals. In most years, so much is taken out that the Colorado River dries up before it reaches the sea.",
+   "n": 5
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.08.02 Council Chamber: Which Region Needs This Resource?",
+   "text": "Satellite pictures show that Lake Mead was much smaller in 2022 than in 2000. Why did the lake shrink?",
+   "options": [
+    "People took out more water than rain and snow put back, during many dry years.",
+    "Someone pulled a plug at the bottom of the lake.",
+    "The desert moved closer to the lake.",
+    "The water turned into sand."
+   ],
+   "correct": [
+    0
+   ],
+   "why": "Lake Mead stores Colorado River water for millions of people. During many dry years (a drought), people took out more water than rain and snow put back, so the lake went down.",
+   "n": 6
+  }
+ ]
+}
