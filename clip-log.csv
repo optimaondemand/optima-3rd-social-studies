@@ -143,6 +143,14 @@ optima-3rd-social-studies,opti,"Hoo, Council Curator! The council is in session.
 optima-3rd-social-studies,opti,The Colorado River starts as snow high in the Rocky Mountains. Seven states and Mexico all share it. Let's see what happens when everyone takes a turn!,151,audio/guide/g3ss-3-08-02-river-1.mp3,speech,ss-3-08.02-council-chamber-which-region-needs-this-resource.html,0dacf852d038d97eb9818e9a340676e1
 optima-3rd-social-studies,opti,An honest council looks at both sides. Put each evidence card on the side it helps. Then cast your vote and tell the council why.,129,audio/guide/g3ss-3-08-02-weigh-1.mp3,speech,ss-3-08.02-council-chamber-which-region-needs-this-resource.html,8f0523df3c13b5e919cacb39248ef466
 optima-3rd-social-studies,opti,"Word puzzle time! The root re means again. Rain and snow refill rivers and lakes again, but only so fast. Find re in three words.",129,audio/guide/g3ss-3-08-02-workroom-1.mp3,speech,ss-3-08.02-council-chamber-which-region-needs-this-resource.html,76f23adfd86de6a388fca1b85531956a
+optima-3rd-social-studies,opti,"Now write the very first panel for the Marketplace Hall. Visitors will read it at the door. When it's ready, we open the hall!",126,audio/guide/g3ss-3-09-01-exhibit-1.mp3,speech,ss-3-09_01-scarcity-and-choice.html,117f361c5f92fd2ff799c34b524640fd
+optima-3rd-social-studies,opti,"Tap a loaf, then tap a family to give it to them. Or drag the loaf to a family.",79,audio/guide/g3ss-3-09-01-how-bread.mp3,speech,ss-3-09_01-scarcity-and-choice.html,2dd2bedfd338cd514954de56f59a28ad
+optima-3rd-social-studies,opti,"Press Add the must-dos. Then tap the fun things you want to do today, until the day is full.",92,audio/guide/g3ss-3-09-01-how-day.mp3,speech,ss-3-09_01-scarcity-and-choice.html,1634de0855ecd1f13e637105d519372a
+optima-3rd-social-studies,opti,"At each table, tap the thing you want most, or drag it into your basket.",72,audio/guide/g3ss-3-09-01-how-tray.mp3,speech,ss-3-09_01-scarcity-and-choice.html,4f898cc7e5a209c330deaddd102a49cc
+optima-3rd-social-studies,opti,"Hoo, Trade and Choice Curator! Welcome to the Marketplace Hall. Three families are waiting at the bread booth, but look at the shelf. Hand out the bread and see what happens.",174,audio/guide/g3ss-3-09-01-lobby-1.mp3,speech,ss-3-09_01-scarcity-and-choice.html,d79d5743696828756a404c79b9955bc5
+optima-3rd-social-studies,opti,"This is a real ration book from 1943. During World War Two, sugar, meat, and coffee were scarce. Every person got a book like this one. Let's look closely.",155,audio/guide/g3ss-3-09-01-ration-1.mp3,speech,ss-3-09_01-scarcity-and-choice.html,4b055cda382c03aafe0b887c680d7d17
+optima-3rd-social-studies,opti,"Your basket holds only three things. At each table, you can take one thing, not both. Watch the shadow shelf. It keeps what you gave up.",136,audio/guide/g3ss-3-09-01-tray-1.mp3,speech,ss-3-09_01-scarcity-and-choice.html,e25a1f15556a71890c6cccbe67fa9c6d
+optima-3rd-social-studies,opti,"Word puzzle time! The word part un means not. When something is unlimited, it is not limited. Find un in three words.",117,audio/guide/g3ss-3-09-01-workroom-1.mp3,speech,ss-3-09_01-scarcity-and-choice.html,3eb5ab4c369a858810499abd5f704279
 optima-3rd-social-studies,opti,,0,audio/radio/g3ss-radio-mw.mp3,not-speech,,fab73b3012e899b0fe84d56ce2385b6f
 optima-3rd-social-studies,opti,,0,audio/radio/g3ss-radio-ne.mp3,not-speech,,50c4f7a1da038f546d7db37e64797d29
 optima-3rd-social-studies,opti,,0,audio/radio/g3ss-radio-se.mp3,not-speech,,d86edc83f84a765ba736493cbd0767eb
@@ -167,6 +175,7 @@ optima-3rd-social-studies,opti,capital,7,audio/words/g3ss-word-capital.mp3,speec
 optima-3rd-social-studies,opti,caribbean,9,audio/words/g3ss-word-caribbean.mp3,speech,file name,d21ff738887b2b32791a1ff82af57528
 optima-3rd-social-studies,opti,cascade range,13,audio/words/g3ss-word-cascade-range.mp3,speech,file name,a963125d9142e2bd4fb3ca1e24d05176
 optima-3rd-social-studies,opti,cherokee,8,audio/words/g3ss-word-cherokee.mp3,speech,file name,be77e36d562a0a25e01c305b5c1db53c
+optima-3rd-social-studies,opti,choice,6,audio/words/g3ss-word-choice.mp3,speech,file name,1f7559d917dfbc8ab3011ddc45611d20
 optima-3rd-social-studies,opti,climate,7,audio/words/g3ss-word-climate.mp3,speech,file name,2766ce853a41f1aec5986498c5e1c4f0
 optima-3rd-social-studies,opti,coal,4,audio/words/g3ss-word-coal.mp3,speech,file name,d4d2bc93dcdd933cfe1507a465913326
 optima-3rd-social-studies,opti,coastal plain,13,audio/words/g3ss-word-coastal-plain.mp3,speech,file name,9dd5c5e9089c66fb94790c929286dd39
@@ -232,9 +241,11 @@ optima-3rd-social-studies,opti,landmark,8,audio/words/g3ss-word-landmark.mp3,spe
 optima-3rd-social-studies,opti,ledger,6,audio/words/g3ss-word-ledger.mp3,speech,file name,f3ca4ea4f844387fdd40bf49fa9a954c
 optima-3rd-social-studies,opti,legend,6,audio/words/g3ss-word-legend.mp3,speech,file name,d45aebafce2f7238e0983410191d539f
 optima-3rd-social-studies,opti,lighthouse,10,audio/words/g3ss-word-lighthouse.mp3,speech,file name,2c0507c6193d5e54fde137e1a29343da
+optima-3rd-social-studies,opti,limited,7,audio/words/g3ss-word-limited.mp3,speech,file name,ef3f3f6815986703a38d716be6c09794
 optima-3rd-social-studies,opti,linguist,8,audio/words/g3ss-word-linguist.mp3,speech,file name,f46c9fe26d0f2b0e94d8b3cd243f7c78
 optima-3rd-social-studies,opti,maple syrup,11,audio/words/g3ss-word-maple-syrup.mp3,speech,file name,e27d6bad41f42139e718260f0377f1f1
 optima-3rd-social-studies,opti,mariachi,8,audio/words/g3ss-word-mariachi.mp3,speech,file name,67cb7ddaaf887ed918566287bb8cd783
+optima-3rd-social-studies,opti,marketplace,11,audio/words/g3ss-word-marketplace.mp3,speech,file name,8fcdd42bd0fdbc3ff70ae7887aa824ef
 optima-3rd-social-studies,opti,maya,4,audio/words/g3ss-word-maya.mp3,speech,file name,776e507f73d4a26d49f88a007923ebc4
 optima-3rd-social-studies,opti,memorial,8,audio/words/g3ss-word-memorial.mp3,speech,file name,422a760e7688105f0f20e58f331acb33
 optima-3rd-social-studies,opti,mesa,4,audio/words/g3ss-word-mesa.mp3,speech,file name,97150d30f4c1bcff12c58ea101c77462
@@ -264,6 +275,7 @@ optima-3rd-social-studies,opti,prairie,7,audio/words/g3ss-word-prairie.mp3,speec
 optima-3rd-social-studies,opti,pueblo,6,audio/words/g3ss-word-pueblo.mp3,speech,file name,5ef0c6a8b82127abad3c2fcca4ee98b4
 optima-3rd-social-studies,opti,quebec,6,audio/words/g3ss-word-quebec.mp3,speech,file name,f4b2322f1e6e663f2df5b7ab2cd7c101
 optima-3rd-social-studies,opti,rain shadow,11,audio/words/g3ss-word-rain-shadow.mp3,speech,file name,d337ca58994b22277f0952b4a7967cc2
+optima-3rd-social-studies,opti,ration,6,audio/words/g3ss-word-ration.mp3,speech,file name,b18f7fc7965790941406b2bf3ff17d65
 optima-3rd-social-studies,opti,recommendation,14,audio/words/g3ss-word-recommendation.mp3,speech,file name,900517181433ecf53be78960d78791b3
 optima-3rd-social-studies,opti,redwood,7,audio/words/g3ss-word-redwood.mp3,speech,file name,dd6e5c12eccea47de2439fcb123a5a20
 optima-3rd-social-studies,opti,reggae,6,audio/words/g3ss-word-reggae.mp3,speech,file name,d645d945bb160439c0015b3707a54cb7
@@ -271,10 +283,13 @@ optima-3rd-social-studies,opti,region,6,audio/words/g3ss-word-region.mp3,speech,
 optima-3rd-social-studies,opti,renewable,9,audio/words/g3ss-word-renewable.mp3,speech,file name,9f09e64ebbbf5f42d369440ca9ffed4b
 optima-3rd-social-studies,opti,reservoir,9,audio/words/g3ss-word-reservoir.mp3,speech,file name,5cf4c5295cfd2d30eb4d20a5dd34cbe9
 optima-3rd-social-studies,opti,resource,8,audio/words/g3ss-word-resource.mp3,speech,file name,29a0ae62a859c9dc0ddc2999dab34609
+optima-3rd-social-studies,opti,responsibility,14,audio/words/g3ss-word-responsibility.mp3,speech,file name,9afa851e6093b5906cc85a0ed02d8a9b
 optima-3rd-social-studies,opti,rio grande,10,audio/words/g3ss-word-rio-grande.mp3,speech,file name,ea409b56000a14f5ac843dd46bff3192
 optima-3rd-social-studies,opti,rocky mountains,15,audio/words/g3ss-word-rocky-mountains.mp3,speech,file name,9d08a8377458173eb53de544bdffed7c
 optima-3rd-social-studies,opti,saguaro,7,audio/words/g3ss-word-saguaro.mp3,speech,file name,51c5ae522d08ef55bc4af2c696849817
 optima-3rd-social-studies,opti,sap,3,audio/words/g3ss-word-sap.mp3,speech,file name,15cb89d1a0e0f779ab0237e8a9d284bf
+optima-3rd-social-studies,opti,scarce,6,audio/words/g3ss-word-scarce.mp3,speech,file name,c5273da57a97c0f67dc1a3b8954fdff9
+optima-3rd-social-studies,opti,scarcity,8,audio/words/g3ss-word-scarcity.mp3,speech,file name,1cdb8464fa415cbaa206de970e55d804
 optima-3rd-social-studies,opti,season,6,audio/words/g3ss-word-season.mp3,speech,file name,24750c2fb5bda21d5358e942098b33da
 optima-3rd-social-studies,opti,settle,6,audio/words/g3ss-word-settle.mp3,speech,file name,f865be3f21500a38260074cdfebe4326
 optima-3rd-social-studies,opti,settlement,10,audio/words/g3ss-word-settlement.mp3,speech,file name,8853372f67178445d2afcf81b6b60619
@@ -297,6 +312,7 @@ optima-3rd-social-studies,opti,three sisters,13,audio/words/g3ss-word-three-sist
 optima-3rd-social-studies,opti,timber,6,audio/words/g3ss-word-timber.mp3,speech,file name,18320987d11dd28d8a40eee0f744dce6
 optima-3rd-social-studies,opti,tornado,7,audio/words/g3ss-word-tornado.mp3,speech,file name,f6a73cda8c87aa3e2696556e84fc0787
 optima-3rd-social-studies,opti,trade,5,audio/words/g3ss-word-trade.mp3,speech,file name,caeeb63d0fb4087acedecc2addf2a34b
+optima-3rd-social-studies,opti,unlimited,9,audio/words/g3ss-word-unlimited.mp3,speech,file name,ad9ea6e4c7ed30d5365cebd226310f0e
 optima-3rd-social-studies,opti,valley,6,audio/words/g3ss-word-valley.mp3,speech,file name,4153e622b5b88cd1ec74927b2159850e
 optima-3rd-social-studies,opti,volcano,7,audio/words/g3ss-word-volcano.mp3,speech,file name,7782de925cc170edb41a1dcb773d4be2
 optima-3rd-social-studies,opti,west,4,audio/words/g3ss-word-west.mp3,speech,file name,1b56d32558efeb5bd2b7d204a9441a7c

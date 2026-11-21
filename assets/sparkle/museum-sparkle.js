@@ -119,6 +119,11 @@
    - river      Gallery main attraction: melt the snow, open each user's gate; the river dries before the sea
    - weigh      Gallery: evidence cards onto the council scale (Southwest / West) → vote + one reason (journal-vote moves in)
    - recommend  Exhibit Floor: region + two evidence chips + 2 own sentences → the council votes: placards flip, stamp, Marketplace Hall door opens a crack
+   Added for 3.09.01 (DATA.families = the bread line; DATA.tables = three market tables; DATA.must / DATA.fun = day-ring blocks):
+   - breadline    Lobby: two loaves, three families; hand them out → who got none? → scarce even if some is left?
+   - choicebasket Gallery main attraction: take one of two at each of three tables; the other goes to the GIVEN UP shadow shelf
+   - dayring      Gallery: a 24-hour ring; must-dos, then fun blocks until nothing fits; can money buy more hours?
+   - hallopen     Exhibit Floor: Intro Panel (3 own sentences, task box moves in) → hangs on the arch, awnings unroll, lanterns light, OPEN
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1176,7 +1181,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -4911,7 +4916,185 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.09.01 (Scarcity and Choice) ══════════
+     DATA.families = the bread line; DATA.tables = three market tables (two goods each); DATA.must / DATA.fun = blocks for the day ring
+     - breadline    Lobby: two loaves, three families; hand them out (tap or drag) → who got none? → is it scarce if some is left?
+     - choicebasket Gallery main attraction: three tables, take one of two at each; the other goes to the gray GIVEN UP shadow shelf; two questions
+     - dayring      Gallery: a 24-hour ring; add the must-dos, then fun blocks until nothing fits; can money buy more hours?
+     - hallopen     Exhibit Floor: Intro Panel (3 own sentences, the task box moves in) → it hangs on the arch, awnings unroll, lanterns light, OPEN */
+
+  var LOAF = '<svg viewBox="0 0 64 40" aria-hidden="true"><ellipse cx="32" cy="36" rx="28" ry="3.5" fill="rgba(0,0,0,.18)"/><path d="M5 30 C3 14 18 5 32 5 C46 5 61 14 59 30 Q58 34 52 34 H12 Q6 34 5 30Z" fill="#C98A3E" stroke="#7A4E1E" stroke-width="2"/><path d="M14 14 q5 6 2 13 M26 9 q5 7 2 16 M38 9 q5 7 2 16 M50 14 q4 6 1 13" fill="none" stroke="#F3D19A" stroke-width="3" stroke-linecap="round"/></svg>';
+  function sub(s, who){ return String(s||'').split('{who}').join(who); }
+
+  /* ══ MODULE: breadline (Lobby · two loaves, three families) ══ */
+  function modBreadline(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var F = DATA.families || [], LV = ['l1', 'l2'];
+    ST.bl = ST.bl || {got:{}, sel:null, q1:false, q2:false}; var S = ST.bl;
+    var m = shell('ms-bl-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-bl-stage"><div class="ms-bl-booth"><div class="aw" aria-hidden="true"></div><div class="sign">🍞 BREAD</div><div class="ms-bl-shelf"></div><div class="counter" aria-hidden="true"></div></div>' +
+      '<div class="ms-bl-line">'+F.map(function(f){ return '<div class="ms-bl-fam" data-k="'+f.k+'" role="button" tabindex="0" aria-label="'+esc(f.t)+'"><span class="ppl" aria-hidden="true">'+f.ic+'</span><b>'+esc(f.t)+'</b><span class="bag"></span></div>'; }).join('')+'</div></div><div class="ms-bl-act" aria-live="polite"></div>');
+    after(anchor, m);
+    var shelf = $('.ms-bl-shelf', m), act = $('.ms-bl-act', m);
+    function given(){ return Object.keys(S.got).length; }
+    function left(){ var used = {}; Object.keys(S.got).forEach(function(k){ used[S.got[k]] = 1; }); return LV.filter(function(l){ return !used[l]; }); }
+    function waiting(){ for (var i = 0; i < F.length; i++) if (!S.got[F[i].k]) return F[i]; return F[F.length-1]; }
+    function give(fk, l){ l = l || S.sel || left()[0]; if (!l) return;
+      if (S.got[fk]) { SFX.miss(); var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 That family already has a loaf. Give the next loaf to a family that has none.</div>'; return; }
+      S.got[fk] = l; S.sel = null; save(); SFX.pop(); render(); }
+    function paint(){
+      shelf.innerHTML = left().map(function(l){ return '<button type="button" class="ms-bl-loaf'+(S.sel===l?' sel':'')+'" data-l="'+l+'" aria-label="A loaf of bread">'+LOAF+'</button>'; }).join('') || '<span class="ms-bl-empty">Empty shelf</span>';
+      $$('.ms-bl-loaf', shelf).forEach(function(b){ var l = b.dataset.l;
+        dragger(b, function(moved, tg){ if (!moved) return; if (tg) give(tg.dataset.k, l); else SFX.miss(); }, '.ms-bl-fam');
+        b.addEventListener('click', function(){ S.sel = S.sel === l ? null : l; save(); SFX.click(); paint(); }); });
+      var done = given() >= LV.length;
+      $$('.ms-bl-fam', m).forEach(function(f){ var k = f.dataset.k; f.classList.toggle('fed', !!S.got[k]); f.classList.toggle('wait', done && !S.got[k]); f.classList.toggle('pick', !!S.sel && !S.got[k]);
+        $('.bag', f).innerHTML = S.got[k] ? LOAF : (done ? '<i>still waiting</i>' : ''); });
+    }
+    $$('.ms-bl-fam', m).forEach(function(f){ var go = function(){ if (given() >= LV.length) return; if (!S.sel) { SFX.miss(); var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = '<div class="ms-notyet">👆 First tap a loaf on the shelf. Then tap a family.</div>'; return; } give(f.dataset.k); };
+      f.addEventListener('click', go); f.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }); });
+    function render(){
+      paint(); var n = given(), N = 4, who = waiting().t;
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (n < LV.length) { act.innerHTML = stepCard(n + 1, N, 'Hand out loaf '+(n+1)+' of 2', '<p class="ms-wm-do">👆 Tap a loaf on the shelf, then tap a family. Or drag the loaf to a family.</p><div class="ms-exfb" aria-live="polite"></div>'); return; }
+      var qc = S.q1 ? cfg.q2 : {text: sub(cfg.q1.text, who), opts: cfg.q1.opts.map(function(o){ return {t: sub(o.t, who), ok: o.ok, fb: sub(o.fb, who)}; })};
+      var q = choiceQ(qc, S.q1 ? 2 : 1, function(){ if (!S.q1) { setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1400); }
+        else { markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1500); } });
+      act.innerHTML = stepCard(S.q1 ? 4 : 3, N, S.q1 ? cfg.q2.title : cfg.q1.title, (S.q1 ? '<div class="ms-sh-tag"><b>🔎 Scarcity</b><p>There is not enough of something for everyone who wants it.</p></div>' : '') + q.html); q.bind(act);
+    }
+    render(); if (S.q2) markDone('scene');
+  }
+
+  /* ══ MODULE: choicebasket (Gallery main attraction · the market basket and the shadow shelf) ══ */
+  function modChoicebasket(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var T = DATA.tables || [];
+    ST.cb = ST.cb || {pick:[], q1:false, q2:false}; var S = ST.cb;
+    var m = shell('ms-cb-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-cb-stage"><div class="ms-cb-tables"></div><div class="ms-cb-bottom"><div class="ms-cb-basket"><b>🧺 My basket <small>(holds 3)</small></b><div class="slots"></div></div><div class="ms-cb-shadow"><b>GIVEN UP</b><div class="slots"></div></div></div></div><div class="ms-cb-act" aria-live="polite"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var tabs = $('.ms-cb-tables', m), bsk = $('.ms-cb-basket .slots', m), shd = $('.ms-cb-shadow .slots', m), act = $('.ms-cb-act', m), fresh = -1;
+    function take(i, s){ if (i !== S.pick.length || i >= T.length) return; S.pick.push(s); fresh = i; save(); SFX.pop(); render(); }
+    function paint(){
+      tabs.innerHTML = T.map(function(t, i){ var p = S.pick[i], cur = i === S.pick.length;
+        return '<div class="ms-cb-tab'+(cur?' cur':'')+(p?' done':'')+'"><span class="n">Table '+(i+1)+'</span><div class="its">'+['a','b'].map(function(s){ var it = t[s];
+          return p ? '<span class="ms-cb-gone">'+(p === s ? '🧺' : '⬜')+'</span>' : '<button type="button" class="ms-cb-it" data-i="'+i+'" data-s="'+s+'"'+(cur?'':' disabled')+'><span class="ic">'+it.ic+'</span><b>'+esc(it.t)+'</b></button>'; }).join('<span class="or">or</span>')+'</div></div>'; }).join('');
+      $$('.ms-cb-it', tabs).forEach(function(b){ var i = +b.dataset.i, s = b.dataset.s; if (b.disabled) return;
+        dragger(b, function(moved, tg){ if (!moved) return; if (tg) take(i, s); else SFX.miss(); }, '.ms-cb-basket');
+        b.addEventListener('click', function(){ take(i, s); }); });
+      var slot = function(it, i, gone){ return it ? '<span class="sl full'+(i===fresh?' new':'')+(gone?' ghost':'')+'"><span class="ic">'+it.ic+'</span><b>'+esc(it.t)+'</b>'+(gone?'<em>given up</em>':'')+'</span>' : '<span class="sl"></span>'; };
+      bsk.innerHTML = T.map(function(t, i){ var p = S.pick[i]; return slot(p && t[p], i, false); }).join('');
+      shd.innerHTML = T.map(function(t, i){ var p = S.pick[i]; return slot(p && t[p === 'a' ? 'b' : 'a'], i, true); }).join('');
+      m.classList.toggle('full', S.pick.length >= T.length);
+    }
+    function render(){
+      paint(); fresh = -1; var n = S.pick.length, N = T.length + 2;
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (n < T.length) { var t = T[n];
+        act.innerHTML = stepCard(n + 1, N, 'Table '+(n+1)+' of '+T.length+': '+t.a.t+' or '+t.b.t+'?', '<p class="ms-wm-do">👆 Tap the one you want most, or drag it into your basket. The other one goes to the shadow shelf.</p>'); return; }
+      var q = choiceQ(S.q1 ? cfg.q2 : cfg.q1, S.q1 ? 2 : 1, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1400);
+        else { ST.gal = ST.gal||{}; ST.gal.basket = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1500); } });
+      act.innerHTML = stepCard(S.q1 ? N : N - 1, N, S.q1 ? cfg.q2.title : cfg.q1.title, q.html); q.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: dayring (Gallery · one whole day, 24 hours) ══ */
+  function modDayring(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var MU = DATA.must || [], FU = DATA.fun || [];
+    ST.dr = ST.dr || {must:false, fun:[], q:false}; var S = ST.dr;
+    var m = shell('ms-dr-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-dr-stage"><div class="ms-dr-ring"><svg viewBox="0 0 240 240" role="img" aria-label="A ring with 24 slices, one for each hour of the day"></svg><div class="mid"><b></b><span>hours left</span></div></div><div class="ms-dr-side"><div class="ms-dr-key"></div><div class="ms-dr-fun"></div></div></div><div class="ms-dr-act" aria-live="polite"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var svg = $('svg', m), mid = $('.mid b', m), key = $('.ms-dr-key', m), fun = $('.ms-dr-fun', m), act = $('.ms-dr-act', m);
+    function blk(k){ for (var i = 0; i < FU.length; i++) if (FU[i].k === k) return FU[i]; }
+    function blocks(){ return (S.must ? MU : []).concat(S.fun.map(blk)); }
+    function used(){ return blocks().reduce(function(a, b){ return a + b.h; }, 0); }
+    function left(){ return 24 - used(); }
+    function full(){ var l = left(); return S.must && FU.every(function(f){ return S.fun.indexOf(f.k) >= 0 || f.h > l; }); }
+    function arc(a0, a1, r0, r1){ var p = function(a, r){ var t = (a - 90) * Math.PI / 180; return (120 + r * Math.cos(t)).toFixed(1) + ' ' + (120 + r * Math.sin(t)).toFixed(1); }, big = (a1 - a0) > 180 ? 1 : 0;
+      return 'M' + p(a0, r1) + ' A' + r1 + ' ' + r1 + ' 0 ' + big + ' 1 ' + p(a1, r1) + ' L' + p(a1, r0) + ' A' + r0 + ' ' + r0 + ' 0 ' + big + ' 0 ' + p(a0, r0) + 'Z'; }
+    function paint(){
+      var h = 0, out = '';
+      blocks().forEach(function(b){ out += '<path class="bk" d="'+arc(h * 15, (h + b.h) * 15, 62, 112)+'" fill="'+b.c+'"><title>'+esc(b.t)+': '+b.h+' hours</title></path>';
+        var mid = (h + b.h / 2) * 15, t = (mid - 90) * Math.PI / 180; out += '<text x="'+(120 + 87 * Math.cos(t)).toFixed(1)+'" y="'+(120 + 87 * Math.sin(t) + 7).toFixed(1)+'" text-anchor="middle" font-size="'+(b.h > 1 ? 19 : 14)+'">'+b.ic+'</text>'; h += b.h; });
+      for (var i = h; i < 24; i++) out += '<path class="emp" d="'+arc(i * 15 + .6, (i + 1) * 15 - .6, 62, 112)+'"/>';
+      for (var j = 0; j < 24; j++) { var a = (j * 15 - 90) * Math.PI / 180; out += '<line x1="'+(120 + 112 * Math.cos(a)).toFixed(1)+'" y1="'+(120 + 112 * Math.sin(a)).toFixed(1)+'" x2="'+(120 + 118 * Math.cos(a)).toFixed(1)+'" y2="'+(120 + 118 * Math.sin(a)).toFixed(1)+'" stroke="#8a6a40" stroke-width="'+(j % 6 ? 1 : 2.5)+'"/>'; }
+      svg.innerHTML = out; mid.textContent = left();
+      key.innerHTML = S.must ? MU.map(function(b){ return '<span class="ms-dr-k" style="--c:'+b.c+'">'+b.ic+' '+esc(b.t)+' <i>'+b.h+' h</i></span>'; }).join('') : '';
+      var fl = full();
+      fun.innerHTML = S.must ? '<p class="h">🎈 Things you would like to do:</p>' + FU.map(function(f){ var on = S.fun.indexOf(f.k) >= 0, gone = fl && !on;
+        return '<button type="button" class="ms-dr-f'+(on?' on':'')+(gone?' gone':'')+'" data-k="'+f.k+'" style="--c:'+f.c+'"><span class="ic">'+f.ic+'</span><b>'+esc(f.t)+'</b><i>'+f.h+' h</i><em>'+(on ? '✓ in my day (tap to take out)' : (gone ? 'given up' : ''))+'</em></button>'; }).join('') : '';
+      $$('.ms-dr-f', fun).forEach(function(b){ b.onclick = function(){ if (S.q) return; var k = b.dataset.k, i = S.fun.indexOf(k), f = blk(k), fb = $('.ms-exfb', act);
+        if (i >= 0) { S.fun.splice(i, 1); save(); SFX.click(); render(); return; }
+        if (f.h > left()) { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if (fb) fb.innerHTML = '<div class="ms-notyet">⏰ Only '+left()+' hour'+(left()===1?'':'s')+' left. '+esc(f.t)+' needs '+f.h+' hours. It won\'t fit!</div>'; return; }
+        S.fun.push(k); save(); SFX.pop(); render(); }; });
+    }
+    function render(){
+      paint(); var N = 3;
+      if (S.q) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (!S.must) { act.innerHTML = stepCard(1, N, 'The must-dos', '<p>Every day needs sleep, school, and meals. Put them in the ring first.</p><button type="button" class="ms-btn big ms-dr-go">'+esc(cfg.mustT||'Add the must-dos')+'</button>');
+        $('.ms-dr-go', act).onclick = function(){ S.must = true; save(); SFX.chime(); render(); }; return; }
+      if (!full()) { act.innerHTML = stepCard(2, N, 'Fill the rest of your day', '<p class="ms-wm-do">👆 '+left()+(left()===1?' hour is':' hours are')+' left. Tap the fun things you want to do today. Tap one again to take it out.</p><div class="ms-exfb" aria-live="polite"></div>'); return; }
+      var gave = FU.filter(function(f){ return S.fun.indexOf(f.k) < 0; });
+      var q = choiceQ(cfg.q, 3, function(){ ST.gal = ST.gal||{}; ST.gal.day = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.q = true; save(); render(); }, calm()?0:1500); });
+      act.innerHTML = stepCard(3, N, cfg.q.title, '<div class="ms-sh-tag"><b>⏰ Your day is full!</b><p>No more fun things fit. You gave up: '+gave.map(function(f){ return f.ic+' '+esc(f.t); }).join(', ')+'. (Want a different day? Tap a fun thing to take it out.)</p></div>' + q.html); q.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: hallopen (Exhibit Floor · the Intro Panel → open the Marketplace Hall) ══ */
+  function modHallopen(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'); if (!ta) return;
+    var NEED = cfg.sentMin || 3, B = cfg.booths || [];
+    ST.ho = ST.ho || {step:1, open:false}; var S = ST.ho;
+    var m = shell('ms-ho-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-ho-act"></div><div class="ms-ho-stage" hidden><div class="ms-ho-arch"><span class="nm">'+esc(cfg.arch||'')+'</span><div class="ms-ho-open" aria-hidden="true"><span class="c">CLOSED</span><span class="o">OPEN</span></div></div>' +
+      '<div class="ms-ho-panel"><div class="h">Welcome to the Marketplace Hall</div><p class="tx"></p><p class="by"></p></div>' +
+      '<div class="ms-ho-booths">'+B.map(function(b, i){ return '<div class="ms-ho-booth" style="--c:'+b.c+';--d:'+i+'"><span class="lan" aria-hidden="true"></span><div class="aw" aria-hidden="true"></div><div class="ct"><span>'+b.ic+'</span><b>'+esc(b.t)+'</b></div></div>'; }).join('')+'</div></div><div class="ms-ho-end"></div>');
+    var home = document.createComment('ho-home'); ta.parentNode.insertBefore(home, ta); ta.parentNode.insertBefore(m, ta);
+    var tp = ta.parentNode.querySelector('.textbox-prompt'); if (tp) tp.classList.add('ms-hide-on');
+    var act = $('.ms-ho-act', m), show = $('.ms-ho-stage', m), end = $('.ms-ho-end', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return (s.trim().match(/\S+/g)||[]).length >= 3; }).length; }
+    function has(){ var t = ta.value; return {sc: /scarc/i.test(t), ch: /choos|choice|chose|pick/i.test(t), gu: /(give|gave|given|giving)\s+(\w+\s+)?up/i.test(t)}; }
+    function miss(){ var x = [], n = sents(ta.value), h = has();
+      if (n < NEED) x.push('Write '+(NEED-n)+' more sentence'+(NEED-n===1?'':'s')+' (3 words or more each).');
+      if (!h.sc) x.push('Use the word scarcity or scarce.'); if (!h.ch) x.push('Say why people have to choose.'); if (!h.gu) x.push('Say what people give up.'); return x; }
+    function view(){ $('.tx', show).textContent = ta.value.trim(); var nm = sget(NAMEK,''); $('.by', show).textContent = nm ? 'By ' + nm + ', Trade & Choice Curator' : 'By a Trade & Choice Curator'; show.classList.toggle('open', !!S.open); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 2;
+      if (S.step === 1) { goHome();
+        act.innerHTML = stepCard(1, 2, cfg.s1T, '<p>'+esc(cfg.s1||'')+'</p><div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start" data-t="'+esc(t)+'">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-ho-chk"></div><div class="ms-gi-nav"><button type="button" class="ms-btn big ms-ho-next">Hang my panel ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(ta);
+        var chk = $('.ms-ho-chk', act), fb = $('.ms-gi-fb', act);
+        var upd = function(){ var n = sents(ta.value), h = has(), x = miss();
+          chk.innerHTML = '<span class="ms-wc'+(n>=NEED?' ok':'')+'">📝 '+Math.min(n,NEED)+' of '+NEED+' sentences</span><span class="ms-chip'+(h.sc?' ok':'')+'">'+(h.sc?'✓ ':'')+'scarcity</span><span class="ms-chip'+(h.ch?' ok':'')+'">'+(h.ch?'✓ ':'')+'why people choose</span><span class="ms-chip'+(h.gu?' ok':'')+'">'+(h.gu?'✓ ':'')+'what is given up</span>';
+          $('.ms-ho-next', act).classList.toggle('ms-notready', !!x.length); if (fb.innerHTML) fb.innerHTML = x.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+x.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b){ b.onclick = function(){ var t = b.dataset.t; ta.value = ta.value.replace(/\s*$/,'') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-ho-next', act).onclick = function(){ var x = miss(); if (x.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+x.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 2; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(2, 2, cfg.s2T, '<p>'+esc(cfg.s2||'')+'</p><button type="button" class="ms-btn big ms-ho-go">🎉 '+esc(cfg.openT||'Open the hall')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-ho-edit">✏️ '+esc(cfg.editT||'Edit')+'</button></div>';
+      var gb = $('.ms-ho-go', end); if (gb) gb.onclick = function(){ var x = miss(); if (x.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+x.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('opening'); void show.offsetWidth; show.classList.add('opening'); SFX.fanfare(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'});
+        if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 2200);
+        setTimeout(function(){ show.classList.remove('opening'); }, 5000); optiNod('assignment'); check(); };
+      $('.ms-ho-edit', end).onclick = function(){ S.open = false; S.step = 1; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 1) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
