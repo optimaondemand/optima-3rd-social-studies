@@ -114,6 +114,11 @@
    - ledger     Gallery main attraction: the council ledger, one page per region, HAS / GETS FROM OTHERS; gold line shows every region needs others
    - evop       Gallery: the clerk's in-tray, one note at a time into EVIDENCE or OPINION
    - council    Exhibit Floor: one resource per region + 2 own sentences → press the wax seal; five council seats light, bell
+   Added for 3.08.02 (DATA.reports = five water reports; DATA.users = Colorado River users; DATA.cards = six evidence cards by side):
+   - sealq      Lobby: break the wax seal → FRESH WATER card, five seats rise; tap each seat's water report
+   - river      Gallery main attraction: melt the snow, open each user's gate; the river dries before the sea
+   - weigh      Gallery: evidence cards onto the council scale (Southwest / West) → vote + one reason (journal-vote moves in)
+   - recommend  Exhibit Floor: region + two evidence chips + 2 own sentences → the council votes: placards flip, stamp, Marketplace Hall door opens a crack
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1171,7 +1176,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -4708,7 +4713,205 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.08.02 (Council Chamber: Which Region Needs This Resource?) ══════════
+     DATA.reports = five water reports; DATA.users = the Colorado River's eight users; DATA.cards = six evidence cards (side sw / w)
+     - sealq      Lobby: press the wax seal → the question card slides out, five seats rise; tap each seat's water report; one question
+     - river      Gallery main attraction: melt the snow, open each user's water gate; the river thins and dries before the sea; two questions
+     - weigh      Gallery: drag six evidence cards onto the council scale (Southwest / West), the scale tips; vote + one reason (journal-vote moves in)
+     - recommend  Exhibit Floor: region + two evidence chips + 2 own sentences → call the vote: placards flip, bell, stamp, the Marketplace Hall door opens a crack */
+
+  /* ══ MODULE: sealq (Lobby · break the seal, read the water reports) ══ */
+  function modSealq(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var RP = DATA.reports || [];
+    ST.sq = ST.sq || {open:false, seen:{}, cur:null, q:false}; var S = ST.sq;
+    var m = shell('ms-sl-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-sl-room" style="'+rcol()+'"><div class="ms-sl-seats">' + RP.map(function(p){ var r = regOf(p.r);
+        return '<button type="button" class="ms-sl-seat" data-r="'+p.r+'" disabled><span class="pl">'+r.icon+' '+esc(r.name)+'</span>'+SEAT+'<span class="gauge" aria-hidden="true"><i style="height:'+Math.round(p.fill*100)+'%"></i></span></button>'; }).join('') +
+      '</div><div class="ms-sl-table"><div class="ms-sl-env"><div class="flap"></div><button type="button" class="ms-sl-seal" aria-label="Press the wax seal to open the envelope">'+WAXSEAL+'</button><div class="ms-sl-card"><b>'+esc(cfg.card||'')+'</b><span>'+esc(cfg.ask||'')+'</span></div></div></div></div><div class="ms-sl-act" aria-live="polite"></div>');
+    after(anchor, m);
+    var room = $('.ms-sl-room', m), act = $('.ms-sl-act', m);
+    function paint(){ room.classList.toggle('open', !!S.open);
+      $$('.ms-sl-seat', m).forEach(function(b){ var r = b.dataset.r; b.disabled = !S.open; b.classList.toggle('seen', !!S.seen[r]); b.classList.toggle('cur', S.cur === r); }); }
+    $('.ms-sl-seal', m).onclick = function(){ if (S.open) return; S.open = true; save(); SFX.fanfare(); room.classList.add('opening'); setTimeout(function(){ room.classList.remove('opening'); }, 2600); render(); };
+    $$('.ms-sl-seat', m).forEach(function(b){ b.onclick = function(){ if (!S.open) return; S.cur = b.dataset.r; S.seen[S.cur] = 1; save(); SFX.click(); render(); }; });
+    function render(){
+      paint(); var n = Object.keys(S.seen).length, N = RP.length + 2;
+      if (S.q) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (!S.open) { act.innerHTML = stepCard(1, N, 'Break the seal', '<p class="ms-wm-do">👆 Press the red wax seal on the envelope to open it.</p>'); return; }
+      var p = S.cur && RP.filter(function(x){ return x.r === S.cur; })[0], tag = p ? '<div class="ms-sh-tag"><b>'+regOf(p.r).icon+' '+esc(regOf(p.r).name)+': water report</b><p>🌧️ <b>Rain in a year:</b> '+esc(p.rain)+'<br>🚰 <b>Fresh water comes from:</b> '+esc(p.src)+'</p></div>' : '';
+      if (n >= RP.length) { var q = choiceQ(cfg.q, 1, function(){ markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q = true; save(); render(); }, calm()?0:1500); });
+        act.innerHTML = stepCard(N, N, cfg.q.title, tag + q.html); q.bind(act); return; }
+      act.innerHTML = stepCard(n + 2, N, n ? 'Read the water reports' : 'The council\'s question', (n ? '' : '<p>✉️ The card says <b>'+esc(cfg.card||'')+'</b>: '+esc(cfg.ask||'')+'</p>') + tag + '<p class="ms-wm-do">👆 Tap a seat to read its water report. ('+n+' of '+RP.length+' read)</p>');
+    }
+    render(); if (S.q) markDone('scene');
+  }
+
+  /* ══ MODULE: river (Gallery main attraction · share the Colorado River) ══ */
+  var RV = { pts: [[92,66],[128,112],[150,160],[198,196],[246,214],[300,250],[338,292],[366,330],[402,350],[452,374],[520,392]],
+    gates: {co:1, wy:2, ut:3, nm:4, nv:5, az:6, ca:7, mx:8}, share: {co:.22, wy:.07, ut:.11, nm:.07, nv:.04, az:.20, ca:.25, mx:.10},
+    side: {co:-1, wy:1, ut:-1, nm:1, nv:-1, az:1, ca:-1, mx:1} };
+  function modRiver(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var U = DATA.users || [];
+    ST.rv = ST.rv || {melt:false, open:{}, ph:0, ok:false}; var S = ST.rv;
+    var m = shell('ms-rv-mod', cfg);
+    var gates = U.map(function(u){ var i = RV.gates[u.k], p = RV.pts[i], sd = RV.side[u.k], lx = p[0] + sd * 58, ly = p[1] - 6;
+      return '<g class="gate" data-k="'+u.k+'" tabindex="0" role="button" aria-label="'+esc(u.t)+' water gate"><path class="pipe" d="M'+p[0]+' '+p[1]+' L'+lx+' '+(ly+6)+'"/><circle class="valve" cx="'+p[0]+'" cy="'+p[1]+'" r="11"/><text class="vt" x="'+p[0]+'" y="'+(p[1]+4)+'">'+(U.indexOf(u)+1)+'</text>' +
+        '<g class="tank" transform="translate('+(lx - 34)+' '+(ly - 14)+')"><rect width="68" height="26" rx="6"/><text x="34" y="17">'+esc(u.t)+'</text></g></g>'; }).join('');
+    var segs = ''; for (var i = 0; i < RV.pts.length - 1; i++) segs += '<line class="seg" data-i="'+i+'" x1="'+RV.pts[i][0]+'" y1="'+RV.pts[i][1]+'" x2="'+RV.pts[i+1][0]+'" y2="'+RV.pts[i+1][1]+'"/>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-rv-stage"><svg class="ms-rv-svg" viewBox="0 0 600 430" role="img" aria-label="A simple model of the Colorado River, from snowy mountains at the top left to the sea at the bottom right, with eight numbered water gates along the way.">' +
+      '<rect width="600" height="430" fill="#E9C99A"/><path d="M0 0 H600 V40 Q420 70 300 40 Q150 10 0 60Z" fill="#DDBA86"/>' +
+      '<path class="mtn" d="M10 120 L60 30 L95 80 L130 20 L180 110 Z" fill="#7A6A5A"/><path class="snow" d="M45 58 L60 30 L74 52 Z M118 42 L130 20 L144 46 Z" fill="#fff"/>' +
+      '<text class="lbl" x="28" y="140">Rocky Mountains</text><path d="M520 392 Q560 400 600 380 V430 H470 Q500 410 520 392Z" fill="#3B7FB8"/><text class="lbl sea" x="530" y="420">The sea</text>' +
+      '<polyline class="bed" points="'+RV.pts.map(function(p){ return p.join(','); }).join(' ')+'"/>' + segs + gates + '<g class="sun" transform="translate(205 52)"><circle r="18"/></g></svg>' +
+      '<div class="ms-rv-flow"><span>Water reaching the sea:</span><b class="pct"></b></div><div class="ms-rv-gbtns" role="group" aria-label="Water gates">'+U.map(function(u, i){ return '<button type="button" class="ms-rv-gb" data-k="'+u.k+'"><b>'+(i+1)+'</b> '+esc(u.t)+'</button>'; }).join('')+'</div></div><div class="ms-rv-act" aria-live="polite"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var svg = $('.ms-rv-svg', m), act = $('.ms-rv-act', m);
+    function flowAt(i){ var f = 1; U.forEach(function(u){ if (S.open[u.k] && RV.gates[u.k] <= i) f -= RV.share[u.k]; }); return Math.max(0, f); }
+    function paint(){
+      svg.classList.toggle('melt', !!S.melt);
+      $$('.seg', svg).forEach(function(s){ var i = +s.dataset.i, f = S.melt ? flowAt(i) : 0; s.style.strokeWidth = (f > 0 ? 3 + f * 17 : 0) + 'px'; s.classList.toggle('dry', f <= 0); });
+      $$('.ms-rv-gb', m).forEach(function(b){ b.classList.toggle('on', !!S.open[b.dataset.k]); b.disabled = !S.melt || S.ph > 0 || !!S.open[b.dataset.k]; });
+      $$('.gate', svg).forEach(function(g){ g.classList.toggle('on', !!S.open[g.dataset.k]); g.classList.toggle('live', S.melt && !S.open[g.dataset.k] && S.ph === 0); });
+      var end = S.melt ? flowAt(RV.pts.length - 2) : 0; $('.pct', m).textContent = S.melt ? (end > 0 ? Math.round(end * 100) + '% of the water' : 'none: the river is dry') : 'none yet: the snow is frozen';
+      $('.ms-rv-flow', m).classList.toggle('dry', S.melt && end <= 0);
+    }
+    function openGate(k){ if (!S.melt || S.open[k] || S.ph) return; S.open[k] = 1; S.lastk = k; save(); SFX.pop(); render(); }
+    $$('.ms-rv-gb', m).forEach(function(b){ b.addEventListener('click', function(){ openGate(b.dataset.k); }); });
+    $$('.gate', svg).forEach(function(g){ g.addEventListener('click', function(){ openGate(g.dataset.k); }); g.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGate(g.dataset.k); } }); });
+    function render(){
+      paint(); var n = Object.keys(S.open).length, N = U.length ? 4 : 3;
+      if (S.ok) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (!S.melt) { act.innerHTML = stepCard(1, N, 'Melt the snow', '<p>It is spring in the Rocky Mountains. When the snow melts, the water runs into the river.</p><button type="button" class="ms-btn big ms-rv-melt">'+esc(cfg.meltT||'Melt the snow')+'</button>');
+        $('.ms-rv-melt', act).onclick = function(){ S.melt = true; save(); SFX.chime(); render(); }; return; }
+      if (n < U.length) { var last = S.lastk && U.filter(function(u){ return u.k === S.lastk; })[0];
+        act.innerHTML = stepCard(2, N, 'Open the water gates', '<p>'+(n ? '' : 'The river reaches the sea. ')+'Now each user takes a share. Tap each numbered gate on the river, or its button under the map. ('+n+' of '+U.length+' open)</p>' + (last ? '<div class="ms-sh-tag"><b>Who uses this water?</b><p><b>'+esc(last.t)+':</b> '+esc(last.use)+'</p></div>' : '')); return; }
+      if (S.ph === 0) { S.ph = 1; save(); }
+      if (S.ph === 1) { var q = choiceQ(cfg.q1, 2, function(){ var b = el('button', 'ms-btn big ms-rv-next', 'Next question ➡️'); b.type = 'button'; $('.ms-stepcard', act).appendChild(b); b.onclick = function(){ SFX.click(); S.ph = 2; save(); render(); }; });
+        act.innerHTML = stepCard(3, N, cfg.q1.title, q.html); q.bind(act); return; }
+      var q2 = choiceQ(cfg.q2, 1, function(){ ST.gal = ST.gal||{}; ST.gal.river = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.ok = true; save(); render(); }, calm()?0:1600); });
+      act.innerHTML = stepCard(4, N, cfg.q2.title, q2.html); q2.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: weigh (Gallery · the council scale + vote) ══ */
+  function modWeigh(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var C = DATA.cards || [], ta = document.getElementById(cfg.textarea || 'journal-vote');
+    ST.wg = ST.wg || {on:{}, sel:null, vote:null, done:false}; var S = ST.wg;
+    var m = shell('ms-wg-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-wg-stage"><div class="ms-wg-cards" aria-label="Evidence cards"></div>' +
+      '<div class="ms-wg-scale"><div class="post" aria-hidden="true"></div><div class="beam"><div class="pan sw" data-side="sw" role="button" tabindex="0"><b>🌵 Southwest</b><div class="in"></div></div><div class="pan w" data-side="w" role="button" tabindex="0"><b>🏔️ West (California)</b><div class="in"></div></div></div></div></div><div class="ms-wg-act" aria-live="polite"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var cards = $('.ms-wg-cards', m), beam = $('.beam', m), act = $('.ms-wg-act', m), home = null;
+    if (ta) { home = document.createComment('wg-home'); ta.parentNode.insertBefore(home, ta); }
+    function goHome(){ if (ta && home && ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function card(k){ for (var i = 0; i < C.length; i++) if (C[i].k === k) return C[i]; }
+    function put(k, side){ if (S.on[k]) return; var c = card(k);
+      if (c.side !== side) { SFX.miss(); S.sel = null; save(); paint(); var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 Read the card again. Is it about the Southwest desert, or about California?</div>'; return; }
+      S.on[k] = side; S.sel = null; save(); SFX.pop(); render(); }
+    function paint(){
+      cards.innerHTML = C.filter(function(c){ return !S.on[c.k]; }).map(function(c){ return '<button type="button" class="ms-wg-card'+(S.sel===c.k?' sel':'')+'" data-k="'+c.k+'"><span class="ic">'+c.ic+'</span>'+esc(c.t)+'</button>'; }).join('') || '<span class="ms-wg-none">✨ Every card is on the scale.</span>';
+      $$('.ms-wg-card', cards).forEach(function(b){ var k = b.dataset.k;
+        dragger(b, function(moved, tg){ if (!moved) return; if (tg) put(k, tg.dataset.side); else SFX.miss(); }, '.ms-wg-scale .pan');
+        b.addEventListener('click', function(){ S.sel = S.sel === k ? null : k; save(); SFX.click(); paint(); }); });
+      var nsw = 0, nw = 0;
+      $$('.pan', m).forEach(function(p){ var sd = p.dataset.side, got = C.filter(function(c){ return S.on[c.k] === sd; });
+        $('.in', p).innerHTML = got.map(function(c){ return '<span title="'+esc(c.t)+'">'+c.ic+'</span>'; }).join(''); p.classList.toggle('pick', !!S.sel); if (sd === 'sw') nsw = got.length; else nw = got.length; });
+      beam.style.setProperty('--tilt', Math.max(-12, Math.min(12, (nw - nsw) * 3)) + 'deg');
+    }
+    $$('.pan', m).forEach(function(p){ var go = function(){ if (S.sel) put(S.sel, p.dataset.side); }; p.addEventListener('click', go); p.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }); });
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return (s.trim().match(/\S+/g)||[]).length >= 4; }).length; }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      paint(); var n = Object.keys(S.on).length, N = C.length + 1;
+      if (S.done) { goHome(); act.innerHTML = '<div class="ms-sh-tag"><b>🗳️ Your vote: '+(S.vote === 'sw' ? 'the Southwest' : 'the West (California)')+'</b><p>'+esc(S.vote === 'sw' ? cfg.fbsw : cfg.fbw)+'</p></div><div class="ms-win show">'+(cfg.win||'')+'</div><div class="ms-exbtns"><button type="button" class="ms-btn alt ms-wg-edit">✏️ Change my vote or reason</button></div>';
+        $('.ms-wg-edit', act).onclick = function(){ S.done = false; save(); render(); }; return; }
+      if (n < C.length) { goHome(); act.innerHTML = stepCard(n + 1, N, 'Weigh the evidence', '<p class="ms-wm-do">👆 Drag each card onto the side it helps. Or tap a card, then tap a side. ('+n+' of '+C.length+' on the scale)</p><div class="ms-exfb" aria-live="polite"></div>'); return; }
+      act.innerHTML = stepCard(N, N, cfg.voteT, '<p>👀 The scale tips toward the side with more evidence. '+esc(cfg.voteP||'')+'</p><div class="ms-wg-votes"><button type="button" class="ms-btn alt ms-wg-v'+(S.vote==='sw'?' on':'')+'" data-v="sw">🌵 I vote: the Southwest</button><button type="button" class="ms-btn alt ms-wg-v'+(S.vote==='w'?' on':'')+'" data-v="w">🏔️ I vote: the West (California)</button></div><div class="ms-gi-starts"><button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(cfg.starter||'')+'</button></div><div class="ms-gi-box"></div><div class="ms-excheck ms-wg-chk"></div><div class="ms-gi-nav"><button type="button" class="ms-btn big ms-wg-go">Cast my vote 🗳️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+      if (ta) $('.ms-gi-box', act).appendChild(ta);
+      var chk = $('.ms-wg-chk', act), fb = $('.ms-gi-fb', act);
+      function miss(){ var x = []; if (!S.vote) x.push('Tap a vote button first.'); if (!ta || sents(ta.value) < 1) x.push('Write one reason (a sentence of 4 words or more).'); return x; }
+      function upd(){ var ok1 = !!S.vote, ok2 = !!ta && sents(ta.value) >= 1; chk.innerHTML = '<span class="ms-chip'+(ok1?' ok':'')+'">'+(ok1?'✓ ':'')+'vote</span><span class="ms-chip'+(ok2?' ok':'')+'">'+(ok2?'✓ ':'')+'one reason</span>'; $('.ms-wg-go', act).classList.toggle('ms-notready', !!miss().length); if (fb.innerHTML && !miss().length) fb.innerHTML = ''; }
+      upd(); if (ta) ta.oninput = function(){ try { if (typeof autoSave === 'function') autoSave(ta, 'dot-vote'); if (typeof gatherAnswers === 'function') gatherAnswers(); } catch(e){} upd(); };
+      $$('.ms-wg-v', act).forEach(function(b){ b.onclick = function(){ S.vote = b.dataset.v; save(); SFX.click(); $$('.ms-wg-v', act).forEach(function(x){ x.classList.toggle('on', x === b); }); var t = (S.vote === 'sw' ? 'the Southwest' : 'the West');
+        if (ta && /^I vote for the ___ because/.test(ta.value)) { ta.value = ta.value.replace('___', t); ta.dispatchEvent(new Event('input', {bubbles:true})); } upd(); }; });
+      $('.ms-gi-start', act).onclick = function(){ if (!ta) return; var t = S.vote ? (S.vote === 'sw' ? 'the Southwest' : 'the West') : '___'; var s = (cfg.starter||'').replace('the ___', t); ta.value = ta.value.replace(/\s*$/, '') + (ta.value.trim() ? ' ' : '') + s + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input', {bubbles:true})); upd(); };
+      $('.ms-wg-go', act).onclick = function(){ var x = miss(); if (x.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+x.map(esc).join(' ')+'</div>'; return; }
+        S.done = true; ST.gal = ST.gal||{}; ST.gal.weigh = 1; save(); galleryCheck(); SFX.fanfare(); goHome(); render(); };
+    }
+    render();
+  }
+
+  /* ══ MODULE: recommend (Exhibit Floor · Council Recommendation → the council votes) ══ */
+  function modRecommend(cfg){
+    var ta = document.getElementById(cfg.textarea || 'journal-assign'); if (!ta) return;
+    var R = DATA.regions || [], C = DATA.cards || [], NEED = cfg.sentMin || 2;
+    ST.rc = ST.rc || {r:null, ev:[], step:1, open:false}; var S = ST.rc;
+    var m = shell('ms-rc-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-rc-act"></div><div class="ms-rc-show" hidden><div class="ms-cs-room ms-rc-room" style="'+rcol()+'"><div class="ms-cs-sign">REGIONAL COUNCIL CHAMBER</div>' +
+      '<div class="ms-rc-door" aria-hidden="true"><div class="leaf"></div><span>'+esc(cfg.door||'')+'</span></div>' +
+      '<div class="ms-cs-table"><div class="ms-rc-plac">'+R.map(function(r){ return '<span class="ms-rc-pl" data-r="'+r.k+'"><span class="fr">'+r.icon+'<b>'+esc(r.name)+'</b></span><span class="bk">✋<b>'+esc(r.name)+': YES</b></span></span>'; }).join('')+'</div>' +
+      '<div class="ms-rc-paper"><div class="h">Council Recommendation</div><p class="tx"></p><p class="by"></p><div class="ms-rc-stamp">'+esc(cfg.stamp||'')+'</div></div><div class="ms-cs-bell" aria-hidden="true">🔔</div></div></div></div><div class="ms-rc-end"></div>');
+    var home = document.createComment('rc-home'); ta.parentNode.insertBefore(home, ta); ta.parentNode.insertBefore(m, ta);
+    var tp = ta.parentNode.querySelector('.textbox-prompt'); if (tp) tp.classList.add('ms-hide-on');
+    var act = $('.ms-rc-act', m), show = $('.ms-rc-show', m), end = $('.ms-rc-end', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function card(k){ for (var i = 0; i < C.length; i++) if (C[i].k === k) return C[i]; }
+    function list(){ if (!S.r) return ''; return 'I recommend the ' + regOf(S.r).name + '. My evidence: ' + S.ev.map(function(k){ return card(k).t; }).join(' '); }
+    function own(){ var t = ta.value, l = list(); return (l && t.indexOf(l) >= 0) ? t.replace(l, '') : t; }
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return (s.trim().match(/\S+/g)||[]).length >= 3; }).length; }
+    function miss1(){ var x = []; if (!S.r) x.push('Tap a region.'); if (S.ev.length < 2) x.push('Tap '+(2 - S.ev.length)+' more piece'+(S.ev.length === 1 ? '' : 's')+' of evidence.'); return x; }
+    function miss2(){ var x = [], o = own(), n = sents(o); if (ta.value.indexOf(list()) < 0) x.push('Your picks changed. Press ↩️ Put my picks back.'); if (n < NEED) x.push('Write '+(NEED-n)+' more sentence'+(NEED-n===1?'':'s')+' of your own under your picks.'); else if (!/water/i.test(o)) x.push('Say something about water in your own sentences.'); return x; }
+    function view(){ $('.tx', show).textContent = ta.value.trim(); $('.by', show).textContent = 'By ' + (sget(NAMEK,'') || 'a Council Curator') + ', Council Curator'; show.classList.toggle('voted', !!S.open); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 3; ta.classList.toggle('ms-gi-away', S.step !== 2);
+      if (S.step === 1) { goHome();
+        act.innerHTML = stepCard(1, 3, cfg.s1T, '<p>'+esc(cfg.s1||'')+'</p><div class="ms-rc-rg">'+R.map(function(r){ return '<button type="button" class="ms-btn alt ms-rc-r'+(S.r===r.k?' on':'')+'" data-r="'+r.k+'">'+r.icon+' '+esc(r.name)+'</button>'; }).join('')+'</div>' +
+          '<p class="ms-wm-do">📌 Now pick two pieces of evidence ('+S.ev.length+' of 2):</p><div class="ms-rc-ev">'+C.map(function(c){ return '<button type="button" class="ms-btn alt ms-rc-e'+(S.ev.indexOf(c.k) >= 0 ? ' on' : '')+'" data-k="'+c.k+'">'+c.ic+' '+esc(c.t)+'</button>'; }).join('')+'</div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn big ms-rc-next">Put my picks in the box ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $$('.ms-rc-r', act).forEach(function(b){ b.onclick = function(){ S.r = b.dataset.r; save(); SFX.click(); render(); }; });
+        $$('.ms-rc-e', act).forEach(function(b){ b.onclick = function(){ var k = b.dataset.k, i = S.ev.indexOf(k); if (i >= 0) S.ev.splice(i, 1); else { S.ev.push(k); if (S.ev.length > 2) S.ev.shift(); } save(); SFX.click(); render(); }; });
+        $('.ms-rc-next', act).classList.toggle('ms-notready', !!miss1().length);
+        $('.ms-rc-next', act).onclick = function(){ var x = miss1(); if (x.length) { SFX.miss(); $('.ms-gi-fb', act).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+x.map(esc).join(' ')+'</div>'; return; }
+          var l = list(); if (ta.value.indexOf(l) < 0) { var rest = ta.value.replace(/^I recommend the [^.]*\. My evidence:[^\n]*\n?/, '').trim(); ta.value = l + '\n' + rest; ta.dispatchEvent(new Event('input', {bubbles:true})); }
+          SFX.chime(); S.step = 2; save(); render(); };
+        return; }
+      if (S.step === 2) { goHome();
+        act.innerHTML = stepCard(2, 3, cfg.s2T, '<p>'+esc(cfg.s2||'')+'</p><div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t){ return '<button type="button" class="ms-btn alt ms-gi-start" data-t="'+esc(t)+'">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-rc-chk"></div><div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-rc-back">↩️ Change my picks</button><button type="button" class="ms-btn alt ms-rc-fix">↩️ Put my picks back</button><button type="button" class="ms-btn big ms-rc-next">Next: call the vote ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(ta);
+        var chk = $('.ms-rc-chk', act), fb = $('.ms-gi-fb', act);
+        var upd = function(){ var o = own(), n = sents(o), wt = /water/i.test(o), kept = ta.value.indexOf(list()) >= 0, x = miss2();
+          chk.innerHTML = '<span class="ms-chip'+(kept?' ok':'')+'">'+(kept?'✓ ':'')+'your picks</span><span class="ms-wc'+(n>=NEED?' ok':'')+'">📝 '+Math.min(n,NEED)+' of '+NEED+' sentences of your own</span><span class="ms-chip'+(wt?' ok':'')+'">'+(wt?'✓ ':'')+'about water</span>';
+          $('.ms-rc-fix', act).hidden = kept; $('.ms-rc-next', act).classList.toggle('ms-notready', !!x.length); if (fb.innerHTML) fb.innerHTML = x.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+x.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b){ b.onclick = function(){ var t = b.dataset.t; ta.value = ta.value.replace(/\s*$/,'') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-rc-fix', act).onclick = function(){ var rest = own().trim(); ta.value = list() + '\n' + rest; ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); };
+        $('.ms-rc-back', act).onclick = function(){ S.step = 1; save(); render(); };
+        $('.ms-rc-next', act).onclick = function(){ var x = miss2(); if (x.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+x.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 3; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(3, 3, cfg.s3T, '<p>'+esc(cfg.s3||'')+'</p><button type="button" class="ms-btn big ms-rc-vote">🗳️ '+esc(cfg.openT||'Call the vote')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-rc-edit">✏️ '+esc(cfg.editT||'Edit')+'</button></div>';
+      var vb = $('.ms-rc-vote', end); if (vb) vb.onclick = function(){ var x = miss1().concat(miss2()); if (x.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+x.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('voting'); void show.offsetWidth; show.classList.add('voting'); SFX.fanfare(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'});
+        if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 2400);
+        setTimeout(function(){ show.classList.remove('voting'); }, 6000); optiNod('assignment'); check(); };
+      $('.ms-rc-edit', end).onclick = function(){ S.open = false; S.step = 2; save(); render(); ta.focus(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd && S.step === 2) curUpd(); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
