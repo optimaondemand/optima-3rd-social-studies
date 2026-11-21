@@ -129,6 +129,11 @@
    - traderoad    Gallery main attraction: load two carts, send them down the road; goods swap; both pantries fill; BOTH BETTER OFF
    - tradesort    Gallery: six cards one at a time, A trade / Not a trade
    - fairtrade    Exhibit Floor: Trade and Choice panel (choice, scarcity, benefit, consequence) → tables slide together, handshake, FAIR TRADE stamp
+   Added for 3.09_03 (DATA.booths, DATA.wishes, DATA.stops, DATA.keepers + DATA.deals):
+   - wrongbooth   Lobby: four visitors with wish cards; tap or drag each to the booth that can help
+   - backpack     Gallery main attraction: the Backpack Test; goods drop into Max's backpack, services change Max
+   - coinring     Gallery: Follow the Coins; five deals around a ring (one paid by trade); everyone ends a buyer AND a seller
+   - boothsigns   Exhibit Floor: four label boxes move into the step → signs swing down over the booths, visitors walk to the right booths
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1186,7 +1191,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -2881,6 +2886,7 @@
     var Q = cfg.qs || [], RG = cfg.rings || {};
     var SK = cfg.stKey || 'nt'; ST[SK] = ST[SK] || {i:0, ok:false}; var S = ST[SK];
     var m = shell('ms-nt-mod', cfg);
+    if (cfg.wide) m.classList.add('ms-nt-wide');
     var rings = Object.keys(RG).map(function(k){ var r = RG[k]; return '<circle class="ring" data-k="'+k+'" cx="'+r[0]+'" cy="'+r[1]+'" r="'+r[2]+'"/>'; }).join('');
     m.insertAdjacentHTML('beforeend', '<div class="ms-nt-wrap"><figure class="ms-nt-ph"><img src="'+img(cfg.img)+'" alt="'+(cfg.alt ? esc(cfg.alt) : 'A NASA picture of the United States at night. Bright city lights crowd the East, the Great Lakes, Florida, Texas and the Pacific coast. Much of the West is dark.')+'"><svg viewBox="'+(cfg.vb || '0 0 1200 800')+'" aria-hidden="true">'+rings+'</svg><span class="ms-phtag">'+esc(cfg.tag||'')+'</span></figure><div class="ms-nt-act"></div></div><p class="ms-credit">'+esc(cfg.credit||'')+'</p>');
     src.parentNode.insertBefore(m, src);
@@ -5255,7 +5261,238 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.09_03 (Goods, Services, Buyers, and Sellers) ══════════
+     DATA.booths = bakery, barber, fruit stand, shoe repair; DATA.wishes = four visitors; DATA.stops = Max's five stops;
+     DATA.keepers + DATA.deals = the coin circle (five sellers, five deals, one paid by trade)
+     - wrongbooth  Lobby: four visitors with wish cards, one at a time; tap or drag each to the booth that can help; which booths sell things you carry home?
+     - backpack    Gallery main attraction: Max pays at five stops; goods drop into the backpack, services change Max (hair, sneaker, dog); good or service?
+     - coinring    Gallery: Follow the Coins; five deals around a ring, a coin (or a trade) travels buyer → seller; everyone ends with BUYER + SELLER tags
+     - boothsigns  Exhibit Floor: four label boxes move into the step (goods, services, buyer, seller) → signs swing down, visitors walk to the right booths */
+
+  function boothHTML(b, cls){ return '<div class="ms-bo-booth '+(cls||'')+'" data-k="'+b.k+'" style="--aw:'+b.aw+'"><div class="aw" aria-hidden="true"></div><div class="sg">'+b.ic+' '+esc(b.t)+'</div><div class="ct"><span class="kp" aria-hidden="true">'+b.keeper+'</span><span class="ic" aria-hidden="true">'+b.ic+'</span></div><div class="spot" aria-hidden="true"></div></div>'; }
+  function boothOf(k){ var B = DATA.booths || []; for (var i = 0; i < B.length; i++) if (B[i].k === k) return B[i]; return null; }
+
+  /* ══ MODULE: wrongbooth (Lobby · send the visitors to the right booth) ══ */
+  function modWrongbooth(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var B = DATA.booths || [], W = DATA.wishes || [];
+    ST.wb = ST.wb || {i:0, ok:false, q:false}; var S = ST.wb;
+    var m = shell('ms-wb-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-wb-stage"><div class="ms-wb-wall">BACK WALL · MARKETPLACE HALL</div><div class="ms-wb-row">'+B.map(function(b){ return '<button type="button" class="ms-wb-b" data-k="'+b.k+'" aria-label="'+esc(b.t)+' booth">'+boothHTML(b)+'</button>'; }).join('')+'</div><div class="ms-wb-q" aria-hidden="true"></div></div><div class="ms-wb-act" aria-live="polite"></div>');
+    after(anchor, m);
+    var act = $('.ms-wb-act', m), q = $('.ms-wb-q', m);
+    function paint(){
+      $$('.ms-wb-b', m).forEach(function(btn){ var k = btn.dataset.k, served = W.slice(0, S.i + (S.ok ? 1 : 0)).filter(function(w){ return w.b === k; });
+        $('.spot', btn).innerHTML = served.map(function(w){ return '<span class="sv">'+w.ic+'<i>'+w.gotIc+'</i></span>'; }).join(''); });
+      q.innerHTML = W.slice(S.i + (S.ok ? 1 : 0)).map(function(w, j){ return '<span class="vis'+(j?'':' cur')+'">'+w.ic+'</span>'; }).join('') + (S.i + (S.ok ? 1 : 0) < W.length ? '<span class="ln">waiting in line</span>' : '<span class="ln">everyone is served</span>');
+    }
+    function pick(k, btn){
+      if (S.i >= W.length || S.ok) return; var w = W[S.i];
+      if (k !== w.b) { var b = boothOf(k); SFX.miss(); if (btn) { btn.classList.remove('no'); void btn.offsetWidth; btn.classList.add('no'); }
+        var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 The '+esc(b.t)+' '+esc(b.does)+'. Can that help '+esc(w.who)+'? Read the wish card again.</div>'; return; }
+      SFX.chime(); S.ok = true; save(); render();
+      var sp = $('.ms-wb-b[data-k="'+k+'"] .sv:last-child', m); if (sp && !calm()) sp.classList.add('in');
+    }
+    $$('.ms-wb-b', m).forEach(function(btn){ btn.onclick = function(){ pick(btn.dataset.k, btn); }; });
+    function render(){
+      paint(); var N = W.length + 1;
+      if (S.q) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (S.i < W.length) { var w = W[S.i];
+        act.innerHTML = stepCard(S.i + 1, N, 'Visitor '+(S.i+1)+' of '+W.length+': '+w.who,
+          '<div class="ms-wb-card"><span class="ms-wb-who" title="Drag me to a booth">'+w.ic+'</span><div><b>'+esc(w.who)+'’s wish card</b><p>“'+esc(w.wish)+'”</p></div></div>' +
+          (S.ok ? '<div class="ms-vd-thanks">✅ '+esc(w.got)+'</div><button type="button" class="ms-btn big ms-wb-next">'+(S.i + 1 < W.length ? 'Next visitor ➡️' : 'Next ➡️')+'</button>'
+                : '<p class="ms-wm-do">👆 Tap the booth that can help '+esc(w.who)+', or drag '+esc(w.who)+' to it.</p><div class="ms-exfb" aria-live="polite"></div>'));
+        if (!S.ok) dragger($('.ms-wb-who', act), function(moved, t){ if (moved && t) pick(t.dataset.k, t); }, '.ms-wb-b');
+        var nx = $('.ms-wb-next', act); if (nx) nx.onclick = function(){ SFX.click(); S.i++; S.ok = false; save(); render(); };
+        return; }
+      var cq = choiceQ(cfg.q, 1, function(){ markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q = true; save(); render(); }, calm()?0:1500); });
+      act.innerHTML = stepCard(N, N, cfg.q.title, cq.html); cq.bind(act);
+    }
+    render(); if (S.q) markDone('scene');
+  }
+
+  /* ══ MODULE: backpack (Gallery main attraction · the Backpack Test) ══ */
+  var MAXSVG = '<svg viewBox="0 0 120 200" aria-hidden="true"><ellipse cx="60" cy="194" rx="40" ry="5" fill="rgba(0,0,0,.18)"/>' +
+    '<rect x="44" y="120" width="13" height="58" rx="5" fill="#2F4A7A"/><rect x="63" y="120" width="13" height="58" rx="5" fill="#2F4A7A"/>' +
+    '<g class="shoe"><path d="M40 176 h20 v12 h-26 q-2 -8 6 -12z" fill="#E9573F"/><path d="M62 176 h20 q8 4 6 12 h-26z" fill="#E9573F"/><ellipse class="hole" cx="74" cy="185" rx="4" ry="2.4" fill="#3A2A1E"/><rect class="patch" x="68" y="181" width="12" height="7" rx="2" fill="#F5C542" stroke="#8A5A2E" stroke-width="1"/></g>' +
+    '<rect x="34" y="64" width="52" height="62" rx="14" fill="#3FA47A"/><rect x="22" y="70" width="14" height="44" rx="7" fill="#3FA47A"/><rect x="84" y="70" width="14" height="44" rx="7" fill="#3FA47A"/>' +
+    '<circle cx="60" cy="40" r="24" fill="#E8B98F"/><circle cx="51" cy="40" r="2.6" fill="#2A1E14"/><circle cx="69" cy="40" r="2.6" fill="#2A1E14"/><path d="M52 50 q8 6 16 0" stroke="#7A3A20" stroke-width="2.4" fill="none" stroke-linecap="round"/>' +
+    '<path class="hairL" d="M34 42 q-4 -30 26 -30 q30 0 26 30 q-4 -12 -10 -14 q-2 14 -16 16 q4 -6 2 -12 q-8 10 -22 12 q2 -6 4 -10 q-6 4 -10 8z" fill="#5A3A1E"/>' +
+    '<path class="hairS" d="M37 34 q2 -20 23 -20 q21 0 23 20 q-10 -9 -23 -9 q-13 0 -23 9z" fill="#5A3A1E"/></svg>';
+  function modBackpack(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var P = DATA.stops || [];
+    ST.bp = ST.bp || {i:0, paid:false, ok:false, q1:false, q2:false}; var S = ST.bp;
+    var m = shell('ms-bp-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-bp-stage"><div class="ms-bp-street"><div class="ms-bp-stop"></div><div class="ms-bp-coin" aria-hidden="true">🪙</div><div class="ms-bp-fly" aria-hidden="true"></div></div>' +
+      '<div class="ms-bp-maxw"><div class="ms-bp-max">'+MAXSVG+'<span class="ms-bp-dog" aria-hidden="true">🐕<i>walked!</i></span><span class="ms-bp-nm">Max · the buyer</span></div>' +
+      '<div class="ms-bp-pack"><div class="flap" aria-hidden="true"></div><div class="in"></div><div class="cnt"></div></div></div>' +
+      '<div class="ms-bp-trail">'+P.map(function(p, j){ return '<span data-j="'+j+'">'+p.ic+'</span>'; }).join('')+'</div></div><div class="ms-bp-act" aria-live="polite"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-bp-act', m), stage = $('.ms-bp-stage', m), maxEl = $('.ms-bp-max', m), busy = false;
+    function doneN(){ return S.i + (S.paid ? 1 : 0); }
+    function stopHTML(p){
+      if (p.k === 'dog') return '<div class="ms-bo-booth ms-bp-jay" style="--aw:#7A4EA8"><div class="aw"></div><div class="sg">🐕 Jay\'s Dog Walking</div><div class="ct"><span class="kp">🧒</span><span class="ic">🦮</span></div><div class="spot"><span class="ms-bp-jayn">Jay, a 5th grader</span></div></div>';
+      return boothHTML(boothOf(p.k));
+    }
+    function paint(){
+      var n = Math.min(doneN(), P.length), got = P.slice(0, n);
+      var goods = got.filter(function(p){ return p.kind === 'good'; });
+      $('.ms-bp-pack .in', m).innerHTML = goods.map(function(p){ return '<span>'+p.item+'</span>'; }).join('');
+      $('.ms-bp-pack .cnt', m).textContent = 'In the backpack: ' + goods.length + (goods.length === 1 ? ' thing' : ' things');
+      $('.ms-bp-pack', m).classList.toggle('full', goods.length > 0);
+      ['hair','shoe','dog'].forEach(function(c){ maxEl.classList.toggle('ch-' + c, got.some(function(p){ return p.change === c; })); });
+      $$('.ms-bp-trail span', m).forEach(function(s){ var j = +s.dataset.j; s.classList.toggle('done', j < n); s.classList.toggle('on', j === S.i && S.i < P.length); });
+      var p = P[Math.min(S.i, P.length - 1)]; $('.ms-bp-stop', m).innerHTML = S.i < P.length ? stopHTML(p) : '<div class="ms-bp-home">🏠 Max is home.<br>Backpack: '+goods.map(function(g){ return g.item; }).join(' ')+'</div>';
+    }
+    function pay(){
+      if (busy || S.paid) return; var p = P[S.i]; busy = true; SFX.click();
+      var coin = $('.ms-bp-coin', m), fly = $('.ms-bp-fly', m);
+      function finish(){ busy = false; S.paid = true; save(); paint(); render(); }
+      if (calm()) { finish(); return; }
+      stage.classList.remove('pay','got','bounce'); void stage.offsetWidth; stage.classList.add('pay');
+      setTimeout(function(){ SFX.pop(); fly.textContent = p.item; stage.classList.add(p.kind === 'good' ? 'got' : 'bounce'); }, 900);
+      setTimeout(function(){ stage.classList.remove('pay','got','bounce'); finish(); if (p.kind !== 'good') { maxEl.classList.remove('pop'); void maxEl.offsetWidth; maxEl.classList.add('pop'); } }, 2300);
+    }
+    function render(){
+      paint(); var N = P.length + 2;
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.i < P.length) { var p = P[S.i];
+        if (!S.paid) { act.innerHTML = stepCard(S.i + 1, N, 'Stop '+(S.i+1)+' of '+P.length+': '+p.where, '<p>Max wants <b>'+esc(p.what)+'</b>. Tap Pay, then watch the backpack.</p><button type="button" class="ms-btn big ms-bp-pay">🪙 Pay the seller</button>');
+          $('.ms-bp-pay', act).onclick = pay; return; }
+        act.innerHTML = stepCard(S.i + 1, N, 'Stop '+(S.i+1)+' of '+P.length+': '+p.where, '<p>Max paid for '+esc(p.what)+'. What did Max get?</p>' +
+          (S.ok ? '<div class="ms-vd-thanks">✅ '+esc(p.fb)+'</div><button type="button" class="ms-btn big ms-bp-next">'+(S.i + 1 < P.length ? 'Next stop ➡️' : 'Next ➡️')+'</button>'
+                : '<div class="ms-pchoices col">'+rot([['good', cfg.goodT], ['service', cfg.servT]], S.i).map(function(o){ return '<button type="button" class="ms-btn ms-bp-k" data-k="'+o[0]+'">'+esc(o[1])+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div>'));
+        $$('.ms-bp-k', act).forEach(function(b){ b.onclick = function(){
+          if (b.dataset.k === p.kind) { SFX.chime(); S.ok = true; save(); render(); }
+          else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 Look at the backpack. Did '+esc(p.what)+' go in? '+(p.kind === 'good' ? 'Count what is inside.' : 'Look at Max: what changed?')+'</div>'; } }; });
+        var nx = $('.ms-bp-next', act); if (nx) nx.onclick = function(){ SFX.click(); S.i++; S.paid = false; S.ok = false; save(); render(); };
+        return; }
+      var cq = choiceQ(S.q1 ? cfg.q2 : cfg.q1, S.q1 ? 2 : 1, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1400);
+        else { ST.gal = ST.gal||{}; ST.gal.backpack = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1500); } });
+      act.innerHTML = stepCard(S.q1 ? N : N - 1, N, S.q1 ? cfg.q2.title : cfg.q1.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: coinring (Gallery · Follow the Coins: everyone buys and sells) ══ */
+  function modCoinring(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var K = DATA.keepers || [], DL = DATA.deals || [];
+    ST.cr = ST.cr || {i:0, ok:false, q1:false, q2:false}; var S = ST.cr;
+    var m = shell('ms-cr-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-cr-stage"><svg class="ms-cr-ring" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="50" cy="30" rx="38" ry="22" fill="none" stroke="#C9A86A" stroke-width=".8" stroke-dasharray="2 2"/></svg>' +
+      '<div class="ms-cr-mid"><span class="i">🏪</span><b>Market Street</b><p class="w"></p></div>' +
+      K.map(function(k, j){ return '<button type="button" class="ms-cr-p p'+j+'" data-k="'+k.k+'" aria-label="'+esc(k.name+', '+k.job)+'"><span class="ic">'+k.ic+'</span><b>'+esc(k.name)+'</b><small>'+esc(k.job)+'</small><span class="tags"><i class="tb">BUYER</i><i class="ts">SELLER</i></span></button>'; }).join('') +
+      '<span class="ms-cr-coin" aria-hidden="true">🪙</span><span class="ms-cr-back" aria-hidden="true"></span><div class="ms-cr-banner" aria-hidden="true">'+esc(cfg.bothT||'')+'</div></div><div class="ms-cr-act" aria-live="polite"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-cr-act', m), stage = $('.ms-cr-stage', m), busy = false;
+    function kp(k){ for (var i = 0; i < K.length; i++) if (K[i].k === k) return K[i]; }
+    function paint(){
+      var n = S.i + (S.ok ? 1 : 0), d = DL.slice(0, n);
+      $$('.ms-cr-p', m).forEach(function(b){ var k = b.dataset.k, isB = d.some(function(x){ return x.buyer === k; }), isS = d.some(function(x){ return x.seller === k; });
+        b.classList.toggle('isb', isB); b.classList.toggle('iss', isS); b.classList.toggle('both', isB && isS);
+        b.classList.toggle('cur', S.i < DL.length && !S.ok && DL[S.i].buyer === k); });
+      stage.classList.toggle('all', n >= DL.length);
+      var cur = S.i < DL.length ? DL[S.i] : null; $('.ms-cr-mid .w', m).innerHTML = cur ? (S.ok ? '✅ '+esc(cur.done) : kp(cur.buyer).ic+' '+esc(cur.want)+'<br><i>👆 Tap the seller.</i>') : '';
+    }
+    function moveTok(tok, fromK, toK, ms){
+      var r = stage.getBoundingClientRect(), a = $('.ms-cr-p[data-k="'+fromK+'"]', m).getBoundingClientRect(), b = $('.ms-cr-p[data-k="'+toK+'"]', m).getBoundingClientRect();
+      tok.style.transition = 'none'; tok.style.left = (a.left - r.left + a.width/2) + 'px'; tok.style.top = (a.top - r.top + a.height/2) + 'px'; tok.style.opacity = 1; void tok.offsetWidth;
+      tok.style.transition = 'left '+ms+'ms ease-in-out, top '+ms+'ms ease-in-out'; tok.style.left = (b.left - r.left + b.width/2) + 'px'; tok.style.top = (b.top - r.top + b.height/2) + 'px';
+      setTimeout(function(){ tok.style.opacity = 0; }, ms + 150);
+    }
+    function pick(k, btn){
+      if (busy || S.i >= DL.length || S.ok) return; var d = DL[S.i];
+      if (k === d.buyer) { SFX.miss(); var fb0 = $('.ms-exfb', act); if (fb0) fb0.innerHTML = '<div class="ms-notyet">🤔 That is '+esc(kp(k).name)+', the person who needs something. Who sells it?</div>'; return; }
+      if (k !== d.seller) { SFX.miss(); if (btn) { btn.classList.remove('no'); void btn.offsetWidth; btn.classList.add('no'); }
+        var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 '+esc(kp(k).name)+' sells '+esc(kp(k).sells)+'. Is that what '+esc(kp(d.buyer).name)+' needs?</div>'; return; }
+      SFX.click();
+      function finish(){ busy = false; S.ok = true; save(); SFX.chime(); render(); if (S.i + 1 >= DL.length) { SFX.fanfare(); } }
+      if (calm()) { finish(); return; }
+      busy = true; var coin = $('.ms-cr-coin', m), back = $('.ms-cr-back', m);
+      coin.textContent = d.trade ? '🔧' : '🪙'; back.textContent = d.got;
+      moveTok(coin, d.buyer, d.seller, 1100); setTimeout(function(){ SFX.pop(); moveTok(back, d.seller, d.buyer, 1000); }, 1150); setTimeout(finish, 2300);
+    }
+    $$('.ms-cr-p', m).forEach(function(b){ b.onclick = function(){ pick(b.dataset.k, b); }; });
+    function render(){
+      paint(); var N = DL.length + 2;
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.i < DL.length) { var d = DL[S.i];
+        act.innerHTML = stepCard(S.i + 1, N, 'Deal '+(S.i+1)+' of '+DL.length, '<div class="ms-cr-want">'+kp(d.buyer).ic+' '+esc(d.want)+'</div>' +
+          (S.ok ? '<div class="ms-vd-thanks">✅ '+esc(d.done)+'</div><button type="button" class="ms-btn big ms-cr-next">'+(S.i + 1 < DL.length ? 'Next deal ➡️' : 'Next ➡️')+'</button>'
+                : '<p class="ms-wm-do">👆 Tap the person who sells what '+esc(kp(d.buyer).name)+' needs.</p><div class="ms-exfb" aria-live="polite"></div>'));
+        var nx = $('.ms-cr-next', act); if (nx) nx.onclick = function(){ SFX.click(); S.i++; S.ok = false; save(); render(); };
+        return; }
+      var cq = choiceQ(S.q1 ? cfg.q2 : cfg.q1, S.q1 ? 3 : 2, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1400);
+        else { ST.gal = ST.gal||{}; ST.gal.ring = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1500); } });
+      act.innerHTML = stepCard(S.q1 ? N : N - 1, N, S.q1 ? cfg.q2.title : cfg.q1.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: boothsigns (Exhibit Floor · four booth labels → hang the signs) ══ */
+  function modBoothsigns(cfg){
+    var F = (cfg.fields || []).map(function(f){ var ta = document.getElementById(f.id); return ta ? {f:f, ta:ta, home:null} : null; }).filter(Boolean); if (F.length < 4) return;
+    var NEED = cfg.wordMin || 7, B = DATA.booths || [], W = DATA.wishes || [];
+    ST.bs = ST.bs || {step:1, open:false}; var S = ST.bs;
+    var m = shell('ms-bs-mod', cfg);
+    var gB = B.filter(function(b){ return b.kind === 'good'; }), sB = B.filter(function(b){ return b.kind === 'service'; });
+    m.insertAdjacentHTML('beforeend', '<div class="ms-bs-act"></div><div class="ms-bs-stage" hidden>' +
+      '<div class="ms-bs-side g"><div class="ms-bs-sign" data-k="goods"><div class="h">GOODS</div><p></p></div><div class="row">'+gB.map(function(b){ return boothHTML(b); }).join('')+'</div></div>' +
+      '<div class="ms-bs-side s"><div class="ms-bs-sign" data-k="services"><div class="h">SERVICES</div><p></p></div><div class="row">'+sB.map(function(b){ return boothHTML(b); }).join('')+'</div></div>' +
+      '<div class="ms-bs-people"><div class="ms-bs-card" data-k="buyer"><span class="who">🧒</span><div><b>BUYER</b><p></p></div></div><div class="ms-bs-card" data-k="seller"><span class="who">🧑‍🍳</span><div><b>SELLER</b><p></p></div></div></div>' +
+      '<div class="ms-bs-line">'+W.map(function(w, j){ return '<span class="v v'+j+'" data-b="'+w.b+'">'+w.ic+'</span>'; }).join('')+'</div><div class="ms-bs-by"></div></div><div class="ms-bs-end"></div>');
+    var first = F[0].ta, blk = first.closest('.activity-body') || first.parentNode;
+    F.forEach(function(x){ x.home = document.createComment('bs-home-' + x.f.k); x.ta.parentNode.insertBefore(x.home, x.ta); });
+    var p0 = blk.querySelector('p'); if (p0 && p0.nextSibling) blk.insertBefore(m, p0.nextSibling); else blk.insertBefore(m, blk.firstChild); if (p0) p0.classList.add('ms-hide-on');
+    $$('.textbox-prompt', blk).forEach(function(tp){ tp.classList.add('ms-hide-on'); });
+    var act = $('.ms-bs-act', m), show = $('.ms-bs-stage', m), end = $('.ms-bs-end', m), curUpd = null;
+    function goHome(){ F.forEach(function(x){ if (x.ta.previousSibling !== x.home) x.home.parentNode.insertBefore(x.ta, x.home.nextSibling); }); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function words(t){ return (t.trim().match(/\S+/g)||[]).length; }
+    function ok(x){ return words(x.ta.value) >= NEED && new RegExp(x.f.re, 'i').test(x.ta.value); }
+    function miss(){ var out = []; F.forEach(function(x, i){ var n = words(x.ta.value);
+      if (n < NEED) out.push('Label '+(i+1)+' ('+x.f.t+'): add '+(NEED-n)+' more word'+(NEED-n===1?'':'s')+'.');
+      else if (!new RegExp(x.f.re, 'i').test(x.ta.value)) out.push('Label '+(i+1)+' ('+x.f.t+'): say what '+(x.f.k === 'goods' || x.f.k === 'services' ? x.f.t.toLowerCase()+' are, with an example.' : 'a '+x.f.k+' does.')); }); return out; }
+    function view(){
+      F.forEach(function(x){ var el2 = $('.ms-bs-sign[data-k="'+x.f.k+'"] p, .ms-bs-card[data-k="'+x.f.k+'"] p', show); if (el2) el2.textContent = x.ta.value.trim(); });
+      var nm = sget(NAMEK,''); $('.ms-bs-by', show).textContent = nm ? 'Labels by ' + nm + ', Trade & Choice Curator' : 'Labels by a Trade & Choice Curator';
+      show.classList.toggle('open', !!S.open);
+    }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 2; F.forEach(function(x){ x.ta.classList.toggle('ms-gi-away', S.step !== 1); });
+      if (S.step === 1) { goHome();
+        act.innerHTML = stepCard(1, 2, cfg.s1T, '<p>'+esc(cfg.s1||'')+'</p>' + F.map(function(x, i){ return '<div class="ms-bs-f" data-k="'+x.f.k+'"><div class="ms-bs-fh"><b>Label '+(i+1)+': '+esc(x.f.t)+'</b><button type="button" class="ms-btn alt ms-bs-start" data-i="'+i+'">✏️ '+esc(x.f.starter)+'</button><span class="ms-chip"></span></div><div class="ms-bs-box"></div></div>'; }).join('') +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn big ms-bs-next">See my signs ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        F.forEach(function(x){ $('.ms-bs-f[data-k="'+x.f.k+'"] .ms-bs-box', act).appendChild(x.ta); });
+        var fb = $('.ms-gi-fb', act);
+        var upd = function(){ F.forEach(function(x){ var c = $('.ms-bs-f[data-k="'+x.f.k+'"] .ms-chip', act), n = words(x.ta.value), g = ok(x); c.className = 'ms-chip' + (g ? ' ok' : ''); c.textContent = g ? '✓ ready' : Math.min(n, NEED) + ' of ' + NEED + ' words'; });
+          var x2 = miss(); $('.ms-bs-next', act).classList.toggle('ms-notready', !!x2.length); if (fb.innerHTML) fb.innerHTML = x2.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+x2.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $$('.ms-bs-start', act).forEach(function(b){ b.onclick = function(){ var x = F[+b.dataset.i], t = x.f.starter; if (x.ta.value.indexOf(t) < 0) x.ta.value = (x.ta.value.trim() ? x.ta.value.replace(/\s*$/,'') + ' ' : '') + t + ' ';
+          x.ta.focus(); x.ta.setSelectionRange(x.ta.value.length, x.ta.value.length); x.ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-bs-next', act).onclick = function(){ var x2 = miss(); if (x2.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+x2.map(esc).join(' ')+'</div>'; return; }
+          SFX.click(); S.step = 2; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(2, 2, cfg.s2T, '<p>'+esc(cfg.s2||'')+'</p><button type="button" class="ms-btn big ms-bs-go">🪧 '+esc(cfg.openT||'Hang the signs')+'</button><div class="ms-gi-fb" aria-live="polite"></div>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-bs-edit">✏️ '+esc(cfg.editT||'Edit')+'</button></div>';
+      var gb = $('.ms-bs-go', end); if (gb) gb.onclick = function(){ var x2 = miss(); if (x2.length) { SFX.miss(); $('.ms-gi-fb', end).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+x2.map(esc).join(' ')+'</div>'; return; }
+        S.open = true; save(); show.classList.remove('hang'); void show.offsetWidth; if (!calm()) show.classList.add('hang'); SFX.fanfare(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'});
+        if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 2400);
+        setTimeout(function(){ show.classList.remove('hang'); }, 4200); optiNod('assignment'); check(); };
+      $('.ms-bs-edit', end).onclick = function(){ S.open = false; S.step = 1; save(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    F.forEach(function(x){ x.ta.addEventListener('input', function(){ if (curUpd && S.step === 1) curUpd(); }); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
