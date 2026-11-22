@@ -144,6 +144,11 @@
    - exchtrip        Gallery main attraction: four stops (Canada, Mexico, Jamaica, St. Lucia); exchange at the booth, then pay with the right money
    - islandmap       Gallery: Caribbean map (Natural Earth); tap Jamaica, Cuba, Puerto Rico; the Eastern Caribbean dollar lights eight islands
    - neighborpanels  Exhibit Floor: Canada / Mexico / Caribbean / closing boxes move into the step → panels hang on the wider money case
+   Added for 3.09_06 (DATA.naMap, DATA.trRegions, DATA.trRoutes, DATA.trVeh, DATA.trFoods):
+   - growtest   Lobby: a farm in Canada; plant wheat, plant an orange tree, move to January (it freezes); 2 questions
+   - routemap   Gallery main attraction: drag each crate to the region that needs it (or tap), the arrow draws, pick truck / train / ship
+   - breakfast  Gallery: tap 5 breakfast foods; each flies to where it grew and an arrow runs to Your kitchen
+   - shiptag    Exhibit Floor: pick a route, the 4 frame boxes move into the step, the tag ties onto that arrow on the wall map
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1201,7 +1206,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -5891,7 +5896,233 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.09_06 (Trade Routes and Regional Resources) ══════════
+     DATA.naMap = North America + Caribbean map (Natural Earth 50m, equirectangular); DATA.trRegions (5 regions, has / needs),
+     DATA.trRoutes (5 routes: from, to, ok vehicles), DATA.trVeh, DATA.trFoods (breakfast tray)
+     - growtest   Lobby: a farm in Canada; plant wheat (grows), plant an orange tree, move to January (it freezes); 2 questions
+     - routemap   Gallery main attraction: drag each crate to the region that needs it (or tap the region), the arrow draws, pick truck / train / ship, it runs the route
+     - breakfast  Gallery: tap 5 breakfast foods; each flies to where it grew and an arrow runs to "Your kitchen"; "did it start at the store?"
+     - shiptag    Exhibit Floor: pick a route → Choice / Scarcity / Benefit / Consequence boxes move into the step → the tag ties onto that arrow on the wall map */
+
+  var NA_N = 0;
+  function naPt(k){ var M = DATA.naMap || {pts:{}}; return (M.pts || {})[k] || [0,0]; }
+  function naSVG(cls, opt){
+    opt = opt || {}; var M = DATA.naMap || {land:{}, W:900, H:800}, R = DATA.trRegions || [], id = 'ms-na-ah' + (++NA_N);
+    var rg = R.map(function(r){ return '<path class="rg r-'+r.k+(opt.targets ? ' ms-rm-target' : '')+'" data-r="'+r.k+'" d="'+(r.k === 'cb' ? M.car : M.land[r.k])+'"/>'; }).join('');
+    var lb = opt.labels === false ? '' : R.map(function(r){ var M2 = DATA.naMap || {pts:{}}, p = (M2.pts || {})['lab_' + r.k] || naPt(r.k); return '<text class="lb l-'+r.k+'" data-r="'+r.k+'" x="'+p[0]+'" y="'+(p[1] + 9)+'" text-anchor="middle">'+esc(r.n)+'</text>'; }).join('');
+    return '<svg viewBox="0 0 '+M.W+' '+M.H+'" class="ms-na '+(cls||'')+'" role="img" aria-label="A map of Canada, the United States, Mexico, and the Caribbean islands"><defs><marker id="'+id+'" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" class="ah"/></marker></defs>' +
+      '<rect class="sea" width="'+M.W+'" height="'+M.H+'"/><path class="gray" d="'+M.gray+'"/><path class="us" d="'+M.us+'"/>'+rg+'<path class="lake" d="'+M.lakes+'"/>' +
+      '<text class="oc" x="70" y="430">Pacific Ocean</text><text class="oc" x="800" y="380">Atlantic</text><text class="oc" x="800" y="402">Ocean</text>' + (opt.extra || '') +
+      '<g class="arrows" data-ah="'+id+'"></g>'+lb+'<g class="veh"></g></svg>';
+  }
+  function naArrowD(a, b, bend){ var mx = (a[0]+b[0])/2, my = (a[1]+b[1])/2, dx = b[0]-a[0], dy = b[1]-a[1], c = [mx - dy*bend, my + dx*bend];
+    return 'M'+a[0]+' '+a[1]+' Q'+Math.round(c[0])+' '+Math.round(c[1])+' '+b[0]+' '+b[1]; }
+  function naRouteEnds(rt){ return [naPt(rt.a || rt.from), naPt(rt.b || rt.to)]; }
+  function naMark(svg, path, icon, f){ var q = path.getPointAtLength(path.getTotalLength() * (f == null ? .5 : f)), t = document.createElementNS('http://www.w3.org/2000/svg', 'text'); t.setAttribute('class', 'gi'); t.setAttribute('text-anchor', 'middle'); t.setAttribute('x', q.x); t.setAttribute('y', q.y + 12); t.textContent = icon; svg.querySelector('.veh').appendChild(t); return t; }
+  function naDraw(svg, d, cls, animate){
+    var g = svg.querySelector('.arrows'), p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', d); p.setAttribute('class', 'arr ' + (cls||'')); p.setAttribute('marker-end', 'url(#' + g.dataset.ah + ')'); g.appendChild(p);
+    if (animate && !calm()) { var L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; void p.getBoundingClientRect(); p.style.transition = 'stroke-dashoffset 1.1s ease'; p.style.strokeDashoffset = 0;
+      setTimeout(function(){ p.style.strokeDasharray = ''; p.style.transition = ''; }, 1200); }
+    return p;
+  }
+  function naRide(svg, path, icon, ms, done){
+    var g = svg.querySelector('.veh'), t = document.createElementNS('http://www.w3.org/2000/svg', 'text'); t.setAttribute('class', 'vh'); t.setAttribute('text-anchor', 'middle'); t.textContent = icon; g.appendChild(t);
+    var L = path.getTotalLength(), t0 = null;
+    function put(f){ var q = path.getPointAtLength(L * f); t.setAttribute('x', q.x); t.setAttribute('y', q.y + 10); }
+    if (calm()) { put(1); if (done) done(); return t; }
+    put(0); function step(ts){ if (!t0) t0 = ts; var f = Math.min(1, (ts - t0) / (ms || 2200)); put(f < .5 ? 2*f*f : 1 - Math.pow(-2*f + 2, 2)/2); if (f < 1) requestAnimationFrame(step); else if (done) done(); }
+    requestAnimationFrame(step); return t;
+  }
+
+  /* ══ MODULE: growtest (Lobby · try to grow it here) ══ */
+  function modGrowtest(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var STP = cfg.steps || [];
+    ST.gw = ST.gw || {st:0, q1:false, q2:false}; var S = ST.gw;
+    var m = shell('ms-gw-mod', cfg);
+    var wheat = ''; for (var i = 0; i < 26; i++) { var x = 60 + i * 9 + (i % 3) * 2, h = 70 + (i * 37 % 22); wheat += '<g class="st" style="--d:'+(i%7)*0.06+'s"><path d="M'+x+' 250 L'+x+' '+(250-h)+'" /><ellipse cx="'+x+'" cy="'+(250-h-7)+'" rx="3.4" ry="9"/></g>'; }
+    var snow = ''; for (var j = 0; j < 36; j++) snow += '<circle cx="'+(j * 53 % 600)+'" cy="'+(j * 29 % 200)+'" r="'+(2 + j % 3)+'" style="--d:'+(j%9)*0.4+'s"/>';
+    var scene = '<svg viewBox="0 0 600 300" class="ms-gw-scene" aria-label="A drawing of a farm on the Canadian prairies with a red barn, a thermometer, a wheat field, and a place for a small orange tree">' +
+      '<rect class="sky" width="600" height="250"/><circle class="sun" cx="520" cy="58" r="28"/><g class="snow">'+snow+'</g>' +
+      '<path class="far" d="M0 205 Q150 192 300 202 T600 198 L600 250 L0 250 Z"/><rect class="ground" y="248" width="600" height="52"/><rect class="snowcap" y="244" width="600" height="14" rx="6"/>' +
+      '<g class="barn"><rect x="430" y="168" width="110" height="82" fill="#B5432F"/><path d="M420 172 L485 128 L550 172 Z" fill="#8E2E22"/><rect x="470" y="205" width="30" height="45" fill="#6E2318"/><path d="M470 205 L500 250 M500 205 L470 250" stroke="#F3E7CF" stroke-width="3"/></g>' +
+      '<g class="therm"><rect x="392" y="150" width="26" height="92" rx="13" fill="#FFFDF6" stroke="#5A3A1E" stroke-width="3"/><rect class="merc" x="401" y="160" width="8" height="66" rx="4"/><circle cx="405" cy="230" r="9" class="bulb"/><text class="tt" x="405" y="140" text-anchor="middle"></text></g>' +
+      '<g class="wheat">'+wheat+'</g><text class="hint w" x="175" y="240" text-anchor="middle">wheat field</text>' +
+      '<g class="tree"><rect x="318" y="196" width="9" height="54" fill="#6B4528"/><g class="leaves"><circle cx="322" cy="186" r="26"/><circle cx="304" cy="198" r="16"/><circle cx="340" cy="198" r="16"/></g><g class="fruit"><circle cx="312" cy="184" r="5"/><circle cx="332" cy="192" r="5"/><circle cx="322" cy="174" r="5"/></g></g><text class="hint t" x="322" y="240" text-anchor="middle">orange tree spot</text>' +
+      '<g class="seasign"><rect x="16" y="14" width="150" height="38" rx="8"/><text x="91" y="40" text-anchor="middle"></text></g></svg>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-gw-wrap"><div class="ms-gw-stage">'+scene+'</div><div class="ms-gw-act" aria-live="polite"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-gw-act', m), stage = $('.ms-gw-stage', m), svg = $('.ms-gw-scene', m);
+    var SEAS = [['Spring', '55°F'], ['Summer', '80°F'], ['Summer', '80°F'], ['January', '-4°F']];
+    function paint(){ var st = S.st; stage.className = 'ms-gw-stage s' + st; $('.seasign text', svg).textContent = SEAS[st][0]; $('.tt', svg).textContent = SEAS[st][1]; }
+    function render(){
+      paint(); var N = STP.length + 2;
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (S.st < STP.length) { var sp = STP[S.st];
+        act.innerHTML = stepCard(S.st + 1, N, sp.t, (S.st ? '<div class="ms-vd-thanks">✅ '+esc(STP[S.st-1].done)+'</div>' : '') + '<p>'+esc(sp.p)+'</p><button type="button" class="ms-btn big ms-gw-go">'+esc(sp.btn)+'</button>');
+        $('.ms-gw-go', act).onclick = function(){ SFX.chime(); S.st++; save(); stage.classList.add('anim'); render(); svg.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); };
+        return; }
+      var q = S.q1 ? cfg.q2 : cfg.q1;
+      var cq = choiceQ(q, S.q1 ? 1 : 2, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1400);
+        else { markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1500); } });
+      act.innerHTML = stepCard(S.q1 ? N : N - 1, N, q.title, (S.q1 ? '' : '<div class="ms-vd-thanks">❄️ '+esc(STP[STP.length-1].done)+'</div>') + cq.html); cq.bind(act);
+    }
+    render(); if (S.q2) markDone('scene');
+  }
+
+  /* ══ MODULE: routemap (Gallery main attraction · draw the arrows) ══ */
+  function modRoutemap(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var R = DATA.trRegions || [], RT = DATA.trRoutes || [], V = DATA.trVeh || {}, M = DATA.naMap || {W:900, H:800};
+    ST.rm = ST.rm || {i:0, drawn:false, rode:false, q1:false, q2:false}; var S = ST.rm;
+    var m = shell('ms-rm-mod', cfg);
+    function rOf(k){ for (var i = 0; i < R.length; i++) if (R[i].k === k) return R[i]; return {n:k}; }
+    m.insertAdjacentHTML('beforeend', '<div class="ms-rm-stage"><div class="ms-rm-mapw">'+naSVG('ms-rm-map', {targets:true})+'<div class="ms-rm-crate" role="img" aria-label="crate"><b></b><i></i></div></div>' +
+      '<div class="ms-rm-side"><div class="ms-rm-act" aria-live="polite"></div><div class="ms-rm-chart"><div class="h">Region chart</div>'+R.map(function(r){ return '<button type="button" class="ms-rm-row ms-rm-target" data-r="'+r.k+'"><b class="n">'+r.ic+' '+esc(r.n)+'</b><span><i>Has plenty:</i> '+esc(r.has)+'</span><span><i>Needs:</i> '+esc(r.needs)+'</span></button>'; }).join('')+'</div></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-rm-act', m), svg = $('.ms-rm-map', m), crate = $('.ms-rm-crate', m), cur = null;
+    function drawAll(){ $('.arrows', svg).innerHTML = ''; $('.veh', svg).innerHTML = '';
+      RT.forEach(function(rt, j){ if (j < S.i || (j === S.i && S.drawn)) { var e = naRouteEnds(rt, j), p = naDraw(svg, naArrowD(e[0], e[1], rt.bend), 'a-' + rt.k + (j === S.i && !S.rode ? ' cur' : ''), false);
+        if (j < S.i || S.rode) naMark(svg, p, (V[(S.vs || {})[rt.k] || rt.ok[0]] || '🚚').split(' ')[0] + rt.ic); } }); }
+    function paint(){
+      var rt = RT[S.i]; $$('.ms-rm-row', m).forEach(function(b){ b.classList.toggle('from', !!(rt && !S.drawn && b.dataset.r === rt.from)); });
+      $$('.rg', svg).forEach(function(p){ p.classList.toggle('from', !!(rt && !S.drawn && p.dataset.r === rt.from)); });
+      if (rt && !S.drawn && S.i < RT.length) { var p0 = naPt(rt.a || rt.from); crate.hidden = false; crate.style.left = (p0[0] / M.W * 100) + '%'; crate.style.top = ((p0[1] - 34) / M.H * 100) + '%'; $('b', crate).textContent = rt.ic; $('i', crate).textContent = rt.good; crate.setAttribute('aria-label', 'A crate of ' + rt.good.toLowerCase() + ' from ' + rOf(rt.from).n); }
+      else crate.hidden = true;
+      drawAll();
+    }
+    function choose(k){
+      var rt = RT[S.i]; if (!rt || S.drawn || S.q1 && S.q2) return; var fb = $('.ms-exfb', act);
+      if (k === rt.to) { SFX.chime(); S.drawn = true; S.rode = false; save(); paint(); var e = naRouteEnds(rt, S.i); $$('.arr.cur', svg).forEach(function(p){ p.remove(); }); naDraw(svg, naArrowD(e[0], e[1], rt.bend), 'a-' + rt.k + ' cur', true); render(true); return; }
+      SFX.miss(); var r = rOf(k);
+      if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 ' + (k === rt.from ? 'That is where the ' + esc(rt.good.toLowerCase()) + ' comes from. Who <b>needs</b> it?' : 'Check the chart. Does ' + esc(r.n) + ' need ' + esc(rt.good.toLowerCase()) + '? Read its Needs line.') + '</div>';
+    }
+    dragger(crate, function(moved, t){ if (moved && t) choose(t.dataset.r); }, '.ms-rm-target');
+    $$('.ms-rm-target', m).forEach(function(t){ t.addEventListener('click', function(){ choose(t.dataset.r); }); });
+    function render(justDrew){
+      paint(); var N = RT.length + 2;
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.i < RT.length) { var rt = RT[S.i], tt = 'Route '+(S.i+1)+' of '+RT.length+': '+rt.good;
+        if (!S.drawn) { act.innerHTML = stepCard(S.i + 1, N, tt, '<p class="ms-rm-cargo"><span class="ic">'+rt.ic+'</span><span>A crate of <b>'+esc(rt.good.toLowerCase())+'</b> from <b>'+esc(rOf(rt.from).n)+'</b>.</span></p><p class="ms-wm-do">👆 Which region <b>needs</b> '+esc(rt.good.toLowerCase())+'? Check the chart. Then drag the crate there, or tap that region on the map or in the chart.</p><div class="ms-exfb" aria-live="polite"></div>'); return; }
+        if (!S.rode) { var ks = Object.keys(V), sh = (S.i * 2 + 1) % ks.length; ks = ks.slice(sh).concat(ks.slice(0, sh));
+          act.innerHTML = stepCard(S.i + 1, N, tt, '<div class="ms-vd-thanks">✅ '+esc(rOf(rt.to).n)+' needs '+esc(rt.good.toLowerCase())+'. '+esc(rt.why)+'</div><p>How will the '+esc(rt.good.toLowerCase())+' travel?</p><div class="ms-pchoices">'+ks.map(function(k){ return '<button type="button" class="ms-btn ms-rm-v" data-v="'+k+'">'+esc(V[k])+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div>');
+          $$('.ms-rm-v', act).forEach(function(b){ b.onclick = function(){ var k = b.dataset.v;
+            if (rt.ok.indexOf(k) < 0) { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc((rt.no||{})[k] || 'Can that get there? Look at the map.')+'</div>'; return; }
+            SFX.click(); $$('.ms-rm-v', act).forEach(function(x){ x.disabled = true; }); b.classList.add('ok');
+            var p = $('.arr.cur', svg); S.vs = S.vs || {}; S.vs[rt.k] = k; if (p) { p.classList.remove('cur'); naRide(svg, p, V[k].split(' ')[0] + rt.ic, 2400, function(){ S.rode = true; save(); render(); }); } else { S.rode = true; save(); render(); }
+            if (rt.allOk) $('.ms-exfb', act).innerHTML = '<div class="ms-vd-thanks">🙂 '+esc(rt.allOk)+'</div>'; }; });
+          return; }
+        act.innerHTML = stepCard(S.i + 1, N, tt, '<div class="ms-vd-thanks">✅ The '+esc(rt.good.toLowerCase())+' arrived in '+esc(rOf(rt.to).n)+'. That arrow is a trade route.</div><button type="button" class="ms-btn big ms-rm-next">'+(S.i + 1 < RT.length ? 'Next crate ➡️' : 'Look at my map ➡️')+'</button>');
+        $('.ms-rm-next', act).onclick = function(){ SFX.click(); S.i++; S.drawn = false; S.rode = false; save(); render(); };
+        return; }
+      var q = S.q1 ? cfg.q2 : cfg.q1;
+      var cq = choiceQ(q, S.q1 ? 1 : 2, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1400);
+        else { ST.gal = ST.gal||{}; ST.gal.routes = 1; save(); galleryCheck(); SFX.fanfare(); if (!calm()) svg.classList.add('glow'); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1500); } });
+      act.innerHTML = stepCard(S.q1 ? N : N - 1, N, q.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: breakfast (Gallery · your breakfast's map) ══ */
+  function modBreakfast(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var F = DATA.trFoods || [], R = DATA.trRegions || [];
+    ST.bk = ST.bk || {seen:{}, order:[], q:false}; var S = ST.bk; S.order = S.order || [];
+    var m = shell('ms-bk-mod', cfg), K = [150, 735];
+    var kit = '<g class="kit"><rect x="'+(K[0]-110)+'" y="'+(K[1]-34)+'" width="220" height="62" rx="12"/><text x="'+K[0]+'" y="'+(K[1]+8)+'" text-anchor="middle">🏠 Your kitchen</text></g>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-bk-stage"><div class="ms-bk-tray"><div class="h">Breakfast tray</div><div class="row">'+F.map(function(f){ return '<button type="button" class="ms-bk-food" data-k="'+f.k+'"><span>'+f.ic+'</span><b>'+esc(f.n)+'</b></button>'; }).join('')+'</div></div><div class="ms-bk-mapw">'+naSVG('ms-bk-map', {extra: kit})+'</div></div><div class="ms-bk-act" aria-live="polite"></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-bk-act', m), svg = $('.ms-bk-map', m);
+    function fOf(k){ for (var i = 0; i < F.length; i++) if (F[i].k === k) return F[i]; }
+    function arrow(f, j, anim){ var a = naPt(f.a || f.from), b = [K[0] + (j - 2) * 30, K[1] - 34];
+      var pa = naDraw(svg, naArrowD(a, b, f.from === 'ca' ? 0.25 : -0.18), 'bk', anim);
+      var t = document.createElementNS('http://www.w3.org/2000/svg', 'text'); t.setAttribute('class', 'fi'); t.setAttribute('x', a[0]); t.setAttribute('y', a[1] + 8); t.setAttribute('text-anchor', 'middle'); t.textContent = f.ic; $('.veh', svg).appendChild(t); return pa; }
+    function paint(){ $('.arrows', svg).innerHTML = ''; $('.veh', svg).innerHTML = ''; S.order.forEach(function(k, j){ arrow(fOf(k), F.indexOf(fOf(k)), false); });
+      $$('.ms-bk-food', m).forEach(function(b){ b.classList.toggle('done', !!S.seen[b.dataset.k]); b.setAttribute('aria-pressed', !!S.seen[b.dataset.k]); });
+      $$('.rg', svg).forEach(function(p){ p.classList.toggle('lit', S.order.some(function(k){ return fOf(k).from === p.dataset.r; })); }); }
+    $$('.ms-bk-food', m).forEach(function(b){ b.onclick = function(){ var k = b.dataset.k, f = fOf(k); if (S.seen[k] || S.q) return;
+      SFX.chime(); S.seen[k] = 1; S.order.push(k); save(); var lab = svg.querySelector('.lb.l-' + f.from);
+      fly(b, lab, '<span style="font-size:30px">'+f.ic+'</span>', 700).then(function(){ paint(); var all = $$('.arr.bk', svg); var last = all[all.length - 1]; if (last) { last.remove(); arrow(f, F.indexOf(f), true); } render(); }); }; });
+    function render(){
+      paint(); var n = S.order.length, N = F.length + 1;
+      if (S.q) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (n < F.length) { var last = n ? fOf(S.order[n-1]) : null;
+        act.innerHTML = stepCard(n + 1, N, 'Tap a food', (last ? '<div class="ms-vd-thanks">✅ <b>'+esc(last.n)+':</b> '+esc(last.t)+'</div>' : '') + '<p class="ms-wm-do">👆 Tap a food on the breakfast tray: '+F.filter(function(f){ return !S.seen[f.k]; }).map(function(f){ return esc(f.n); }).join(', ')+'. ('+n+' of '+F.length+')</p>'); return; }
+      var cq = choiceQ(cfg.q, 1, function(){ ST.gal = ST.gal||{}; ST.gal.breakfast = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.q = true; save(); render(); }, calm()?0:1500); });
+      act.innerHTML = stepCard(N, N, cfg.q.title, '<div class="ms-vd-thanks">✅ <b>'+esc(fOf(S.order[n-1]).n)+':</b> '+esc(fOf(S.order[n-1]).t)+'</div>' + cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: shiptag (Exhibit Floor · the shipping tag on the wall map) ══ */
+  function modShiptag(cfg){
+    var rta = document.getElementById(cfg.routeId || 'journal-route');
+    var F = (cfg.fields || []).map(function(f){ var ta = document.getElementById(f.id); return ta ? {f:f, ta:ta, home:null} : null; }).filter(Boolean); if (!rta || F.length < 4) return;
+    var RT = DATA.trRoutes || [], V = DATA.trVeh || {}, NEED = cfg.wordMin || 6;
+    ST.sg = ST.sg || {step:1, r:null, open:false}; var S = ST.sg;
+    var m = shell('ms-sg-mod', cfg);
+    function rtOf(k){ for (var i = 0; i < RT.length; i++) if (RT[i].k === k) return RT[i]; return null; }
+    function rOf(k){ var R = DATA.trRegions || []; for (var i = 0; i < R.length; i++) if (R[i].k === k) return R[i]; return {n:k}; }
+    m.insertAdjacentHTML('beforeend', '<div class="ms-sg-act"></div><div class="ms-sg-stage" hidden><div class="ms-sg-wall"><div class="lbl">THE CURATOR\'S TRADE ROUTE MAP</div>'+naSVG('ms-sg-map')+'</div><div class="ms-sg-tag"><span class="eye" aria-hidden="true"></span><span class="str" aria-hidden="true"></span><div class="hd">SHIPPING TAG</div><div class="ft"></div><ol class="ln"></ol><div class="by"></div></div></div><div class="ms-sg-end"></div>');
+    var blk = F[0].ta.closest('.activity-body') || F[0].ta.parentNode;
+    [{ta:rta}].concat(F).forEach(function(x){ x.home = document.createComment('sg-home'); x.ta.parentNode.insertBefore(x.home, x.ta); });
+    var rhome = rta.previousSibling;
+    var p0 = blk.querySelector('p'); if (p0 && p0.nextSibling) blk.insertBefore(m, p0.nextSibling); else blk.insertBefore(m, blk.firstChild);
+    $$('p, ul, .callout, .textbox-prompt', blk).forEach(function(e){ if (!m.contains(e)) e.classList.add('ms-hide-on'); });
+    var act = $('.ms-sg-act', m), show = $('.ms-sg-stage', m), end = $('.ms-sg-end', m), svg = $('.ms-sg-map', m), curUpd = null;
+    function goHome(){ if (rta.previousSibling !== rhome) rhome.parentNode.insertBefore(rta, rhome.nextSibling); F.forEach(function(x){ if (x.ta.previousSibling !== x.home) x.home.parentNode.insertBefore(x.ta, x.home.nextSibling); }); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function words(t){ return (t.trim().match(/\S+/g)||[]).length; }
+    function okF(x){ return words(x.ta.value) >= NEED && new RegExp(x.f.re, 'i').test(x.ta.value); }
+    function miss(){ var o = []; F.forEach(function(x){ var n = words(x.ta.value); if (n < NEED) o.push(x.f.t + ': add ' + (NEED - n) + ' more word' + (NEED - n === 1 ? '' : 's') + '.'); else if (!new RegExp(x.f.re, 'i').test(x.ta.value)) o.push(x.f.t + ': answer the question, ' + x.f.q.charAt(0).toLowerCase() + x.f.q.slice(1)); }); return o; }
+    function view(){ var rt = rtOf(S.r); if (!rt) return;
+      $('.ft', show).innerHTML = '<span><i>FROM</i> '+esc(rOf(rt.from).n)+'</span><span class="g">'+rt.ic+' '+esc(rt.good)+'</span><span><i>TO</i> '+esc(rOf(rt.to).n)+'</span>';
+      $('.ln', show).innerHTML = F.map(function(x){ return '<li><b>'+esc(x.f.t)+':</b> '+esc(x.ta.value.trim())+'</li>'; }).join('');
+      var nm = sget(NAMEK,''); $('.by', show).textContent = nm ? 'Tag by ' + nm + ', Trade & Choice Curator' : 'Tag by a Trade & Choice Curator';
+      $('.arrows', svg).innerHTML = ''; $('.veh', svg).innerHTML = ''; var j = RT.indexOf(rt), e = naRouteEnds(rt, j), p = naDraw(svg, naArrowD(e[0], e[1], rt.bend), 'mine', false);
+      if (S.open) naRide(svg, p, (V[rt.ok[0]] || '🚚').split(' ')[0] + rt.ic, 1, null);
+      $$('.rg', svg).forEach(function(q){ q.classList.toggle('lit', q.dataset.r === rt.from || q.dataset.r === rt.to); });
+      show.classList.toggle('open', !!S.open); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; show.hidden = S.step < 3; rta.classList.add('ms-gi-away'); F.forEach(function(x){ x.ta.classList.toggle('ms-gi-away', S.step !== 2); });
+      if (S.step === 1 || !S.r) { S.step = 1; goHome();
+        act.innerHTML = stepCard(1, 3, cfg.s1T, '<p>'+esc(cfg.s1||'')+'</p><div class="ms-pchoices col">'+RT.map(function(rt){ return '<button type="button" class="ms-btn'+(rt.k === S.r ? '' : ' alt')+' ms-sg-r" data-k="'+rt.k+'">'+rt.ic+' '+esc(rt.label)+'</button>'; }).join('')+'</div>');
+        $$('.ms-sg-r', act).forEach(function(b){ b.onclick = function(){ var rt = rtOf(b.dataset.k); SFX.click(); S.r = rt.k; S.step = 2; rta.value = rt.label; rta.dispatchEvent(new Event('input',{bubbles:true})); save(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); }; });
+        return; }
+      if (S.step === 2) { goHome(); var rt = rtOf(S.r);
+        act.innerHTML = stepCard(2, 3, cfg.s2T, '<p class="ms-gi-ok">✅ Your route: <b>'+rt.ic+' '+esc(rt.label)+'</b> <button type="button" class="ms-btn alt ms-sg-back">↩️ Pick another route</button></p><p>'+esc(cfg.s2||'')+'</p>' + F.map(function(x, i){ return '<div class="ms-bs-f" data-i="'+i+'"><div class="ms-bs-fh"><b>'+esc(x.f.t)+'</b><span class="ms-sg-q">'+esc(x.f.q)+'</span><button type="button" class="ms-btn alt ms-sg-start" data-i="'+i+'">✏️ '+esc(x.f.starter)+'</button><span class="ms-chip"></span></div><div class="ms-bs-box"></div></div>'; }).join('') +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn big ms-sg-next">See my tag ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        F.forEach(function(x, i){ $('.ms-bs-f[data-i="'+i+'"] .ms-bs-box', act).appendChild(x.ta); });
+        var fb = $('.ms-gi-fb', act);
+        var upd = function(){ F.forEach(function(x, i){ var c = $('.ms-bs-f[data-i="'+i+'"] .ms-chip', act), g = okF(x); c.className = 'ms-chip' + (g ? ' ok' : ''); c.textContent = g ? '✓ ready' : Math.min(words(x.ta.value), NEED) + ' of ' + NEED + ' words'; });
+          var o = miss(); $('.ms-sg-next', act).classList.toggle('ms-notready', !!o.length); if (fb.innerHTML) fb.innerHTML = o.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $('.ms-sg-back', act).onclick = function(){ SFX.click(); S.step = 1; save(); render(); };
+        $$('.ms-sg-start', act).forEach(function(b){ b.onclick = function(){ var x = F[+b.dataset.i], t = x.f.starter; if (x.ta.value.indexOf(t) < 0) x.ta.value = (x.ta.value.trim() ? x.ta.value.replace(/\s*$/,'') + ' ' : '') + t + ' ';
+          x.ta.focus(); x.ta.setSelectionRange(x.ta.value.length, x.ta.value.length); x.ta.dispatchEvent(new Event('input',{bubbles:true})); upd(); }; });
+        $('.ms-sg-next', act).onclick = function(){ var o = miss(); if (o.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>'; return; }
+          SFX.click(); S.step = 3; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); view(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(3, 3, cfg.s3T, '<p>'+esc(cfg.s3||'')+'</p><button type="button" class="ms-btn big ms-sg-go">🏷️ '+esc(cfg.openT||'Tie on my tag')+'</button>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-sg-edit">✏️ '+esc(cfg.editT||'Edit')+'</button></div>';
+      var gb = $('.ms-sg-go', end); if (gb) gb.onclick = function(){ S.open = true; save(); SFX.fanfare(); show.classList.remove('tie'); void show.offsetWidth; if (!calm()) show.classList.add('tie');
+        view(); var rt = rtOf(S.r), p = $('.arr.mine', svg); $('.veh', svg).innerHTML = ''; if (p) naRide(svg, p, (V[rt.ok[0]] || '🚚').split(' ')[0] + rt.ic, 2600, null);
+        render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'});
+        if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 2400);
+        setTimeout(function(){ show.classList.remove('tie'); }, 3500); optiNod('assignment'); check(); };
+      $('.ms-sg-edit', end).onclick = function(){ S.open = false; S.step = 2; save(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    F.forEach(function(x){ x.ta.addEventListener('input', function(){ if (curUpd && S.step === 2) curUpd(); }); });
+    var items = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && items.length && items.every(on)) markDone('assignment'); }
+    items.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
