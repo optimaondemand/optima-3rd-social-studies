@@ -149,6 +149,11 @@
    - routemap   Gallery main attraction: drag each crate to the region that needs it (or tap), the arrow draws, pick truck / train / ship
    - breakfast  Gallery: tap 5 breakfast foods; each flies to where it grew and an arrow runs to Your kitchen
    - shiptag    Exhibit Floor: pick a route, the 4 frame boxes move into the step, the tag ties onto that arrow on the wall map
+   Added for 3.09_07 (DATA.dbTiles, DATA.dbYears, DATA.puItems):
+   - toystand   Lobby: grab the blinking $5 toy, then the lunch snack can't be bought; 2 questions
+   - decboard   Gallery main attraction: 8 tiles into Costs / Benefits, Heavy or Light, council vote, harbor town Year 0 to 10 on a slider
+   - freepuppy  Gallery: tap 6 things around a FREE puppy (4 costs, 2 benefits); Evidence Q1 box moves into the last step
+   - mytiles    Exhibit Floor: pick fruit or game, the Costs / Benefits / Decision boxes move into the steps and become tiles, DECIDED stamp
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1206,7 +1211,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -6122,7 +6127,305 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.09_07 (Marketplace Decision: Costs and Benefits) ══════════
+     DATA.dbTiles (8 harbor tiles: side c / b), DATA.dbYears (captions for the harbor years), DATA.puItems (6 things around the puppy)
+     - toystand   Lobby: grab the blinking $5 toy, then find you can't buy the lunch snack you came for; 2 questions
+     - decboard   Gallery main attraction: slide 8 tiles into Costs / Benefits one at a time, Heavy or Light on each, council vote, then a drawn harbor town runs Year 0 → 10 on a slider; 2 questions
+     - freepuppy  Gallery: tap 6 things around a FREE puppy (4 hidden costs, 2 benefits); question; Evidence Q1 box moves into the last step
+     - mytiles    Exhibit Floor: pick fruit or game → the Costs and Benefits boxes move into the step and become tiles → decision → DECIDED stamp; empty gold frame waits */
+
+  function dbBoardHTML(cls, q){
+    return '<div class="ms-db-board '+(cls||'')+'"><div class="q"><small>DECISION BOARD</small><b>'+esc(q)+'</b></div><div class="cols">' +
+      '<div class="ms-db-col c" data-s="c" role="button" tabindex="0" aria-label="Costs column"><span class="h"><i>−</i> Costs<small>what is given up</small></span><div class="in"></div></div>' +
+      '<div class="ms-db-col b" data-s="b" role="button" tabindex="0" aria-label="Benefits column"><span class="h"><i>+</i> Benefits<small>what is gained</small></span><div class="in"></div></div></div></div><div class="ms-db-legs" aria-hidden="true"><i></i><i></i></div>';
+  }
+
+  /* ══ MODULE: toystand (Lobby · the Shiny Toy Stand) ══ */
+  function modToystand(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var STP = cfg.steps || [];
+    ST.ty = ST.ty || {st:0, q1:false, q2:false}; var S = ST.ty;
+    var m = shell('ms-ty-mod', cfg);
+    var stripes = ''; for (var i = 0; i < 9; i++) stripes += '<path d="M'+(140 + i*50)+' 40 h50 l-4 34 q-21 14 -42 0 z" fill="'+(i % 2 ? '#FFF4DA' : '#C0392B')+'"/>';
+    var scene = '<svg viewBox="0 0 600 300" class="ms-ty-scene" role="img" aria-label="A drawing of a market stand with a striped awning. On the counter are a shiny blinking toy with a BUY ME sign and a lunch snack bag. Each costs 5 dollars. Your wallet with one 5 dollar bill and your basket are in front.">' +
+      '<rect width="600" height="300" fill="#F3E7CF"/><rect y="236" width="600" height="64" fill="#C9A574"/><rect y="236" width="600" height="3" fill="#8A5A34"/>' +
+      '<rect x="150" y="60" width="8" height="180" fill="#6B4423"/><rect x="572" y="60" width="8" height="180" fill="#6B4423"/><rect x="140" y="32" width="450" height="10" fill="#6B4423"/>' + stripes +
+      // seller behind the counter
+      '<g class="seller"><circle cx="500" cy="118" r="17" fill="#C68B5A"/><path d="M483 114 q17 -24 34 0 q-17 -9 -34 0" fill="#3B2A1E"/><path d="M474 176 q0 -38 26 -38 q26 0 26 38 z" fill="#1A8A7D"/><circle cx="494" cy="118" r="2" fill="#2B1B10"/><circle cx="506" cy="118" r="2" fill="#2B1B10"/><path class="mouth" d="M494 126 q6 5 12 0" stroke="#2B1B10" stroke-width="2" fill="none"/></g>' +
+      '<g class="say"><path d="M330 62 h150 a8 8 0 0 1 8 8 v30 a8 8 0 0 1 -8 8 h-8 l10 14 l-26 -14 h-126 a8 8 0 0 1 -8 -8 v-30 a8 8 0 0 1 8 -8z" fill="#fff" stroke="#0E1C42" stroke-width="2"/><text x="405" y="82" text-anchor="middle">Sorry! The snack is $5.</text><text x="405" y="100" text-anchor="middle">Your wallet is empty.</text></g>' +
+      // counter and till
+      '<rect x="150" y="172" width="430" height="12" fill="#A7774A"/><rect x="158" y="184" width="414" height="54" fill="#8A5A34"/><path d="M158 202 h414 M158 220 h414" stroke="#7A4E2C" stroke-width="2"/>' +
+      '<g class="till"><rect x="524" y="150" width="40" height="22" rx="3" fill="#5E6B7A"/><rect x="530" y="140" width="28" height="12" rx="2" fill="#8795A6"/><rect x="528" y="166" width="32" height="4" fill="#2E3A48"/></g>' +
+      // the snack: a paper bag standing on the counter
+      '<g class="snack"><path d="M352 172 l4 -46 h44 l4 46 z" fill="#D9B98A" stroke="#8A6A3C" stroke-width="2"/><path d="M356 126 l6 -8 h32 l6 8" fill="#C9A574" stroke="#8A6A3C" stroke-width="2"/><circle cx="378" cy="150" r="9" fill="#D9412B"/><path d="M378 141 q3 -6 7 -5" stroke="#3E8E41" stroke-width="2.5" fill="none"/><rect x="322" y="186" width="112" height="18" rx="3" fill="#FFFDF6" stroke="#5A3A1E"/><text x="378" y="199" text-anchor="middle" class="lab">LUNCH SNACK $5</text>' +
+        '<g class="nobuy"><rect x="334" y="138" width="88" height="24" rx="4" fill="#C0392B" transform="rotate(-8 378 150)"/><text x="378" y="155" text-anchor="middle" transform="rotate(-8 378 150)">CAN\'T BUY</text></g></g>' +
+      // the shiny toy: a spinning top with lights, and its sign on a stick
+      '<g class="sign"><rect x="196" y="146" width="3" height="26" fill="#6B4423"/><rect x="164" y="108" width="68" height="40" rx="4" fill="#FFE04A" stroke="#B8600B" stroke-width="2"/><text x="198" y="125" text-anchor="middle" class="buy">BUY ME!</text><text x="198" y="142" text-anchor="middle" class="buy">$5</text></g>' +
+      '<g class="toy"><g transform="translate(272 172) scale(1.35)"><path d="M-22 -22 h44 l-18 20 h-8 z" fill="#7B4FC4" stroke="#4A2C82" stroke-width="2"/><ellipse cx="0" cy="-22" rx="22" ry="7" fill="#F25CA2" stroke="#4A2C82" stroke-width="2"/><rect x="-3" y="-40" width="6" height="14" fill="#4A2C82"/><circle cx="0" cy="-43" r="6" fill="#FFE04A" stroke="#B8600B" stroke-width="1.5"/>' +
+        '<circle class="lt l1" cx="-12" cy="-22" r="3.4"/><circle class="lt l2" cx="0" cy="-20" r="3.4"/><circle class="lt l3" cx="12" cy="-22" r="3.4"/><path class="shine" d="M-34 -44 l4 -8 l4 8 l8 4 l-8 4 l-4 8 l-4 -8 l-8 -4z M30 -50 l3 -6 l3 6 l6 3 l-6 3 l-3 6 l-3 -6 l-6 -3z" fill="#FFE04A"/></g></g>' +
+      // your wallet and your basket, both on the floor in front
+      '<g class="wallet"><rect x="34" y="246" width="92" height="46" rx="8" fill="#6B4423" stroke="#3B2A1E" stroke-width="2"/><path d="M34 262 h92" stroke="#3B2A1E" stroke-width="2"/><circle cx="112" cy="272" r="4" fill="#E9C878"/><text x="80" y="222" text-anchor="middle" class="cap">Your wallet</text><text x="76" y="284" text-anchor="middle" class="empty">empty</text></g>' +
+      '<g class="bill"><rect x="50" y="228" width="60" height="28" rx="3" fill="#9CC79A" stroke="#3E7A45" stroke-width="2"/><text x="80" y="248" text-anchor="middle">$5</text></g>' +
+      '<g class="basket"><path d="M262 262 h96 l-10 32 h-76 z" fill="#C68A3E" stroke="#7A4E1E" stroke-width="2"/><path d="M268 272 h84 M272 282 h76" stroke="#7A4E1E" stroke-width="1.5"/><path d="M272 262 q38 -40 76 0" fill="none" stroke="#7A4E1E" stroke-width="3"/><rect x="274" y="268" width="72" height="16" rx="3" fill="#FFFDF6" stroke="#7A4E1E"/><text x="310" y="280" text-anchor="middle" class="cap">Your basket</text></g></svg>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-ty-wrap"><div class="ms-ty-stage">'+scene+'</div><div class="ms-ty-act" aria-live="polite"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-ty-act', m), stage = $('.ms-ty-stage', m), svg = $('.ms-ty-scene', m);
+    function render(){
+      stage.className = 'ms-ty-stage s' + S.st; var N = STP.length + 2;
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (S.st < STP.length) { var sp = STP[S.st];
+        act.innerHTML = stepCard(S.st + 1, N, sp.t, (S.st ? '<div class="ms-vd-thanks">✅ '+esc(STP[S.st-1].done)+'</div>' : '') + '<p>'+esc(sp.p)+'</p><button type="button" class="ms-btn big ms-ty-go">'+esc(sp.btn)+'</button>');
+        $('.ms-ty-go', act).onclick = function(){ if (S.st === 0) SFX.chime(); else SFX.miss(); S.st++; save(); stage.classList.add('anim'); render(); svg.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); };
+        return; }
+      var q = S.q1 ? cfg.q2 : cfg.q1;
+      var cq = choiceQ(q, S.q1 ? 1 : 2, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1500);
+        else { markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1600); } });
+      act.innerHTML = stepCard(S.q1 ? N : N - 1, N, q.title, (S.q1 ? '' : '<div class="ms-vd-thanks">🙁 '+esc(STP[STP.length-1].done)+'</div>') + cq.html); cq.bind(act);
+    }
+    render(); if (S.q2) markDone('scene');
+  }
+
+  /* ══ MODULE: decboard (Gallery main attraction · the Decision Board, then build it and watch) ══ */
+  function dbTown(){
+    function hillY(x){ // the hill is a quadratic from (0,232) over (115,96) to (262,232)
+      var a = 0 - 2*115 + 262, b = 2*115, t = (-b + Math.sqrt(b*b + 4*a*x)) / (2*a); if (!isFinite(t)) t = x / 230; return (1-t)*(1-t)*232 + 2*t*(1-t)*96 + t*t*232; }
+    var TX = [38, 62, 88, 112, 138, 164, 190, 214, 76, 126, 176, 150], CUT = [0, 0, 0, 0, 0, 0, 3, 2, 2, 1, 1, 1], trees = '';
+    TX.forEach(function(x, i){ var top = hillY(x), y = Math.min(226, top + 14 + (i > 7 ? 26 : 6) + (i % 3) * 5);
+      trees += '<g class="tree"'+(CUT[i] ? ' data-cut="'+CUT[i]+'"' : '')+'><rect class="stump" x="'+(x-3)+'" y="'+(y-6)+'" width="6" height="6"/><g class="top"><rect x="'+(x-2.5)+'" y="'+(y-16)+'" width="5" height="16" fill="#6B4528"/><path d="M'+x+' '+(y-46)+' l14 22 h-28 z M'+x+' '+(y-36)+' l16 24 h-32 z" fill="#2F7D46"/></g></g>'; });
+    function house(x, y, c, from){ return '<g'+(from ? ' data-from="'+from+'" class="pop"' : '')+'><rect x="'+x+'" y="'+(y-22)+'" width="30" height="22" fill="'+c+'" stroke="#5A3A1E" stroke-width="1.5"/><path d="M'+(x-4)+' '+(y-22)+' l19 -15 l19 15 z" fill="#8E2E22"/><rect x="'+(x+12)+'" y="'+(y-12)+'" width="7" height="12" fill="#5A3A1E"/></g>'; }
+    function man(x, y, from, c){ return '<g data-from="'+from+'" class="pop"><circle cx="'+x+'" cy="'+(y-17)+'" r="3.4" fill="#C68B5A"/><path d="M'+x+' '+(y-13)+' V'+(y-5)+' M'+x+' '+(y-5)+' l-3 5 M'+x+' '+(y-5)+' l3 5 M'+x+' '+(y-11)+' l-4 4 M'+x+' '+(y-11)+' l4 3" stroke="'+(c||'#2E3A48')+'" stroke-width="2.2" stroke-linecap="round" fill="none"/></g>'; }
+    function ship(x, y, from){ return '<g data-from="'+from+'" class="pop ship"><path d="M'+(x-34)+' '+(y-10)+' h68 l-9 14 h-50 z" fill="#5A3A1E"/><rect x="'+(x-30)+'" y="'+(y-13)+'" width="60" height="3" fill="#E9D7A8"/><path d="M'+(x-10)+' '+(y-13)+' V'+(y-52)+' M'+(x+12)+' '+(y-13)+' V'+(y-44)+'" stroke="#3B2A1E" stroke-width="2.5"/><path d="M'+(x-8)+' '+(y-50)+' q20 10 0 30 z M'+(x+14)+' '+(y-42)+' q16 8 0 24 z" fill="#FFFDF6" stroke="#B9A77A"/>' +
+      '<g class="noise" data-from="'+Math.max(5, from)+'"><path d="M'+(x+40)+' '+(y-34)+' q8 8 0 16 M'+(x+48)+' '+(y-40)+' q12 14 0 28 M'+(x+56)+' '+(y-46)+' q16 20 0 40" fill="none" stroke="#C0392B" stroke-width="2.5" stroke-linecap="round"/></g></g>'; }
+    var posts1 = '', posts2 = ''; for (var i = 0; i < 10; i++) { posts1 += '<rect x="'+(304 + i*28)+'" y="256" width="4" height="16" data-px="'+(304 + i*28 - 296)+'"/>'; posts2 += '<rect x="'+(290 + i*28)+'" y="312" width="4" height="16" data-px="'+(290 + i*28 - 282)+'"/>'; }
+    return '<svg viewBox="0 0 640 360" class="ms-db-svg" role="img" aria-label="A simple model of a town by the sea. A hill with trees is on the left. As the years go by, trees are cut, docks reach out over the water, ships arrive, and the town grows.">' +
+      '<rect width="640" height="360" fill="#CFE8F7"/><circle cx="560" cy="52" r="24" fill="#F7D154"/>' +
+      '<path d="M0 232 Q115 96 262 232 Z" fill="#8FBF72"/><rect y="230" width="640" height="130" fill="#6FB3D9"/><path d="M0 230 H292 Q300 290 276 360 H0 Z" fill="#D9C79A"/><path d="M292 230 Q300 290 276 360" fill="none" stroke="#B89B5E" stroke-width="3"/>' +
+      '<path class="wave" d="M330 290 q10 -6 20 0 t20 0 M470 336 q10 -6 20 0 t20 0 M540 276 q10 -6 20 0 t20 0 M380 344 q10 -6 20 0 t20 0" fill="none" stroke="#BFE0F2" stroke-width="2.5" stroke-linecap="round"/>' +
+      '<g class="trees">'+trees+'</g>' +
+      house(30, 268, '#F3E7CF') + house(84, 276, '#EBC1B2') + house(140, 266, '#F3E7CF') + house(52, 318, '#BCD9AB', 3) + house(120, 322, '#F4C37C', 5) + house(186, 300, '#EBC1B2', 7) + house(20, 350, '#F3E7CF', 9) +
+      '<g data-from="3" class="pop"><rect x="214" y="222" width="62" height="32" fill="#A7774A" stroke="#5A3A1E" stroke-width="2"/><path d="M208 222 h74 l-10 -14 h-54 z" fill="#6B4423"/><rect x="236" y="234" width="18" height="20" fill="#5A3A1E"/><text x="245" y="218" text-anchor="middle" class="sm">storehouse</text></g>' +
+      '<g class="dock d1"><rect class="deck" x="286" y="250" width="0" height="8" fill="#B98450" stroke="#5A3A1E" stroke-width="1.5"/><g class="posts" fill="#5A3A1E">'+posts1+'</g></g>' +
+      '<g class="dock d2"><rect class="deck" x="272" y="306" width="0" height="8" fill="#B98450" stroke="#5A3A1E" stroke-width="1.5"/><g class="posts" fill="#5A3A1E">'+posts2+'</g></g>' +
+      ship(392, 248, 3) + ship(500, 248, 5) + ship(420, 304, 8) +
+      man(310, 250, 1) + man(326, 250, 1) + man(360, 250, 3, '#1A8A7D') + man(430, 250, 4) + man(470, 250, 5, '#B5432F') + man(300, 306, 6) + man(350, 306, 7, '#1A8A7D') +
+      '<g data-from="4" class="pop"><rect x="340" y="240" width="10" height="10" fill="#C68A3E" stroke="#5A3A1E"/><rect x="351" y="240" width="10" height="10" fill="#C68A3E" stroke="#5A3A1E"/><rect x="345" y="230" width="10" height="10" fill="#C68A3E" stroke="#5A3A1E"/></g>' +
+      man(170, 330, 7, '#7B4FC4') + '<g data-from="7" class="pop"><rect x="176" y="322" width="7" height="8" fill="#8E2E22"/></g>' + man(230, 290, 9, '#7B4FC4') + '<g data-from="9" class="pop"><rect x="236" y="282" width="7" height="8" fill="#8E2E22"/></g>' +
+      '<g class="yr"><rect x="12" y="12" width="150" height="38" rx="8"/><text x="87" y="38" text-anchor="middle"></text></g></svg>';
+  }
+  function modDecboard(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var T = DATA.dbTiles || [], Y = DATA.dbYears || [];
+    ST.db = ST.db || {i:0, w:{}, vote:null, vgo:false, yr:0, max:0, ygo:false, q1:false, q2:false}; var S = ST.db; S.w = S.w || {};
+    var m = shell('ms-db-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-db-wrap"><div class="ms-db-stage"><div class="ms-db-boardw">'+dbBoardHTML('', cfg.q)+'<div class="ms-db-tray"><div class="ms-db-cur" role="img"></div></div></div>' +
+      '<div class="ms-db-town" hidden>'+dbTown()+'<div class="ms-db-cnt" aria-live="polite"></div><p class="ms-credit">A simple model of a made-up town.</p></div></div><div class="ms-db-act" aria-live="polite"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-db-act', m), bw = $('.ms-db-boardw', m), town = $('.ms-db-town', m), svg = $('.ms-db-svg', m), cur = $('.ms-db-cur', m), cnt = $('.ms-db-cnt', m);
+    function wi(){ for (var j = 0; j < T.length; j++) if (!S.w[T[j].k]) return j; return T.length; }
+    function tileHTML(t, on){ var w = S.w[t.k]; return '<span class="ms-db-tl '+t.side+(w ? ' w' + w : '')+(on ? ' cur' : '')+'" data-k="'+t.k+'"><i>'+t.ic+'</i><span>'+esc(t.s)+'</span>'+(w ? '<em>'+(w === 'h' ? '🏋️ Heavy' : '🪶 Light')+'</em>' : '')+'</span>'; }
+    function paintBoard(){ var k = wi(), sorting = S.i < T.length;
+      ['c', 'b'].forEach(function(s){ $('.ms-db-col.'+s+' .in', m).innerHTML = T.slice(0, S.i).filter(function(t){ return t.side === s; }).map(function(t){ return tileHTML(t, !sorting && k < T.length && T[k].k === t.k); }).join(''); });
+      if (sorting) { var t = T[S.i]; cur.hidden = false; cur.innerHTML = '<i>'+t.ic+'</i><span>'+esc(t.t)+'</span>'; cur.setAttribute('aria-label', 'Tile: ' + t.t); } else cur.hidden = true;
+      $('.ms-db-tray', m).hidden = !sorting; m.classList.toggle('sorting', sorting); }
+    var JOBS = [0, 10, 15, 25, 35, 50, 60, 70, 80, 90, 100], SHIPS = [0, 0, 0, 1, 1, 2, 2, 2, 3, 3, 3], BAGS = [0, 5, 8, 10, 10, 10, 10, 10, 10, 10, 10], LEFT = [12, 9, 7, 6, 6, 6, 6, 6, 6, 6, 6], D1 = [0, 50, 100, 150, 180, 240, 250, 260, 270, 280, 284], D2 = [0, 0, 0, 0, 0, 0, 80, 120, 180, 200, 220];
+    function capOf(y){ for (var j = 0; j < Y.length; j++) if (y <= Y[j].to) return Y[j].t; return ''; }
+    function drawTown(){ var y = S.yr;
+      $$('[data-from]', svg).forEach(function(g){ g.classList.toggle('on', y >= +g.dataset.from); });
+      $$('.tree', svg).forEach(function(g){ g.classList.toggle('cut', !!g.dataset.cut && y >= +g.dataset.cut); });
+      [['.d1', D1[y]], ['.d2', D2[y]]].forEach(function(d){ var g = $(d[0], svg); $('.deck', g).setAttribute('width', d[1]); $$('.posts rect', g).forEach(function(r){ r.style.display = +r.dataset.px + 6 <= d[1] ? '' : 'none'; }); });
+      $('.yr text', svg).textContent = y ? 'Year ' + y : 'Before';
+      cnt.innerHTML = '<span>🌲 Trees on the hill: <b>'+LEFT[y]+'</b></span><span>💰 Bags of coins spent: <b>'+BAGS[y]+'</b></span><span>👷 Jobs: <b>'+JOBS[y]+'</b></span><span>🚢 Ships at the docks: <b>'+SHIPS[y]+'</b></span><span>📢 Noise: <b>'+(y < 3 ? 'quiet' : (y < 5 ? 'some' : 'loud'))+'</b></span>'; }
+    function slider(){ return '<div class="ms-tr-slide ms-db-slide"><span>Before</span><input type="range" min="0" max="10" step="1" value="'+S.yr+'" aria-label="Years: drag to move forward in time"><span>Year 10</span></div><div class="ms-db-ticks" aria-hidden="true"><span style="left:10%">1</span><span style="left:50%">5</span><span style="left:100%">10</span></div><p class="ms-db-say" aria-live="polite">'+esc(capOf(S.yr))+'</p>'; }
+    function bindSlider(reRenderAt10){ var r = $('.ms-db-slide input', act); if (!r) return; r.addEventListener('input', function(){ var was = S.max; S.yr = +r.value; S.max = Math.max(S.max, S.yr); save(); drawTown(); $('.ms-db-say', act).textContent = capOf(S.yr); if (S.yr === 1 || S.yr === 5 || S.yr === 10) SFX.click();
+      if (reRenderAt10 && was < 10 && S.max >= 10) { SFX.chime(); render(); } }); }
+    function place(side){
+      if (S.i >= T.length) return; var t = T[S.i], fb = $('.ms-exfb', act);
+      if (side === t.side) { SFX.chime(); S.i++; save(); render(); var last = $('.ms-db-col.'+side+' .in .ms-db-tl:last-child', m); if (last && !calm()) last.classList.add('drop'); return; }
+      SFX.miss(); var col = $('.ms-db-col.'+side, m); col.classList.remove('no'); void col.offsetWidth; col.classList.add('no');
+      if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 Read the tile again. Does the town <b>give this up</b>, or <b>gain</b> it?</div>';
+    }
+    dragger(cur, function(moved, t){ if (moved && t) place(t.dataset.s); }, '.ms-db-col');
+    $$('.ms-db-col', m).forEach(function(c){ c.addEventListener('click', function(){ if (S.i < T.length) place(c.dataset.s); }); c.addEventListener('keydown', function(e){ if ((e.key === 'Enter' || e.key === ' ') && S.i < T.length) { e.preventDefault(); place(c.dataset.s); } }); });
+    function tally(){ var o = {c:[0,0], b:[0,0]}; T.forEach(function(t){ o[t.side][S.w[t.k] === 'h' ? 0 : 1]++; }); return '<b>Costs:</b> '+o.c[0]+' heavy, '+o.c[1]+' light. <b>Benefits:</b> '+o.b[0]+' heavy, '+o.b[1]+' light.'; }
+    function render(){
+      var N = 6, k = wi(), inTown = S.vgo;
+      bw.hidden = inTown; town.hidden = !inTown; if (inTown) drawTown(); else paintBoard();
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>' + slider(); bindSlider(false); return; }
+      if (S.i < T.length) { var t = T[S.i];
+        act.innerHTML = stepCard(1, N, cfg.sortT + ' · tile '+(S.i+1)+' of '+T.length, '<p class="ms-db-read"><span class="ic">'+t.ic+'</span><span>'+esc(t.t)+'</span></p><p class="ms-wm-do">👆 Is this a cost or a benefit for the town? Drag the tile into a column, or tap a button.</p>' +
+          '<div class="ms-pchoices"><button type="button" class="ms-btn ms-db-p c" data-s="c">− Costs</button><button type="button" class="ms-btn ms-db-p b" data-s="b">+ Benefits</button></div><div class="ms-exfb" aria-live="polite"></div>');
+        $$('.ms-db-p', act).forEach(function(b){ b.onclick = function(){ place(b.dataset.s); }; }); return; }
+      if (k < T.length) { var w = T[k];
+        act.innerHTML = stepCard(2, N, cfg.weighT + ' · tile '+(k+1)+' of '+T.length, (k === 0 ? '<div class="ms-vd-thanks">✅ All eight tiles are on the board: 4 costs and 4 benefits.</div><p>'+esc(cfg.weighP)+'</p>' : '') + '<p class="ms-db-read '+w.side+'"><span class="ic">'+w.ic+'</span><span><b>'+(w.side === 'c' ? 'Cost' : 'Benefit')+':</b> '+esc(w.t)+'</span></p>' +
+          '<div class="ms-pchoices"><button type="button" class="ms-btn ms-db-w" data-w="h">🏋️ Heavy: it matters a lot</button><button type="button" class="ms-btn ms-db-w" data-w="l">🪶 Light: it matters a little</button></div>');
+        $$('.ms-db-w', act).forEach(function(b){ b.onclick = function(){ SFX.click(); S.w[w.k] = b.dataset.w; save(); render(); }; }); return; }
+      if (!S.vgo) {
+        if (!S.vote) { act.innerHTML = stepCard(3, N, cfg.voteT, '<div class="ms-vd-thanks">⚖️ Your board: '+tally()+'</div><p>'+esc(cfg.voteP)+'</p><div class="ms-pchoices col"><button type="button" class="ms-btn ms-db-v" data-v="yes">'+esc(cfg.yes)+'</button><button type="button" class="ms-btn ms-db-v" data-v="no">'+esc(cfg.no)+'</button></div>');
+          $$('.ms-db-v', act).forEach(function(b){ b.onclick = function(){ SFX.chime(); S.vote = b.dataset.v; save(); render(); }; }); return; }
+        act.innerHTML = stepCard(3, N, cfg.voteT, '<div class="ms-vd-thanks">🗳️ '+esc(S.vote === 'yes' ? cfg.afterYes : cfg.afterNo)+'</div><p>Now watch what the harbor does to the town.</p><button type="button" class="ms-btn big ms-db-vgo">Go to the town ➡️</button>');
+        $('.ms-db-vgo', act).onclick = function(){ SFX.click(); S.vgo = true; S.yr = 0; S.max = 0; save(); render(); m.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); }; return; }
+      if (!S.ygo) { var done = S.max >= 10;
+        act.innerHTML = stepCard(4, N, cfg.yearsT, '<p class="ms-wm-do">👆 '+esc(cfg.yearsP)+'</p>' + slider() + (done ? '<button type="button" class="ms-btn big ms-db-ygo">Next ➡️</button>' : ''));
+        bindSlider(true); var g = $('.ms-db-ygo', act); if (g) g.onclick = function(){ SFX.click(); S.ygo = true; save(); render(); }; return; }
+      var q = S.q1 ? cfg.q2 : cfg.q1;
+      var cq = choiceQ(q, S.q1 ? 1 : 2, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1500);
+        else { ST.gal = ST.gal||{}; ST.gal.board = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1600); } });
+      act.innerHTML = stepCard(S.q1 ? 6 : 5, N, q.title, slider() + cq.html); cq.bind(act); bindSlider(false);
+    }
+    render();
+  }
+
+  /* ══ MODULE: freepuppy (Gallery · the Free Puppy booth) ══ */
+  function modFreepuppy(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var I = DATA.puItems || [], ta = document.getElementById(cfg.ta || 'journal-q1'), NEED = cfg.wordMin || 10;
+    ST.pup = ST.pup || {seen:{}, last:null, q:false, done:false}; var S = ST.pup;
+    var m = shell('ms-pu-mod', cfg);
+    var NAME = {leash:'Leash', bowl:'Food bowl', broom:'Broom', bed:'Dog bed', heart:'Heart tag', ball:'Ball'};
+    var POS = {leash:[84,150], bowl:[176,268], broom:[512,200], bed:[430,262], heart:[300,214], ball:[232,292]};
+    var art = {
+      leash: '<path d="M70 96 q30 40 8 86 q-10 22 14 30" fill="none" stroke="#B5432F" stroke-width="6" stroke-linecap="round"/><ellipse cx="96" cy="216" rx="9" ry="6" fill="none" stroke="#8795A6" stroke-width="3"/>',
+      bowl: '<path d="M146 262 h60 l-8 26 h-44 z" fill="#2E5FA8" stroke="#1D3E73" stroke-width="2"/><ellipse cx="176" cy="262" rx="30" ry="7" fill="#8A5A34" stroke="#1D3E73" stroke-width="2"/><circle cx="166" cy="260" r="3" fill="#6B4423"/><circle cx="178" cy="258" r="3" fill="#6B4423"/><circle cx="188" cy="261" r="3" fill="#6B4423"/>',
+      broom: '<path d="M536 112 L500 276" stroke="#A7774A" stroke-width="6" stroke-linecap="round"/><path d="M484 268 l34 8 l-6 16 l-36 -8 z" fill="#E3B94F" stroke="#8A6A1E" stroke-width="2"/><ellipse cx="466" cy="296" rx="22" ry="5" fill="#D9C24A" opacity=".8"/>',
+      bed: '<ellipse cx="430" cy="282" rx="52" ry="14" fill="#7B4FC4" stroke="#4A2C82" stroke-width="2"/><ellipse cx="430" cy="276" rx="38" ry="8" fill="#B79BE6"/>',
+      heart: '<path d="M300 222 c-12 -10 -14 -20 -6 -22 c4 -1 6 2 6 4 c0 -2 2 -5 6 -4 c8 2 6 12 -6 22z" fill="#E0457B" stroke="#8E1F47" stroke-width="1.5"/>',
+      ball: '<circle cx="232" cy="290" r="11" fill="#F28C1B" stroke="#B8600B" stroke-width="2"/><path d="M222 286 q10 6 20 0" fill="none" stroke="#fff" stroke-width="2"/>' };
+    var scene = '<svg viewBox="0 0 600 320" class="ms-pu-scene" role="img" aria-label="A drawing of a booth with a sign that says FREE PUPPY, 0 dollars. A puppy sits in a box. Around it are a leash on a hook, a food bowl, a broom by a small puddle, a dog bed, a heart tag on its collar, and a ball.">' +
+      '<rect width="600" height="320" fill="#F3E7CF"/><rect y="296" width="600" height="24" fill="#C9A574"/><rect y="296" width="600" height="3" fill="#8A5A34"/>' +
+      '<rect x="62" y="40" width="10" height="258" fill="#6B4423"/><rect x="540" y="40" width="10" height="258" fill="#6B4423"/><rect x="52" y="30" width="508" height="12" fill="#6B4423"/><path d="M70 92 h14 v8" fill="none" stroke="#3B2A1E" stroke-width="4"/>' +
+      '<g class="sign"><rect x="200" y="52" width="200" height="62" rx="8" fill="#FFE04A" stroke="#B8600B" stroke-width="3"/><text x="300" y="80" text-anchor="middle" class="big">FREE PUPPY!</text><text x="300" y="104" text-anchor="middle" class="big">$0</text><path d="M240 42 v10 M360 42 v10" stroke="#3B2A1E" stroke-width="3"/></g>' +
+      // the box, standing on the floor, puppy sitting inside
+      '<path d="M246 246 h108 v52 h-108 z" fill="#C9A574" stroke="#8A6A3C" stroke-width="2"/><path d="M246 246 l-16 -12 M354 246 l16 -12" stroke="#8A6A3C" stroke-width="3"/>' +
+      '<g class="pup"><ellipse cx="300" cy="238" rx="30" ry="26" fill="#D9A45B"/><circle cx="300" cy="190" r="26" fill="#E3B46E"/><path d="M276 176 q-14 4 -10 28 q10 -4 14 -18z M324 176 q14 4 10 28 q-10 -4 -14 -18z" fill="#A8743F"/><circle cx="291" cy="188" r="3.4" fill="#2B1B10"/><circle cx="309" cy="188" r="3.4" fill="#2B1B10"/><ellipse cx="300" cy="198" rx="5" ry="3.6" fill="#2B1B10"/><path d="M294 204 q6 6 12 0" fill="none" stroke="#2B1B10" stroke-width="2"/><rect x="282" y="208" width="36" height="6" rx="3" fill="#B5432F"/><path class="tail" d="M328 240 q20 -10 16 -28" fill="none" stroke="#D9A45B" stroke-width="8" stroke-linecap="round"/></g>' +
+      '<path d="M246 262 h108 v36 h-108 z" fill="#D9B98A" stroke="#8A6A3C" stroke-width="2"/>' +
+      I.map(function(it){ var p = POS[it.k]; return '<g class="it" data-k="'+it.k+'" role="button" tabindex="0" aria-label="'+NAME[it.k]+'"><circle class="halo" cx="'+p[0]+'" cy="'+p[1]+'" r="'+(it.k === 'heart' ? 20 : 34)+'"/>'+art[it.k]+'<g class="flag '+it.side+'" transform="translate('+Math.max(44, Math.min(556, p[0]))+' '+(p[1] - (it.k === 'heart' ? 34 : 46))+')"><rect x="-40" y="-12" width="80" height="20" rx="5"/><text y="3" text-anchor="middle">'+(it.side === 'c' ? 'COST' : 'BENEFIT')+'</text></g></g>'; }).join('') + '</svg>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-pu-wrap"><div class="ms-pu-stage">'+scene+'<div class="ms-pu-lists"><div class="l c"><b>− Costs</b><ul></ul></div><div class="l b"><b>+ Benefits</b><ul></ul></div></div></div><div class="ms-pu-act" aria-live="polite"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-pu-act', m), svg = $('.ms-pu-scene', m), home = null, note = null, curUpd = null;
+    if (ta) { home = document.createComment('pu-home'); ta.parentNode.insertBefore(home, ta);
+      var qb = ta.parentNode.querySelector('.q-block'), tp = ta.parentNode.querySelector('.textbox-prompt'); if (qb) qb.classList.add('ms-hide-on'); if (tp) tp.classList.add('ms-hide-on');
+      note = el('div', 'ms-pu-note ms-only', ''); ta.parentNode.insertBefore(note, home); }
+    function goHome(){ if (ta && ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    function words(t){ return (t.trim().match(/\S+/g)||[]).length; }
+    function miss(){ var o = [], v = ta ? ta.value : '', n = words(v); if (n < NEED) o.push('Add '+(NEED-n)+' more word'+(NEED-n===1?'':'s')+'.'); if (!/cost/i.test(v)) o.push('Tell one cost of the puppy. Use the word cost.'); if (!/benefit/i.test(v)) o.push('Tell one benefit of the puppy. Use the word benefit.'); return o; }
+    function paintNote(){ if (!note) return; var v = ta.value.trim(); note.innerHTML = '<b>Question 1</b> is at the Free Puppy booth in the Gallery. ' + (v ? '✅ You wrote: <i>'+esc(v)+'</i>' : 'You have not written it yet. <button type="button" class="ms-btn alt ms-pu-goto">Go to the Gallery</button>'); var b = $('.ms-pu-goto', note); if (b) b.onclick = function(){ go('explore'); }; }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function oOf(k){ for (var i = 0; i < I.length; i++) if (I[i].k === k) return I[i]; }
+    function line(it){ return (it.side === 'c' ? '<b>Cost:</b> ' : '<b>Benefit:</b> ') + esc(it.t) + (it.pay ? '. You pay with <b>'+esc(it.pay)+'</b>.' : '.'); }
+    function paint(){ $$('.it', svg).forEach(function(g){ g.classList.toggle('seen', !!S.seen[g.dataset.k]); g.classList.toggle('sel', S.last === g.dataset.k); });
+      ['c', 'b'].forEach(function(s){ $('.ms-pu-lists .l.'+s+' ul', m).innerHTML = I.filter(function(it){ return it.side === s && S.seen[it.k]; }).map(function(it){ return '<li>'+esc(it.t)+(it.pay ? ' <i>('+esc(it.pay)+')</i>' : '')+'</li>'; }).join('') || '<li class="none">Nothing yet</li>'; }); }
+    function tap(k){ if (S.q || S.seen[k] && S.last === k) return; var isNew = !S.seen[k]; S.seen[k] = 1; S.last = k; save(); if (isNew) SFX.chime(); render(); }
+    $$('.it', svg).forEach(function(g){ g.addEventListener('click', function(){ tap(g.dataset.k); }); g.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tap(g.dataset.k); } }); });
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      paint(); paintNote(); var n = I.filter(function(it){ return S.seen[it.k]; }).length, N = 3;
+      if (ta) ta.classList.toggle('ms-gi-away', !(S.q && !S.done));
+      if (S.done) { goHome(); act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div><div class="ms-exbtns"><button type="button" class="ms-btn alt ms-pu-edit">✏️ Edit my answer</button></div>'; $('.ms-pu-edit', act).onclick = function(){ S.done = false; save(); render(); }; return; }
+      if (n < I.length || !S.go) { goHome(); var last = S.last && oOf(S.last);
+        act.innerHTML = stepCard(1, N, 'Tap each thing', (last ? '<div class="ms-vd-thanks">✅ '+line(last)+'</div>' : '') +
+          (n < I.length ? '<p class="ms-wm-do">👆 Tap each thing in the booth, or tap its name here. ('+n+' of '+I.length+')</p><div class="ms-pu-names">'+I.map(function(it){ return '<button type="button" class="ms-btn alt ms-pu-n'+(S.seen[it.k] ? ' ok' : '')+'" data-k="'+it.k+'">'+(S.seen[it.k] ? '✓ ' : '')+NAME[it.k]+'</button>'; }).join('')+'</div>'
+            : '<p>You found all six: 4 costs and 2 benefits.</p><button type="button" class="ms-btn big ms-pu-go">Next ➡️</button>'));
+        $$('.ms-pu-n', act).forEach(function(b){ b.onclick = function(){ tap(b.dataset.k); }; });
+        var g = $('.ms-pu-go', act); if (g) g.onclick = function(){ SFX.click(); S.go = true; S.last = null; save(); render(); }; return; }
+      if (!S.q) { goHome(); var cq = choiceQ(cfg.q, 1, function(){ setTimeout(function(){ S.q = true; save(); render(); }, calm()?0:1600); });
+        act.innerHTML = stepCard(2, N, cfg.q.title, cq.html); cq.bind(act); return; }
+      if (!ta) { S.done = true; ST.gal = ST.gal||{}; ST.gal.puppy = 1; save(); galleryCheck(); render(); return; }
+      act.innerHTML = stepCard(3, N, cfg.writeT, '<p>'+esc(cfg.writeP)+'</p><div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t, i){ return '<button type="button" class="ms-btn alt ms-gi-start" data-i="'+i+'">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-pu-chk"></div>' +
+        '<div class="ms-gi-nav"><button type="button" class="ms-btn big ms-pu-save">Save my answer ✓</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+      $('.ms-gi-box', act).appendChild(ta); var fb = $('.ms-gi-fb', act), chk = $('.ms-pu-chk', act);
+      var upd = function(){ var v = ta.value, o = miss(), w = words(v); chk.innerHTML = '<span class="ms-wc'+(w >= NEED ? ' ok' : '')+'">📝 '+Math.min(w, NEED)+' of '+NEED+' words</span><span class="ms-chip'+(/cost/i.test(v) ? ' ok' : '')+'">'+(/cost/i.test(v) ? '✓ ' : '')+'one cost</span><span class="ms-chip'+(/benefit/i.test(v) ? ' ok' : '')+'">'+(/benefit/i.test(v) ? '✓ ' : '')+'one benefit</span>';
+        $('.ms-pu-save', act).classList.toggle('ms-notready', !!o.length); if (fb.innerHTML) fb.innerHTML = o.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>' : ''; };
+      curUpd = upd; upd();
+      $$('.ms-gi-start', act).forEach(function(b){ b.onclick = function(){ var t = (cfg.starters||[])[+b.dataset.i]; if (ta.value.indexOf(t) < 0) ta.value = ta.value.replace(/\s*$/, '') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input', {bubbles:true})); upd(); }; });
+      $('.ms-pu-save', act).onclick = function(){ var o = miss(); if (o.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>'; return; }
+        S.done = true; ST.gal = ST.gal||{}; ST.gal.puppy = 1; save(); galleryCheck(); SFX.fanfare(); render(); };
+    }
+    if (ta) ta.addEventListener('input', function(){ paintNote(); if (curUpd && S.q && !S.done) curUpd(); });
+    render();
+  }
+
+  /* ══ MODULE: mytiles (Exhibit Floor · your tiles on the Decision Board → DECIDED) ══ */
+  function modMytiles(cfg){
+    var C = document.getElementById(cfg.costs), B = document.getElementById(cfg.benefits), Dn = document.getElementById(cfg.decide); if (!C || !B || !Dn) return;
+    var P = cfg.picks || [], IMIN = cfg.itemMin || 2, SMIN = cfg.sentMin || 2;
+    ST.mt = ST.mt || {step:1, r:null, open:false}; var S = ST.mt;
+    var m = shell('ms-mt-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-mt-wrap"><div class="ms-mt-act"></div><div class="ms-mt-stage" hidden><div class="ms-mt-frame" aria-hidden="true"><i></i><span></span></div><div class="ms-mt-bw">'+dbBoardHTML('mine', '')+'<div class="ms-mt-stamp" aria-hidden="true">DECIDED</div></div><div class="ms-mt-dec"><div class="h">Our decision</div><p class="tx"></p><p class="by"></p></div></div></div><div class="ms-mt-end"></div>');
+    var all = [C, B, Dn], blk = Dn.closest('.activity-body') || Dn.parentNode;
+    var homes = all.map(function(ta){ var h = document.createComment('mt-home'); ta.parentNode.insertBefore(h, ta); return {ta:ta, h:h}; });
+    var p0 = blk.querySelector('p'); if (p0 && p0.nextSibling) blk.insertBefore(m, p0.nextSibling); else blk.insertBefore(m, blk.firstChild);
+    $$('p, .callout, .textbox-prompt', blk).forEach(function(e){ if (!m.contains(e)) e.classList.add('ms-hide-on'); });
+    var act = $('.ms-mt-act', m), show = $('.ms-mt-stage', m), end = $('.ms-mt-end', m), curUpd = null;
+    $('.ms-mt-frame span', m).textContent = cfg.frameT || '';
+    function goHome(){ homes.forEach(function(x){ if (x.ta.previousSibling !== x.h) x.h.parentNode.insertBefore(x.ta, x.h.nextSibling); }); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function pOf(k){ for (var i = 0; i < P.length; i++) if (P[i].k === k) return P[i]; return null; }
+    function words(t){ return (t.trim().match(/\S+/g)||[]).length; }
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return words(s) >= 3; }).length; }
+    function items(t){ var L = t.split(/\n|;/); if (L.filter(function(x){ return x.trim(); }).length < 2) L = t.split(/\n|;|,|\band\b/);
+      return L.map(function(x){ return x.replace(/^\s*(\d+[.)]|[-•*])\s*/, '').trim(); }).filter(function(x){ return x.replace(/[^A-Za-z]/g, '').length >= 3; }); }
+    function labels(){ var p = pOf(S.r); if (!p) return; C.setAttribute('data-label', 'Costs of picking ' + p.s); B.setAttribute('data-label', 'Benefits of picking ' + p.s); }
+    function fill(s){ return String(s||'').replace('{s}', (pOf(S.r) || {}).s || ''); }
+    function view(){ var p = pOf(S.r); if (!p) return;
+      $('.ms-db-board .q b', show).textContent = 'Should the family spend its $20 on ' + p.s + '?';
+      $('.ms-db-col.c .in', show).innerHTML = items(C.value).map(function(t){ return '<span class="ms-db-tl c"><i class="sg">−</i><span>'+esc(t)+'</span></span>'; }).join('') || '<span class="ms-db-tl none">Your cost tiles go here</span>';
+      $('.ms-db-col.b .in', show).innerHTML = items(B.value).map(function(t){ return '<span class="ms-db-tl b"><i class="sg">+</i><span>'+esc(t)+'</span></span>'; }).join('') || '<span class="ms-db-tl none">Your benefit tiles go here</span>';
+      $('.ms-mt-dec .tx', show).textContent = Dn.value.trim(); $('.ms-mt-dec', show).hidden = S.step < 5;
+      var nm = sget(NAMEK,''); $('.ms-mt-dec .by', show).textContent = nm ? 'Weighed by ' + nm + ', Trade & Choice Curator' : 'Weighed by a Trade & Choice Curator';
+      show.classList.toggle('open', !!S.open); show.classList.toggle('final', S.step >= 5); }
+    function listStep(n, ta, title, prompt, hint, nextT, side){
+      act.innerHTML = stepCard(n, 5, title, (n === 2 ? '<p class="ms-gi-ok">✅ On the board: <b>'+pOf(S.r).ic+' '+esc(pOf(S.r).s)+'</b> <button type="button" class="ms-btn alt ms-mt-back1">↩️ Pick the other one</button></p>' : '') + '<p>'+esc(fill(prompt))+'</p><p class="ms-mt-hint">💡 '+esc(hint)+'</p><div class="ms-gi-box"></div><div class="ms-excheck ms-mt-chk"></div>' +
+        '<div class="ms-gi-nav">'+(n > 2 ? '<button type="button" class="ms-btn alt ms-mt-prev">⬅️ Back</button>' : '')+'<button type="button" class="ms-btn alt ms-mt-line">➕ Add a line</button><button type="button" class="ms-btn big ms-mt-next">'+esc(nextT)+'</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+      $('.ms-gi-box', act).appendChild(ta); var fb = $('.ms-gi-fb', act), chk = $('.ms-mt-chk', act), word = side === 'c' ? 'cost' : 'benefit';
+      function missing(){ var k = items(ta.value).length; return k < IMIN ? ['Write '+(IMIN-k)+' more '+word+(IMIN-k === 1 ? '' : 's')+'. Put each one on its own line.'] : []; }
+      var upd = function(){ var k = items(ta.value).length, o = missing(); chk.innerHTML = '<span class="ms-wc'+(k >= IMIN ? ' ok' : '')+'">📝 '+Math.min(k, IMIN)+' of '+IMIN+' '+word+' tiles</span>'; view();
+        $('.ms-mt-next', act).classList.toggle('ms-notready', !!o.length); if (fb.innerHTML) fb.innerHTML = o.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>' : ''; };
+      curUpd = upd; upd();
+      $('.ms-mt-line', act).onclick = function(){ var k = ta.value.split('\n').filter(function(x){ return x.trim(); }).length; ta.value = ta.value.replace(/\s*$/, '') + (ta.value.trim() ? '\n' : '') + (k + 1) + '. '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input', {bubbles:true})); };
+      var b1 = $('.ms-mt-back1', act); if (b1) b1.onclick = function(){ SFX.click(); S.step = 1; save(); render(); };
+      var pv = $('.ms-mt-prev', act); if (pv) pv.onclick = function(){ SFX.click(); S.step = n - 1; save(); render(); };
+      $('.ms-mt-next', act).onclick = function(){ var o = missing(); if (o.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = n + 1; save(); goHome(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; curUpd = null; show.hidden = S.step < 2 || !S.r; labels();
+      C.classList.toggle('ms-gi-away', S.step !== 2); B.classList.toggle('ms-gi-away', S.step !== 3); Dn.classList.toggle('ms-gi-away', S.step !== 4);
+      m.classList.toggle('final', S.step >= 5 && !!S.r);
+      if (S.step === 1 || !S.r) { S.step = 1; goHome();
+        act.innerHTML = stepCard(1, 5, cfg.s1T, '<p>'+esc(cfg.s1||'')+'</p><div class="ms-pchoices col">'+P.map(function(p){ return '<button type="button" class="ms-btn'+(p.k === S.r ? '' : ' alt')+' ms-mt-p" data-k="'+p.k+'">'+p.ic+' '+esc(p.n.charAt(0).toUpperCase() + p.n.slice(1))+'</button>'; }).join('')+'</div>');
+        $$('.ms-mt-p', act).forEach(function(b){ b.onclick = function(){ SFX.click(); S.r = b.dataset.k; S.step = 2; save(); labels(); if (typeof window.gatherAnswers === 'function') try { window.gatherAnswers(); } catch(e){} render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); }; });
+        return; }
+      goHome(); view();
+      if (S.step === 2) { listStep(2, C, cfg.s2T, cfg.s2, cfg.s2hint, 'Next: benefits ➡️', 'c'); return; }
+      if (S.step === 3) { listStep(3, B, cfg.s3T, cfg.s3, cfg.s3hint, 'Next: my decision ➡️', 'b'); return; }
+      if (S.step === 4) {
+        act.innerHTML = stepCard(4, 5, cfg.s4T, '<p>'+esc(cfg.s4||'')+'</p><div class="ms-gi-starts"><button type="button" class="ms-btn alt ms-gi-start">✏️ '+esc(cfg.starter)+'</button></div><div class="ms-gi-box"></div><div class="ms-excheck ms-mt-chk"></div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-mt-prev">⬅️ Back</button><button type="button" class="ms-btn big ms-mt-next">See my board ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(Dn); var fb = $('.ms-gi-fb', act), chk = $('.ms-mt-chk', act);
+        var missing = function(){ var o = [], n = sents(Dn.value); if (n < SMIN) o.push('Write '+(SMIN-n)+' more sentence'+(SMIN-n === 1 ? '' : 's')+' (3 words or more each).'); if (!/because|so that|since/i.test(Dn.value)) o.push('Tell why. Use the word because.'); return o; };
+        var upd = function(){ var n = sents(Dn.value), o = missing(), bc = /because|so that|since/i.test(Dn.value); chk.innerHTML = '<span class="ms-wc'+(n >= SMIN ? ' ok' : '')+'">📝 '+Math.min(n, SMIN)+' of '+SMIN+' sentences</span><span class="ms-chip'+(bc ? ' ok' : '')+'">'+(bc ? '✓ ' : '')+'tells why</span>';
+          $('.ms-mt-next', act).classList.toggle('ms-notready', !!o.length); if (fb.innerHTML) fb.innerHTML = o.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $('.ms-gi-start', act).onclick = function(){ var t = cfg.starter; if (Dn.value.indexOf(t) < 0) Dn.value = t + ' ' + Dn.value.replace(/^\s+/, ''); Dn.focus(); Dn.setSelectionRange(Dn.value.length, Dn.value.length); Dn.dispatchEvent(new Event('input', {bubbles:true})); upd(); };
+        $('.ms-mt-prev', act).onclick = function(){ SFX.click(); S.step = 3; save(); render(); };
+        $('.ms-mt-next', act).onclick = function(){ var o = missing(); if (o.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 5; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(5, 5, cfg.s5T, '<p>'+esc(cfg.s5||'')+'</p><button type="button" class="ms-btn big ms-mt-go">🔨 '+esc(cfg.openT||'Stamp it')+'</button>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-mt-edit">✏️ '+esc(cfg.editT||'Edit')+'</button></div>';
+      var gb = $('.ms-mt-go', end); if (gb) gb.onclick = function(){ S.open = true; save(); SFX.fanfare(); show.classList.remove('slam'); void show.offsetWidth; if (!calm()) show.classList.add('slam'); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'});
+        if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 900);
+        setTimeout(function(){ show.classList.remove('slam'); }, 1600); optiNod('assignment'); check(); };
+      $('.ms-mt-edit', end).onclick = function(){ S.open = false; S.step = 2; save(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    all.forEach(function(ta){ ta.addEventListener('input', function(){ if (curUpd) curUpd(); }); });
+    var its = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && its.length && its.every(on)) markDone('assignment'); }
+    its.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
