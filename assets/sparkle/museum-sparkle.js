@@ -159,6 +159,11 @@
    - twomarkets Gallery main attraction: Market A and Market B, look inside 5 pairs of booths, run Day 1 / Week 1 / Month 1; 2 questions
    - inspector  Gallery: a 1 pound test weight on 4 scales, seal or FIX IT tag; question; fact; Evidence Q3 box moves into the last step
    - plaque     Exhibit Floor: pick 4 unit words, write the Wise Trader plaque one line at a time, hang it; the hall lights, badge card shows
+   Added for 3.10_01 (DATA.fxSpots, DATA.fxTools, DATA.tjBuys):
+   - corner     Lobby: a crossing with no signs; everyone jams, add stop signs, they take turns; 2 questions
+   - fixtown    Gallery main attraction: the model town's 3 troubles, pick each fix, name the job (order, safety, the common good); 2 questions
+   - townjar    Gallery: 10 families fill the Town Jar (taxes), buy a park, a library, a fire truck; question; Evidence Q2 box moves into the last step
+   - firstlabel Exhibit Floor: pick a job and an example, the label box moves into the step, hang it; the hall's lamps come on
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1216,7 +1221,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my,.ms-xr-stage,.ms-fx-stage,.ms-tj-stage,.ms-fl-stage,.ms-tj-note';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -6675,7 +6680,244 @@
   }
 
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.10_01 (Why Government Is Needed) ══════════
+     DATA.fxSpots (3 troubles), DATA.fxTools (3 fixes), DATA.tjBuys (3 things the town buys)
+     - corner      Lobby: a crossing with no signs; Go = everyone jams; add stop signs; Go again = they take turns; 2 questions
+     - fixtown     Gallery main attraction: the model town's 3 troubles (garden, fire, muddy lot); pick the fix; each names a job (order, safety, the common good); the town comes alive; 2 questions
+     - townjar     Gallery: 10 families each put 1 coin in the Town Jar (taxes); buy a park, a library, a fire truck; question; Evidence Q2 box moves into the last step
+     - firstlabel  Exhibit Floor: pick a job and an example, the label box moves into the step (3 sentences), hang it; the hall's lamps come on */
+
+  /* ══ MODULE: corner (Lobby · the Corner With No Signs) ══ */
+  function modCorner(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    ST.xr = ST.xr || {st:0, q1:false, q2:false}; var S = ST.xr; // st 0 start, 1 jam, 2 signs up, 3 crossed
+    var m = shell('ms-xr-mod', cfg);
+    function house(x, y, c){ return '<g><rect x="'+x+'" y="'+y+'" width="54" height="40" rx="3" fill="#B5432F" stroke="#5A3A1E" stroke-width="2"/><rect x="'+x+'" y="'+(y+20)+'" width="54" height="20" rx="3" fill="#8E2E22"/><path d="M'+x+' '+(y+20)+' h54" stroke="#5A3A1E" stroke-width="2"/><rect x="'+(x+38)+'" y="'+(y+6)+'" width="8" height="8" fill="'+c+'" stroke="#5A3A1E" stroke-width="1.5"/></g>'; }
+    function stop(x, y){ return '<g class="sg"><path d="M'+(x-5)+' '+(y-12)+' h10 l7 7 v10 l-7 7 h-10 l-7 -7 v-10 z" fill="#C0392B" stroke="#fff" stroke-width="2"/><text x="'+x+'" y="'+(y+3)+'" text-anchor="middle">STOP</text></g>'; }
+    var scene = '<svg viewBox="0 0 600 320" class="ms-xr-scene" role="img" aria-label="A drawing of a street corner seen from above. Two roads cross. A red car waits on the left, a wagon on the right, a bike at the bottom, and a family at the top.">' +
+      '<rect width="600" height="320" fill="#A9D08E"/><rect y="128" width="600" height="64" fill="#8C8F94"/><rect x="262" width="76" height="320" fill="#8C8F94"/>' +
+      '<path d="M0 160 H250 M350 160 H600" stroke="#F3E7CF" stroke-width="3" stroke-dasharray="16 12"/><path d="M300 0 V118 M300 202 V320" stroke="#F3E7CF" stroke-width="3" stroke-dasharray="16 12"/>' +
+      house(40, 40, '#F3E7CF') + house(150, 56, '#EBC1B2') + house(400, 40, '#F4C37C') + house(500, 60, '#F3E7CF') + house(60, 230, '#BCD9AB') + house(420, 236, '#EBC1B2') +
+      '<circle cx="210" cy="250" r="16" fill="#2F7D46"/><circle cx="530" cy="250" r="14" fill="#2F7D46"/><circle cx="380" cy="96" r="13" fill="#2F7D46"/>' +
+      '<g class="signs">' + stop(248, 206) + stop(352, 114) + stop(248, 114) + stop(352, 206) + '</g>' +
+      '<g class="tv car" style="--jx:196px;--jy:0px;--ex:480px;--ey:0px;--d:0s"><text class="tl" x="59" y="205" text-anchor="middle">car</text><rect x="34" y="163" width="50" height="26" rx="7" fill="#C0392B" stroke="#7A1E14" stroke-width="2"/><rect x="62" y="167" width="12" height="18" rx="3" fill="#CFE8F7"/><rect x="42" y="167" width="8" height="18" rx="3" fill="#CFE8F7"/></g>' +
+      '<g class="tv wagon" style="--jx:-190px;--jy:0px;--ex:-480px;--ey:0px;--d:1.3s"><text class="tl" x="536" y="124" text-anchor="middle">wagon</text><rect x="520" y="134" width="46" height="24" rx="3" fill="#A7774A" stroke="#5A3A1E" stroke-width="2"/><path d="M526 134 v24 M538 134 v24 M550 134 v24" stroke="#7A4E2C" stroke-width="1.5"/><circle cx="530" cy="132" r="5" fill="#3B2A1E"/><circle cx="556" cy="132" r="5" fill="#3B2A1E"/><circle cx="530" cy="160" r="5" fill="#3B2A1E"/><circle cx="556" cy="160" r="5" fill="#3B2A1E"/><ellipse cx="506" cy="146" rx="12" ry="7" fill="#8A6A44" stroke="#5A3A1E"/><circle cx="492" cy="146" r="5" fill="#8A6A44" stroke="#5A3A1E"/></g>' +
+      '<g class="tv bike" style="--jx:0px;--jy:-88px;--ex:0px;--ey:-262px;--d:2.6s"><text class="tl" x="346" y="292" text-anchor="middle">bike</text><path d="M318 276 V300" stroke="#2E3A48" stroke-width="4" stroke-linecap="round"/><ellipse cx="318" cy="273" rx="3" ry="8" fill="#2E3A48"/><ellipse cx="318" cy="303" rx="3" ry="8" fill="#2E3A48"/><circle cx="318" cy="288" r="8" fill="#2E5FA8" stroke="#1D3E73" stroke-width="2"/><circle cx="318" cy="284" r="4.5" fill="#C68B5A"/></g>' +
+      '<g class="tv fam" style="--jx:0px;--jy:92px;--ex:0px;--ey:262px;--d:3.9s"><text class="tl" x="246" y="38" text-anchor="middle">family</text><circle cx="276" cy="30" r="8" fill="#7B4FC4" stroke="#4A2C82" stroke-width="2"/><circle cx="276" cy="27" r="4.5" fill="#C68B5A"/><circle cx="292" cy="34" r="7" fill="#1A8A7D" stroke="#0F5231" stroke-width="2"/><circle cx="292" cy="31" r="4" fill="#E3B46E"/><circle cx="284" cy="46" r="5.5" fill="#F28C1B" stroke="#8A4A0B" stroke-width="2"/><circle cx="284" cy="44" r="3.2" fill="#C68B5A"/></g>' +
+      '<g class="bang"><path d="M300 126 l6 14 l15 -6 l-8 13 l14 8 l-15 3 l4 15 l-12 -9 l-10 12 l-1 -15 l-15 -1 l11 -10 l-9 -12 l15 3 z" fill="#FFE04A" stroke="#B8600B" stroke-width="2"/><text x="300" y="165" text-anchor="middle">STUCK!</text></g></svg>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-xr-wrap"><div class="ms-xr-stage">'+scene+'</div><div class="ms-xr-act" aria-live="polite"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-xr-act', m), stage = $('.ms-xr-stage', m), svg = $('.ms-xr-scene', m);
+    function look(){ svg.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); }
+    function render(){
+      stage.className = 'ms-xr-stage s' + S.st; var N = 5;
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (S.st === 0) { act.innerHTML = stepCard(1, N, cfg.s1T, '<p>'+esc(cfg.s1)+'</p><button type="button" class="ms-btn big ms-xr-go">'+esc(cfg.go1)+'</button>');
+        $('.ms-xr-go', act).onclick = function(){ SFX.miss(); S.st = 1; save(); render(); look(); }; return; }
+      if (S.st === 1) { act.innerHTML = stepCard(2, N, cfg.s2T, '<div class="ms-vd-thanks">🙁 '+esc(cfg.jam)+'</div><p>'+esc(cfg.s2)+'</p><button type="button" class="ms-btn big ms-xr-go">'+esc(cfg.sign)+'</button>');
+        $('.ms-xr-go', act).onclick = function(){ SFX.click(); S.st = 2; save(); render(); look(); }; return; }
+      if (S.st === 2) { act.innerHTML = stepCard(3, N, cfg.s3T, '<div class="ms-vd-thanks">🛑 '+esc(cfg.signed)+'</div><p>'+esc(cfg.s3)+'</p><button type="button" class="ms-btn big ms-xr-go">'+esc(cfg.go2)+'</button>');
+        $('.ms-xr-go', act).onclick = function(){ SFX.chime(); S.st = 3; save(); render(); look(); }; return; }
+      var q = S.q1 ? cfg.q2 : cfg.q1;
+      var cq = choiceQ(q, S.q1 ? 1 : 2, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1500);
+        else { markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1600); } });
+      act.innerHTML = stepCard(S.q1 ? 5 : 4, N, q.title, (S.q1 ? '' : '<div class="ms-vd-thanks">✅ '+esc(cfg.crossed)+'</div>') + cq.html); cq.bind(act);
+    }
+    render(); if (S.q2) markDone('scene');
+  }
+
+  /* ══ MODULE: fixtown (Gallery main attraction · the Town With No Rules) ══ */
+  function modFixtown(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var SP = DATA.fxSpots || [], TL = DATA.fxTools || [];
+    ST.fx = ST.fx || {fixed:{}, cur:null, res:false, go:false, q1:false, q2:false}; var S = ST.fx; S.fixed = S.fixed || {};
+    var m = shell('ms-fx-mod', cfg);
+    function hs(x, y, c, w){ w = w || 56; return '<g class="hs"><rect x="'+x+'" y="'+(y-40)+'" width="'+w+'" height="40" fill="'+c+'" stroke="#5A3A1E" stroke-width="2"/><path d="M'+(x-6)+' '+(y-40)+' l'+(w/2+6)+' -26 l'+(w/2+6)+' 26 z" fill="#8E2E22" stroke="#5A3A1E" stroke-width="2"/><rect x="'+(x+w/2-7)+'" y="'+(y-22)+'" width="14" height="22" fill="#5A3A1E"/><rect class="win" x="'+(x+7)+'" y="'+(y-32)+'" width="11" height="11"/><rect class="win" x="'+(x+w-18)+'" y="'+(y-32)+'" width="11" height="11"/></g>'; }
+    function per(x, y, c, cls){ return '<g class="pr '+(cls||'')+'"><circle cx="'+x+'" cy="'+(y-24)+'" r="5.5" fill="#C68B5A"/><path d="M'+x+' '+(y-18)+' V'+(y-7)+' M'+x+' '+(y-7)+' l-4 7 M'+x+' '+(y-7)+' l4 7 M'+x+' '+(y-15)+' l-6 5 M'+x+' '+(y-15)+' l6 5" stroke="'+c+'" stroke-width="3" stroke-linecap="round" fill="none"/></g>'; }
+    function kid(x, y, c){ return '<g class="kd"><circle cx="'+x+'" cy="'+(y-17)+'" r="4.5" fill="#E3B46E"/><path d="M'+x+' '+(y-12)+' V'+(y-5)+' M'+x+' '+(y-5)+' l-3 5 M'+x+' '+(y-5)+' l3 5 M'+x+' '+(y-10)+' l-5 3 M'+x+' '+(y-10)+' l5 3" stroke="'+c+'" stroke-width="2.6" stroke-linecap="round" fill="none"/></g>'; }
+    function plants(x0, n, y){ var s = ''; for (var i = 0; i < n; i++) s += '<path d="M'+(x0 + i*11)+' '+y+' v-9 M'+(x0 + i*11)+' '+(y-5)+' q-5 -5 -6 -1 M'+(x0 + i*11)+' '+(y-6)+' q5 -5 6 -1" stroke="#2F7D46" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="'+(x0 + i*11)+'" cy="'+(y-11)+'" r="3" fill="#F28C1B"/>'; return s; }
+    var scene = '<svg viewBox="0 138 640 232" class="ms-fx-scene" role="img" aria-label="A drawing of a small model town. On the left, two families stand at one garden. In the middle, a house is on fire. On the right, children stand in an empty muddy lot. A road runs along the front.">' +
+      '<rect width="640" height="380" fill="#CFE8F7"/><circle class="sun" cx="596" cy="172" r="20" fill="#F7D154"/><path d="M0 180 q160 -40 320 -10 t320 -8 V300 H0z" fill="#A9D08E"/><rect y="296" width="640" height="84" fill="#9BC37F"/>' +
+      '<rect y="318" width="640" height="40" fill="#8C8F94"/><path d="M0 338 H640" stroke="#F3E7CF" stroke-width="3" stroke-dasharray="16 12"/>' +
+      // garden: two houses, one bed between them
+      '<g class="z garden">' + hs(14, 262, '#F3E7CF') + hs(160, 262, '#EBC1B2') + '<rect x="84" y="238" width="64" height="30" rx="3" fill="#7A5A3A" stroke="#5A3A1E" stroke-width="2"/>' +
+        '<g class="bad"><path d="M96 262 l8 -8 M112 264 l-7 -9 M128 262 l8 -8" stroke="#5E8C3A" stroke-width="2.4" stroke-linecap="round"/><text x="116" y="226" text-anchor="middle" class="ex">!?</text></g>' +
+        '<g class="good"><path d="M116 232 V272" stroke="#FFFDF6" stroke-width="4"/><path d="M116 232 V272" stroke="#5A3A1E" stroke-width="1.5" stroke-dasharray="4 3"/>' + plants(92, 2, 264) + plants(126, 2, 264) + '</g>' +
+        per(78, 292, '#7B4FC4') + per(154, 292, '#1A8A7D') + '</g>' +
+      // fire: one house, flames on the roof, a bucket
+      '<g class="z fire">' + hs(292, 262, '#F4C37C', 64) +
+        '<g class="bad flames"><path d="M300 226 q-6 -22 8 -34 q0 14 10 16 q-2 -20 12 -30 q2 18 12 24 q4 -10 2 -18 q16 16 6 42 z" fill="#F28C1B" stroke="#C0392B" stroke-width="2"/><path d="M314 224 q-2 -12 8 -20 q2 10 10 14 q4 4 0 8 z" fill="#FFE04A"/><path d="M318 176 q-10 -10 0 -22 q8 -8 0 -18" fill="none" stroke="#6B6F75" stroke-width="5" stroke-linecap="round" opacity=".6"/></g>' +
+        '<g class="bad">' + per(270, 292, '#B5432F') + '<path d="M276 276 h10 l-2 10 h-6 z" fill="#8795A6" stroke="#2E3A48"/></g>' +
+        '<g class="good truck"><rect x="366" y="268" width="62" height="24" rx="3" fill="#C0392B" stroke="#7A1E14" stroke-width="2"/><rect x="410" y="258" width="18" height="12" rx="2" fill="#C0392B" stroke="#7A1E14" stroke-width="2"/><rect x="414" y="261" width="10" height="7" fill="#CFE8F7"/><circle cx="380" cy="294" r="7" fill="#2E3A48"/><circle cx="416" cy="294" r="7" fill="#2E3A48"/><rect class="lamp" x="392" y="262" width="10" height="6" rx="2"/><path d="M370 272 h30" stroke="#F3E7CF" stroke-width="3"/><path class="water" d="M368 268 q-22 -52 -40 -44" fill="none" stroke="#6FB3D9" stroke-width="5" stroke-linecap="round" stroke-dasharray="7 6"/>' + per(350, 292, '#2E3A48') + '</g></g>' +
+      // lot: mud, then a park
+      '<g class="z lot"><g class="bad"><path d="M452 300 q10 -34 86 -30 q84 -4 90 30 z" fill="#8A6A44" stroke="#5A3A1E" stroke-width="2"/><ellipse cx="500" cy="290" rx="20" ry="5" fill="#6B8FA3"/><ellipse cx="574" cy="286" rx="15" ry="4" fill="#6B8FA3"/>' + kid(468, 268, '#7B4FC4') + kid(482, 270, '#B5432F') + kid(610, 270, '#1A8A7D') + '<text x="540" y="262" text-anchor="middle" class="ex">?</text></g>' +
+        '<g class="good park"><path d="M452 300 q10 -34 86 -30 q84 -4 90 30 z" fill="#6FBF73" stroke="#2F7D46" stroke-width="2"/><rect x="600" y="240" width="6" height="36" fill="#6B4528"/><circle cx="603" cy="232" r="20" fill="#2F7D46"/>' +
+        '<path d="M486 296 V258 h20 V296 M506 262 L540 294" fill="none" stroke="#C0392B" stroke-width="4" stroke-linecap="round"/><path d="M490 258 h12" stroke="#E9C878" stroke-width="5"/>' +
+        '<path d="M552 296 V262 h30 V296 M560 262 v18 M574 262 v18" fill="none" stroke="#2E5FA8" stroke-width="3" stroke-linecap="round"/><rect x="556" y="280" width="22" height="4" fill="#5A3A1E"/>' + kid(498, 256, '#7B4FC4') + kid(530, 290, '#B5432F') + kid(567, 280, '#1A8A7D') + '</g></g>' +
+      '<g class="alive"><g class="car"><rect x="-70" y="322" width="46" height="18" rx="6" fill="#2E5FA8" stroke="#1D3E73" stroke-width="2"/><rect x="-44" y="325" width="12" height="8" fill="#CFE8F7"/><circle cx="-60" cy="342" r="5" fill="#2E3A48"/><circle cx="-34" cy="342" r="5" fill="#2E3A48"/></g>' +
+        '<path d="M232 318 v-34" stroke="#5E6B7A" stroke-width="3"/><path d="M227 272 h10 l5 5 v8 l-5 5 h-10 l-5 -5 v-8 z" fill="#C0392B" stroke="#fff" stroke-width="1.5"/>' +
+        '<path class="flag" d="M30 196 q10 -6 20 0 t20 0 v-14 q-10 6 -20 0 t-20 0 z" fill="#E9C878"/></g>' +
+      SP.map(function(s, i){ var p = [[116, 250], [324, 236], [540, 280]][i]; return '<g class="spot" data-k="'+s.k+'" role="button" tabindex="0" aria-label="'+esc(s.n)+'"><circle class="halo" cx="'+p[0]+'" cy="'+p[1]+'" r="52"/><circle class="hit" cx="'+p[0]+'" cy="'+p[1]+'" r="58"/></g>'; }).join('') + '</svg>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-fx-wrap"><div class="ms-fx-stage">'+scene+'<div class="ms-fx-plates" aria-live="polite">'+SP.map(function(s){ return '<span class="pl" data-k="'+s.k+'">'+esc(s.jobT)+'</span>'; }).join('')+'</div><p class="ms-credit">A simple model of a made-up town.</p></div><div class="ms-fx-act" aria-live="polite"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-fx-act', m), svg = $('.ms-fx-scene', m);
+    function sOf(k){ for (var i = 0; i < SP.length; i++) if (SP[i].k === k) return SP[i]; return null; }
+    function count(){ return SP.filter(function(s){ return S.fixed[s.k]; }).length; }
+    function paint(){ SP.forEach(function(s){ svg.classList.toggle('f-' + s.k, !!S.fixed[s.k]); var g = $('.spot[data-k="'+s.k+'"]', svg); g.classList.toggle('done', !!S.fixed[s.k]); g.classList.toggle('sel', S.cur === s.k && !S.fixed[s.k]); $('.ms-fx-plates .pl[data-k="'+s.k+'"]', m).classList.toggle('on', !!S.fixed[s.k]); });
+      svg.classList.toggle('all', count() === SP.length); }
+    function pick(k){ if (S.go || S.fixed[k] || S.res) return; SFX.click(); S.cur = k; save(); render(); }
+    $$('.spot', svg).forEach(function(g){ g.addEventListener('click', function(){ pick(g.dataset.k); }); g.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(g.dataset.k); } }); });
+    function look(){ svg.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); }
+    function render(){
+      paint(); var N = 5, n = count();
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (!S.go) {
+        if (S.res && S.cur) { var d = sOf(S.cur), last = n === SP.length;
+          act.innerHTML = stepCard(n, N, 'Trouble '+n+' of '+SP.length+' · fixed', '<div class="ms-vd-thanks">✅ '+esc(d.done)+'</div><button type="button" class="ms-btn big ms-fx-nx">'+(last ? 'Next ➡️' : 'Next trouble ➡️')+'</button>');
+          $('.ms-fx-nx', act).onclick = function(){ SFX.click(); S.res = false; S.cur = null; if (last) S.go = true; save(); render(); look(); }; return; }
+        if (!S.cur) { act.innerHTML = stepCard(n + 1, N, cfg.pickT + ' · '+(n + 1)+' of '+SP.length, '<p class="ms-wm-do">👆 '+esc(cfg.pickP)+'</p><div class="ms-pchoices col">'+SP.filter(function(s){ return !S.fixed[s.k]; }).map(function(s){ return '<button type="button" class="ms-btn alt ms-fx-s" data-k="'+s.k+'">'+s.ic+' '+esc(s.n)+'</button>'; }).join('')+'</div>');
+          $$('.ms-fx-s', act).forEach(function(b){ b.onclick = function(){ pick(b.dataset.k); look(); }; }); return; }
+        var c = sOf(S.cur);
+        act.innerHTML = stepCard(n + 1, N, c.n, '<div class="ms-notyet">⚠️ <b>What is wrong:</b> '+esc(c.wrong)+'</div><p>'+esc(cfg.fixP)+'</p><div class="ms-pchoices col">'+TL.map(function(t){ return '<button type="button" class="ms-btn ms-fx-t" data-k="'+t.k+'">'+esc(t.t)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div><div class="ms-exbtns"><button type="button" class="ms-btn alt ms-fx-back">↩️ Pick a different trouble</button></div>');
+        $$('.ms-fx-t', act).forEach(function(b){ b.onclick = function(){ if (b.dataset.k !== c.fix) { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc(cfg.miss)+'</div>'; return; }
+          SFX.chime(); S.fixed[c.k] = 1; S.res = true; save(); render(); look(); if (count() === SP.length) SFX.fanfare(); }; });
+        $('.ms-fx-back', act).onclick = function(){ SFX.click(); S.cur = null; save(); render(); }; return; }
+      var q = S.q1 ? cfg.q2 : cfg.q1;
+      var cq = choiceQ(q, S.q1 ? 1 : 2, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1500);
+        else { ST.gal = ST.gal||{}; ST.gal.town = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1600); } });
+      act.innerHTML = stepCard(S.q1 ? 5 : 4, N, q.title, cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: townjar (Gallery · ten families, one jar, three things for everyone) ══ */
+  function modTownjar(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var BY = DATA.tjBuys || [], ta = document.getElementById(cfg.ta || 'journal-q2'), NEED = cfg.wordMin || 10;
+    ST.tj = ST.tj || {in:false, b:{}, go:false, q:false, done:false}; var S = ST.tj; S.b = S.b || {};
+    var m = shell('ms-tj-mod', cfg);
+    var COL = ['#F3E7CF', '#EBC1B2', '#BCD9AB', '#F4C37C', '#CFE0F2'], houses = '', coins = '';
+    var JAR = [[-21,0],[-7,0],[7,0],[21,0],[-14,-9],[0,-9],[14,-9],[-7,-18],[7,-18],[0,-27]];
+    for (var i = 0; i < 10; i++) { var x = 22 + i * 57;
+      houses += '<g><rect x="'+x+'" y="44" width="40" height="30" fill="'+COL[i % 5]+'" stroke="#5A3A1E" stroke-width="2"/><path d="M'+(x-4)+' 44 l24 -18 l24 18 z" fill="#8E2E22" stroke="#5A3A1E" stroke-width="2"/><rect x="'+(x+15)+'" y="56" width="10" height="18" fill="#5A3A1E"/></g>';
+      coins += '<g class="cn" data-i="'+i+'" style="--hx:'+(x + 20)+'px;--hy:90px;--jx:'+(300 + JAR[i][0])+'px;--jy:'+(196 + JAR[i][1])+'px"><circle r="8" fill="#E3B94F" stroke="#8A6A1E" stroke-width="2"/><circle r="4" fill="none" stroke="#B8891E" stroke-width="1"/></g>'; }
+    var LOT = {park:[30,246], lib:[230,246], truck:[430,246]};
+    var art = {
+      park: '<path d="M38 300 h124 v-8 q-62 -18 -124 0 z" fill="#6FBF73" stroke="#2F7D46" stroke-width="2"/><rect x="136" y="262" width="5" height="30" fill="#6B4528"/><circle cx="138" cy="256" r="16" fill="#2F7D46"/><path d="M58 294 V264 h18 V294 M76 268 L104 292" fill="none" stroke="#C0392B" stroke-width="4" stroke-linecap="round"/>',
+      lib: '<rect x="252" y="264" width="96" height="36" fill="#F3E7CF" stroke="#5A3A1E" stroke-width="2"/><path d="M244 264 h112 l-56 -18 z" fill="#B5432F" stroke="#5A3A1E" stroke-width="2"/><path d="M266 270 v30 M286 270 v30 M314 270 v30 M334 270 v30" stroke="#C9BFA8" stroke-width="5"/><rect x="293" y="278" width="14" height="22" fill="#5A3A1E"/><text x="300" y="260" text-anchor="middle" class="sm">LIBRARY</text>',
+      truck: '<rect x="452" y="270" width="78" height="24" rx="3" fill="#C0392B" stroke="#7A1E14" stroke-width="2"/><rect x="530" y="278" width="22" height="16" rx="2" fill="#C0392B" stroke="#7A1E14" stroke-width="2"/><rect x="535" y="281" width="12" height="7" fill="#CFE8F7"/><circle cx="470" cy="296" r="8" fill="#2E3A48"/><circle cx="534" cy="296" r="8" fill="#2E3A48"/><path d="M456 266 h66 M462 266 v-6 M476 266 v-6 M490 266 v-6 M504 266 v-6 M518 266 v-6 M456 260 h66" stroke="#8795A6" stroke-width="2.5"/>' };
+    var scene = '<svg viewBox="0 0 600 320" class="ms-tj-scene" role="img" aria-label="A drawing of ten small houses in a row. Each family holds one gold coin. Below is a big glass jar marked Town Jar. At the bottom are three empty lots for a park, a library, and a fire truck, each with a price.">' +
+      '<rect width="600" height="320" fill="#F3E7CF"/><rect y="74" width="600" height="6" fill="#A9D08E"/>' + houses +
+      '<g class="jar"><rect x="262" y="128" width="76" height="80" rx="12" fill="#E8F4F8" fill-opacity=".7" stroke="#6E8A96" stroke-width="2.5"/><rect x="270" y="118" width="60" height="12" rx="3" fill="#8795A6"/><rect x="212" y="210" width="176" height="24" rx="4" fill="#0E1C42"/><text x="300" y="227" text-anchor="middle" class="jl">TOWN JAR: <tspan class="jn">0</tspan> coins</text></g>' +
+      BY.map(function(b){ var p = LOT[b.k]; return '<g class="lotg" data-k="'+b.k+'"><rect class="plot" x="'+p[0]+'" y="'+p[1]+'" width="140" height="58" rx="6"/><g class="art">'+art[b.k]+'</g><g class="tag"><text x="'+(p[0] + 70)+'" y="'+(p[1] + 26)+'" text-anchor="middle" class="nm">'+esc(b.n)+'</text><text x="'+(p[0] + 70)+'" y="'+(p[1] + 44)+'" text-anchor="middle" class="pr">costs '+b.c+' coins</text></g><text x="'+(p[0] + 70)+'" y="'+(p[1] - 4)+'" text-anchor="middle" class="fe">For everyone</text></g>'; }).join('') + coins + '</svg>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-tj-wrap"><div class="ms-tj-stage">'+scene+'</div><div class="ms-tj-act" aria-live="polite"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-tj-act', m), svg = $('.ms-tj-scene', m), home = null, note = null, curUpd = null;
+    if (ta) { home = document.createComment('tj-home'); ta.parentNode.insertBefore(home, ta);
+      var prev = ta.previousElementSibling, hid = 0; while (prev && hid < 2 && (prev.classList.contains('textbox-prompt') || prev.classList.contains('q-block'))) { prev.classList.add('ms-hide-on'); prev = prev.previousElementSibling; hid++; }
+      note = el('div', 'ms-pu-note ms-tj-note ms-only', ''); ta.parentNode.insertBefore(note, home); }
+    function goHome(){ if (ta && ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    function words(t){ return (t.trim().match(/\S+/g)||[]).length; }
+    function miss(){ var o = [], v = ta ? ta.value : '', n = words(v); if (n < NEED) o.push('Add '+(NEED-n)+' more word'+(NEED-n===1?'':'s')+'.'); if (!/pa(y|id)|tax/i.test(v)) o.push('Tell who pays for the park. Use the word pay, paid, or taxes.'); return o; }
+    function paintNote(){ if (!note) return; var v = ta.value.trim(); note.innerHTML = '<b>Question 2</b> is at the Town Jar in the Gallery. ' + (v ? '✅ You wrote: <i>'+esc(v)+'</i>' : 'You have not written it yet. <button type="button" class="ms-btn alt ms-tj-goto">Go to the Gallery</button>'); var b = $('.ms-tj-goto', note); if (b) b.onclick = function(){ go('explore'); }; }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function spent(){ var n = 0; BY.forEach(function(b){ if (S.b[b.k]) n += b.c; }); return n; }
+    function paint(){ var sp = spent(), at = 0, owner = [];
+      BY.forEach(function(b){ if (S.b[b.k]) for (var j = 0; j < b.c; j++) owner.push(b.k); });
+      $$('.cn', svg).forEach(function(c, i){ var o = owner[i]; c.classList.toggle('in', !!S.in && !o); c.classList.toggle('sp', !!o); if (o) { var p = LOT[o]; c.style.setProperty('--sx', (p[0] + 70) + 'px'); c.style.setProperty('--sy', (p[1] + 30) + 'px'); } });
+      $('.jn', svg).textContent = S.in ? 10 - sp : 0;
+      $$('.lotg', svg).forEach(function(g){ g.classList.toggle('on', !!S.b[g.dataset.k]); }); }
+    function look(){ svg.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      paint(); paintNote(); var N = 4, all = BY.every(function(b){ return S.b[b.k]; });
+      if (ta) ta.classList.toggle('ms-gi-away', !(S.q && !S.done));
+      if (S.done) { goHome(); act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div><div class="ms-exbtns"><button type="button" class="ms-btn alt ms-tj-edit">✏️ Edit my answer</button></div>'; $('.ms-tj-edit', act).onclick = function(){ S.done = false; save(); render(); }; return; }
+      if (!S.in) { goHome(); act.innerHTML = stepCard(1, N, cfg.s1T, '<p>'+esc(cfg.s1)+'</p><button type="button" class="ms-btn big ms-tj-fill">'+esc(cfg.s1btn)+'</button>');
+        $('.ms-tj-fill', act).onclick = function(){ SFX.chime(); S.in = true; save(); render(); look(); }; return; }
+      if (!S.go) { goHome();
+        act.innerHTML = stepCard(2, N, cfg.s2T, (all ? '<div class="ms-vd-thanks">✅ '+esc(cfg.bought)+'</div><button type="button" class="ms-btn big ms-tj-nx">Next ➡️</button>' :
+          '<p>'+esc(cfg.s2)+'</p><p class="ms-wm-do">👆 Tap a thing to buy it. Coins left in the jar: <b>'+(10 - spent())+'</b></p><div class="ms-pchoices col">'+BY.map(function(b){ return S.b[b.k] ? '<span class="ms-tj-got">✓ '+b.ic+' '+esc(b.n)+': bought for everyone</span>' : '<button type="button" class="ms-btn ms-tj-b" data-k="'+b.k+'">'+b.ic+' '+esc(b.n)+' · '+b.c+' coins</button>'; }).join('')+'</div>'));
+        $$('.ms-tj-b', act).forEach(function(b){ b.onclick = function(){ SFX.chime(); S.b[b.dataset.k] = 1; save(); render(); look(); }; });
+        var nx = $('.ms-tj-nx', act); if (nx) nx.onclick = function(){ SFX.click(); S.go = true; save(); render(); }; return; }
+      if (!S.q) { goHome(); var cq = choiceQ(cfg.q, 1, function(){ setTimeout(function(){ S.q = true; save(); render(); }, calm()?0:1600); });
+        act.innerHTML = stepCard(3, N, cfg.q.title, cq.html); cq.bind(act); return; }
+      if (!ta) { S.done = true; ST.gal = ST.gal||{}; ST.gal.jar = 1; save(); galleryCheck(); render(); return; }
+      act.innerHTML = stepCard(4, N, cfg.writeT, '<p>'+esc(cfg.writeP)+'</p><div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t, i){ return '<button type="button" class="ms-btn alt ms-gi-start" data-i="'+i+'">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-tj-chk"></div>' +
+        '<div class="ms-gi-nav"><button type="button" class="ms-btn big ms-tj-save">Save my answer ✓</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+      $('.ms-gi-box', act).appendChild(ta); var fb = $('.ms-gi-fb', act), chk = $('.ms-tj-chk', act);
+      var upd = function(){ var v = ta.value, o = miss(), w = words(v), h = /pa(y|id)|tax/i.test(v); chk.innerHTML = '<span class="ms-wc'+(w >= NEED ? ' ok' : '')+'">📝 '+Math.min(w, NEED)+' of '+NEED+' words</span><span class="ms-chip'+(h ? ' ok' : '')+'">'+(h ? '✓ ' : '')+'tells who pays</span>';
+        $('.ms-tj-save', act).classList.toggle('ms-notready', !!o.length); if (fb.innerHTML) fb.innerHTML = o.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>' : ''; };
+      curUpd = upd; upd();
+      $$('.ms-gi-start', act).forEach(function(b){ b.onclick = function(){ var t = (cfg.starters||[])[+b.dataset.i]; if (ta.value.indexOf(t) < 0) ta.value = ta.value.replace(/\s*$/, '') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input', {bubbles:true})); upd(); }; });
+      $('.ms-tj-save', act).onclick = function(){ var o = miss(); if (o.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>'; return; }
+        S.done = true; ST.gal = ST.gal||{}; ST.gal.jar = 1; save(); galleryCheck(); SFX.fanfare(); render(); };
+    }
+    if (ta) ta.addEventListener('input', function(){ paintNote(); if (curUpd && S.q && !S.done) curUpd(); });
+    render();
+  }
+
+  /* ══ MODULE: firstlabel (Exhibit Floor · the first label in Citizenship Hall) ══ */
+  function modFirstlabel(cfg){
+    var ta = document.getElementById(cfg.ta || 'journal-assign'); if (!ta) return;
+    var J = cfg.jobs || [], SMIN = cfg.sentMin || 3;
+    ST.fl = ST.fl || {step:1, job:null, ex:null, open:false}; var S = ST.fl;
+    var m = shell('ms-fl-mod', cfg), lamps = ''; for (var i = 0; i < 5; i++) lamps += '<i style="--d:'+(i * .3).toFixed(1)+'s"></i>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-fl-wrap"><div class="ms-fl-act"></div><div class="ms-fl-stage" hidden><div class="lamps" aria-hidden="true">'+lamps+'</div><div class="row"><div class="town" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="2" y="10" width="116" height="60" rx="6" fill="#CFE8F7" fill-opacity=".35" stroke="#E9C878" stroke-width="2"/><path d="M8 60 h104" stroke="#A9D08E" stroke-width="8"/><rect x="18" y="40" width="20" height="16" fill="#F3E7CF" stroke="#5A3A1E"/><path d="M15 40 l13 -10 l13 10 z" fill="#8E2E22"/><rect x="50" y="36" width="22" height="20" fill="#F4C37C" stroke="#5A3A1E"/><path d="M47 36 l14 -11 l14 11 z" fill="#8E2E22"/><circle cx="94" cy="42" r="10" fill="#2F7D46"/><rect x="92" y="48" width="4" height="10" fill="#6B4528"/></svg><span>The model town</span></div>' +
+      '<div class="stand"><div class="card"><div class="hd">WHY A COMMUNITY NEEDS A GOVERNMENT</div><p class="tx"></p><p class="by"></p></div><i class="post"></i></div><div class="case" aria-hidden="true"><span class="cloth"></span><span class="ct"></span></div></div></div></div><div class="ms-fl-end"></div>');
+    var blk = ta.closest('.activity-body') || ta.parentNode;
+    var home = document.createComment('fl-home'); ta.parentNode.insertBefore(home, ta);
+    var p0 = blk.querySelector('p'); if (p0 && p0.nextSibling) blk.insertBefore(m, p0.nextSibling); else blk.insertBefore(m, blk.firstChild);
+    $$('p, .callout, .textbox-prompt', blk).forEach(function(e){ if (!m.contains(e)) e.classList.add('ms-hide-on'); });
+    var act = $('.ms-fl-act', m), show = $('.ms-fl-stage', m), end = $('.ms-fl-end', m), curUpd = null;
+    $('.case .ct', m).textContent = cfg.caseT || '';
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function jOf(k){ for (var i = 0; i < J.length; i++) if (J[i].k === k) return J[i]; return null; }
+    function words(t){ return (t.trim().match(/\S+/g)||[]).length; }
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return words(s) >= 3; }).length; }
+    function missing(){ var o = [], v = ta.value, n = sents(v), j = jOf(S.job); if (n < SMIN) o.push('Write '+(SMIN - n)+' more sentence'+(SMIN - n === 1 ? '' : 's')+' (3 words or more each).'); if (!/government/i.test(v)) o.push('Use the word government.'); if (j && !new RegExp(j.re, 'i').test(v)) o.push('Tell about your job: '+j.word+'.'); return o; }
+    function view(){ var v = ta.value.trim(); $('.card .tx', show).textContent = v || 'Your label will appear here as you write.'; $('.card .tx', show).classList.toggle('empty', !v);
+      var nm = sget(NAMEK,''); $('.card .by', show).textContent = nm ? 'Label by ' + nm + ', Civic Curator' : 'Label by a Civic Curator';
+      show.hidden = S.step < 3; show.classList.toggle('open', !!S.open); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; curUpd = null; var j = jOf(S.job); if (!j) S.step = 1; else if (S.ex == null && S.step > 2) S.step = 2;
+      ta.classList.toggle('ms-gi-away', S.step !== 3); view();
+      if (S.step === 1) { goHome(); act.innerHTML = stepCard(1, 4, cfg.s1T, '<p>'+esc(cfg.s1)+'</p><div class="ms-pchoices col">'+J.map(function(x){ return '<button type="button" class="ms-btn'+(x.k === S.job ? '' : ' alt')+' ms-fl-j" data-k="'+x.k+'">'+x.ic+' '+esc(x.t)+'</button>'; }).join('')+'</div>');
+        $$('.ms-fl-j', act).forEach(function(b){ b.onclick = function(){ SFX.click(); if (S.job !== b.dataset.k) S.ex = null; S.job = b.dataset.k; S.step = 2; save(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); }; }); return; }
+      if (S.step === 2) { goHome(); act.innerHTML = stepCard(2, 4, cfg.s2T, '<p class="ms-gi-ok">✅ Your job: <b>'+j.ic+' '+esc(j.t)+'</b> <button type="button" class="ms-btn alt ms-fl-b1">↩️ Pick a different job</button></p><p>'+esc(cfg.s2.replace('{job}', j.word))+'</p><div class="ms-pchoices col">'+j.ex.map(function(t, i){ return '<button type="button" class="ms-btn'+(i === S.ex ? '' : ' alt')+' ms-fl-e" data-i="'+i+'">'+esc(t.charAt(0).toUpperCase() + t.slice(1))+'.</button>'; }).join('')+'</div>');
+        $('.ms-fl-b1', act).onclick = function(){ SFX.click(); S.step = 1; save(); render(); };
+        $$('.ms-fl-e', act).forEach(function(b){ b.onclick = function(){ SFX.click(); S.ex = +b.dataset.i; S.step = 3; save(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); }; }); return; }
+      if (S.step === 3) { var ST3 = [cfg.st1, cfg.st2.replace('{word}', j.word), cfg.st3 + ' ' + j.ex[S.ex] + '.'];
+        act.innerHTML = stepCard(3, 4, cfg.s3T, '<p>'+esc(cfg.s3)+'</p><div class="ms-gi-starts">'+ST3.map(function(t, i){ return '<button type="button" class="ms-btn alt ms-gi-start" data-i="'+i+'">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-fl-chk"></div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-fl-prev">⬅️ Back</button><button type="button" class="ms-btn big ms-fl-next">See my label ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        $('.ms-gi-box', act).appendChild(ta); var fb = $('.ms-gi-fb', act), chk = $('.ms-fl-chk', act);
+        var upd = function(){ var v = ta.value, n = sents(v), o = missing(), g = /government/i.test(v), jb = new RegExp(j.re, 'i').test(v);
+          chk.innerHTML = '<span class="ms-wc'+(n >= SMIN ? ' ok' : '')+'">📝 '+Math.min(n, SMIN)+' of '+SMIN+' sentences</span><span class="ms-chip'+(g ? ' ok' : '')+'">'+(g ? '✓ ' : '')+'what a government is</span><span class="ms-chip'+(jb ? ' ok' : '')+'">'+(jb ? '✓ ' : '')+esc(j.word)+'</span>'; view();
+          $('.ms-fl-next', act).classList.toggle('ms-notready', !!o.length); if (fb.innerHTML) fb.innerHTML = o.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b){ b.onclick = function(){ var t = ST3[+b.dataset.i]; if (ta.value.indexOf(t) < 0) ta.value = ta.value.replace(/\s*$/, '') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input', {bubbles:true})); upd(); }; });
+        $('.ms-fl-prev', act).onclick = function(){ SFX.click(); S.step = 2; save(); goHome(); render(); };
+        $('.ms-fl-next', act).onclick = function(){ var o = missing(); if (o.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 4; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(4, 4, cfg.s4T, '<p>'+esc(cfg.s4||'')+'</p><button type="button" class="ms-btn big ms-fl-go">🏷️ '+esc(cfg.openT)+'</button>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-fl-edit">✏️ '+esc(cfg.editT||'Edit')+'</button></div>';
+      var gb = $('.ms-fl-go', end); if (gb) gb.onclick = function(){ S.open = true; save(); SFX.fanfare(); show.classList.remove('lit'); void show.offsetWidth; if (!calm()) show.classList.add('lit'); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'});
+        if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 1700);
+        optiNod('assignment'); check(); };
+      $('.ms-fl-edit', end).onclick = function(){ S.open = false; S.step = 3; save(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd) curUpd(); });
+    var its = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && its.length && its.every(on)) markDone('assignment'); }
+    its.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, corner: modCorner, fixtown: modFixtown, townjar: modTownjar, firstlabel: modFirstlabel, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
