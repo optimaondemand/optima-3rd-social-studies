@@ -164,6 +164,13 @@
    - fixtown    Gallery main attraction: the model town's 3 troubles, pick each fix, name the job (order, safety, the common good); 2 questions
    - townjar    Gallery: 10 families fill the Town Jar (taxes), buy a park, a library, a fire truck; question; Evidence Q2 box moves into the last step
    - firstlabel Exhibit Floor: pick a job and an example, the label box moves into the step, hang it; the hall's lamps come on
+   Added for 3.10_02 (DATA.kqCards, DATA.halls):
+   - recess     Lobby: the Recess Boss picks the game, then the class votes; 2 questions
+   - powerflip  Gallery main attraction: a king's square (arrows down) → We the People (ballots, a chosen leader, arrows up) → the Constitution above everyone; 2 questions
+   - korp       Gallery: King or President? 6 cards onto two stands (tap or drag)
+   - caselamp   Gallery source: lift the cloth; a lamp moves down page 1 of the Constitution to 3 stops; Evidence Q3 box moves into the last step
+   - wordbuild  Workroom: build 4 words from tiles (stitu), then pick the meaning
+   - ballot     Exhibit Floor: side → 2 reasons → 1 evidence → 3 to 5 sentences in the step → drop the ballot; We lights, every hall lights
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1221,7 +1228,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my,.ms-xr-stage,.ms-fx-stage,.ms-tj-stage,.ms-fl-stage,.ms-tj-note';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my,.ms-xr-stage,.ms-fx-stage,.ms-tj-stage,.ms-fl-stage,.ms-tj-note,.ms-rb-stage,.ms-pw-stage,.ms-kq-stands,.ms-lp-case,.ms-bt-stage,.ms-lp-note';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -6917,7 +6924,280 @@
   }
 
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, corner: modCorner, fixtown: modFixtown, townjar: modTownjar, firstlabel: modFirstlabel, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.10_02 (U.S. Constitution and Power from the People) ══════════
+     DATA.kqCards (6 King / President cards), DATA.halls (the five halls since Unit 6)
+     - recess      Lobby: the Recess Boss picks the game (Day 1), then the class votes (Day 2); 2 questions
+     - powerflip   Gallery main attraction: a king's town square (arrows down) → flip to We the People (ballots, a chosen leader, arrows up) → the Constitution slides in above everyone; 2 questions
+     - korp        Gallery: King or President? 6 cards, one at a time, onto two stands (tap or drag)
+     - caselamp    Gallery source: lift the cloth; a lamp moves down page 1 of the Constitution to 3 stops (zoom + question); Evidence Q3 box moves into the last step
+     - wordbuild   Workroom: build constitution, constitute, institute, substitute from tiles (stitu = to set up), then pick the meaning
+     - ballot      Exhibit Floor: side → 2 reasons → 1 evidence → the task box moves into the step (3 to 5 sentences) → drop the ballot; We lights and the glow runs through every hall */
+
+  /* ══ MODULE: recess (Lobby · the Recess Boss) ══ */
+  function modRecess(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    ST.rb = ST.rb || {st:0, q1:false, q2:false}; var S = ST.rb; // st 0 start, 1 day 1 (boss), 2 day 2 (vote)
+    var m = shell('ms-rb-mod', cfg);
+    var VOTE = ['s','s','t','s','j','s','t','s','j','s'], COL = ['#7B4FC4','#1A8A7D','#B5432F','#2E5FA8','#F28C1B','#2F7D46','#C0392B','#8E5A9E','#1D6FA3','#A7774A'];
+    function kid(i){ var x = 52 + i * 55, y = 262, c = COL[i], max = i === 2, v = VOTE[i], tc = v === 's' ? '#2E5FA8' : (v === 't' ? '#C0392B' : '#7B4FC4');
+      return '<g class="kd'+(max ? ' max' : '')+'" data-v="'+v+'">' + (max ? '<rect x="'+(x-20)+'" y="'+(y+2)+'" width="40" height="14" rx="2" fill="#A7774A" stroke="#5A3A1E" stroke-width="2"/>' : '') +
+        '<g style="transform:translateY('+(max ? -14 : 0)+'px)"><path d="M'+x+' '+(y-34)+' V'+(y-12)+' M'+x+' '+(y-12)+' l-7 12 M'+x+' '+(y-12)+' l7 12" stroke="'+c+'" stroke-width="5" stroke-linecap="round" fill="none"/>' +
+        '<path class="arm dn" d="M'+x+' '+(y-30)+' l-9 12 M'+x+' '+(y-30)+' l9 12" stroke="'+c+'" stroke-width="4" stroke-linecap="round" fill="none"/><path class="arm up" d="M'+x+' '+(y-30)+' l-8 12 M'+x+' '+(y-30)+' l5 -18" stroke="'+c+'" stroke-width="4" stroke-linecap="round" fill="none"/>' +
+        '<circle cx="'+x+'" cy="'+(y-44)+'" r="10" fill="#E3B46E" stroke="#8A5A2A" stroke-width="1.5"/><circle cx="'+(x-3.5)+'" cy="'+(y-46)+'" r="1.4" fill="#2E2A26"/><circle cx="'+(x+3.5)+'" cy="'+(y-46)+'" r="1.4" fill="#2E2A26"/>' +
+        '<path class="mo nt" d="M'+(x-4)+' '+(y-40)+' h8" stroke="#2E2A26" stroke-width="1.6" stroke-linecap="round"/><path class="mo hp" d="M'+(x-4.5)+' '+(y-41)+' q4.5 5 9 0" stroke="#2E2A26" stroke-width="1.6" fill="none" stroke-linecap="round"/><path class="mo sd" d="M'+(x-4.5)+' '+(y-38)+' q4.5 -5 9 0" stroke="#2E2A26" stroke-width="1.6" fill="none" stroke-linecap="round"/>' +
+        (max ? '<path d="M'+(x-11)+' '+(y-50)+' q11 -12 22 0 z" fill="#C0392B"/><path d="M'+(x+9)+' '+(y-51)+' h9" stroke="#C0392B" stroke-width="3"/><circle cx="'+(x+8)+'" cy="'+(y-24)+'" r="3.2" fill="#E9C878" stroke="#7E5A16"/><text x="'+x+'" y="'+(y+30)+'" text-anchor="middle" class="nm">Max</text>' : '') +
+        '<rect class="vt" x="'+(x-21)+'" y="'+(y-86)+'" width="42" height="16" rx="4" fill="'+tc+'"/><text class="vt" x="'+x+'" y="'+(y-74)+'" text-anchor="middle">'+(v === 's' ? 'soccer' : (v === 't' ? 'tag' : 'rope'))+'</text></g></g>'; }
+    var kids = ''; for (var i = 0; i < 10; i++) kids += kid(i);
+    var scene = '<svg viewBox="0 0 600 300" class="ms-rb-scene" role="img" aria-label="A drawing of a school playground at recess. Ten children stand in a row. One boy, Max, stands on a box with a whistle. A chalkboard shows today\'s game.">' +
+      '<rect width="600" height="300" fill="#CFE8F7"/><rect y="150" width="600" height="150" fill="#A9D08E"/><rect y="244" width="600" height="56" fill="#C9B48A"/>' +
+      '<path d="M0 150 H600" stroke="#8A7A5A" stroke-width="3"/>' + (function(){ var f = ''; for (var x = 8; x < 600; x += 22) f += '<path d="M'+x+' 150 v-26" stroke="#8A7A5A" stroke-width="2.5"/>'; return f + '<path d="M0 130 H600" stroke="#8A7A5A" stroke-width="2.5"/>'; })() +
+      '<path d="M470 150 V96 h14 V150 M484 100 L560 148" stroke="#C0392B" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M466 96 h22" stroke="#E9C878" stroke-width="6"/>' +
+      '<rect x="40" y="30" width="200" height="96" rx="6" fill="#2F4A3A" stroke="#7A4E1E" stroke-width="7"/><text x="140" y="56" text-anchor="middle" class="bh">TODAY\'S GAME</text><text x="140" y="98" text-anchor="middle" class="bg g0">?</text><text x="140" y="98" text-anchor="middle" class="bg g1">TAG</text><text x="140" y="98" text-anchor="middle" class="bg g2">SOCCER</text><text x="140" y="118" text-anchor="middle" class="by"></text>' +
+      '<g class="tally"><rect x="268" y="30" width="176" height="96" rx="6" fill="#FFFDF6" stroke="#B9A77A" stroke-width="3"/><text x="356" y="50" text-anchor="middle" class="th">VOTES</text>' +
+        [['Soccer', 6, '#2E5FA8', 64], ['Tag', 2, '#C0392B', 86], ['Jump rope', 2, '#7B4FC4', 108]].map(function(r){ return '<text x="278" y="'+(r[3]+4)+'" class="tl">'+r[0]+'</text><rect class="bar" x="350" y="'+(r[3]-6)+'" width="'+(r[1]*13)+'" height="12" rx="3" fill="'+r[2]+'"/><text x="'+(356 + r[1]*13)+'" y="'+(r[3]+4)+'" class="tn">'+r[1]+'</text>'; }).join('') + '</g>' +
+      '<circle cx="530" cy="232" r="11" fill="#fff" stroke="#2E2A26" stroke-width="2"/><path d="M523 228 l7 -3 l6 4 l-2 7 h-8 z" fill="#2E2A26"/>' + kids + '</svg>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-rb-wrap"><div class="ms-rb-stage">'+scene+'<p class="ms-credit">'+esc(cfg.modelT || '')+'</p></div><div class="ms-rb-act" aria-live="polite"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-rb-act', m), stage = $('.ms-rb-stage', m), svg = $('.ms-rb-scene', m);
+    function look(){ svg.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); }
+    function render(){
+      stage.className = 'ms-rb-stage s' + S.st; var N = 4;
+      $('.by', svg).textContent = S.st === 1 ? 'picked by Max' : (S.st === 2 ? 'picked by a class vote' : '');
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (S.st === 0) { act.innerHTML = stepCard(1, N, cfg.s1T, '<p>'+esc(cfg.s1)+'</p><button type="button" class="ms-btn big ms-rb-go">'+esc(cfg.go1)+'</button>');
+        $('.ms-rb-go', act).onclick = function(){ SFX.miss(); S.st = 1; save(); render(); look(); }; return; }
+      if (S.st === 1) { act.innerHTML = stepCard(2, N, cfg.s2T, '<div class="ms-notyet">🙁 '+esc(cfg.day1)+'</div><p>'+esc(cfg.s2)+'</p><button type="button" class="ms-btn big ms-rb-go">'+esc(cfg.go2)+'</button>');
+        $('.ms-rb-go', act).onclick = function(){ SFX.chime(); S.st = 2; save(); render(); look(); }; return; }
+      var q = S.q1 ? cfg.q2 : cfg.q1;
+      var cq = choiceQ(q, S.q1 ? 1 : 2, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1500);
+        else { markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1600); } });
+      act.innerHTML = stepCard(S.q1 ? 4 : 3, N, q.title, (S.q1 ? '' : '<div class="ms-vd-thanks">✅ '+esc(cfg.voted)+'</div>') + cq.html); cq.bind(act);
+    }
+    render(); if (S.q2) markDone('scene');
+  }
+
+  /* ══ MODULE: powerflip (Gallery main attraction · who holds the power?) ══ */
+  function modPowerflip(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    ST.pw = ST.pw || {st:0, q1:false, q2:false}; var S = ST.pw; // st 0 king waits, 1 king's rule, 2 the people vote, 3 the Constitution is above everyone
+    var m = shell('ms-pw-mod', cfg);
+    var COL = ['#7B4FC4','#1A8A7D','#B5432F','#2E5FA8','#F28C1B','#2F7D46','#8E5A9E','#1D6FA3'];
+    function per(x, y, c, i){ return '<g class="pp" style="--d:'+(i * .12).toFixed(2)+'s"><path d="M'+x+' '+(y-26)+' V'+(y-10)+' M'+x+' '+(y-10)+' l-6 10 M'+x+' '+(y-10)+' l6 10 M'+x+' '+(y-22)+' l-8 9 M'+x+' '+(y-22)+' l8 9" stroke="'+c+'" stroke-width="4.5" stroke-linecap="round" fill="none"/><circle cx="'+x+'" cy="'+(y-34)+'" r="8" fill="#E3B46E" stroke="#8A5A2A" stroke-width="1.5"/>' +
+      '<g class="bl" style="--bx:'+(210 - x)+'px;--by:'+(238 - y + 26)+'px"><rect x="'+(x-6)+'" y="'+(y-30)+'" width="12" height="9" fill="#FFFDF6" stroke="#5A3A1E" stroke-width="1.2"/><path d="M'+(x-3)+' '+(y-26)+' l2 2 l4 -4" stroke="#1A7A4A" stroke-width="1.4" fill="none"/></g></g>'; }
+    var people = '', X = [62, 128, 194, 260, 340, 406, 472, 538]; X.forEach(function(x, i){ people += per(x, 318, COL[i], i); });
+    function arrows(cls, up){ return ['M300 168 L120 272', 'M300 168 L300 272', 'M300 168 L480 272'].map(function(d){ return '<path class="'+cls+'" d="'+d+'" marker-'+(up ? 'start' : 'end')+'="url(#ms-pw-ah'+(up ? 'u' : 'd')+')"/>'; }).join(''); }
+    var scene = '<svg viewBox="0 0 600 340" class="ms-pw-scene" role="img" aria-label="A drawing of a town square. At the top is a stone platform with a seat. Eight people stand in the square below. Arrows show who holds the power.">' +
+      '<defs><marker id="ms-pw-ahd" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#B5290F"/></marker><marker id="ms-pw-ahu" viewBox="0 0 10 10" refX="3" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1A7A4A"/></marker></defs>' +
+      '<rect width="600" height="340" fill="#E9DFC8"/><rect y="200" width="600" height="140" fill="#D8C9A6"/>' + (function(){ var g = ''; for (var x = 0; x <= 600; x += 40) g += '<path d="M'+x+' 200 L'+(300 + (x - 300) * 1.6)+' 340" stroke="#C4B48E" stroke-width="1.5"/>'; return g + '<path d="M0 250 H600 M0 300 H600" stroke="#C4B48E" stroke-width="1.5"/>'; })() +
+      '<rect x="210" y="96" width="180" height="40" fill="#B9AE98" stroke="#7A6E58" stroke-width="2.5"/><rect x="226" y="136" width="148" height="12" fill="#A89C84"/><rect x="242" y="148" width="116" height="12" fill="#978B73"/><path d="M226 96 V60 h148 V96" fill="none" stroke="#7A6E58" stroke-width="3"/><rect x="282" y="66" width="36" height="30" rx="4" fill="#8E2E22" stroke="#5A1A12" stroke-width="2"/>' +
+      '<g class="king"><path d="M300 78 V92" stroke="#6B2A8E" stroke-width="16" stroke-linecap="round"/><circle cx="300" cy="70" r="9" fill="#E3B46E" stroke="#8A5A2A" stroke-width="1.5"/><path class="crown" d="M290 63 l3 -10 l4 6 l3 -9 l3 9 l4 -6 l3 10 z" fill="#F3C64A" stroke="#9C7420" stroke-width="1.5"/><text x="300" y="118" text-anchor="middle" class="lb">KING</text></g>' +
+      '<g class="leader"><path d="M300 78 V92" stroke="#2E5FA8" stroke-width="14" stroke-linecap="round"/><path d="M294 76 l12 12" stroke="#E9C878" stroke-width="3"/><circle cx="300" cy="70" r="9" fill="#C68B5A" stroke="#8A5A2A" stroke-width="1.5"/><text x="300" y="118" text-anchor="middle" class="lb">LEADER</text><text x="300" y="131" text-anchor="middle" class="lb2">chosen by a vote</text></g>' +
+      '<g class="notice" transform="translate(0 18)"><rect x="18" y="40" width="168" height="92" rx="4" fill="#FFFDF6" stroke="#7A4E1E" stroke-width="4"/><text x="102" y="62" text-anchor="middle" class="nh k">BY ORDER OF THE KING</text><text x="102" y="84" text-anchor="middle" class="nt k">Everyone pays 5 coins</text><text x="102" y="102" text-anchor="middle" class="nt k">to the king.</text><text x="102" y="120" text-anchor="middle" class="nt k">No one may vote.</text>' +
+        '<text x="102" y="62" text-anchor="middle" class="nh p">RULES FOR THE TOWN</text><text x="102" y="84" text-anchor="middle" class="nt p">Made by leaders</text><text x="102" y="102" text-anchor="middle" class="nt p">the people chose.</text><text x="102" y="120" text-anchor="middle" class="nt p">Next vote: in 2 years.</text></g>' +
+      '<g class="box"><rect x="186" y="226" width="48" height="34" rx="3" fill="#A7774A" stroke="#5A3A1E" stroke-width="2"/><path d="M198 231 h24" stroke="#3B2A1E" stroke-width="3"/><text x="210" y="252" text-anchor="middle" class="bx">VOTE</text></g>' +
+      '<g class="ark">'+arrows('a', false)+'<text x="310" y="226" class="pwr k">power</text></g>' +
+      '<g class="arp">'+arrows('a', true)+'<text x="310" y="226" class="pwr p">power</text></g>' +
+      people +
+      '<g class="con"><rect x="40" y="6" width="520" height="40" rx="6" fill="#F3E2B8" stroke="#9C7420" stroke-width="3"/><circle cx="40" cy="26" r="14" fill="#E2CC94" stroke="#9C7420" stroke-width="3"/><circle cx="560" cy="26" r="14" fill="#E2CC94" stroke="#9C7420" stroke-width="3"/><text x="300" y="25" text-anchor="middle" class="ct">THE CONSTITUTION</text><text x="300" y="40" text-anchor="middle" class="ct2">rules for everyone, the leader too</text></g></svg>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-pw-wrap"><div class="ms-pw-stage">'+scene+'<p class="ms-credit">'+esc(cfg.modelT || '')+'</p></div><div class="ms-pw-act" aria-live="polite"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-pw-act', m), stage = $('.ms-pw-stage', m), svg = $('.ms-pw-scene', m);
+    function look(){ svg.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); }
+    function btn(t, cls){ return '<button type="button" class="ms-btn big '+cls+'">'+esc(t)+'</button>'; }
+    function render(){
+      stage.className = 'ms-pw-stage s' + S.st; var N = 5;
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.st < 3) { var c = [[cfg.s1T, '', cfg.s1, cfg.go1], [cfg.s2T, '<div class="ms-notyet">👑 '+esc(cfg.kingT)+'</div>', cfg.s2, cfg.go2], [cfg.s3T, '<div class="ms-vd-thanks">🗳️ '+esc(cfg.peopleT)+'</div>', cfg.s3, cfg.go3]][S.st];
+        act.innerHTML = stepCard(S.st + 1, N, c[0], c[1] + '<p>'+esc(c[2])+'</p>' + btn(c[3], 'ms-pw-go'));
+        $('.ms-pw-go', act).onclick = function(){ [SFX.miss, SFX.chime, SFX.chime][S.st](); S.st++; save(); render(); look(); }; return; }
+      var q = S.q1 ? cfg.q2 : cfg.q1;
+      var cq = choiceQ(q, S.q1 ? 1 : 2, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1500);
+        else { ST.gal = ST.gal||{}; ST.gal.flip = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1600); } });
+      act.innerHTML = stepCard(S.q1 ? 5 : 4, N, q.title, (S.q1 ? '' : '<div class="ms-vd-thanks">📜 '+esc(cfg.conT)+'</div>') + cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: korp (Gallery · King or President? six cards onto two stands) ══ */
+  function modKorp(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var C = DATA.kqCards || []; ST.kq = ST.kq || {i:0}; var S = ST.kq;
+    var m = shell('ms-kq-mod', cfg);
+    var sides = [{k:'k', ic:'👑', t:cfg.kT}, {k:'p', ic:'🏛️', t:cfg.pT}];
+    m.insertAdjacentHTML('beforeend', '<div class="ms-kq-wrap"><div class="ms-kq-stands">'+sides.map(function(s){ return '<div class="ms-kq-stand" data-s="'+s.k+'" role="button" tabindex="0" aria-label="Put the card on the '+esc(s.t)+' stand"><div class="hd"><span>'+s.ic+'</span>'+esc(s.t)+'</div><ul></ul></div>'; }).join('')+'</div><div class="ms-kq-act" aria-live="polite"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-kq-act', m);
+    function paint(){ $$('.ms-kq-stand', m).forEach(function(st){ st.querySelector('ul').innerHTML = C.slice(0, S.i).filter(function(c){ return c.s === st.dataset.s; }).map(function(c){ return '<li>'+esc(c.t)+'</li>'; }).join(''); }); }
+    function put(side, fromEl){ if (S.i >= C.length) return; var c = C[S.i], fb = $('.ms-exfb', act);
+      if (side !== c.s) { SFX.miss(); var cd = $('.ms-kq-card', act); if (cd) { cd.classList.remove('no'); void cd.offsetWidth; cd.classList.add('no'); } if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 '+esc(c.miss)+'</div>'; return; }
+      SFX.chime(); S.i++; save(); paint(); var st = $('.ms-kq-stand[data-s="'+side+'"]', m); st.classList.remove('got'); void st.offsetWidth; st.classList.add('got');
+      act.innerHTML = stepCard(S.i, C.length, 'Card '+S.i+' of '+C.length+' · placed', '<div class="ms-vd-thanks">✅ '+esc(c.ok)+'</div><button type="button" class="ms-btn big ms-kq-nx">'+(S.i < C.length ? 'Next card ➡️' : 'Done ✓')+'</button>');
+      $('.ms-kq-nx', act).onclick = function(){ SFX.click(); if (S.i >= C.length) { ST.gal = ST.gal||{}; ST.gal.kq = 1; save(); galleryCheck(); SFX.fanfare(); } render(); }; }
+    $$('.ms-kq-stand', m).forEach(function(st){ st.addEventListener('click', function(){ if ($('.ms-kq-card', act)) put(st.dataset.s); }); st.addEventListener('keydown', function(e){ if ((e.key === 'Enter' || e.key === ' ') && $('.ms-kq-card', act)) { e.preventDefault(); put(st.dataset.s); } }); });
+    function render(){ paint();
+      if (S.i >= C.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      var c = C[S.i];
+      act.innerHTML = stepCard(S.i + 1, C.length, 'Card '+(S.i + 1)+' of '+C.length, '<div class="ms-kq-card" tabindex="0">🃏 '+esc(c.t)+'</div><p class="ms-wm-do">👆 '+esc(cfg.doT)+'</p><div class="ms-pchoices">'+sides.map(function(s){ return '<button type="button" class="ms-btn alt ms-kq-b" data-s="'+s.k+'">'+s.ic+' '+esc(s.t)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div>');
+      $$('.ms-kq-b', act).forEach(function(b){ b.onclick = function(){ put(b.dataset.s); }; });
+      dragger($('.ms-kq-card', act), function(moved, t){ if (moved && t) put(t.dataset.s); }, '.ms-kq-stand');
+    }
+    render();
+  }
+
+  /* ══ MODULE: caselamp (Gallery source · page 1 of the Constitution under a moving lamp) ══ */
+  function modCaselamp(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var SP = cfg.stops || [], ta = document.getElementById(cfg.ta || 'journal-q3'), NEED = cfg.wordMin || 10, RE = new RegExp(cfg.needRe || 'vot', 'i');
+    ST.lp = ST.lp || {open:false, i:0, ok:false, done:false}; var S = ST.lp;
+    var m = shell('ms-lp-mod', cfg);
+    var rings = SP.map(function(s){ var b = s.box; return '<rect class="ring" data-k="'+s.k+'" x="'+(b[0]-10)+'" y="'+(b[1]-8)+'" width="'+(b[2]-b[0]+20)+'" height="'+(b[3]-b[1]+16)+'" rx="12"/>'; }).join('');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-lp-wrap"><div class="ms-lp-case"><div class="hood" aria-hidden="true"><i></i></div><div class="glass"><img src="'+img(cfg.img)+'" alt="'+esc(cfg.alt||'')+'">' +
+      '<svg viewBox="0 0 1000 1210" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="ms-lp-mk"><rect width="1000" height="1210" fill="#fff"/><ellipse class="hole" cx="500" cy="100" rx="300" ry="90" fill="#000"/></mask></defs><rect class="dim" width="1000" height="1210" mask="url(#ms-lp-mk)"/>'+rings+'</svg>' +
+      '<div class="cloth" aria-hidden="true"><b>'+esc(cfg.clothT||'')+'</b></div></div><p class="ms-credit">'+esc(cfg.credit||'')+'</p></div><div class="ms-lp-act" aria-live="polite"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-lp-act', m), cs = $('.ms-lp-case', m), hole = $('.hole', m), home = null, note = null, curUpd = null;
+    if (ta) { home = document.createComment('lp-home'); ta.parentNode.insertBefore(home, ta);
+      var prev = ta.previousElementSibling, hid = 0; while (prev && hid < 2 && (prev.classList.contains('textbox-prompt') || prev.classList.contains('q-block'))) { prev.classList.add('ms-hide-on'); prev = prev.previousElementSibling; hid++; }
+      note = el('div', 'ms-pu-note ms-lp-note ms-only', ''); ta.parentNode.insertBefore(note, home); }
+    function goHome(){ if (ta && ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    function words(t){ return (t.trim().match(/\S+/g)||[]).length; }
+    function miss(){ var o = [], v = ta ? ta.value : '', n = words(v); if (n < NEED) o.push('Add '+(NEED-n)+' more word'+(NEED-n===1?'':'s')+'.'); if (!RE.test(v)) o.push(cfg.needT || 'Use the word vote.'); return o; }
+    function paintNote(){ if (!note) return; var v = ta.value.trim(); note.innerHTML = '<b>Question 3</b> '+esc(cfg.noteT||'')+' ' + (v ? '✅ You wrote: <i>'+esc(v)+'</i>' : 'You have not written it yet. <button type="button" class="ms-btn alt ms-lp-goto">Go to the Gallery</button>'); var b = $('.ms-lp-goto', note); if (b) b.onclick = function(){ go('explore'); }; }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function lamp(){ var k = S.open ? Math.min(S.i, SP.length - 1) : 0, b = SP[k] ? SP[k].box : [0,0,1000,200], cx = (b[0] + b[2]) / 2, cy = (b[1] + b[3]) / 2;
+      hole.style.cx = cx + 'px'; hole.style.cy = cy + 'px'; hole.style.rx = Math.max(170, (b[2] - b[0]) * .75) + 'px'; hole.style.ry = Math.max(70, (b[3] - b[1]) * 1.6) + 'px';
+      cs.classList.toggle('open', !!S.open); cs.classList.toggle('free', !!S.done || S.i >= SP.length);
+      $$('.ring', m).forEach(function(r){ r.classList.toggle('on', S.open && S.i < SP.length && r.dataset.k === SP[S.i].k); }); }
+    function look(){ cs.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      lamp(); paintNote(); var N = SP.length + 2;
+      if (ta) ta.classList.toggle('ms-gi-away', !(S.i >= SP.length && !S.done));
+      if (S.done) { goHome(); act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div><div class="ms-exbtns"><button type="button" class="ms-btn alt ms-lp-edit">✏️ Edit my answer</button></div>'; $('.ms-lp-edit', act).onclick = function(){ S.done = false; save(); render(); }; return; }
+      if (!S.open) { goHome(); act.innerHTML = stepCard(1, N, cfg.s1T, '<p>'+esc(cfg.s1)+'</p><button type="button" class="ms-btn big ms-lp-open">'+esc(cfg.s1btn)+'</button>');
+        $('.ms-lp-open', act).onclick = function(){ SFX.chime(); S.open = true; save(); render(); look(); }; return; }
+      if (S.i < SP.length) { goHome(); var s = SP[S.i];
+        var cq = choiceQ(s, S.i + 1, function(){ S.ok = true; save();
+          var b = document.createElement('button'); b.type = 'button'; b.className = 'ms-btn big ms-lp-next'; b.textContent = S.i + 1 < SP.length ? (cfg.moveT || 'Move the lamp down ⬇️') : 'Next ➡️'; $('.ms-stepcard', act).appendChild(b);
+          b.onclick = function(){ SFX.click(); S.i++; S.ok = false; save(); render(); look(); }; });
+        act.innerHTML = stepCard(S.i + 2, N, s.title, '<figure class="ms-lp-zoom"><img src="'+img(s.zoom)+'" alt="'+esc(s.zoomAlt||'')+'"><figcaption>🔍 '+esc(s.zoomT||'')+'</figcaption></figure>' + cq.html); cq.bind(act); return; }
+      if (!ta) { S.done = true; ST.gal = ST.gal||{}; ST.gal.lamp = 1; save(); galleryCheck(); render(); return; }
+      act.innerHTML = stepCard(N, N, cfg.writeT, '<p>'+esc(cfg.writeP)+'</p><div class="ms-gi-starts">'+(cfg.starters||[]).map(function(t, i){ return '<button type="button" class="ms-btn alt ms-gi-start" data-i="'+i+'">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-lp-chk"></div>' +
+        '<div class="ms-gi-nav"><button type="button" class="ms-btn big ms-lp-save">Save my answer ✓</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+      $('.ms-gi-box', act).appendChild(ta); var fb = $('.ms-gi-fb', act), chk = $('.ms-lp-chk', act);
+      var upd = function(){ var v = ta.value, o = miss(), w = words(v), h = RE.test(v); chk.innerHTML = '<span class="ms-wc'+(w >= NEED ? ' ok' : '')+'">📝 '+Math.min(w, NEED)+' of '+NEED+' words</span><span class="ms-chip'+(h ? ' ok' : '')+'">'+(h ? '✓ ' : '')+esc(cfg.chipT || 'uses the word vote')+'</span>';
+        $('.ms-lp-save', act).classList.toggle('ms-notready', !!o.length); if (fb.innerHTML) fb.innerHTML = o.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>' : ''; };
+      curUpd = upd; upd();
+      $$('.ms-gi-start', act).forEach(function(b){ b.onclick = function(){ var t = (cfg.starters||[])[+b.dataset.i]; if (ta.value.indexOf(t) < 0) ta.value = ta.value.replace(/\s*$/, '') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input', {bubbles:true})); upd(); }; });
+      $('.ms-lp-save', act).onclick = function(){ var o = miss(); if (o.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>'; return; }
+        S.done = true; ST.gal = ST.gal||{}; ST.gal.lamp = 1; save(); galleryCheck(); SFX.fanfare(); render(); };
+    }
+    if (ta) ta.addEventListener('input', function(){ paintNote(); if (curUpd && S.i >= SP.length && !S.done) curUpd(); });
+    render();
+  }
+
+  /* ══ MODULE: wordbuild (Workroom · build four words from parts, then pick the meaning) ══ */
+  function modWordbuild(cfg){
+    var anchor = $(cfg.anchor || '#panel-check .quiz-card'); if (!anchor) return;
+    var W = cfg.words || [], T = cfg.tiles || []; ST.sb = ST.sb || {i:0, n:0, ph:0}; var S = ST.sb;
+    var m = shell('ms-sb-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-wr-card"><span class="ms-wr-root">'+esc(cfg.root)+'</span><span class="ms-wr-eq">=</span><span class="ms-wr-mean">'+esc(cfg.means)+'</span></div><div class="ms-sb-act"></div>');
+    after(anchor, m);
+    var act = $('.ms-sb-act', m);
+    function told(){ window._rootMatchDone = S.i >= W.length; if (typeof window.gatherAnswers === 'function') try { window.gatherAnswers(); } catch(e){} }
+    function render(){
+      told();
+      if (S.i >= W.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      var w = W[S.i], built = w.parts.slice(0, S.n);
+      var slots = '<div class="ms-sb-slots" aria-label="'+esc(w.w)+'">'+w.parts.map(function(p, j){ return '<span class="sl'+(j < S.n ? ' full'+(p === cfg.root ? ' rt' : '') : (j === S.n ? ' cur' : ''))+'">'+(j < S.n ? esc(p) : '<i>'+esc(p)+'</i>')+'</span>'; }).join('')+'</div>';
+      if (S.ph === 0) { act.innerHTML = stepCard(S.i + 1, W.length, 'Word '+(S.i + 1)+' of '+W.length+' · Build it', '<p>'+esc((cfg.buildT||'Build the word {w}.').replace('{w}', w.w))+'</p>' + slots +
+          '<p class="ms-wm-do">👆 '+esc(cfg.tapT||'')+'</p><div class="ms-sb-tiles">'+T.map(function(t){ return '<button type="button" class="ms-btn alt ms-sb-t'+(t === cfg.root ? ' rt' : '')+'" data-t="'+esc(t)+'">'+esc(t)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div>');
+        $$('.ms-sb-t', act).forEach(function(b){ b.onclick = function(){ var want = w.parts[S.n];
+          if (b.dataset.t !== want) { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc((cfg.missT||'').replace('{n}', ['first','second','third'][S.n] || 'next').replace('{w}', w.w))+'</div>'; return; }
+          SFX.chime(); S.n++; if (S.n >= w.parts.length) S.ph = 1; save(); render(); }; });
+        return; }
+      act.innerHTML = stepCard(S.i + 1, W.length, 'Word '+(S.i + 1)+' of '+W.length+' · What does it mean?', slots + '<p>'+esc((cfg.askT||'').replace('{w}', w.w))+'</p>' +
+        '<div class="ms-pchoices col">'+w.opts.map(function(o, k){ return '<button type="button" class="ms-btn ms-sb-o'+(S.ph === 2 && o.ok ? ' ok' : '')+'" data-k="'+k+'">'+esc(o.t)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite">'+(S.ph === 2 ? '<div class="ms-vd-thanks">✅ '+esc(w.ok||'')+'</div>' : '')+'</div>' +
+        (S.ph === 2 ? '<button type="button" class="ms-btn big ms-sb-next">'+(S.i + 1 < W.length ? 'Next word ➡️' : 'Done ✓')+'</button>' : ''));
+      $$('.ms-sb-o', act).forEach(function(b){ b.onclick = function(){ var o = w.opts[+b.dataset.k];
+        if (o.ok) { SFX.chime(); S.ph = 2; save(); render(); } else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if (S.ph !== 2) $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc(w.fb||'')+'</div>'; } }; });
+      var nx = $('.ms-sb-next', act); if (nx) nx.onclick = function(){ S.i++; S.n = 0; S.ph = 0; save(); SFX.click(); render(); if (S.i >= W.length) SFX.fanfare(); };
+    }
+    render();
+  }
+
+  /* ══ MODULE: ballot (Exhibit Floor · who holds the power? side, reasons, evidence, sentences, the ballot box) ══ */
+  function modBallot(cfg){
+    var ta = document.getElementById(cfg.ta || 'journal-assign'); if (!ta) return;
+    var SD = cfg.sides || {}, H = DATA.halls || [], SMIN = cfg.sentMin || 3, SMAX = cfg.sentMax || 5;
+    ST.bt = ST.bt || {step:1, side:null, r:[], ev:null, open:false}; var S = ST.bt; S.r = S.r || [];
+    var m = shell('ms-bt-mod', cfg);
+    var signs = H.map(function(h, i){ return '<span class="hs" style="--d:'+(0.9 + i * .45).toFixed(2)+'s"><b>'+h.ic+'</b>'+esc(h.t)+'<small>'+esc(h.u)+'</small></span>'; }).join('');
+    m.insertAdjacentHTML('beforeend', '<div class="ms-bt-wrap"><div class="ms-bt-act"></div><div class="ms-bt-stage" hidden><div class="halls" aria-hidden="true">'+signs+'</div><div class="row"><div class="case" aria-hidden="true"><div class="pg"><span class="we">We</span> <span>the People</span><i></i><i></i><i></i></div><small>The U.S. Constitution</small></div>' +
+      '<div class="slip"><div class="card"><div class="hd">MY BALLOT · WHO HOLDS THE POWER?</div><p class="sd"></p><p class="tx"></p><p class="by"></p></div></div><div class="bbox" aria-hidden="true"><span class="slot"></span><b>BALLOTS</b></div></div><p class="next">'+esc(cfg.nextT||'')+'</p></div></div><div class="ms-bt-end"></div>');
+    var blk = ta.closest('.activity-body') || ta.parentNode;
+    var home = document.createComment('bt-home'); ta.parentNode.insertBefore(home, ta);
+    var p0 = blk.querySelector('p'); if (p0 && p0.nextSibling) blk.insertBefore(m, p0.nextSibling); else blk.insertBefore(m, blk.firstChild);
+    $$('p, .callout, .textbox-prompt', blk).forEach(function(e){ if (!m.contains(e)) e.classList.add('ms-hide-on'); });
+    var act = $('.ms-bt-act', m), show = $('.ms-bt-stage', m), end = $('.ms-bt-end', m), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function words(t){ return (t.trim().match(/\S+/g)||[]).length; }
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return words(s) >= 3; }).length; }
+    function side(){ return SD[S.side]; }
+    function hasSide(v){ return side() && new RegExp(side().re, 'i').test(v); }
+    function hasEv(v){ return new RegExp(cfg.evRe, 'i').test(v); }
+    function missing(){ var o = [], v = ta.value, n = sents(v); if (n < SMIN) o.push('Write '+(SMIN - n)+' more sentence'+(SMIN - n === 1 ? '' : 's')+' (3 words or more each).'); if (n > SMAX) o.push('Keep it to '+SMAX+' sentences or fewer.');
+      if (!hasSide(v)) o.push('Say which side you choose.'); if (!/because|reason/i.test(v)) o.push('Give your reasons. Use the word because or reason.'); if (!hasEv(v)) o.push('Use your piece of evidence.'); return o; }
+    function view(){ var d = side(), v = ta.value.trim(); $('.card .sd', show).textContent = d ? d.ic + ' ' + d.t : ''; $('.card .tx', show).textContent = v || 'Your sentences will appear here as you write.'; $('.card .tx', show).classList.toggle('empty', !v);
+      var nm = sget(NAMEK,''); $('.card .by', show).textContent = nm ? nm + ', Civic Curator' : 'A Civic Curator'; show.hidden = S.step < 4; show.classList.toggle('open', !!S.open); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; curUpd = null; var d = side(), N = 5;
+      if (!d) S.step = 1; else if (S.r.length < 2 && S.step > 2) S.step = 2; else if (S.ev == null && S.step > 3) S.step = 3;
+      ta.classList.toggle('ms-gi-away', S.step !== 4); view();
+      function sc(){ act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); }
+      function got(){ return '<p class="ms-gi-ok">✅ Your side: <b>'+d.ic+' '+esc(d.t)+'</b> <button type="button" class="ms-btn alt ms-bt-b1">↩️ Change my side</button></p>'; }
+      function bindB1(){ var b = $('.ms-bt-b1', act); if (b) b.onclick = function(){ SFX.click(); S.step = 1; save(); goHome(); render(); }; }
+      if (S.step === 1) { goHome(); act.innerHTML = stepCard(1, N, cfg.s1T, '<p>'+esc(cfg.s1)+'</p><div class="ms-bt-sides">'+Object.keys(SD).map(function(k){ var x = SD[k]; return '<button type="button" class="ms-bt-side'+(k === S.side ? ' on' : '')+'" data-k="'+k+'"><b>'+x.ic+' '+esc(x.t)+'</b><span>'+esc(x.d)+'</span></button>'; }).join('')+'</div>');
+        $$('.ms-bt-side', act).forEach(function(b){ b.onclick = function(){ SFX.click(); if (S.side !== b.dataset.k) { S.r = []; S.ev = null; } S.side = b.dataset.k; S.step = 2; save(); render(); sc(); }; }); return; }
+      if (S.step === 2) { goHome(); act.innerHTML = stepCard(2, N, cfg.s2T, got() + '<p>'+esc(cfg.s2)+'</p><div class="ms-pchoices col">'+d.reasons.map(function(t, i){ var on = S.r.indexOf(i) >= 0; return '<button type="button" class="ms-btn'+(on ? '' : ' alt')+' ms-bt-r" data-i="'+i+'" aria-pressed="'+on+'">'+(on ? '✓ ' : '')+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-nav"><button type="button" class="ms-btn big ms-bt-n2'+(S.r.length === 2 ? '' : ' ms-notready')+'">Next ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        bindB1();
+        $$('.ms-bt-r', act).forEach(function(b){ b.onclick = function(){ var i = +b.dataset.i, k = S.r.indexOf(i); if (k >= 0) S.r.splice(k, 1); else { if (S.r.length >= 2) S.r.shift(); S.r.push(i); } SFX.click(); save(); render(); }; });
+        $('.ms-bt-n2', act).onclick = function(){ if (S.r.length < 2) { SFX.miss(); $('.ms-gi-fb', act).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> Pick '+(2 - S.r.length)+' more reason'+(S.r.length === 1 ? '' : 's')+'.</div>'; return; } SFX.click(); S.step = 3; save(); render(); sc(); }; return; }
+      if (S.step === 3) { goHome(); act.innerHTML = stepCard(3, N, cfg.s3T, got() + '<p>'+esc(cfg.s3)+'</p><div class="ms-pchoices col">'+d.ev.map(function(t, i){ return '<button type="button" class="ms-btn'+(i === S.ev ? '' : ' alt')+' ms-bt-e" data-i="'+i+'">📜 '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-exbtns"><button type="button" class="ms-btn alt ms-bt-p3">⬅️ Back</button></div>');
+        bindB1(); $('.ms-bt-p3', act).onclick = function(){ SFX.click(); S.step = 2; save(); render(); };
+        $$('.ms-bt-e', act).forEach(function(b){ b.onclick = function(){ SFX.click(); S.ev = +b.dataset.i; S.step = 4; save(); render(); sc(); }; }); return; }
+      if (S.step === 4) { var notes = S.r.map(function(i){ return '<span>💡 '+esc(d.reasons[i])+'</span>'; }).join('') + '<span>📜 '+esc(d.ev[S.ev])+'</span>';
+        var ST4 = [cfg.st1.replace('{side}', d.say), cfg.st2, cfg.st3, cfg.st4];
+        act.innerHTML = stepCard(4, N, cfg.s4T, got() + '<p>'+esc(cfg.s4)+'</p><div class="ms-cp-notes">'+notes+'</div><div class="ms-gi-starts">'+ST4.map(function(t, i){ return '<button type="button" class="ms-btn alt ms-gi-start" data-i="'+i+'">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-bt-chk"></div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-bt-p4">⬅️ Back</button><button type="button" class="ms-btn big ms-bt-n4">See my ballot ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        bindB1(); $('.ms-gi-box', act).appendChild(ta); var fb = $('.ms-gi-fb', act), chk = $('.ms-bt-chk', act);
+        var upd = function(){ var v = ta.value, n = sents(v), o = missing(), a = hasSide(v), r = /because|reason/i.test(v), e = hasEv(v);
+          chk.innerHTML = '<span class="ms-wc'+(n >= SMIN && n <= SMAX ? ' ok' : '')+'">📝 '+n+' sentence'+(n === 1 ? '' : 's')+' (3 to 5)</span><span class="ms-chip'+(a ? ' ok' : '')+'">'+(a ? '✓ ' : '')+'your side</span><span class="ms-chip'+(r ? ' ok' : '')+'">'+(r ? '✓ ' : '')+'reasons</span><span class="ms-chip'+(e ? ' ok' : '')+'">'+(e ? '✓ ' : '')+'evidence</span>'; view();
+          $('.ms-bt-n4', act).classList.toggle('ms-notready', !!o.length); if (fb.innerHTML) fb.innerHTML = o.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b){ b.onclick = function(){ var t = ST4[+b.dataset.i]; if (ta.value.indexOf(t) < 0) ta.value = ta.value.replace(/\s*$/, '') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input', {bubbles:true})); upd(); }; });
+        $('.ms-bt-p4', act).onclick = function(){ SFX.click(); S.step = 3; save(); goHome(); render(); };
+        $('.ms-bt-n4', act).onclick = function(){ var o = missing(); if (o.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 5; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(5, N, cfg.s5T, '<p>'+esc(cfg.s5||'')+'</p><button type="button" class="ms-btn big ms-bt-go">🗳️ '+esc(cfg.openT)+'</button>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-bt-edit">✏️ '+esc(cfg.editT||'Edit')+'</button></div>';
+      var gb = $('.ms-bt-go', end); if (gb) gb.onclick = function(){ S.open = true; save(); SFX.fanfare(); show.classList.remove('lit'); void show.offsetWidth; if (!calm()) show.classList.add('lit'); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'});
+        if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 3200);
+        optiNod('assignment'); check(); };
+      $('.ms-bt-edit', end).onclick = function(){ S.open = false; S.step = 4; save(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd) curUpd(); });
+    var its = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && its.length && its.every(on)) markDone('assignment'); }
+    its.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, corner: modCorner, fixtown: modFixtown, townjar: modTownjar, firstlabel: modFirstlabel, recess: modRecess, powerflip: modPowerflip, korp: modKorp, caselamp: modCaselamp, wordbuild: modWordbuild, ballot: modBallot, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
