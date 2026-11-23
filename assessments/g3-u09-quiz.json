@@ -1,0 +1,168 @@
+{
+ "id": "g3-u09-quiz",
+ "title": "Unit 9 Quiz · Basics of Economics",
+ "description": "10 questions about Unit 9. Read each question carefully. Pick the best answer. One question asks you to pick all the answers that are true.",
+ "points_each": 1,
+ "questions": [
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.09.01 Scarcity and Choice",
+   "text": "What does scarcity mean?",
+   "options": [
+    "Everything is all gone.",
+    "There is not enough of something for everyone who wants it.",
+    "Something costs a lot of money.",
+    "There is plenty for everyone."
+   ],
+   "correct": [
+    1
+   ],
+   "why": "Scarcity means there is not enough of something for everyone who wants it. Scarce does not have to mean all gone: two loaves for three families is scarce.",
+   "n": 1
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.09.01 Scarcity and Choice",
+   "text": "You have one dollar. You spend it on an apple. What did you give up?",
+   "options": [
+    "Nothing. You got an apple.",
+    "The apple.",
+    "The store.",
+    "The other thing you could have bought with that dollar."
+   ],
+   "correct": [
+    3
+   ],
+   "why": "Every choice gives something up. When you spend your dollar on the apple, you give up the other thing that dollar could have bought.",
+   "n": 2
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.09.02 How Scarcity Results in Trade",
+   "text": "A town by the sea has plenty of fish but not enough grain. A valley farm has plenty of grain but no fish. What can they do so that both are better off?",
+   "options": [
+    "Trade. Each side gives some of what it has plenty of and gets what it is missing.",
+    "Keep everything they have and share nothing.",
+    "Wait for fish to grow in the valley.",
+    "Throw away what they do not need."
+   ],
+   "correct": [
+    0
+   ],
+   "why": "Each place had plenty of one thing and not enough of another. When they trade, both sides give something and both get something back. That is how scarcity leads to trade.",
+   "n": 3
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.09.03 Goods, Services, Buyers, and Sellers",
+   "text": "Which one of these is a service?",
+   "options": [
+    "A loaf of bread",
+    "A bag of apples",
+    "A barber cutting your hair",
+    "A new backpack"
+   ],
+   "correct": [
+    2
+   ],
+   "why": "Goods are things you can hold, like bread, apples, or a backpack. A service is help or work someone does for you, like a haircut.",
+   "n": 4
+  },
+  {
+   "type": "true_false_question",
+   "lesson": "3.09.04 Characteristics of Money",
+   "text": "True or false: A block of salt makes good money because it lasts a long time, even in the rain.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    1
+   ],
+   "why": "False. Salt melts when it gets wet, so it does not last. Good money lasts, is easy to carry, is easy to count out, and is trusted.",
+   "n": 5
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.09.05 Currencies of the United States, Canada, Mexico, and the Caribbean",
+   "text": "Canada and the United States both call their money dollars. Are they the same money?",
+   "options": [
+    "Yes. Any dollar works in any country.",
+    "No. Each country has its own dollar, with its own bills, coins, and value.",
+    "Yes. They are the same bills with different names.",
+    "No. Canada does not use money."
+   ],
+   "correct": [
+    1
+   ],
+   "why": "Currency is the kind of money a country uses. The Canadian dollar and the U.S. dollar share a name, but each country has its own bills, coins, and value.",
+   "n": 6
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.09.06 Trade Routes and Regional Resources",
+   "text": "Why do people in Canada buy oranges from Florida instead of growing their own?",
+   "options": [
+    "People in Canada do not like to farm.",
+    "Oranges start at the store.",
+    "Florida has no other fruit to sell.",
+    "Orange trees cannot live through Canada’s cold winters, so oranges are scarce there."
+   ],
+   "correct": [
+    3
+   ],
+   "why": "Orange trees freeze in a cold winter, so Canada cannot grow enough oranges. That is scarcity. A trade route carries oranges from Florida, where there are plenty, to Canada, where they are scarce.",
+   "n": 7
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.09.07 Marketplace Decision: Costs and Benefits",
+   "text": "What is a cost?",
+   "options": [
+    "What you give up or put in when you make a choice. It can be money, time, or effort.",
+    "Only the money on a price tag.",
+    "The good things you gain from a choice.",
+    "A safe place where ships can stop."
+   ],
+   "correct": [
+    0
+   ],
+   "why": "A cost is anything you give up or put in when you make a choice. It is not always money. What you gain is called a benefit.",
+   "n": 8
+  },
+  {
+   "type": "multiple_answers_question",
+   "lesson": "3.09.07 Marketplace Decision: Costs and Benefits",
+   "text": "A puppy is free to take home. Which of these are costs of the puppy? Pick ALL that are true.",
+   "options": [
+    "Time for walks every day",
+    "Money for dog food",
+    "A friend who loves you",
+    "Effort to clean up messes"
+   ],
+   "correct": [
+    0,
+    1,
+    3
+   ],
+   "why": "Free does not mean no cost. The puppy costs $0 to take home, but it still costs time, money, and effort. A friend who loves you is a benefit, not a cost.",
+   "n": 9
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.09.08 Economic Virtues: Honesty and Responsibility",
+   "text": "In Market B, a fish seller cheated his buyers. On Day 1 he had more coins than the honest seller. What happened by Month 1?",
+   "options": [
+    "He became the richest seller in town.",
+    "Nothing changed.",
+    "Buyers stopped trusting him and stopped coming, and his booth closed.",
+    "The inspector gave him a prize."
+   ],
+   "correct": [
+    2
+   ],
+   "why": "Cheating worked for one day. Then buyers stopped trusting the seller and did not come back. A market needs honesty and responsibility to stay open.",
+   "n": 10
+  }
+ ]
+}
