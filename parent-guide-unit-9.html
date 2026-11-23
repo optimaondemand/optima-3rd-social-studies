@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 9 Family Guide · 3rd Grade Social Studies · Optima Academy Online</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;600;700;800;900&display=swap');
+:root{
+  /* Museum colors, from the 3rd grade lesson pages */
+  --navy:#0E1C42; --ink:#3A4A6B; --muted:#6B6250; --line:#E6D9BC;
+  --night:#22312F; --night-2:#2D403D;
+  --brass:#B8892E; --brass-lt:#E9C878; --brass-dk:#7E5A16;
+  --cream:#FBF5E6; --paper:#F6EEDB; --wall:#EFE5D2;
+  --teal:#1A8A7D; --teal-bg:#E2F4F1; --cyan:#55C8E8; --sky-bg:#EAF8FD;
+  --green-bg:#E3F8ED; --plum:#8B6FC0; --plum-bg:#F1ECFA; --rose-bg:#FDEEEE;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--night) radial-gradient(circle at 50% -10%, #3F5652 0, var(--night) 60%) fixed;color:var(--ink);font-family:"Nunito",sans-serif;font-size:18px;line-height:1.6;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 48px;}
+h1,h2,h3{font-family:"Lora",Georgia,serif;color:var(--navy);margin:0;}
+p{margin:0 0 10px;}
+strong{color:var(--navy);}
+a{color:#1F6FA8;font-weight:700;}
+
+/* header */
+.hero{background:var(--navy);color:#fff;border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1.25fr 1fr;border-bottom:5px solid var(--brass);}
+.hero-text{padding:28px 28px 26px;}
+.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:14px;}
+.brand img{width:38px;height:38px;border-radius:50%;background:#fff;}
+.hero h1{color:#fff;font-size:34px;line-height:1.2;margin-bottom:6px;}
+.hero h1 em{color:var(--brass-lt);}
+.hero .sub{font-size:19px;color:#DCE6F7;margin-bottom:16px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:rgba(233,200,120,.14);border:1.5px solid rgba(233,200,120,.5);border-radius:999px;padding:5px 13px;font-size:16px;font-weight:700;color:#fff;}
+.hero-art{background:#D8EFF4 center/cover no-repeat;min-height:260px;position:relative;}
+.hero-art .plaque{position:absolute;left:14px;bottom:14px;background:linear-gradient(#E9C878,#B8892E);color:#3A2A14;font:800 13px/1.3 "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:5px 10px;box-shadow:0 2px 6px rgba(0,0,0,.3);}
+.print-btn{display:inline-block;margin-top:16px;background:var(--brass);color:#fff;border:none;border-radius:999px;padding:9px 18px;font-family:"Nunito",sans-serif;font-weight:800;font-size:16px;cursor:pointer;}
+
+/* cards */
+.card{background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:16px;padding:22px 24px;margin-top:18px;box-shadow:0 4px 14px rgba(0,0,0,.12);}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.card-head .ico{font-size:26px;line-height:1;}
+.card-head h2{font-size:24px;}
+.card-head .tag{margin-left:auto;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.small{font-size:16px;color:var(--muted);}
+
+.grid2,.glance{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.glance3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.box{border-radius:12px;padding:14px 16px;font-size:17px;}
+.box-label{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+.b-sky{background:var(--sky-bg);} .b-sky .box-label{color:#1F8CB0;}
+.b-gold{background:var(--cream);border:1px solid var(--line);} .b-gold .box-label{color:var(--brass-dk);}
+.b-green{background:var(--green-bg);} .b-green .box-label{color:#1F8452;}
+.b-plum{background:var(--plum-bg);} .b-plum .box-label{color:#6A4FA3;}
+.b-teal{background:var(--teal-bg);} .b-teal .box-label{color:#14695F;}
+.quote{font-family:"Lora",Georgia,serif;font-style:italic;font-size:20px;color:var(--navy);border-left:4px solid var(--brass);padding:4px 0 4px 16px;margin:16px 0 0;}
+.quote small{display:block;font-family:"Nunito",sans-serif;font-style:normal;font-size:15px;color:var(--muted);margin-top:4px;}
+
+/* story box (the museum) */
+.story{background:var(--night-2);color:#E4ECE9;border:2px solid var(--brass);border-left-width:2px;}
+.story h2,.story strong{color:#fff;}
+.story .box{background:rgba(255,255,255,.08);color:#E4ECE9;}
+.story .box-label{color:var(--brass-lt);}
+.opti{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:start;}
+.opti img{width:76px;height:auto;}
+.rooms{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.room{background:rgba(255,255,255,.07);border:1.5px solid rgba(233,200,120,.45);border-radius:12px;padding:12px;text-align:center;font-size:16px;}
+.room i{font-style:normal;display:block;font-size:26px;line-height:1.2;}
+.room b{display:block;font-family:"Lora",Georgia,serif;font-size:19px;color:#fff;}
+.room span{display:block;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-lt);}
+
+/* lesson table */
+.days{width:100%;border-collapse:collapse;}
+.days th{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);}
+.days td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+.days tr:last-child td{border-bottom:none;}
+.day-n{font-family:"Lora",Georgia,serif;font-weight:700;font-size:20px;color:var(--navy);white-space:nowrap;}
+.day-n span{display:block;font-family:"Nunito",sans-serif;font-size:15px;font-weight:700;color:var(--muted);}
+.ch{font-weight:800;color:var(--navy);}
+.rm{display:block;margin-top:6px;}
+.rm b{font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--brass-dk);background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:1px 7px;margin-right:6px;}
+.pill{display:inline-block;font-size:14px;font-weight:800;border-radius:999px;padding:2px 10px;margin:6px 4px 0 0;}
+.p-virtue{background:var(--green-bg);color:#1F8452;}
+.p-source{background:var(--cream);color:var(--brass-dk);border:1px solid var(--line);}
+.p-vr{background:var(--plum-bg);color:#6A4FA3;}
+.vr-row td{background:var(--paper);}
+
+/* VR day */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.path{border-radius:14px;padding:16px 18px;font-size:17px;}
+.path h3{font-size:20px;margin-bottom:6px;}
+.path ol{margin:6px 0 0;padding-left:22px;}
+.path li{margin:3px 0;}
+.say{background:#fff;border:1px dashed var(--brass);border-radius:10px;padding:8px 12px;margin:8px 0;font-weight:700;color:var(--navy);}
+.tl{list-style:none;margin:8px 0 0;padding:0;}
+.tl li{display:grid;grid-template-columns:118px 1fr;gap:8px;padding:5px 0;border-bottom:1px dashed var(--line);font-size:16px;}
+.tl li:last-child{border-bottom:none;}
+.tl b{color:var(--brass-dk);}
+
+/* words */
+.words{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.word{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--cream);}
+.word b{font-family:"Lora",Georgia,serif;font-size:21px;color:var(--navy);display:block;}
+.word span{font-size:17px;}
+
+/* ask */
+.ask{list-style:none;margin:0;padding:0;counter-reset:q;}
+.ask li{counter-increment:q;position:relative;padding:12px 0 12px 50px;border-bottom:1px dashed var(--line);}
+.ask li:last-child{border-bottom:none;}
+.ask li::before{content:counter(q);position:absolute;left:0;top:11px;width:34px;height:34px;border-radius:50%;background:var(--cream);border:1.5px solid var(--brass);color:var(--brass-dk);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:17px;}
+.ask .q{font-weight:800;color:var(--navy);display:block;}
+.ask .listen{font-size:16px;color:var(--muted);}
+
+/* checklist */
+.check{list-style:none;margin:0;padding:0;}
+.check li{padding:7px 0 7px 34px;position:relative;}
+.check li::before{content:"✓";position:absolute;left:4px;top:6px;color:var(--teal);font-weight:900;font-size:19px;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+
+.next{background:var(--night-2);color:#E4ECE9;border:2px solid var(--brass);}
+.next h2{color:#fff;}
+.next strong{color:#fff;}
+.foot{text-align:center;font-size:15px;color:#C9D6D2;margin-top:26px;}
+.foot a{color:var(--brass-lt);}
+
+/* lesson mechanics */
+.howto{background:var(--cream);border:2px solid var(--brass);border-radius:16px;padding:18px 22px;margin-top:18px;}
+.howto h2{font-size:21px;margin-bottom:10px;}
+.howto ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;}
+.howto li{position:relative;padding-left:32px;font-size:17px;line-height:1.5;}
+.howto li span{position:absolute;left:0;top:0;font-size:20px;}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;}
+  .hero-art{min-height:200px;order:-1;}
+  .hero h1{font-size:29px;}
+  .glance,.glance3,.grid2,.words,.two,.paths,.howto ul{grid-template-columns:1fr;}
+  .rooms{grid-template-columns:1fr 1fr;}
+  .card{padding:18px 16px;}
+  .opti{grid-template-columns:56px 1fr;gap:12px;}
+  .opti img{width:56px;}
+  .tl li{grid-template-columns:1fr;gap:0;}
+  .days thead{display:none;}
+  .days tr{display:block;border-bottom:1px solid var(--line);padding:8px 0;}
+  .days td{display:block;border:none;padding:4px 0;}
+  .vr-row{border-radius:10px;}
+}
+@media print{
+  body{background:#fff;font-size:15px;}
+  .wrap{padding:0;}
+  .print-btn{display:none;}
+  .card,.howto,.path{break-inside:avoid;}
+  .card{margin-top:12px;padding:14px 16px;box-shadow:none;}
+  .hero,.next,.story{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .foot{color:#555;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-text">
+      <div class="brand"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy Online">Family Guide · 3rd Grade Social Studies</div>
+      <h1>Unit 9: The <em>Marketplace</em> Hall</h1>
+      <div class="sub">Basics of Economics · Lessons 3.09.01 to 3.09.08</div>
+      <div class="chips">
+        <span class="chip">8 lessons</span>
+        <span class="chip">Scarcity, trade, money, choices</span>
+        <span class="chip">Weeks 24 to 27</span>
+      </div>
+      <button class="print-btn" onclick="window.print()">🖨️ Print this guide</button>
+    </div>
+    <div class="hero-art" style="background-image:url('images/src-3-09-04-money.jpg');" role="img" aria-label="Real money kept in museums: a United States silver dollar from 1795, cowrie shells, and a 5 dollar paper bill from 1861"><span class="plaque">Marketplace Hall</span></div>
+  </header>
+
+  <!-- HOW THE LESSON PAGES WORK -->
+  <section class="howto">
+    <h2>🧭 How the Lesson Pages Work</h2>
+    <ul>
+      <li><span>🏛️</span><strong>Four rooms, in order:</strong> Lobby → Gallery → Workroom → Exhibit Floor. The room tabs sit at the top. A ✓ shows up when a room’s job is done, and a button at the bottom leads to the next room.</li>
+      <li><span>👣</span><strong>One part at a time.</strong> Each room shows one part, with ◂ Back and Next buttons and a “Part 2 of 5” count. The door to the next room shows on the last part.</li>
+      <li><span>🦉</span><strong>Opti the owl is the museum guide.</strong> He gives a short voice note in each room. <strong>Read along</strong> shows his words on the screen.</li>
+      <li><span>🔤</span><strong>Dotted words</strong> show their meaning when your student taps them. Key words have a 🔊 button to hear the word said out loud.</li>
+      <li><span>🧠</span><strong>The Workroom is a 3-question self-check,</strong> one question at a time. It isn’t graded. It shows your student what to look at again before writing.</li>
+      <li><span>💾</span><strong>Answers save as you type</strong>, but only in that browser on that computer. Switching computers or clearing the browser loses them.</li>
+      <li><span>📄</span><strong>Everything is gathered at the end.</strong> At the bottom of the Exhibit Floor, Copy or Download as PDF saves the work. Use it to <strong>submit in Canvas</strong>. A lesson isn’t turned in until it’s submitted there.</li>
+      <li><span>🔊</span><strong>Read aloud</strong> at the top reads the page, with a speed control. <strong>Motion</strong> turns the moving parts on or off. <strong>Museum view</strong> switches to a plain page.</li>
+      <li><span>📓</span><strong>Keep a notebook and a pencil nearby.</strong> The lessons call the notebook a Curator’s Notebook.</li>
+    </ul>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section class="card">
+    <div class="card-head"><span class="ico">🧭</span><h2>This Unit at a Glance</h2></div>
+    <p>This unit is your student’s first look at economics: how people choose, trade, buy, and sell. It starts with <strong>scarcity</strong> (there is not enough of everything for everyone), which is why people make choices and why they trade. Then come goods and services, buyers and sellers, what makes good <strong>money</strong>, the money our neighbors use, and the <strong>trade routes</strong> that carry goods between regions. The unit ends with weighing <strong>costs and benefits</strong>, and with the two virtues that hold a marketplace together: honesty and responsibility.</p>
+    <div class="glance3">
+      <div class="box b-sky"><div class="box-label">Thinking skill</div><strong>Trade and Choice.</strong> For any trade or purchase, your student names four things: the choice, the scarcity or cost, the benefit, and the consequence.</div>
+      <div class="box b-green"><div class="box-label">Virtue lens</div><strong>Honesty and responsibility.</strong> Telling the truth about what you sell and pay, and doing what you said you would do. The unit also touches courage, courtesy, and self-governance.</div>
+      <div class="box b-gold"><div class="box-label">Big idea</div><strong>Scarcity leads to choices and to trade.</strong> No person, town, or region has everything. People choose, trade, and use money to get what they need, and it only works when they can trust each other.</div>
+    </div>
+    <p class="quote">“Every choice has two sides. What you get is a benefit. What you give up is a cost.”<small>The Shiny Toy Stand, Lesson 3.09.07</small></p>
+    <p class="small" style="margin-top:12px;"><strong>Good to know:</strong> The lessons correct a few common mix-ups. Scarce does not mean all gone. A trade does not always need money. Food does not start at the store. Two countries can both use “dollars” that are not the same money. Free does not mean no cost. And a seller who cheats does not come out ahead for long.</p>
+  </section>
+
+  <!-- THE STORY -->
+  <section class="card story">
+    <div class="card-head"><span class="ico">🏛️</span><h2>In the Museum</h2></div>
+    <div class="opti">
+      <img src="images/opti-owl.png" alt="Opti the owl, the museum guide">
+      <div>
+        <p>The 3rd grade course is set in a museum. In this unit your student is a <strong>Trade &amp; Choice Curator</strong>, a museum worker who helps visitors understand how people choose and trade. <strong>Opti the owl</strong> is the museum guide.</p>
+        <p>The door from the Council Chamber opens to the <strong>Marketplace Hall</strong>, and your student fills it one exhibit at a time. They open the hall with its first panel, slide two trade tables together, hang signs over the back-wall booths, fill the money case and then widen it for our neighbors’ money, add a shipping tag to the trade routes map, and stamp DECIDED on the Decision Board. In the last lesson they write the <strong>Wise Trader plaque</strong> and hang it in a gold frame on the back wall. Every exhibit lights up from the front doors to the back wall, and your student earns the <strong>Wise Trader badge</strong>.</p>
+      </div>
+    </div>
+    <div class="rooms">
+      <div class="room"><i>🚪</i><span>Room 1</span><b>Lobby</b>A short surprise to start</div>
+      <div class="room"><i>🖼️</i><span>Room 2</span><b>Gallery</b>Working models and real photos</div>
+      <div class="room"><i>🔎</i><span>Room 3</span><b>Workroom</b>Check yourself</div>
+      <div class="room"><i>🏅</i><span>Room 4</span><b>Exhibit Floor</b>Write for the hall</div>
+    </div>
+  </section>
+
+  <!-- LESSON BY LESSON -->
+  <section class="card">
+    <div class="card-head"><span class="ico">📅</span><h2>Lesson by Lesson</h2></div>
+    <table class="days">
+      <thead><tr><th>Lesson</th><th>What your student learns</th><th>What they write</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="day-n">3.09.01<span>Week 24</span></td>
+          <td><span class="ch">Scarcity and Choice</span><br>Scarcity means there is not enough of something for everyone who wants it. Scarce does not have to mean all gone. When something is scarce, people have to choose, and every choice gives something up. Time is scarce too: every day has only 24 hours.
+            <span class="rm"><b>Lobby</b>Hand out 2 loaves of bread to 3 families at the bread booth. One family is left waiting.</span>
+            <span class="rm"><b>Gallery</b>Fill a market basket by picking one good from each table and watching the other go to the “given up” shelf. Study a real ration book from World War II. Fit a whole day into a 24-hour ring.</span>
+            <span class="pill p-source">Source: a War Ration Book from 1943</span><span class="pill p-virtue">Lens: Responsibility</span></td>
+          <td>The <strong>Intro Panel</strong> for the Marketplace Hall: three sentences of their own about scarcity, why people choose, and what gets given up.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.09.02<span>Week 24</span></td>
+          <td><span class="ch">How Scarcity Results in Trade</span><br>A trade is when two sides each give something and each get something back. A town by the sea has plenty of fish and not enough grain. A valley farm has plenty of grain and no fish. When they trade, both are better off. People do not always need money to trade: trading goods for goods is called barter.
+            <span class="rm"><b>Lobby</b>Tap the HAS and NEEDS tags on two tables, one from the coast and one from the valley.</span>
+            <span class="rm"><b>Gallery</b>Load two carts and send them down the Trade Road until both pantries are full. Study photos of the Hubbell Trading Post in Arizona, where Navajo families traded wool and rugs for flour, coffee, and cloth. Sort six cards: a trade, or not a trade?</span>
+            <span class="pill p-source">Source: Hubbell Trading Post, Ganado, Arizona (National Park Service)</span><span class="pill p-virtue">Lens: Honesty</span></td>
+          <td>A <strong>Trade and Choice panel</strong>: four sentences that name the choice, the scarcity, the benefit, and the consequence of one trade.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.09.03<span>Week 25</span></td>
+          <td><span class="ch">Goods, Services, Buyers, and Sellers</span><br>Goods are things you can hold, like bread or apples. A service is help or work someone does for you, like a haircut or fixing a shoe. The buyer pays. The seller sells the good or does the work. One person can be both: a baker sells bread, then pays the barber for a haircut.
+            <span class="rm"><b>Lobby</b>Send four visitors, each with a wish card, to the booth that can help.</span>
+            <span class="rm"><b>Gallery</b>Follow Max to five stops. Goods drop into his backpack; services change Max (a haircut, a fixed sneaker, a walked dog). Study two real shop photos from the 1930s. Follow coins around a ring of five sellers until everyone has been a buyer and a seller.</span>
+            <span class="pill p-source">Source: apples for sale on a sidewalk and a shoemaker in his shop, about 1939</span></td>
+          <td>Four <strong>booth labels</strong> in their own words: goods, services, buyer, and seller.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.09.04<span>Week 25</span></td>
+          <td><span class="ch">Characteristics of Money</span><br>Money is something people agree to use to buy goods and services. Good money follows four rules: it lasts (durable), it is easy to carry (portable), it is easy to count out (divisible), and people trust it. A paper dollar works because people trust that it is worth a dollar.
+            <span class="rm"><b>Lobby</b>Try to trade a goat for a loaf of bread through a chain of sellers. Then buy the bread in one stop with two coins.</span>
+            <span class="rm"><b>Gallery</b>Run a gold coin, a paper bill, a cowrie shell, and a block of salt through four tests. The salt melts in the rain. Study real money kept in museums. Flip a “trust” switch and watch the same $5 bill stop working.</span>
+            <span class="pill p-source">Source: a 1795 silver dollar, cowrie shells, and an 1861 $5 bill</span><span class="pill p-virtue">Lens: Courage</span></td>
+          <td>A <strong>money case panel</strong>: would a chocolate bar make good money? Yes or no and a “because” for each of the four rules, then a two-sentence answer.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.09.05<span>Week 26</span></td>
+          <td><span class="ch">Currencies of the United States, Canada, Mexico, and the Caribbean</span><br>Currency is the kind of money a country uses. The United States uses the U.S. dollar, Canada uses the Canadian dollar, and Mexico uses the Mexican peso. The Caribbean has many currencies: Jamaica has the Jamaican dollar, and eight islands share the Eastern Caribbean dollar. Two countries can both say “dollar” and still have different money.
+            <span class="rm"><b>Lobby</b>Try to pay for a snack with U.S. dollars in Toronto and in Mexico City. Each seller kindly names the money used there.</span>
+            <span class="rm"><b>Gallery</b>Take a four-stop trip, swapping U.S. dollars at an exchange booth and paying with the right money at each stop. Study three old coins and bills that crossed borders. Tap islands on a Caribbean map to see which money each one uses.</span>
+            <span class="pill p-source">Source: a silver peso made in Mexico City in 1796, with a 1795 U.S. silver dollar and a 1776 paper bill</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+          <td><strong>Neighbor panels</strong>: a sentence each about the money of Canada, Mexico, and the Caribbean, and a closing sentence that uses one of the rules of good money.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.09.06<span>Week 26</span></td>
+          <td><span class="ch">Trade Routes and Regional Resources</span><br>A trade route is the path goods travel from a region with plenty to a region where they are scarce. Orange trees cannot live through Canada’s cold winters, so Canada trades for oranges from Florida. Trucks, trains, and cargo ships carry goods on routes like these every day. The store is the last stop, not the start.
+            <span class="rm"><b>Lobby</b>Plant wheat and an orange tree on a farm in Canada, then move to January and see what the cold does.</span>
+            <span class="rm"><b>Gallery</b>Drag five crates (timber, oranges, wheat, avocados, bananas) to the region that needs each one, and pick the truck, train, or ship that carries it. Study a photo of a banana boat being loaded in Jamaica. Find out where five breakfast foods grew.</span>
+            <span class="pill p-source">Source: a steamship loading bananas in Port Antonio, Jamaica, before 1921</span><span class="pill p-virtue">Lens: Honesty</span></td>
+          <td>A <strong>shipping tag</strong> for one trade route: the choice, the scarcity, the benefit, and the consequence.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.09.07<span>Week 27</span></td>
+          <td><span class="ch">Marketplace Decision: Costs and Benefits</span><br>A cost is what you give up or put in when you make a choice. It can be money, time, effort, or space. A benefit is what you gain. A wise decision weighs both sides first. Even something free has costs: a free puppy still needs walks, food, cleanup, and a bed.
+            <span class="rm"><b>Lobby</b>Grab a shiny $5 toy, then find you cannot buy the lunch snack you came for.</span>
+            <span class="rm"><b>Gallery</b>Sort eight tiles on the Decision Board into costs and benefits of building a town harbor, weigh each one, vote, and watch the town for ten years. Study a photo of Boston’s Fish Pier being finished. Tap the hidden costs around a free puppy.</span>
+            <span class="pill p-source">Source: the new Fish Pier in Boston, 1914 to 1915</span><span class="pill p-virtue">Lens: Self-Governance</span></td>
+          <td>One evidence question at the Free Puppy booth, then <strong>their own Decision Board</strong>: a family has $20 for fruit and vegetables or a board game. At least two costs, two benefits, and a decision in two to three sentences.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.09.08<span>Week 27</span></td>
+          <td><span class="ch">Economic Virtues: Honesty and Responsibility</span><br>Honesty is telling the truth about what you have, what you owe, and what you did. Responsibility is doing what you said you would do, even when it gets hard. A market only works when people can trust each other. A seller who cheats may win for a day, but buyers do not come back. Honesty matters even when nobody is watching.
+            <span class="rm"><b>Lobby</b>Visit an egg stand with no seller and a jar for the money. See the stand one week later if every buyer pays, and if nobody does.</span>
+            <span class="rm"><b>Gallery</b>Look inside five pairs of booths in two markets, one honest and one not, then run them for a month. Study a 1917 photo of city scale inspectors in Seattle. Be the inspector: test four sellers’ scales with a 1 pound weight.</span>
+            <span class="pill p-source">Source: Seattle scale inspectors with the scales they took away, January 1917</span><span class="pill p-virtue">Lens: Responsibility</span></td>
+          <td>One evidence question at the Scale Inspector station, two more on the Exhibit Floor, and the <strong>Wise Trader plaque</strong>: four sentences that use four unit words and tell how a Wise Trader shows honesty and responsibility. Hanging it earns the Wise Trader badge.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:10px;">Each Workroom also has a short word puzzle about one word part: <strong>un</strong> (not), <strong>ex</strong> (out), <strong>vend</strong> (to sell), <strong>port</strong> (carry), <strong>inter</strong> (between), <strong>trans</strong> (across), <strong>bene</strong> (good), and <strong>spond</strong> or <strong>spons</strong> (promise).</p>
+  </section>
+
+  <!-- WORDS -->
+  <section class="card">
+    <div class="card-head"><span class="ico">🔤</span><h2>Words to Know</h2><span class="tag">Use them at home!</span></div>
+    <div class="words">
+      <div class="word"><b>scarcity</b><span>when there is not enough of something for everyone who wants it</span></div>
+      <div class="word"><b>choice</b><span>picking one thing when you can’t have everything</span></div>
+      <div class="word"><b>trade</b><span>when two sides each give something and each get something back</span></div>
+      <div class="word"><b>barter</b><span>trading goods for goods, without money</span></div>
+      <div class="word"><b>goods</b><span>things you can hold, like bread, apples, or a backpack</span></div>
+      <div class="word"><b>service</b><span>help or work someone does for you, like a haircut or fixing a shoe</span></div>
+      <div class="word"><b>buyer</b><span>the person who pays to get a good or a service</span></div>
+      <div class="word"><b>seller</b><span>the person who sells a good or a service</span></div>
+      <div class="word"><b>money</b><span>something people agree to use to buy goods and services, like coins and bills</span></div>
+      <div class="word"><b>currency</b><span>the kind of money a country uses</span></div>
+      <div class="word"><b>trade route</b><span>the path goods travel from where they come from to where they are needed</span></div>
+      <div class="word"><b>cost</b><span>what you give up or put in when you make a choice: money, time, effort, or space</span></div>
+      <div class="word"><b>benefit</b><span>something good that you gain</span></div>
+      <div class="word"><b>honesty</b><span>telling the truth about what you have, what you owe, and what you did</span></div>
+      <div class="word"><b>responsibility</b><span>doing what you said you would do, even when it gets hard</span></div>
+      <div class="word"><b>trust</b><span>to believe that someone will tell the truth and keep a promise</span></div>
+    </div>
+  </section>
+
+  <!-- ASK AT HOME -->
+  <section class="card">
+    <div class="card-head"><span class="ico">💬</span><h2>Ask at Home</h2><span class="tag">Better than “How was school?”</span></div>
+    <ol class="ask">
+      <li><span class="q">What does scarcity mean? Does it mean all gone?</span><span class="listen">Listen for: not enough for everyone who wants it; there can still be some left.</span></li>
+      <li><span class="q">When you picked one thing at the store, what did you give up?</span><span class="listen">Listen for: the other thing the same money could have bought.</span></li>
+      <li><span class="q">Why do people trade?</span><span class="listen">Listen for: each side has plenty of one thing and not enough of another, and both end up better off.</span></li>
+      <li><span class="q">Is a haircut a good or a service? What about a loaf of bread?</span><span class="listen">Listen for: a haircut is a service (work someone does for you); bread is a good (you can hold it).</span></li>
+      <li><span class="q">What makes good money?</span><span class="listen">Listen for: it lasts, it is easy to carry, it is easy to count out, and people trust it.</span></li>
+      <li><span class="q">Is a Canadian dollar the same as a U.S. dollar?</span><span class="listen">Listen for: no; each country has its own money, even when the name is the same.</span></li>
+      <li><span class="q">Where did our orange juice (or bananas) come from?</span><span class="listen">Listen for: a warm place far away, and a trade route that carried it here. Not “the store.”</span></li>
+      <li><span class="q">Can something free still have a cost?</span><span class="listen">Listen for: yes: time, effort, or space, like walking and feeding a free puppy.</span></li>
+      <li><span class="q">Why does honesty matter when nobody is watching?</span><span class="listen">Listen for: a stand or a market only stays open when people can trust each other.</span></li>
+    </ol>
+  </section>
+
+  <!-- TURN IN + TRY AT HOME -->
+  <div class="two">
+    <section class="card">
+      <div class="card-head"><span class="ico">📬</span><h2>What Gets Turned In</h2></div>
+      <ul class="check">
+        <li><strong>Each lesson:</strong> the Curator Task (a panel, labels, a tag, a board, or the plaque), a Curator’s Chronicle sentence, and the evidence questions</li>
+        <li><strong>Lessons 3.09.07 and 3.09.08:</strong> one evidence question is written at a station in the Gallery. It still shows up in the gathered answers at the end.</li>
+        <li><strong>End of the unit:</strong> a 10-question Unit 9 quiz in Canvas</li>
+        <li>Copied or downloaded, then <strong>submitted in Canvas</strong></li>
+      </ul>
+      <p class="small" style="margin-top:10px;"><strong>Done well looks like:</strong> the unit’s own words used correctly (scarcity, trade, goods, services, cost, benefit), a real example from the lesson, and a reason that starts with “because.”</p>
+    </section>
+    <section class="card">
+      <div class="card-head"><span class="ico">🏡</span><h2>Try at Home</h2><span class="tag">5 minutes</span></div>
+      <ul class="check">
+        <li><strong>Good or service?</strong> On your next errand, take turns pointing out goods (things you can hold) and services (work someone does for you).</li>
+        <li><strong>Where did it grow?</strong> Read the sticker or label on one fruit. Find that place on a map and trace the route to your kitchen.</li>
+        <li><strong>Two sides.</strong> Before a small family choice, name one cost and one benefit of each option out loud.</li>
+        <li><strong>Look for the seal.</strong> At a grocery store scale or a gas pump, look for the inspection sticker that says the scale or pump was checked.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- NEXT -->
+  <section class="card next">
+    <div class="card-head"><span class="ico">🔭</span><h2>Coming Up: The Civics Hall</h2></div>
+    <p>As your student leaves the Marketplace Hall, workers are carrying tall chairs, a long table, and a wooden ballot box down the corridor. Next your student becomes a <strong>Civic Curator</strong> in the <strong>Civics Hall</strong> and asks a new question: why do communities need government?</p>
+  </section>
+
+  <p class="foot">Optima Academy Online · 3rd Grade Social Studies · Unit 9 Family Guide<br>Questions? Reach out to your student’s teacher anytime.</p>
+</div>
+</body>
+</html>
