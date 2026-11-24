@@ -1,0 +1,250 @@
+{
+ "id": "g3ss-vr-25",
+ "week": 25,
+ "lesson": "3.09.04",
+ "lessonA": "3.09.03",
+ "lessonTitle": "Characteristics of Money",
+ "title": "Bank Vault Diorama",
+ "emoji": "🪙",
+ "pattern": "B",
+ "canvasName": "3.09.04 VR · Bank Vault Diorama",
+ "details": [
+  "📅 Q4 · Unit 9 · Basics of Economics",
+  "📖 Week 25 · goes with Lesson 3.09.04",
+  "📋 SS.3.E.1.1 · SS.3.E.1.3",
+  "⏱ About 15 minutes"
+ ],
+ "map": "National Bank",
+ "mapWord": "Bank",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Trusty Coin Ribbon",
+  "line": "Only VR curators earn this one. You visited a bank and told why people trust money."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 25 · Bank Vault Diorama",
+  "sub": "The Museum · Marketplace Hall",
+  "rows": [
+   [
+    "Place",
+    "A bank"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "shops",
+  "alt": "Two old black and white photos: people buying apples on a main street, and a shoemaker in his shop",
+  "cap": "Buyers and sellers in 1938 and 1939.",
+  "note": "Our money case needs a bank diorama. Please visit a bank and tell me about money!"
+ },
+ "opti": {
+  "brief": "Curators, money only works when people trust it. Visit a bank in VR, then record a short video about money.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, money only works when people trust it. Visit a bank in VR, then record a short video about money.",
+  "step1": "Before your headset, read about the place. Then press Practice and say your two sentences before the timer ends.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Move with the thumbstick. Walk through the bank. Look for places that keep money safe.",
+  "step4": "Open Library, then Camera. Click Record video and say your two sentences. Click again to stop. Then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then open the Canvas assignment and check that your video is there.",
+  "extra": "Have more time? Slowly show the room, so I can see how the bank keeps money safe.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Scout the Bank",
+  "look": "A <b>bank</b> is a place that keeps people's money safe. <b>Money</b> is something everyone agrees to take when they buy and sell. Good money lasts, is easy to carry, is easy to count and is trusted.",
+  "groups": [],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "@PLACE@<p>In your video, you say these 2 sentences:</p>@SAY@<p>Practice now. Say both before the timer ends.</p>@TIMER@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Bank</b> in <b>Filter environments</b>. Click <b>National Bank</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Scout the bank",
+    "clip": "step3",
+    "html": "<p>Move with the <b>thumbstick</b>. Walk through the bank. Look at the counters, the doors and the walls. Look for places that keep money safe.</p>"
+   },
+   {
+    "title": "Record your video and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until the bank fits.</p><p>Click <b>Record video</b>. Say your 2 sentences. Click it again to stop.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your video, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Record a new video and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your video is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Slowly show the room while you record, so Opti sees how the bank keeps money safe."
+  },
+  "full": "One video, 30 seconds or less, that shows the bank while you say both sentences.",
+  "place": [
+   {
+    "img": "money",
+    "alt": "An old silver dollar, three small shells and an old paper bill",
+    "html": "<b>Money from the past:</b> a silver dollar from 1795, money cowrie shells and a paper bill from 1861.",
+    "cap": "Three kinds of money people have used."
+   }
+  ],
+  "say": [
+   "This is a bank, and I see ___.",
+   "People trust money because ___."
+  ],
+  "seconds": 30
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "The Money Test",
+  "look": "Good money passes four tests: it <b>lasts</b>, it is <b>easy to carry</b>, it is <b>easy to count</b>, and it is <b>trusted</b> (everyone agrees it is worth something). Four objects are waiting to be tested.",
+  "do": "Read about the object. Tap every test it passes. Then press <b>Check</b>.",
+  "game": {
+   "type": "checks",
+   "cols": [
+    "Object",
+    "Tests it passes"
+   ],
+   "labels": {
+    "round": "Object",
+    "go": "Check"
+   },
+   "miss": "Look at that test again.",
+   "done": "All four tested! Only the silver dollar passed every test. That is why it worked as money.",
+   "tests": [
+    {
+     "key": "lasts",
+     "name": "It lasts",
+     "icon": "🛡️"
+    },
+    {
+     "key": "carry",
+     "name": "Easy to carry",
+     "icon": "🎒"
+    },
+    {
+     "key": "count",
+     "name": "Easy to count",
+     "icon": "🔢"
+    },
+    {
+     "key": "trust",
+     "name": "Trusted",
+     "icon": "🤝"
+    }
+   ],
+   "things": [
+    {
+     "name": "A silver dollar",
+     "what": "A coin made of silver in 1795.",
+     "icon": "🪙",
+     "pass": [
+      "lasts",
+      "carry",
+      "count",
+      "trust"
+     ],
+     "ok": "It passed all four tests! Silver coins lasted hundreds of years.",
+     "why": {
+      "lasts": "Does silver fall apart? It lasts a long time.",
+      "carry": "A coin fits in your pocket.",
+      "count": "You can count coins one by one.",
+      "trust": "People trusted silver coins."
+     }
+    },
+    {
+     "name": "Money cowrie shells",
+     "what": "Small shells used as money in parts of Africa and Asia. You need a heavy bag of them to buy something big.",
+     "icon": "🐚",
+     "pass": [
+      "lasts",
+      "count"
+     ],
+     "ok": "Right! Shells last and are easy to count, but a big buy needs a heavy bag, and not everyone trusted them.",
+     "why": {
+      "lasts": "Shells last a long time.",
+      "carry": "Read again: a big buy needs a heavy bag of shells.",
+      "count": "You can count shells one by one.",
+      "trust": "Read again: shells were not trusted everywhere."
+     }
+    },
+    {
+     "name": "A rock from the yard",
+     "what": "A small rock. Anyone can pick one up for free.",
+     "icon": "🪨",
+     "pass": [
+      "lasts",
+      "carry",
+      "count"
+     ],
+     "ok": "Right! A rock lasts and is easy to carry and count, but no one agrees it is worth something.",
+     "why": {
+      "lasts": "Does a rock fall apart? It lasts.",
+      "carry": "A small rock fits in your pocket.",
+      "count": "You can count rocks.",
+      "trust": "Would a store take a rock anyone can pick up? Not trusted."
+     }
+    },
+    {
+     "name": "An ice cube",
+     "what": "A cube of frozen water.",
+     "icon": "🧊",
+     "pass": [
+      "carry",
+      "count"
+     ],
+     "ok": "Right! You can carry and count ice cubes, but they melt, and no one agrees they are worth something.",
+     "why": {
+      "lasts": "What happens to ice on a warm day? It melts.",
+      "carry": "An ice cube is easy to carry.",
+      "count": "You can count ice cubes.",
+      "trust": "Would a store take an ice cube? Not trusted."
+     }
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "What makes good money?",
+     "starter": "Good money is something that ..."
+    },
+    {
+     "lead": "Why do people trust a dollar?",
+     "starter": "People trust a dollar because ..."
+    }
+   ],
+   "chips": [
+    "lasts",
+    "easy to carry",
+    "easy to count",
+    "trusted",
+    "silver dollar",
+    "bank",
+    "worth something"
+   ]
+  },
+  "full": "All four objects are tested, and your 2 sentences have 20 words or more."
+ },
+ "audioPending": "Q4: brief, step3 and extra are scripted, not recorded (Bethany 19 Nov 2026). Shared clips reused."
+}
