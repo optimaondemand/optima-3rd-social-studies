@@ -1,0 +1,272 @@
+{
+ "id": "g3ss-vr-30",
+ "week": 30,
+ "lesson": "3.10.06",
+ "lessonA": "3.10.05",
+ "lessonTitle": "Patriotic Holidays and Observances",
+ "title": "Holiday Mall Diorama",
+ "emoji": "🎆",
+ "pattern": "A",
+ "canvasName": "3.10.06 VR · Holiday Mall Diorama",
+ "details": [
+  "📅 Q4 · Unit 10 · Basics of Government and Citizenship",
+  "📖 Week 30 · goes with Lesson 3.10.06",
+  "📋 SS.3.CG.2.3 · SS.3.CG.3.1 · SS.3.CG.3.2",
+  "⏱ About 15 minutes"
+ ],
+ "map": "United States Capitol",
+ "mapWord": "Capitol",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Holiday Ribbon",
+  "line": "Only VR curators earn this one. You built a place where Americans celebrate and remember."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 30 · Holiday Mall Diorama",
+  "sub": "The Museum · Citizenship Hall",
+  "rows": [
+   [
+    "Place",
+    "Near the U.S. Capitol, Washington, D.C."
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "flag",
+  "alt": "The Stars and Stripes flying high on a flagpole under a blue sky",
+  "cap": "The Stars and Stripes. Flag Day, June 14, honors the flag itself.",
+  "note": "On patriotic holidays, many people visit the monuments in Washington, D.C. Please build a holiday walk!"
+ },
+ "opti": {
+  "brief": "Curators, on patriotic holidays many people visit Washington, D.C. Build a holiday walk of monuments, then send me a photo.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, on patriotic holidays many people visit Washington, D.C. Build a holiday walk of monuments, then send me a photo.",
+  "step1": "Before your headset, look at the models. Each one has a gray search word.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Find an open space near the Capitol. Put the five models in a line, like a walk visitors can follow.",
+  "step4": "Open Library, then Camera. Fit your whole diorama in the tablet. Click Take photo, then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then check that your photo is in the Canvas assignment.",
+  "extra": "Have more time? Leave room between the monuments, so visitors can stop at each one.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Build the Holiday Walk",
+  "look": "A <b>patriotic holiday</b> is a day a country sets aside to remember something important. A <b>monument</b> helps people remember.",
+  "groups": [
+   {
+    "title": "Monuments for the holiday walk",
+    "models": [
+     {
+      "name": "Map Piece - Washington Monument",
+      "word": "Washington",
+      "icon": "🗼",
+      "alt": "A tall white monument",
+      "why": "Presidents' Day"
+     },
+     {
+      "name": "Map Piece - Lincoln Memorial",
+      "word": "Lincoln",
+      "icon": "🏛️",
+      "alt": "A white memorial with columns",
+      "why": "Presidents' Day"
+     },
+     {
+      "name": "Map Piece - Jefferson Memorial",
+      "word": "Jefferson",
+      "icon": "🏛️",
+      "alt": "A round memorial with a dome",
+      "why": "Independence Day: he wrote the Declaration"
+     },
+     {
+      "name": "Map Piece - White House",
+      "word": "White House",
+      "icon": "🏠",
+      "alt": "The White House",
+      "why": "Where the President works"
+     },
+     {
+      "name": "Optima Domi Statue of Liberty",
+      "word": "Liberty",
+      "icon": "🗽",
+      "alt": "The Statue of Liberty",
+      "why": "Freedom"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "<p>These are the models you will use. In VR, type the <b>gray word</b> in the <b>Models</b> search box to find each one.</p>@MODELS@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Capitol</b> in <b>Filter environments</b>. Click <b>United States Capitol</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Build the walk",
+    "clip": "step3",
+    "html": "<p>Find an open space near the Capitol. Put the 5 models in a line, like a walk: <b>White House</b>, <b>Washington Monument</b>, <b>Lincoln Memorial</b>, <b>Jefferson Memorial</b>, <b>Statue of Liberty</b>.</p>"
+   },
+   {
+    "title": "Take your photo and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until your whole diorama fits. Click <b>Take photo</b>.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your photo, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Take a new photo and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your photo is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Leave room between the monuments, so visitors can stop and remember at each one."
+  },
+  "full": "One photo that shows all 5 monuments in your holiday walk."
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "The Holiday Calendar",
+  "look": "A calendar with all 12 months. Five holiday cards are waiting. Each card tells its date. Then you tell if it is a loud-and-bright day or a quiet-and-serious day.",
+  "do": "Step 1: tap the holiday's month. Step 2: tap the kind of day it is.",
+  "game": {
+   "type": "calendar",
+   "cols": [
+    "Holiday",
+    "Month and kind of day"
+   ],
+   "labels": {
+    "round": "Holiday",
+    "step1": "Tap its month.",
+    "step2": "What kind of day is it?"
+   },
+   "miss": "Not that one. Read the card again.",
+   "done": "The calendar is full! Some days we celebrate, and some days we remember. Both are needed.",
+   "months": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+   ],
+   "kinds": [
+    {
+     "key": "bright",
+     "name": "Loud and bright: we celebrate",
+     "icon": "🎆"
+    },
+    {
+     "key": "quiet",
+     "name": "Quiet and serious: we remember",
+     "icon": "🕯️"
+    }
+   ],
+   "cards": [
+    {
+     "name": "Martin Luther King Jr. Day",
+     "when": "Third Monday of January",
+     "icon": "🕊️",
+     "month": 1,
+     "kind": "quiet",
+     "honors": "It honors Dr.",
+     "okMonth": "Yes! January.",
+     "ok": "Yes! A quieter day to remember Dr. King and serve others.",
+     "miss": "This day is for remembering Dr. King and serving others."
+    },
+    {
+     "name": "Memorial Day",
+     "when": "Last Monday of May",
+     "icon": "🌹",
+     "month": 5,
+     "kind": "quiet",
+     "honors": "It honors people who died serving in the U.S.",
+     "okMonth": "Yes! May.",
+     "ok": "Yes! A quiet, serious day of remembering.",
+     "miss": "Families visit graves on this day. Is that loud or quiet?"
+    },
+    {
+     "name": "Flag Day",
+     "when": "June 14",
+     "icon": "⭐",
+     "month": 6,
+     "kind": "bright",
+     "honors": "It honors the American flag, adopted on this day in 1777.",
+     "okMonth": "Yes! June.",
+     "ok": "Yes! A bright day to celebrate the flag.",
+     "miss": "People proudly fly flags on this day. Is that a celebration?"
+    },
+    {
+     "name": "Independence Day",
+     "when": "July 4",
+     "icon": "🎆",
+     "month": 7,
+     "kind": "bright",
+     "honors": "It celebrates the Declaration of Independence in 1776.",
+     "okMonth": "Yes! July.",
+     "ok": "Yes! The big, loud, bright one.",
+     "miss": "Fireworks and parades! Is that loud or quiet?"
+    },
+    {
+     "name": "Veterans Day",
+     "when": "November 11",
+     "icon": "🎖️",
+     "month": 11,
+     "kind": "quiet",
+     "honors": "It honors all the men and women who have served in the U.S.",
+     "okMonth": "Yes! November.",
+     "ok": "Yes! A serious day to thank and remember veterans.",
+     "miss": "This day thanks people who served. Is it a serious day?"
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "Pick one holiday. What does it honor?",
+     "starter": "One holiday is ... It honors ..."
+    },
+    {
+     "lead": "Why do countries set aside special days?",
+     "starter": "Countries set aside special days so that ..."
+    }
+   ],
+   "chips": [
+    "Independence Day",
+    "Memorial Day",
+    "Veterans Day",
+    "Flag Day",
+    "Dr. King",
+    "celebrate",
+    "remember",
+    "honor"
+   ]
+  },
+  "full": "All five holidays are on the calendar, and your 2 sentences have 20 words or more."
+ },
+ "audioPending": "Q4: brief, step3 and extra are scripted, not recorded (Bethany 19 Nov 2026). Shared clips reused."
+}
