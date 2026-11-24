@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 10 Family Guide · 3rd Grade Social Studies · Optima Academy Online</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;600;700;800;900&display=swap');
+:root{
+  /* Museum colors, from the 3rd grade lesson pages */
+  --navy:#0E1C42; --ink:#3A4A6B; --muted:#6B6250; --line:#E6D9BC;
+  --night:#22312F; --night-2:#2D403D;
+  --brass:#B8892E; --brass-lt:#E9C878; --brass-dk:#7E5A16;
+  --cream:#FBF5E6; --paper:#F6EEDB; --wall:#EFE5D2;
+  --teal:#1A8A7D; --teal-bg:#E2F4F1; --cyan:#55C8E8; --sky-bg:#EAF8FD;
+  --green-bg:#E3F8ED; --plum:#8B6FC0; --plum-bg:#F1ECFA; --rose-bg:#FDEEEE;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--night) radial-gradient(circle at 50% -10%, #3F5652 0, var(--night) 60%) fixed;color:var(--ink);font-family:"Nunito",sans-serif;font-size:18px;line-height:1.6;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 48px;}
+h1,h2,h3{font-family:"Lora",Georgia,serif;color:var(--navy);margin:0;}
+p{margin:0 0 10px;}
+strong{color:var(--navy);}
+a{color:#1F6FA8;font-weight:700;}
+
+/* header */
+.hero{background:var(--navy);color:#fff;border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1.25fr 1fr;border-bottom:5px solid var(--brass);}
+.hero-text{padding:28px 28px 26px;}
+.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:14px;}
+.brand img{width:38px;height:38px;border-radius:50%;background:#fff;}
+.hero h1{color:#fff;font-size:34px;line-height:1.2;margin-bottom:6px;}
+.hero h1 em{color:var(--brass-lt);}
+.hero .sub{font-size:19px;color:#DCE6F7;margin-bottom:16px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:rgba(233,200,120,.14);border:1.5px solid rgba(233,200,120,.5);border-radius:999px;padding:5px 13px;font-size:16px;font-weight:700;color:#fff;}
+.hero-art{background:#D8EFF4 center/cover no-repeat;min-height:260px;position:relative;}
+.hero-art .plaque{position:absolute;left:14px;bottom:14px;background:linear-gradient(#E9C878,#B8892E);color:#3A2A14;font:800 13px/1.3 "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:5px 10px;box-shadow:0 2px 6px rgba(0,0,0,.3);}
+.print-btn{display:inline-block;margin-top:16px;background:var(--brass);color:#fff;border:none;border-radius:999px;padding:9px 18px;font-family:"Nunito",sans-serif;font-weight:800;font-size:16px;cursor:pointer;}
+
+/* cards */
+.card{background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:16px;padding:22px 24px;margin-top:18px;box-shadow:0 4px 14px rgba(0,0,0,.12);}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.card-head .ico{font-size:26px;line-height:1;}
+.card-head h2{font-size:24px;}
+.card-head .tag{margin-left:auto;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.small{font-size:16px;color:var(--muted);}
+
+.grid2,.glance{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.glance3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.box{border-radius:12px;padding:14px 16px;font-size:17px;}
+.box-label{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+.b-sky{background:var(--sky-bg);} .b-sky .box-label{color:#1F8CB0;}
+.b-gold{background:var(--cream);border:1px solid var(--line);} .b-gold .box-label{color:var(--brass-dk);}
+.b-green{background:var(--green-bg);} .b-green .box-label{color:#1F8452;}
+.b-plum{background:var(--plum-bg);} .b-plum .box-label{color:#6A4FA3;}
+.b-teal{background:var(--teal-bg);} .b-teal .box-label{color:#14695F;}
+.quote{font-family:"Lora",Georgia,serif;font-style:italic;font-size:20px;color:var(--navy);border-left:4px solid var(--brass);padding:4px 0 4px 16px;margin:16px 0 0;}
+.quote small{display:block;font-family:"Nunito",sans-serif;font-style:normal;font-size:15px;color:var(--muted);margin-top:4px;}
+
+/* story box (the museum) */
+.story{background:var(--night-2);color:#E4ECE9;border:2px solid var(--brass);border-left-width:2px;}
+.story h2,.story strong{color:#fff;}
+.story .box{background:rgba(255,255,255,.08);color:#E4ECE9;}
+.story .box-label{color:var(--brass-lt);}
+.opti{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:start;}
+.opti img{width:76px;height:auto;}
+.rooms{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.room{background:rgba(255,255,255,.07);border:1.5px solid rgba(233,200,120,.45);border-radius:12px;padding:12px;text-align:center;font-size:16px;}
+.room i{font-style:normal;display:block;font-size:26px;line-height:1.2;}
+.room b{display:block;font-family:"Lora",Georgia,serif;font-size:19px;color:#fff;}
+.room span{display:block;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-lt);}
+
+/* lesson table */
+.days{width:100%;border-collapse:collapse;}
+.days th{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);}
+.days td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+.days tr:last-child td{border-bottom:none;}
+.day-n{font-family:"Lora",Georgia,serif;font-weight:700;font-size:20px;color:var(--navy);white-space:nowrap;}
+.day-n span{display:block;font-family:"Nunito",sans-serif;font-size:15px;font-weight:700;color:var(--muted);}
+.ch{font-weight:800;color:var(--navy);}
+.rm{display:block;margin-top:6px;}
+.rm b{font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--brass-dk);background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:1px 7px;margin-right:6px;}
+.pill{display:inline-block;font-size:14px;font-weight:800;border-radius:999px;padding:2px 10px;margin:6px 4px 0 0;}
+.p-virtue{background:var(--green-bg);color:#1F8452;}
+.p-source{background:var(--cream);color:var(--brass-dk);border:1px solid var(--line);}
+.p-vr{background:var(--plum-bg);color:#6A4FA3;}
+.vr-row td{background:var(--paper);}
+
+/* VR day */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.path{border-radius:14px;padding:16px 18px;font-size:17px;}
+.path h3{font-size:20px;margin-bottom:6px;}
+.path ol{margin:6px 0 0;padding-left:22px;}
+.path li{margin:3px 0;}
+.say{background:#fff;border:1px dashed var(--brass);border-radius:10px;padding:8px 12px;margin:8px 0;font-weight:700;color:var(--navy);}
+.tl{list-style:none;margin:8px 0 0;padding:0;}
+.tl li{display:grid;grid-template-columns:118px 1fr;gap:8px;padding:5px 0;border-bottom:1px dashed var(--line);font-size:16px;}
+.tl li:last-child{border-bottom:none;}
+.tl b{color:var(--brass-dk);}
+
+/* words */
+.words{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.word{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--cream);}
+.word b{font-family:"Lora",Georgia,serif;font-size:21px;color:var(--navy);display:block;}
+.word span{font-size:17px;}
+
+/* ask */
+.ask{list-style:none;margin:0;padding:0;counter-reset:q;}
+.ask li{counter-increment:q;position:relative;padding:12px 0 12px 50px;border-bottom:1px dashed var(--line);}
+.ask li:last-child{border-bottom:none;}
+.ask li::before{content:counter(q);position:absolute;left:0;top:11px;width:34px;height:34px;border-radius:50%;background:var(--cream);border:1.5px solid var(--brass);color:var(--brass-dk);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:17px;}
+.ask .q{font-weight:800;color:var(--navy);display:block;}
+.ask .listen{font-size:16px;color:var(--muted);}
+
+/* checklist */
+.check{list-style:none;margin:0;padding:0;}
+.check li{padding:7px 0 7px 34px;position:relative;}
+.check li::before{content:"✓";position:absolute;left:4px;top:6px;color:var(--teal);font-weight:900;font-size:19px;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+
+.next{background:var(--night-2);color:#E4ECE9;border:2px solid var(--brass);}
+.next h2{color:#fff;}
+.next strong{color:#fff;}
+.foot{text-align:center;font-size:15px;color:#C9D6D2;margin-top:26px;}
+.foot a{color:var(--brass-lt);}
+
+/* lesson mechanics */
+.howto{background:var(--cream);border:2px solid var(--brass);border-radius:16px;padding:18px 22px;margin-top:18px;}
+.howto h2{font-size:21px;margin-bottom:10px;}
+.howto ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;}
+.howto li{position:relative;padding-left:32px;font-size:17px;line-height:1.5;}
+.howto li span{position:absolute;left:0;top:0;font-size:20px;}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;}
+  .hero-art{min-height:200px;order:-1;}
+  .hero h1{font-size:29px;}
+  .glance,.glance3,.grid2,.words,.two,.paths,.howto ul{grid-template-columns:1fr;}
+  .rooms{grid-template-columns:1fr 1fr;}
+  .card{padding:18px 16px;}
+  .opti{grid-template-columns:56px 1fr;gap:12px;}
+  .opti img{width:56px;}
+  .tl li{grid-template-columns:1fr;gap:0;}
+  .days thead{display:none;}
+  .days tr{display:block;border-bottom:1px solid var(--line);padding:8px 0;}
+  .days td{display:block;border:none;padding:4px 0;}
+  .vr-row{border-radius:10px;}
+}
+@media print{
+  body{background:#fff;font-size:15px;}
+  .wrap{padding:0;}
+  .print-btn{display:none;}
+  .card,.howto,.path{break-inside:avoid;}
+  .card{margin-top:12px;padding:14px 16px;box-shadow:none;}
+  .hero,.next,.story{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .foot{color:#555;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-text">
+      <div class="brand"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy Online">Family Guide · 3rd Grade Social Studies</div>
+      <h1>Unit 10: <em>Citizenship</em> Hall</h1>
+      <div class="sub">Basics of Government and Citizenship · Lessons 3.10.01 to 3.10.08</div>
+      <div class="chips">
+        <span class="chip">8 lessons</span>
+        <span class="chip">Government, voting, symbols, virtues</span>
+        <span class="chip">Weeks 28 to 31</span>
+      </div>
+      <button class="print-btn" onclick="window.print()">🖨️ Print this guide</button>
+    </div>
+    <div class="hero-art" style="background-image:url('images/src-3-10-03-us-capitol.jpg');" role="img" aria-label="The United States Capitol in Washington, D.C., where Congress, the national lawmakers, meet"><span class="plaque">Citizenship Hall</span></div>
+  </header>
+
+  <!-- HOW THE LESSON PAGES WORK -->
+  <section class="howto">
+    <h2>🧭 How the Lesson Pages Work</h2>
+    <ul>
+      <li><span>🏛️</span><strong>Four rooms, in order:</strong> Lobby → Gallery → Workroom → Exhibit Floor. The room tabs sit at the top. A ✓ shows up when a room’s job is done, and a button at the bottom leads to the next room.</li>
+      <li><span>👣</span><strong>One part at a time.</strong> Each room shows one part, with ◂ Back and Next buttons and a “Part 2 of 5” count. The door to the next room shows on the last part.</li>
+      <li><span>🦉</span><strong>Opti the owl is the museum guide.</strong> He gives a short voice note in each room. <strong>Read along</strong> shows his words on the screen.</li>
+      <li><span>🔤</span><strong>Dotted words</strong> show their meaning when your student taps them. Key words have a 🔊 button to hear the word said out loud.</li>
+      <li><span>🧠</span><strong>The Workroom is a 3-question self-check,</strong> one question at a time. It isn’t graded. It shows your student what to look at again before writing.</li>
+      <li><span>💾</span><strong>Answers save as you type</strong>, but only in that browser on that computer. Switching computers or clearing the browser loses them.</li>
+      <li><span>📄</span><strong>Everything is gathered at the end.</strong> At the bottom of the Exhibit Floor, Copy or Download as PDF saves the work. Use it to <strong>submit in Canvas</strong>. A lesson isn’t turned in until it’s submitted there.</li>
+      <li><span>🔊</span><strong>Read aloud</strong> at the top reads the page, with a speed control. <strong>Motion</strong> turns the moving parts on or off. <strong>Museum view</strong> switches to a plain page.</li>
+      <li><span>📓</span><strong>Keep a notebook and a pencil nearby.</strong> The lessons call the notebook a Curator’s Notebook.</li>
+    </ul>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section class="card">
+    <div class="card-head"><span class="ico">🧭</span><h2>This Unit at a Glance</h2></div>
+    <p>This unit is your student’s first look at government and citizenship. It starts with why communities need a government at all, then opens the <strong>U.S. Constitution</strong> and its first words, “We the People.” Your student learns the <strong>three levels of government</strong> (local, state, and national), Florida’s own constitution and symbols, how <strong>voting</strong> and elections stay fair, and the patriotic holidays the country keeps. The unit ends with the <strong>civic virtues</strong> good citizens practice and the symbols, people, documents, and events that tell the story of the United States.</p>
+    <div class="glance3">
+      <div class="box b-sky"><div class="box-label">Thinking skill</div><strong>Recommend with evidence.</strong> Several lessons end with a Big Question: your student picks a side, gives two reasons, and names a real example from the lesson.</div>
+      <div class="box b-green"><div class="box-label">Virtue lens</div><strong>Service and honesty.</strong> Helping your community, and telling the truth and being fair, even when it is hard.</div>
+      <div class="box b-gold"><div class="box-label">Big idea</div><strong>The power comes from the people.</strong> A constitution sets up a government, gives it its jobs, and sets its limits. Citizens vote, serve, and practice the habits that hold a community together.</div>
+    </div>
+    <p class="quote">“E Pluribus Unum: out of many, one.”<small>The motto on the Great Seal of the United States, Lesson 3.10.08</small></p>
+    <p class="small" style="margin-top:12px;"><strong>Good to know:</strong> The lessons correct a few common mix-ups. A President is not a king with a different name. The President does not run everything: local and state governments do many jobs. July 4, 1776 is the Declaration of Independence, not the Constitution (1787). Civility does not mean agreeing. A law cannot make someone volunteer. The Statue of Liberty is a symbol, not a real person. And heroes are not only Presidents.</p>
+  </section>
+
+  <!-- THE STORY -->
+  <section class="card story">
+    <div class="card-head"><span class="ico">🏛️</span><h2>In the Museum</h2></div>
+    <div class="opti">
+      <img src="images/opti-owl.png" alt="Opti the owl, the museum guide">
+      <div>
+        <p>The 3rd grade course is set in a museum. In this unit your student is a <strong>Civic Curator</strong>, a museum worker who takes care of the exhibits in <strong>Citizenship Hall</strong>. <strong>Opti the owl</strong> is the museum guide.</p>
+        <p>Your student fills Citizenship Hall one exhibit at a time. They hang its first label as the dark hall lights up, drop a ballot at the Constitution case, label the three-level model, light the Florida case, stamp COUNTED at the voting booth, light up the holiday wall month by month, and hang a bronze plaque at the Heart of the Hall. In the last lesson a spotlight lands on the <strong>center pedestal</strong>. Your student answers the hall’s last Big Question and closes the hall: all eight exhibits light up and fly together into one <strong>Citizen Curator badge</strong>. Out of many, one.</p>
+      </div>
+    </div>
+    <div class="rooms">
+      <div class="room"><i>🚪</i><span>Room 1</span><b>Lobby</b>A short surprise to start</div>
+      <div class="room"><i>🖼️</i><span>Room 2</span><b>Gallery</b>Working models and real sources</div>
+      <div class="room"><i>🔎</i><span>Room 3</span><b>Workroom</b>Check yourself</div>
+      <div class="room"><i>🏅</i><span>Room 4</span><b>Exhibit Floor</b>Write for the hall</div>
+    </div>
+  </section>
+
+  <!-- LESSON BY LESSON -->
+  <section class="card">
+    <div class="card-head"><span class="ico">📅</span><h2>Lesson by Lesson</h2></div>
+    <table class="days">
+      <thead><tr><th>Lesson</th><th>What your student learns</th><th>What they write</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="day-n">3.10.01<span>Week 28</span></td>
+          <td><span class="ch">Why Government Is Needed</span><br>A government is a group of people chosen to make rules and take care of a community. It has three big jobs: keeping <strong>order</strong> (fair rules), keeping people <strong>safe</strong>, and caring for the <strong>common good</strong> (things that help everyone, like a park). Taxes are the money everyone puts in to pay for things everyone shares.
+            <span class="rm"><b>Lobby</b>Press Go at a busy corner with no stop signs and watch everyone get stuck. Put up the signs and try again.</span>
+            <span class="rm"><b>Gallery</b>Fix the troubles in a model Town With No Rules. Read the first words of the Constitution, “We the People,” in the real 1787 handwriting. Drop coins from ten families into the Town Jar and see what it buys.</span>
+            <span class="pill p-source">Source: the first page of the U.S. Constitution, 1787 (National Archives)</span><span class="pill p-virtue">Lens: Service</span></td>
+          <td>The <strong>first label</strong> in Citizenship Hall: three sentences on what a government is, one of its jobs, and a real example.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.10.02<span>Week 28</span></td>
+          <td><span class="ch">The U.S. Constitution and Power from the People</span><br>A constitution is the written rules that set up a government. The U.S. Constitution begins “We the People”: the government’s power comes from the people. The people vote to choose their leaders, and every leader, the President too, must follow the Constitution. A President is not a king: a President is chosen by a vote and serves for four years at a time.
+            <span class="rm"><b>Lobby</b>Watch the Recess Boss pick the game for everyone, then let the class vote instead.</span>
+            <span class="rm"><b>Gallery</b>Flip a town square from a king’s rule to “We the People.” Sort six cards onto “King” or “President.” Move a lamp down the real first page of the Constitution.</span>
+            <span class="pill p-source">Source: the first page of the U.S. Constitution, 1787 (National Archives)</span><span class="pill p-virtue">Lens: Honesty</span></td>
+          <td>A <strong>ballot</strong> for the Constitution case: a side, two reasons, and evidence, in 3 to 5 sentences.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.10.03<span>Week 29</span></td>
+          <td><span class="ch">Local, State, and National Government</span><br>Government has three levels. <strong>Local</strong> (your city or county; a mayor; city hall) picks up the trash and runs the library. <strong>State</strong> (Florida; the governor; Tallahassee) gives out driver’s licenses. <strong>National</strong> (the whole country; the President; Washington, D.C.) makes the money used in every state. Some jobs, like running a school, get help from more than one level.
+            <span class="rm"><b>Lobby</b>Address an envelope to your own home: town, state, country. Each line lights up one level.</span>
+            <span class="rm"><b>Gallery</b>Ride an elevator up a three-level model and send each job to the right floor. Switch on three layers of a drawn school to see which level does what. Match three real government buildings to their levels.</span>
+            <span class="pill p-source">Source: photos of the Florida Capitol, the U.S. Capitol, and Tampa City Hall</span><span class="pill p-virtue">Lens: Service</span></td>
+          <td><strong>Plaques for the three-level model</strong>: 3 to 5 sentences that name all three levels and why they work together.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.10.04<span>Week 29</span></td>
+          <td><span class="ch">The Florida Constitution and Florida Symbols</span><br>In 1513, the Spanish explorer Juan Ponce de León named the land <em>La Florida</em>, “the flowered place.” The Florida Constitution sets up Florida’s state government, the same way the U.S. Constitution sets up the national one. Florida’s symbols include the state seal (the sun, a sabal palm, a Seminole woman, a steamboat), the sabal palm, the mockingbird, and the orange blossom. Mary McLeod Bethune started a school in Daytona Beach in 1904 with $1.50 and five girls, and served her country.
+            <span class="rm"><b>Lobby</b>Sail to an old-style map of Florida in 1513 and spell its name with flowers.</span>
+            <span class="rm"><b>Gallery</b>Open Florida’s own constitution, page by page. Find the three things Florida fixed on its state seal in 1985. Light up three objects that tell Mary McLeod Bethune’s story.</span>
+            <span class="pill p-source">Source: an 1879 engraving of Florida’s old state seal (used 1868 to 1985)</span><span class="pill p-virtue">Lens: Honesty</span></td>
+          <td>A <strong>recommendation</strong> for the symbol that best stands for Florida, the sabal palm or the state seal, with two reasons and evidence.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.10.05<span>Week 30</span></td>
+          <td><span class="ch">Voting and Elections</span><br>A vote is one person’s choice. An election is when many people vote to pick something or someone. Three rules keep it fair: one citizen, one vote; a <strong>secret ballot</strong> (you vote in private, so no one can watch or push you); and the votes are counted carefully. To vote in the United States, a person must be a citizen, 18 or older, and registered. The President and Florida’s governor are each elected for four years.
+            <span class="rm"><b>Lobby</b>Close the curtain on a voting booth and watch a pushy crowd have to wait.</span>
+            <span class="rm"><b>Gallery</b>Switch the three fairness rules off one at a time on a working election model and see what goes wrong. Check four visitors in at the voting desk. Tap the stars, stripes, and red X on the U.S. and Florida flags.</span>
+            <span class="pill p-source">Source: a real voting booth in Summit, New Jersey, on Election Day, November 6, 2012</span><span class="pill p-virtue">Lens: Service</span></td>
+          <td>A <strong>label for the voting booth</strong>: one fair rule and what would go wrong without it, in 3 to 5 sentences.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.10.06<span>Week 30</span></td>
+          <td><span class="ch">Patriotic Holidays and Observances</span><br>A patriotic holiday is a day set aside to honor the country, its people, or an idea. Some days <strong>celebrate</strong>, like Independence Day (July 4) and Constitution Day (September 17). Some days <strong>remember</strong>, like Memorial Day, which honors those who died serving. Veterans Day (November 11) honors everyone who has served. The unit’s timeline also includes Martin Luther King Jr. Day, Presidents’ Day, Flag Day, and Juneteenth. All three levels of government help with holidays.
+            <span class="rm"><b>Lobby</b>Skip ahead 100 years and watch a holiday wall go dark and forgotten, then light it back up.</span>
+            <span class="rm"><b>Gallery</b>Hang eight objects on a January-to-December wall and choose a bright or a soft lamp for each. Plan a Veterans Day parade at all three levels of government. Count flags in a real photo from Arlington National Cemetery.</span>
+            <span class="pill p-source">Source: Flags In at Arlington National Cemetery, Virginia, May 26, 2016</span><span class="pill p-virtue">Lens: Service</span></td>
+          <td>A recommendation for <strong>The Big Question</strong>: which matters more, days that celebrate or days that remember, with two reasons and one holiday as evidence.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.10.07<span>Week 31</span></td>
+          <td><span class="ch">Civic Virtues</span><br>A civic virtue is a habit a citizen practices on purpose to help the community. The four in this lesson: <strong>civility</strong> (treating people with respect, even when you disagree), <strong>cooperation</strong> (working together), <strong>volunteerism</strong> (choosing to help without being told to), and <strong>responsibility</strong> (doing what you said you would do). Anyone can practice them, even a third grader. A law cannot make someone volunteer: a constitution gives government its jobs and its limits, and volunteering is always a choice.
+            <span class="rm"><b>Lobby</b>Turn over four dusty bronze plaques and rub off the dust to read each word.</span>
+            <span class="rm"><b>Gallery</b>Polish the plaques through a week of eight small choices. Help on Martin Luther King Jr. Day, a national day of service, at a city park, a Florida state park, and a national park. Hang virtue tags on a real photo of park volunteers.</span>
+            <span class="pill p-source">Source: volunteers at Tule Springs Fossil Beds National Monument, Nevada, April 11, 2015 (National Park Service)</span><span class="pill p-virtue">Lens: Service</span></td>
+          <td>One evidence question at the Day of Service station, and a <strong>plaque label</strong> on the virtue their community needs most, in 3 to 5 sentences.</td>
+        </tr>
+        <tr>
+          <td class="day-n">3.10.08<span>Week 31</span></td>
+          <td><span class="ch">Symbols, Individuals, Documents, and Events</span><br>Curators tell a country’s story with four kinds of evidence: <strong>symbols</strong> (what we honor, like the flag and the Statue of Liberty), <strong>individuals</strong> (who shaped us, like George Washington and Rosa Parks), <strong>documents</strong> (what we believe, like the Declaration of Independence and the Constitution), and <strong>events</strong> (what tested us, like the Civil War). Rosa Parks showed <strong>heroism</strong> when she refused to give up her bus seat in 1955. The Tuskegee Airmen, the first Black pilots in the U.S. military, showed <strong>patriotism</strong> in World War II. The motto on the Great Seal, <em>E Pluribus Unum</em>, means “out of many, one.”
+            <span class="rm"><b>Lobby</b>In a dark hall, guess five objects on the center pedestal from their shadows, then light each one up.</span>
+            <span class="rm"><b>Gallery</b>Sort eight cards onto four pillars that hold up a roof marked UNITED STATES, then pull one pillar out and watch the roof tip. Put Rosa Parks’ story in order and fly the Red Tails’ mission. Hunt for the number 13 on the real Great Seal.</span>
+            <span class="pill p-source">Source: the Great Seal of the United States, first used in 1782</span><span class="pill p-virtue">Lens: Honesty</span></td>
+          <td>One evidence question at Two Brave Choices, and <strong>The Big Question</strong>: symbols and documents, or individuals and events? Closing the hall earns the <strong>Citizen Curator badge</strong>.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:10px;">Each Workroom also has a short word puzzle about one word part: <strong>civ</strong> (citizen), <strong>stitu</strong> (to set up), <strong>loc</strong> (place), <strong>flor</strong> (flower), <strong>elect</strong> (to choose), <strong>memor</strong> (remembering), <strong>volunt</strong> (willing, by choice), and <strong>uni</strong> (one).</p>
+  </section>
+
+  <!-- WORDS -->
+  <section class="card">
+    <div class="card-head"><span class="ico">🔤</span><h2>Words to Know</h2><span class="tag">Use them at home!</span></div>
+    <div class="words">
+      <div class="word"><b>government</b><span>a group of people chosen to make rules and take care of a community</span></div>
+      <div class="word"><b>citizen</b><span>a member of a community or a country</span></div>
+      <div class="word"><b>common good</b><span>things that help everyone in the community, not just one person</span></div>
+      <div class="word"><b>constitution</b><span>a written plan that sets up a government, gives it its jobs, and sets its limits</span></div>
+      <div class="word"><b>We the People</b><span>the first words of the U.S. Constitution: the power comes from the people</span></div>
+      <div class="word"><b>local, state, national</b><span>the three levels of government: your town or city, Florida, and the whole country</span></div>
+      <div class="word"><b>governor</b><span>the leader of a state government, like Florida’s</span></div>
+      <div class="word"><b>vote</b><span>one person’s choice, counted with everyone else’s</span></div>
+      <div class="word"><b>election</b><span>when many people vote to pick something or someone</span></div>
+      <div class="word"><b>secret ballot</b><span>voting in private, so no one can watch or push you</span></div>
+      <div class="word"><b>patriotic holiday</b><span>a day set aside to honor the country, its people, or an idea</span></div>
+      <div class="word"><b>veteran</b><span>a person who has served in the military</span></div>
+      <div class="word"><b>civic virtue</b><span>a habit a citizen practices on purpose to help the community</span></div>
+      <div class="word"><b>civility</b><span>treating people with respect, even when you disagree</span></div>
+      <div class="word"><b>volunteerism</b><span>choosing to help your community without being told to</span></div>
+      <div class="word"><b>symbol</b><span>something that stands for something bigger, like the flag for the country</span></div>
+      <div class="word"><b>heroism</b><span>great courage</span></div>
+      <div class="word"><b>patriotism</b><span>love for your country, shown by serving it</span></div>
+    </div>
+  </section>
+
+  <!-- ASK AT HOME -->
+  <section class="card">
+    <div class="card-head"><span class="ico">💬</span><h2>Ask at Home</h2><span class="tag">Better than “How was school?”</span></div>
+    <ol class="ask">
+      <li><span class="q">Why does a community need a government?</span><span class="listen">Listen for: to keep order, keep people safe, and care for the common good.</span></li>
+      <li><span class="q">Where does the government’s power come from?</span><span class="listen">Listen for: the people (“We the People”), who choose leaders by voting.</span></li>
+      <li><span class="q">Is a President the same as a king?</span><span class="listen">Listen for: no; a President is chosen by a vote, serves for a set time, and must follow the Constitution too.</span></li>
+      <li><span class="q">Who picks up our trash? Who gives out driver’s licenses? Who makes our money?</span><span class="listen">Listen for: local government, state government (Florida), national government.</span></li>
+      <li><span class="q">What does the name Florida mean?</span><span class="listen">Listen for: “the flowered place,” named by Juan Ponce de León in 1513.</span></li>
+      <li><span class="q">Why does a voting booth have a curtain?</span><span class="listen">Listen for: so each person votes in private and no one can watch or push them (a secret ballot).</span></li>
+      <li><span class="q">What is the difference between Memorial Day and Veterans Day?</span><span class="listen">Listen for: Memorial Day remembers those who died serving; Veterans Day honors everyone who has served.</span></li>
+      <li><span class="q">Can you be civil to someone you disagree with?</span><span class="listen">Listen for: yes; civility means respect, not agreeing.</span></li>
+      <li><span class="q">What does E Pluribus Unum mean, and where is it?</span><span class="listen">Listen for: “out of many, one,” on the Great Seal of the United States (and on coins and the dollar bill).</span></li>
+    </ol>
+  </section>
+
+  <!-- TURN IN + TRY AT HOME -->
+  <div class="two">
+    <section class="card">
+      <div class="card-head"><span class="ico">📬</span><h2>What Gets Turned In</h2></div>
+      <ul class="check">
+        <li><strong>Each lesson:</strong> the Curator Task (a label, a ballot, plaques, or a Big Question recommendation), a Curator’s Chronicle sentence, and the evidence questions</li>
+        <li><strong>Several lessons:</strong> one evidence question is written at a station in the Gallery. It still shows up in the gathered answers at the end.</li>
+        <li><strong>End of the unit:</strong> a 10-question Unit 10 quiz in Canvas</li>
+        <li>Copied or downloaded, then <strong>submitted in Canvas</strong></li>
+      </ul>
+      <p class="small" style="margin-top:10px;"><strong>Done well looks like:</strong> the unit’s own words used correctly (government, constitution, local, state, national, vote, civic virtue), a real example from the lesson, and a reason that starts with “because.”</p>
+    </section>
+    <section class="card">
+      <div class="card-head"><span class="ico">🏡</span><h2>Try at Home</h2><span class="tag">5 minutes</span></div>
+      <ul class="check">
+        <li><strong>Three levels hunt.</strong> On a drive or a walk, point out something your city runs, something Florida runs, and something the national government runs (a post office, a mailbox, a dollar bill).</li>
+        <li><strong>Family vote.</strong> Pick a movie or a dinner with a secret ballot: everyone writes a choice on paper, folds it, and one person counts.</li>
+        <li><strong>Find the motto.</strong> Look at a penny or the back of a dollar bill and find <em>E Pluribus Unum</em>.</li>
+        <li><strong>One small choice.</strong> Pick one civic virtue for the week and do one action that shows it.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- NEXT -->
+  <section class="card next">
+    <div class="card-head"><span class="ico">🔭</span><h2>Coming Up: The Grand Exhibition Hall</h2></div>
+    <p>Citizenship Hall is finished, and its lights go dim. Next your student walks into a brand-new room at the end of the museum, the <strong>Grand Exhibition Hall</strong>. Every panel is blank. The museum director is waiting with a folder of every badge your student earned this year, and this time the exhibit is theirs to design: a final look back at the whole year.</p>
+  </section>
+
+  <p class="foot">Optima Academy Online · 3rd Grade Social Studies · Unit 10 Family Guide<br>Questions? Reach out to your student’s teacher anytime.</p>
+</div>
+</body>
+</html>
