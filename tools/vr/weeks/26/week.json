@@ -1,0 +1,275 @@
+{
+ "id": "g3ss-vr-26",
+ "week": 26,
+ "lesson": "3.09.06",
+ "lessonA": "3.09.05",
+ "lessonTitle": "Trade Routes and Regional Resources",
+ "title": "Cargo Deck Diorama",
+ "emoji": "🚢",
+ "pattern": "A",
+ "canvasName": "3.09.06 VR · Cargo Deck Diorama",
+ "details": [
+  "📅 Q4 · Unit 9 · Basics of Economics",
+  "📖 Week 26 · goes with Lesson 3.09.06",
+  "📋 SS.3.E.1.1 · SS.3.E.1.2 · SS.3.E.1.4",
+  "⏱ About 15 minutes"
+ ],
+ "map": "Immigrant Steam Ship (Day)",
+ "mapWord": "Steam",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Cargo Ribbon",
+  "line": "Only VR curators earn this one. You loaded a ship with goods from many regions."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 26 · Cargo Deck Diorama",
+  "sub": "The Museum · Marketplace Hall",
+  "rows": [
+   [
+    "Place",
+    "The deck of a steamship"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "boat",
+  "alt": "An old black and white photo of workers loading bunches of bananas onto a ship at a dock",
+  "cap": "Workers load bananas onto a steamship bound for Boston, Port Antonio, Jamaica, before 1921.",
+  "note": "Our trade routes map needs a cargo ship. Please load one with goods from many regions!"
+ },
+ "opti": {
+  "brief": "Curators, each region has its own resources. Load a steamship with goods from four regions, then send me one photo.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, each region has its own resources. Load a steamship with goods from four regions, then send me one photo.",
+  "step1": "Before your headset, look at the models. Each one has a gray search word.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Walk onto the deck. Put the crates in a row. Then put the bananas, lumber, wheat and orange on the deck.",
+  "step4": "Open Library, then Camera. Fit your whole diorama in the tablet. Click Take photo, then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then check that your photo is in the Canvas assignment.",
+  "extra": "Have more time? Put the bananas at the front, like the banana ship going to Boston.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Build the Cargo Deck",
+  "look": "<b>Cargo</b> is the goods a ship carries. Each model is a resource from a different region.",
+  "groups": [
+   {
+    "title": "Cargo from four regions (7 pieces)",
+    "models": [
+     {
+      "name": "Banana Bunch",
+      "word": "Banana",
+      "icon": "🍌",
+      "alt": "A bunch of bananas",
+      "why": "From the warm Caribbean islands"
+     },
+     {
+      "name": "Lumber 1",
+      "word": "Lumber",
+      "icon": "🪵",
+      "alt": "A stack of cut wood",
+      "why": "From Canada's big forests"
+     },
+     {
+      "name": "Wheat Stage 4",
+      "word": "Wheat",
+      "icon": "🌾",
+      "alt": "A wheat plant",
+      "why": "From the U.S. prairies"
+     },
+     {
+      "name": "Optima Domi Orange",
+      "word": "Orange",
+      "icon": "🍊",
+      "alt": "An orange",
+      "why": "From Florida orange groves"
+     },
+     {
+      "name": "Crate",
+      "word": "Crate",
+      "count": 3,
+      "icon": "📦",
+      "alt": "A wooden crate",
+      "why": "Crates hold the cargo on the trip"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "<p>These are the models you will use. In VR, type the <b>gray word</b> in the <b>Models</b> search box to find each one.</p>@MODELS@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Steam</b> in <b>Filter environments</b>. Click <b>Immigrant Steam Ship (Day)</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Load the deck",
+    "clip": "step3",
+    "html": "<p>Walk onto the deck of the ship. Put the 3 <b>crates</b> in a row.</p><p>Put one good on each part of the deck: the <b>bananas</b>, the <b>lumber</b>, the <b>wheat</b> and the <b>orange</b>.</p>"
+   },
+   {
+    "title": "Take your photo and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until your whole diorama fits. Click <b>Take photo</b>.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your photo, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Take a new photo and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your photo is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Put the bananas closest to the front. In the old photo, the ship was taking bananas to Boston."
+  },
+  "full": "One photo that shows the crates and all 4 goods on the deck."
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "Draw the Trade Routes",
+  "look": "A map of six places in North America and the Caribbean. Each place has plenty of something, and each is missing something. A <b>cargo card</b> shows goods leaving one place.",
+  "do": "Read the cargo card. The dark place is where it comes from. Tap the place that needs it. An arrow shows the route.",
+  "game": {
+   "type": "route",
+   "cols": [
+    "Cargo",
+    "Route"
+   ],
+   "labels": {
+    "round": "Cargo",
+    "from": "from here"
+   },
+   "miss": "Not that place. Read the card: which place is missing this?",
+   "done": "Five routes on the map! Goods travel from where there is plenty to where there is scarcity.",
+   "places": [
+    {
+     "key": "can",
+     "name": "Canada: forests, too cold for oranges",
+     "icon": "🍁",
+     "x": 40,
+     "y": 9
+    },
+    {
+     "key": "pra",
+     "name": "Prairie farms: wheat, few trees",
+     "icon": "🌾",
+     "x": 30,
+     "y": 30
+    },
+    {
+     "key": "bos",
+     "name": "Boston: a cold city by the Atlantic",
+     "icon": "🏙️",
+     "x": 80,
+     "y": 22
+    },
+    {
+     "key": "fla",
+     "name": "Florida: oranges",
+     "icon": "🍊",
+     "x": 70,
+     "y": 47
+    },
+    {
+     "key": "mex",
+     "name": "Mexico: avocados",
+     "icon": "🥑",
+     "x": 22,
+     "y": 56
+    },
+    {
+     "key": "car",
+     "name": "Caribbean: bananas, too warm for wheat",
+     "icon": "🍌",
+     "x": 82,
+     "y": 61
+    }
+   ],
+   "cargo": [
+    {
+     "name": "Bananas",
+     "what": "They grow in warm weather. Send them to the cold city by the Atlantic.",
+     "icon": "🍌",
+     "from": "car",
+     "to": "bos",
+     "ok": "Yes! Bananas went by steamship from Jamaica to Boston."
+    },
+    {
+     "name": "Timber (wood)",
+     "what": "Canada has huge forests. Send it to the place with few trees.",
+     "icon": "🪵",
+     "from": "can",
+     "to": "pra",
+     "ok": "Yes! The prairie is a sea of grass with few trees, so farms need wood."
+    },
+    {
+     "name": "Oranges",
+     "what": "Florida grows them. Send them to the place too cold for orange trees.",
+     "icon": "🍊",
+     "from": "fla",
+     "to": "can",
+     "ok": "Yes! Oranges ship to stores far from any orange tree."
+    },
+    {
+     "name": "Wheat",
+     "what": "The prairies grow plenty. Send it to the islands too warm for wheat.",
+     "icon": "🌾",
+     "from": "pra",
+     "to": "car",
+     "ok": "Yes! Wheat travels to places that cannot grow it."
+    },
+    {
+     "name": "Avocados",
+     "what": "Mexico grows them. Send them to the cold city by the Atlantic.",
+     "icon": "🥑",
+     "from": "mex",
+     "to": "bos",
+     "ok": "Yes! Avocados from Mexico travel north to cold cities."
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "Pick one route. What travels?",
+     "starter": "One route on my map carries ..."
+    },
+    {
+     "lead": "Why does it travel?",
+     "starter": "It travels because ..."
+    }
+   ],
+   "chips": [
+    "trade route",
+    "resource",
+    "scarcity",
+    "plenty",
+    "Caribbean",
+    "Canada",
+    "Boston",
+    "bananas"
+   ]
+  },
+  "full": "All five routes are drawn, and your 2 sentences have 20 words or more."
+ },
+ "audioPending": "Q4: brief, step3 and extra are scripted, not recorded (Bethany 19 Nov 2026). Shared clips reused."
+}
