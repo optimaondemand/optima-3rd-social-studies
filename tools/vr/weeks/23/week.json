@@ -1,0 +1,235 @@
+{
+ "id": "g3ss-vr-23",
+ "week": 23,
+ "lesson": "3.08.02",
+ "lessonA": "3.08.01",
+ "lessonTitle": "Council Chamber: Which Region Needs This Resource?",
+ "title": "Dry Land Diorama",
+ "emoji": "💧",
+ "pattern": "B",
+ "canvasName": "3.08.02 VR · Dry Land Diorama",
+ "details": [
+  "📅 Q3 · Unit 8 · Synthesis 2: The Regional Council",
+  "📖 Week 23 · goes with Lesson 3.08.02",
+  "📋 SS.3.G.2.2 · SS.3.G.3.1 · SS.3.G.4.1",
+  "⏱ About 15 minutes"
+ ],
+ "map": "The Alamo Fortress",
+ "mapWord": "Alamo",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Council Ribbon",
+  "line": "Only VR curators earn this one. You followed the evidence to a dry place and told the truth about water."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 23 · Dry Land Diorama",
+  "sub": "The Council Chamber",
+  "rows": [
+   [
+    "Place",
+    "An old fort in the dry Southwest"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "mead",
+  "alt": "Two satellite pictures of a lake. In the right picture, from 2022, the lake is much smaller.",
+  "cap": "Lake Mead from space, 2000 and 2022. It holds Colorado River water.",
+  "note": "The council wants to see a dry place up close. Please visit one and tell me about its water!"
+ },
+ "opti": {
+  "brief": "Curators, the council asked which region needs fresh water most. Visit an old fort in the dry Southwest, then record a short video.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, the council asked which region needs fresh water most. Visit an old fort in the dry Southwest, then record a short video.",
+  "step1": "Before your headset, read about the place. Then press Practice and say your two sentences before the timer ends.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Move with the thumbstick. Walk around the fort. Look at the ground and the sky for clues that this place is dry.",
+  "step4": "Open Library, then Camera. Click Record video and say your two sentences. Click again to stop. Then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then open the Canvas assignment and check that your video is there.",
+  "extra": "Have more time? Show the dry ground while you talk about water.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Scout the Alamo",
+  "look": "The <b>Southwest</b> is the driest region. The <b>Alamo</b> is an old fort in San Antonio, Texas, in the Southwest. <b>Fresh water</b> is water people can drink.",
+  "groups": [],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "@PLACE@<p>In your video, you say these 2 sentences:</p>@SAY@<p>Practice now. Say both before the timer ends.</p>@TIMER@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Alamo</b> in <b>Filter environments</b>. Click <b>The Alamo Fortress</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Scout the fort",
+    "clip": "step3",
+    "html": "<p>Move with the <b>thumbstick</b>. Walk around the fort. Look at the ground and the sky for clues that this place is dry.</p>"
+   },
+   {
+    "title": "Record your video and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until the fort fits.</p><p>Click <b>Record video</b>. Say your 2 sentences. Click it again to stop.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your video, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Record a new video and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your video is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Point the camera down at the dry ground for a moment while you talk about water."
+  },
+  "full": "One video, 30 seconds or less, that shows the fort while you say both sentences.",
+  "place": [
+   {
+    "img": "alamo",
+    "alt": "An old stone building with a curved top and a big wooden door",
+    "html": "<b>The Alamo today,</b> in San Antonio, Texas.",
+    "cap": "The Alamo in San Antonio, Texas."
+   }
+  ],
+  "say": [
+   "This old fort is in the Southwest, and I see ___.",
+   "The Southwest needs fresh water because ___."
+  ],
+  "seconds": 30
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "Water Evidence Map",
+  "look": "A simple map of the five regions of the United States. Each <b>evidence card</b> tells one true thing about land or water in one region.",
+  "do": "Read the card. Tap the region it belongs to, or drag the card onto the map.",
+  "game": {
+   "type": "regionmap",
+   "cols": [
+    "Evidence",
+    "Region"
+   ],
+   "labels": {
+    "card": "Evidence card"
+   },
+   "miss": "Not that region. Read the card again: where is this place?",
+   "done": "The map is full. The Southwest is the driest region, so the evidence says it needs fresh water most.",
+   "regions": [
+    {
+     "key": "w",
+     "name": "West"
+    },
+    {
+     "key": "sw",
+     "name": "Southwest"
+    },
+    {
+     "key": "mw",
+     "name": "Midwest"
+    },
+    {
+     "key": "se",
+     "name": "Southeast"
+    },
+    {
+     "key": "ne",
+     "name": "Northeast"
+    }
+   ],
+   "cards": [
+    {
+     "name": "The Great Lakes",
+     "what": "Five huge lakes with about one fifth of the fresh water on top of the Earth.",
+     "img": "rocks",
+     "alt": "Cliffs beside clear blue lake water",
+     "icon": "💧",
+     "region": "mw",
+     "ok": "Yes! The Great Lakes sit on the Midwest. Lots of fresh water there."
+    },
+    {
+     "name": "The Grand Canyon",
+     "what": "Dry land carved by the Colorado River. Very little rain falls here.",
+     "img": "canyon",
+     "alt": "A huge dry canyon",
+     "icon": "🏜️",
+     "region": "sw",
+     "ok": "Yes! The Grand Canyon is in Arizona, in the dry Southwest."
+    },
+    {
+     "name": "The Everglades",
+     "what": "A wide, wet grassland in Florida. Water moves slowly across it.",
+     "img": "glades",
+     "alt": "Tall wet grass with water",
+     "icon": "🌾",
+     "region": "se",
+     "ok": "Yes! The Everglades are in Florida, in the Southeast. Plenty of rain there."
+    },
+    {
+     "name": "Niagara Falls",
+     "what": "A giant waterfall between two of the Great Lakes, in New York.",
+     "img": "falls",
+     "alt": "A big waterfall",
+     "icon": "🌊",
+     "region": "ne",
+     "ok": "Yes! Niagara Falls is in New York, in the Northeast. It has many rivers and lakes."
+    },
+    {
+     "name": "Mount Rainier",
+     "what": "A snowy mountain in Washington, where many days bring gentle rain.",
+     "img": "rainier",
+     "alt": "A snowy mountain by a lake",
+     "icon": "🌧️",
+     "region": "w",
+     "ok": "Yes! Mount Rainier is in Washington, in the West."
+    },
+    {
+     "name": "Acoma Pueblo",
+     "what": "Adobe homes on dry land in New Mexico, under a deep blue sky.",
+     "img": "acoma",
+     "alt": "Adobe homes on sandy ground",
+     "icon": "☀️",
+     "region": "sw",
+     "ok": "Yes! Acoma Pueblo is in New Mexico, in the dry Southwest."
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "Which region needs fresh water most?",
+     "starter": "The region that needs fresh water most is ..."
+    },
+    {
+     "lead": "What is your evidence?",
+     "starter": "My evidence is ..."
+    }
+   ],
+   "chips": [
+    "Southwest",
+    "driest",
+    "little rain",
+    "Colorado River",
+    "desert",
+    "Great Lakes",
+    "evidence"
+   ]
+  },
+  "full": "All six cards are on the map, and your 2 sentences have 20 words or more."
+ }
+}

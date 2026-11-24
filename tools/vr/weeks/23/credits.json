@@ -1,0 +1,34 @@
+{
+ "mead": {
+  "line": "Pictures: NASA Earth Observatory (Lauren Dauphin), Landsat 7 (July 2000) and Landsat 8 (July 2022), public domain, via Wikimedia Commons.",
+  "src": "images/src-3-08-02-mead.jpg"
+ },
+ "alamo": {
+  "line": "Photo: Carol M. Highsmith, 2014, Library of Congress, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-sw-built.jpg"
+ },
+ "canyon": {
+  "line": "Photo: Grand Canyon National Park (NPS), 2007, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-sw-nat.jpg"
+ },
+ "glades": {
+  "line": "Photo: G. Gardner, Everglades National Park (NPS), 2008, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-se-nat.jpg"
+ },
+ "rocks": {
+  "line": "Photo: National Park Service, 2015, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-mw-nat.jpg"
+ },
+ "falls": {
+  "line": "Photo: DimiTalen, 2007, Wikimedia Commons (CC0).",
+  "src": "images/spec-3-07-01-ne-nat.jpg"
+ },
+ "rainier": {
+  "line": "Photo: National Park Service, 2006, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-w-nat.jpg"
+ },
+ "acoma": {
+  "line": "Photo: Carol M. Highsmith, 2008, Library of Congress (public domain).",
+  "src": "images/src-3-07-05-acoma.jpg"
+ }
+}
