@@ -1,0 +1,301 @@
+{
+ "id": "g3ss-vr-24",
+ "week": 24,
+ "lesson": "3.09.02",
+ "lessonA": "3.09.01",
+ "lessonTitle": "How Scarcity Results in Trade",
+ "title": "Trade Table Diorama",
+ "emoji": "⚖️",
+ "pattern": "A",
+ "canvasName": "3.09.02 VR · Trade Table Diorama",
+ "details": [
+  "📅 Q3 · Unit 9 · Basics of Economics",
+  "📖 Week 24 · goes with Lesson 3.09.02",
+  "📋 SS.3.E.1.1 · SS.3.E.1.2 · SS.3.E.1.4",
+  "⏱ About 15 minutes"
+ ],
+ "map": "Island Town",
+ "mapWord": "Island",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Fair Trade Ribbon",
+  "line": "Only VR curators earn this one. You showed how two places trade so both are better off."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 24 · Trade Table Diorama",
+  "sub": "The Museum · Marketplace Hall",
+  "rows": [
+   [
+    "Place",
+    "A town by the sea"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "hubbell",
+  "alt": "Two old photos: a store counter with shelves of goods, and a room full of woven rugs",
+  "cap": "The Hubbell Trading Post in Arizona. Navajo families traded wool and rugs for flour, coffee, sugar and cloth.",
+  "note": "Remember the coastal town and the valley farm? Please build the table where they trade!"
+ },
+ "opti": {
+  "brief": "Curators, the coastal town has fish but no wheat. The valley farm has wheat but no fish. Build their trade table, then send a photo.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, the coastal town has fish but no wheat. The valley farm has wheat but no fish. Build their trade table, then send a photo.",
+  "step1": "Before your headset, look at the models. Each one has a gray search word.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Find a flat spot near the water. Put the fish and the net on one side, the wheat and flour on the other, and the basket in the middle.",
+  "step4": "Open Library, then Camera. Fit your whole diorama in the tablet. Click Take photo, then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then check that your photo is in the Canvas assignment.",
+  "extra": "Have more time? Put one fish in the basket, to show the trade has started.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Build the Trade Table",
+  "look": "<b>Scarcity</b> means not having enough of something. A <b>trade</b> is when two sides swap things. Each side gives what it has plenty of to get what it is missing.",
+  "groups": [
+   {
+    "title": "Coast side",
+    "models": [
+     {
+      "name": "Striped Fish",
+      "word": "Striped",
+      "count": 2,
+      "icon": "🐟",
+      "alt": "A striped fish"
+     },
+     {
+      "name": "Fishing Net",
+      "word": "Net",
+      "icon": "🎣",
+      "alt": "A fishing net"
+     }
+    ]
+   },
+   {
+    "title": "Valley side",
+    "models": [
+     {
+      "name": "Wheat Stage 4",
+      "word": "Wheat",
+      "count": 2,
+      "icon": "🌾",
+      "alt": "A wheat plant"
+     },
+     {
+      "name": "Flour Sack",
+      "word": "Flour",
+      "icon": "🛍️",
+      "alt": "A sack of flour"
+     },
+     {
+      "name": "Basket",
+      "word": "Basket",
+      "icon": "🧺",
+      "alt": "An empty basket"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "<p>These are the models you will use. In VR, type the <b>gray word</b> in the <b>Models</b> search box to find each one.</p>@MODELS@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Island</b> in <b>Filter environments</b>. Click <b>Island Town</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Build the trade table",
+    "clip": "step3",
+    "html": "<p>Find a flat spot near the water. Put the <b>net</b> and the 2 <b>fish</b> on one side. This is the coast side.</p><p>Put the 2 <b>wheat</b> plants and the <b>flour</b> on the other side. This is the valley side.</p><p>Put the <b>basket</b> in the middle, where the trade happens.</p>"
+   },
+   {
+    "title": "Take your photo and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until your whole diorama fits. Click <b>Take photo</b>.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your photo, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Take a new photo and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your photo is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Put one fish in the basket, to show the trade has started."
+  },
+  "full": "One photo that shows the coast side, the valley side and the basket in the middle."
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "Make a Fair Trade",
+  "look": "Three trades. Each one has two places. Each place has plenty of one thing and is missing another thing. That is <b>scarcity</b>.",
+  "do": "Tap one thing each place sends. Then press <b>Make the trade</b>.",
+  "game": {
+   "type": "trade",
+   "cols": [
+    "Trade",
+    "Who sends what"
+   ],
+   "labels": {
+    "round": "Trade",
+    "go": "Make the trade"
+   },
+   "done": "Three fair trades! Each side gave what it had plenty of and got what it was missing.",
+   "rounds": [
+    {
+     "ok": "Fair trade! Fish for grain. Now both towns have bread and fish.",
+     "a": {
+      "name": "Coastal town",
+      "icon": "🌊",
+      "line": "Plenty of fish. Sandy soil, so no wheat.",
+      "give": 0,
+      "miss": "The coastal town needs its wheat, and it has none to spare. What does it have plenty of?",
+      "goods": [
+       {
+        "name": "Fish",
+        "icon": "🐟"
+       },
+       {
+        "name": "Wheat",
+        "icon": "🌾"
+       }
+      ]
+     },
+     "b": {
+      "name": "Valley farm",
+      "icon": "🌾",
+      "line": "Plenty of grain. Far from the ocean, so no fish.",
+      "give": 1,
+      "miss": "The valley farm has no fish to give. What does it have plenty of?",
+      "goods": [
+       {
+        "name": "Fish",
+        "icon": "🐟"
+       },
+       {
+        "name": "Grain",
+        "icon": "🌾"
+       }
+      ]
+     }
+    },
+    {
+     "ok": "Fair trade! Rugs for flour, just like at the Hubbell Trading Post.",
+     "a": {
+      "name": "Navajo weavers",
+      "icon": "🧶",
+      "line": "Plenty of wool and rugs. No store nearby.",
+      "give": 1,
+      "miss": "The weavers need flour, so they keep it. What did they make plenty of?",
+      "goods": [
+       {
+        "name": "Flour",
+        "icon": "🛍️"
+       },
+       {
+        "name": "A woven rug",
+        "icon": "🧶"
+       }
+      ]
+     },
+     "b": {
+      "name": "Trading post",
+      "icon": "🏪",
+      "line": "Plenty of flour, coffee and cloth.",
+      "give": 0,
+      "miss": "The trading post wants rugs, so it would not give one away. What does it have plenty of?",
+      "goods": [
+       {
+        "name": "Flour and coffee",
+        "icon": "☕"
+       },
+       {
+        "name": "A woven rug",
+        "icon": "🧶"
+       }
+      ]
+     }
+    },
+    {
+     "ok": "Fair trade! Oranges for wood. Each place got what it was missing.",
+     "a": {
+      "name": "Mountain town",
+      "icon": "🌲",
+      "line": "Plenty of trees for wood. Too cold for oranges.",
+      "give": 0,
+      "miss": "Oranges cannot grow in the cold mountains. What does the town have plenty of?",
+      "goods": [
+       {
+        "name": "Wood",
+        "icon": "🪵"
+       },
+       {
+        "name": "Oranges",
+        "icon": "🍊"
+       }
+      ]
+     },
+     "b": {
+      "name": "Florida orange grove",
+      "icon": "🍊",
+      "line": "Plenty of oranges. Few big trees for wood.",
+      "give": 1,
+      "miss": "The grove is missing wood, so it has none to give. What does it have plenty of?",
+      "goods": [
+       {
+        "name": "Wood",
+        "icon": "🪵"
+       },
+       {
+        "name": "Oranges",
+        "icon": "🍊"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "What is scarcity?",
+     "starter": "Scarcity means ..."
+    },
+    {
+     "lead": "Why do people trade?",
+     "starter": "People trade because ..."
+    }
+   ],
+   "chips": [
+    "scarcity",
+    "trade",
+    "plenty",
+    "missing",
+    "fish",
+    "grain",
+    "fair",
+    "better off"
+   ]
+  },
+  "full": "All three trades are made, and your 2 sentences have 20 words or more."
+ }
+}
