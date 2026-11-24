@@ -1,0 +1,168 @@
+{
+ "id": "g3-u10-quiz",
+ "title": "Unit 10 Quiz · Basics of Government and Citizenship",
+ "description": "10 questions about Unit 10. Read each question carefully. Pick the best answer. One question asks you to pick all the answers that are true.",
+ "points_each": 1,
+ "questions": [
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.10.01 Why Government Is Needed",
+   "text": "What are the three big jobs a government does for a community?",
+   "options": [
+    "Selling toys, making games, and baking bread.",
+    "Picking everyone's friends, food, and clothes.",
+    "Keeping order, keeping people safe, and caring for the common good.",
+    "Collecting taxes and nothing else."
+   ],
+   "correct": [
+    2
+   ],
+   "why": "A government keeps order (fair rules, like a property line), keeps people safe (like firefighters), and cares for the common good (things that help everyone, like a park).",
+   "n": 1
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.10.02 U.S. Constitution and Power from the People",
+   "text": "The U.S. Constitution starts with the words \"We the People.\" Where does the government's power come from?",
+   "options": [
+    "The President.",
+    "The people.",
+    "The army.",
+    "The king of England."
+   ],
+   "correct": [
+    1
+   ],
+   "why": "\"We the People\" means the power comes from the people. The people choose their leaders by voting, and the leaders must follow the Constitution too.",
+   "n": 2
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.10.07 Civic Virtues",
+   "text": "What is a constitution?",
+   "options": [
+    "A speech a leader gives on the first day of the job.",
+    "A list of every law ever passed.",
+    "A book of stories about a country's history.",
+    "A written plan that sets up a government, gives it its jobs, and sets its limits."
+   ],
+   "correct": [
+    3
+   ],
+   "why": "A constitution is a written plan for a government. It sets up the government, gives it its jobs, and sets its limits. The U.S. and Florida each have one.",
+   "n": 3
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.10.03 Local, State, and National Government",
+   "text": "The trash on your street needs to be picked up. Which level of government does that job?",
+   "options": [
+    "Local government (your city or county).",
+    "State government (Florida).",
+    "National government (the whole country).",
+    "No level of government."
+   ],
+   "correct": [
+    0
+   ],
+   "why": "Trash pickup happens right by your front door. Your city or county, the local government, sends the trash truck.",
+   "n": 4
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.10.03 Local, State, and National Government",
+   "text": "Which job belongs to the national government?",
+   "options": [
+    "Giving out Florida driver's licenses.",
+    "Making the dollar bills used in every state.",
+    "Lending books at your town library.",
+    "Picking up the trash on your street."
+   ],
+   "correct": [
+    1
+   ],
+   "why": "Only the national government makes U.S. money, so one dollar works the same in all 50 states. Driver's licenses are a state job; the library and trash pickup are local.",
+   "n": 5
+  },
+  {
+   "type": "true_false_question",
+   "lesson": "3.10.04 Florida Constitution and Florida Symbols",
+   "text": "True or false: The Florida Constitution sets up Florida's state government, and the U.S. Constitution sets up the national government.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "why": "True. Florida has its own constitution for its state government, and the U.S. Constitution sets up the government for the whole country.",
+   "n": 6
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.10.05 Voting and Elections",
+   "text": "Why does a voting booth have a curtain?",
+   "options": [
+    "So the line moves faster.",
+    "So nobody has to count the votes.",
+    "So each voter can choose in private, and no one can watch or push them.",
+    "So only important people can vote."
+   ],
+   "correct": [
+    2
+   ],
+   "why": "The curtain makes a secret ballot: each person votes in private. No one can watch, and no one can push them to pick something.",
+   "n": 7
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.10.06 Patriotic Holidays and Observances",
+   "text": "On July 4, Americans celebrate Independence Day. What happened on July 4, 1776?",
+   "options": [
+    "The Constitution was signed.",
+    "Leaders approved the Declaration of Independence, saying the 13 colonies were free from Great Britain's king.",
+    "The first Veterans Day parade marched down Main Street.",
+    "Florida became a state."
+   ],
+   "correct": [
+    1
+   ],
+   "why": "On July 4, 1776, the Declaration of Independence was adopted. It said the 13 colonies were free from the king. The Constitution came later, in 1787.",
+   "n": 8
+  },
+  {
+   "type": "multiple_answers_question",
+   "lesson": "3.10.07 Civic Virtues",
+   "text": "Which of these are civic virtues? Pick ALL that are true.",
+   "options": [
+    "Civility: treating people with respect, even when you disagree.",
+    "Being the loudest person in the room.",
+    "Volunteerism: choosing to help your community without being told to.",
+    "Responsibility: doing what you said you would do."
+   ],
+   "correct": [
+    0,
+    2,
+    3
+   ],
+   "why": "Civility, volunteerism, and responsibility are civic virtues (so is cooperation). Being the loudest is not: civility means respect, not winning by shouting.",
+   "n": 9
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.10.08 Symbols, Individuals, Documents and Events",
+   "text": "In 1955, Rosa Parks calmly refused to give up her bus seat, even though she knew she could be arrested. What did she show?",
+   "options": [
+    "That only Presidents can be heroes.",
+    "That she was tired of walking.",
+    "That rules never matter.",
+    "Heroism: great courage."
+   ],
+   "correct": [
+    3
+   ],
+   "why": "Rosa Parks showed heroism, great courage. Heroes are not only Presidents: any citizen can show heroism. Her choice helped change unfair bus laws.",
+   "n": 10
+  }
+ ]
+}
