@@ -185,8 +185,8 @@
      "key": "fla",
      "name": "Florida: oranges",
      "icon": "🍊",
-     "x": 70,
-     "y": 47
+     "x": 56,
+     "y": 46
     },
     {
      "key": "mex",
@@ -199,8 +199,8 @@
      "key": "car",
      "name": "Caribbean: bananas, too warm for wheat",
      "icon": "🍌",
-     "x": 82,
-     "y": 61
+     "x": 84,
+     "y": 60
     }
    ],
    "cargo": [
