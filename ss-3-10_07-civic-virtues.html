@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Optima Academy Online — Lesson 3.10.07: Civic Virtues (Grade 3 Museum)</title>
+<title>Optima Academy Online: Lesson 3.10.07, Civic Virtues (Grade 3 Museum)</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;600;700;800;900&display=swap');
 
@@ -1459,6 +1459,10 @@ body {
    When the manifest loader embeds a video it clears the placeholder, and the card shows again. */
 .video-wrap:has(.video-placeholder-id) { display: none !important; }
 </style>
+<script type="application/json" id="ms-data">
+{"lesson": "3.10.07", "title": "Civic Virtues", "hall": "Citizenship Hall · Week 31", "rooms": [{"tab": "scene", "icon": "🚪", "name": "Lobby", "short": "Lobby", "sub": "The dusty plaques"}, {"tab": "explore", "icon": "🖼️", "name": "Gallery", "short": "Gallery", "sub": "A week of small choices"}, {"tab": "check", "icon": "🔎", "name": "Workroom", "short": "Workroom", "sub": "Check yourself"}, {"tab": "assignment", "icon": "🏷️", "name": "Exhibit Floor", "short": "Exhibit", "sub": "The heart of the hall"}], "signs": {"scene": "Four bronze plaques lie face down on a velvet cloth by the back wall of Citizenship Hall. What do they say?", "explore": "Polish the plaques through a week of small choices, help on a day of service, and tag a real photo.", "check": "Three quick questions, one at a time, and a sign-up sheet to fill in. Not graded. Just for you.", "assignment": "Answer the evidence questions, then hang one plaque at the heart of the hall."}, "doorHints": {"scene": "Turn over and clean all four plaques, answer both questions, then walk through to the Gallery.", "explore": "Finish the week, the day of service, and the photo. Then go to the Workroom.", "check": "Answer all three questions, then head to the Exhibit Floor.", "assignment": "Hang your plaque and tick every box on the checklist to finish your visit."}, "galleryNeeds": ["week", "service", "photo"], "lens": {"icon": "🏛️", "text": "<b>Your job today: Civic Curator.</b> You take care of the exhibits in Citizenship Hall. <b>Today's lens: Service.</b> Service means helping your community. All four plaques are different shapes of service."}, "virtues": [{"k": "civ", "name": "Civility", "ic": "🤝", "mean": "Treating people with respect, even people you disagree with.", "re": "civil"}, {"k": "coop", "name": "Cooperation", "ic": "🧩", "mean": "Working together to get something done.", "re": "cooperat|co-operat"}, {"k": "vol", "name": "Volunteerism", "ic": "🌱", "mean": "Choosing to help your community without being told to.", "re": "volunt"}, {"k": "resp", "name": "Responsibility", "ic": "🛡️", "mean": "Doing what you said you would do, and taking care of what is yours to look after.", "re": "responsib"}], "levels": [{"k": "local", "ic": "🏙️", "t": "Local", "c": "#2F7D46"}, {"k": "state", "ic": "🌴", "t": "State", "c": "#2E6FB8"}, {"k": "national", "ic": "🏛️", "t": "National", "c": "#C08A1E"}], "opti": [{"at": "lobby", "after": true, "big": true, "slot": "lobby-1", "topic": "the dusty plaques", "script": "Hoo, Curator, look at the back wall of Citizenship Hall! Four bronze plaques are lying face down on a velvet cloth, and they are dusty. Let's turn them over, one at a time, and read what they say."}, {"at": "#panel-explore .ms-wk-mod", "slot": "week-1", "topic": "polishing bronze", "script": "Clean bronze still looks dull. It only shines when you polish it again and again. For each day this week, read what happened, and pick the plaque it belongs to. Watch which plaques shine by Friday."}, {"at": "#panel-explore .ms-tg-mod", "slot": "photo-1", "topic": "a real photo", "script": "This photo is real. These volunteers cleaned up a national park site in Nevada, in 2015. Look closely at three spots in the picture, and hang the right virtue tag on each one."}, {"at": "#panel-check .ms-su-mod", "slot": "workroom-1", "topic": "a word puzzle", "script": "Word puzzle time! The root volunt means willing, of your own choice. Here is a sign-up sheet for helpers. Fill in each blank with the right volunt word, and watch the names come in."}, {"at": "#panel-assignment .ms-hh-mod", "slot": "exhibit-1", "topic": "the heart of the hall", "script": "The plaques are ready, Curator. Visitors may only have time to read one. Which virtue does your community need most? Pick it, tell what it means, and hang it at the heart of the hall."}], "optiCues": {"lobby-1": [{"w": "^plaques", "sel": ".ms-dp-stage"}], "week-1": [{"w": "^plaque", "sel": ".ms-wk-stage"}], "photo-1": [{"w": "^photo", "sel": ".ms-tg-photo"}], "workroom-1": [{"w": "^sheet", "sel": ".ms-su-stage"}], "exhibit-1": [{"w": "^plaques", "sel": ".ms-hh-stage"}]}, "audioPending": {"note": "Week 31 (Q4): no audio recorded yet. Opti cards show text; how lines use howClipPending; new words use keyPending. Queue: claude/g3-ss-audio-pending-2.md.", "opti": ["lobby-1", "week-1", "photo-1", "workroom-1", "exhibit-1"], "how": ["how-dust", "how-week", "how-heart"], "words": ["civic virtue", "civility", "cooperation", "volunteerism", "volunteer", "voluntary", "involuntary", "habit"]}, "modules": [{"type": "dustyplaque", "kicker": "Lobby · The back wall", "title": "The Dusty Plaques", "context": "<p>This is the back wall of Citizenship Hall. A brass marker on the wall says <b>The Heart of the Hall</b>. Below it, four heavy bronze <b>plaques</b> lie face down on a red velvet cloth. A plaque is a flat metal sign with words raised on it. Each one is covered in dust from the storeroom.</p>", "how": "Tap a plaque to turn it over. Then rub the dust off to read the word.", "howClipPending": "how-dust", "modelT": "A drawing made for this lesson.", "flipP": "Tap plaque {n} on the cloth to turn it over, or press the button.", "flipB": "🔄 Turn it over", "rubP": "It is covered in dust. Rub the dust off: move your finger or mouse back and forth across the plaque. Or press Wipe it.", "rubB": "🧽 Wipe it", "cleanT": "You can read it now:", "q1": {"title": "What do they have in common?", "text": "Look at all four plaques. What do they have in common?", "opts": [{"t": "Each one is the name of a famous person.", "ok": false, "fb": "Read the words again. Are they names of people, or ways people act?"}, {"t": "Each one names a way a citizen can act to help the community.", "ok": true, "fb": "Yes! Each plaque names a <b>civic virtue</b>: a habit a citizen practices to help the community."}, {"t": "Each one is a law the government wrote.", "ok": false, "fb": "No law makes you kind or helpful. Read the meanings again: who does these things?"}]}, "q2": {"title": "Who can do these?", "text": "Who can practice these four habits?", "opts": [{"t": "Only grown-ups who work for the government.", "ok": false, "fb": "Read the plaques again. Could a third grader listen, share, help, or keep a promise?"}, {"t": "Only famous heroes.", "ok": false, "fb": "Heroes practice them, and so can you. Could a third grader listen, share, help, or keep a promise?"}, {"t": "Anyone, even a third grader, every day.", "ok": true, "fb": "Right! You don't have to be grown up, famous, or in charge. A third grader can practice all four today."}]}, "doneT": "<b>Four plaques, four habits.</b> Civility, Cooperation, Volunteerism, Responsibility. Anyone can practice them, even you. Now walk into the Gallery and polish them."}, {"type": "weekpolish", "anchor": "#ms-thennow", "kicker": "Gallery · Main attraction", "title": "A Week of Small Choices", "context": "<p>On top are the four plaques. They are clean now, but clean bronze still looks <b>dull</b>. Bronze only shines when someone <b>polishes</b> it, again and again. Below is one school <b>week</b>: Monday to Friday. Each day shows two small choices people made. Each choice is one of the four <b>civic virtues</b>.</p>", "how": "Read each day's scene. Tap the plaque it belongs to, and that plaque gets a polish.", "howClipPending": "how-week", "modelT": "A drawing made for this lesson. Each plaque needs two polishes to shine.", "pickP": "Which plaque does this choice belong to?", "scenes": [{"day": 0, "ic": "🗣️", "t": "At recess, Ava wants to play tag. Leo wants soccer. Leo listens to Ava without interrupting. They still don't agree, and Ava says, \"Thanks for listening.\"", "v": 0, "ok": "Civility! They still disagree, and they are still civil. Civility does not mean agreeing. It means treating people with respect.", "hint": "They did not agree, and they did not work on anything together. Look at how Leo treated Ava when they disagreed."}, {"day": 0, "ic": "🧹", "t": "After school, Sam signs up to help clean the park on Saturday. Nobody asked him. He just wants the park to look nice.", "v": 2, "ok": "Volunteerism! Nobody asked him. Sam chose to help his community.", "hint": "Read it again: did anybody ask Sam to help? Which plaque is about choosing to help?"}, {"day": 1, "ic": "📚", "t": "Mia's library book is due today. She brings it back on time, just as she promised.", "v": 3, "ok": "Responsibility! Mia did what she said she would do.", "hint": "Mia made a promise to the library. Which plaque is about keeping your word?"}, {"day": 1, "ic": "⚽", "t": "In the soccer game, Jayden passes the ball to a teammate who is open, and she scores.", "v": 1, "ok": "Cooperation! Jayden worked together with his team, so the whole team did well.", "hint": "Jayden and his teammate are working on the same goal. Which plaque is about working together?"}, {"day": 2, "ic": "🐕", "t": "Every morning, Nora feeds the family dog, just as she promised her mom she would.", "v": 3, "ok": "Responsibility! Nora keeps her promise and takes care of what is hers to look after.", "hint": "Nora promised. She does it every morning. Which plaque is about keeping your word?"}, {"day": 2, "ic": "✋", "t": "In class, Omar has an idea, but Grace is still talking. Omar waits and lets her finish first.", "v": 0, "ok": "Civility! Omar treated Grace with respect by letting her finish.", "hint": "Omar is thinking about how he treats Grace while she talks. Which plaque is about respect?"}, {"day": 3, "ic": "📖", "t": "At the library, Lily reads a picture book to two younger children. No one told her to. She just wanted to help.", "v": 2, "ok": "Volunteerism! Lily chose to give her time to help, and nobody told her to.", "hint": "No one told Lily to help. Which plaque is about choosing to help?"}, {"day": 3, "ic": "🖍️", "t": "For the class poster, Ben's group splits up the jobs: one draws, one writes, one colors. Everyone does a fair part.", "v": 1, "ok": "Cooperation! Everyone does a part, and the poster gets done together.", "hint": "The group is working on one poster together. Which plaque is about working together?"}], "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "shineT": "Friday: all four plaques shine. Each one got a polish on two different days.", "q1": {"title": "Why did they shine?", "text": "Look at the plaques now. Why did they shine only at the end of the week?", "opts": [{"t": "Small good choices polished them again and again, all week. A civic virtue is a habit.", "ok": true, "fb": "Yes! One choice is a start. A <b>habit</b> is a choice you make again and again, until it shines."}, {"t": "Someone painted them gold on Friday.", "ok": false, "fb": "Nobody painted them. Watch the plaques: what happened each day?"}, {"t": "They were new plaques.", "ok": false, "fb": "They started dull. What happened to them each day of the week?"}]}, "q2": {"title": "Civil, but not agreeing?", "text": "On Monday, Ava and Leo still disagreed. Were they civil?", "opts": [{"t": "No. Civil people always agree.", "ok": false, "fb": "Many people think this! Read the Civility plaque: respect, even when you disagree."}, {"t": "No. They should have stopped talking.", "ok": false, "fb": "They listened and said thanks. Read the Civility plaque again."}, {"t": "Yes. Civility means treating people with respect, even when you disagree.", "ok": true, "fb": "Right! You can disagree and still be civil."}]}, "win": "<b>The plaques shine!</b> Two small choices for each plaque, on different days. That is how a habit grows. Civility, cooperation, volunteerism, and responsibility are all habits you can practice."}, {"type": "dayservice", "anchor": "#ms-thennow", "kicker": "Gallery · A day of service", "title": "Day of Service", "context": "<p>On the left is the <b>three-level model</b> from Citizenship Hall: <b>🏙️ local</b> (your town or city), <b>🌴 state</b> (Florida), and <b>🏛️ national</b> (the whole country). On the right are three park signs. Today is <b>Martin Luther King Jr. Day</b>, in January. It is a national <b>day of service</b>, when many people <b>volunteer</b> to help their community.</p>", "how": "Read the card about Dr. King. Then pick the level for each volunteer job. Then write question 3.", "modelT": "A drawing made for this lesson.", "king": {"stepT": "Why a day of service?", "t": "Dr. Martin Luther King Jr.", "card": "Dr. King was a minister who led peaceful marches so that Black Americans, and all people, would be treated fairly. It was dangerous, but he kept going. That took heroism: great courage. Since 1994, his holiday has also been a national day of service.", "q": {"title": "How did he show patriotism?", "text": "Patriotism is love and service for your country. How did Dr. King show patriotism?", "opts": [{"t": "He left the country because it was unfair.", "ok": false, "fb": "Read the card again. What did he keep working for?"}, {"t": "He worked peacefully to make his country fairer for everyone.", "ok": true, "fb": "Yes! He loved his country enough to work, peacefully, to make it fairer."}, {"t": "He became President.", "ok": false, "fb": "Dr. King was a minister, not a President. Read the card again."}]}}, "whoP": "Which level of government takes care of this park?", "jobs": [{"stepT": "Job 1: the city park", "t": "Pick up trash at the city park on Main Street.", "lv": 0, "sign": 0, "hint": "This park belongs to your town. Which level takes care of your town?", "ok": "Local! Your city takes care of the city park."}, {"stepT": "Job 2: a Florida state park", "t": "Plant sea oats on the beach at a Florida state park. Their roots help hold the sand.", "lv": 1, "sign": 1, "hint": "A Florida state park belongs to all of Florida. Which level takes care of the whole state?", "ok": "State! Florida runs its state parks."}, {"stepT": "Job 3: a national park", "t": "Help clear a trail at Everglades National Park.", "lv": 2, "sign": 2, "hint": "A national park belongs to the whole country. Which level takes care of the whole country?", "ok": "National! The national government takes care of national parks."}], "law": {"stepT": "Can a law make you volunteer?", "t": "The constitutions", "card": "A constitution is a written plan for a government. The U.S. and Florida Constitutions give each government its jobs, like caring for parks, and its limits: things it may not do. When a law makes someone help, it is not volunteering anymore. Volunteering is always a choice.", "q": {"title": "What does a constitution do?", "text": "What does a constitution give a government?", "opts": [{"t": "Its jobs and its limits.", "ok": true, "fb": "Right! A constitution gives the government its jobs and its limits. Caring is up to citizens."}, {"t": "A list of chores every citizen must do.", "ok": false, "fb": "Read the card again. Who gets the jobs: citizens or the government?"}, {"t": "A park in every town.", "ok": false, "fb": "Taking care of parks is one job. Read the card: what two things does a constitution give a government?"}]}}, "writeT": "Write it down", "writeP": "This is Evidence Question 3. Can a law make someone volunteer? Explain, using what a constitution does.", "starters": ["A law cannot make someone volunteer because", "A constitution gives the government", "Volunteering is"], "wordMin": 15, "ta": "journal-q3", "noteT": "is in the Gallery, at Day of Service.", "qn": "Question 3", "needRe": "constitution|job|limit", "needT": "Use what a constitution does (its jobs or its limits).", "chipT": "uses the constitution", "win": "<b>Help at every level.</b> A city park, a Florida state park, a national park: three levels of government, and volunteers help at all three. A constitution gives the government its jobs and its limits. Volunteering is the citizen's own choice."}, {"type": "tagphoto", "anchor": "#ms-thennow", "kicker": "Gallery · A real photo", "title": "Volunteers at Work", "context": "<p>This is a real <b>photograph</b>, a piece of <b>evidence</b>. It was taken on April 11, 2015, at <b>Tule Springs Fossil Beds National Monument</b> in Nevada, a national park site. More than 60 <b>volunteers</b> came on a Saturday to clean it up. They filled about nine pickup trucks with trash. Three spots in the photo are marked with numbers. Each one shows a civic virtue.</p>", "how": "Look at each numbered spot. Pick the virtue tag that fits, and it hangs on the photo.", "img": "src-3-10-07-community-volunteers.jpg", "alt": "A photograph of volunteers in orange safety vests cleaning up a dry, sandy desert with mountains behind them. On the left, two volunteers push a wheelbarrow full of junk together. On the right, a group bends over a pile of old boards and trash, picking it up, with a blue bucket on the ground.", "credit": "Volunteers pick up trash at Tule Springs Fossil Beds National Monument, Nevada, April 11, 2015. Photo by the National Park Service (NPS), public domain, via Wikimedia Commons", "capT": "Tule Springs Fossil Beds National Monument, Nevada · April 11, 2015", "pickP": "Which virtue tag fits this spot?", "spots": [{"x": 27, "y": 58, "t": "Two volunteers push one heavy wheelbarrow, together.", "v": 1, "ok": "Cooperation! One person could not push it alone. Together, they can.", "hint": "Count the people pushing the wheelbarrow. Which plaque is about working together?"}, {"x": 81, "y": 54, "t": "These people came on their day off. Nobody paid them, and nobody made them come.", "v": 2, "ok": "Volunteerism! They chose to give their Saturday to help a park.", "hint": "Nobody paid them or made them come. Which plaque is about choosing to help?"}, {"x": 64, "y": 76, "t": "Every piece of the old junk goes into the wheelbarrow or the bucket, so none is left behind.", "v": 3, "ok": "Responsibility! They take care of the park, so they finish the job and leave nothing behind.", "hint": "They take care of the whole place and finish the job. Which plaque is about taking care of what is yours to look after?"}], "q1": {"title": "Where is civility?", "text": "Civility did not get a tag. Why is civility hard to see in a photo?", "opts": [{"t": "Civility is in how people talk and listen, and a photo has no sound.", "ok": true, "fb": "Yes! You would need to hear them, kind words and good listening, to see civility."}, {"t": "Volunteers are never civil.", "ok": false, "fb": "That is not true. Think about what civility sounds like. Can a photo make sounds?"}, {"t": "Civility only happens indoors.", "ok": false, "fb": "Civility can happen anywhere. Think about what civility sounds like. Can a photo make sounds?"}]}, "q2": {"title": "Which level?", "text": "This cleanup was at a national park site. Which level of government takes care of it?", "opts": [{"t": "The city of Las Vegas.", "ok": false, "fb": "It is close to Las Vegas, but read the What am I looking at? card: what kind of park site is it?"}, {"t": "Nobody takes care of it.", "ok": false, "fb": "Volunteers helped, and a government takes care of it too. What kind of park site is it?"}, {"t": "The national government, for the whole country.", "ok": true, "fb": "Right! National parks and monuments belong to the whole country."}]}, "win": "<b>Evidence of civic virtue.</b> Cooperation at the wheelbarrow, volunteerism in the whole group, responsibility at the trash pile. Civility is there too: you just can't hear it in a photo."}, {"type": "signup", "kicker": "Workroom · Word root", "title": "The Sign-Up Sheet", "context": "<p>A <b>word root</b> is a word part that carries a meaning. The root <b>volunt</b> comes from Latin, a very old language. It means <b>willing, of your own choice</b>. This is a <b>sign-up sheet</b> for a park cleanup, on a clipboard. Each line has a sentence with a blank.</p>", "how": "Read the sentence. Pick the volunt word that fills the blank. A helper signs the line.", "root": "volunt", "means": "willing, of your own choice", "lines": [{"s": "A ___ is someone who chooses to help without being paid.", "w": "volunteer", "opts": ["voluntary", "volunteer", "involuntary"], "name": "Sam R.", "ok": "A volunteer chooses to help. The word came into English through French, from Latin.", "fb": "Look for a word that names a person who chooses to help."}, {"s": "Coming to the park cleanup is ___: you do it by choice.", "w": "voluntary", "opts": ["voluntary", "involuntary", "volunteerism"], "name": "Mia L.", "ok": "Voluntary means done by choice, not by force.", "fb": "The blank describes the cleanup: done by choice. Which word means by choice?"}, {"s": "Our town is proud of its ___: the habit of helping the community on your own.", "w": "volunteerism", "opts": ["volunteer", "volunteerism", "voluntary"], "name": "Ana P.", "ok": "Volunteerism is the habit of volunteering. The ending ism can mean a habit or a way of doing things.", "fb": "The blank names a habit. Which word ends like a habit word?"}, {"s": "A sneeze is ___: it happens without you choosing.", "w": "involuntary", "opts": ["involuntary", "volunteer", "voluntary"], "name": "Leo K.", "ok": "in means not, so involuntary means not by choice.", "fb": "A sneeze happens whether you choose it or not. The beginning in can mean not."}], "win": "<b>The sheet is full!</b> volunteer, voluntary, volunteerism, involuntary: each one grows from volunt, willing. Discovery fact: the word <i>benevolent</i> comes from the same Latin word for wanting. <i>bene</i> means good, so a benevolent person wants good things for others."}, {"type": "heartplaque", "kicker": "Exhibit Floor · Place the Plaques", "title": "The Heart of the Hall", "context": "<p>The four plaques shine. Visitors leaving Citizenship Hall may only have time to read <b>one</b> of them closely. You choose which one hangs in the center, under the brass marker <b>The Heart of the Hall</b>. Then you write its <b>plaque label</b>: a short museum sign that says what it means and how people can practice it.</p>", "how": "Pick a plaque, a place, and one action. Write it, then hang it at the heart of the hall.", "howClipPending": "how-heart", "ta": "journal-assign", "sentMin": 3, "sentMax": 5, "bigQ": "Which civic virtue does your community need most right now?", "s1T": "Pick a plaque", "s1": "Pick the one virtue you think your community needs most. Every plaque is a good choice.", "s2T": "Pick a place", "s2": "Where would people practice it? Pick one place in your community.", "places": [{"ic": "🏫", "t": "my class"}, {"ic": "🏠", "t": "my home"}, {"ic": "🏘️", "t": "my street"}, {"ic": "⚽", "t": "my team"}], "s3T": "Pick one real action", "s3": "Pick one real thing people could do there, this week.", "acts": {"civ": ["Let a classmate finish talking before I answer.", "Say \"I see it differently\" instead of calling an idea silly.", "Listen to a friend's idea, even when I disagree."], "coop": ["Share the markers at my table.", "Take turns choosing the game at recess.", "Split up the jobs on a group project so it is fair."], "vol": ["Help pick up trash at a park cleanup.", "Read a book to a younger child.", "Help a neighbor carry groceries without being asked."], "resp": ["Feed my pet every day, like I promised.", "Return library books on time.", "Tell the truth when I make a mistake."]}, "s4T": "Write your plaque label", "s4": "Write 3 to 5 sentences: name the virtue, tell what it means, and describe your action. Tap a starter if you need one.", "st1": "The virtue my community needs most is {v}.", "st2": "{v} means", "st3": "In {p}, people could", "st4": "This matters because", "meanRe": "means|is when|is being|is doing|is choosing|is treating|is working|is helping|is keeping|is taking|is listening", "actRe": "could|can|will|should|like|for example|by ", "s5T": "Hang it at the heart", "s5": "Your plaque label is ready. Hang your plaque at the center of the back wall.", "openT": "Hang it at the heart of the hall", "editT": "Edit my plaque label", "hallT": "CITIZENSHIP HALL", "hall": [{"ic": "🏷️", "t": "Why rules"}, {"ic": "📜", "t": "Constitution"}, {"ic": "🏛️", "t": "3 levels"}, {"ic": "🌴", "t": "Florida"}, {"ic": "🗳️", "t": "Voting"}, {"ic": "📅", "t": "Holidays"}], "nextT": "Next time: the last lesson in Citizenship Hall. A spotlight lands on the center pedestal, where a small case holds a folded U.S. flag, a bronze bell, a marble bust, a famous document, and a tiny Statue of Liberty. The Citizen Curator badge will be waiting.", "win": "<b>The heart of the hall is lit!</b> A gold thread of service runs from plaque to plaque and across every exhibit in Citizenship Hall. Your plaque hangs in the center. Now tick every box on the checklist."}], "glossary": [{"t": "Tule Springs Fossil Beds National Monument", "d": "A national park site in Nevada where fossils of ice age animals are found."}, {"t": "Everglades National Park", "d": "A national park in south Florida, full of wetlands and wildlife."}, {"t": "Martin Luther King Jr. Day", "d": "A national holiday in January that honors Dr. King. It is also a day of service."}, {"t": "civic virtue", "alt": ["civic virtues", "Civic virtue", "Civic virtues", "Civic Virtue", "Civic Virtues"], "d": "A habit a citizen practices on purpose to help the community.", "keyPending": true}, {"t": "civility", "alt": ["Civility", "civil"], "d": "Treating people with respect, even people you disagree with.", "keyPending": true}, {"t": "cooperation", "alt": ["Cooperation", "cooperative", "cooperate"], "d": "Working together to get something done.", "keyPending": true}, {"t": "volunteerism", "alt": ["Volunteerism"], "d": "The habit of choosing to help your community without being told to.", "keyPending": true}, {"t": "involuntary", "d": "Done without choosing, like a sneeze.", "keyPending": true}, {"t": "voluntary", "d": "Done by choice, not by force.", "keyPending": true}, {"t": "volunteer", "alt": ["volunteers", "Volunteer", "Volunteers", "volunteering"], "d": "A person who chooses to help without being paid.", "keyPending": true}, {"t": "habit", "alt": ["habits", "Habit"], "d": "Something you do again and again, until you do it without thinking.", "keyPending": true}, {"t": "responsibility", "alt": ["Responsibility", "responsible"], "d": "Doing what you said you would do, and taking care of what is yours to look after.", "key": true}, {"t": "Constitution", "alt": ["constitution", "constitutions"], "d": "A written plan that sets up a government, its jobs, and its limits.", "keyPending": true}, {"t": "service", "alt": ["Service"], "d": "Helping your community.", "keyPending": true}, {"t": "local", "d": "About your own town or city.", "keyPending": true}, {"t": "state", "d": "About all of Florida.", "keyPending": true}, {"t": "national", "d": "About the whole United States.", "keyPending": true}, {"t": "curator", "alt": ["Curator"], "d": "A person who takes care of a museum's exhibits.", "key": true}, {"t": "evidence", "d": "Facts that show something is true.", "key": true}, {"t": "plaque", "alt": ["plaques"], "d": "A flat metal sign with words raised on it."}, {"t": "bronze", "d": "A brown-gold metal used for plaques and statues."}, {"t": "heroism", "d": "Great courage."}, {"t": "patriotism", "d": "Love for your country, shown by serving it."}, {"t": "sea oats", "d": "A tall beach grass whose roots help hold the sand dunes in place."}, {"t": "word root", "d": "A word part that carries a meaning."}], "hideOn": ["#panel-explore .owl-buddy", "[data-ms-hide]"]}
+</script>
+<link rel="stylesheet" href="assets/sparkle/museum-sparkle.css">
 </head>
 
 <body>
@@ -1486,7 +1490,7 @@ body {
     #ora-status { font-size: 12px; color: #666; }
     .ora-highlight { background: #FDF3E3 !important; box-shadow: inset 4px 0 0 #C7922C; border-radius: 4px; transition: background 0.2s; }
 </style>
-    <div class="ora-kicker">&#128266; READ ALOUD &mdash; LISTEN TO THIS PAGE</div>
+    <div class="ora-kicker">&#128266; READ ALOUD: LISTEN TO THIS PAGE</div>
     <div class="ora-controls">
         <button id="ora-play" type="button" aria-label="Listen to this page">&#9654;&#65039; Listen</button>
         <button id="ora-stop" type="button" aria-label="Stop reading" disabled>&#9632; Stop</button>
@@ -1693,214 +1697,56 @@ body {
 </div>
 
 <!-- ═══ SVG HERO BANNER ═══ -->
-<svg viewBox="0 0 920 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
-  <defs>
-    <linearGradient id="bg_1007" x1="0" y1="0" x2="0" y2="260" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#F5C672"/>
-      <stop offset="55%" stop-color="#D4943A"/>
-      <stop offset="100%" stop-color="#1A8A7D"/>
-    </linearGradient>
-    <linearGradient id="bronze_1007" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#E0A050"/>
-      <stop offset="50%" stop-color="#A87425"/>
-      <stop offset="100%" stop-color="#5A3D1F"/>
-    </linearGradient>
-    <linearGradient id="bronzeRim_1007" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F5C672"/>
-      <stop offset="100%" stop-color="#8B5E1C"/>
-    </linearGradient>
-    <linearGradient id="velvet_1007" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#7A1818"/>
-      <stop offset="100%" stop-color="#4A0E0E"/>
-    </linearGradient>
-    <radialGradient id="spot_1007" cx="50%" cy="0%" r="80%">
-      <stop offset="0%" stop-color="#FFF6D5" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#FFE9B8" stop-opacity="0"/>
-    </radialGradient>
-    <style>
-      .plaqueGlow_1007 { animation: gleam_1007 3.5s ease-in-out infinite; }
-      .plaqueGlow_1007.g2 { animation-delay: 0.7s; }
-      .plaqueGlow_1007.g3 { animation-delay: 1.4s; }
-      .plaqueGlow_1007.g4 { animation-delay: 2.1s; }
-      @keyframes gleam_1007 { 0%,100%{opacity:0.4} 50%{opacity:0.9} }
-      .ribbon_1007 { animation: drape_1007 5s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
-      @keyframes drape_1007 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(2px)} }
-      .star_1007 { animation: twink_1007 2.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
-      .star_1007.s2 { animation-delay: 0.6s; }
-      .star_1007.s3 { animation-delay: 1.2s; }
-      @keyframes twink_1007 { 0%,100%{opacity:0.5;transform:scale(0.85)} 50%{opacity:1;transform:scale(1.15)} }
-    </style>
-  </defs>
-
-  <!-- background -->
-  <rect width="920" height="260" fill="url(#bg_1007)"/>
-  <!-- spotlight glow from above -->
-  <ellipse cx="460" cy="20" rx="380" ry="180" fill="url(#spot_1007)"/>
-
-  <!-- decorative stars in upper sky -->
-  <g fill="#FFF6D5">
-    <polygon class="star_1007" points="80,32 82,37 87,37 83,40 84.5,45 80,42 75.5,45 77,40 73,37 78,37"/>
-    <polygon class="star_1007 s2" points="840,28 842,33 847,33 843,36 844.5,41 840,38 835.5,41 837,36 833,33 838,33"/>
-    <polygon class="star_1007 s3" points="150,68 151.5,71.5 155,71.5 152.5,73.5 153.5,77 150,75 146.5,77 147.5,73.5 145,71.5 148.5,71.5"/>
-  </g>
-
-  <!-- museum floor -->
-  <rect x="0" y="220" width="920" height="40" fill="#0F5F56"/>
-  <line x1="0" y1="230" x2="920" y2="230" stroke="#34B0A0" stroke-width="1" opacity="0.5"/>
-  <line x1="100" y1="220" x2="40" y2="260" stroke="#0A4540" stroke-width="1" opacity="0.5"/>
-  <line x1="280" y1="220" x2="240" y2="260" stroke="#0A4540" stroke-width="1" opacity="0.5"/>
-  <line x1="640" y1="220" x2="680" y2="260" stroke="#0A4540" stroke-width="1" opacity="0.5"/>
-  <line x1="820" y1="220" x2="880" y2="260" stroke="#0A4540" stroke-width="1" opacity="0.5"/>
-
-  <!-- velvet display cloth on floor under plaques -->
-  <rect x="50" y="210" width="820" height="14" fill="url(#velvet_1007)" stroke="#3A0707" stroke-width="1.5"/>
-  <rect x="50" y="208" width="820" height="3" fill="#9A3030"/>
-  <!-- decorative gold trim on velvet -->
-  <line x1="60" y1="217" x2="860" y2="217" stroke="#D4943A" stroke-width="1.5" stroke-dasharray="4 4"/>
-
-  <!-- header banner ribbon "The Heart of the Hall" — visual only, no text -->
-  <g class="ribbon_1007">
-    <polygon points="320,18 600,18 590,42 600,62 320,62 330,42" fill="#7A1818" stroke="#4A0E0E" stroke-width="1.5"/>
-    <polygon points="320,62 330,42 320,18 305,38" fill="#5A0E0E" stroke="#4A0E0E" stroke-width="1.2"/>
-    <polygon points="600,62 590,42 600,18 615,38" fill="#5A0E0E" stroke="#4A0E0E" stroke-width="1.2"/>
-    <!-- gold ornament center -->
-    <circle cx="460" cy="40" r="11" fill="#FBF1D8" stroke="#8B5E1C" stroke-width="1.2"/>
-    <polygon points="460,32 462,38 469,38 463,42 465,49 460,45 455,49 457,42 451,38 458,38" fill="#D4943A"/>
-    <!-- gold stripes on ribbon -->
-    <line x1="345" y1="32" x2="430" y2="32" stroke="#D4943A" stroke-width="1.2" opacity="0.75"/>
-    <line x1="345" y1="50" x2="430" y2="50" stroke="#D4943A" stroke-width="1.2" opacity="0.75"/>
-    <line x1="490" y1="32" x2="575" y2="32" stroke="#D4943A" stroke-width="1.2" opacity="0.75"/>
-    <line x1="490" y1="50" x2="575" y2="50" stroke="#D4943A" stroke-width="1.2" opacity="0.75"/>
-    <!-- small stars on banner -->
-    <polygon points="370,42 371.5,45 375,45 372.5,46.5 373.5,49.5 370,48 366.5,49.5 367.5,46.5 365,45 368.5,45" fill="#FFD060"/>
-    <polygon points="550,42 551.5,45 555,45 552.5,46.5 553.5,49.5 550,48 546.5,49.5 547.5,46.5 545,45 548.5,45" fill="#FFD060"/>
-  </g>
-
-  <!-- ═══ FOUR BRONZE PLAQUES ═══ -->
-
-  <!-- PLAQUE 1 — CIVILITY (handshake) -->
-  <g>
-    <!-- glow behind -->
-    <ellipse class="plaqueGlow_1007" cx="130" cy="145" rx="60" ry="80" fill="#FFF6D5" opacity="0.45"/>
-    <!-- plaque body -->
-    <rect x="78" y="80" width="104" height="130" rx="8" fill="url(#bronze_1007)" stroke="#3A2410" stroke-width="2.5"/>
-    <!-- bronze rim -->
-    <rect x="82" y="84" width="96" height="122" rx="6" fill="none" stroke="url(#bronzeRim_1007)" stroke-width="1.5"/>
-    <!-- inner panel slightly darker -->
-    <rect x="90" y="92" width="80" height="106" rx="4" fill="#7A4D2B" stroke="#3A2410" stroke-width="1"/>
-    <!-- HANDSHAKE icon -->
-    <g transform="translate(130 130)">
-      <!-- left forearm -->
-      <path d="M -32 8 Q -22 0 -8 4 L -8 12 Q -22 14 -32 16 Z" fill="#D4943A" stroke="#5A3D1F" stroke-width="1.2"/>
-      <!-- right forearm -->
-      <path d="M 32 8 Q 22 0 8 4 L 8 12 Q 22 14 32 16 Z" fill="#D4943A" stroke="#5A3D1F" stroke-width="1.2"/>
-      <!-- clasped hands (overlapping) -->
-      <ellipse cx="-3" cy="10" rx="10" ry="7" fill="#E8A858" stroke="#5A3D1F" stroke-width="1"/>
-      <ellipse cx="3" cy="10" rx="10" ry="7" fill="#D4943A" stroke="#5A3D1F" stroke-width="1"/>
-      <!-- finger lines -->
-      <line x1="-6" y1="6" x2="-2" y2="6" stroke="#5A3D1F" stroke-width="0.5"/>
-      <line x1="2" y1="14" x2="6" y2="14" stroke="#5A3D1F" stroke-width="0.5"/>
-    </g>
-    <!-- nameplate area (visual only, no text) -->
-    <rect x="92" y="160" width="76" height="32" rx="3" fill="#5A3D1F" stroke="#3A2410" stroke-width="1"/>
-    <rect x="98" y="167" width="64" height="3" rx="1" fill="#D4943A"/>
-    <rect x="104" y="174" width="52" height="2.5" rx="1" fill="#D4943A" opacity="0.85"/>
-    <rect x="100" y="181" width="60" height="2.5" rx="1" fill="#D4943A" opacity="0.7"/>
-    <!-- mounting screws -->
-    <circle cx="92" cy="92" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="168" cy="92" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="92" cy="198" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="168" cy="198" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-  </g>
-
-  <!-- PLAQUE 2 — COOPERATION (interlocking gears / linked rings) -->
-  <g>
-    <ellipse class="plaqueGlow_1007 g2" cx="320" cy="145" rx="60" ry="80" fill="#FFF6D5" opacity="0.45"/>
-    <rect x="268" y="80" width="104" height="130" rx="8" fill="url(#bronze_1007)" stroke="#3A2410" stroke-width="2.5"/>
-    <rect x="272" y="84" width="96" height="122" rx="6" fill="none" stroke="url(#bronzeRim_1007)" stroke-width="1.5"/>
-    <rect x="280" y="92" width="80" height="106" rx="4" fill="#7A4D2B" stroke="#3A2410" stroke-width="1"/>
-    <!-- INTERLOCKING RINGS icon -->
-    <g transform="translate(320 132)" fill="none">
-      <circle cx="-10" cy="0" r="14" stroke="#D4943A" stroke-width="3.5"/>
-      <circle cx="10" cy="0" r="14" stroke="#E8A858" stroke-width="3.5"/>
-      <!-- overlap highlight -->
-      <path d="M 0 -8 A 14 14 0 0 1 0 8" stroke="#FFD060" stroke-width="3.5" fill="none"/>
-    </g>
-    <!-- nameplate -->
-    <rect x="282" y="160" width="76" height="32" rx="3" fill="#5A3D1F" stroke="#3A2410" stroke-width="1"/>
-    <rect x="288" y="167" width="64" height="3" rx="1" fill="#D4943A"/>
-    <rect x="294" y="174" width="52" height="2.5" rx="1" fill="#D4943A" opacity="0.85"/>
-    <rect x="290" y="181" width="60" height="2.5" rx="1" fill="#D4943A" opacity="0.7"/>
-    <circle cx="282" cy="92" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="358" cy="92" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="282" cy="198" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="358" cy="198" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-  </g>
-
-  <!-- PLAQUE 3 — VOLUNTEERISM (helping hand with heart/leaf) -->
-  <g>
-    <ellipse class="plaqueGlow_1007 g3" cx="510" cy="145" rx="60" ry="80" fill="#FFF6D5" opacity="0.45"/>
-    <rect x="458" y="80" width="104" height="130" rx="8" fill="url(#bronze_1007)" stroke="#3A2410" stroke-width="2.5"/>
-    <rect x="462" y="84" width="96" height="122" rx="6" fill="none" stroke="url(#bronzeRim_1007)" stroke-width="1.5"/>
-    <rect x="470" y="92" width="80" height="106" rx="4" fill="#7A4D2B" stroke="#3A2410" stroke-width="1"/>
-    <!-- HELPING HAND with HEART icon -->
-    <g transform="translate(510 132)">
-      <!-- open palm -->
-      <path d="M -18 14 Q -22 4 -16 -6 Q -10 -16 0 -16 Q 10 -16 16 -6 Q 22 4 18 14 Q 14 18 0 18 Q -14 18 -18 14 Z"
-            fill="#D4943A" stroke="#5A3D1F" stroke-width="1.2"/>
-      <!-- fingers -->
-      <line x1="-10" y1="-10" x2="-10" y2="-18" stroke="#5A3D1F" stroke-width="0.6"/>
-      <line x1="-3" y1="-14" x2="-3" y2="-22" stroke="#5A3D1F" stroke-width="0.6"/>
-      <line x1="5" y1="-14" x2="5" y2="-22" stroke="#5A3D1F" stroke-width="0.6"/>
-      <line x1="12" y1="-10" x2="12" y2="-18" stroke="#5A3D1F" stroke-width="0.6"/>
-      <!-- heart resting in palm -->
-      <path d="M 0 4 C -6 -2 -10 4 -6 8 L 0 14 L 6 8 C 10 4 6 -2 0 4 Z" fill="#D94040" stroke="#7A1818" stroke-width="1"/>
-    </g>
-    <!-- nameplate -->
-    <rect x="472" y="160" width="76" height="32" rx="3" fill="#5A3D1F" stroke="#3A2410" stroke-width="1"/>
-    <rect x="478" y="167" width="64" height="3" rx="1" fill="#D4943A"/>
-    <rect x="482" y="174" width="56" height="2.5" rx="1" fill="#D4943A" opacity="0.85"/>
-    <rect x="480" y="181" width="60" height="2.5" rx="1" fill="#D4943A" opacity="0.7"/>
-    <circle cx="472" cy="92" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="548" cy="92" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="472" cy="198" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="548" cy="198" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-  </g>
-
-  <!-- PLAQUE 4 — RESPONSIBILITY (shield with checkmark) -->
-  <g>
-    <ellipse class="plaqueGlow_1007 g4" cx="700" cy="145" rx="60" ry="80" fill="#FFF6D5" opacity="0.45"/>
-    <rect x="648" y="80" width="104" height="130" rx="8" fill="url(#bronze_1007)" stroke="#3A2410" stroke-width="2.5"/>
-    <rect x="652" y="84" width="96" height="122" rx="6" fill="none" stroke="url(#bronzeRim_1007)" stroke-width="1.5"/>
-    <rect x="660" y="92" width="80" height="106" rx="4" fill="#7A4D2B" stroke="#3A2410" stroke-width="1"/>
-    <!-- SHIELD with CHECKMARK -->
-    <g transform="translate(700 132)">
-      <path d="M 0 -22 L 18 -16 L 18 0 Q 18 12 0 22 Q -18 12 -18 0 L -18 -16 Z"
-            fill="#D4943A" stroke="#5A3D1F" stroke-width="1.5"/>
-      <!-- inner border -->
-      <path d="M 0 -19 L 15 -14 L 15 -1 Q 15 10 0 18 Q -15 10 -15 -1 L -15 -14 Z"
-            fill="none" stroke="#FBF1D8" stroke-width="0.8" opacity="0.6"/>
-      <!-- checkmark -->
-      <polyline points="-9,1 -2,8 10,-7" fill="none" stroke="#FBF1D8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    <!-- nameplate -->
-    <rect x="662" y="160" width="76" height="32" rx="3" fill="#5A3D1F" stroke="#3A2410" stroke-width="1"/>
-    <rect x="668" y="167" width="64" height="3" rx="1" fill="#D4943A"/>
-    <rect x="672" y="174" width="56" height="2.5" rx="1" fill="#D4943A" opacity="0.85"/>
-    <rect x="666" y="181" width="68" height="2.5" rx="1" fill="#D4943A" opacity="0.7"/>
-    <circle cx="662" cy="92" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="738" cy="92" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="662" cy="198" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-    <circle cx="738" cy="198" r="3" fill="#3A2410" stroke="#1A0F08" stroke-width="0.6"/>
-  </g>
-
-  <!-- far right: small laurel decoration -->
-  <g transform="translate(830 145)">
-    <ellipse cx="0" cy="-22" rx="3" ry="7" fill="#34B0A0" stroke="#0F5F56" stroke-width="0.5"/>
-    <ellipse cx="10" cy="-14" rx="3" ry="7" fill="#1A8A7D" stroke="#0F5F56" stroke-width="0.5" transform="rotate(45)"/>
-    <ellipse cx="0" cy="22" rx="3" ry="7" fill="#34B0A0" stroke="#0F5F56" stroke-width="0.5"/>
-    <ellipse cx="10" cy="14" rx="3" ry="7" fill="#1A8A7D" stroke="#0F5F56" stroke-width="0.5" transform="rotate(-45)"/>
-  </g>
+<!-- banner: the back wall of Citizenship Hall, four bronze Civic Virtue plaques under The Heart of the Hall, a gold thread -->
+<svg viewBox="0 0 920 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;" role="img" aria-label="The back wall of Citizenship Hall: four polished bronze plaques, Civility, Cooperation, Volunteerism, and Responsibility, hang in a row under a brass marker that reads The Heart of the Hall. A gold thread links the plaques. A red velvet cloth lies below.">
+<rect width="920" height="260" fill="#EFE2C4"/>
+<rect x="20" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="60" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="100" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="140" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="180" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="220" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="260" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="300" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="340" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="380" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="420" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="460" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="500" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="540" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="580" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="620" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="660" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="700" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="740" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="780" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="820" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="860" y="0" width="2" height="200" fill="#E4D4B0"/>
+<rect x="900" y="0" width="2" height="200" fill="#E4D4B0"/>
+<polygon points="150,0 170,0 240,170 80,170" fill="#FFE27A" opacity=".28"/>
+<polygon points="350,0 370,0 440,170 280,170" fill="#FFE27A" opacity=".28"/>
+<polygon points="550,0 570,0 640,170 480,170" fill="#FFE27A" opacity=".28"/>
+<polygon points="750,0 770,0 840,170 680,170" fill="#FFE27A" opacity=".28"/>
+<rect x="320" y="12" width="280" height="40" rx="6" fill="#C99B3C" stroke="#7A5A1E" stroke-width="3"/><rect x="326" y="18" width="268" height="28" rx="4" fill="none" stroke="#FFE7A0" stroke-width="1.5"/>
+<text x="460" y="39" text-anchor="middle" font-family="Nunito, sans-serif" font-size="17" font-weight="900" fill="#3B2A12" letter-spacing="3">THE HEART OF THE HALL</text>
+<path d="M160 118 C 230 160, 290 160, 360 118 S 490 76, 560 118 S 690 160, 760 118" fill="none" stroke="#E2B84A" stroke-width="5" stroke-linecap="round"/>
+<rect x="78" y="70" width="164" height="100" rx="7" fill="#6E4F26" stroke="#3E2A12" stroke-width="2.5"/><rect x="84" y="76" width="152" height="88" rx="5" fill="#D9AE55"/>
+<path d="M104 76 L130 76 L98 164 L84 164 L84 130 Z" fill="#FFF6D8" opacity=".45"/>
+<text x="160" y="114" text-anchor="middle" font-size="28">🤝</text><text x="160" y="150" text-anchor="middle" font-family="Nunito, sans-serif" font-size="17" font-weight="900" fill="#3B2A12" letter-spacing="1.5">CIVILITY</text>
+<path d="M224 78 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 Z" fill="#FFF6C8"/>
+<rect x="278" y="70" width="164" height="100" rx="7" fill="#6E4F26" stroke="#3E2A12" stroke-width="2.5"/><rect x="284" y="76" width="152" height="88" rx="5" fill="#D9AE55"/>
+<path d="M304 76 L330 76 L298 164 L284 164 L284 130 Z" fill="#FFF6D8" opacity=".45"/>
+<text x="360" y="114" text-anchor="middle" font-size="28">🧩</text><text x="360" y="150" text-anchor="middle" font-family="Nunito, sans-serif" font-size="17" font-weight="900" fill="#3B2A12" letter-spacing="1.5">COOPERATION</text>
+<path d="M424 78 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 Z" fill="#FFF6C8"/>
+<rect x="478" y="70" width="164" height="100" rx="7" fill="#6E4F26" stroke="#3E2A12" stroke-width="2.5"/><rect x="484" y="76" width="152" height="88" rx="5" fill="#D9AE55"/>
+<path d="M504 76 L530 76 L498 164 L484 164 L484 130 Z" fill="#FFF6D8" opacity=".45"/>
+<text x="560" y="114" text-anchor="middle" font-size="28">🌱</text><text x="560" y="150" text-anchor="middle" font-family="Nunito, sans-serif" font-size="17" font-weight="900" fill="#3B2A12" letter-spacing="1.5">VOLUNTEERISM</text>
+<path d="M624 78 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 Z" fill="#FFF6C8"/>
+<rect x="678" y="70" width="164" height="100" rx="7" fill="#6E4F26" stroke="#3E2A12" stroke-width="2.5"/><rect x="684" y="76" width="152" height="88" rx="5" fill="#D9AE55"/>
+<path d="M704 76 L730 76 L698 164 L684 164 L684 130 Z" fill="#FFF6D8" opacity=".45"/>
+<text x="760" y="114" text-anchor="middle" font-size="28">🛡️</text><text x="760" y="150" text-anchor="middle" font-family="Nunito, sans-serif" font-size="14" font-weight="900" fill="#3B2A12" letter-spacing="1.5">RESPONSIBILITY</text>
+<path d="M824 78 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 Z" fill="#FFF6C8"/>
+<rect y="196" width="920" height="10" fill="#8E6438"/><path d="M0 206 H920 V260 H0 Z" fill="#8E1F2B"/><path d="M0 206 Q230 222 460 208 T920 212 V260 H0 Z" fill="#A3283A"/>
 </svg>
 
 
@@ -1939,7 +1785,7 @@ body {
 <!-- ═══ MUSEUM MEMO ═══ -->
 <div class="quote-strip">
   <div class="quote-strip-text" style="font-style:normal;text-align:left;font-size:15px;line-height:1.65;">
-    The Patriotic Holidays timeline is finished, every label in place. But against the back wall of Citizenship Hall, leaning carefully on a long velvet cloth, four polished <strong>bronze plaques</strong> are waiting to be hung. Each one is heavy. Each one has a single word raised in metal: <em>Civility. Cooperation. Volunteerism. Responsibility.</em> A small brass marker on the wall above them reads, <em>"The Heart of the Hall."</em> Today, as Civic Curator, your job is to figure out what each of these four words actually <em>means</em> — and place them where visitors will see them as they leave.
+    The Patriotic Holidays timeline is finished, every label in place. Now the last back wall of Citizenship Hall is waiting. On a long red velvet cloth, four heavy <strong>bronze plaques</strong> lie face down, dusty from the storeroom. Each one has a single word raised in metal. A small brass marker on the wall above them reads, <em>"The Heart of the Hall."</em> Today, as Civic Curator, your job is to turn them over, figure out what each word really <em>means</em>, and place them where visitors will see them as they leave.
   </div>
 </div>
 
@@ -1976,7 +1822,8 @@ body {
       <div class="intro-card-body">
         <div class="obj-line"><span class="obj-icon">🤝</span> Define civility, cooperation, volunteerism, and responsibility.</div>
         <div class="obj-line"><span class="obj-icon">🏘️</span> Connect each virtue to a real action in a community.</div>
-        <div class="obj-line"><span class="obj-icon">📝</span> Write a notebook entry on which virtue your community needs most.</div>
+        <div class="obj-line"><span class="obj-icon">🏛️</span> Explain why a law cannot make someone volunteer: a constitution gives government its jobs and its limits.</div>
+        <div class="obj-line"><span class="obj-icon">📝</span> Write a plaque label on the virtue your community needs most.</div>
       </div>
     </div>
   </div>
@@ -1991,7 +1838,7 @@ body {
 
 <!-- ═══ TAB BAR ═══ -->
 <div class="tab-bar" id="tabBar">
-  <button class="tab-btn active" onclick="switchTab('scene')" id="btn-scene">📍 Enter the Museum <span class="tab-check">✓</span></button>
+  <button class="tab-btn active" onclick="switchTab('scene')" id="btn-scene">📍 Enter the Hall <span class="tab-check">✓</span></button>
   <button class="tab-btn" onclick="switchTab('explore')" id="btn-explore">🔍 Explore <span class="tab-check">✓</span></button>
   <button class="tab-btn" onclick="switchTab('check')" id="btn-check">🧠 Self-Check <span class="tab-check">✓</span></button>
   <button class="tab-btn" onclick="switchTab('assignment')" id="btn-assignment">📝 Evidence &amp; Assignment <span class="tab-check">✓</span></button>
@@ -2002,19 +1849,19 @@ body {
 
   <div class="tab-section-header">
     <div class="tab-section-icon" style="background:linear-gradient(135deg, #D4943A, #E0A050);">📍</div>
-    <div><div class="tab-section-title">Enter the Museum</div></div>
+    <div><div class="tab-section-title">Enter Citizenship Hall</div></div>
   </div>
 
   <div class="todays-path">
     <div class="todays-path-title">🗺️ Today's Path</div>
     <div class="todays-path-steps">
-      <span class="todays-path-step">📍 Lift the four plaques &amp; meet the root <em>volunt-</em></span>
+      <span class="todays-path-step">📍 Turn over the four plaques and read them</span>
       <span class="todays-path-arrow">→</span>
-      <span class="todays-path-step">🔍 Match each virtue to a real-life action</span>
+      <span class="todays-path-step">🔍 Polish the plaques through a week of choices</span>
       <span class="todays-path-arrow">→</span>
       <span class="todays-path-step">🧠 Check your understanding</span>
       <span class="todays-path-arrow">→</span>
-      <span class="todays-path-step">📝 Write a notebook entry on the virtue your community needs most</span>
+      <span class="todays-path-step">📝 Hang the plaque your community needs most</span>
     </div>
   </div>
 
@@ -2031,7 +1878,7 @@ body {
       <div class="video-placeholder">
         <div class="video-placeholder-icon">🎬</div>
         <div class="video-placeholder-text">
-          <strong>Teacher recording notes:</strong> Greet students at the back wall. Move your hand from plaque to plaque as you read each word — <em>Civility. Cooperation. Volunteerism. Responsibility.</em> Slow down. Tell students this is the <em>heart</em> of the hall — the part of citizenship that isn't about laws or buildings but about how citizens choose to <em>act</em>. Today's virtue is service, but every plaque today is a different shade of service. Preview the path: root <em>volunt-</em>, four flip cards for the virtues, then a notebook entry. Keep under 2 minutes. Warm and a little reverent.
+          <strong>Teacher recording notes:</strong> Greet students at the back wall. Move your hand from plaque to plaque as you read each word: <em>Civility. Cooperation. Volunteerism. Responsibility.</em> Slow down. Tell students this is the <em>heart</em> of the hall: the part of citizenship that isn't about laws or buildings but about how citizens choose to <em>act</em>. Today's virtue is service, but every plaque today is a different shade of service. Preview the path: the dusty plaques, a week of small choices, Dr. King's day of service, a real volunteer photo, the root <em>volunt</em>, then a plaque label. Keep under 2 minutes. Warm and a little reverent.
         </div>
         <div class="video-placeholder-id"><!-- slot: 3-10-07-welcome --></div>
       </div>
@@ -2040,32 +1887,32 @@ body {
 
   <!-- Virtue Spotlight -->
   <div class="virtue-card">
-    <div class="virtue-label">🏛️ Virtue Spotlight — Service</div>
+    <div class="virtue-label">🏛️ Virtue Spotlight: Service</div>
     <div class="virtue-text">All four civic virtues are different shapes of service. Civility is serving the conversation. Cooperation is serving the team. Volunteerism is serving without being asked. Responsibility is serving what's been given to you. Service is the thread running through every plaque on this wall.</div>
   </div>
 
   <!-- Curator Role -->
   <div class="callout callout-info">
     <div class="callout-icon">🕯️</div>
-    <p><strong>Your Role Today:</strong> You are still the <strong>Civic Curator</strong> — and these are the most important labels in the whole hall. Your job is to make sure visitors leave knowing which four habits a good citizen practices, and what each one actually looks like in everyday life.</p>
+    <p><strong>Your Role Today:</strong> You are still the <strong>Civic Curator</strong>, and these are the most important labels in the whole hall. Your job is to make sure visitors leave knowing which four habits a good citizen practices, and what each one actually looks like in everyday life.</p>
   </div>
 
   <div class="section-divider"><span class="section-divider-dot">···</span></div>
 
   <!-- Word Roots -->
-  <div class="activity bl-purple">
+  <div class="activity bl-purple" data-ms-hide>
     <div class="activity-head">
       <div class="activity-num" style="background:#8B6FC0;">🔤</div>
       <div>
         <div class="activity-title">Word Roots</div>
-        <div class="activity-sub">Latin Root: volunt- — "willing, of one's own choice"</div>
+        <div class="activity-sub">Latin root: volunt, "willing, of your own choice"</div>
       </div>
     </div>
     <div class="activity-body">
-      <p>The Latin root <strong>volunt-</strong> means "willing" or "of one's own choice." A volunteer isn't <em>forced</em> to help — they choose to. That's the whole heart of civic virtue: a good citizen isn't waiting for someone to make them do the right thing. They choose it.</p>
+      <p>The Latin root <strong>volunt</strong> means "willing" or "of your own choice." A volunteer isn't <em>forced</em> to help. They choose to. That's the whole heart of civic virtue: a good citizen isn't waiting for someone to make them do the right thing. They choose it.</p>
       <div class="callout callout-vocab">
         <div class="callout-icon">📖</div>
-        <p><strong>volunteer</strong> — someone who chooses to help without being paid · <strong>voluntary</strong> — done by choice, not by force · <strong>volunteerism</strong> — the habit of helping the community on your own · <strong>involuntary</strong> — done <em>without</em> choosing (a sneeze is involuntary)</p>
+        <p><strong>volunteer</strong>: someone who chooses to help without being paid · <strong>voluntary</strong>: done by choice, not by force · <strong>volunteerism</strong>: the habit of helping the community on your own · <strong>involuntary</strong>: done <em>without</em> choosing (a sneeze is involuntary)</p>
       </div>
 
       <!-- Root Match Game -->
@@ -2080,24 +1927,35 @@ body {
           <div class="root-match-item is-word" data-match="d" onclick="rootMatchClick(this)">involuntary</div>
           <div class="root-match-item" data-match="c" onclick="rootMatchClick(this)">the habit of helping the community on your own</div>
         </div>
-        <div class="root-match-feedback" id="rootMatchFeedback">🎉 All matched! Civic virtue is always <em>chosen</em> — never forced.</div>
+        <div class="root-match-feedback" id="rootMatchFeedback">🎉 All matched! Volunteering is always <em>chosen</em>, never forced.</div>
         <div class="discovery-fact" id="rootDiscoveryFact">
           <div class="discovery-fact-label">🔎 Discovery Fact</div>
-          The word <em>benevolent</em> uses this root too — <em>bene</em> ("good") + <em>volent</em> ("willing") = "willing the good for others." A benevolent person <em>chooses</em> kindness.
+          The word <em>benevolent</em> comes from the same Latin word for wanting. <em>bene</em> means "good," so a benevolent person wants good things for others.
         </div>
       </div>
     </div>
   </div>
 
   <!-- Copywork -->
+  <div class="activity bl-purple">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#8B6FC0;">✍️</div>
+      <div>
+        <div class="activity-title">Copywork</div>
+        <div class="activity-sub">One sentence for your Curator's Notebook</div>
+      </div>
+    </div>
+    <div class="activity-body">
   <div class="copywork-box">
     <div class="copywork-label">✍️ Copywork</div>
     <div class="copywork-text">"A good citizen practices civility, cooperation, volunteerism, and responsibility."</div>
-    <div class="copywork-instruction">Copy this sentence carefully into your Curator's Notebook. The word <em>practices</em> is on purpose — these aren't just feelings, they're <em>habits</em> you build a little bit every day.</div>
+    <div class="copywork-instruction">Copy this sentence carefully into your Curator's Notebook. The word <em>practices</em> is on purpose. These aren't just feelings. They're <em>habits</em> you build a little bit every day.</div>
+  </div>
+    </div>
   </div>
 
   <div class="tab-next-wrap">
-    <p class="tab-transition-voice">Now let's lift each plaque and figure out what it really means.</p>
+    <p class="tab-transition-voice">The plaques are clean, but they still look dull. Now walk into the Gallery and polish them.</p>
     <button class="tab-next-btn" onclick="switchTab('explore')">Continue to 🔍 Explore →</button>
   </div>
 </div>
@@ -2123,54 +1981,56 @@ body {
       <div class="video-placeholder">
         <div class="video-placeholder-icon">🎬</div>
         <div class="video-placeholder-text">
-          <strong>Teacher recording notes:</strong> Walk students through all four virtues one at a time, with one concrete kid-sized example for each. Civility: listening when someone disagrees with you without interrupting. Cooperation: taking turns on a group project so everyone gets to talk. Volunteerism: signing up to help clean up the park even though no one asked. Responsibility: feeding your dog every morning because you said you would. Stress that these aren't <em>feelings</em> — they're <em>habits</em> built one small choice at a time. Aim for 3–5 minutes. Concrete and action-oriented.
+          <strong>Teacher recording notes:</strong> Walk students through all four virtues one at a time, with one concrete kid-sized example for each. Civility: listening when someone disagrees with you without interrupting. Cooperation: taking turns on a group project so everyone gets to talk. Volunteerism: signing up to help clean up the park even though no one asked. Responsibility: feeding your dog every morning because you said you would. Stress that these aren't <em>feelings</em>. They're <em>habits</em> built one small choice at a time, and civility does not mean agreeing. Then tell about Dr. King's day of service, the three levels of parks, and why a law cannot make someone volunteer (a constitution gives government its jobs and its limits). Aim for 3 to 5 minutes. Concrete and action-oriented.
         </div>
         <div class="video-placeholder-id"><!-- slot: 3-10-07-explore-explainer --></div>
       </div>
     </div>
   </div>
 
-  <div class="step-badge"><div class="step-badge-num">1</div> Learn the Story</div>
+  <div class="step-badge" data-ms-hide><div class="step-badge-num">1</div> Learn the Story</div>
 
   <div class="activity bl-accent">
     <div class="activity-head">
       <div class="activity-num" style="background:#1A8A7D;">📖</div>
       <div>
         <div class="activity-title">The Four Habits of a Good Citizen</div>
-        <div class="activity-sub">Not feelings — actions</div>
+        <div class="activity-sub">Not feelings, actions</div>
       </div>
     </div>
     <div class="activity-body">
       <p>A <strong>civic virtue</strong> is a habit a citizen practices on purpose to help the community. Notice the word <em>habit</em>. A virtue isn't something you have or don't have. It's something you <em>do</em>, over and over, until you don't have to think about it anymore. Citizenship Hall puts four of them up on the wall.</p>
 
-      <p><strong>🤝 Civility</strong> is being respectful to people in public — especially people you disagree with. A civil person listens before they speak. They don't interrupt. They don't insult the other side. Civility doesn't mean you have to agree with someone. It means you treat them like a person.</p>
+      <p><strong>🤝 Civility</strong> is treating people with respect, especially people you disagree with. A civil person listens before they speak. They don't interrupt. They don't call names. Civility does <strong>not</strong> mean you have to agree. You can disagree and still be civil.</p>
 
       <p><strong>🧩 Cooperation</strong> is working together to get something done. A cooperative person takes their turn, shares the tools, and listens to other people's ideas. Cooperation is how a class project, a sports team, or a town's clean-up day actually works.</p>
 
       <p><strong>🌱 Volunteerism</strong> is choosing to help your community without being told to. A volunteer plants a tree at the park, reads to younger kids at the library, or picks up trash on the beach because they want their community to be better. No one is paying them. They just choose.</p>
 
-      <p><strong>🛡️ Responsibility</strong> is doing what you said you would do — and taking care of the things you've been given to take care of. A responsible person finishes their homework, returns the library book, and tells the truth when they made a mistake. Responsibility is how trust gets built in a community.</p>
+      <p><strong>🛡️ Responsibility</strong> is doing what you said you would do, and taking care of what is yours to look after. A responsible person finishes their homework, returns the library book, and tells the truth when they made a mistake. Responsibility is how trust gets built in a community.</p>
 
-      <p>Here's a small secret about these four: they help each other. A community that practices civility ends up cooperating better. People who cooperate often start volunteering. Volunteers learn responsibility. They're four words, but they grow together like four sides of the same plant.</p>
+      <p data-ms-hide>Here's a small secret about these four: they help each other. A community that practices civility ends up cooperating better. People who cooperate often start volunteering. Volunteers learn responsibility. They're four words, but they grow together like four sides of the same plant.</p>
+
+      <p><strong>Who can practice them?</strong> Anyone. You don't have to be a grown-up, famous, or in charge. A third grader can practice all four, today.</p>
     </div>
   </div>
 
-  <div class="callout callout-info">
+  <div class="callout callout-info" data-ms-hide>
     <div class="callout-icon">🦸</div>
-    <p><strong>A Day of Service:</strong> Martin Luther King Jr. Day is also a national day of service. Many Americans volunteer that day to honor Dr. King, a hero who worked for fair treatment for everyone. You can help at every level: a local park, a state park, or a national park. No law makes you volunteer. Our constitutions give the government its jobs and its limits. Caring for others is a choice citizens make.</p>
+    <p><strong>A Day of Service:</strong> Martin Luther King Jr. Day, in January, is also a national day of service. Dr. King was a hero who led peaceful marches so that Black Americans, and all people, would be treated fairly. Many Americans volunteer on his day to honor him. You can help at every level: a local city park, a Florida state park, or a national park. A <strong>constitution</strong> is a written plan that gives a government its jobs and its limits. It cannot make anyone care. When a law makes someone help, it isn't volunteering anymore. Volunteering is always a choice.</p>
   </div>
 
   <div class="callout callout-think">
     <div class="callout-icon">🤔</div>
-    <p><strong>Pause &amp; Think:</strong> Picture one place where you spend time every week — your classroom, your kitchen, your team, your church, your block. Which of the four virtues shows up the most there? Which one is the hardest one for <em>you</em>?</p>
+    <p><strong>Pause &amp; Think:</strong> Picture one place where you spend time every week: your classroom, your kitchen, your team, your church, your block. Which of the four virtues shows up the most there? Which one is the hardest one for <em>you</em>?</p>
   </div>
 
   <div class="section-divider"><span class="section-divider-dot">···</span></div>
 
-  <div class="step-badge"><div class="step-badge-num">2</div> Investigate the Evidence</div>
+  <div class="step-badge" data-ms-hide><div class="step-badge-num">2</div> Investigate the Evidence</div>
 
   <!-- Source Study -->
-  <div class="source-card">
+  <div class="source-card" data-ms-hide>
     <div class="source-card-header">
       <div class="source-card-header-icon">📜</div>
       <div>
@@ -2178,27 +2038,22 @@ body {
         <div class="source-card-header-title">Community Volunteers at Work</div>
       </div>
     </div>
-    <div class="source-image-placeholder" data-image="source-3-10-07-community-volunteers">
-      <div class="source-image-placeholder-text">
-        🖼️ A clear color photograph of <strong>community volunteers in action</strong> — for example, neighbors cleaning up a park or beach, building a community garden, packing food at a food bank, or working on a Habitat for Humanity build. Wikimedia Commons and U.S. government volunteer-program sites (FEMA, AmeriCorps, National Park Service Volunteer-in-Parks) have many public-domain photos. Pick one where multiple people are working together so all four virtues are visible.<br><br>
-        <strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-3-10-07-community-volunteers.jpg</code>
-      </div>
-    </div>
+    <figure style="margin:0;"><img src="images/src-3-10-07-community-volunteers.jpg" alt="A photograph of volunteers in orange safety vests cleaning up a dry, sandy desert with mountains behind them. On the left, two volunteers push a wheelbarrow full of junk together. On the right, a group bends over a pile of old boards and trash, picking it up, with a blue bucket on the ground." style="width:100%;max-width:640px;display:block;margin:0 auto;"><figcaption style="font-size:13px;color:#5A4A3A;padding:6px 14px 0;"><em>Volunteers pick up trash at Tule Springs Fossil Beds National Monument, Nevada, April 11, 2015. Photo by the National Park Service (NPS), public domain, via Wikimedia Commons</em></figcaption></figure>
     <div class="source-card-body">
       <div class="source-label-bar">
-        <span class="src-type">Photograph</span> · Community volunteers in the United States
+        <span class="src-type">Photograph</span> · Volunteers clean up Tule Springs Fossil Beds National Monument, Nevada, April 11, 2015
       </div>
       <div class="callout callout-info">
         <div class="callout-icon">👁️</div>
-        <p><strong>What do I see?</strong> Look at the people. What are they doing with their hands? Are they working together or alone? Does it look like a job — or like a choice?</p>
+        <p><strong>What do I see?</strong> Look at the people. What are they doing with their hands? Are they working together or alone? Does it look like a paid job, or like a choice?</p>
       </div>
       <div class="callout callout-think">
         <div class="callout-icon">💭</div>
-        <p><strong>What does it mean?</strong> Try to spot at least <em>two</em> of the four civic virtues in this photo. Where do you see cooperation? Where do you see volunteerism? Maybe even civility or responsibility?</p>
+        <p><strong>What does it mean?</strong> More than 60 volunteers came on a Saturday to clean up this national park site. They filled about nine pickup trucks with trash. Find two people pushing one wheelbarrow: that is <em>cooperation</em>. Nobody paid them or made them come: that is <em>volunteerism</em>. They leave no junk behind: that is <em>responsibility</em>. Why is <em>civility</em> hard to see in a photo?</p>
       </div>
       <div class="callout callout-tip">
         <div class="callout-icon">⚖️</div>
-        <p><strong>Why does it matter?</strong> A community is what its citizens do together — not what its laws say on paper. Photographs like this one are the real evidence of civic virtue in action.</p>
+        <p><strong>Why does it matter?</strong> A community is what its citizens do together, not only what its laws say on paper. Photographs like this one are real evidence of civic virtue in action.</p>
       </div>
     </div>
   </div>
@@ -2206,7 +2061,7 @@ body {
   <div class="section-divider"><span class="section-divider-dot">···</span></div>
 
   <!-- Flip-card virtue match -->
-  <div class="activity bl-accent">
+  <div class="activity bl-accent" data-ms-hide>
     <div class="activity-head">
       <div class="activity-num" style="background:#1A8A7D;">🃏</div>
       <div>
@@ -2226,7 +2081,7 @@ body {
             </div>
             <div class="flip-card-back">
               <div class="fc-word-back">🤝 Civility</div>
-              <div class="fc-def">Civility is treating people in public with respect — especially the ones you don't agree with.</div>
+              <div class="fc-def">Civility is treating people with respect, especially the ones you don't agree with.</div>
             </div>
           </div>
         </div>
@@ -2265,7 +2120,7 @@ body {
             </div>
             <div class="flip-card-back">
               <div class="fc-word-back">🧩 Cooperation</div>
-              <div class="fc-def">Cooperation is working together so the whole team can win — not just you.</div>
+              <div class="fc-def">Cooperation is working together so the whole team can win, not just you.</div>
             </div>
           </div>
         </div>
@@ -2273,12 +2128,12 @@ body {
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="fc-emoji">🐕</div>
-              <div class="fc-word">Feeding the dog every morning without being told</div>
+              <div class="fc-word">Feeding the dog every morning, just as you promised</div>
               <div class="fc-tap">tap to flip</div>
             </div>
             <div class="flip-card-back">
               <div class="fc-word-back">🛡️ Responsibility</div>
-              <div class="fc-def">Taking care of what's been given to you — even when no one is watching.</div>
+              <div class="fc-def">You keep your promise and take care of what is yours to look after, every day.</div>
             </div>
           </div>
         </div>
@@ -2291,7 +2146,7 @@ body {
             </div>
             <div class="flip-card-back">
               <div class="fc-word-back">🤝 Civility</div>
-              <div class="fc-def">Civility is also about <em>how</em> you speak in public — taking turns instead of interrupting.</div>
+              <div class="fc-def">Civility is also about <em>how</em> you speak: taking turns instead of interrupting.</div>
             </div>
           </div>
         </div>
@@ -2304,7 +2159,7 @@ body {
             </div>
             <div class="flip-card-back">
               <div class="fc-word-back">🌱 Volunteerism</div>
-              <div class="fc-def">Choosing to give your time to help someone else's day go better — that's volunteerism.</div>
+              <div class="fc-def">Choosing to give your time to help someone else's day go better: that's volunteerism.</div>
             </div>
           </div>
         </div>
@@ -2326,14 +2181,14 @@ body {
   </div>
 
   <!-- Then & Now -->
-  <div class="callout callout-tip">
+  <div class="callout callout-tip" id="ms-thennow">
     <div class="callout-icon">⏳</div>
-    <p><strong>Then &amp; Now:</strong> Long before the United States existed, ancient Greeks and Romans were already teaching young people about civic virtues. They believed a country couldn't survive on laws alone — it needed citizens who actually practiced these habits. The plaques are new. The idea is over two thousand years old.</p>
+    <p><strong>Then &amp; Now:</strong> More than 2,000 years ago, long before the United States existed, teachers in ancient Greece and Rome taught young people about civic virtues. They believed a country could not last on laws alone. It needed citizens who practiced good habits. The plaques are new. The idea is very old.</p>
   </div>
 
   <div class="section-divider"><span class="section-divider-dot">···</span></div>
 
-  <div class="step-badge"><div class="step-badge-num">3</div> Connect the Ideas</div>
+  <div class="step-badge" data-ms-hide><div class="step-badge-num">3</div> Connect the Ideas</div>
 
   <!-- Exhibit Label -->
   <div class="key-concept">
@@ -2346,12 +2201,12 @@ body {
     <div class="owl-buddy-avatar">🦉</div>
     <div class="owl-buddy-bubble">
       <div class="owl-buddy-name">🏅 Opti says…</div>
-      You know what I love about these four? You don't have to be old, or famous, or in charge to practice any of them. A third grader is fully qualified. The plaques on this wall aren't waiting for grown-ups — they're describing what you can do today.
+      You know what I love about these four? You don't have to be old, or famous, or in charge to practice any of them. A third grader is fully qualified. The plaques on this wall aren't waiting for grown-ups. They're describing what you can do today.
     </div>
   </div>
 
   <div class="tab-next-wrap">
-    <p class="tab-transition-voice">You know the four virtues. Let's see what stuck.</p>
+    <p class="tab-transition-voice">You polished the plaques and tagged a real photo. Let's see what stuck.</p>
     <button class="tab-next-btn" onclick="switchTab('check')">Continue to 🧠 Self-Check →</button>
   </div>
 </div>
@@ -2366,7 +2221,7 @@ body {
 
   <div class="callout callout-info" style="margin-bottom:18px;">
     <div class="callout-icon">🧠</div>
-    <p>Not graded — just for you! Answer these three questions to see how much you remember before writing your notebook entry.</p>
+    <p>Not graded. Just for you! Answer these three questions to see how much you remember before you write your plaque label.</p>
   </div>
 
   <div class="quiz-card">
@@ -2379,7 +2234,7 @@ body {
           <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>A habit a citizen practices on purpose to help the community.</div>
           <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>A rule the government makes you obey.</div>
         </div>
-        <div class="quiz-feedback fb-correct">Right — virtues are <em>habits</em>, built by choosing the same good action over and over.</div>
+        <div class="quiz-feedback fb-correct">Right! Virtues are <em>habits</em>, built by choosing the same good action over and over.</div>
         <div class="quiz-feedback fb-wrong">A virtue is something you <em>do</em>, not something the government can force on you. Try again.</div>
       </div>
 
@@ -2390,8 +2245,8 @@ body {
           <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>Civility.</div>
           <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>Responsibility.</div>
         </div>
-        <div class="quiz-feedback fb-correct">Yes — no one asked, but you chose. That's volunteerism, from the root <em>volunt-</em> = "willing."</div>
-        <div class="quiz-feedback fb-wrong">Look at the word root <em>volunt-</em>. The clue is "even though no one asked."</div>
+        <div class="quiz-feedback fb-correct">Yes! No one asked, but you chose. That's volunteerism, from the root <em>volunt</em>, "willing."</div>
+        <div class="quiz-feedback fb-wrong">Look at the word root <em>volunt</em>. The clue is "even though no one asked."</div>
       </div>
 
       <div class="quiz-q" data-answer="c">
@@ -2399,9 +2254,9 @@ body {
         <div class="quiz-options">
           <div class="quiz-opt" data-val="a" onclick="checkQuiz(this)"><span class="opt-letter">A</span>Always agreeing with whoever is loudest.</div>
           <div class="quiz-opt" data-val="b" onclick="checkQuiz(this)"><span class="opt-letter">B</span>Pretending you don't have an opinion.</div>
-          <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>Treating people in public with respect — especially the ones you disagree with.</div>
+          <div class="quiz-opt" data-val="c" onclick="checkQuiz(this)"><span class="opt-letter">C</span>Treating people with respect, especially the ones you disagree with.</div>
         </div>
-        <div class="quiz-feedback fb-correct">Yes — civility isn't agreement. It's <em>respect</em>, even when you disagree.</div>
+        <div class="quiz-feedback fb-correct">Yes! Civility isn't agreement. It's <em>respect</em>, even when you disagree.</div>
         <div class="quiz-feedback fb-wrong">Civility doesn't mean giving up your own ideas. Re-read the description of the first plaque.</div>
       </div>
 
@@ -2424,7 +2279,7 @@ body {
           <div class="video-ratio">
             <div class="video-placeholder">
               <div class="video-placeholder-icon">⭐</div>
-              <div class="video-placeholder-text"><strong>Teacher recording notes:</strong> Celebrate the perfect score. Say: "Three for three — you understand what makes a citizen, not just on paper but in action." Under 30 seconds. Warm and proud.</div>
+              <div class="video-placeholder-text"><strong>Teacher recording notes:</strong> Celebrate the perfect score. Say: "Three for three! You understand what makes a citizen, not just on paper but in action." Under 30 seconds. Warm and proud.</div>
               <div class="video-placeholder-id"><!-- slot: 3-10-07-quiz-perfect --></div>
             </div>
           </div>
@@ -2454,7 +2309,7 @@ body {
   </div>
 
   <div class="tab-next-wrap">
-    <p class="tab-transition-voice">Now let's put your thinking on the page.</p>
+    <p class="tab-transition-voice">Now head to the Exhibit Floor and hang your plaque.</p>
     <button class="tab-next-btn" onclick="switchTab('assignment')">Continue to 📝 Evidence &amp; Assignment →</button>
   </div>
 </div>
@@ -2469,7 +2324,7 @@ body {
 
   <div class="callout callout-info" style="margin-bottom:18px;">
     <div class="callout-icon">📝</div>
-    <p>Time to show what you know. Answer the evidence questions and complete your notebook entry. Your answers will be gathered at the bottom so you can copy or download them for Canvas.</p>
+    <p>Time to show what you know. Answer the evidence questions, write your Chronicle, and write your plaque label. Your answers are gathered at the end, so you can copy or download them for Canvas.</p>
   </div>
 
   <div class="video-wrap">
@@ -2484,7 +2339,7 @@ body {
       <div class="video-placeholder">
         <div class="video-placeholder-icon">🎬</div>
         <div class="video-placeholder-text">
-          <strong>Teacher recording notes:</strong> Read each evidence question aloud. For the notebook entry, think aloud through a strong answer — pick one virtue, name a specific place in your life where it matters (your classroom, your family, your neighborhood), and describe one small action that would put the virtue into practice. Stress that small actions count. Walk through gather/copy/submit. Aim for 2–3 minutes.
+          <strong>Teacher recording notes:</strong> Read each evidence question aloud. Remind students that question 3 is written in the Gallery, at Day of Service. For the plaque label, think aloud through a strong answer: pick one virtue, name a specific place in your life where it matters (your classroom, your family, your street, your team), tell what the virtue means, and describe one small action that would put it into practice. Stress that small actions count. Walk through gather, copy, and submit. Aim for 2 to 3 minutes.
         </div>
         <div class="video-placeholder-id"><!-- slot: 3-10-07-assignment-explainer --></div>
       </div>
@@ -2509,40 +2364,21 @@ body {
         oninput="autoSave(this,'dot-q1');gatherAnswers();"></textarea>
 
       <div class="q-block" style="margin-top:14px;"><div class="q-text"><span class="q-num">2</span>What's the difference between <em>volunteerism</em> and being <em>told</em> to help someone?</div></div>
-      <div class="textbox-prompt">Use the root <em>volunt-</em> ("willing") in your answer.</div>
+      <div class="textbox-prompt">Use the root <em>volunt</em> ("willing") in your answer.</div>
       <textarea class="journal-box" id="journal-q2" data-label="Q2: Volunteerism vs being told"
         placeholder="Volunteerism is different because..."
         oninput="autoSave(this,'dot-q2');gatherAnswers();"></textarea>
 
-      <div class="q-block" style="margin-top:14px;"><div class="q-text"><span class="q-num">3</span>Pick one civic virtue and describe a real action a 3rd grader could do to practice it this week.</div></div>
-      <div class="textbox-prompt">Name the virtue → describe one specific action you could do.</div>
-      <textarea class="journal-box" id="journal-q3" data-label="Q3: One virtue + one real action"
-        placeholder="One virtue I could practice this week is..."
+      <div class="q-block" style="margin-top:14px;"><div class="q-text"><span class="q-num">3</span>Can a law make someone volunteer? Explain, using what a constitution does.</div></div>
+      <div class="textbox-prompt">Tell what a constitution gives a government (its jobs and its limits), then explain.</div>
+      <textarea class="journal-box" id="journal-q3" data-label="Q3: Can a law make someone volunteer?"
+        placeholder="A law cannot make someone volunteer because..."
         oninput="autoSave(this,'dot-q3');gatherAnswers();"></textarea>
 
     </div>
   </div>
 
   <!-- Part B: Curator Task -->
-  <div class="activity bl-gold">
-    <div class="activity-head">
-      <div class="activity-num" style="background:#D4943A;">B</div>
-      <div>
-        <div class="activity-title">Curator Task: Place the Plaques</div>
-        <div class="activity-sub">A short Curator's Notebook entry on the virtue your community needs most.</div>
-      </div>
-    </div>
-    <div class="activity-body">
-      <p>You're the Civic Curator. The four bronze plaques are ready, but visitors only have time to read one carefully before they leave the hall. Pick the <strong>one virtue you think your community needs most right now</strong>. Write a notebook entry — 3 to 5 sentences — naming the virtue, explaining what it means, and describing one way real people in your community could practice it.</p>
-
-      <div class="textbox-prompt">3–5 sentences. Name the virtue → explain it → describe one real action.</div>
-      <textarea class="journal-box" id="journal-assign" data-label="Curator Task: Virtue my community needs most"
-        placeholder="The civic virtue my community needs most is..."
-        oninput="autoSave(this,'dot-assign');gatherAnswers();"></textarea>
-    </div>
-  </div>
-
-  <!-- Curator's Chronicle -->
   <div class="activity bl-navy">
     <div class="activity-head">
       <div class="activity-num" style="background:#0E1C42;">📜</div>
@@ -2559,6 +2395,27 @@ body {
         oninput="autoSave(this,'dot-chronicle');gatherAnswers();"></textarea>
     </div>
   </div>
+
+  <div class="activity bl-gold">
+    <div class="activity-head">
+      <div class="activity-num" style="background:#D4943A;">B</div>
+      <div>
+        <div class="activity-title">Curator Task: Place the Plaques</div>
+        <div class="activity-sub">A short plaque label on the virtue your community needs most.</div>
+      </div>
+    </div>
+    <div class="activity-body">
+      <p>You're the Civic Curator. The four bronze plaques shine, but visitors only have time to read one carefully before they leave the hall. Pick the <strong>one virtue you think your community needs most right now</strong>. Write its plaque label in 3 to 5 sentences: name the virtue, explain what it means, and describe one way real people in your community could practice it.</p>
+
+      <div class="textbox-prompt">3 to 5 sentences: name the virtue, explain it, and describe one real action.</div>
+      <textarea class="journal-box" id="journal-assign" data-label="Curator Task: The virtue my community needs most"
+        placeholder="The civic virtue my community needs most is..."
+        oninput="autoSave(this,'dot-assign');gatherAnswers();"></textarea>
+    </div>
+  </div>
+
+  <!-- Curator's Chronicle -->
+  
 
   <!-- Gathered Answers -->
   <div class="gathered-card">
@@ -2624,11 +2481,11 @@ body {
         </div>
         <div class="turn-in-item" onclick="toggleCheck(this)">
           <div class="turn-in-check"></div>
-          <div class="turn-in-item-text">✅ I wrote my notebook entry (3–5 sentences) on the virtue my community needs most.</div>
+          <div class="turn-in-item-text">✅ I wrote my Curator's Chronicle.</div>
         </div>
         <div class="turn-in-item" onclick="toggleCheck(this)">
           <div class="turn-in-check"></div>
-          <div class="turn-in-item-text">✅ I wrote my Curator's Chronicle.</div>
+          <div class="turn-in-item-text">✅ I wrote my plaque label (3 to 5 sentences) on the virtue my community needs most.</div>
         </div>
         <div class="turn-in-item" onclick="toggleCheck(this)">
           <div class="turn-in-check"></div>
@@ -2638,10 +2495,10 @@ body {
     </div>
   </div>
 
-  <!-- Coming Up Next -->
+  <!-- Next time -->
   <div class="callout callout-tip" style="margin-top:18px;">
     <div class="callout-icon">🔮</div>
-    <p><strong>Coming Up Next…</strong> The very last lesson of Citizenship Hall arrives next time. The museum lights will dim, and a single spotlight will land on the <strong>center pedestal</strong>, where a brand-new exhibit waits: a small case holding a folded U.S. flag, a bronze bell, a marble bust, a famous document, and a tiny model of the Statue of Liberty. Visitors will only see one thing if they don't have time for the rest. <em>Which one do we put front and center?</em> And the <strong>Citizen Curator badge</strong> will be waiting.</p>
+    <p><strong>Next time…</strong> The very last lesson of Citizenship Hall arrives. The museum lights will dim, and a single spotlight will land on the <strong>center pedestal</strong>, where a brand-new exhibit waits: a small case holding a folded U.S. flag, a bronze bell, a marble bust, a famous document, and a tiny model of the Statue of Liberty. Visitors will only see one thing if they don't have time for the rest. <em>Which one do we put front and center?</em> And the <strong>Citizen Curator badge</strong> will be waiting.</p>
   </div>
 
   <!-- Closing Video -->
@@ -2657,7 +2514,7 @@ body {
       <div class="video-placeholder">
         <div class="video-placeholder-icon">🎬</div>
         <div class="video-placeholder-text">
-          <strong>Teacher recording notes:</strong> Celebrate that students hung the four bronze plaques. Restate the Exhibit Label — civility, cooperation, volunteerism, responsibility. Make the point one more time: these aren't feelings, they're habits, and 3rd graders are fully qualified. Then tease the unit closer: the last exhibit, a small case with the most important symbols, individuals, documents, and events of the United States — and the Citizen Curator badge. Keep under 1 minute. Warm and a little proud.
+          <strong>Teacher recording notes:</strong> Celebrate that students hung the four bronze plaques. Restate the Exhibit Label: civility, cooperation, volunteerism, responsibility. Make the point one more time: these aren't feelings, they're habits, and 3rd graders are fully qualified. Then tease the unit closer: the last exhibit, a small case with the most important symbols, individuals, documents, and events of the United States, and the Citizen Curator badge. Keep under 1 minute. Warm and a little proud.
         </div>
         <div class="video-placeholder-id"><!-- slot: 3-10-07-closing --></div>
       </div>
@@ -2761,7 +2618,7 @@ window.addEventListener('beforeunload', function(e){
 });
 /* ═══════════ GATHER ANSWERS ═══════════ */
 function gatherAnswers() {
-  var ids = ['journal-q1', 'journal-q2', 'journal-q3', 'journal-assign', 'journal-chronicle'];
+  var ids = ['journal-q1', 'journal-q2', 'journal-q3', 'journal-chronicle', 'journal-assign'];
   var output = '';
   ids.forEach(function(id) {
     var el = document.getElementById(id);
@@ -2773,8 +2630,8 @@ function gatherAnswers() {
   });
 
   // Mini-game status
-  output += 'MINI-GAME RESULTS\n';
-  output += (window._rootMatchDone ? '✅' : '⬜') + ' Word Roots Match\n';
+  output += 'WORD PUZZLE\n';
+  output += (window._rootMatchDone ? '✅' : '⬜') + ' Word root: volunt\n';
 
   var gathered = document.getElementById('gatheredOutput');
   if (gathered) gathered.value = output.trim();
@@ -2804,9 +2661,9 @@ function showCopied() {
 /* ═══════════ DOWNLOAD AS PDF ═══════════ */
 function downloadJournal() {
   gatherAnswers();
-  var ids = ['journal-q1', 'journal-q2', 'journal-q3', 'journal-assign', 'journal-chronicle'];
+  var ids = ['journal-q1', 'journal-q2', 'journal-q3', 'journal-chronicle', 'journal-assign'];
   var html = '<!DOCTYPE html><html><head><meta charset="UTF-8">';
-  html += '<title>Lesson 3.10.07 — My Work</title>';
+  html += '<title>Lesson 3.10.07: My Work</title>';
   html += '<style>';
   html += 'body{font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:0 20px;color:#1a1a2e;line-height:1.7;}';
   html += 'h1{font-size:22px;border-bottom:3px solid #55C8E8;padding-bottom:8px;margin-bottom:6px;}';
@@ -2816,7 +2673,7 @@ function downloadJournal() {
   html += '.q-answer{font-size:14px;color:#0E1C42;margin:0 0 4px;padding:6px 12px;background:#f8f9fc;border-left:3px solid #D6F2FB;border-radius:4px;white-space:pre-wrap;}';
   html += '.no-answer{color:#B0B8CC;font-style:italic;}';
   html += '</style></head><body>';
-  html += '<h1>📓 My Work — Lesson 3.10.07</h1>';
+  html += '<h1>📓 My Work: Lesson 3.10.07</h1>';
   html += '<h2>Civic Virtues</h2>';
 
   html += '<div class="section-title">📝 EVIDENCE QUESTIONS</div>';
@@ -3409,5 +3266,7 @@ window.addEventListener('load',function(){run();setTimeout(run,800);setTimeout(r
 })();
 </script>
 <!-- /OAO-STD-TIPS -->
+<script>window.MS_IMG={"opti-owl.png": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARYAAAF8CAMAAAA9/GRBAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOjM4YzkwNzZiLTFlNDYtNGFhZC05NzIzLTFmYjdiMWQ5N2FjZgAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNo/Iy/xHFe5ZAe2qbFz1QPbQAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6MTQ3Mzg4NDUtNzg4NC00MzI4LTg2ZTYtMzFlZDEzNWI3NmVhbHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaMIDRqZudFygM1nVfvMWiEQAAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYICgXnS0DKje4Erd4J70D0byWP5sXyF910mvJXZgjBqCdpGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2jzG63Q9A10koMr/N62yF7tAAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFgg62rkIYyCIilSyAcZlvfVsB0KFKIGyRQOmU012r1VIo9kbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYTozOGM5MDc2Yi0xZTQ2LTRhYWQtOTcyMy0xZmI3YjFkOTdhY2YvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDoxNTUzNDg1MC02MTE3LTQ2MTQtOWIyMS04NzgyMzRhMWYyZDByY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggKBedLQMqN7gSt3gnvQPRvJY/mxfIX3XSa8ldmCMGoJ2iY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYIOOUeEPAF3cLN4bH+qTD6uJqpttY5E3uhqmHsNV33wyHomN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYICbni5gY4Q//yfp9z8r0monETK5rAdZgAkrLN6kGNcIjdGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2WEDFZP6p4D036dCLN2nc7e58in/gJEBXZ4qA4JkVd4Fi7wl7TATQlAa7/PP84YwnTMU45OPF2hQG6MECWWCRFRd81WZZ1gAAAwBQTFRFR3BM+/bo+fDc+vHd+/XmNBYQ+/Ti+/Tk+vLf+vPi/PPeIxQN+e/aICpEAgECFx81Hic+Iy5LPEpqKThbFBsv9urUMUFmLTxfNUVq+O3Yk8nSFBkmOEpzQE5wJzNTHCM3JzFMKj1oLDdTIDBUIzRb9ujQMz9eMDtXLkJuDxUk/PjrJjliDREcjcfRHCtMCgwUQFJ6Ok55jcTO8+XQM0ZyFyM+UWKFGidFhcLMOERiS1p6ls7WQleB7+HMRlZ4T15+BgcM6NjCoNDYGyArCwYD793FR1NwodbehcbQiLzHU2aL9OPJSF2GFAsGGRYUlNLcLTVKIBwXXHNPfrrG4dK9Ji5BW2mIExEOJSs4IxIIfr7Kc6W0Wm6Sn1csYnOTrtnfncvSRVxC+ezUZntVqF0ud7C+//zqN0BW6tzLSCkTIyMej8DKic3XvdvdbZ+uc6u5tm9BYYWSkk0n//fjxH9OMC8rkVQveLbDaI+cJScrzeDeMTU7PyANMSoehEwrhrbAuHZLMRgKs2UwbJendUYl3eXd///0dT0dPzUpcYRdaHuchEUi3ZIxPkpZpGI6ZTYb9e7dS2dzNCYcPjAoUT4y18q6RlFeh665Mz1K0YUv45w3IhYOZD4h87I6r6GTVDQbVmdDWXuIMCATxXdBQTEmMSQbqmpA66Y69rxKlF0zS2pSs9DSUEpFm8TLRlxn6OvizohUvG4vwnsoVHF7WC0TxbinpJaFXlVK7ujZIhYPLyEXk4Z5z8GtQzQs+++9HBEL+dyUQT5B+cZYi3pndIemTUEwP1E4JRgPbmlm4MGGcV9NRjozyNXRXV5jv62WOEZKSUJFHBEKhZ6t7c+P27R31ZRd2tzThZNoNEErsa+kelUjGxELkJCSgWxV9PHleHRz//vMMCEW+uWoOSod+9NuRTUoMSMaXkovln1jEwsHRjUmmWkmIhkTn3o74OfmfX6Cl6Z6359oyKZlvY09465O0r+loLi7g2lUv8O/YU9Bp49kQjImUkEzYFJJaFpOdmFPGNU9NQAAAQB0Uk5TAP39/f0B/f39/f0C/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/fz9/f38/f39/f39/f39/f38/f39/f38/fz9/f39/f39/f39/f39/f39/f39/f39/P39/f39/f39/f39/f39/f39/f39/P38/f39/f1lNin9/f39/Pyv/f39/f39/f1GVP38/f39/f39/f39/Pz9/f39/P2Zdf39HP3E/f38/fz9/YT9/fwR/fz9/Qjm/P39/f39/f392P39/fz92v3H/JTu/Q/vtf3z/QH8/f39/f0H/Rr8hv3j2mKn0SsK/qsAACAASURBVHja7JhPaNtoGsY1zrh1xlEsfXb9B0V/+GZHqgdTqZQo6MOVXFR00HiMAiPZB+NDDzGba8nBmB63BEOgOG4IBLoQnFvYW+tpiilhW1oasuuc25kSQkI3lOxp6IQmnf3sLizL7mEPe3Gix74Y25eH5/29zyuC8OXLly9fvnz58uXLly9fvv5XBX0L/j8K+07+13iFw74L/2HK1hoOjO/Mv1MI27K3/47otXtBf5b+5UuYWNzePmwRa23CD8xAW33YYlvq9txuO3z4wY/LICbNZh8qwdbHsuHONQ8P/bh8tqVz3CN6RHd3wbCr6535Nd+Xvi3tAVTCvZO6DpKJ+vRJy/cF87a7s7T98cX+2nGNhYqiMMWTru8LEfxlr+R5C+vv/74E48msgpaLr7vE0Xnnbo9oTksaMpbNWiaenFAUT9v82CbOfWCCW7sOHSEnElcY6nI0rrle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"};</script>
+<script src="assets/sparkle/museum-sparkle.js"></script>
 </body>
 </html>
