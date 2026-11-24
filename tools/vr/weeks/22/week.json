@@ -1,0 +1,268 @@
+{
+ "id": "g3ss-vr-22",
+ "week": 22,
+ "lesson": "3.07.08",
+ "lessonA": "3.07.07",
+ "lessonTitle": "Contributions from Diverse Groups in the United States",
+ "title": "Contributions Wall Diorama",
+ "emoji": "🏛️",
+ "pattern": "A",
+ "canvasName": "3.07.08 VR · Contributions Wall Diorama",
+ "details": [
+  "📅 Q3 · Unit 7 · Regions of the United States",
+  "📖 Week 22 · goes with Lesson 3.07.08",
+  "📋 SS.3.G.2.2 · SS.3.G.4.1 · SS.3.G.4.4",
+  "⏱ About 15 minutes"
+ ],
+ "map": "National Library",
+ "mapWord": "Library",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Contributions Ribbon",
+  "line": "Only VR curators earn this one. You honored people from many regions and backgrounds."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 22 · Contributions Wall Diorama",
+  "sub": "The Museum · Contributions Wall",
+  "rows": [
+   [
+    "Place",
+    "A library"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "phoenix",
+  "alt": "The top of an old newspaper page with big letters in two kinds of writing",
+  "cap": "The Cherokee Phoenix, 1828, printed in English and in Sequoyah's Cherokee writing.",
+  "note": "Our Contributions Wall needs a diorama. Please build one in a library!"
+ },
+ "opti": {
+  "brief": "Curators, a contribution is something a person gives that helps others. Build a contributions display in a library, then send me a photo.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, a contribution is something a person gives that helps others. Build a contributions display in a library, then send me a photo.",
+  "step1": "Before your headset, look at the models. Each one has a gray search word.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Find an open spot near the bookshelves. Put the Community book in the middle, and the other four models around it.",
+  "step4": "Open Library, then Camera. Fit your whole diorama in the tablet. Click Take photo, then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then check that your photo is in the Canvas assignment.",
+  "extra": "Have more time? Space the models apart, so visitors can walk around each one.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Build the Contributions Display",
+  "look": "A <b>contribution</b> is something a person gives that helps others. Each model stands for one person from our lesson.",
+  "groups": [
+   {
+    "title": "One model for each person",
+    "models": [
+     {
+      "name": "Quill Brown",
+      "word": "Quill",
+      "icon": "🪶",
+      "alt": "A feather pen",
+      "why": "Sequoyah: Cherokee writing"
+     },
+     {
+      "name": "Book - Courage",
+      "word": "Courage",
+      "icon": "📕",
+      "alt": "A red book",
+      "why": "Frederick Douglass: spoke for freedom"
+     },
+     {
+      "name": "Optima Domi Grapes",
+      "word": "Grapes",
+      "icon": "🍇",
+      "alt": "A bunch of grapes",
+      "why": "Cesar Chavez: fair pay for farm workers"
+     },
+     {
+      "name": "Map Piece - Lincoln Memorial",
+      "word": "Lincoln",
+      "icon": "🏛️",
+      "alt": "A white memorial building",
+      "why": "Maya Lin: her memorial is near this one"
+     },
+     {
+      "name": "Book - Community",
+      "word": "Community",
+      "icon": "📗",
+      "alt": "A green book",
+      "why": "Middle: many people, one country"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "<p>These are the models you will use. In VR, type the <b>gray word</b> in the <b>Models</b> search box to find each one.</p>@MODELS@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Library</b> in <b>Filter environments</b>. Click <b>National Library</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Build the display",
+    "clip": "step3",
+    "html": "<p>Find an open spot near the bookshelves. Put the <b>Community</b> book in the middle and the other 4 models around it.</p>"
+   },
+   {
+    "title": "Take your photo and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until your whole diorama fits. Click <b>Take photo</b>.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your photo, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Take a new photo and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your photo is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Space the models apart, so visitors can walk around each one."
+  },
+  "full": "One photo that shows all 5 models in your display."
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "Who Am I?",
+  "look": "Six people from our Contributions Wall. Each round gives clues about one of them. Read a clue, then guess who it is.",
+  "do": "Read the clue. Tap the person. Not sure yet? Tap <b>Show the next clue</b>.",
+  "game": {
+   "type": "clue",
+   "cols": [
+    "Person",
+    "What they gave"
+   ],
+   "labels": {
+    "round": "Who am I?"
+   },
+   "miss": "Not this person. Read all the clues again.",
+   "done": "You named all six! Each one gave something nobody else could.",
+   "people": [
+    {
+     "name": "Sequoyah",
+     "icon": "📜"
+    },
+    {
+     "name": "Frederick Douglass",
+     "icon": "🕊️"
+    },
+    {
+     "name": "Maya Lin",
+     "icon": "🏛️"
+    },
+    {
+     "name": "Sandra Day O'Connor",
+     "icon": "⚖️"
+    },
+    {
+     "name": "Cesar Chavez",
+     "icon": "🌽"
+    },
+    {
+     "name": "Queen Liliʻuokalani",
+     "icon": "👑"
+    }
+   ],
+   "rounds": [
+    {
+     "answer": 0,
+     "gave": "A way to write the Cherokee language",
+     "ok": "Yes! Sequoyah made 86 symbols, one for each sound in Cherokee.",
+     "clues": [
+      "My people spoke our language, but they could not write it yet.",
+      "I made 86 symbols, one for each sound."
+     ]
+    },
+    {
+     "answer": 3,
+     "gave": "The first woman on the U.S. Supreme Court",
+     "ok": "Yes! Sandra Day O'Connor served on the Supreme Court for 24 years.",
+     "clues": [
+      "I became a lawyer and then a judge.",
+      "In 1981, I became the first woman on the highest court in the country."
+     ]
+    },
+    {
+     "answer": 5,
+     "gave": "Protected Hawaiian traditions and wrote songs",
+     "ok": "Yes! Queen Liliʻuokalani wrote the song \"Aloha ʻOe.\"",
+     "clues": [
+      "I worked to protect the traditions of my people.",
+      "I was the last queen of Hawaii."
+     ]
+    },
+    {
+     "answer": 1,
+     "gave": "Spoke and wrote for freedom",
+     "ok": "Yes! Frederick Douglass escaped slavery and spoke for freedom.",
+     "clues": [
+      "I started a newspaper called The North Star.",
+      "I was born enslaved in Maryland and escaped to freedom."
+     ]
+    },
+    {
+     "answer": 4,
+     "gave": "Fair pay and respect for farm workers",
+     "ok": "Yes! Cesar Chavez organized farm workers.",
+     "clues": [
+      "I saw that farm workers were treated unfairly.",
+      "I organized farm workers to ask for fair pay and safer work."
+     ]
+    },
+    {
+     "answer": 2,
+     "gave": "Designed the Vietnam Veterans Memorial",
+     "ok": "Yes! Maya Lin was only 21 when her design was chosen.",
+     "clues": [
+      "I was still in college when my design was chosen.",
+      "I designed a black stone wall in Washington, D.C., with more than 58,000 names."
+     ]
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "Pick one person. What did they give?",
+     "starter": "One person I would thank is ..."
+    },
+    {
+     "lead": "Why does it matter today?",
+     "starter": "Their contribution still matters because ..."
+    }
+   ],
+   "chips": [
+    "Sequoyah",
+    "Frederick Douglass",
+    "Maya Lin",
+    "Sandra Day O'Connor",
+    "Cesar Chavez",
+    "Queen Liliʻuokalani",
+    "contribution",
+    "courage"
+   ]
+  },
+  "full": "All six people are named, and your 2 sentences have 20 words or more."
+ }
+}
