@@ -1,0 +1,251 @@
+{
+ "id": "g3ss-vr-18",
+ "week": 18,
+ "lesson": "3.06.08",
+ "lessonA": "3.06.07",
+ "lessonTitle": "Compare Regional Cultural Characteristics",
+ "title": "Four Corners Diorama",
+ "emoji": "🌎",
+ "pattern": "A",
+ "canvasName": "3.06.08 VR · Four Corners Diorama",
+ "details": [
+  "📅 Q3 · Unit 6 · North America and the Caribbean",
+  "📖 Week 18 · goes with Lesson 3.06.08",
+  "📋 SS.3.G.4.1 · SS.3.G.4.3 · SS.3.G.4.4",
+  "⏱ About 15 minutes"
+ ],
+ "map": "OptimaED Explorations Hub",
+ "mapWord": "Explorations",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Four Corners Ribbon",
+  "line": "Only VR curators earn this one. You showed four places fairly, each on its own terms."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 18 · Four Corners Diorama",
+  "sub": "The Museum",
+  "rows": [
+   [
+    "Place",
+    "Canada, the United States, Mexico and the Caribbean"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "lang",
+  "alt": "A street sign on a pole. The top sign says RUE and the bottom sign says ROAD.",
+  "cap": "A street sign in Quebec, Canada, in French and English.",
+  "note": "Our gallery has four panels. Please build one corner for each part of our region!"
+ },
+ "opti": {
+  "brief": "Curators, build four corners: Canada, the United States, Mexico and the Caribbean. Then send me one photo.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, build four corners: Canada, the United States, Mexico and the Caribbean. Then send me one photo.",
+  "step1": "Before your headset, look at the models. Each one has a gray search word.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Put the globe in the middle. Then put one model in each alcove: Canada, the United States, Mexico and the Caribbean.",
+  "step4": "Open Library, then Camera. Fit your whole diorama in the tablet. Click Take photo, then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then check that your photo is in the Canvas assignment.",
+  "extra": "Have more time? Make each model the same size. No corner is more important.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Build the Four Corners",
+  "look": "A <b>diorama</b> is a small, real-looking scene. An <b>alcove</b> is a small open room off a big space. Put one model in four alcoves and the globe in the middle.",
+  "groups": [
+   {
+    "title": "One model for each part of the region",
+    "models": [
+     {
+      "name": "Lumber 1",
+      "word": "Lumber",
+      "icon": "🪵",
+      "alt": "A stack of cut wood",
+      "why": "Canada: huge forests"
+     },
+     {
+      "name": "Optima Domi Statue of Liberty",
+      "word": "Liberty",
+      "icon": "🗽",
+      "alt": "The Statue of Liberty",
+      "why": "United States: many cultures"
+     },
+     {
+      "name": "Corn Stage 4",
+      "word": "Corn",
+      "icon": "🌽",
+      "alt": "A tall corn plant",
+      "why": "Mexico: tortillas are made from corn"
+     },
+     {
+      "name": "Olympic Sailboat",
+      "word": "Sailboat",
+      "icon": "⛵",
+      "alt": "A small sailboat",
+      "why": "Caribbean: islands and sailing"
+     },
+     {
+      "name": "Relief Globe",
+      "word": "Globe",
+      "icon": "🌍",
+      "alt": "A globe of the Earth",
+      "why": "Middle: one continent"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "<p>These are the models you will use. In VR, type the <b>gray word</b> in the <b>Models</b> search box to find each one.</p>@MODELS@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Explorations</b> in <b>Filter environments</b>. Click <b>OptimaED Explorations Hub</b>, then <b>Begin Solo</b>. It has big grassy <b>alcoves</b> around the middle.</p>"
+   },
+   {
+    "title": "Build the four corners",
+    "clip": "step3",
+    "html": "<p>Put the <b>globe</b> in the middle. Then put one model in each of four alcoves: <b>lumber</b> for Canada, <b>Statue of Liberty</b> for the United States, <b>corn</b> for Mexico, <b>sailboat</b> for the Caribbean.</p>"
+   },
+   {
+    "title": "Take your photo and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until your whole diorama fits. Click <b>Take photo</b>.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your photo, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Take a new photo and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your photo is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Make each model the same size. No corner is more important."
+  },
+  "full": "One photo that shows all four corners and the globe in the middle."
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "Picture Match",
+  "look": "Six museum pictures. Each one shows something from Canada, the United States, Mexico or the Caribbean. The lines on the right tell what each picture shows.",
+  "do": "Tap a picture. Then tap the line that goes with it. You can also drag the picture onto the line.",
+  "game": {
+   "type": "match",
+   "labels": {
+    "left": "Pictures",
+    "right": "What it shows"
+   },
+   "cols": [
+    "Picture",
+    "What it shows"
+   ],
+   "miss": "Not that line. Look at the picture again: what place could it be?",
+   "done": "All six match! Each place is different, and all four share one continent.",
+   "order": [
+    3,
+    0,
+    5,
+    1,
+    4,
+    2
+   ],
+   "pairs": [
+    {
+     "left": {
+      "name": "Hockey on a frozen pond",
+      "img": "hockey",
+      "alt": "Kids playing hockey on a frozen pond near pine trees"
+     },
+     "right": "Canada's national winter sport",
+     "ok": "Yes! Hockey is the national winter sport of Canada."
+    },
+    {
+     "left": {
+      "name": "A mariachi band",
+      "img": "mariachi",
+      "alt": "A band playing trumpets and guitars"
+     },
+     "right": "Mexico's national sound, with trumpets, violins and guitars",
+     "ok": "Yes! Mariachi music is the national sound of Mexico."
+    },
+    {
+     "left": {
+      "name": "A baseball game, 1942",
+      "img": "baseball",
+      "alt": "An old black and white photo of a baseball game on a big field"
+     },
+     "right": "The national pastime of the United States",
+     "ok": "Yes! Baseball is called the national pastime of the United States."
+    },
+    {
+     "left": {
+      "name": "A steel drum band, 1950",
+      "img": "steel",
+      "alt": "An old black and white photo of a band holding steel drums"
+     },
+     "right": "Music from the Caribbean islands",
+     "ok": "Yes! This steel drum band played on Antigua, an island in the Caribbean."
+    },
+    {
+     "left": {
+      "name": "A street sign: RUE and ROAD",
+      "img": "lang",
+      "alt": "A street sign in French and English"
+     },
+     "right": "A country with two official languages, English and French",
+     "ok": "Yes! Canada has two official languages: English and French."
+    },
+    {
+     "left": {
+      "name": "An altar with marigolds",
+      "img": "dead",
+      "alt": "An altar with orange marigold flowers"
+     },
+     "right": "The Day of the Dead, a day to honor family members who have died",
+     "ok": "Yes! The Day of the Dead is a Mexican tradition."
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "How are two places different?",
+     "starter": "One way Canada and Mexico are different is ..."
+    },
+    {
+     "lead": "What connects them?",
+     "starter": "One thing all four places share is ..."
+    }
+   ],
+   "chips": [
+    "Canada",
+    "Mexico",
+    "the Caribbean",
+    "the United States",
+    "language",
+    "music",
+    "sport",
+    "one continent"
+   ]
+  },
+  "full": "All six pictures match, and your 2 sentences have 20 words or more."
+ }
+}

@@ -76,8 +76,10 @@ def build(week_path, out_path, repo=False):
     for g in W['vr']['groups']:
         mb.append('<div class="vr-group"><h4>%s</h4><div class="vr-models">' % E(g['title']))
         for m in g['models']:
-            mb.append('<div class="vr-model"><img src="%s" alt="%s" loading="lazy"><div><b>%s</b><span class="vr-word">%s</span></div></div>'
-                      % (img(m['img']), E(m['alt']), E(m['name']), E(m['word'])))
+            pic = ('<img src="%s" alt="%s" loading="lazy">' % (img(m['img']), E(m['alt']))) if m.get('img') else ('<span class="vr-ic vr-mic" role="img" aria-label="%s">%s</span>' % (E(m.get('alt', m['name'])), m['icon']))
+            cnt = (' <span class="vr-x">× %d</span>' % m['count']) if m.get('count', 1) > 1 else ''
+            mb.append('<div class="vr-model">%s<div><b>%s</b>%s<span class="vr-word">%s</span>%s</div></div>'
+                      % (pic, E(m['name']), cnt, E(m['word']), ('<small class="vr-why">%s</small>' % E(m['why'])) if m.get('why') else ''))
         mb.append('</div></div>')
     models_html = ''.join(mb)
     B_ = W.get('pattern', 'A') == 'B'
@@ -158,8 +160,13 @@ def build(week_path, out_path, repo=False):
               % (E(S['kicker']), E(S['title']), opti(W['opti']['collections'], 'collections'), S['look'], E(S['do']), chips, wframes, wr['min'], E(W['stamp']), E(S['full'])))
 
     G = S['game']
-    game = {'type': G['type'], 'title': S['title'], 'slots': G['slots'], 'miss': G['miss'], 'done': G['done'],
-            'cards': [dict(c, img=img(c['img'])) for c in G['cards']], 'min': wr['min'], 'frames': [f['lead'] for f in wr['frames']]}
+    def res(o):
+        if isinstance(o, dict):
+            return {k: (img(v) if k == 'img' and isinstance(v, str) else res(v)) for k, v in o.items()}
+        if isinstance(o, list):
+            return [res(v) for v in o]
+        return o
+    game = dict(res(G), title=S['title'], min=wr['min'], frames=[f['lead'] for f in wr['frames']])
     cfg = {'pre': W['id'], 'clips': clips, 'game': game, 'canvas': W['canvasName'], 'title': W['title'], 'week': wk,
            'lesson': W['lesson'], 'stamp': W['stamp'], 'video': 'assets/video/teacher/g3ss-vr-%s.mp4' % wk if repo else ''}
 
@@ -173,9 +180,12 @@ def build(week_path, out_path, repo=False):
     cred = []
     for k in used:
         c = credits[k]
-        cred.append('%s: <a href="%s" target="_blank" rel="noopener">%s</a>, %s (%s)'
-                    % (E(k), E(c['url']), E(c['title'].replace('File:', '')), E(c['artist'] or 'unknown'), E(c['license'])))
-    credits_html = '<footer class="vr-credits"><b>Photo credits</b> (Wikimedia Commons): ' + '; '.join(cred) + '. Opti the owl © Optima Academy Online.</footer>'
+        if c.get('line'):
+            cred.append('%s: %s' % (E(k), E(c['line'].rstrip('.'))))
+        else:
+            cred.append('%s: <a href="%s" target="_blank" rel="noopener">%s</a>, %s (%s, Wikimedia Commons)'
+                        % (E(k), E(c['url']), E(c['title'].replace('File:', '')), E(c['artist'] or 'unknown'), E(c['license'])))
+    credits_html = '<footer class="vr-credits"><b>Photo credits</b>: ' + '; '.join(cred) + '. Opti the owl © Optima Academy Online.</footer>'
 
     header = ('<div class="header"><div class="header-brand"><div class="header-logo"><img src="%s" alt="Optima Academy"></div>'
               '<div><div class="header-org">Optima Academy Online</div><div class="header-sub">An Education Experience Company</div></div></div>'

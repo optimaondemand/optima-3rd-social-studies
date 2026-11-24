@@ -68,10 +68,92 @@ if W['voice']['brief'] != W['opti']['brief'] or W['voice']['collections'] != W['
 S = W['studio']; G = S['game']
 if S['write']['min'] < 20: F('Collections Day writing minimum is 20 words')
 if len(S['write']['frames']) != 2: F('Collections Day needs exactly 2 sentence frames')
-keys = {s['key'] for s in G['slots']}
-for c in G['cards']:
-    if c['slot'] not in keys: F('card slot missing: ' + c['name'])
-if G['type'] not in ('timeline',): F('unknown Collections Day game type: ' + G['type'])
+def need(*ks):
+    for k in ks:
+        if k not in G: F('%s game needs "%s"' % (G['type'], k))
+def pic(o, what):
+    if not (o.get('img') or o.get('icon')): F('%s needs img or icon: %s' % (what, o.get('name', '?')))
+t = G['type']
+if t == 'timeline':
+    need('slots', 'cards', 'miss', 'done'); keys = {s['key'] for s in G['slots']}
+    for c in G['cards']:
+        if c['slot'] not in keys: F('card slot missing: ' + c['name'])
+elif t == 'match':
+    need('pairs', 'miss', 'done')
+    for p in G['pairs']: pic(p['left'], 'match left')
+    if 'order' in G and sorted(G['order']) != list(range(len(G['pairs']))): F('match order must list every pair once')
+elif t == 'sort':
+    need('bins', 'cards', 'miss', 'done'); bk = {b['key'] for b in G['bins']}
+    for c in G['cards']:
+        pic(c, 'sort card')
+        if c['bin'] not in bk: F('sort card bin missing: ' + c['name'])
+    for b in G['bins']:
+        if not any(c['bin'] == b['key'] for c in G['cards']): F('empty bin: ' + b['name'])
+elif t == 'order':
+    need('steps', 'miss', 'done')
+    if 'show' in G and sorted(G['show']) != list(range(len(G['steps']))): F('order show must list every step once')
+    if G.get('show') == list(range(len(G['steps']))): F('order: the steps start already in order')
+elif t == 'odd':
+    need('rounds', 'miss', 'done')
+    for r in G['rounds']:
+        if not 0 <= r['odd'] < len(r['items']): F('odd index out of range: ' + r['q'])
+elif t == 'clue':
+    need('people', 'rounds', 'miss', 'done')
+    if sorted(r['answer'] for r in G['rounds']) != sorted(set(r['answer'] for r in G['rounds'])): F('clue: each person is the answer once')
+    for r in G['rounds']:
+        if len(r['clues']) < 2: F('clue: give 2 or 3 clues per round')
+elif t == 'regionmap':
+    need('regions', 'cards', 'miss', 'done')
+    if [r['key'] for r in G['regions']] != ['w', 'sw', 'mw', 'se', 'ne']: F('regionmap regions must be w, sw, mw, se, ne in that order')
+    for c in G['cards']:
+        if c['region'] not in {'w', 'sw', 'mw', 'se', 'ne'}: F('bad region: ' + c['name'])
+elif t == 'trade':
+    need('rounds', 'done')
+    for r in G['rounds']:
+        for sd in ('a', 'b'):
+            if not 0 <= r[sd]['give'] < len(r[sd]['goods']): F('trade give out of range')
+            if not r[sd].get('miss'): F('trade side needs a miss line')
+elif t == 'checks':
+    need('tests', 'things', 'miss', 'done'); tk = {x['key'] for x in G['tests']}
+    for k in G['things']:
+        if not set(k['pass']) <= tk: F('checks: unknown test in ' + k['name'])
+elif t == 'route':
+    need('places', 'cargo', 'miss', 'done'); pk = {p['key'] for p in G['places']}
+    for c in G['cargo']:
+        if c['from'] not in pk or c['to'] not in pk or c['from'] == c['to']: F('route cargo places wrong: ' + c['name'])
+    for p in G['places']:
+        if not (8 <= p['x'] <= 92 and 6 <= p['y'] <= 64): F('route place too close to the edge: ' + p['name'])
+elif t == 'dilemma':
+    need('rounds', 'miss', 'done')
+    for r in G['rounds']:
+        if not 0 <= r['right'] < len(r['options']): F('dilemma right out of range')
+elif t == 'fill':
+    need('sentences', 'words', 'miss', 'done')
+    for x in G['sentences']:
+        if x['text'].count('___') != 1: F('fill sentence needs exactly one ___')
+        if x['answer'] not in G['words']: F('fill answer not in words: ' + x['answer'])
+elif t == 'memory':
+    need('pairs', 'layout', 'miss', 'done')
+    L = G['layout']
+    if sorted((c['p'], c['s']) for c in L) != sorted([(i, s) for i in range(len(G['pairs'])) for s in 'ab']): F('memory layout must hold each pair once as a and b')
+elif t == 'calendar':
+    need('cards', 'kinds', 'months', 'miss', 'done'); kk = {k['key'] for k in G['kinds']}
+    if len(G['months']) != 12: F('calendar needs 12 months')
+    for c in G['cards']:
+        if c['kind'] not in kk or not 1 <= c['month'] <= 12: F('calendar card wrong: ' + c['name'])
+elif t == 'reveal':
+    need('rounds', 'miss', 'done')
+    for r in G['rounds']:
+        if not r.get('img'): F('reveal rounds need a photo')
+elif t == 'panel':
+    need('parts', 'done')
+    for p in G['parts']:
+        if sum(1 for c in p['choices'] if c.get('good')) != 1: F('panel: exactly one good choice per part: ' + p['name'])
+elif t == 'wheel':
+    need('slices', 'miss', 'done')
+    if len(G['slices']) != 6: F('wheel needs 6 slices')
+else:
+    F('unknown Collections Day game type: ' + t)
 
 # images + credits + alt text
 imgs = set()
@@ -103,7 +185,12 @@ if len(sys.argv) > 2:
     def wc(x): return len(re.findall(r"[A-Za-z0-9’']+", html.unescape(re.sub(r'<[^>]+>', ' ', x))))
     a = s.find('<section class="vr-pane on"'); b = s.find('<section class="vr-pane" id="vr-studio"')
     top, vr, st = wc(s[:a]), wc(s[a:b]), wc(s[b:])
-    gw = sum(len(re.findall(r"[A-Za-z0-9’']+", c['name'] + ' ' + c['what'] + ' ' + c['clue'] + ' ' + c['ok'])) for c in G['cards']) + sum(len(x['when'].split()) for x in G['slots'])
+    def strs(o):
+        if isinstance(o, str): return [] if o.endswith('.jpg') or o.startswith('data:') else [o]
+        if isinstance(o, dict): return [x for k, v in o.items() if k not in ('img', 'alt', 'key', 'icon', 'type', 'miss', 'hint', 'why', 'cols', 'order', 'show', 'layout') for x in strs(v)]
+        if isinstance(o, list): return [x for v in o for x in strs(v)]
+        return []
+    gw = sum(len(re.findall(r"[A-Za-z0-9’']+", x)) for x in strs(G))
     print('reading words: top %d + Diorama %d = %d; top + Collections Day %d (+ game cards %d) = %d' % (top, vr, top + vr, st, gw, top + st + gw))
     for name, n in (('Diorama', top + vr), ('Collections Day', top + st + gw)):
         if n > 520: F('%s reading load %d words (limit ~450)' % (name, n))

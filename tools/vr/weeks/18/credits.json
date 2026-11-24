@@ -1,0 +1,26 @@
+{
+ "lang": {
+  "line": "Photo: D. Benjamin Miller, 2022, Wikimedia Commons (CC0).",
+  "src": "images/spec-3-06-08-lang.jpg"
+ },
+ "hockey": {
+  "line": "Photo: Spencer Gillis, Northland Films, 2007, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-06-08-hockey.jpg"
+ },
+ "mariachi": {
+  "line": "Photo: Elidealista, 2011, Wikimedia Commons (CC0).",
+  "src": "images/spec-3-06-08-mariachi.jpg"
+ },
+ "baseball": {
+  "line": "Photo: Marjory Collins, 1942, Library of Congress (public domain).",
+  "src": "images/spec-3-06-08-baseball.jpg"
+ },
+ "steel": {
+  "line": "Photo: unknown photographer, 1950, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-06-08-steel.jpg"
+ },
+ "dead": {
+  "line": "Photo: Xapaxava, 2012, Wikimedia Commons (CC0).",
+  "src": "images/spec-3-06-08-dead.jpg"
+ }
+}
