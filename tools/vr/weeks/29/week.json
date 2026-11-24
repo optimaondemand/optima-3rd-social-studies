@@ -1,0 +1,265 @@
+{
+ "id": "g3ss-vr-29",
+ "week": 29,
+ "lesson": "3.10.04",
+ "lessonA": "3.10.03",
+ "lessonTitle": "The Florida Constitution and Florida Symbols",
+ "title": "Courthouse Diorama",
+ "emoji": "⚖️",
+ "pattern": "B",
+ "canvasName": "3.10.04 VR · Courthouse Diorama",
+ "details": [
+  "📅 Q4 · Unit 10 · Basics of Government and Citizenship",
+  "📖 Week 29 · goes with Lesson 3.10.04",
+  "📋 SS.3.CG.1.2 · SS.3.CG.2.3 · SS.3.CG.2.5 · SS.3.CG.3.1",
+  "⏱ About 15 minutes"
+ ],
+ "map": "Supreme Court",
+ "mapWord": "Supreme",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Sunshine State Ribbon",
+  "line": "Only VR curators earn this one. You visited a court and told what courts do."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 29 · Courthouse Diorama",
+  "sub": "The Museum · Citizenship Hall",
+  "rows": [
+   [
+    "Place",
+    "The U.S. Supreme Court"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "seal",
+  "alt": "An old drawing of a round seal with a palm tree, the sun, a ship and a woman scattering flowers",
+  "cap": "The old Great Seal of Florida, drawn in 1879. Florida stamps its seal on its most important papers.",
+  "note": "Constitutions set up lawmakers, leaders and courts. Please visit a court and tell me what happens there!"
+ },
+ "opti": {
+  "brief": "Curators, every constitution sets up courts. Visit the highest court in our country, then record a short video about it.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, every constitution sets up courts. Visit the highest court in our country, then record a short video about it.",
+  "step1": "Before your headset, read about the place. Then press Practice and say your two sentences before the timer ends.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Move with the thumbstick. Look at the columns, the steps and the doors. If you can, look at where the judges sit.",
+  "step4": "Open Library, then Camera. Click Record video and say your two sentences. Click again to stop. Then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then open the Canvas assignment and check that your video is there.",
+  "extra": "Have more time? Start far away and walk closer, so I can see how big the court is.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Scout the Supreme Court",
+  "look": "A <b>court</b> is where judges decide what the laws mean. The <b>Supreme Court</b> is the highest court in the country.",
+  "groups": [],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "@PLACE@<p>In your video, you say these 2 sentences:</p>@SAY@<p>Practice now. Say both before the timer ends.</p>@TIMER@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Supreme</b> in <b>Filter environments</b>. Click <b>Supreme Court</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Scout the court",
+    "clip": "step3",
+    "html": "<p>Move with the <b>thumbstick</b>. Look at the columns, the steps and the big doors. If you can, go inside and look at where the judges sit.</p>"
+   },
+   {
+    "title": "Record your video and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until the court building fits.</p><p>Click <b>Record video</b>. Say your 2 sentences. Click it again to stop.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your video, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Record a new video and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your video is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Start your video far away, then walk closer, so Opti sees how big the building is."
+  },
+  "full": "One video, 30 seconds or less, that shows the court while you say both sentences.",
+  "place": [
+   {
+    "img": "flcap",
+    "alt": "A white building with columns and a small dark dome, with a tall building behind it",
+    "html": "<b>Florida's three parts:</b> the Legislature makes laws, the governor leads, and the courts decide what the laws mean.",
+    "cap": "The Florida Capitol in Tallahassee."
+   }
+  ],
+  "say": [
+   "This is the Supreme Court, and I see ___.",
+   "Judges in a court ___."
+  ],
+  "seconds": 30
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "Florida Memory Match",
+  "look": "Twelve face-down cards. Six show a picture of a Florida symbol or place. Six show its name. A <b>symbol</b> is something simple that stands for something bigger.",
+  "do": "Tap two cards to flip them. If a picture and its name match, they stay up. If not, they flip back. Remember where they were!",
+  "game": {
+   "type": "memory",
+   "cols": [
+    "Picture",
+    "Name"
+   ],
+   "labels": {
+    "step": "Flip two cards. Find a picture and its name."
+   },
+   "miss": "Not a match. Remember where they are, and try again.",
+   "done": "All six pairs! Florida picked its symbols to honor true things about our land and history.",
+   "layout": [
+    {
+     "p": 2,
+     "s": "b"
+    },
+    {
+     "p": 0,
+     "s": "a"
+    },
+    {
+     "p": 4,
+     "s": "a"
+    },
+    {
+     "p": 1,
+     "s": "b"
+    },
+    {
+     "p": 5,
+     "s": "b"
+    },
+    {
+     "p": 3,
+     "s": "a"
+    },
+    {
+     "p": 0,
+     "s": "b"
+    },
+    {
+     "p": 2,
+     "s": "a"
+    },
+    {
+     "p": 3,
+     "s": "b"
+    },
+    {
+     "p": 5,
+     "s": "a"
+    },
+    {
+     "p": 1,
+     "s": "a"
+    },
+    {
+     "p": 4,
+     "s": "b"
+    }
+   ],
+   "pairs": [
+    {
+     "a": {
+      "icon": "🌴",
+      "alt": "A palm tree",
+      "cap": "Sabal palm"
+     },
+     "b": "State tree",
+     "ok": "Yes! The sabal palm lives through hurricanes, salt spray and hot sun."
+    },
+    {
+     "a": {
+      "icon": "🐦",
+      "alt": "A bird",
+      "cap": "Mockingbird"
+     },
+     "b": "State bird",
+     "ok": "Yes! The mockingbird copies other birds' songs and adds its own."
+    },
+    {
+     "a": {
+      "icon": "🌼",
+      "alt": "A small white flower",
+      "cap": "Orange blossom"
+     },
+     "b": "State flower",
+     "ok": "Yes! Every orange starts as a blossom."
+    },
+    {
+     "a": {
+      "img": "seal",
+      "alt": "A round seal",
+      "cap": "A round seal"
+     },
+     "b": "Great Seal of Florida",
+     "ok": "Yes! The seal shows the sun, land, people and water."
+    },
+    {
+     "a": {
+      "img": "flcap",
+      "alt": "A white building with a dome",
+      "cap": "Capitol, Tallahassee"
+     },
+     "b": "Where Florida makes its laws",
+     "ok": "Yes! Florida's lawmakers meet in Tallahassee."
+    },
+    {
+     "a": {
+      "img": "uscap",
+      "alt": "A huge white building with a round dome",
+      "cap": "Capitol, Washington, D.C."
+     },
+     "b": "Where the country makes its laws",
+     "ok": "Yes! Congress makes the nation's laws in Washington, D.C."
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "What does Florida's constitution set up?",
+     "starter": "The Florida Constitution sets up ..."
+    },
+    {
+     "lead": "Pick one symbol. What does it stand for?",
+     "starter": "One Florida symbol is ... It stands for ..."
+    }
+   ],
+   "chips": [
+    "sabal palm",
+    "mockingbird",
+    "orange blossom",
+    "Great Seal",
+    "courts",
+    "governor",
+    "Legislature",
+    "the people"
+   ]
+  },
+  "full": "All six pairs match, and your 2 sentences have 20 words or more."
+ },
+ "audioPending": "Q4: brief, step3 and extra are scripted, not recorded (Bethany 19 Nov 2026). Shared clips reused."
+}

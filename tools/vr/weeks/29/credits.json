@@ -1,0 +1,18 @@
+{
+ "seal": {
+  "line": "The old Great Seal of Florida (used 1868 to 1985), engraving from The American Cyclopaedia, volume 7, 1879 (public domain), via Wikimedia Commons",
+  "src": "images/src-3-10-04-seal-1879.jpg"
+ },
+ "flcap": {
+  "line": "Florida Capitol, Tallahassee: photo by NE2, 2016 (CC0), via Wikimedia Commons",
+  "src": "images/src-3-10-03-fl-capitol.jpg"
+ },
+ "uscap": {
+  "line": "U.S. Capitol, west front: Architect of the Capitol, 1997 (public domain), via Wikimedia Commons",
+  "src": "images/src-3-10-03-us-capitol.jpg"
+ },
+ "hall": {
+  "line": "Tampa City Hall: Historic American Buildings Survey, HABS FL-388 (public domain), Library of Congress, via Wikimedia Commons",
+  "src": "images/src-3-10-03-city-hall.jpg"
+ }
+}
