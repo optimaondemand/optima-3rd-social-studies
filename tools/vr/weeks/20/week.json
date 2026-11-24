@@ -1,0 +1,235 @@
+{
+ "id": "g3ss-vr-20",
+ "week": 20,
+ "lesson": "3.07.04",
+ "lessonA": "3.07.03",
+ "lessonTitle": "Midwest Region Study",
+ "title": "Heartland Farm Diorama",
+ "emoji": "🌽",
+ "pattern": "A",
+ "canvasName": "3.07.04 VR · Heartland Farm Diorama",
+ "details": [
+  "📅 Q3 · Unit 7 · Regions of the United States",
+  "📖 Week 20 · goes with Lesson 3.07.04",
+  "📋 SS.3.G.2.2 · SS.3.G.2.6 · SS.3.G.4.1",
+  "⏱ About 15 minutes"
+ ],
+ "map": "The Countryside",
+ "mapWord": "Countryside",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Heartland Ribbon",
+  "line": "Only VR curators earn this one. You built a Midwest farm that feeds the country."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 20 · Heartland Farm Diorama",
+  "sub": "The Museum · Midwest alcove",
+  "rows": [
+   [
+    "Place",
+    "A farm on the flat Midwest plains"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "wheat",
+  "alt": "Golden wheat fields stretching far away, with a long train in the distance",
+  "cap": "Wheat fields and a train, 1974. Trains and trucks carry farm crops to cities.",
+  "note": "The Midwest is called the Heartland. Please build a farm that shows why!"
+ },
+ "opti": {
+  "brief": "Curators, the Midwest is flat, with rich soil. Build a Heartland farm in VR, then send me one photo.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, the Midwest is flat, with rich soil. Build a Heartland farm in VR, then send me one photo.",
+  "step1": "Before your headset, look at the models. Each one has a gray search word.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Find a flat place. Put the plow by the field, then rows of corn and wheat, the animals, and the truck at the end.",
+  "step4": "Open Library, then Camera. Fit your whole diorama in the tablet. Click Take photo, then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then check that your photo is in the Canvas assignment.",
+  "extra": "Have more time? Line up your crops in straight rows, like a real Midwest field.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Build the Heartland Farm",
+  "look": "A <b>diorama</b> is a small, real-looking scene. The Midwest is the <b>Heartland</b>: flat land and rich soil grow food for the whole country.",
+  "groups": [
+   {
+    "title": "Farm models (8 pieces)",
+    "models": [
+     {
+      "name": "Corn Stage 4",
+      "word": "Corn",
+      "count": 2,
+      "icon": "🌽",
+      "alt": "A tall corn plant"
+     },
+     {
+      "name": "Wheat Stage 4",
+      "word": "Wheat",
+      "count": 2,
+      "icon": "🌾",
+      "alt": "A wheat plant"
+     },
+     {
+      "name": "OptimaED Dairy Cow",
+      "word": "Cow",
+      "icon": "🐄",
+      "alt": "A dairy cow"
+     },
+     {
+      "name": "OptimaEd Pig",
+      "word": "Pig",
+      "icon": "🐖",
+      "alt": "A pig"
+     },
+     {
+      "name": "Plow",
+      "word": "Plow",
+      "icon": "🚜",
+      "alt": "An old farm plow"
+     },
+     {
+      "name": "Cargo Truck",
+      "word": "Cargo",
+      "icon": "🚚",
+      "alt": "A cargo truck"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "<p>These are the models you will use. In VR, type the <b>gray word</b> in the <b>Models</b> search box to find each one.</p>@MODELS@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Countryside</b> in <b>Filter environments</b>. Click <b>The Countryside</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Build the farm",
+    "clip": "step3",
+    "html": "<p>Find a flat spot. Put the <b>plow</b> at the edge, then rows of <b>corn</b> and <b>wheat</b>. Put the <b>cow</b> and <b>pig</b> nearby, and the <b>truck</b> at the end, ready for the city.</p>"
+   },
+   {
+    "title": "Take your photo and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until your whole diorama fits. Click <b>Take photo</b>.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your photo, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Take a new photo and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your photo is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Line up the corn and wheat in straight rows, like a real Midwest field."
+  },
+  "full": "One photo that shows the field, the animals and the truck."
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "From Field to Table",
+  "look": "Six museum cards tell how corn from a Midwest farm gets to a family's table. The cards are mixed up. The numbered spots show the order.",
+  "do": "Tap the card that comes first. Then tap the card that comes next, until all six spots are full.",
+  "game": {
+   "type": "order",
+   "cols": [
+    "Step",
+    "What happens"
+   ],
+   "show": [
+    3,
+    5,
+    0,
+    4,
+    2,
+    1
+   ],
+   "labels": {
+    "step": "Tap the step that comes next."
+   },
+   "miss": "Not yet. What has to happen first?",
+   "done": "Field to table! Midwest farms feed families all over the country.",
+   "steps": [
+    {
+     "name": "Plow the flat field",
+     "icon": "🚜",
+     "ok": "Yes! First the farmer gets the soil ready.",
+     "hint": "Before anything grows, the soil has to be ready."
+    },
+    {
+     "name": "Plant corn seeds in rows",
+     "icon": "🌱",
+     "ok": "Yes! Seeds go into the rich soil.",
+     "hint": "The soil is ready. What goes in the ground now?"
+    },
+    {
+     "name": "Corn grows tall all summer",
+     "icon": "☀️",
+     "ok": "Yes! Sun and rain help the corn grow.",
+     "hint": "The seeds are planted. What happens next?"
+    },
+    {
+     "name": "Harvest the corn",
+     "icon": "🌽",
+     "ok": "Yes! In fall the farmer picks the corn.",
+     "hint": "The corn is tall now. What does the farmer do?"
+    },
+    {
+     "name": "A truck or train carries it to a city",
+     "icon": "🚚",
+     "ok": "Yes! Trucks, trains and ships carry crops.",
+     "hint": "The corn is picked. How does it leave the farm?"
+    },
+    {
+     "name": "A family in a city eats it",
+     "icon": "🍽️",
+     "ok": "Yes! Food from the Heartland ends up on tables.",
+     "hint": "What is the very last step?"
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "Why is the Midwest good for farming?",
+     "starter": "The Midwest is good for farming because ..."
+    },
+    {
+     "lead": "Where does the food go?",
+     "starter": "After the harvest, the food ..."
+    }
+   ],
+   "chips": [
+    "flat land",
+    "rich soil",
+    "corn",
+    "wheat",
+    "Heartland",
+    "truck",
+    "train",
+    "city"
+   ]
+  },
+  "full": "All six steps are in order, and your 2 sentences have 20 words or more."
+ }
+}
