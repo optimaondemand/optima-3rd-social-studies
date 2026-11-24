@@ -1,0 +1,38 @@
+{
+ "rainier": {
+  "line": "Photo: National Park Service, 2006, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-w-nat.jpg"
+ },
+ "denver": {
+  "line": "Print of Denver City in 1859. Library of Congress (public domain).",
+  "src": "images/pic-3-06-07-denver.jpg"
+ },
+ "gate": {
+  "line": "Photo: Carol M. Highsmith, Library of Congress, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-w-built.jpg"
+ },
+ "lava": {
+  "line": "Photo: U.S. Geological Survey, Hawaiian Volcano Observatory, 2017 (public domain).",
+  "src": "images/src-3-07-06-lava.jpg"
+ },
+ "liberty": {
+  "line": "Photo: Carol M. Highsmith, Library of Congress, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-ne-built.jpg"
+ },
+ "canyon": {
+  "line": "Photo: Grand Canyon National Park (NPS), 2007, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-sw-nat.jpg"
+ },
+ "alamo": {
+  "line": "Photo: Carol M. Highsmith, 2014, Library of Congress, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-sw-built.jpg"
+ },
+ "acoma": {
+  "line": "Photo: Carol M. Highsmith, 2008, Library of Congress (public domain).",
+  "src": "images/src-3-07-05-acoma.jpg"
+ },
+ "arch": {
+  "line": "Photo: Gateway Arch National Park (NPS), 2017, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-mw-built.jpg"
+ }
+}
