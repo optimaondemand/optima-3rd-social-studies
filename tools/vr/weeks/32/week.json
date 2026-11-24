@@ -1,0 +1,277 @@
+{
+ "id": "g3ss-vr-32",
+ "week": 32,
+ "lesson": "3.11.02",
+ "lessonA": "3.11.01",
+ "lessonTitle": "Build the Final Community-in-the-World Exhibit",
+ "title": "Final Exhibit Diorama",
+ "emoji": "🖼️",
+ "pattern": "A",
+ "canvasName": "3.11.02 VR · Final Exhibit Diorama",
+ "details": [
+  "📅 Q4 · Unit 11 · Final Synthesis: Young Geographer-Citizen Exhibition",
+  "📖 Week 32 · goes with Lesson 3.11.02",
+  "📋 Capstone: all strands",
+  "⏱ About 15 minutes"
+ ],
+ "map": "Optima Gallery",
+ "mapWord": "Gallery",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Exhibit Designer Ribbon",
+  "line": "Only VR curators earn this one. You built a four-part exhibit a visitor can read."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 32 · Final Exhibit Diorama",
+  "sub": "The Museum · Exhibition Hall",
+  "rows": [
+   [
+    "Place",
+    "A gallery"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "night",
+  "alt": "A picture of the United States from space at night, with city lights shining",
+  "cap": "The United States at night, seen from space in 2012. Every light is a community.",
+  "note": "Visitors arrive soon! Please build a four-part exhibit in the gallery."
+ },
+ "opti": {
+  "brief": "Curators, a strong exhibit has four parts: a map, a source, a community and a virtue. Build all four in the gallery, then send a photo.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, a strong exhibit has four parts: a map, a source, a community and a virtue. Build all four in the gallery, then send a photo.",
+  "step1": "Before your headset, look at the models. Each one has a gray search word.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Find an open wall. Make four spots: map, source, community, virtue. Put the right models in each spot.",
+  "step4": "Open Library, then Camera. Fit your whole diorama in the tablet. Click Take photo, then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then check that your photo is in the Canvas assignment.",
+  "extra": "Have more time? Make each model big enough for a visitor to see from far away.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Build the Four-Part Exhibit",
+  "look": "An <b>exhibit</b> is a display that teaches visitors. A strong exhibit has four parts: a <b>map</b>, a <b>source</b> (something real from the past), a <b>community connection</b>, and a <b>virtue</b>.",
+  "groups": [
+   {
+    "title": "One model for each part",
+    "models": [
+     {
+      "name": "Relief Globe",
+      "word": "Globe",
+      "icon": "🌍",
+      "alt": "A globe",
+      "why": "Map: where in the world"
+     },
+     {
+      "name": "Compass Rose",
+      "word": "Compass",
+      "icon": "🧭",
+      "alt": "A compass rose",
+      "why": "Map: which direction"
+     },
+     {
+      "name": "Quill Brown",
+      "word": "Quill",
+      "icon": "🪶",
+      "alt": "A feather pen",
+      "why": "Source: people wrote things down long ago"
+     },
+     {
+      "name": "Modern House",
+      "word": "House",
+      "icon": "🏠",
+      "alt": "A house",
+      "why": "Community: where people live together"
+     },
+     {
+      "name": "Book - Courage",
+      "word": "Courage",
+      "icon": "📕",
+      "alt": "A red book",
+      "why": "Virtue: courage"
+     }
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "<p>These are the models you will use. In VR, type the <b>gray word</b> in the <b>Models</b> search box to find each one.</p>@MODELS@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Gallery</b> in <b>Filter environments</b>. Click <b>Optima Gallery</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Build the exhibit",
+    "clip": "step3",
+    "html": "<p>Find an open wall or corner in the gallery. Make 4 spots in a row: <b>map</b>, <b>source</b>, <b>community</b>, <b>virtue</b>.</p><p>Put the <b>globe</b> and <b>compass rose</b> in the map spot, the <b>quill</b> in the source spot, the <b>house</b> in the community spot, and the <b>Courage</b> book in the virtue spot.</p>"
+   },
+   {
+    "title": "Take your photo and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until your whole diorama fits. Click <b>Take photo</b>.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your photo, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Take a new photo and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your photo is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Make every model big enough for a visitor to see from far away."
+  },
+  "full": "One photo that shows all four parts of your exhibit."
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "Build the Exhibit Panel",
+  "look": "An empty exhibit panel with four frames: Map, Source, Community and Virtue. For each frame, you get three choices. Only one is clear and true for a visitor.",
+  "do": "Read the question. Tap the strongest choice for that frame.",
+  "game": {
+   "type": "panel",
+   "cols": [
+    "Exhibit part",
+    "My choice"
+   ],
+   "labels": {
+    "round": "Part",
+    "empty": "empty"
+   },
+   "done": "Your panel is complete! A map, a source, a community and a virtue, all easy for a visitor to read.",
+   "parts": [
+    {
+     "name": "Map",
+     "icon": "🗺️",
+     "q": "Which map label helps a visitor most?",
+     "choices": [
+      {
+       "text": "Florida is in the Southeast region, on a peninsula between the Gulf and the Atlantic.",
+       "good": true,
+       "why": "Yes! It names the region and the place clearly."
+      },
+      {
+       "text": "Florida is the best state in the world.",
+       "good": false,
+       "why": "That is an opinion, not a map fact."
+      },
+      {
+       "text": "Florida is somewhere.",
+       "good": false,
+       "why": "Too vague. Where is it?"
+      }
+     ]
+    },
+    {
+     "name": "Source",
+     "icon": "📜",
+     "q": "Which source label tells the truth?",
+     "choices": [
+      {
+       "text": "A real photo I made up the date for.",
+       "good": false,
+       "why": "Honesty: never make up a date."
+      },
+      {
+       "text": "Page 1 of the U.S. Constitution, 1787, National Archives.",
+       "good": true,
+       "why": "Yes! It says what it is, when, and where it comes from."
+      },
+      {
+       "text": "An old paper.",
+       "good": false,
+       "why": "Too vague. What is it, and when?"
+      }
+     ]
+    },
+    {
+     "name": "Community",
+     "icon": "🏘️",
+     "q": "Which line connects the exhibit to a real community?",
+     "choices": [
+      {
+       "text": "Communities are things.",
+       "good": false,
+       "why": "That does not tell a visitor anything."
+      },
+      {
+       "text": "Nobody helps anybody.",
+       "good": false,
+       "why": "That is not true, and not kind."
+      },
+      {
+       "text": "In my town, people trade at the market and vote at the library.",
+       "good": true,
+       "why": "Yes! It shows real people doing real things."
+      }
+     ]
+    },
+    {
+     "name": "Virtue",
+     "icon": "🌟",
+     "q": "Which line shows a virtue in action?",
+     "choices": [
+      {
+       "text": "Courage: Frederick Douglass spoke for freedom, even when it was dangerous.",
+       "good": true,
+       "why": "Yes! It names a virtue and shows a real person living it."
+      },
+      {
+       "text": "Virtues are good.",
+       "good": false,
+       "why": "Which virtue? Show it in action."
+      },
+      {
+       "text": "Courage means never being scared.",
+       "good": false,
+       "why": "Courage means doing right even when you are scared."
+      }
+     ]
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "Which part of your exhibit is strongest?",
+     "starter": "The strongest part of my exhibit is ..."
+    },
+    {
+     "lead": "What should a visitor learn?",
+     "starter": "I want a visitor to learn ..."
+    }
+   ],
+   "chips": [
+    "map",
+    "source",
+    "community",
+    "virtue",
+    "visitor",
+    "label",
+    "courage",
+    "honesty"
+   ]
+  },
+  "full": "All four frames are filled, and your 2 sentences have 20 words or more."
+ },
+ "audioPending": "Q4: brief, step3 and extra are scripted, not recorded (Bethany 19 Nov 2026). Shared clips reused."
+}
