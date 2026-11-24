@@ -1,7 +1,7 @@
 {
- "night": {
-  "line": "Picture: City Lights of the United States 2012, NASA Earth Observatory (Suomi NPP satellite), Wikimedia Commons (public domain).",
-  "src": "images/src-3-07-01-night.jpg"
+ "preamble": {
+  "line": "Photo: Constitution of the United States, page 1, 1787, National Archives (public domain), via Wikimedia Commons. Shown in two pieces.",
+  "src": "images/src-3-10-01-preamble.jpg"
  },
  "mead": {
   "line": "Pictures: NASA Earth Observatory (Lauren Dauphin), Landsat 7 (July 2000) and Landsat 8 (July 2022), public domain, via Wikimedia Commons.",

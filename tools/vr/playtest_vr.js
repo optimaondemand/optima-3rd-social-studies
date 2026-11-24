@@ -12,7 +12,7 @@ const path = require('path'), fs = require('fs');
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('console', m => { if (m.type() === 'error' && !/youtube|net::|Failed to load resource/i.test(m.text())) errors.push(m.text()); });
-  await page.goto('file://' + path.resolve(file));
+  await page.goto(/^https?:/.test(file) ? file : 'file://' + path.resolve(file));
   await page.evaluate(() => { try { localStorage.clear(); } catch (e) {} });
   await page.reload();
   const shot = async (name, sel) => {
