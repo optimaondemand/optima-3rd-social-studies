@@ -1,0 +1,22 @@
+{
+ "harbor": {
+  "line": "Photo: from the book New York of To-Day (1912), Internet Archive, Wikimedia Commons (public domain).",
+  "src": "images/src-3-07-02-then.jpg"
+ },
+ "liberty": {
+  "line": "Photo: Carol M. Highsmith, Library of Congress, Wikimedia Commons (public domain).",
+  "src": "images/spec-3-07-01-ne-built.jpg"
+ },
+ "flag": {
+  "line": "Photo: HoosierMan1816, 2024, Wikimedia Commons (CC0).",
+  "src": "images/spec-3-06-08-flag.jpg"
+ },
+ "page1": {
+  "line": "Photo: Constitution of the United States, page 1, 1787, National Archives (public domain), via Wikimedia Commons.",
+  "src": "images/src-3-10-02-page1.jpg"
+ },
+ "vote": {
+  "line": "Voting booth in Summit, New Jersey, on Election Day, November 6, 2012. Photo by Tomwsulcer, CC0 (public domain), via Wikimedia Commons",
+  "src": "images/src-3-10-05-polling-place.jpg"
+ }
+}

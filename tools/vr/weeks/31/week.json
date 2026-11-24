@@ -1,0 +1,217 @@
+{
+ "id": "g3ss-vr-31",
+ "week": 31,
+ "lesson": "3.10.08",
+ "lessonA": "3.10.07",
+ "lessonTitle": "Symbols, Individuals, Documents, and Events that Represent the United States",
+ "title": "Welcome Ship Diorama",
+ "emoji": "🗽",
+ "pattern": "B",
+ "canvasName": "3.10.08 VR · Welcome Ship Diorama",
+ "details": [
+  "📅 Q4 · Unit 10 · Basics of Government and Citizenship",
+  "📖 Week 31 · goes with Lesson 3.10.08",
+  "📋 SS.3.CG.2.4 · SS.3.CG.3.1 · SS.3.CG.3.2",
+  "⏱ About 15 minutes"
+ ],
+ "map": "Immigrant Steam Ship (Dusk)",
+ "mapWord": "Steam",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Liberty Ribbon",
+  "line": "Only VR curators earn this one. You scouted a ship of newcomers and told what Lady Liberty stands for."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 31 · Welcome Ship Diorama",
+  "sub": "The Museum · Citizenship Hall",
+  "rows": [
+   [
+    "Place",
+    "A steamship full of newcomers"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "harbor",
+  "alt": "An old photo of tall city buildings seen from the water",
+  "cap": "New York City from the harbor, about 1912. Many newcomers saw this view from a ship.",
+  "note": "Long ago, millions of newcomers arrived by ship. Please visit one and tell me what they saw!"
+ },
+ "opti": {
+  "brief": "Curators, long ago millions of newcomers came to America by steamship. Visit one at dusk, then record a short video for me.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, long ago millions of newcomers came to America by steamship. Visit one at dusk, then record a short video for me.",
+  "step1": "Before your headset, read about the place. Then press Practice and say your two sentences before the timer ends.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Move with the thumbstick. Walk along the deck. Look at where people would stand and wait, and look out at the water.",
+  "step4": "Open Library, then Camera. Click Record video and say your two sentences. Click again to stop. Then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then open the Canvas assignment and check that your video is there.",
+  "extra": "Have more time? Look out over the rail, like a newcomer watching for land.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Scout the Steamship",
+  "look": "A <b>newcomer</b> comes to live in a new country. Long ago, many came by <b>steamship</b> past the <b>Statue of Liberty</b>, a <b>symbol</b> of welcome.",
+  "groups": [],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "@PLACE@<p>In your video, you say these 2 sentences:</p>@SAY@<p>Practice now. Say both before the timer ends.</p>@TIMER@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Steam</b> in <b>Filter environments</b>. Click <b>Immigrant Steam Ship (Dusk)</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Scout the ship",
+    "clip": "step3",
+    "html": "<p>Move with the <b>thumbstick</b>. Walk along the deck. Look at where people would stand, sleep and wait. Look out at the water.</p>"
+   },
+   {
+    "title": "Record your video and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until the deck fits.</p><p>Click <b>Record video</b>. Say your 2 sentences. Click it again to stop.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your video, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Record a new video and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your video is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Look out over the rail while you record, like a newcomer watching for the new country."
+  },
+  "full": "One video, 30 seconds or less, that shows the ship while you say both sentences.",
+  "place": [
+   {
+    "img": "liberty",
+    "alt": "The Statue of Liberty on a small island in a harbor",
+    "html": "<b>What newcomers saw:</b> the Statue of Liberty in New York Harbor. It stands for welcome.",
+    "cap": "The Statue of Liberty, New York Harbor."
+   }
+  ],
+  "say": [
+   "This is a ship that carried newcomers, and I see ___.",
+   "The Statue of Liberty stands for ___."
+  ],
+  "seconds": 30
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "Peek and Name It",
+  "look": "Four pictures hide under 9 tiles each. Each picture is a kind of evidence about our country: a <b>symbol</b>, a <b>document</b> or an <b>event</b>.",
+  "do": "Tap a tile to peek. Name the picture as soon as you know. Fewer tiles is better!",
+  "game": {
+   "type": "reveal",
+   "cols": [
+    "Picture",
+    "Kind of evidence"
+   ],
+   "labels": {
+    "round": "Picture"
+   },
+   "miss": "Not that one. Peek at another tile.",
+   "done": "All four named! Symbols, documents and events each tell part of our country's story.",
+   "rounds": [
+    {
+     "img": "flag",
+     "alt": "The Stars and Stripes flying on a flagpole",
+     "q": "What is it?",
+     "options": [
+      "The Statue of Liberty",
+      "The U.S. flag",
+      "The Liberty Bell",
+      "The Great Seal"
+     ],
+     "right": 1,
+     "kind": "Symbol",
+     "ok": "Yes! The flag is a symbol. Its 50 stars stand for the 50 states."
+    },
+    {
+     "img": "page1",
+     "alt": "An old page of handwriting with big letters at the top",
+     "q": "What is it?",
+     "options": [
+      "A newspaper",
+      "A letter",
+      "The Constitution",
+      "A map"
+     ],
+     "right": 2,
+     "kind": "Document",
+     "ok": "Yes! The Constitution is a document. It says what the country promises."
+    },
+    {
+     "img": "liberty",
+     "alt": "The Statue of Liberty on an island",
+     "q": "What is it?",
+     "options": [
+      "The Statue of Liberty",
+      "The Washington Monument",
+      "The U.S. Capitol",
+      "The Gateway Arch"
+     ],
+     "right": 0,
+     "kind": "Symbol",
+     "ok": "Yes! The Statue of Liberty is a symbol of welcome."
+    },
+    {
+     "img": "vote",
+     "alt": "A voting booth with a red curtain",
+     "q": "What is happening here?",
+     "options": [
+      "A holiday parade",
+      "People voting on Election Day",
+      "A school play",
+      "A court case"
+     ],
+     "right": 1,
+     "kind": "Event",
+     "ok": "Yes! Election Day is an event. Each voter gets one vote."
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "Pick one symbol. What does it stand for?",
+     "starter": "The ... is a symbol that stands for ..."
+    },
+    {
+     "lead": "Which picture tells our story best?",
+     "starter": "The picture that tells our story best is ... because ..."
+    }
+   ],
+   "chips": [
+    "symbol",
+    "document",
+    "event",
+    "flag",
+    "Statue of Liberty",
+    "Constitution",
+    "welcome",
+    "E Pluribus Unum"
+   ]
+  },
+  "full": "All four pictures are named, and your 2 sentences have 20 words or more."
+ },
+ "audioPending": "Q4: brief, step3 and extra are scripted, not recorded (Bethany 19 Nov 2026). Shared clips reused."
+}
