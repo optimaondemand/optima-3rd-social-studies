@@ -1,0 +1,234 @@
+{
+ "id": "g3ss-vr-33",
+ "week": 33,
+ "lesson": "3.11.04",
+ "lessonA": "3.11.03",
+ "lessonTitle": "Final Historian-Citizen Reflection",
+ "title": "Last Gallery Diorama",
+ "emoji": "🏛️",
+ "pattern": "B",
+ "canvasName": "3.11.04 VR · Last Gallery Diorama",
+ "details": [
+  "📅 Q4 · Unit 11 · Final Synthesis: Young Geographer-Citizen Exhibition",
+  "📖 Week 33 · goes with Lesson 3.11.04",
+  "📋 Capstone: all strands",
+  "⏱ About 15 minutes"
+ ],
+ "map": "Optima Centum Gallery",
+ "mapWord": "Centum",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Young Citizen Ribbon",
+  "line": "Only VR curators earn this one. You looked back on the whole year and told what kind of citizen you became."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 33 · Last Gallery Diorama",
+  "sub": "The Museum · Exhibition Hall",
+  "rows": [
+   [
+    "Place",
+    "One last gallery"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "night",
+  "alt": "A picture of the United States from space at night, with city lights shining",
+  "cap": "The United States at night, 2012. This year you studied places, people and how they live together.",
+  "note": "This is our last work order. Please visit one more gallery and tell me what you became this year!"
+ },
+ "opti": {
+  "brief": "Curators, this is our last work order of the year. Visit one more gallery in VR, then record a short video about your year.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, this is our last work order of the year. Visit one more gallery in VR, then record a short video about your year.",
+  "step1": "Before your headset, read about the place. Then press Practice and say your two sentences before the timer ends.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Move with the thumbstick. Walk through the gallery slowly, like a visitor. Look at the walls and the middle.",
+  "step4": "Open Library, then Camera. Click Record video and say your two sentences. Click again to stop. Then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then open the Canvas assignment and check that your video is there.",
+  "extra": "Have more time? End your video on the thing you like most in the gallery.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Scout the Last Gallery",
+  "look": "A <b>gallery</b> is a room in a museum where things are shown. This year you worked in our museum: maps, regions, trade, government. A <b>citizen</b> is a member of a community who helps it.",
+  "groups": [],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "@PLACE@<p>In your video, you say these 2 sentences:</p>@SAY@<p>Practice now. Say both before the timer ends.</p>@TIMER@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Centum</b> in <b>Filter environments</b>. Click <b>Optima Centum Gallery</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Scout the gallery",
+    "clip": "step3",
+    "html": "<p>Move with the <b>thumbstick</b>. Walk through the gallery slowly, like a visitor. Look at what is shown on the walls and in the middle.</p>"
+   },
+   {
+    "title": "Record your video and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until the gallery fits.</p><p>Click <b>Record video</b>. Say your 2 sentences. Click it again to stop.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your video, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Record a new video and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your video is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "End your video by looking at the thing in the gallery you like most."
+  },
+  "full": "One video, 30 seconds or less, that shows the gallery while you say both sentences.",
+  "place": [
+   {
+    "img": "mead",
+    "alt": "Two satellite pictures of a lake getting smaller",
+    "html": "<b>Remember the evidence:</b> this year you used maps, photos and sources to tell the truth.",
+    "cap": "Lake Mead from space, 2000 and 2022, from our Regional Council."
+   }
+  ],
+  "say": [
+   "In this gallery, I see ___.",
+   "This year I became a citizen who ___."
+  ],
+  "seconds": 30
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "Spin the Year",
+  "look": "A wheel with six rooms from our year in the museum. Each spin lands on one room and asks one question about it.",
+  "do": "Tap <b>Spin the wheel</b>. Read the question. Tap the answer.",
+  "game": {
+   "type": "wheel",
+   "cols": [
+    "Museum room",
+    "My answer"
+   ],
+   "labels": {
+    "round": "Spin",
+    "spin": "Spin the wheel"
+   },
+   "miss": "Not quite. Think back to that room.",
+   "done": "Six rooms, six answers! You are a young geographer-citizen.",
+   "slices": [
+    {
+     "name": "Exploration",
+     "icon": "⛵",
+     "q": "What did explorers use to find their way at sea?",
+     "options": [
+      "A compass",
+      "A telephone",
+      "A television"
+     ],
+     "right": 0,
+     "ok": "Yes! A compass shows direction."
+    },
+    {
+     "name": "Maps",
+     "icon": "🗺️",
+     "q": "What does a map key tell you?",
+     "options": [
+      "What the symbols on the map mean",
+      "What time it is",
+      "Who drew the map"
+     ],
+     "right": 0,
+     "ok": "Yes! The key explains the symbols."
+    },
+    {
+     "name": "Our Region",
+     "icon": "🌎",
+     "q": "Which places make up North America and the Caribbean?",
+     "options": [
+      "Canada, the United States, Mexico and the Caribbean islands",
+      "Only Florida",
+      "Europe and Asia"
+     ],
+     "right": 0,
+     "ok": "Yes! Four big areas on one continent and its islands."
+    },
+    {
+     "name": "U.S. Regions",
+     "icon": "🧭",
+     "q": "Which region is the driest?",
+     "options": [
+      "The Northeast",
+      "The Southwest",
+      "The Southeast"
+     ],
+     "right": 1,
+     "ok": "Yes! The Southwest gets very little rain."
+    },
+    {
+     "name": "Marketplace",
+     "icon": "🪙",
+     "q": "Why do people trade?",
+     "options": [
+      "Each side gives what it has plenty of to get what it is missing",
+      "To get rid of everything",
+      "Because trading is a holiday"
+     ],
+     "right": 0,
+     "ok": "Yes! Scarcity leads to trade."
+    },
+    {
+     "name": "Citizenship",
+     "icon": "🗳️",
+     "q": "In the United States, where does the power come from?",
+     "options": [
+      "A king",
+      "The people",
+      "The biggest city"
+     ],
+     "right": 1,
+     "ok": "Yes! \"We the People.\""
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "Which room taught you the most?",
+     "starter": "The room that taught me the most was ..."
+    },
+    {
+     "lead": "What kind of citizen are you now?",
+     "starter": "Now I am a citizen who ..."
+    }
+   ],
+   "chips": [
+    "maps",
+    "regions",
+    "trade",
+    "vote",
+    "honesty",
+    "courtesy",
+    "service",
+    "citizen"
+   ]
+  },
+  "full": "All six spins are answered, and your 2 sentences have 20 words or more."
+ },
+ "audioPending": "Q4: brief, step3 and extra are scripted, not recorded (Bethany 19 Nov 2026). Shared clips reused."
+}
