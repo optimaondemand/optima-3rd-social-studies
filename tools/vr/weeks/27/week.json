@@ -1,0 +1,234 @@
+{
+ "id": "g3ss-vr-27",
+ "week": 27,
+ "lesson": "3.09.08",
+ "lessonA": "3.09.07",
+ "lessonTitle": "Economic Virtues: Honesty and Responsibility",
+ "title": "Honest Market Diorama",
+ "emoji": "🏪",
+ "pattern": "B",
+ "canvasName": "3.09.08 VR · Honest Market Diorama",
+ "details": [
+  "📅 Q4 · Unit 9 · Basics of Economics",
+  "📖 Week 27 · goes with Lesson 3.09.08",
+  "📋 SS.3.E.1.1 · SS.3.E.1.2 · SS.3.E.1.3",
+  "⏱ About 15 minutes"
+ ],
+ "map": "Colonial Williamsburg",
+ "mapWord": "Williamsburg",
+ "badge": {
+  "emoji": "🎀",
+  "name": "Honest Scale Ribbon",
+  "line": "Only VR curators earn this one. You scouted an old market town and named what keeps a market honest."
+ },
+ "stamp": "Collections Day · Museum stamp",
+ "hook": {
+  "look": "A <b>work order</b> is a note that tells museum workers what job to do next.",
+  "head": "Work Order 27 · Honest Market Diorama",
+  "sub": "The Museum · Marketplace Hall",
+  "rows": [
+   [
+    "Place",
+    "An old town with shops"
+   ],
+   [
+    "Guide",
+    "Opti"
+   ],
+   [
+    "Curator",
+    "You"
+   ]
+  ],
+  "img": "scale",
+  "alt": "An old black and white photo of a man standing next to a pile of old scales and weights",
+  "cap": "A scale inspector in Seattle, 1917, with scales that weighed things the wrong way.",
+  "note": "Honesty and responsibility hold a market together. Please visit an old market town and tell me how!"
+ },
+ "opti": {
+  "brief": "Curators, a market only works when people are honest and keep their promises. Visit an old town with shops, then record a short video.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "voice": {
+  "brief": "Curators, a market only works when people are honest and keep their promises. Visit an old town with shops, then record a short video.",
+  "step1": "Before your headset, read about the place. Then press Practice and say your two sentences before the timer ends.",
+  "step2": "Open the On-Demand app. Click Explore. Type the map word, click the map, then click Begin Solo.",
+  "step3": "Move with the thumbstick. Walk down the street. Look at the shops, and think about what each one sells.",
+  "step4": "Open Library, then Camera. Click Record video and say your two sentences. Click again to stop. Then send it on the Canvas tab.",
+  "step5": "Press the Meta button and click Quit. Then open the Canvas assignment and check that your video is there.",
+  "extra": "Have more time? Stop by one shop and tell me what it might sell.",
+  "collections": "No headset today? Come to the collections room. Play the game, then tell me what you found."
+ },
+ "vr": {
+  "h3": "Scout the Market Town",
+  "look": "<b>Colonial Williamsburg</b> is an old town in Virginia with shops. <b>Honesty</b> means telling the truth. <b>Responsibility</b> means doing what you said you would do.",
+  "groups": [],
+  "steps": [
+   {
+    "where": "🖥️ Before your headset",
+    "title": "Get ready",
+    "clip": "step1",
+    "html": "@PLACE@<p>In your video, you say these 2 sentences:</p>@SAY@<p>Practice now. Say both before the timer ends.</p>@TIMER@<p>In VR, this page is on the <b>Canvas</b> tab too.</p>"
+   },
+   {
+    "title": "Go in",
+    "clip": "step2",
+    "where": "🥽 In VR",
+    "html": "<div class=\"vr-how\">🔗 <b>First time only:</b> connect Canvas at <a href=\"https://xr.optimaed.com\" target=\"_blank\" rel=\"noopener\">xr.optimaed.com</a>. See <b>Having trouble in VR?</b> below.</div><p>Open the <b>On-Demand</b> app. Click <b>Explore</b>. Type <b>Williamsburg</b> in <b>Filter environments</b>. Click <b>Colonial Williamsburg</b>, then <b>Begin Solo</b>.</p>"
+   },
+   {
+    "title": "Scout the shops",
+    "clip": "step3",
+    "html": "<p>Move with the <b>thumbstick</b>. Walk down the street. Look at the shops and their signs. Think about what each shop sells.</p>"
+   },
+   {
+    "title": "Record your video and send it",
+    "clip": "step4",
+    "html": "<p>Open your menu, click <b>Library</b>, then <b>Camera</b>. Move the tablet until the street and the shops fit.</p><p>Click <b>Record video</b>. Say your 2 sentences. Click it again to stop.</p><p>Click the <b>Canvas</b> tab and pick <b>@CANVAS@</b>. Click <b>Choose from My Files</b>, pick your video, click <b>Use this file</b>, then <b>Submit to Canvas</b>. Look for the green <b>Submitted</b> tag.</p><div class=\"vr-how\">🔁 Want to fix it? Record a new video and send it again.</div>"
+   },
+   {
+    "where": "✅ After",
+    "title": "Check and leave",
+    "clip": "step5",
+    "html": "<p>Press the <b>Meta button</b>, then click <b>Quit</b>. Check that your video is in the Canvas assignment. Not there? Open <b>Having trouble in VR?</b></p>"
+   }
+  ],
+  "extra": {
+   "after": 3,
+   "clip": "extra",
+   "html": "Stop in front of one shop while you record, and tell Opti what it might sell."
+  },
+  "full": "One video, 30 seconds or less, that shows the shops while you say both sentences.",
+  "place": [
+   {
+    "img": "pier",
+    "alt": "An old photo of a long wooden pier with boats beside it",
+    "html": "<b>Sellers need trust:</b> fishers at this pier had to tell the truth about their fish.",
+    "cap": "The fish pier in Boston, about 1914."
+   }
+  ],
+  "say": [
+   "This is a town with shops, and I see ___.",
+   "An honest shopkeeper ___."
+  ],
+  "seconds": 30
+ },
+ "studio": {
+  "kicker": "Collections Day · no headset",
+  "title": "Market Stories",
+  "look": "Four short stories from a market. In each one, a person has to choose what to do. The <b>trust meter</b> at the top fills up when the market stays honest.",
+  "do": "Read the story. Tap what an honest, responsible person would do.",
+  "game": {
+   "type": "dilemma",
+   "cols": [
+    "Story",
+    "The honest choice"
+   ],
+   "labels": {
+    "round": "Market story",
+    "meter": "Trust in the market"
+   },
+   "miss": "Think again. Would that keep the buyer's trust?",
+   "done": "The trust meter is full! Honesty and responsibility hold the market together.",
+   "rounds": [
+    {
+     "who": "Ana the fisher",
+     "icon": "🐟",
+     "scene": "Ana caught these fish yesterday. A buyer asks, \"Did you catch them today?\"",
+     "q": "What should Ana say?",
+     "options": [
+      "\"Yes, today!\" so the buyer pays more.",
+      "\"I caught them yesterday. They are still good, and the price is lower.\"",
+      "Say nothing and look away."
+     ],
+     "right": 1,
+     "ok": "Yes! Ana told the truth about what she is selling.",
+     "miss": [
+      "That is not the truth. The buyer would stop trusting Ana.",
+      "",
+      "Hiding the truth is not honest either."
+     ]
+    },
+    {
+     "who": "Ben the baker",
+     "icon": "⚖️",
+     "scene": "Ben's scale shows a little too much. Each bag of flour weighs less than it says.",
+     "q": "What should Ben do?",
+     "options": [
+      "Keep using it. No one will know.",
+      "Fix the scale so it weighs the right way.",
+      "Charge more for flour."
+     ],
+     "right": 1,
+     "ok": "Yes! An honest seller weighs things the right way.",
+     "miss": [
+      "The buyers would be cheated, even if they never find out.",
+      "",
+      "That does not fix the wrong weight."
+     ]
+    },
+    {
+     "who": "Cora the farmer",
+     "icon": "🌾",
+     "scene": "Cora promised 10 sacks of grain by Friday. A storm slowed her down.",
+     "q": "What is the responsible thing to do?",
+     "options": [
+      "Tell the buyer early, and bring the grain as soon as she can.",
+      "Never bring the grain.",
+      "Bring 5 sacks and say it is 10."
+     ],
+     "right": 0,
+     "ok": "Yes! Cora keeps her promise, even when it gets harder.",
+     "miss": [
+      "",
+      "Breaking a promise hurts trust.",
+      "That is not honest. The buyer counts on 10 sacks."
+     ]
+    },
+    {
+     "who": "Dev the buyer",
+     "icon": "🪙",
+     "scene": "Dev pays for apples. The seller gives back too much change by mistake.",
+     "q": "What should Dev do?",
+     "options": [
+      "Keep the extra money.",
+      "Give the extra money back to the seller.",
+      "Buy more apples with it."
+     ],
+     "right": 1,
+     "ok": "Yes! Buyers are honest too. Dev pays what he agreed to pay.",
+     "miss": [
+      "That money belongs to the seller.",
+      "",
+      "That money is not Dev's to spend."
+     ]
+    }
+   ]
+  },
+  "write": {
+   "min": 20,
+   "frames": [
+    {
+     "lead": "What does honesty look like in a market?",
+     "starter": "In a market, honesty means ..."
+    },
+    {
+     "lead": "What does responsibility look like?",
+     "starter": "In a market, responsibility means ..."
+    }
+   ],
+   "chips": [
+    "honesty",
+    "responsibility",
+    "truth",
+    "promise",
+    "trust",
+    "weigh",
+    "seller",
+    "buyer"
+   ]
+  },
+  "full": "All four stories are done, and your 2 sentences have 20 words or more."
+ },
+ "audioPending": "Q4: brief, step3 and extra are scripted, not recorded (Bethany 19 Nov 2026). Shared clips reused."
+}
