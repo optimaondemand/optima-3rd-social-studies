@@ -208,6 +208,13 @@
    - tagphoto    Gallery: a real NPS cleanup photo, 2015; hang a virtue tag on 3 spots; 2 questions
    - signup      Workroom: a volunteer sign-up sheet; fill each blank with a volunt word
    - heartplaque Exhibit Floor: plaque → place → action → 3 to 5 sentences → hang it at the heart of the hall
+   Added for 3.10_08 (shared usObj(); DATA.kinds):
+   - shadowwall  Lobby: five shadows on the wall; read a clue, guess, light each object up; the date tag; 2 questions
+   - fourpillars Gallery main attraction: sort 8 cards onto four pillars; three rulebooks; pull a pillar, the roof tips
+   - bravechoices Gallery: Rosa Parks' bus (what happened next, in order) and the Red Tails' mission; Evidence Q3 in the last step
+   - thirteens   Gallery: the real Great Seal with a magnifying glass; find the 13s; 2 questions
+   - unistars    Workroom: four uni words; five small stars join into one
+   - onebadge    Exhibit Floor: The Big Question → close the hall: 8 exhibits fly into one Citizen Curator badge
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1265,7 +1272,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my,.ms-xr-stage,.ms-fx-stage,.ms-tj-stage,.ms-fl-stage,.ms-tj-note,.ms-rb-stage,.ms-pw-stage,.ms-kq-stands,.ms-lp-case,.ms-bt-stage,.ms-lp-note,.ms-en-stage,.ms-el-stage,.ms-el-panel,.ms-el-tix,.ms-sx-stage,.ms-bq-wall,.ms-tn-stage,.ms-tn-word,.ms-pk-stage,.ms-pk-chips,.ms-sx-note,.ms-nl-stage,.ms-gb-stage,.ms-sf-pair,.ms-hn-stage,.ms-bb-stage,.ms-fc-stage,.ms-bb-word,.ms-cu-stage,.ms-fm-stage,.ms-ck-stage,.ms-fg-stage,.ms-pp-photo,.ms-es-stage,.ms-vb-stage,.ms-es-word,.ms-fw-stage,.ms-ht-stage,.ms-ht-cart,.ms-pd-stage,.ms-pd-clip,.ms-sv-stage,.ms-sv-read,.ms-ar-photo,.ms-ar-total,.ms-mf-stage,.ms-yl-stage,.ms-yl-q,.ms-dp-stage,.ms-dp-read,.ms-wk-stage,.ms-wk-card,.ms-ds-stage,.ms-tg-photo,.ms-su-stage,.ms-hh-stage';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my,.ms-xr-stage,.ms-fx-stage,.ms-tj-stage,.ms-fl-stage,.ms-tj-note,.ms-rb-stage,.ms-pw-stage,.ms-kq-stands,.ms-lp-case,.ms-bt-stage,.ms-lp-note,.ms-en-stage,.ms-el-stage,.ms-el-panel,.ms-el-tix,.ms-sx-stage,.ms-bq-wall,.ms-tn-stage,.ms-tn-word,.ms-pk-stage,.ms-pk-chips,.ms-sx-note,.ms-nl-stage,.ms-gb-stage,.ms-sf-pair,.ms-hn-stage,.ms-bb-stage,.ms-fc-stage,.ms-bb-word,.ms-cu-stage,.ms-fm-stage,.ms-ck-stage,.ms-fg-stage,.ms-pp-photo,.ms-es-stage,.ms-vb-stage,.ms-es-word,.ms-fw-stage,.ms-ht-stage,.ms-ht-cart,.ms-pd-stage,.ms-pd-clip,.ms-sv-stage,.ms-sv-read,.ms-ar-photo,.ms-ar-total,.ms-mf-stage,.ms-yl-stage,.ms-yl-q,.ms-dp-stage,.ms-dp-read,.ms-wk-stage,.ms-wk-card,.ms-ds-stage,.ms-tg-photo,.ms-su-stage,.ms-hh-stage,.ms-sd-stage,.ms-fp-stage,.ms-bc-stage,.ms-pe-photo,.ms-un-sky,.ms-ob-stage';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -8921,7 +8928,293 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, corner: modCorner, fixtown: modFixtown, townjar: modTownjar, firstlabel: modFirstlabel, recess: modRecess, powerflip: modPowerflip, korp: modKorp, caselamp: modCaselamp, wordbuild: modWordbuild, ballot: modBallot, envelope: modEnvelope, whichfloor: modWhichfloor, schoolxray: modSchoolxray, threebldg: modThreebldg, loctrain: modLoctrain, plaques: modPlaques, nameland: modNameland, greenbook: modGreenbook, spotfix: modSpotfix, heroniche: modHeroniche, bloombranch: modBloombranch, flcase: modFlcase, curtain: modCurtain, fairmachine: modFairmachine, checkin: modCheckin, flagsrules: modFlagsrules, pollphoto: modPollphoto, electstamp: modElectstamp, boothlabel: modBoothlabel, fadewall: modFadewall, hangline: modHangline, parade: modParade, served: modServed, flagcount: modFlagcount, memorfade: modMemorfade, yearlights: modYearlights, dustyplaque: modDustyplaque, weekpolish: modWeekpolish, dayservice: modDayservice, tagphoto: modTagphoto, signup: modSignup, heartplaque: modHeartplaque, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.10_08 (Symbols, Individuals, Documents and Events) ══════════
+     Shared drawing: usObj() (the five center-pedestal objects: folded flag, bell, marble bust, rolled document with a date tag, tiny Statue of Liberty).
+     The four kinds of evidence live in DATA.kinds (symbols, individuals, documents, events).
+     - shadowwall   Lobby: a dark hall, five shadows on the wall; read a clue, guess, light each object up; the date tag (an event); 2 questions
+     - fourpillars  Gallery main attraction: sort 8 cards onto four pillars under a UNITED STATES roof; three rulebooks; pull a pillar and the roof tips; 1 question
+     - bravechoices Gallery: Rosa Parks' bus (put what happened next in order) and the Red Tails' mission; heroism + patriotism; Evidence Q3 in the last step
+     - thirteens    Gallery: the real Great Seal with a magnifying glass; find the 13 stars, letters, stripes, leaves and arrows; 2 questions
+     - unistars     Workroom: four uni words; five small stars join into one for each
+     - onebadge     Exhibit Floor: The Big Question (side → 2 reasons → 1 example → 3 to 5 sentences) → close the hall: 8 exhibits light, fly together into one Citizen Curator badge */
+
+  function usK(){ return DATA.kinds || []; }
+  function usObj(o, x, y, s){ s = s || 1; var g = '<g class="uo uo-'+o+'" transform="translate('+x+' '+y+') scale('+s+')">';
+    if (o === 'flag') g += '<path d="M-34 0 L34 0 L0 -30 Z" fill="#1F3F8A" stroke="#E9E2CF" stroke-width="3" stroke-linejoin="round"/>' + [[-14,-6],[0,-6],[14,-6],[-7,-15],[7,-15],[0,-23]].map(function(p){ return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="2.2" fill="#FFFFFF"/>'; }).join('');
+    else if (o === 'bell') g += '<rect x="-16" y="-62" width="32" height="8" rx="2" fill="#5E4428"/><path d="M-13 -56 Q-19 -56 -19 -46 Q-19 -20 -26 -9 Q-30 -4 -32 0 L32 0 Q30 -4 26 -9 Q19 -20 19 -46 Q19 -56 13 -56 Z" fill="#A0763A" stroke="#5E4428" stroke-width="2"/><path d="M-27 -7 Q0 -3 27 -7" stroke="#7A5428" stroke-width="2" fill="none"/><path d="M-17 -44 Q0 -40 17 -44" stroke="#7A5428" stroke-width="1.5" fill="none"/><path d="M4 -40 L-1 -28 L5 -18 L0 -6" stroke="#3A2614" stroke-width="2.2" fill="none" class="crk"/><circle cx="0" cy="3" r="4" fill="#5E4428"/>';
+    else if (o === 'bust') g += '<rect x="-16" y="-14" width="32" height="14" fill="#C9C2B2" stroke="#8E877A"/><path d="M-26 -14 Q-24 -32 -8 -34 L8 -34 Q24 -32 26 -14 Z" fill="#ECE7DC" stroke="#8E877A" stroke-width="1.5"/><rect x="-5" y="-42" width="10" height="10" fill="#E2DCCF"/><ellipse cx="0" cy="-54" rx="12" ry="15" fill="#F2EEE5" stroke="#8E877A" stroke-width="1.5"/><path d="M-12 -58 Q-12 -70 0 -70 Q12 -70 12 -58 Q14 -50 12 -46 Q10 -60 0 -62 Q-10 -60 -12 -46 Q-14 -50 -12 -58 Z" fill="#DDD6C8"/>';
+    else if (o === 'scroll') g += '<rect x="-30" y="-20" width="60" height="18" fill="#EFDDB0" stroke="#9C7A3A" stroke-width="1.5"/><ellipse cx="-30" cy="-11" rx="4" ry="9" fill="#E2CC94" stroke="#9C7A3A" stroke-width="1.5"/><ellipse cx="30" cy="-11" rx="4" ry="9" fill="#F5E6C0" stroke="#9C7A3A" stroke-width="1.5"/><rect x="-3" y="-21" width="6" height="20" fill="#B5432F"/>' +
+      '<g class="tag"><path d="M0 -2 Q4 6 10 10" stroke="#5E4428" stroke-width="1.2" fill="none"/><rect x="6" y="8" width="44" height="16" rx="3" fill="#FFFDF6" stroke="#9C7A3A" stroke-width="1.2"/><text x="28" y="19" text-anchor="middle" class="uo-tag">JULY 4, 1776</text></g>';
+    else if (o === 'liberty') g += '<rect x="-12" y="-14" width="24" height="14" fill="#9FB8A8" stroke="#5E7A6A"/><path d="M-10 -14 L-7 -50 L7 -50 L10 -14 Z" fill="#6FA58C" stroke="#3E6A56" stroke-width="1.5"/><path d="M5 -48 L12 -70" stroke="#6FA58C" stroke-width="5" stroke-linecap="round"/><path d="M12 -74 q-3 -6 0 -10 q3 4 0 10 Z" fill="#F3C64A" class="flm"/><circle cx="0" cy="-55" r="6" fill="#7DB39A" stroke="#3E6A56"/>' +
+      [-50,-20,10,40,70].map(function(a){ var r = a * Math.PI / 180; return '<path d="M0 -59 L'+(Math.sin(r) * 11).toFixed(1)+' '+(-59 - Math.cos(r) * 11).toFixed(1)+'" stroke="#6FA58C" stroke-width="2"/>'; }).join('') + '<rect x="-12" y="-38" width="8" height="10" fill="#5E8E78"/>';
+    return g + '</g>'; }
+
+  /* ══ MODULE: shadowwall (Lobby · five shadows on the wall; guess, light it up) ══ */
+  function modShadowwall(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var O = cfg.objs || [], K = usK(), X = [64, 152, 240, 328, 416], N = O.length + 2;
+    ST.sd = ST.sd || {i:0, got:false, lit:0, q1:false, q2:false}; var S = ST.sd;
+    var m = shell('ms-sd-mod', cfg);
+    var sv = '<svg viewBox="0 0 480 330" class="ms-sd-scene" role="img" aria-label="A dark museum hall. A spotlight shines on a long pedestal with five objects. Their shadows fall on the wall behind them.">' +
+      '<rect width="480" height="330" fill="#2A2330"/><rect y="236" width="480" height="94" fill="#3A2E24"/>' + [0,1,2,3,4,5,6,7].map(function(i){ return '<path d="M'+(i * 70 - 20)+' 330 L'+(i * 62 + 18)+' 236" stroke="#4A3A2C" stroke-width="2"/>'; }).join('') +
+      '<polygon class="cone" points="214,0 266,0 470,250 10,250" fill="#FFE9A8" opacity=".14"/>' +
+      '<g class="shd">' + O.map(function(o, i){ return '<g class="sh sh'+i+'">'+usObj(o.o, X[i] + (i - 2) * 8, 150, 1.5)+'</g>'; }).join('') + '</g>' +
+      '<rect x="20" y="236" width="440" height="22" rx="4" fill="#6E4A26" stroke="#3E2A12" stroke-width="2"/><rect x="34" y="258" width="412" height="44" fill="#5A3C1E"/><rect x="200" y="268" width="80" height="22" rx="4" fill="#C99B3C" stroke="#7A5A1E" stroke-width="2"/><text x="240" y="283" text-anchor="middle" class="sd-pl">CENTER PEDESTAL</text>' +
+      '<g class="objs">' + O.map(function(o, i){ return '<g class="ob ob'+i+'" data-i="'+i+'">'+usObj(o.o, X[i], 236, 1)+'<g class="lab"><rect x="'+(X[i] - 42)+'" y="304" width="84" height="20" rx="4" fill="#FFFDF6" stroke="#B88A2A"/><text x="'+X[i]+'" y="318" text-anchor="middle" class="sd-lab">'+esc(o.lab || o.name)+'</text></g></g>'; }).join('') + '</g></svg>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-pd-wrap"><div class="ms-pd-stage ms-sd-stage">'+sv+'<p class="ms-credit">'+esc(cfg.modelT || '')+'</p></div><div class="ms-sd-act" aria-live="polite"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-sd-act', m), svg = $('svg', m);
+    function paint(){ O.forEach(function(o, i){ var g = $('.ob' + i, svg), sh = $('.sh' + i, svg); g.classList.toggle('lit', i < S.lit); sh.classList.toggle('cur', i === S.i && S.i >= S.lit && S.i < O.length); sh.classList.toggle('gone', i < S.lit); }); svg.classList.toggle('tagon', S.lit >= O.length && !S.q1); }
+    function info(i){ var o = O[i], k = K[o.kind]; return '<div class="ms-sd-read"><b>'+esc(o.name)+'</b><span class="kd" style="background:'+k.c+'">'+k.ic+' '+esc(k.one)+'</span><p>'+esc(o.card)+'</p></div>'; }
+    function render(){ paint();
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT||'')+'</div>'; return; }
+      if (S.i < O.length) { var o = O[S.i];
+        if (S.lit > S.i) { act.innerHTML = stepCard(S.i + 1, N, 'Shadow ' + (S.i + 1) + ' of ' + O.length, info(S.i) + '<button type="button" class="ms-btn big ms-sd-nx">'+(S.i + 1 < O.length ? 'Next shadow ➡️' : 'Look closer ➡️')+'</button>');
+          $('.ms-sd-nx', act).onclick = function(){ SFX.click(); S.i++; S.got = false; save(); render(); }; return; }
+        if (S.got) { act.innerHTML = stepCard(S.i + 1, N, 'Shadow ' + (S.i + 1) + ' of ' + O.length, '<div class="ms-vd-thanks">✅ '+o.q.opts.filter(function(x){ return x.ok; })[0].fb+'</div><p>Now light it up and see it.</p><button type="button" class="ms-btn big ms-sd-lt">'+esc(cfg.lightB)+'</button>');
+          $('.ms-sd-lt', act).onclick = function(){ SFX.glass(); S.lit = S.i + 1; save(); var g = $('.ob' + S.i, svg); g.classList.remove('pop'); void g.getBoundingClientRect(); if (!calm()) g.classList.add('pop'); render(); }; return; }
+        var cq = choiceQ(o.q, S.i, function(){ setTimeout(function(){ S.got = true; save(); render(); }, calm()?0:900); });
+        act.innerHTML = stepCard(S.i + 1, N, 'Shadow ' + (S.i + 1) + ' of ' + O.length, '<div class="ms-wk-card"><span class="ic">🔦</span><p><b>Clue:</b> '+esc(o.clue)+'</p></div><p class="ms-pp-tap">The glowing shadow on the wall is this one.</p>' + cq.html); cq.bind(act); return; }
+      var q = S.q1 ? cfg.q2 : cfg.q1;
+      var cq2 = choiceQ(q, S.q1 ? 2 : 1, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1500);
+        else { markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm()?0:1600); } });
+      act.innerHTML = stepCard(S.q1 ? N : N - 1, N, S.q1 ? q.title : cfg.tagT, cq2.html); cq2.bind(act);
+    }
+    render(); if (S.q2) markDone('scene');
+  }
+
+  /* ══ MODULE: fourpillars (Gallery main attraction · four pillars hold up UNITED STATES) ══ */
+  function modFourpillars(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var K = usK(), C = cfg.cards || [], PX = [62, 170, 278, 386], N = C.length + 3;
+    ST.fp = ST.fp || {i:0, bk:false, pull:-1, pulled:false, done:false}; var S = ST.fp;
+    var m = shell('ms-fp-mod', cfg);
+    var cols = K.map(function(k, j){ var x = PX[j]; return '<g class="pl pl'+j+'" data-k="'+j+'" role="button" aria-label="'+esc(k.name)+' pillar"><g class="in">' +
+      '<rect class="hl" x="'+(x - 8)+'" y="104" width="68" height="218" rx="8" fill="#FFD666" opacity="0"/>' +
+      '<rect x="'+(x - 2)+'" y="112" width="56" height="12" fill="#E4D8BE" stroke="#8E7A56"/><rect x="'+(x + 4)+'" y="124" width="44" height="168" fill="#F3EBDA" stroke="#8E7A56" stroke-width="1.5"/>' +
+      [12,22,32].map(function(d){ return '<path d="M'+(x + 4 + d)+' 126 V290" stroke="#DCCFB4" stroke-width="2"/>'; }).join('') +
+      '<rect x="'+(x - 2)+'" y="290" width="56" height="12" fill="#E4D8BE" stroke="#8E7A56"/>' +
+      '<g class="slots"><circle class="s0" cx="'+(x + 26)+'" cy="170" r="15" fill="none" stroke="'+k.c+'" stroke-width="2" stroke-dasharray="4 3"/><circle class="s1" cx="'+(x + 26)+'" cy="230" r="15" fill="none" stroke="'+k.c+'" stroke-width="2" stroke-dasharray="4 3"/><g class="got"></g></g>' +
+      '<rect x="'+(x - 22)+'" y="304" width="96" height="38" rx="5" fill="'+k.c+'"/><text x="'+(x + 26)+'" y="320" text-anchor="middle" class="fp-k">'+esc(k.name.toUpperCase())+'</text><text x="'+(x + 26)+'" y="336" text-anchor="middle" class="fp-s">'+esc(k.shows)+'</text></g></g>'; }).join('');
+    var sv = '<svg viewBox="0 0 480 370" class="ms-fp-scene" role="img" aria-label="A model museum building. A triangle roof says UNITED STATES. Four pillars hold it up: Symbols, Individuals, Documents, Events.">' +
+      '<rect width="480" height="370" fill="#DCEBF2"/><rect y="340" width="480" height="30" fill="#A9D08E"/>' +
+      '<g class="roof"><g class="in"><path d="M40 112 L240 30 L440 112 Z" fill="#EFE5CF" stroke="#8E7A56" stroke-width="2.5"/><path d="M78 104 L240 42 L402 104 Z" fill="none" stroke="#CDBE9C" stroke-width="2"/><rect x="40" y="104" width="400" height="12" fill="#E4D8BE" stroke="#8E7A56"/><text x="240" y="92" text-anchor="middle" class="fp-roof">UNITED STATES</text><path class="crk" d="M300 60 l-8 14 l6 6 l-10 16" stroke="#6A5A3A" stroke-width="2" fill="none"/></g></g>' +
+      cols + '<rect x="30" y="340" width="420" height="10" fill="#CDBE9C" stroke="#8E7A56"/></svg>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-pd-wrap"><div class="ms-pd-stage ms-fp-stage">'+sv+'<p class="ms-credit">'+esc(cfg.modelT || '')+'</p></div><div class="ms-fp-act" aria-live="polite"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-fp-act', m), stage = $('.ms-fp-stage', m), svg = $('svg', stage);
+    function look(){ var r = stage.getBoundingClientRect(); if (r.top < 110 || r.bottom > innerHeight + 60) stage.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); }
+    function paint(){ K.forEach(function(k, j){ var got = C.filter(function(c, x){ return x < S.i && c.k === j; }), g = $('.pl' + j + ' .got', svg), x = PX[j];
+        g.innerHTML = got.map(function(c, n){ return '<circle cx="'+(x + 26)+'" cy="'+(170 + n * 60)+'" r="16" fill="#FFFDF6" stroke="'+k.c+'" stroke-width="3"/><text x="'+(x + 26)+'" y="'+(176 + n * 60)+'" text-anchor="middle" class="fp-ic">'+c.ic+'</text>'; }).join('');
+        var p = $('.pl' + j, svg); p.classList.toggle('seek', S.i < C.length || (S.bk && !S.pulled && S.pull < 0)); p.classList.toggle('out', S.pull === j); });
+      svg.classList.toggle('tip', S.pull >= 0); svg.classList.toggle('tipl', S.pull >= 0 && S.pull < 2); }
+    function pick(k){ if (S.i >= C.length) { if (S.bk && !S.pulled && S.pull < 0) pull(k); return; } var c = C[S.i], fb = $('.ms-exfb', act), b = $('.ms-fp-b[data-k="'+k+'"]', act);
+      if (k !== c.k) { SFX.miss(); if (b) { b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); } var p = $('.pl' + k, svg); p.classList.remove('no'); void p.getBoundingClientRect(); p.classList.add('no'); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 '+esc(c.hint)+'</div>'; return; }
+      SFX.stamp(); S.i++; save(); render(); look(); }
+    function pull(k){ SFX.whir(); S.pull = k; save(); render(); }
+    $$('.pl', svg).forEach(function(g){ g.addEventListener('click', function(){ pick(+g.dataset.k); }); });
+    function btns(cls){ return '<div class="ms-wk-btns">'+K.map(function(k, j){ return '<button type="button" class="ms-btn alt '+cls+'" data-k="'+j+'">'+k.ic+' '+esc(k.name)+'</button>'; }).join('')+'</div>'; }
+    function render(){ paint();
+      if (S.done) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.i < C.length) { var c = C[S.i];
+        act.innerHTML = stepCard(S.i + 1, N, 'Card ' + (S.i + 1) + ' of ' + C.length, (S.i ? '<div class="ms-vd-thanks">✅ '+esc(C[S.i - 1].ok)+'</div>' : '') + '<div class="ms-wk-card"><span class="ic">'+c.ic+'</span><p><b>'+esc(c.t)+'.</b> '+esc(c.d)+'</p></div><p>'+esc(cfg.pickP)+' <span class="ms-pp-tap">Tap a pillar, or a button.</span></p>' + btns('ms-fp-b') + '<div class="ms-exfb" aria-live="polite"></div>');
+        $$('.ms-fp-b', act).forEach(function(b){ b.onclick = function(){ pick(+b.dataset.k); }; }); return; }
+      if (!S.bk) { var B = cfg.books, cq = choiceQ(B.q, 0, function(){ setTimeout(function(){ S.bk = true; save(); render(); look(); }, calm()?0:1500); });
+        act.innerHTML = stepCard(C.length + 1, N, B.stepT, '<div class="ms-vd-thanks">✅ '+esc(C[C.length - 1].ok)+'</div><div class="ms-sv-read"><b>'+esc(B.t)+'</b><p>'+esc(B.card)+'</p><div class="ms-fp-books">'+B.rows.map(function(r){ return '<span>'+r[0]+' <b>'+esc(r[1])+':</b> '+esc(r[2])+'</span>'; }).join('')+'</div></div>' + cq.html); cq.bind(act); return; }
+      if (!S.pulled) {
+        if (S.pull < 0) { act.innerHTML = stepCard(C.length + 2, N, cfg.pullT, '<p>'+esc(cfg.pullP)+'</p>' + btns('ms-fp-pb')); $$('.ms-fp-pb', act).forEach(function(b){ b.onclick = function(){ pull(+b.dataset.k); }; }); return; }
+        var k = K[S.pull]; act.innerHTML = stepCard(C.length + 2, N, cfg.pullT, '<div class="ms-notyet">⚠️ The roof tips! '+esc(cfg.missT.replace('{k}', k.name.toLowerCase()).replace('{s}', k.shows))+'</div><button type="button" class="ms-btn big ms-fp-back">'+esc(cfg.backB)+'</button>');
+        $('.ms-fp-back', act).onclick = function(){ SFX.click(); S.pull = -1; S.pulled = true; save(); render(); }; return; }
+      var cq3 = choiceQ(cfg.q, 1, function(){ ST.gal = ST.gal||{}; ST.gal.pillars = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.done = true; save(); render(); }, calm()?0:1600); });
+      act.innerHTML = stepCard(N, N, cfg.q.title, '<div class="ms-vd-thanks">✅ The pillar is back, and the roof is level again.</div>' + cq3.html); cq3.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: bravechoices (Gallery · Rosa Parks' bus, the Red Tails' mission; Evidence Q3 in the last step) ══ */
+  function modBravechoices(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var B = cfg.bus, E = B.events || [], ta = document.getElementById(cfg.ta || 'journal-q3'), NEED = cfg.wordMin || 15, RE = new RegExp(cfg.needRe, 'i'), RE2 = new RegExp(cfg.need2Re, 'i');
+    ST.bc = ST.bc || {st:0, o:0, flown:false, done:false}; var S = ST.bc;
+    var m = shell('ms-bc-mod', cfg);
+    var seats = ''; for (var i = 0; i < 7; i++) { var sx = 66 + i * 50; seats += '<g class="seat'+(i === 3 ? ' lit' : '')+'"><rect x="'+sx+'" y="132" width="34" height="40" rx="5" fill="'+(i === 3 ? '#C9873A' : '#7A8C6A')+'" stroke="#3E4A32" stroke-width="2"/><rect x="'+(sx - 2)+'" y="168" width="38" height="12" rx="3" fill="'+(i === 3 ? '#B5762E' : '#6A7A5A')+'"/></g>'; }
+    var bus = '<g class="bus"><rect width="480" height="300" fill="#E8DCC2"/><rect y="236" width="480" height="64" fill="#8C8C8C"/><path d="M0 270 H480" stroke="#F3E7C8" stroke-width="3" stroke-dasharray="22 16"/>' +
+      '<rect x="30" y="58" width="420" height="172" rx="26" fill="#2F6B4A" stroke="#1E3A2A" stroke-width="3"/><rect x="30" y="150" width="420" height="12" fill="#F3C64A"/>' +
+      '<rect x="48" y="78" width="384" height="110" rx="8" fill="#F5EFD8" stroke="#1E3A2A" stroke-width="2"/>' + [0,1,2,3,4,5,6].map(function(k){ return '<rect x="'+(56 + k * 54)+'" y="86" width="46" height="36" rx="5" fill="#BFE0EE" stroke="#1E3A2A" stroke-width="1.5"/>'; }).join('') + seats +
+      '<circle cx="110" cy="232" r="22" fill="#2A2A2A"/><circle cx="110" cy="232" r="9" fill="#9A9A9A"/><circle cx="370" cy="232" r="22" fill="#2A2A2A"/><circle cx="370" cy="232" r="9" fill="#9A9A9A"/>' +
+      '<g class="glow"><circle cx="233" cy="152" r="34" fill="#FFD666" opacity=".28"/></g><rect x="150" y="12" width="180" height="34" rx="6" fill="#0E1C42"/><text x="240" y="27" text-anchor="middle" class="bc-h">MONTGOMERY, ALABAMA</text><text x="240" y="40" text-anchor="middle" class="bc-h2">DECEMBER 1, 1955</text>' +
+      '<g class="note"><rect x="170" y="196" width="140" height="26" rx="5" fill="#FFFDF6" stroke="#B88A2A"/><text x="240" y="213" text-anchor="middle" class="bc-n">Rosa Parks stayed here</text></g></g>';
+    function plane(x, y, red, s){ return '<g transform="translate('+x+' '+y+') scale('+s+')"><path d="M-30 0 Q-10 -6 26 -2 L32 0 L26 2 Q-10 6 -30 0 Z" fill="'+(red ? '#C9CED6' : '#B8BEC8')+'" stroke="#5A6070" stroke-width="1.2"/><path d="M-4 -2 L-14 -22 L-6 -22 L8 -2 Z M-4 2 L-14 22 L-6 22 L8 2 Z" fill="#9AA2AE" stroke="#5A6070"/><path d="M-30 0 L-38 -10 L-32 -10 L-24 -1 Z" fill="'+(red ? '#C62828' : '#8A929E')+'"/>'+(red ? '<path d="M-30 -1 L-36 0 L-30 1 Z" fill="#C62828"/>' : '')+'</g>'; }
+    var sky = '<g class="sky"><rect width="480" height="300" fill="#8EC3EA"/><path d="M0 230 Q120 210 240 226 T480 220 V300 H0 Z" fill="#7FA36A"/><path d="M0 256 Q140 240 300 258 T480 250 V300 H0 Z" fill="#6A8E58"/>' +
+      '<g fill="#FFFFFF" opacity=".85"><ellipse cx="90" cy="60" rx="40" ry="12"/><ellipse cx="380" cy="44" rx="52" ry="13"/><ellipse cx="300" cy="120" rx="34" ry="10"/></g>' +
+      '<rect x="150" y="10" width="180" height="34" rx="6" fill="#0E1C42"/><text x="240" y="25" text-anchor="middle" class="bc-h">OVER EUROPE</text><text x="240" y="38" text-anchor="middle" class="bc-h2">WORLD WAR II, ABOUT 1944</text>' +
+      '<g class="fly"><g class="in">' + plane(150, 98, false, 1.4) + plane(80, 158, false, 1.4) + plane(218, 158, false, 1.4) + '<g class="esc">' + plane(262, 58, true, 1) + plane(52, 206, true, 1) + '</g></g></g>' +
+      '<g class="key"><rect x="300" y="250" width="166" height="42" rx="6" fill="#FFFDF6" stroke="#5A6070"/><path d="M314 262 h14" stroke="#B8BEC8" stroke-width="6"/><text x="334" y="266" class="bc-k">big bomber planes</text><path d="M314 281 h14" stroke="#C62828" stroke-width="6"/><text x="334" y="285" class="bc-k">Red Tail fighters</text></g></g>';
+    var sv = '<svg viewBox="0 0 480 300" class="ms-bc-scene" role="img" aria-label="Two drawings. A green city bus in Montgomery, Alabama, December 1, 1955, with one seat lit up where Rosa Parks stayed. Then the sky over Europe in World War II: three big silver bomber planes, with two smaller fighter planes with red tails flying beside them.">' + bus + sky + '</svg>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-pd-wrap"><div class="ms-pd-stage ms-bc-stage">'+sv+'<div class="ms-bc-line"></div><p class="ms-credit">'+esc(cfg.modelT || '')+'</p></div><div class="ms-bc-act" aria-live="polite"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-bc-act', m), stage = $('.ms-bc-stage', m), svg = $('svg', stage), line = $('.ms-bc-line', m), wb = lvWriteBox(ta, cfg.noteT), curUpd = null;
+    function check(v){ var o = [], w = vtWords(v), h = RE.test(v), h2 = RE2.test(v); if (w < NEED) o.push('Add '+(NEED - w)+' more word'+(NEED - w === 1 ? '' : 's')+'.'); if (!h) o.push(cfg.needT); if (!h2) o.push(cfg.need2T);
+      return {miss:o, chips:'<span class="ms-wc'+(w >= NEED ? ' ok' : '')+'">📝 '+Math.min(w, NEED)+' of '+NEED+' words</span><span class="ms-chip'+(h ? ' ok' : '')+'">'+(h ? '✓ ' : '')+esc(cfg.chipT)+'</span><span class="ms-chip'+(h2 ? ' ok' : '')+'">'+(h2 ? '✓ ' : '')+esc(cfg.chip2T)+'</span>'}; }
+    if (ta) new MutationObserver(function(){ if (!root.classList.contains('ms-on')) lvMoveText(ta, wb.home); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function look(){ var r = stage.getBoundingClientRect(); if (r.top < 110 || r.bottom > innerHeight + 80) stage.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); }
+    function paint(){ svg.classList.toggle('air', S.st >= 2); svg.classList.toggle('flown', !!S.flown);
+      line.innerHTML = S.st < 2 ? '<ol>'+E.map(function(e, j){ return '<li class="'+(j < S.o ? 'got' : '')+'"><b>'+(j + 1)+'</b>'+(j < S.o ? esc(e.t) : '<i>?</i>')+'</li>'; }).join('')+'</ol>' : ''; }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      paint(); if (wb) wb.paint(cfg.qn || 'Question 3'); if (ta) ta.classList.toggle('ms-gi-away', !(S.st === 4 && !S.done)); curUpd = null; var N = 5;
+      if (S.done) { if (ta) lvMoveText(ta, wb.home); act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div><div class="ms-exbtns"><button type="button" class="ms-btn alt ms-bc-edit">✏️ Edit my answer</button></div>'; $('.ms-bc-edit', act).onclick = function(){ S.done = false; save(); render(); }; return; }
+      if (S.st === 0) { if (ta) lvMoveText(ta, wb.home);
+        var rest = B.show.filter(function(j){ return j >= S.o; });
+        act.innerHTML = stepCard(1, N, B.stepT, '<div class="ms-sv-read"><b>🚌 Rosa Parks</b><p>'+esc(B.card)+'</p></div><p>'+esc(B.orderP)+'</p>' + (S.o ? '<p class="ms-pp-tap">✅ '+S.o+' of 3 in order. Look at the line under the bus.</p>' : '') + '<div class="ms-pchoices col">'+rest.map(function(j){ return '<button type="button" class="ms-btn alt ms-bc-e" data-j="'+j+'">'+esc(E[j].t)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div>');
+        $$('.ms-bc-e', act).forEach(function(b){ b.onclick = function(){ var j = +b.dataset.j, fb = $('.ms-exfb', act);
+          if (j !== S.o) { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); fb.innerHTML = '<div class="ms-notyet">🤔 Not yet. '+esc(E[S.o].hint)+'</div>'; return; }
+          SFX.stamp(); S.o++; if (S.o >= E.length) S.st = 1; save(); render(); }; }); return; }
+      if (S.st === 1) { if (ta) lvMoveText(ta, wb.home);
+        var cq = choiceQ(cfg.qh, 0, function(){ setTimeout(function(){ S.st = 2; save(); render(); look(); }, calm()?0:1500); });
+        act.innerHTML = stepCard(2, N, cfg.qh.title, '<div class="ms-vd-thanks">✅ All three are in order. Rosa Parks\' choice helped change the law.</div>' + cq.html); cq.bind(act); return; }
+      if (S.st === 2) { if (ta) lvMoveText(ta, wb.home);
+        act.innerHTML = stepCard(3, N, cfg.sky.stepT, '<div class="ms-sv-read"><b>✈️ The Tuskegee Airmen</b><p>'+esc(cfg.sky.card)+'</p></div>' + (S.flown ? '<div class="ms-vd-thanks">✅ '+esc(cfg.sky.flown)+'</div><button type="button" class="ms-btn big ms-bc-nx">Next ➡️</button>' : '<button type="button" class="ms-btn big ms-bc-fly">'+esc(cfg.sky.flyB)+'</button>'));
+        var fl = $('.ms-bc-fly', act); if (fl) fl.onclick = function(){ SFX.whir(); svg.classList.remove('flying'); void svg.getBoundingClientRect(); if (!calm()) svg.classList.add('flying'); S.flown = true; save(); setTimeout(render, calm()?0:2600); look(); };
+        var nx = $('.ms-bc-nx', act); if (nx) nx.onclick = function(){ SFX.click(); S.st = 3; save(); render(); }; return; }
+      if (S.st === 3) { if (ta) lvMoveText(ta, wb.home);
+        var cq2 = choiceQ(cfg.qp, 1, function(){ setTimeout(function(){ S.st = 4; save(); render(); }, calm()?0:1500); });
+        act.innerHTML = stepCard(4, N, cfg.qp.title, cq2.html); cq2.bind(act); return; }
+      curUpd = vtWriteStep(act, ta, {n:N, N:N, title:cfg.writeT, p:cfg.writeP, starters:cfg.starters, check:check, onSave:function(){ S.done = true; ST.gal = ST.gal||{}; ST.gal.brave = 1; save(); galleryCheck(); SFX.fanfare(); render(); }});
+    }
+    if (ta) ta.addEventListener('input', function(){ if (wb) wb.paint(cfg.qn || 'Question 3'); if (curUpd && S.st === 4 && !S.done) curUpd(); });
+    render();
+  }
+
+  /* ══ MODULE: thirteens (Gallery · the real Great Seal; a magnifying glass; find the 13s) ══ */
+  function modThirteens(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var F = cfg.finds || []; ST.pe = ST.pe || {i:0, miss:0, q1:false, done:false}; var S = ST.pe, N = F.length + 2;
+    var m = shell('ms-pe-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-tg-wrap"><div class="ms-tg-left"><figure class="ms-pe-photo"><div class="ph"><img src="'+img(cfg.img)+'" alt="'+esc(cfg.alt)+'"><div class="rings"></div><div class="lens" aria-hidden="true"></div></div>' +
+      '<figcaption><b>'+esc(cfg.capT || '')+'</b><span>'+esc(cfg.lensT || '')+'</span></figcaption></figure><p class="ms-credit">'+esc(cfg.credit || '')+'</p></div><div class="ms-pe-act" aria-live="polite"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor);
+    var act = $('.ms-pe-act', m), ph = $('.ms-pe-photo .ph', m), rings = $('.rings', m), lens = $('.lens', m), im = $('img', ph);
+    lens.style.backgroundImage = 'url("'+im.src+'")';
+    function at(e){ var r = ph.getBoundingClientRect(); return {x:(e.clientX - r.left) / r.width * 100, y:(e.clientY - r.top) / r.height * 100, r:r}; }
+    function moveLens(e){ var p = at(e); if (p.x < 0 || p.x > 100 || p.y < 0 || p.y > 100) { lens.style.opacity = 0; return; } var w = p.r.width, Z = 2.6;
+      lens.style.opacity = 1; lens.style.left = p.x + '%'; lens.style.top = p.y + '%'; lens.style.backgroundSize = (w * Z) + 'px ' + (p.r.height * Z) + 'px';
+      lens.style.backgroundPosition = (-(p.x / 100 * w * Z) + lens.offsetWidth / 2) + 'px ' + (-(p.y / 100 * p.r.height * Z) + lens.offsetHeight / 2) + 'px'; }
+    ph.addEventListener('pointermove', moveLens); ph.addEventListener('pointerleave', function(){ lens.style.opacity = 0; });
+    ph.addEventListener('pointerdown', function(e){ moveLens(e); if (S.i >= F.length) return; var p = at(e), f = F[S.i], hit = f.spots.some(function(s){ var dx = p.x - s[0], dy = p.y - s[1]; return dx * dx + dy * dy <= s[2] * s[2]; });
+      var fb = $('.ms-exfb', act); if (hit) { SFX.stamp(); S.i++; S.miss = 0; save(); render(); return; }
+      SFX.miss(); S.miss++; save(); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 Not there. '+esc(f.hint)+'</div>'; var sb = $('.ms-pe-show', act); if (sb) sb.hidden = false; });
+    function paint(show){ rings.innerHTML = F.map(function(f, k){ var s = f.spots[0]; if (k < S.i) return '<span class="rg got" style="left:'+s[0]+'%;top:'+s[1]+'%"><em>'+esc(f.lab)+' ✓</em></span>'; if (k === S.i && show) return f.spots.map(function(s){ return '<span class="rg hint" style="left:'+s[0]+'%;top:'+s[1]+'%"></span>'; }).join(''); return ''; }).join(''); }
+    function render(){ paint(false);
+      if (S.done) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      if (S.i < F.length) { var f = F[S.i];
+        act.innerHTML = stepCard(S.i + 1, N, f.t, (S.i ? '<div class="ms-vd-thanks">✅ '+esc(F[S.i - 1].ok)+'</div>' : '') + '<p>🔍 Move the magnifying glass over the seal. When you find them, tap.</p><div class="ms-exfb" aria-live="polite"></div><button type="button" class="ms-btn alt ms-pe-show"'+(S.miss ? '' : ' hidden')+'>👀 '+esc(cfg.showB)+'</button>');
+        $('.ms-pe-show', act).onclick = function(){ SFX.click(); paint(true); ph.scrollIntoView({behavior: calm()?'auto':'smooth', block:'nearest'}); }; return; }
+      var q = S.q1 ? cfg.q2 : cfg.q1;
+      var cq = choiceQ(q, S.q1 ? 1 : 0, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm()?0:1500); else { ST.gal = ST.gal||{}; ST.gal.seal = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.done = true; save(); render(); }, calm()?0:1600); } });
+      act.innerHTML = stepCard(S.q1 ? N : N - 1, N, q.title, (S.q1 ? '' : '<div class="ms-vd-thanks">✅ '+esc(F[F.length - 1].ok)+'</div>') + cq.html); cq.bind(act);
+    }
+    render();
+  }
+
+  /* ══ MODULE: unistars (Workroom · uni words; five small stars join into one) ══ */
+  function modUnistars(cfg){
+    var anchor = $(cfg.anchor || '#panel-check .quiz-card'); if (!anchor) return;
+    var L = cfg.lines || []; ST.un = ST.un || {i:0, ok:false}; var S = ST.un;
+    var m = shell('ms-un-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-wr-card"><span class="ms-wr-root">'+esc(cfg.root)+'</span><span class="ms-wr-eq">=</span><span class="ms-wr-mean">'+esc(cfg.means)+'</span></div>' +
+      '<div class="ms-un-sky"><div class="row">'+L.map(function(l, j){ return '<div class="sl s'+j+'"><div class="st"><i></i><i></i><i></i><i></i><i></i><b>★</b></div><span class="w"></span></div>'; }).join('')+'</div><div class="big"><b>★</b><span>'+esc(cfg.bigT)+'</span><em>'+esc(cfg.bigS)+'</em></div></div><div class="ms-un-act" aria-live="polite"></div>');
+    after(anchor, m);
+    var act = $('.ms-un-act', m), sky = $('.ms-un-sky', m);
+    function told(){ window._rootMatchDone = S.i >= L.length; if (typeof window.gatherAnswers === 'function') try { window.gatherAnswers(); } catch(e){} }
+    function paint(fresh){ $$('.ms-un-sky .sl', m).forEach(function(sl, j){ var done = j < S.i || (j === S.i && S.ok); sl.classList.toggle('on', done); sl.classList.toggle('cur', j === S.i && !S.ok); sl.classList.toggle('fresh', !!fresh && j === S.i && !calm()); $('.w', sl).textContent = done ? L[j].w : ''; });
+      sky.classList.toggle('all', S.i >= L.length); }
+    function render(fresh){
+      told(); paint(fresh);
+      if (S.i >= L.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.win||'')+'</div>'; return; }
+      var l = L[S.i], body = '<div class="ms-es-word">⭐ '+esc(l.s).replace('___', S.ok ? '<u>'+esc(l.w)+'</u>' : '<u>______</u>')+'</div><p>Which <b>'+esc(cfg.root)+'</b> word fills the blank?</p>';
+      body += '<div class="ms-pchoices">'+l.opts.map(function(o, k){ return '<button type="button" class="ms-btn ms-un-o'+(S.ok && o === l.w ? ' ok' : '')+'" data-k="'+k+'">'+esc(o)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite">'+(S.ok ? '<div class="ms-vd-thanks">✅ '+esc(l.ok)+'</div>' : '')+'</div>';
+      if (S.ok) body += '<button type="button" class="ms-btn big ms-un-nx">'+(S.i + 1 < L.length ? 'Next star ➡️' : 'Join the stars ✓')+'</button>';
+      act.innerHTML = stepCard(S.i + 1, L.length, 'Star '+(S.i + 1)+' of '+L.length, body);
+      $$('.ms-un-o', act).forEach(function(b){ b.onclick = function(){ var o = l.opts[+b.dataset.k];
+        if (o === l.w) { if (!S.ok) { SFX.chime(); S.ok = true; save(); render(true); } } else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if (!S.ok) $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc(l.fb)+'</div>'; } }; });
+      var nx = $('.ms-un-nx', act); if (nx) nx.onclick = function(){ SFX.click(); S.i++; S.ok = false; save(); if (S.i >= L.length) { SFX.fanfare(); sky.classList.remove('joining'); void sky.offsetWidth; if (!calm()) sky.classList.add('joining'); } render(); };
+    }
+    render();
+  }
+
+  /* ══ MODULE: onebadge (Exhibit Floor · The Big Question; close the hall: out of many, one badge) ══ */
+  function modOnebadge(cfg){
+    var ta = document.getElementById(cfg.ta || 'journal-assign'); if (!ta) return;
+    var SD = cfg.sides || {}, SMIN = cfg.sentMin || 3, SMAX = cfg.sentMax || 5, HL = cfg.hall || [];
+    ST.ob = ST.ob || {step:1, side:null, r:[], ev:null, open:false}; var S = ST.ob; S.r = S.r || [];
+    var m = shell('ms-ob-mod', cfg);
+    var badge = '<div class="bdg"><div class="fl"><div class="fr"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="#C99B3C" stroke="#7A5A1E" stroke-width="4"/><circle cx="60" cy="60" r="46" fill="#E9C46A" stroke="#9C7420" stroke-width="2"/><text x="60" y="58" text-anchor="middle" class="ob-st">★</text><text x="60" y="80" text-anchor="middle" class="ob-t">'+esc(cfg.badgeT)+'</text></svg></div>' +
+      '<div class="bk"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="#0E1C42" stroke="#C99B3C" stroke-width="4"/><circle cx="60" cy="60" r="46" fill="none" stroke="#C99B3C" stroke-width="1.5"/><text x="60" y="56" text-anchor="middle" class="ob-b">'+esc(cfg.backT)+'</text><text x="60" y="74" text-anchor="middle" class="ob-b2">'+esc(cfg.backS)+'</text></svg></div></div></div>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-yl-wrap"><div class="ms-ob-act"></div><div class="ms-ob-stage"><div class="hall"><div class="hd">CITIZENSHIP HALL</div><div class="exs">'+HL.map(function(h, k){ return '<div class="ex" style="--d:'+(k * 320)+'ms"><span class="ic">'+h.ic+'</span><span class="t">'+esc(h.t)+'</span></div>'; }).join('')+'</div>'+badge+'</div><div class="slip"><div class="hd">MY RECOMMENDATION · THE BIG QUESTION</div><p class="sd"></p><p class="tx"></p><p class="by"></p></div><p class="next">'+esc(cfg.nextT||'')+'</p></div></div><div class="ms-ob-end"></div>');
+    var blk = ta.closest('.activity-body') || ta.parentNode;
+    var home = document.createComment('ob-home'); ta.parentNode.insertBefore(home, ta);
+    var p0 = blk.querySelector('p'); if (p0 && p0.nextSibling) blk.insertBefore(m, p0.nextSibling); else blk.insertBefore(m, blk.firstChild);
+    $$('p, .callout, .textbox-prompt', blk).forEach(function(e){ if (!m.contains(e)) e.classList.add('ms-hide-on'); });
+    var act = $('.ms-ob-act', m), show = $('.ms-ob-stage', m), end = $('.ms-ob-end', m), hall = $('.hall', show), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return vtWords(s) >= 3; }).length; }
+    function side(){ return SD[S.side]; }
+    function hasSide(v){ return side() && new RegExp(side().re, 'i').test(v); }
+    function hasEv(v){ return new RegExp(cfg.evRe, 'i').test(v); }
+    function missing(){ var o = [], v = ta.value, n = sents(v); if (n < SMIN) o.push('Write '+(SMIN - n)+' more sentence'+(SMIN - n === 1 ? '' : 's')+' (3 words or more each).'); if (n > SMAX) o.push('Keep it to '+SMAX+' sentences or fewer.');
+      if (!hasSide(v)) o.push('Name your side: ' + (side() ? side().say : '') + '.'); if (!/because|reason/i.test(v)) o.push('Give your reasons. Use the word because or reason.'); if (!hasEv(v)) o.push('Name your example as evidence.'); return o; }
+    function fly(){ var c = $('.bdg', hall).getBoundingClientRect(), cx = c.left + c.width / 2, cy = c.top + c.height / 2;
+      $$('.ex', hall).forEach(function(e){ var r = e.getBoundingClientRect(); e.style.setProperty('--tx', (cx - (r.left + r.width / 2)) + 'px'); e.style.setProperty('--ty', (cy - (r.top + r.height / 2)) + 'px'); }); }
+    function view(){ var d = side(), v = ta.value.trim(); $('.slip .sd', show).textContent = d ? d.ic + ' ' + d.t : ''; $('.slip .tx', show).textContent = v || 'Your sentences will appear here as you write.'; $('.slip .tx', show).classList.toggle('empty', !v);
+      var nm = sget(NAMEK,''); $('.slip .by', show).textContent = nm ? nm + (S.open ? ', Citizen Curator' : ', Civic Curator') : (S.open ? 'A Citizen Curator' : 'A Civic Curator'); $('.slip', show).hidden = S.step < 4; show.classList.toggle('open', !!S.open); hall.classList.toggle('lit', !!S.open); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; curUpd = null; var d = side(), N = 5;
+      if (!d) S.step = 1; else if (S.r.length < 2 && S.step > 2) S.step = 2; else if (S.ev == null && S.step > 3) S.step = 3;
+      ta.classList.toggle('ms-gi-away', S.step !== 4); view();
+      function sc(){ act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); }
+      function got(){ return '<p class="ms-gi-ok">✅ Your side: <b>'+d.ic+' '+esc(d.t)+'</b> <button type="button" class="ms-btn alt ms-ob-b1">↩️ Change my side</button></p>'; }
+      function bindB1(){ var b = $('.ms-ob-b1', act); if (b) b.onclick = function(){ SFX.click(); S.step = 1; save(); goHome(); render(); }; }
+      if (S.step === 1) { goHome(); act.innerHTML = stepCard(1, N, cfg.s1T, '<div class="ms-yl-q">🏛️ '+esc(cfg.bigQ)+'</div><p>'+esc(cfg.s1)+'</p><div class="ms-bt-sides">'+Object.keys(SD).map(function(k){ var x = SD[k]; return '<button type="button" class="ms-bt-side ms-ob-side'+(k === S.side ? ' on' : '')+'" data-k="'+k+'"><b>'+x.ic+' '+esc(x.t)+'</b><span>'+esc(x.d)+'</span></button>'; }).join('')+'</div>');
+        $$('.ms-ob-side', act).forEach(function(b){ b.onclick = function(){ SFX.click(); if (S.side !== b.dataset.k) { S.r = []; S.ev = null; } S.side = b.dataset.k; S.step = 2; save(); render(); sc(); }; }); return; }
+      if (S.step === 2) { goHome(); act.innerHTML = stepCard(2, N, cfg.s2T, got() + '<p>'+esc(cfg.s2)+'</p><div class="ms-pchoices col">'+d.reasons.map(function(t, i){ var on = S.r.indexOf(i) >= 0; return '<button type="button" class="ms-btn'+(on ? '' : ' alt')+' ms-ob-r" data-i="'+i+'" aria-pressed="'+on+'">'+(on ? '✓ ' : '')+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-nav"><button type="button" class="ms-btn big ms-ob-n2'+(S.r.length === 2 ? '' : ' ms-notready')+'">Next ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        bindB1();
+        $$('.ms-ob-r', act).forEach(function(b){ b.onclick = function(){ var i = +b.dataset.i, k = S.r.indexOf(i); if (k >= 0) S.r.splice(k, 1); else { if (S.r.length >= 2) S.r.shift(); S.r.push(i); } SFX.click(); save(); render(); }; });
+        $('.ms-ob-n2', act).onclick = function(){ if (S.r.length < 2) { SFX.miss(); $('.ms-gi-fb', act).innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> Pick '+(2 - S.r.length)+' more reason'+(S.r.length === 1 ? '' : 's')+'.</div>'; return; } SFX.click(); S.step = 3; save(); render(); sc(); }; return; }
+      if (S.step === 3) { goHome(); act.innerHTML = stepCard(3, N, cfg.s3T, got() + '<p>'+esc(cfg.s3)+'</p><div class="ms-pchoices col">'+d.ev.map(function(t, i){ return '<button type="button" class="ms-btn'+(i === S.ev ? '' : ' alt')+' ms-ob-e" data-i="'+i+'">🔎 '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-exbtns"><button type="button" class="ms-btn alt ms-ob-p3">⬅️ Back</button></div>');
+        bindB1(); $('.ms-ob-p3', act).onclick = function(){ SFX.click(); S.step = 2; save(); render(); };
+        $$('.ms-ob-e', act).forEach(function(b){ b.onclick = function(){ SFX.click(); S.ev = +b.dataset.i; S.step = 4; save(); render(); sc(); }; }); return; }
+      if (S.step === 4) { var notes = S.r.map(function(i){ return '<span>💡 '+esc(d.reasons[i])+'</span>'; }).join('') + '<span>🔎 '+esc(d.ev[S.ev])+'</span>';
+        var ST4 = [cfg.st1.replace('{side}', d.say), cfg.st2, cfg.st3, cfg.st4];
+        act.innerHTML = stepCard(4, N, cfg.s4T, got() + '<p>'+esc(cfg.s4)+'</p><div class="ms-cp-notes">'+notes+'</div><div class="ms-gi-starts">'+ST4.map(function(t, i){ return '<button type="button" class="ms-btn alt ms-gi-start" data-i="'+i+'">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-ob-chk"></div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-ob-p4">⬅️ Back</button><button type="button" class="ms-btn big ms-ob-n4">Read my recommendation ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        bindB1(); $('.ms-gi-box', act).appendChild(ta); var fb = $('.ms-gi-fb', act), chk = $('.ms-ob-chk', act);
+        var upd = function(){ var v = ta.value, n = sents(v), o = missing(), a = hasSide(v), r = /because|reason/i.test(v), e = hasEv(v);
+          chk.innerHTML = '<span class="ms-wc'+(n >= SMIN && n <= SMAX ? ' ok' : '')+'">📝 '+n+' sentence'+(n === 1 ? '' : 's')+' (3 to 5)</span><span class="ms-chip'+(a ? ' ok' : '')+'">'+(a ? '✓ ' : '')+'your side</span><span class="ms-chip'+(r ? ' ok' : '')+'">'+(r ? '✓ ' : '')+'reasons</span><span class="ms-chip'+(e ? ' ok' : '')+'">'+(e ? '✓ ' : '')+'an example</span>'; view();
+          $('.ms-ob-n4', act).classList.toggle('ms-notready', !!o.length); if (fb.innerHTML) fb.innerHTML = o.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b){ b.onclick = function(){ var t = ST4[+b.dataset.i]; if (ta.value.indexOf(t) < 0) ta.value = ta.value.replace(/\s*$/, '') + (ta.value.trim() ? ' ' : '') + t + ' '; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input', {bubbles:true})); upd(); }; });
+        $('.ms-ob-p4', act).onclick = function(){ SFX.click(); S.step = 3; save(); goHome(); render(); };
+        $('.ms-ob-n4', act).onclick = function(){ var o = missing(); if (o.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+o.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 5; save(); goHome(); render(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+        return; }
+      goHome(); act.innerHTML = '';
+      end.innerHTML = (S.open ? '<div class="ms-win show">'+(cfg.win||'')+'</div>' : stepCard(5, N, cfg.s5T, '<p>'+esc(cfg.s5||'')+'</p><button type="button" class="ms-btn big ms-ob-go">🏛️ '+esc(cfg.openT)+'</button>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-ob-edit">✏️ '+esc(cfg.editT||'Edit')+'</button></div>';
+      var gb = $('.ms-ob-go', end); if (gb) gb.onclick = function(){ S.open = true; save(); SFX.fanfare(); show.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); hall.classList.remove('lighting'); render();
+        if (!calm()) { setTimeout(function(){ fly(); void hall.getBoundingClientRect(); hall.classList.add('lighting'); }, 500); if (typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 5600); }
+        optiNod('assignment'); check(); };
+      $('.ms-ob-edit', end).onclick = function(){ S.open = false; S.step = 4; hall.classList.remove('lighting'); save(); render(); act.scrollIntoView({behavior: calm()?'auto':'smooth', block:'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd) curUpd(); });
+    var its = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && its.length && its.every(on)) markDone('assignment'); }
+    its.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, corner: modCorner, fixtown: modFixtown, townjar: modTownjar, firstlabel: modFirstlabel, recess: modRecess, powerflip: modPowerflip, korp: modKorp, caselamp: modCaselamp, wordbuild: modWordbuild, ballot: modBallot, envelope: modEnvelope, whichfloor: modWhichfloor, schoolxray: modSchoolxray, threebldg: modThreebldg, loctrain: modLoctrain, plaques: modPlaques, nameland: modNameland, greenbook: modGreenbook, spotfix: modSpotfix, heroniche: modHeroniche, bloombranch: modBloombranch, flcase: modFlcase, curtain: modCurtain, fairmachine: modFairmachine, checkin: modCheckin, flagsrules: modFlagsrules, pollphoto: modPollphoto, electstamp: modElectstamp, boothlabel: modBoothlabel, fadewall: modFadewall, hangline: modHangline, parade: modParade, served: modServed, flagcount: modFlagcount, memorfade: modMemorfade, yearlights: modYearlights, dustyplaque: modDustyplaque, weekpolish: modWeekpolish, dayservice: modDayservice, tagphoto: modTagphoto, signup: modSignup, heartplaque: modHeartplaque, shadowwall: modShadowwall, fourpillars: modFourpillars, bravechoices: modBravechoices, thirteens: modThirteens, unistars: modUnistars, onebadge: modOnebadge, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
