@@ -215,6 +215,12 @@
    - thirteens   Gallery: the real Great Seal with a magnifying glass; find the 13s; 2 questions
    - unistars    Workroom: four uni words; five small stars join into one
    - onebadge    Exhibit Floor: The Big Question → close the hall: 8 exhibits fly into one Citizen Curator badge
+   Added for 3.11_01 (Unit 11 opener; DATA.studioKey):
+   - badgefolder Lobby: the director's folder; 8 badges back on a floor plan of the year's 10 rooms; light the museum; 2 questions
+   - offthewall  Gallery main attraction: a crowded Great Plains panel; keep or take down; tidy into map/source/community/virtue; a visitor stops
+   - noborder    Gallery: the real Great Lakes from space; draw the border on; one region, two countries; the Caribbean; what a region is
+   - nameplate   Workroom: word root cur (care); each right word polishes a CURATOR plate
+   - exhibitplan Exhibit Floor: place pack → map → source → community → virtue → 3 to 5 sentences → pin it (APPROVED); saved for 3.11_02's studio
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1272,7 +1278,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my,.ms-xr-stage,.ms-fx-stage,.ms-tj-stage,.ms-fl-stage,.ms-tj-note,.ms-rb-stage,.ms-pw-stage,.ms-kq-stands,.ms-lp-case,.ms-bt-stage,.ms-lp-note,.ms-en-stage,.ms-el-stage,.ms-el-panel,.ms-el-tix,.ms-sx-stage,.ms-bq-wall,.ms-tn-stage,.ms-tn-word,.ms-pk-stage,.ms-pk-chips,.ms-sx-note,.ms-nl-stage,.ms-gb-stage,.ms-sf-pair,.ms-hn-stage,.ms-bb-stage,.ms-fc-stage,.ms-bb-word,.ms-cu-stage,.ms-fm-stage,.ms-ck-stage,.ms-fg-stage,.ms-pp-photo,.ms-es-stage,.ms-vb-stage,.ms-es-word,.ms-fw-stage,.ms-ht-stage,.ms-ht-cart,.ms-pd-stage,.ms-pd-clip,.ms-sv-stage,.ms-sv-read,.ms-ar-photo,.ms-ar-total,.ms-mf-stage,.ms-yl-stage,.ms-yl-q,.ms-dp-stage,.ms-dp-read,.ms-wk-stage,.ms-wk-card,.ms-ds-stage,.ms-tg-photo,.ms-su-stage,.ms-hh-stage,.ms-sd-stage,.ms-fp-stage,.ms-bc-stage,.ms-pe-photo,.ms-un-sky,.ms-ob-stage';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my,.ms-xr-stage,.ms-fx-stage,.ms-tj-stage,.ms-fl-stage,.ms-tj-note,.ms-rb-stage,.ms-pw-stage,.ms-kq-stands,.ms-lp-case,.ms-bt-stage,.ms-lp-note,.ms-en-stage,.ms-el-stage,.ms-el-panel,.ms-el-tix,.ms-sx-stage,.ms-bq-wall,.ms-tn-stage,.ms-tn-word,.ms-pk-stage,.ms-pk-chips,.ms-sx-note,.ms-nl-stage,.ms-gb-stage,.ms-sf-pair,.ms-hn-stage,.ms-bb-stage,.ms-fc-stage,.ms-bb-word,.ms-cu-stage,.ms-fm-stage,.ms-ck-stage,.ms-fg-stage,.ms-pp-photo,.ms-es-stage,.ms-vb-stage,.ms-es-word,.ms-fw-stage,.ms-ht-stage,.ms-ht-cart,.ms-pd-stage,.ms-pd-clip,.ms-sv-stage,.ms-sv-read,.ms-ar-photo,.ms-ar-total,.ms-mf-stage,.ms-yl-stage,.ms-yl-q,.ms-dp-stage,.ms-dp-read,.ms-wk-stage,.ms-wk-card,.ms-ds-stage,.ms-tg-photo,.ms-su-stage,.ms-hh-stage,.ms-sd-stage,.ms-fp-stage,.ms-bc-stage,.ms-pe-photo,.ms-un-sky,.ms-ob-stage,.ms-bd-stage,.ms-ow-stage,.ms-ow-look,.ms-rg-photo,.ms-nm-wall,.ms-xp-stage,.ms-xp-packs,.ms-xp-list';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -9214,7 +9220,264 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, corner: modCorner, fixtown: modFixtown, townjar: modTownjar, firstlabel: modFirstlabel, recess: modRecess, powerflip: modPowerflip, korp: modKorp, caselamp: modCaselamp, wordbuild: modWordbuild, ballot: modBallot, envelope: modEnvelope, whichfloor: modWhichfloor, schoolxray: modSchoolxray, threebldg: modThreebldg, loctrain: modLoctrain, plaques: modPlaques, nameland: modNameland, greenbook: modGreenbook, spotfix: modSpotfix, heroniche: modHeroniche, bloombranch: modBloombranch, flcase: modFlcase, curtain: modCurtain, fairmachine: modFairmachine, checkin: modCheckin, flagsrules: modFlagsrules, pollphoto: modPollphoto, electstamp: modElectstamp, boothlabel: modBoothlabel, fadewall: modFadewall, hangline: modHangline, parade: modParade, served: modServed, flagcount: modFlagcount, memorfade: modMemorfade, yearlights: modYearlights, dustyplaque: modDustyplaque, weekpolish: modWeekpolish, dayservice: modDayservice, tagphoto: modTagphoto, signup: modSignup, heartplaque: modHeartplaque, shadowwall: modShadowwall, fourpillars: modFourpillars, bravechoices: modBravechoices, thirteens: modThirteens, unistars: modUnistars, onebadge: modOnebadge, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.11_01 (Review: See the Place, Hear the Voices, Follow the Story · Unit 11 opener) ══════════
+     - badgefolder  Lobby: the director's folder; put 8 badges back on a floor plan of the 10 rooms; light the museum to the Grand Exhibition Hall; 2 questions
+     - offthewall   Gallery main attraction: a crowded Great Plains panel; keep or take down each piece; tidy it into map/source/community/virtue; a visitor stops; 1 question
+     - noborder     Gallery: the real Great Lakes from space; no line on the land; draw the border on; one region, two countries; the Caribbean; what a region is
+     - nameplate    Workroom: word root cur (care); each right word polishes a dusty CURATOR plate
+     - exhibitplan  Exhibit Floor: place pack → map → source → community → virtue → 3 to 5 sentences in the step → pin it: APPROVED; picks saved under DATA.studioKey for 3.11_02 */
+
+  function bdSee(el, back){ var r = el.getBoundingClientRect(); if (r.top >= 60 && r.bottom <= innerHeight) return false; el.scrollIntoView({behavior: calm() ? 'auto' : 'smooth', block: 'center'}); return true; }
+  function bdBack(el, ms){ setTimeout(function(){ var r = el.getBoundingClientRect(); if (r.top < 60 || r.top > innerHeight - 120) el.scrollIntoView({behavior: calm() ? 'auto' : 'smooth', block: 'start'}); }, ms); }
+
+  /* ══ MODULE: badgefolder (Lobby · the director's folder of badges; the museum floor plan) ══ */
+  function modBadgefolder(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var R = cfg.rooms || [], B = cfg.badges || [], NB = B.length, N = NB + 3;
+    ST.bd = ST.bd || {i:0, got:false, lit:false, q1:false, q2:false}; var S = ST.bd;
+    function pos(i){ var r = Math.floor(i / 2), c = r % 2 ? 1 - i % 2 : i % 2; return {x: c ? 256 : 24, y: 56 + r * 80}; }
+    var ctr = R.map(function(r, i){ var p = pos(i); return [p.x + 100, p.y + 32]; }); ctr.push([240, 498]);
+    var line = ctr.map(function(c, k){ return (k ? 'L' : 'M') + c[0] + ' ' + c[1]; }).join(' ');
+    var badgeOf = {}; B.forEach(function(b, j){ badgeOf[b.room] = j; });
+    var sv = '<svg viewBox="0 0 480 560" class="ms-bd-plan" role="img" aria-label="A floor plan of the museum: ten rooms in order, from Unit 1 at the top to Unit 10, and the Grand Exhibition Hall at the bottom.">' +
+      '<rect x="2" y="2" width="476" height="556" rx="10" fill="#F4ECDA" stroke="#8C6A3A" stroke-width="3"/>' +
+      '<text x="24" y="38" class="bd-ttl">MUSEUM FLOOR PLAN</text>' +
+      '<g class="cmp" transform="translate(436 30)"><circle r="12" fill="#FFFDF6" stroke="#8C6A3A" stroke-width="1.5"/><path d="M0 -10 L3 0 L0 10 L-3 0 Z" fill="#B5432F"/><path d="M-10 0 L0 -3 L10 0 L0 3 Z" fill="#8C6A3A" opacity=".6"/><text y="-15" text-anchor="middle" class="bd-cn">N</text><text y="23" text-anchor="middle" class="bd-cs">S</text><text x="-19" y="3" text-anchor="middle" class="bd-cs">W</text><text x="19" y="3" text-anchor="middle" class="bd-cs">E</text></g>' +
+      '<path d="'+line+'" class="pth" fill="none" stroke="#C9B590" stroke-width="5" stroke-dasharray="2 8" stroke-linecap="round"/>' +
+      '<path d="'+line+'" class="pth-on" fill="none" stroke="#E7B43A" stroke-width="6" stroke-linecap="round" pathLength="100"/>' +
+      R.map(function(r, i){ var p = pos(i), j = badgeOf[i];
+        return '<g class="rm rm'+i+(r.review ? ' rev' : '')+'" data-r="'+i+'" style="--d:'+(i * 260)+'ms" tabindex="-1" role="button" aria-label="Unit '+r.u+': '+esc(r.t)+'">' +
+          '<rect class="fl" x="'+p.x+'" y="'+p.y+'" width="200" height="64" rx="6"/>' +
+          '<text x="'+(p.x + 12)+'" y="'+(p.y + 18)+'" class="bd-u">UNIT '+r.u+(r.review ? ' · REVIEW' : '')+'</text>' +
+          '<text x="'+(p.x + 12)+'" y="'+(p.y + 37)+'" class="bd-n">'+esc(r.l1)+'</text><text x="'+(p.x + 12)+'" y="'+(p.y + 54)+'" class="bd-n">'+esc(r.l2)+'</text>' +
+          (j != null ? '<g class="slot s'+j+'"><circle cx="'+(p.x + 178)+'" cy="'+(p.y + 32)+'" r="15" class="em"/><circle cx="'+(p.x + 178)+'" cy="'+(p.y + 32)+'" r="15" class="gd"/><text x="'+(p.x + 178)+'" y="'+(p.y + 38)+'" text-anchor="middle" class="bd-ic">'+B[j].ic+'</text></g>' : '') + '</g>'; }).join('') +
+      '<g class="hl" style="--d:'+(R.length * 260)+'ms"><rect class="fl" x="24" y="456" width="432" height="88" rx="8"/><text x="40" y="478" class="bd-u">TODAY</text><text x="40" y="500" class="bd-h">'+esc(cfg.hallT)+'</text><text x="40" y="520" class="bd-y">'+esc(cfg.todayT)+'</text>' +
+      '<rect x="300" y="466" width="140" height="56" rx="3" class="pn"/><g class="np"><rect x="314" y="526" width="112" height="14" rx="3" fill="#C99B3C" stroke="#7A5A1E"/><text x="370" y="536" text-anchor="middle" class="bd-np"></text></g></g>' +
+      '</svg>';
+    var m = shell('ms-bd-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-pd-wrap"><div class="ms-pd-stage ms-bd-stage">'+sv+'<p class="ms-credit">'+esc(cfg.modelT || '')+'</p></div><div class="ms-bd-act" aria-live="polite"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-bd-act', m), svg = $('svg', m);
+    function placed(){ return S.i + (S.got ? 1 : 0); }
+    function nm(){ var n = sget(NAMEK, ''); return n ? String(n).slice(0, 22) : cfg.plateT; }
+    function paint(){ var n = placed();
+      B.forEach(function(b, j){ var s = $('.slot.s' + j, svg); if (s) s.classList.toggle('on', j < n); });
+      R.forEach(function(r, i){ var g = $('.rm' + i, svg); g.classList.toggle('cur', !S.lit && S.i < NB && !S.got);
+        g.setAttribute('tabindex', !S.lit && S.i < NB && !S.got ? '0' : '-1'); });
+      svg.classList.toggle('lit', !!S.lit); $('.bd-np', svg).textContent = nm(); }
+    function tryRoom(r){ if (S.lit || S.i >= NB || S.got) return; var b = B[S.i], fb = $('.ms-exfb', act);
+      if (r === b.room) { SFX.chime(); S.got = true; save(); render(true); return; }
+      SFX.miss(); var g = $('.rm' + r, svg); g.classList.remove('no'); void g.getBoundingClientRect(); g.classList.add('no');
+      $$('.ms-bd-o', act).forEach(function(x){ if (+x.dataset.r === r) { x.classList.remove('no'); void x.offsetWidth; x.classList.add('no'); } });
+      if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 That is the '+esc(R[r].t)+' (Unit '+R[r].u+'): '+esc(R[r].did)+'. Read the clue again.</div>'; }
+    $$('.rm', svg).forEach(function(g){ var r = +g.dataset.r; g.addEventListener('click', function(){ tryRoom(r); }); g.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tryRoom(r); } }); });
+    function disc(b){ return '<div class="ms-bd-badge"><span class="ic">'+b.ic+'</span><b>'+esc(b.b)+'</b><i>BADGE</i></div>'; }
+    function render(fresh){ paint();
+      if (S.q2) { act.innerHTML = '<div class="ms-win show">'+(cfg.doneT || '')+'</div>'; return; }
+      if (S.i < NB) { var b = B[S.i], body = disc(b) + '<div class="ms-wk-card"><span class="ic">📁</span><p><b>Clue:</b> '+esc(b.clue)+'</p></div>';
+        if (S.got) { body += '<div class="ms-vd-thanks">✅ Yes! The '+esc(b.b)+' badge came from the '+esc(R[b.room].t)+'. It is back in its room.</div><button type="button" class="ms-btn big ms-bd-nx">'+(S.i + 1 < NB ? 'Next badge ➡️' : 'Next ➡️')+'</button>';
+          act.innerHTML = stepCard(S.i + 1, N, 'Badge '+(S.i + 1)+' of '+NB, body);
+          if (fresh && !calm()) { var s = $('.slot.s' + S.i, svg); if (s) { s.classList.remove('pop'); void s.getBoundingClientRect(); s.classList.add('pop'); } }
+          $('.ms-bd-nx', act).onclick = function(){ SFX.click(); S.i++; S.got = false; save(); render(); }; return; }
+        body += '<p>Which room did this badge come from? Tap the room on the plan, or tap a button.</p><div class="ms-pchoices col">'+b.opts.map(function(r){ return '<button type="button" class="ms-btn ms-bd-o" data-r="'+r+'">Unit '+R[r].u+': '+esc(R[r].t)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite"></div>';
+        act.innerHTML = stepCard(S.i + 1, N, 'Badge '+(S.i + 1)+' of '+NB, body);
+        $$('.ms-bd-o', act).forEach(function(x){ x.onclick = function(){ tryRoom(+x.dataset.r); }; }); return; }
+      if (!S.lit) { act.innerHTML = stepCard(NB + 1, N, 'Light up the museum', '<p>'+esc(cfg.lightT)+'</p><button type="button" class="ms-btn big ms-bd-lt">'+esc(cfg.lightB)+'</button>');
+        $('.ms-bd-lt', act).onclick = function(){ SFX.glass(); S.lit = true; save(); svg.classList.remove('lighting'); void svg.getBoundingClientRect(); if (!calm()) svg.classList.add('lighting'); paint();
+          act.innerHTML = '<div class="ms-vd-thanks">💡 The lights come on, room by room…</div>'; var mv = bdSee(svg); setTimeout(function(){ SFX.fanfare(); render(); if (mv) bdBack(act, 50); }, calm() ? 0 : 3600); }; return; }
+      var q = S.q1 ? cfg.q2 : cfg.q1;
+      var cq = choiceQ(q, S.q1 ? 2 : 1, function(){ if (!S.q1) setTimeout(function(){ S.q1 = true; save(); render(); }, calm() ? 0 : 1500);
+        else { markDone('scene'); SFX.fanfare(); setTimeout(function(){ S.q2 = true; save(); render(); }, calm() ? 0 : 1600); } });
+      act.innerHTML = stepCard(S.q1 ? N : N - 1, N, q.title, cq.html); cq.bind(act);
+    }
+    render(); if (S.q2) markDone('scene');
+  }
+
+  /* ══ MODULE: offthewall (Gallery main attraction · a crowded panel; keep or take down; tidy; the visitor stops) ══ */
+  function modOffthewall(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    var P = cfg.pieces || [], NP = P.length, N = NP + 3, FR = cfg.frames || [];
+    ST.ow = ST.ow || {st:0, i:0, got:false, gone:{}, tidy:false, q:false}; var S = ST.ow; S.gone = S.gone || {};
+    var tinyTxt = 'The Great Plains are wide and flat. Farmers grow wheat and corn. Cattle eat the grass. The wind blows hard. Rain can be scarce. Towns are small and far apart. Trains carry grain. ';
+    function mapSvg(){ return '<svg viewBox="0 0 120 80" class="mp" aria-hidden="true"><rect width="120" height="80" fill="#DCEBF2"/><path d="M8 10 L112 8 L114 70 L10 72 Z" fill="#E9DFC4" stroke="#8C6A3A" stroke-width="1.5"/><path d="M8 34 L114 33" stroke="#8C6A3A" stroke-width="1" stroke-dasharray="3 2"/><rect x="44" y="12" width="30" height="58" fill="#E3B95A" opacity=".85"/><text x="59" y="44" text-anchor="middle" class="ow-mt">GREAT</text><text x="59" y="53" text-anchor="middle" class="ow-mt">PLAINS</text><text x="20" y="24" class="ow-ms">CANADA</text><text x="16" y="62" class="ow-ms">U.S.</text><g transform="translate(104 20)"><path d="M0 -8 L3 0 L0 8 L-3 0 Z" fill="#B5432F"/><text y="-10" text-anchor="middle" class="ow-ms">N</text></g></svg>'; }
+    function face(p, big){ var c = p.kind === 'img' ? '<img src="'+img(p.img)+'" alt="">' : p.kind === 'map' ? mapSvg() : p.kind === 'tiny' ? '<div class="tn">'+(tinyTxt + tinyTxt + tinyTxt)+'</div>' : '<div class="qt">'+esc(p.t)+'</div>';
+      return c + (p.kind === 'img' || p.kind === 'map' ? '<span class="cap">'+esc(p.t)+'</span>' : ''); }
+    var m = shell('ms-ow-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-pd-wrap"><div class="ms-pd-stage ms-ow-stage"><div class="board"><div class="hd">'+esc(cfg.panelT)+'</div><div class="pins">' +
+      P.map(function(p, k){ return '<div class="pc pc'+k+' k-'+p.kind+'" data-k="'+k+'" style="left:'+p.x+'%;top:'+p.y+'%;--r:'+p.r+'deg"><i class="pin"></i>'+face(p)+(p.role ? '<b class="role">'+esc(p.role)+'</b>' : '')+'</div>'; }).join('') +
+      '</div></div><div class="box"><span>📤 '+esc(cfg.boxT)+':</span> <b class="n">0</b></div>' +
+      '<div class="walk"><svg viewBox="0 0 480 96" aria-hidden="true"><rect y="84" width="480" height="12" fill="#C9B590"/><g class="vp"><g class="vpi">'+vtPerson(0, 88, {s:.85, c:'#3E7CB1'})+'</g></g></svg><div class="say"></div></div></div><div class="ms-ow-act" aria-live="polite"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-ow-act', m), stg = $('.ms-ow-stage', m), board = $('.board', stg), walk = $('.walk', stg);
+    function nGone(){ return Object.keys(S.gone).length; }
+    function paint(){ P.forEach(function(p, k){ var c = $('.pc' + k, board); c.classList.toggle('gone', !!S.gone[k]); c.classList.toggle('cur', S.st === 1 && k === S.i && !S.tidy);
+        var f = S.tidy && p.keep ? FR.indexOf(p.role) : -1; if (f >= 0) { c.style.left = (f % 2 ? 52 : 3) + '%'; c.style.top = (f > 1 ? 52 : 6) + '%'; } else { c.style.left = p.x + '%'; c.style.top = p.y + '%'; } });
+      board.classList.toggle('tidy', !!S.tidy); $('.box .n', stg).textContent = nGone(); }
+    function visit(kind, txt){ var v = $('.vp', walk), say = $('.say', walk); v.classList.remove('pass', 'stop'); say.classList.remove('on'); void v.getBoundingClientRect();
+      say.textContent = txt; v.classList.add(kind); setTimeout(function(){ say.classList.toggle('stopat', kind === 'stop'); say.classList.add('on'); }, calm() ? 0 : (kind === 'stop' ? 1700 : 900)); }
+    function render(){ paint();
+      if (S.q) { act.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>'; return; }
+      if (S.st === 0) { act.innerHTML = stepCard(1, N, cfg.visitT, '<p>'+esc(cfg.visitP)+'</p><button type="button" class="ms-btn big ms-ow-go">👣 '+esc(cfg.visitT)+'</button>');
+        $('.ms-ow-go', act).onclick = function(){ SFX.click(); var mv = bdSee(walk); visit('pass', cfg.sayBad); this.onclick = null; setTimeout(function(){ S.st = 1; save(); render(); if (mv) bdBack(act, 50); }, calm() ? 0 : 2900); }; return; }
+      if (S.i < NP) { var p = P[S.i], body = '<div class="ms-ow-look"><div class="pc k-'+p.kind+'">'+face(p)+'</div></div><p>Keep it on the panel, or take it down?</p>' +
+          '<div class="ms-pchoices"><button type="button" class="ms-btn ms-ow-c'+(S.got && p.keep ? ' ok' : '')+'" data-v="1">📌 Keep it</button><button type="button" class="ms-btn ms-ow-c'+(S.got && !p.keep ? ' ok' : '')+'" data-v="0">📤 Take it down</button></div>' +
+          '<div class="ms-exfb" aria-live="polite">'+(S.got ? '<div class="ms-vd-thanks">✅ '+esc(p.ok)+'</div>' : '')+'</div>' + (S.got ? '<button type="button" class="ms-btn big ms-ow-nx">'+(S.i + 1 < NP ? 'Next piece ➡️' : 'Next ➡️')+'</button>' : '');
+        act.innerHTML = stepCard(S.i + 2, N, 'Piece '+(S.i + 1)+' of '+NP, body);
+        $$('.ms-ow-c', act).forEach(function(b){ b.onclick = function(){ var keep = b.dataset.v === '1';
+          if (keep === !!p.keep) { if (!S.got) { SFX.chime(); S.got = true; if (!keep) S.gone[S.i] = 1; save(); render(); } }
+          else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if (!S.got) $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc(p.no)+'</div>'; } }; });
+        var nx = $('.ms-ow-nx', act); if (nx) nx.onclick = function(){ SFX.click(); S.i++; S.got = false; save(); render(); }; return; }
+      if (!S.tidy) { act.innerHTML = stepCard(NP + 2, N, 'Tidy the panel', '<p>'+esc(cfg.tidyT)+'</p><button type="button" class="ms-btn big ms-ow-td">'+esc(cfg.tidyB)+'</button>');
+        $('.ms-ow-td', act).onclick = function(){ SFX.glass(); S.tidy = true; save(); paint(); visit('stop', cfg.sayGood); act.innerHTML = '<div class="ms-vd-thanks">🧹 Four pieces, four frames…</div>'; var mv = bdSee(stg); setTimeout(function(){ render(); if (mv) bdBack(act, 50); }, calm() ? 0 : 2800); }; return; }
+      var cq = choiceQ(cfg.q, 1, function(){ ST.gal = ST.gal || {}; ST.gal.wall = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.q = true; save(); render(); }, calm() ? 0 : 1600); });
+      act.innerHTML = stepCard(N, N, cfg.q.title, cq.html); cq.bind(act);
+      if (S.tidy && !$('.say', walk).classList.contains('on')) { $('.vp', walk).classList.add('stop', 'still'); var sy = $('.say', walk); sy.textContent = cfg.sayGood; sy.classList.add('on', 'stopat'); }
+    }
+    render();
+  }
+
+  /* ══ MODULE: noborder (Gallery · the Great Lakes from space; draw the border on; regions cross borders) ══ */
+  function modNoborder(cfg){
+    var anchor = $(cfg.anchor); if (!anchor) return;
+    ST.rg = ST.rg || {n:0, shown:false, done:false}; var S = ST.rg, N = 5;
+    var pts = (cfg.border || []).map(function(p){ return p[0] + ',' + p[1]; }).join(' ');
+    var m = shell('ms-rg-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-tg-wrap"><div class="ms-tg-left"><figure class="ms-rg-photo"><div class="ph"><img src="'+img(cfg.img)+'" alt="'+esc(cfg.alt)+'">' +
+      '<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="'+pts+'" class="cs" fill="none" pathLength="100"/><polyline points="'+pts+'" class="bl" fill="none" pathLength="100"/></svg>' +
+      '<span class="lb ca">'+esc(cfg.caT)+'</span><span class="lb us">'+esc(cfg.usT)+'</span></div>' +
+      '<figcaption><b>'+esc(cfg.capT || '')+'</b><span class="ln">'+esc(cfg.lineT || '')+'</span></figcaption></figure><p class="ms-credit">'+esc(cfg.credit || '')+'</p></div><div class="ms-rg-act" aria-live="polite"></div></div>');
+    anchor.parentNode.insertBefore(m, anchor.nextSibling);
+    var act = $('.ms-rg-act', m), fig = $('.ms-rg-photo', m);
+    function paint(){ fig.classList.toggle('shown', !!S.shown); }
+    function ask(qn, q, sn, title, pre){ var cq = choiceQ(q, qn, function(){
+        if (qn === 4) { ST.gal = ST.gal || {}; ST.gal.border = 1; save(); galleryCheck(); SFX.fanfare(); setTimeout(function(){ S.done = true; save(); render(); }, calm() ? 0 : 1600); }
+        else setTimeout(function(){ S.n = qn === 1 ? 1 : qn + 1; save(); render(); }, calm() ? 0 : 1500); });
+      act.innerHTML = stepCard(sn, N, title, (pre || '') + cq.html); cq.bind(act); }
+    function render(){ paint();
+      if (S.done) { act.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>'; return; }
+      if (S.n === 0) return ask(1, cfg.q1, 1, cfg.q1.title);
+      if (S.n === 1 || !S.shown) { act.innerHTML = stepCard(2, N, cfg.showT, '<p>'+esc(cfg.showP)+'</p><button type="button" class="ms-btn big ms-rg-sh">'+esc(cfg.showB)+'</button>');
+        $('.ms-rg-sh', act).onclick = function(){ SFX.glass(); S.shown = true; S.n = 2; save(); fig.classList.remove('draw'); void fig.getBoundingClientRect(); if (!calm()) fig.classList.add('draw'); var mv = bdSee(fig); render(); if (mv) bdBack(act, calm() ? 0 : 2600); }; return; }
+      if (S.n === 2) return ask(2, cfg.q2, 3, cfg.q2.title);
+      if (S.n === 3) return ask(3, cfg.q3, 4, cfg.caribT, '<div class="ms-wk-card"><span class="ic">🏝️</span><p>'+esc(cfg.caribP)+'</p></div>');
+      return ask(4, cfg.q4, 5, cfg.q4.title);
+    }
+    render();
+  }
+
+  /* ══ MODULE: nameplate (Workroom · word root cur; polish the CURATOR plate) ══ */
+  function modNameplate(cfg){
+    var anchor = $(cfg.anchor || '#panel-check .quiz-card'); if (!anchor) return;
+    var L = cfg.lines || []; ST.nm = ST.nm || {i:0, ok:false}; var S = ST.nm;
+    var m = shell('ms-nm-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-wr-card"><span class="ms-wr-root">'+esc(cfg.root)+'</span><span class="ms-wr-eq">=</span><span class="ms-wr-mean">'+esc(cfg.means)+'</span></div>' +
+      '<div class="ms-nm-wall"><div class="ms-nm-plate"><span class="sc s1"></span><span class="sc s2"></span><b>'+esc(cfg.plateT)+'</b><i class="dust"></i><i class="gl"></i></div><div class="ws">'+L.map(function(l, j){ return '<span class="w w'+j+'"></span>'; }).join('')+'</div></div><div class="ms-nm-act" aria-live="polite"></div>');
+    after(anchor, m);
+    var act = $('.ms-nm-act', m), plate = $('.ms-nm-plate', m);
+    function told(){ window._rootMatchDone = S.i >= L.length; if (typeof window.gatherAnswers === 'function') try { window.gatherAnswers(); } catch(e){} }
+    function paint(fresh){ var n = S.i + (S.ok ? 1 : 0); plate.style.setProperty('--dust', String(Math.max(0, 1 - n / L.length)));
+      plate.classList.toggle('shine', n >= L.length); if (fresh && !calm()) { plate.classList.remove('rub'); void plate.offsetWidth; plate.classList.add('rub'); }
+      $$('.ms-nm-wall .w', m).forEach(function(w, j){ var on = j < n; w.classList.toggle('on', on); w.textContent = on ? L[j].w : ''; }); }
+    function render(fresh){ told(); paint(fresh);
+      if (S.i >= L.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>'; return; }
+      var l = L[S.i], body = '<div class="ms-es-word">✨ '+esc(l.s).replace('___', S.ok ? '<u>'+esc(l.w)+'</u>' : '<u>______</u>')+'</div><p>Which <b>'+esc(cfg.root)+'</b> word fills the blank?</p>' +
+        '<div class="ms-pchoices">'+l.opts.map(function(o, k){ return '<button type="button" class="ms-btn ms-nm-o'+(S.ok && o === l.w ? ' ok' : '')+'" data-k="'+k+'">'+esc(o)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite">'+(S.ok ? '<div class="ms-vd-thanks">✅ '+esc(l.ok)+'</div>' : '')+'</div>';
+      if (S.ok) body += '<button type="button" class="ms-btn big ms-nm-nx">'+(S.i + 1 < L.length ? 'Next word ➡️' : 'Shine the plate ✓')+'</button>';
+      act.innerHTML = stepCard(S.i + 1, L.length, 'Word '+(S.i + 1)+' of '+L.length, body);
+      $$('.ms-nm-o', act).forEach(function(b){ b.onclick = function(){ var o = l.opts[+b.dataset.k];
+        if (o === l.w) { if (!S.ok) { SFX.chime(); S.ok = true; save(); render(true); } } else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if (!S.ok) $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc(l.fb)+'</div>'; } }; });
+      var nx = $('.ms-nm-nx', act); if (nx) nx.onclick = function(){ SFX.click(); S.i++; S.ok = false; save(); if (S.i >= L.length) SFX.fanfare(); render(); };
+    }
+    render();
+  }
+
+  /* ══ MODULE: exhibitplan (Exhibit Floor · the Curator Task: pick a place pack and four pieces, write the plan in the step, pin it) ══ */
+  function modExhibitplan(cfg){
+    var ta = document.getElementById(cfg.ta || 'journal-assign'); if (!ta) return;
+    var PK = cfg.packs || [], SMIN = cfg.sentMin || 3, SMAX = cfg.sentMax || 5, PT = cfg.partT || {}, N = 7;
+    ST.xp = ST.xp || {step:1, p:null, map:null, src:null, comm:null, virt:null, pinned:false}; var S = ST.xp;
+    var m = shell('ms-xp-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-yl-wrap"><div class="ms-xp-act"></div><div class="ms-xp-stage"><div class="pnl"><div class="hd">'+esc(cfg.panelT)+'</div><div class="pl"></div><div class="sk"></div><div class="tx"></div><div class="np"><b></b></div><div class="stamp">'+esc(cfg.stampT)+'</div></div><p class="next">'+esc(cfg.nextT || '')+'</p></div></div><div class="ms-xp-end"></div>');
+    var blk = ta.closest('.activity-body') || ta.parentNode;
+    var home = document.createComment('xp-home'); ta.parentNode.insertBefore(home, ta);
+    var p0 = blk.querySelector('p'); if (p0 && p0.nextSibling) blk.insertBefore(m, p0.nextSibling); else blk.insertBefore(m, blk.firstChild);
+    $$('p, .callout, .textbox-prompt', blk).forEach(function(e){ if (!m.contains(e)) e.classList.add('ms-hide-on'); });
+    var act = $('.ms-xp-act', m), stg = $('.ms-xp-stage', m), end = $('.ms-xp-end', m), pnl = $('.pnl', stg), curUpd = null;
+    function goHome(){ if (ta.previousSibling !== home) home.parentNode.insertBefore(ta, home.nextSibling); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    function pk(){ return PK.filter(function(x){ return x.k === S.p; })[0]; }
+    function mp(){ var p = pk(); return p && S.map != null ? p.maps[S.map] : null; }
+    function sr(){ var p = pk(); return p && S.src != null ? p.sources[S.src] : null; }
+    function cm(){ var p = pk(); return p && S.comm != null ? p.comms[S.comm] : null; }
+    function vt(){ var p = pk(); return p && S.virt != null ? p.virtues[S.virt] : null; }
+    function th(s){ return 'th-3-11-01-' + s.id + '.jpg'; }
+    function sents(t){ return t.split(/[.!?]+/).filter(function(s){ return vtWords(s) >= 3; }).length; }
+    function low(t){ return t.charAt(0).toLowerCase() + t.slice(1); }
+    function sts(){ var p = pk(), a = mp(), s = sr(), v = vt(); return (cfg.st || []).map(function(t){ return t.replace('{place}', p ? p.name.replace(/^The /, 'the ') : '').replace('{map}', a ? low(a.t) : '').replace('{source}', s ? s.t : '').replace('{kind}', s ? s.kind : '').replace('{virtue}', v ? v.v : ''); }); }
+    function checks(v){ var p = pk(), n = sents(v), o = [], s = sr(), vv = vt();
+      var c = {n: n >= SMIN && n <= SMAX, place: !!(p && new RegExp(p.re, 'i').test(v)), map: /\bmaps?\b/i.test(v), src: /source|photo|picture|coin|document/i.test(v), virt: !!(vv && new RegExp(vv.v, 'i').test(v)), why: /because/i.test(v)};
+      if (n < SMIN) o.push('Write '+(SMIN - n)+' more sentence'+(SMIN - n === 1 ? '' : 's')+' (3 words or more each).'); if (n > SMAX) o.push('Keep it to '+SMAX+' sentences or fewer.');
+      if (!c.place) o.push('Name your place: '+(p ? p.name : '')+'.'); if (!c.map) o.push('Tell which map you will use.'); if (!c.src) o.push('Name your source (the photo or picture).');
+      if (!c.virt) o.push('Name your virtue: '+(vv ? vv.v : '')+'.'); if (!c.why) o.push('Say why. Use the word because.'); return {c:c, miss:o}; }
+    function view(){ var p = pk(), a = mp(), s = sr(), c = cm(), v = vt(), nmv = sget(NAMEK, '');
+      $('.pl', pnl).innerHTML = p ? '<span class="ic">'+p.ic+'</span> '+esc(p.name) : '<span class="em">'+esc(PT.place || 'Place')+'</span>';
+      function slot(lab, on, inner){ return '<div class="sl'+(on ? ' on' : '')+'"><span class="lb">'+esc(lab)+'</span>'+(on ? inner : '<span class="q">?</span>')+'</div>'; }
+      $('.sk', pnl).innerHTML = slot(PT.map || 'Map', a, a ? '<span class="big">🗺️</span><span class="t">'+esc(a.t)+'</span>' : '') +
+        slot(PT.source || 'Source', s, s ? '<img src="'+img(th(s))+'" alt=""><span class="t">'+esc(s.t)+'</span>' : '') +
+        slot(PT.comm || 'Community', c, c ? '<span class="big">👪</span><span class="t">'+esc(c)+'</span>' : '') +
+        slot(PT.virtue || 'Virtue', v, v ? '<span class="big">🏛️</span><span class="t"><b>'+esc(v.v.charAt(0).toUpperCase() + v.v.slice(1))+'</b></span>' : '');
+      var t = ta.value.trim(); $('.tx', pnl).textContent = S.step >= 6 ? (t || 'Your plan will appear here as you write.') : ''; $('.tx', pnl).classList.toggle('empty', !t);
+      $('.np b', pnl).textContent = nmv ? String(nmv).slice(0, 24) + ', ' + cfg.plateT : cfg.plateT; stg.classList.toggle('pinned', !!S.pinned); }
+    function store(){ try { var k = DATA.studioKey || 'oao.ms.studio', o = sget(k, {}) || {}, p = pk(), s = sr();
+      o.plan = {lesson: DATA.lesson, place: p.k, placeName: p.name, map: mp(), source: s ? {id: s.id, t: s.t, meta: s.meta, kind: s.kind, credit: s.credit} : null, comm: cm(), virtue: vt(), text: ta.value.trim(), at: Date.now()};
+      sset(k, o); } catch(e){} }
+    function chip(){ var p = pk(); return '<p class="ms-gi-ok">✅ Your place: <b>'+p.ic+' '+esc(p.name)+'</b> <button type="button" class="ms-btn alt ms-xp-b1">↩️ Change my place</button></p>'; }
+    function bindB1(){ var b = $('.ms-xp-b1', act); if (b) b.onclick = function(){ SFX.click(); S.step = 1; save(); goHome(); render(); }; }
+    function sc(){ act.scrollIntoView({behavior: calm() ? 'auto' : 'smooth', block: 'start'}); }
+    function pickStep(n, title, lead, items, key, label){ act.innerHTML = stepCard(n, N, title, chip() + '<p>'+esc(lead)+'</p><div class="ms-pchoices col ms-xp-list">'+items.map(function(h, i){ return '<button type="button" class="ms-btn'+(S[key] === i ? '' : ' alt')+' ms-xp-o" data-i="'+i+'">'+h+'</button>'; }).join('')+'</div><div class="ms-exbtns"><button type="button" class="ms-btn alt ms-xp-bk">⬅️ Back</button></div>');
+      bindB1(); $('.ms-xp-bk', act).onclick = function(){ SFX.click(); S.step = n - 1; save(); render(); };
+      $$('.ms-xp-o', act).forEach(function(b){ b.onclick = function(){ SFX.click(); S[key] = +b.dataset.i; S.step = n + 1; save(); render(); sc(); }; }); }
+    function render(){
+      if (!root.classList.contains('ms-on')) return;
+      end.innerHTML = ''; curUpd = null; var p = pk();
+      if (!p) S.step = 1; else if (S.map == null && S.step > 2) S.step = 2; else if (S.src == null && S.step > 3) S.step = 3; else if (S.comm == null && S.step > 4) S.step = 4; else if (S.virt == null && S.step > 5) S.step = 5;
+      ta.classList.toggle('ms-gi-away', S.step !== 6); view();
+      if (S.step === 1) { goHome(); act.innerHTML = stepCard(1, N, cfg.s1T, '<p>'+esc(cfg.s1)+'</p><div class="ms-xp-packs">'+PK.map(function(x){ return '<button type="button" class="ms-xp-pk'+(x.k === S.p ? ' on' : '')+'" data-k="'+x.k+'"><span class="ic">'+x.ic+'</span><b>'+esc(x.name)+'</b><span>'+esc(x.line)+'</span></button>'; }).join('')+'</div>');
+        $$('.ms-xp-pk', act).forEach(function(b){ b.onclick = function(){ SFX.click(); if (S.p !== b.dataset.k) { S.map = S.src = S.comm = S.virt = null; } S.p = b.dataset.k; S.step = 2; save(); render(); sc(); }; }); return; }
+      if (S.step === 2) { goHome(); return pickStep(2, cfg.s2T, cfg.s2, p.maps.map(function(a){ return '🗺️ <b>'+esc(a.t)+'.</b> '+esc(a.d); }), 'map'); }
+      if (S.step === 3) { goHome(); return pickStep(3, cfg.s3T, cfg.s3, p.sources.map(function(s){ return '<span class="ms-xp-src"><img src="'+img(th(s))+'" alt=""><span><b>'+esc(s.t)+'</b><i>'+esc(s.meta)+'</i></span></span>'; }), 'src'); }
+      if (S.step === 4) { goHome(); return pickStep(4, cfg.s4T, cfg.s4, p.comms.map(function(c){ return '👪 '+esc(c); }), 'comm'); }
+      if (S.step === 5) { goHome(); return pickStep(5, cfg.s5T, cfg.s5, p.virtues.map(function(v){ return '🏛️ <b>'+esc(v.v.charAt(0).toUpperCase() + v.v.slice(1))+':</b> '+esc(v.d); }), 'virt'); }
+      if (S.step === 6) { var ST6 = sts(), a = mp(), s = sr(), v = vt();
+        var notes = '<span>🗺️ '+esc(a.t)+'</span><span>📷 '+esc(s.t)+'</span><span>👪 '+esc(cm())+'</span><span>🏛️ '+esc(v.v)+'</span>';
+        act.innerHTML = stepCard(6, N, cfg.s6T, chip() + '<p>'+esc(cfg.s6)+'</p><div class="ms-cp-notes">'+notes+'</div><div class="ms-gi-starts">'+ST6.map(function(t, i){ return '<button type="button" class="ms-btn alt ms-gi-start" data-i="'+i+'">✏️ '+esc(t)+'</button>'; }).join('')+'</div><div class="ms-gi-box"></div><div class="ms-excheck ms-xp-chk"></div>' +
+          '<div class="ms-gi-nav"><button type="button" class="ms-btn alt ms-xp-p6">⬅️ Back</button><button type="button" class="ms-btn big ms-xp-n6">Read my plan ➡️</button></div><div class="ms-gi-fb" aria-live="polite"></div>');
+        bindB1(); $('.ms-gi-box', act).appendChild(ta); var fb = $('.ms-gi-fb', act), chk = $('.ms-xp-chk', act);
+        var upd = function(){ var r = checks(ta.value), c = r.c, n = sents(ta.value);
+          chk.innerHTML = '<span class="ms-wc'+(c.n ? ' ok' : '')+'">📝 '+n+' sentence'+(n === 1 ? '' : 's')+' (3 to 5)</span>' + [['place', 'your place'], ['map', 'the map'], ['src', 'the source'], ['virt', 'the virtue'], ['why', 'because']].map(function(x){ return '<span class="ms-chip'+(c[x[0]] ? ' ok' : '')+'">'+(c[x[0]] ? '✓ ' : '')+x[1]+'</span>'; }).join(''); view();
+          $('.ms-xp-n6', act).classList.toggle('ms-notready', !!r.miss.length); if (fb.innerHTML) fb.innerHTML = r.miss.length ? '<div class="ms-notyet">🔎 <b>Almost!</b> '+r.miss.map(esc).join(' ')+'</div>' : ''; };
+        curUpd = upd; upd();
+        $$('.ms-gi-start', act).forEach(function(b){ b.onclick = function(){ var t = ST6[+b.dataset.i]; if (ta.value.indexOf(t) < 0) ta.value = ta.value.replace(/\s*$/, '') + (ta.value.trim() ? ' ' : '') + t + (/ $/.test(t) ? '' : ' '); ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); ta.dispatchEvent(new Event('input', {bubbles:true})); upd(); }; });
+        $('.ms-xp-p6', act).onclick = function(){ SFX.click(); S.step = 5; save(); goHome(); render(); };
+        $('.ms-xp-n6', act).onclick = function(){ var r = checks(ta.value); if (r.miss.length) { SFX.miss(); fb.innerHTML = '<div class="ms-notyet">🔎 <b>Almost!</b> '+r.miss.map(esc).join(' ')+'</div>'; return; } SFX.click(); S.step = 7; save(); store(); goHome(); render(); stg.scrollIntoView({behavior: calm() ? 'auto' : 'smooth', block: 'start'}); };
+        return; }
+      goHome(); act.innerHTML = '';
+      end.innerHTML = (S.pinned ? '<div class="ms-win show">'+(cfg.win || '')+'</div>' : stepCard(7, N, cfg.s7T, '<p>'+esc(cfg.s7 || '')+'</p><button type="button" class="ms-btn big ms-xp-pin">'+esc(cfg.pinB)+'</button>')) + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-xp-edit">✏️ '+esc(cfg.editT || 'Edit')+'</button></div>';
+      var pb = $('.ms-xp-pin', end); if (pb) pb.onclick = function(){ S.pinned = true; save(); store(); SFX.fanfare(); stg.classList.remove('stamping'); void stg.offsetWidth; if (!calm()) stg.classList.add('stamping');
+        stg.scrollIntoView({behavior: calm() ? 'auto' : 'smooth', block: 'start'}); render();
+        if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 1400);
+        optiNod('assignment'); check(); };
+      $('.ms-xp-edit', end).onclick = function(){ S.pinned = false; S.step = 6; stg.classList.remove('stamping'); save(); render(); act.scrollIntoView({behavior: calm() ? 'auto' : 'smooth', block: 'start'}); };
+    }
+    ta.addEventListener('input', function(){ if (curUpd) curUpd(); });
+    var its = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.pinned && its.length && its.every(on)) markDone('assignment'); }
+    its.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, corner: modCorner, fixtown: modFixtown, townjar: modTownjar, firstlabel: modFirstlabel, recess: modRecess, powerflip: modPowerflip, korp: modKorp, caselamp: modCaselamp, wordbuild: modWordbuild, ballot: modBallot, envelope: modEnvelope, whichfloor: modWhichfloor, schoolxray: modSchoolxray, threebldg: modThreebldg, loctrain: modLoctrain, plaques: modPlaques, nameland: modNameland, greenbook: modGreenbook, spotfix: modSpotfix, heroniche: modHeroniche, bloombranch: modBloombranch, flcase: modFlcase, curtain: modCurtain, fairmachine: modFairmachine, checkin: modCheckin, flagsrules: modFlagsrules, pollphoto: modPollphoto, electstamp: modElectstamp, boothlabel: modBoothlabel, fadewall: modFadewall, hangline: modHangline, parade: modParade, served: modServed, flagcount: modFlagcount, memorfade: modMemorfade, yearlights: modYearlights, dustyplaque: modDustyplaque, weekpolish: modWeekpolish, dayservice: modDayservice, tagphoto: modTagphoto, signup: modSignup, heartplaque: modHeartplaque, shadowwall: modShadowwall, fourpillars: modFourpillars, bravechoices: modBravechoices, thirteens: modThirteens, unistars: modUnistars, onebadge: modOnebadge, badgefolder: modBadgefolder, offthewall: modOffthewall, noborder: modNoborder, nameplate: modNameplate, exhibitplan: modExhibitplan, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
