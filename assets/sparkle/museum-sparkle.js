@@ -221,6 +221,11 @@
    - noborder    Gallery: the real Great Lakes from space; draw the border on; one region, two countries; the Caribbean; what a region is
    - nameplate   Workroom: word root cur (care); each right word polishes a CURATOR plate
    - exhibitplan Exhibit Floor: place pack → map → source → community → virtue → 3 to 5 sentences → pin it (APPROVED); saved for 3.11_02's studio
+   Added for 3.11_02 (Unit 11 build day; the Exhibit Studio = assets/sparkle/ms-studio.js + .css, port of G4 ff-studio.js):
+   - planframes    Lobby: unroll the pinned plan on the workbench; slide its picks into five empty frames on the panel; 2 questions
+   - fixslide      Gallery main attraction: a weak map slide; a visitor's questions, one fix at a time; too many words and she walks off
+   - exhibitstudio Exhibit Floor (Curator Task): mounts MSStudio (5 slides, plan picks pre-chosen, .pptx); slides fill the five label boxes
+   - hangpanel     Exhibit Floor: hang the five slides, lamps on, a visitor understands; Download my slides
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1278,7 +1283,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my,.ms-xr-stage,.ms-fx-stage,.ms-tj-stage,.ms-fl-stage,.ms-tj-note,.ms-rb-stage,.ms-pw-stage,.ms-kq-stands,.ms-lp-case,.ms-bt-stage,.ms-lp-note,.ms-en-stage,.ms-el-stage,.ms-el-panel,.ms-el-tix,.ms-sx-stage,.ms-bq-wall,.ms-tn-stage,.ms-tn-word,.ms-pk-stage,.ms-pk-chips,.ms-sx-note,.ms-nl-stage,.ms-gb-stage,.ms-sf-pair,.ms-hn-stage,.ms-bb-stage,.ms-fc-stage,.ms-bb-word,.ms-cu-stage,.ms-fm-stage,.ms-ck-stage,.ms-fg-stage,.ms-pp-photo,.ms-es-stage,.ms-vb-stage,.ms-es-word,.ms-fw-stage,.ms-ht-stage,.ms-ht-cart,.ms-pd-stage,.ms-pd-clip,.ms-sv-stage,.ms-sv-read,.ms-ar-photo,.ms-ar-total,.ms-mf-stage,.ms-yl-stage,.ms-yl-q,.ms-dp-stage,.ms-dp-read,.ms-wk-stage,.ms-wk-card,.ms-ds-stage,.ms-tg-photo,.ms-su-stage,.ms-hh-stage,.ms-sd-stage,.ms-fp-stage,.ms-bc-stage,.ms-pe-photo,.ms-un-sky,.ms-ob-stage,.ms-bd-stage,.ms-ow-stage,.ms-ow-look,.ms-rg-photo,.ms-nm-wall,.ms-xp-stage,.ms-xp-packs,.ms-xp-list';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my,.ms-xr-stage,.ms-fx-stage,.ms-tj-stage,.ms-fl-stage,.ms-tj-note,.ms-rb-stage,.ms-pw-stage,.ms-kq-stands,.ms-lp-case,.ms-bt-stage,.ms-lp-note,.ms-en-stage,.ms-el-stage,.ms-el-panel,.ms-el-tix,.ms-sx-stage,.ms-bq-wall,.ms-tn-stage,.ms-tn-word,.ms-pk-stage,.ms-pk-chips,.ms-sx-note,.ms-nl-stage,.ms-gb-stage,.ms-sf-pair,.ms-hn-stage,.ms-bb-stage,.ms-fc-stage,.ms-bb-word,.ms-cu-stage,.ms-fm-stage,.ms-ck-stage,.ms-fg-stage,.ms-pp-photo,.ms-es-stage,.ms-vb-stage,.ms-es-word,.ms-fw-stage,.ms-ht-stage,.ms-ht-cart,.ms-pd-stage,.ms-pd-clip,.ms-sv-stage,.ms-sv-read,.ms-ar-photo,.ms-ar-total,.ms-mf-stage,.ms-yl-stage,.ms-yl-q,.ms-dp-stage,.ms-dp-read,.ms-wk-stage,.ms-wk-card,.ms-ds-stage,.ms-tg-photo,.ms-su-stage,.ms-hh-stage,.ms-sd-stage,.ms-fp-stage,.ms-bc-stage,.ms-pe-photo,.ms-un-sky,.ms-ob-stage,.ms-bd-stage,.ms-ow-stage,.ms-ow-look,.ms-rg-photo,.ms-nm-wall,.ms-xp-stage,.ms-xp-packs,.ms-xp-list,.ms-pf-stage,.ms-gx-stage,.ms-hp-stage,.msst';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -9477,7 +9482,135 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, corner: modCorner, fixtown: modFixtown, townjar: modTownjar, firstlabel: modFirstlabel, recess: modRecess, powerflip: modPowerflip, korp: modKorp, caselamp: modCaselamp, wordbuild: modWordbuild, ballot: modBallot, envelope: modEnvelope, whichfloor: modWhichfloor, schoolxray: modSchoolxray, threebldg: modThreebldg, loctrain: modLoctrain, plaques: modPlaques, nameland: modNameland, greenbook: modGreenbook, spotfix: modSpotfix, heroniche: modHeroniche, bloombranch: modBloombranch, flcase: modFlcase, curtain: modCurtain, fairmachine: modFairmachine, checkin: modCheckin, flagsrules: modFlagsrules, pollphoto: modPollphoto, electstamp: modElectstamp, boothlabel: modBoothlabel, fadewall: modFadewall, hangline: modHangline, parade: modParade, served: modServed, flagcount: modFlagcount, memorfade: modMemorfade, yearlights: modYearlights, dustyplaque: modDustyplaque, weekpolish: modWeekpolish, dayservice: modDayservice, tagphoto: modTagphoto, signup: modSignup, heartplaque: modHeartplaque, shadowwall: modShadowwall, fourpillars: modFourpillars, bravechoices: modBravechoices, thirteens: modThirteens, unistars: modUnistars, onebadge: modOnebadge, badgefolder: modBadgefolder, offthewall: modOffthewall, noborder: modNoborder, nameplate: modNameplate, exhibitplan: modExhibitplan, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.11_02 (Build the Final Community-in-the-World Exhibit · Unit 11 build day) ══════════
+     - planframes    Lobby: the pinned plan on the director's workbench; unroll it; slide the picks into five empty frames on the panel; 2 questions
+     - fixslide      Gallery main attraction: a weak Northeast map slide; a visitor asks, one question at a time; pick the fix; too many words and she walks off; cut it back
+     - exhibitstudio Exhibit Floor (Curator Task): mounts the Exhibit Studio (assets/sparkle/ms-studio.js + .css, loaded only here; port of G4 ff-studio.js); the five slides fill the five label boxes
+     - hangpanel     Exhibit Floor (after the Chronicle): hang the five slides on the panel, the lamps come on, a visitor understands; Download .pptx */
+
+  var XS_API = null, XS_WAIT = [];
+  function xsReady(fn){ if (XS_API) fn(XS_API); else XS_WAIT.push(fn); }
+  function gxVisitorSVG(){ return '<svg viewBox="0 0 60 150" aria-hidden="true"><g class="vb"><ellipse cx="30" cy="146" rx="20" ry="3.5" fill="rgba(0,0,0,.18)"/><rect x="21" y="96" width="7" height="48" rx="3" fill="#33415E"/><rect x="32" y="96" width="7" height="48" rx="3" fill="#33415E"/><path d="M15 60 Q30 50 45 60 L47 100 L13 100 Z" fill="#C0504D"/><rect x="9" y="62" width="7" height="34" rx="3.5" fill="#C0504D"/><rect x="44" y="62" width="7" height="34" rx="3.5" fill="#C0504D"/><g class="hd"><circle cx="30" cy="40" r="13" fill="#E8B896"/><path d="M17 38 Q19 22 30 23 Q42 22 43 38 Q40 30 30 30 Q21 30 17 38 Z" fill="#4A3020"/><circle cx="25.5" cy="41" r="1.6" fill="#222"/><circle cx="34.5" cy="41" r="1.6" fill="#222"/><path class="mo" d="M25.5 47 Q30 50 34.5 47" stroke="#7A3B2E" stroke-width="1.6" fill="none"/></g></g></svg>'; }
+  function panelHTML(cfg, pre){ var F = cfg.frames || [], IC = cfg.icons || [];
+    return '<div class="'+pre+'-panel ms-pf-board"><div class="hd">'+esc(cfg.panelT || 'MY EXHIBIT')+'</div><div class="frs">'+F.map(function(f, i){ return '<div class="fr f'+i+'" data-i="'+i+'"><span class="lamp" aria-hidden="true"></span><div class="in"><span class="ic">'+(IC[i]||'')+'</span><b>'+esc(f)+'</b><span class="pk"></span></div></div>'; }).join('')+'</div><div class="np"><b></b></div><span class="ft l"></span><span class="ft r"></span></div>'; }
+  function plateName(cfg){ var n = sget(NAMEK, ''); return n ? String(n).slice(0, 24) + ', ' + cfg.plateT : cfg.plateT; }
+
+  /* ══ MODULE: planframes (Lobby · unroll the plan; five frames) ══ */
+  function modPlanframes(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    ST.pf = ST.pf || {step:1, q1:false, q2:false}; var S = ST.pf, N = 4;
+    var m = shell('ms-pf-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-pf-wrap"><div class="ms-pf-stage"><div class="ms-pf-bench"><div class="roll" aria-hidden="true"></div><div class="plan"></div><div class="top"></div><span class="leg l"></span><span class="leg r"></span><span class="lab">'+esc(cfg.benchT || 'Workbench')+'</span></div>'+panelHTML(cfg, 'ms-pf')+'<div class="floor"></div></div><div class="ms-pf-act" aria-live="polite"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-pf-act', m), stg = $('.ms-pf-stage', m), bench = $('.ms-pf-bench', m), panel = $('.ms-pf-panel', m);
+    function plan(){ var o = sget(DATA.studioKey || 'oao.ms.studio', {}) || {}; return o.plan && o.plan.place ? o.plan : null; }
+    function picks(p){ var F = cfg.frames || []; if (!p) return F.map(function(){ return ''; });
+      return [p.placeName || '', p.map ? p.map.t : '', p.source ? p.source.t : '', p.comm || '', p.virtue ? (p.virtue.v.charAt(0).toUpperCase() + p.virtue.v.slice(1)) : '']; }
+    function view(){ var p = plan(), P = picks(p);
+      bench.classList.toggle('open', S.step > 1); $('.np b', panel).textContent = plateName(cfg);
+      $('.plan', bench).innerHTML = p ? '<div class="ph">'+esc(cfg.planHT || 'MY EXHIBIT PLAN')+'</div>' + (cfg.frames || []).map(function(f, i){ return '<div class="pr p'+i+'"><span>'+(cfg.icons || [])[i]+'</span>'+esc(P[i])+'</div>'; }).join('')
+        : '<div class="ph">'+esc(cfg.planHT || 'MY EXHIBIT PLAN')+'</div><div class="pr none">'+esc(cfg.noPlanT)+'</div>';
+      $$('.fr', panel).forEach(function(f, i){ var on = S.step > 2; f.classList.toggle('on', on); $('.pk', f).textContent = on ? P[i] : ''; }); }
+    function sc(){ var r = act.getBoundingClientRect(); if (r.top < 60 || r.top > innerHeight - 160) act.scrollIntoView({behavior: calm() ? 'auto' : 'smooth', block: 'center'}); }
+    function render(){ view();
+      if (S.step === 1) { act.innerHTML = stepCard(1, N, cfg.s1T, '<p>'+esc(cfg.s1)+'</p><button type="button" class="ms-btn big ms-pf-b1">'+esc(cfg.s1B)+'</button>');
+        $('.ms-pf-b1', act).onclick = function(){ SFX.creak(); S.step = 2; save(); if (!calm()) { bench.classList.add('unroll'); setTimeout(function(){ bench.classList.remove('unroll'); }, 900); } render(); }; return; }
+      if (S.step === 2) { var p = plan();
+        act.innerHTML = stepCard(2, N, cfg.s2T, (p ? '' : '<div class="ms-notyet">🗂️ <b>'+esc(cfg.noPlanT)+'</b> '+esc(cfg.noPlanP)+'</div>') + '<p>'+esc(cfg.s2)+'</p><button type="button" class="ms-btn big ms-pf-b2">'+esc(cfg.s2B)+'</button>');
+        $('.ms-pf-b2', act).onclick = function(){ var b = this; b.disabled = true; var back = bdSee(stg); var rows = $$('.pr', bench), frs = $$('.fr', panel), k = 0;
+          function nx(){ if (k >= frs.length || !rows.length || calm()) { S.step = 3; save(); SFX.chime(); render(); if (back) bdBack(act, 300); return; }
+            var from = rows[Math.min(k, rows.length - 1)], to = frs[k]; fly(from, to, from.innerHTML, 420).then(function(){ to.classList.add('on'); SFX.pop(); k++; nx(); }); }
+          setTimeout(nx, back ? 500 : 0); }; return; }
+      if (S.step === 3) { var cq = choiceQ(cfg.q1, 1, function(){ S.q1 = true; save(); setTimeout(function(){ S.step = 4; save(); render(); sc(); }, calm() ? 0 : 900); });
+        act.innerHTML = stepCard(3, N, cfg.q1.title, cq.html); cq.bind(act); return; }
+      if (S.step === 4 && !S.q2) { var c2 = choiceQ(cfg.q2, 1, function(){ S.q2 = true; save(); SFX.fanfare(); markDone('scene'); setTimeout(render, calm() ? 0 : 1100); });
+        act.innerHTML = stepCard(4, N, cfg.q2.title, c2.html); c2.bind(act); return; }
+      act.innerHTML = '<div class="ms-win show">'+(cfg.doneT || '')+'</div>';
+    }
+    render(); if (S.q2) markDone('scene');
+  }
+
+  /* ══ MODULE: fixslide (Gallery · a weak slide, a visitor's questions, one fix at a time) ══ */
+  function modFixslide(cfg){
+    var anchor = $(cfg.anchor || '#panel-explore .callout-think'); if (!anchor) return;
+    var F = cfg.fix || {}, STEPS = F.steps || [], N = STEPS.length;
+    ST.gx = ST.gx || {i:0, done:false}; var S = ST.gx;
+    var m = shell('ms-gx-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-gx-wrap"><div class="ms-gx-stage"><div class="ms-gx-slide"><div class="pic"><img alt="'+esc(F.cap || '')+'" src="'+img(F.img)+'"><span class="cap">📷 '+esc(F.cap || '')+'</span></div><div class="side"><div class="k">🗺️ Map</div><p class="tx"></p></div></div><div class="ms-gx-wc"></div><div class="ms-gx-vis"><div class="bub" aria-live="polite"></div>'+gxVisitorSVG()+'<span class="vt">'+esc(cfg.visT || 'Visitor')+'</span></div><div class="floor"></div></div><div class="ms-gx-act"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-gx-act', m), stg = $('.ms-gx-stage', m), tx = $('.ms-gx-slide .tx', m), wc = $('.ms-gx-wc', m), vis = $('.ms-gx-vis', m), bub = $('.bub', vis);
+    function nw(t){ return (t.trim().match(/\S+/g) || []).length; }
+    function show(t, say, mood){ tx.textContent = t; tx.classList.toggle('long', nw(t) > 25); tx.classList.toggle('empty', !t);
+      var n = nw(t); wc.className = 'ms-gx-wc ' + (n > 25 ? 'over' : n >= 6 ? 'ok' : ''); wc.textContent = n + ' ' + (cfg.wordsT || 'words') + (n > 25 ? ' · too many!' : n >= 6 ? ' ✓' : '');
+      bub.textContent = say || ''; bub.classList.toggle('on', !!say); vis.className = 'ms-gx-vis ' + (mood || ''); }
+    function render(){
+      if (S.done) { show(F.strong, F.sayGood, 'nod'); act.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>'; return; }
+      var st = STEPS[S.i]; show(st.text, st.say, S.i === N - 1 ? 'gone' : 'ask');
+      var cq = choiceQ(st.q, 1, function(){ SFX.chime();
+        setTimeout(function(){ var nx = STEPS[S.i + 1];
+          if (S.i + 1 < N) { S.i++; save(); if (!calm() && nx.text) stg.classList.add('type'); setTimeout(function(){ stg.classList.remove('type'); }, 700); render(); return; }
+          S.done = true; save(); ST.gal = ST.gal || {}; ST.gal.fix = 1; save(); SFX.fanfare(); if (!calm()) { stg.classList.add('fixed'); setTimeout(function(){ stg.classList.remove('fixed'); }, 1600); } render(); galleryCheck(); }, calm() ? 0 : 1300); });
+      act.innerHTML = stepCard(S.i + 1, N, st.q.title, (st.helperT ? '<p class="ms-gx-help">✏️ '+esc(st.helperT)+'</p>' : '') + cq.html); cq.bind(act);
+    }
+    render(); if (S.done) galleryCheck();
+  }
+
+  /* ══ MODULE: exhibitstudio (Exhibit Floor · the Curator Task: the Exhibit Studio; slides fill the label boxes) ══ */
+  function modExhibitstudio(cfg){
+    var TA = (cfg.ta || []).map(function(id){ return document.getElementById(id); }).filter(Boolean); if (!TA.length) return;
+    var blk = TA[0].closest('.activity-body'); if (!blk) return;
+    var m = shell('ms-xs-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="msst" id="msst-root"><p class="msst-load">'+esc(cfg.loadT || 'Opening the Exhibit Studio…')+'</p></div><p class="ms-xs-note">🖼️ '+esc(cfg.boxNoteT || '')+'</p>');
+    var p0 = blk.querySelector('p'); if (p0 && p0.nextSibling) blk.insertBefore(m, p0.nextSibling); else blk.insertBefore(m, blk.firstChild);
+    $$('p, .textbox-prompt, textarea', blk).forEach(function(e){ if (!m.contains(e)) e.classList.add('ms-hide-on'); });
+    var api = null, CRK = ['welcome', 'map', 'source', 'comm', 'virtue'];
+    function sync(){ if (!api) return; var sl = api.slides() || []; var any = false;
+      TA.forEach(function(t, i){ var v = sl[i] ? (sl[i].text || '').trim() : ''; if (t.value !== v && (v || t.dataset.msXs)) { t.value = v; any = true; t.dataset.msXs = 1; } });
+      if (any && typeof window.gatherAnswers === 'function') try { window.gatherAnswers(); } catch(e){}
+      if (typeof window.MS_HP_REFRESH === 'function') window.MS_HP_REFRESH(); }
+    function go(){ if (!window.MSStudio || api) return; var root = $('#msst-root', m); root.innerHTML = '';
+      api = window.MSStudio.mount(root, Object.assign({lesson: DATA.lesson}, cfg.studio || {}), {img: img, name: function(){ return sget(NAMEK, '') || ''; }, setName: function(v){ sset(NAMEK, v); var hp = $('.ms-hp-mod .np b'); if (hp) hp.textContent = plateName({plateT: 'Exhibit Designer'}); },
+        calm: calm, change: sync, dl: function(st){ try { document.dispatchEvent(new CustomEvent('msst-dl', {detail: st})); } catch(e){} }, sfx: function(k){ try { (SFX[k === 'win' ? 'chime' : k] || SFX.click)(); } catch(e){} }});
+      XS_API = api; XS_WAIT.splice(0).forEach(function(fn){ fn(api); }); sync(); }
+    if (!document.querySelector('link[data-msst],style[data-msst]')) { var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = cfg.css || 'assets/sparkle/ms-studio.css'; l.dataset.msst = 1; document.head.appendChild(l); }
+    if (window.MSStudio) go(); else { var sc = document.createElement('script'); sc.src = cfg.js || 'assets/sparkle/ms-studio.js'; sc.onload = go; sc.onerror = function(){ $('#msst-root', m).innerHTML = '<p class="msst-load">'+esc(cfg.failT || 'The Exhibit Studio could not load. Refresh the page.')+'</p>'; m.classList.add('ms-xs-fail'); $$('.ms-hide-on', blk).forEach(function(e){ e.classList.remove('ms-hide-on'); }); }; document.head.appendChild(sc); }
+  }
+
+  /* ══ MODULE: hangpanel (Exhibit Floor · hang the five slides; a visitor understands; Download .pptx) ══ */
+  function modHangpanel(cfg){
+    var chron = document.getElementById('journal-chronicle'); var anchor = chron && chron.closest('.activity'); if (!anchor) return;
+    ST.hp = ST.hp || {hung:false, dl:false}; var S = ST.hp;
+    var m = shell('ms-hp-mod ms-exhibit-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-hp-wrap"><div class="ms-hp-stage">'+panelHTML(cfg, 'ms-hp')+'<div class="ms-gx-vis ms-hp-vis"><div class="bub" aria-live="polite"></div>'+gxVisitorSVG()+'</div><div class="floor"></div></div><div class="ms-hp-act" aria-live="polite"></div><div class="ms-hp-end"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-hp-act', m), end = $('.ms-hp-end', m), stg = $('.ms-hp-stage', m), vis = $('.ms-hp-vis', m), panel = $('.ms-hp-panel', m);
+    function view(api){ $('.np b', panel).textContent = plateName(cfg); stg.classList.toggle('hung', !!S.hung);
+      $$('.fr', panel).forEach(function(f, i){ var u = api ? api.picSrc(i) : ''; var o = $('.in', f); o.style.backgroundImage = S.hung && u ? 'url("'+u+'")' : ''; f.classList.toggle('on', !!S.hung); });
+      var p = api && api.pack && api.pack(); $('.bub', vis).textContent = S.hung ? (cfg.sayT || '').replace('{place}', p ? p.name.replace(/^The /, 'the ') : '') : ''; $('.bub', vis).classList.toggle('on', !!S.hung); vis.className = 'ms-gx-vis ms-hp-vis ' + (S.hung ? 'nod' : 'away'); }
+    function render(){ var api = XS_API; view(api);
+      if (!S.hung) { act.innerHTML = stepCard(1, 2, cfg.s1T, '<p>'+esc(cfg.s1)+'</p><button type="button" class="ms-btn big ms-hp-b1">'+esc(cfg.hangB)+'</button><div class="ms-exfb"></div>'); end.innerHTML = '';
+        $('.ms-hp-b1', act).onclick = function(){ if (!api) return;
+          if (!api.done()) { SFX.miss(); var F = cfg.frames || [], k = 0; while (k < F.length - 1 && api.ready() && api.ok(k)) k++;
+            $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🔎 '+esc((cfg.notT || '').replace('{n}', k + 1).replace('{name}', F[k] || ''))+' <button type="button" class="ms-btn alt ms-hp-go">'+esc((cfg.goB || 'Go to slide {n}').replace('{n}', k + 1))+'</button></div>';
+            $('.ms-hp-go', act).onclick = function(){ var t = $('#msst-root'); if (api.ready()) api.go(k); t.scrollIntoView({behavior: calm() ? 'auto' : 'smooth', block: 'start'}); }; return; }
+          S.hung = true; save(); SFX.fanfare(); if (!calm()) { stg.classList.add('hanging'); setTimeout(function(){ stg.classList.remove('hanging'); }, 2600); }
+          render(); bdSee(stg); if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 1500); optiNod('assignment'); check(); }; return; }
+      act.innerHTML = stepCard(2, 2, cfg.s2T, '<p>'+esc(cfg.s2)+'</p><div class="ms-exbtns"><button type="button" class="ms-btn big ms-hp-dl">'+esc(cfg.dlB)+'</button><button type="button" class="ms-btn alt ms-hp-pr">'+esc(cfg.printB)+'</button></div><div class="ms-exfb">'+(S.dl ? '<div class="ms-vd-thanks">'+esc(cfg.dlOkT)+'</div>' : '')+'</div>');
+      end.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>';
+      var dl = $('.ms-hp-dl', act); dl.onclick = function(){ if (!api) return; dl.disabled = true; dl.textContent = cfg.busyT || '⏳'; api.download(); };
+      $('.ms-hp-pr', act).onclick = function(){ if (api) api.print(); };
+    }
+    window.MS_HP_REFRESH = function(){ if (!S.hung) { view(XS_API); return; } if (XS_API && !XS_API.done()) { S.hung = false; save(); render(); return; } view(XS_API); };
+    xsReady(function(){ render(); });
+    document.addEventListener('msst-dl', function(e){ var d = e.detail; if (d === 'busy') return; if (d === 'done') { S.dl = true; save(); } render(); });
+    var its = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.hung && its.length && its.every(on)) markDone('assignment'); }
+    its.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, corner: modCorner, fixtown: modFixtown, townjar: modTownjar, firstlabel: modFirstlabel, recess: modRecess, powerflip: modPowerflip, korp: modKorp, caselamp: modCaselamp, wordbuild: modWordbuild, ballot: modBallot, envelope: modEnvelope, whichfloor: modWhichfloor, schoolxray: modSchoolxray, threebldg: modThreebldg, loctrain: modLoctrain, plaques: modPlaques, nameland: modNameland, greenbook: modGreenbook, spotfix: modSpotfix, heroniche: modHeroniche, bloombranch: modBloombranch, flcase: modFlcase, curtain: modCurtain, fairmachine: modFairmachine, checkin: modCheckin, flagsrules: modFlagsrules, pollphoto: modPollphoto, electstamp: modElectstamp, boothlabel: modBoothlabel, fadewall: modFadewall, hangline: modHangline, parade: modParade, served: modServed, flagcount: modFlagcount, memorfade: modMemorfade, yearlights: modYearlights, dustyplaque: modDustyplaque, weekpolish: modWeekpolish, dayservice: modDayservice, tagphoto: modTagphoto, signup: modSignup, heartplaque: modHeartplaque, shadowwall: modShadowwall, fourpillars: modFourpillars, bravechoices: modBravechoices, thirteens: modThirteens, unistars: modUnistars, onebadge: modOnebadge, badgefolder: modBadgefolder, offthewall: modOffthewall, noborder: modNoborder, nameplate: modNameplate, exhibitplan: modExhibitplan, planframes: modPlanframes, fixslide: modFixslide, exhibitstudio: modExhibitstudio, hangpanel: modHangpanel, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){
