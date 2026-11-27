@@ -1,0 +1,168 @@
+{
+ "id": "g3-u11-quiz",
+ "title": "Unit 11 Quiz · Final Synthesis: Young Geographer-Citizen Exhibition",
+ "description": "10 questions about Unit 11. Read each question carefully. Pick the best answer. One question asks you to pick all the answers that are true.",
+ "points_each": 1,
+ "questions": [
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.11.01 Review: See the Place, Hear the Voices, Follow the Story",
+   "text": "Your exhibit has four parts. What are they?",
+   "options": [
+    "Every fact you know about the place.",
+    "A map, a source, a community connection, and a virtue.",
+    "A title, a poem, a song, and a game.",
+    "One big picture with no words."
+   ],
+   "correct": [
+    1
+   ],
+   "why": "A strong exhibit has four parts: a map, a source, a community connection, and a virtue. In 3.11_02 each part became one slide, after a Welcome slide.",
+   "n": 1
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.11.02 Build the Final Community-in-the-World Exhibit",
+   "text": "Which is the strongest label for a map slide?",
+   "options": [
+    "\"Map.\"",
+    "\"This is a very nice map.\"",
+    "\"This map shows the Northeast, where many big cities and old harbors are.\"",
+    "A long list of every fact about the Northeast, with big, fancy words."
+   ],
+   "correct": [
+    2
+   ],
+   "why": "A strong label names the place and says why it matters, in a few clear words a visitor can read fast.",
+   "n": 2
+  },
+  {
+   "type": "true_false_question",
+   "lesson": "3.11.02 Build the Final Community-in-the-World Exhibit",
+   "text": "True or false: More words always make a slide better.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    1
+   ],
+   "why": "False. Courtesy for a visitor means short, clear words and a real picture. Too many words make a visitor walk away.",
+   "n": 3
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.11.03 Present the Evidence: Map, Source, and Virtue",
+   "text": "A walk-through has five steps. What is the LAST step?",
+   "options": [
+    "Greet the visitor.",
+    "Read every word on the slide, very fast.",
+    "Tell the visitor every fact you know.",
+    "Name the virtue, then ask: \"Do you have any questions?\""
+   ],
+   "correct": [
+    3
+   ],
+   "why": "The five steps are: greet, show the map, explain the source, point to the community, and end with the virtue and an invitation to ask a question.",
+   "n": 4
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.11.03 Present the Evidence: Map, Source, and Virtue",
+   "text": "A visitor asks you a question, and you don't know the answer. What does an honest guide say?",
+   "options": [
+    "\"Good question. I'm not sure, but here is what I do know.\"",
+    "Make up an answer that sounds smart.",
+    "Pretend you didn't hear the question.",
+    "\"I know everything about this place.\""
+   ],
+   "correct": [
+    0
+   ],
+   "why": "An honest guide says \"I'm not sure\" and then shares what they really know. Making things up is not honest.",
+   "n": 5
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.11.03 Present the Evidence: Map, Source, and Virtue",
+   "text": "A real photo shows a farmer and his sons walking through a dust storm in 1936. Which sentence is honest?",
+   "options": [
+    "\"This photo proves the Great Plains is always dusty.\"",
+    "\"This photo proves every farm had a dust storm.\"",
+    "\"This photo shows a farmer and his sons walking through a dust storm in 1936.\"",
+    "\"This is the best photo anyone ever took.\""
+   ],
+   "correct": [
+    2
+   ],
+   "why": "A source shows some things, not everything. An honest guide says what the photo shows and does not stretch it.",
+   "n": 6
+  },
+  {
+   "type": "multiple_answers_question",
+   "lesson": "3.11.04 Final Historian-Citizen Reflection",
+   "text": "Pick ALL the habits of a young geographer-citizen.",
+   "options": [
+    "See the world carefully.",
+    "Use evidence honestly.",
+    "Always have the loudest opinion in the room.",
+    "Serve the common good."
+   ],
+   "correct": [
+    0,
+    1,
+    3
+   ],
+   "why": "The four habits are: see the world carefully, use evidence honestly, make wise choices, and serve the common good. Being the loudest is not one of them.",
+   "n": 7
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.11.04 Final Historian-Citizen Reflection",
+   "text": "Your family has $10 for groceries and wants three things. Which habit do you need most?",
+   "options": [
+    "See the world carefully: read a map of the store.",
+    "Serve the common good: give the money away.",
+    "Use evidence honestly: check a source.",
+    "Make wise choices: think about the cost and the benefit."
+   ],
+   "correct": [
+    3
+   ],
+   "why": "Making wise choices means thinking about costs and benefits before you spend. That is the habit Marketplace Hall trained.",
+   "n": 8
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.11.04 Final Historian-Citizen Reflection",
+   "text": "On the last day, the museum director said the museum was never really about the exhibits. What did she say the real exhibit was?",
+   "options": [
+    "Each Exhibit Designer: you, and who you became.",
+    "The badges.",
+    "The building and its rooms.",
+    "The panels on the walls."
+   ],
+   "correct": [
+    0
+   ],
+   "why": "The director said the rooms, panels, and badges were just the work. The real exhibit is each student: a young geographer-citizen.",
+   "n": 9
+  },
+  {
+   "type": "multiple_choice_question",
+   "lesson": "3.11.03 Present the Evidence: Map, Source, and Virtue",
+   "text": "The word root aud means hear. What is an auditorium?",
+   "options": [
+    "A room where you wash dishes.",
+    "A big tank for fish.",
+    "A big room with seats where people listen to a show or a talk.",
+    "A map of the world."
+   ],
+   "correct": [
+    2
+   ],
+   "why": "Aud means hear, so an auditorium is a room where people listen. Audience, audio, and audible share the same root.",
+   "n": 10
+  }
+ ]
+}

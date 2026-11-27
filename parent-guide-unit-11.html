@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 11 Family Guide · 3rd Grade Social Studies · Optima Academy Online</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;600;700;800;900&display=swap');
+:root{
+  /* Museum colors, from the 3rd grade lesson pages */
+  --navy:#0E1C42; --ink:#3A4A6B; --muted:#6B6250; --line:#E6D9BC;
+  --night:#22312F; --night-2:#2D403D;
+  --brass:#B8892E; --brass-lt:#E9C878; --brass-dk:#7E5A16;
+  --cream:#FBF5E6; --paper:#F6EEDB; --wall:#EFE5D2;
+  --teal:#1A8A7D; --teal-bg:#E2F4F1; --cyan:#55C8E8; --sky-bg:#EAF8FD;
+  --green-bg:#E3F8ED; --plum:#8B6FC0; --plum-bg:#F1ECFA; --rose-bg:#FDEEEE;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--night) radial-gradient(circle at 50% -10%, #3F5652 0, var(--night) 60%) fixed;color:var(--ink);font-family:"Nunito",sans-serif;font-size:18px;line-height:1.6;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 48px;}
+h1,h2,h3{font-family:"Lora",Georgia,serif;color:var(--navy);margin:0;}
+p{margin:0 0 10px;}
+strong{color:var(--navy);}
+a{color:#1F6FA8;font-weight:700;}
+
+/* header */
+.hero{background:var(--navy);color:#fff;border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1.25fr 1fr;border-bottom:5px solid var(--brass);}
+.hero-text{padding:28px 28px 26px;}
+.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-lt);margin-bottom:14px;}
+.brand img{width:38px;height:38px;border-radius:50%;background:#fff;}
+.hero h1{color:#fff;font-size:34px;line-height:1.2;margin-bottom:6px;}
+.hero h1 em{color:var(--brass-lt);}
+.hero .sub{font-size:19px;color:#DCE6F7;margin-bottom:16px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:rgba(233,200,120,.14);border:1.5px solid rgba(233,200,120,.5);border-radius:999px;padding:5px 13px;font-size:16px;font-weight:700;color:#fff;}
+.hero-art{background:#D8EFF4 center/cover no-repeat;min-height:260px;position:relative;}
+.hero-art .plaque{position:absolute;left:14px;bottom:14px;background:linear-gradient(#E9C878,#B8892E);color:#3A2A14;font:800 13px/1.3 "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:5px 10px;box-shadow:0 2px 6px rgba(0,0,0,.3);}
+.print-btn{display:inline-block;margin-top:16px;background:var(--brass);color:#fff;border:none;border-radius:999px;padding:9px 18px;font-family:"Nunito",sans-serif;font-weight:800;font-size:16px;cursor:pointer;}
+
+/* cards */
+.card{background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:16px;padding:22px 24px;margin-top:18px;box-shadow:0 4px 14px rgba(0,0,0,.12);}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.card-head .ico{font-size:26px;line-height:1;}
+.card-head h2{font-size:24px;}
+.card-head .tag{margin-left:auto;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.small{font-size:16px;color:var(--muted);}
+
+.grid2,.glance{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.glance3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.box{border-radius:12px;padding:14px 16px;font-size:17px;}
+.box-label{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+.b-sky{background:var(--sky-bg);} .b-sky .box-label{color:#1F8CB0;}
+.b-gold{background:var(--cream);border:1px solid var(--line);} .b-gold .box-label{color:var(--brass-dk);}
+.b-green{background:var(--green-bg);} .b-green .box-label{color:#1F8452;}
+.b-plum{background:var(--plum-bg);} .b-plum .box-label{color:#6A4FA3;}
+.b-teal{background:var(--teal-bg);} .b-teal .box-label{color:#14695F;}
+.quote{font-family:"Lora",Georgia,serif;font-style:italic;font-size:20px;color:var(--navy);border-left:4px solid var(--brass);padding:4px 0 4px 16px;margin:16px 0 0;}
+.quote small{display:block;font-family:"Nunito",sans-serif;font-style:normal;font-size:15px;color:var(--muted);margin-top:4px;}
+
+/* story box (the museum) */
+.story{background:var(--night-2);color:#E4ECE9;border:2px solid var(--brass);border-left-width:2px;}
+.story h2,.story strong{color:#fff;}
+.story .box{background:rgba(255,255,255,.08);color:#E4ECE9;}
+.story .box-label{color:var(--brass-lt);}
+.opti{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:start;}
+.opti img{width:76px;height:auto;}
+.rooms{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;}
+.room{background:rgba(255,255,255,.07);border:1.5px solid rgba(233,200,120,.45);border-radius:12px;padding:12px;text-align:center;font-size:16px;}
+.room i{font-style:normal;display:block;font-size:26px;line-height:1.2;}
+.room b{display:block;font-family:"Lora",Georgia,serif;font-size:19px;color:#fff;}
+.room span{display:block;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-lt);}
+
+/* lesson table */
+.days{width:100%;border-collapse:collapse;}
+.days th{font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);}
+.days td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+.days tr:last-child td{border-bottom:none;}
+.day-n{font-family:"Lora",Georgia,serif;font-weight:700;font-size:20px;color:var(--navy);white-space:nowrap;}
+.day-n span{display:block;font-family:"Nunito",sans-serif;font-size:15px;font-weight:700;color:var(--muted);}
+.ch{font-weight:800;color:var(--navy);}
+.rm{display:block;margin-top:6px;}
+.rm b{font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--brass-dk);background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:1px 7px;margin-right:6px;}
+.pill{display:inline-block;font-size:14px;font-weight:800;border-radius:999px;padding:2px 10px;margin:6px 4px 0 0;}
+.p-virtue{background:var(--green-bg);color:#1F8452;}
+.p-source{background:var(--cream);color:var(--brass-dk);border:1px solid var(--line);}
+.p-vr{background:var(--plum-bg);color:#6A4FA3;}
+.vr-row td{background:var(--paper);}
+
+/* VR day */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.path{border-radius:14px;padding:16px 18px;font-size:17px;}
+.path h3{font-size:20px;margin-bottom:6px;}
+.path ol{margin:6px 0 0;padding-left:22px;}
+.path li{margin:3px 0;}
+.say{background:#fff;border:1px dashed var(--brass);border-radius:10px;padding:8px 12px;margin:8px 0;font-weight:700;color:var(--navy);}
+.tl{list-style:none;margin:8px 0 0;padding:0;}
+.tl li{display:grid;grid-template-columns:118px 1fr;gap:8px;padding:5px 0;border-bottom:1px dashed var(--line);font-size:16px;}
+.tl li:last-child{border-bottom:none;}
+.tl b{color:var(--brass-dk);}
+
+/* words */
+.words{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.word{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--cream);}
+.word b{font-family:"Lora",Georgia,serif;font-size:21px;color:var(--navy);display:block;}
+.word span{font-size:17px;}
+
+/* ask */
+.ask{list-style:none;margin:0;padding:0;counter-reset:q;}
+.ask li{counter-increment:q;position:relative;padding:12px 0 12px 50px;border-bottom:1px dashed var(--line);}
+.ask li:last-child{border-bottom:none;}
+.ask li::before{content:counter(q);position:absolute;left:0;top:11px;width:34px;height:34px;border-radius:50%;background:var(--cream);border:1.5px solid var(--brass);color:var(--brass-dk);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:17px;}
+.ask .q{font-weight:800;color:var(--navy);display:block;}
+.ask .listen{font-size:16px;color:var(--muted);}
+
+/* checklist */
+.check{list-style:none;margin:0;padding:0;}
+.check li{padding:7px 0 7px 34px;position:relative;}
+.check li::before{content:"✓";position:absolute;left:4px;top:6px;color:var(--teal);font-weight:900;font-size:19px;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+
+.next{background:var(--night-2);color:#E4ECE9;border:2px solid var(--brass);}
+.next h2{color:#fff;}
+.next strong{color:#fff;}
+.foot{text-align:center;font-size:15px;color:#C9D6D2;margin-top:26px;}
+.foot a{color:var(--brass-lt);}
+
+/* lesson mechanics */
+.howto{background:var(--cream);border:2px solid var(--brass);border-radius:16px;padding:18px 22px;margin-top:18px;}
+.howto h2{font-size:21px;margin-bottom:10px;}
+.howto ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;}
+.howto li{position:relative;padding-left:32px;font-size:17px;line-height:1.5;}
+.howto li span{position:absolute;left:0;top:0;font-size:20px;}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;}
+  .hero-art{min-height:200px;order:-1;}
+  .hero h1{font-size:29px;}
+  .glance,.glance3,.grid2,.words,.two,.paths,.howto ul{grid-template-columns:1fr;}
+  .rooms{grid-template-columns:1fr 1fr;}
+  .card{padding:18px 16px;}
+  .opti{grid-template-columns:56px 1fr;gap:12px;}
+  .opti img{width:56px;}
+  .tl li{grid-template-columns:1fr;gap:0;}
+  .days thead{display:none;}
+  .days tr{display:block;border-bottom:1px solid var(--line);padding:8px 0;}
+  .days td{display:block;border:none;padding:4px 0;}
+  .vr-row{border-radius:10px;}
+}
+@media print{
+  body{background:#fff;font-size:15px;}
+  .wrap{padding:0;}
+  .print-btn{display:none;}
+  .card,.howto,.path{break-inside:avoid;}
+  .card{margin-top:12px;padding:14px 16px;box-shadow:none;}
+  .hero,.next,.story{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .foot{color:#555;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-text">
+      <div class="brand"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy Online">Family Guide · 3rd Grade Social Studies</div>
+      <h1>Unit 11: <em>Grand Exhibition</em> Hall</h1>
+      <div class="sub">Final Synthesis: Young Geographer-Citizen Exhibition · Lessons 3.11.01 to 3.11.04</div>
+      <div class="chips">
+        <span class="chip">4 lessons</span>
+        <span class="chip">Plan, build, present, reflect</span>
+        <span class="chip">Weeks 32 to 33</span>
+      </div>
+      <button class="print-btn" onclick="window.print()">🖨️ Print this guide</button>
+    </div>
+    <div class="hero-art" style="background-image:url('images/obj-3-11-04-earth.jpg');" role="img" aria-label="Earth from space: the Western Hemisphere, with North America, the Caribbean, and South America (NASA, 2007)"><span class="plaque">Grand Exhibition Hall</span></div>
+  </header>
+
+<!-- HOW THE LESSON PAGES WORK -->
+  <section class="howto">
+    <h2>🧭 How the Lesson Pages Work</h2>
+    <ul>
+      <li><span>🏛️</span><strong>Four rooms, in order:</strong> Lobby → Gallery → Workroom → Exhibit Floor. The room tabs sit at the top. A ✓ shows up when a room’s job is done, and a button at the bottom leads to the next room.</li>
+      <li><span>👣</span><strong>One part at a time.</strong> Each room shows one part, with ◂ Back and Next buttons and a “Part 2 of 5” count. The door to the next room shows on the last part.</li>
+      <li><span>🦉</span><strong>Opti the owl is the museum guide.</strong> He gives a short voice note in each room. <strong>Read along</strong> shows his words on the screen.</li>
+      <li><span>🔤</span><strong>Dotted words</strong> show their meaning when your student taps them. Key words have a 🔊 button to hear the word said out loud.</li>
+      <li><span>🧠</span><strong>The Workroom is a 3-question self-check,</strong> one question at a time. It isn’t graded. It shows your student what to look at again before writing.</li>
+      <li><span>💾</span><strong>Answers save as you type</strong>, but only in that browser on that computer. Switching computers or clearing the browser loses them.</li>
+      <li><span>📄</span><strong>Everything is gathered at the end.</strong> At the bottom of the Exhibit Floor, Copy or Download as PDF saves the work. Use it to <strong>submit in Canvas</strong>. A lesson isn’t turned in until it’s submitted there.</li>
+      <li><span>🔊</span><strong>Read aloud</strong> at the top reads the page, with a speed control. <strong>Motion</strong> turns the moving parts on or off. <strong>Museum view</strong> switches to a plain page.</li>
+      <li><span>🎙️</span><strong>This unit uses the Exhibit Studio.</strong> Your student builds real slides from real pictures. The slides save in that browser; <strong>Download my slides</strong> saves a PowerPoint file. In Lesson 3.11.03 your student can record their voice for each slide and <strong>Make my video</strong>. The browser may ask to use the microphone. Voices stay on that page only, and the video goes to the Downloads folder. Recording and the video are optional.</li>
+      <li><span>📓</span><strong>Keep a notebook and a pencil nearby.</strong> The lessons call the notebook a Curator’s Notebook.</li>
+    </ul>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section class="card">
+    <div class="card-head"><span class="ico">🧭</span><h2>This Unit at a Glance</h2></div>
+    <p>This is the last unit of 3rd grade social studies, and it is your student’s own exhibit. In four lessons your student <strong>plans</strong> an exhibit about one place they studied this year, <strong>builds</strong> it into slides with real pictures, <strong>presents</strong> it out loud, and <strong>reflects</strong> on the whole year. The exhibit has a welcome slide and four parts: a map, a source, a community connection, and a virtue. In the last lesson your student adds a sixth slide: <strong>Who I became</strong>.</p>
+    <div class="glance3">
+      <div class="box b-sky"><div class="box-label">Thinking skill</div><strong>Show, then tell.</strong> Pick real evidence, label it clearly, and explain it out loud to a visitor.</div>
+      <div class="box b-green"><div class="box-label">Virtue lens</div><strong>Service, courtesy, and honesty.</strong> Making your work easy for others, telling the truth about what you know, and using what you know to help.</div>
+      <div class="box b-gold"><div class="box-label">Big idea</div><strong>The real exhibit is you.</strong> The rooms and badges were practice for four habits a young geographer-citizen keeps for life.</div>
+    </div>
+    <p class="quote">“This museum was never really about the exhibits. The real exhibit is each one of you.”<small>The museum director, Lesson 3.11.04</small></p>
+    <p class="small" style="margin-top:12px;"><strong>Good to know:</strong> The lessons correct a few common mix-ups. More words do not make a slide better. A good guide does not have to know everything: saying “I’m not sure” is honest. One photo shows some things, but it can’t prove everything about a place. And being a geographer-citizen doesn’t end when the school year does.</p>
+  </section>
+
+  <!-- THE STORY -->
+  <section class="card story">
+    <div class="card-head"><span class="ico">🏛️</span><h2>In the Museum</h2></div>
+    <div class="opti">
+      <img src="images/opti-owl.png" alt="Opti the owl, the museum guide">
+      <div>
+        <p>The 3rd grade course is set in a museum, and this unit takes place in its last room, the <strong>Grand Exhibition Hall</strong>. Your student is an <strong>Exhibit Designer</strong>, then a <strong>Museum Guide</strong>, and at the very end a <strong>Young Geographer-Citizen</strong>. <strong>Opti the owl</strong> is still the museum guide.</p>
+        <p>Your student pins up an exhibit plan, builds it into slides, hangs them on a panel, and presents them to visitors who clap at the end. On the last day the director gathers everyone, a spotlight finds a mirror marked THE REAL EXHIBIT, and then the museum doors open to the whole community. Your student earns the <strong>Young Geographer-Citizen badge</strong>.</p>
+      </div>
+    </div>
+    <div class="rooms">
+      <div class="room"><i>🚪</i><span>Room 1</span><b>Lobby</b>A short surprise to start</div>
+      <div class="room"><i>🖼️</i><span>Room 2</span><b>Gallery</b>Working models and real sources</div>
+      <div class="room"><i>🔎</i><span>Room 3</span><b>Workroom</b>Check yourself</div>
+      <div class="room"><i>🏅</i><span>Room 4</span><b>Exhibit Floor</b>Build, present, reflect</div>
+    </div>
+  </section>
+
+  <!-- LESSON BY LESSON -->
+  <section class="card">
+    <div class="card-head"><span class="ico">📅</span><h2>Lesson by Lesson</h2></div>
+    <table class="days">
+      <thead><tr><th>Lesson</th><th>What your student learns</th><th>What they write</th></tr></thead>
+      <tbody>
+      <tr>
+        <td class="day-n">3.11.01<span>Week 32</span></td>
+        <td><span class="ch">Review: See the Place, Hear the Voices, Follow the Story</span><br>Your student looks back at the whole year, room by room, and plans the exhibit they will build. A <strong>region</strong> is a group of places that are close together or have something in common, and one region can reach across a country’s border. A strong <strong>exhibit</strong> has four parts: a <strong>map</strong>, a <strong>source</strong>, a <strong>community</strong> connection, and a <strong>virtue</strong>.
+          <span class="rm"><b>Lobby</b>Put eight badges from the year back on a floor plan of the museum, then light it up all the way to the Grand Exhibition Hall.</span>
+          <span class="rm"><b>Gallery</b>Tidy a crowded Great Plains panel: keep a piece or take it down, and say why. Look for the border between the United States and Canada on a real picture of the Great Lakes taken from space.</span>
+          <span class="pill p-source">Source: the Great Lakes from space (NASA, 2000)</span><span class="pill p-virtue">Lens: Service</span></td>
+        <td>An <strong>exhibit plan</strong>: one of six places (Florida, the Northeast, the Great Plains, the Southwest, the West, or Mexico and the Caribbean), a map, a source, a community fact, and a virtue, in 3 to 5 sentences.</td>
+      </tr>
+      <tr>
+        <td class="day-n">3.11.02<span>Week 32</span></td>
+        <td><span class="ch">Build the Final Community-in-the-World Exhibit</span><br>A <strong>slide</strong> is one page of a presentation: one real picture and a few words. A strong slide names the place and says why it matters, in words a visitor can read fast. Too many words make a visitor walk away. <strong>Courtesy</strong> for an exhibit designer means making the work easy to read.
+          <span class="rm"><b>Lobby</b>Unroll the plan and slide each pick into one of five empty frames on the panel.</span>
+          <span class="rm"><b>Gallery</b>Fix a weak slide for a visitor who asks one question at a time (What am I looking at? A map of where? Why should I care?).</span>
+          <span class="pill p-source">Sources: real pictures from the place your student chose, and maps of that region</span><span class="pill p-virtue">Lens: Courtesy</span></td>
+        <td><strong>Five slides</strong> in the Exhibit Studio (Welcome, Map, Source, Community, Virtue), 6 to 25 words each, then hung on the panel. The slides can be downloaded as a PowerPoint file.</td>
+      </tr>
+      <tr>
+        <td class="day-n">3.11.03<span>Week 33</span></td>
+        <td><span class="ch">Present the Evidence: Map, Source, and Virtue</span><br>A <strong>walk-through</strong> is what a guide says out loud at a panel, in five steps that match the five slides: greet, show the map, explain the source, point to the community, and end with the virtue and “Do you have any questions?” An honest guide says “I’m not sure” instead of making something up, and says what a source <strong>shows</strong> without stretching it.
+          <span class="rm"><b>Lobby</b>Tap each slide on the panel and see which step of the walk-through goes with it.</span>
+          <span class="rm"><b>Gallery</b>Catch the polished line: a helper guide talks about a Southwest panel, one line at a time, and your student stops the lines that are stretched or made up. Then look at the real picture from their own Source slide and pick the honest sentence about it.</span>
+          <span class="pill p-source">Source: the picture on your student’s own Source slide</span><span class="pill p-virtue">Lens: Honesty</span></td>
+        <td><strong>What I’ll say</strong> under each of the five slides (at least 5 words each), practice out loud (recording is optional), then present all five slides to the visitors. Evidence questions: a question I can’t answer, my hardest step, and what my source can’t show.</td>
+      </tr>
+      <tr>
+        <td class="day-n">3.11.04<span>Week 33</span></td>
+        <td><span class="ch">Final Historian-Citizen Reflection</span><br>The director tells every Exhibit Designer that the museum was never really about the exhibits: <strong>the real exhibit is each student</strong>. A young <strong>geographer-citizen</strong> has four habits: <strong>see the world carefully</strong>, <strong>use evidence honestly</strong>, <strong>make wise choices</strong>, and <strong>serve the common good</strong>. Every room of the museum trained one of them.
+          <span class="rm"><b>Lobby</b>Hear the director’s words one line at a time, until a spotlight finds a mirror marked THE REAL EXHIBIT, with your student’s name.</span>
+          <span class="rm"><b>Gallery</b>Sort six badges into four wings of the museum, one for each habit. Find North America, the Caribbean, and Florida on a real picture of Earth from space, and say what a picture from space can’t show (borders and names).</span>
+          <span class="pill p-source">Source: Earth from space, the Western Hemisphere (NASA, 2007)</span><span class="pill p-virtue">Lens: Service</span></td>
+        <td>The <strong>Historian-Citizen Reflection</strong> (one prompt for each habit), a sixth slide, <strong>Who I became</strong>, three last questions, and the last Chronicle. Then the museum doors open.</td>
+      </tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:10px;">Each Workroom also has a short word puzzle about one word part: <strong>cur</strong> (care), <strong>pict</strong> (paint), <strong>aud</strong> (hear), and <strong>fin</strong> (end).</p>
+  </section>
+
+  <!-- WORDS -->
+  <section class="card">
+    <div class="card-head"><span class="ico">🔤</span><h2>Words to Know</h2><span class="tag">Use them at home!</span></div>
+    <div class="words">
+      <div class="word"><b>region</b><span>a group of places that are close together or have something in common</span></div>
+      <div class="word"><b>exhibit</b><span>a display in a museum that teaches visitors about something</span></div>
+      <div class="word"><b>curator</b><span>a person who takes care of a museum’s exhibits</span></div>
+      <div class="word"><b>source</b><span>something that gives us information, like a photo, a letter, or an object</span></div>
+      <div class="word"><b>evidence</b><span>facts that show something is true</span></div>
+      <div class="word"><b>slide</b><span>one page of a presentation: a picture and a few words</span></div>
+      <div class="word"><b>presentation</b><span>a few slides you show people while you explain them</span></div>
+      <div class="word"><b>label</b><span>short words that tell a visitor what something is</span></div>
+      <div class="word"><b>courtesy</b><span>being polite and kind; for an exhibit, making it easy to read</span></div>
+      <div class="word"><b>visitor</b><span>a person who comes to see the museum</span></div>
+      <div class="word"><b>walk-through</b><span>what a guide says out loud at a panel, one step at a time</span></div>
+      <div class="word"><b>polished</b><span>trying to sound perfect with fancy or stretched words</span></div>
+      <div class="word"><b>honesty</b><span>telling the truth, and saying so when you are not sure</span></div>
+      <div class="word"><b>habit</b><span>something you do so often that it becomes part of you</span></div>
+      <div class="word"><b>geographer-citizen</b><span>a person who sees the world carefully, uses evidence honestly, makes wise choices, and serves the common good</span></div>
+      <div class="word"><b>common good</b><span>what is good for everyone in a community, not just one person</span></div>
+      <div class="word"><b>hemisphere</b><span>half of the Earth</span></div>
+      <div class="word"><b>service</b><span>helping other people and your community</span></div>
+    </div>
+  </section>
+
+  <!-- ASK AT HOME -->
+  <section class="card">
+    <div class="card-head"><span class="ico">💬</span><h2>Ask at Home</h2><span class="tag">Better than “How was school?”</span></div>
+    <ol class="ask">
+      <li><span class="q">Can you show me your six slides and walk me through them?</span><span class="listen">Listen for: the five steps: a greeting, the map, the source, the community, and the virtue with “Do you have any questions?”, plus slide six, Who I became.</span></li>
+      <li><span class="q">What are the four parts of a strong exhibit?</span><span class="listen">Listen for: a map, a source, a community connection, and a virtue.</span></li>
+      <li><span class="q">What makes a slide strong?</span><span class="listen">Listen for: one real picture and a few clear words that name the place and say why it matters; not too many words.</span></li>
+      <li><span class="q">What should a museum guide say when a visitor asks something they don’t know?</span><span class="listen">Listen for: “Good question. I’m not sure, but here is what I do know.” No making things up.</span></li>
+      <li><span class="q">What does your source show? What can’t it show?</span><span class="listen">Listen for: what is really in the picture, and one thing it can’t tell a visitor.</span></li>
+      <li><span class="q">What can’t you see in a picture of Earth from space?</span><span class="listen">Listen for: the border lines and the names of places: people draw those on maps.</span></li>
+      <li><span class="q">What are the four habits of a young geographer-citizen? Which one did you grow in most?</span><span class="listen">Listen for: see the world carefully, use evidence honestly, make wise choices, serve the common good.</span></li>
+      <li><span class="q">What did the museum director say the real exhibit was?</span><span class="listen">Listen for: the students themselves, and who they became this year.</span></li>
+      <li><span class="q">What does the word part aud mean? Can you name an aud word?</span><span class="listen">Listen for: hear: audience, audio, audible, auditorium.</span></li>
+    </ol>
+  </section>
+
+  <!-- TURN IN + TRY AT HOME -->
+  <div class="two">
+    <section class="card">
+      <div class="card-head"><span class="ico">📬</span><h2>What Gets Turned In</h2></div>
+      <ul class="check">
+        <li><strong>Each lesson:</strong> the Curator Task (the exhibit plan, the five slides, what I’ll say, or the final reflection with slide six), a Curator’s Chronicle sentence, and the evidence or reflection questions</li>
+        <li><strong>The slides</strong> are saved in the browser on that computer. A PowerPoint file or a video can be added in Canvas if the teacher asks.</li>
+        <li><strong>End of the unit:</strong> a 10-question Unit 11 quiz in Canvas</li>
+        <li>Copied or downloaded, then <strong>submitted in Canvas</strong></li>
+      </ul>
+      <p class="small" style="margin-top:10px;"><strong>Done well looks like:</strong> a real picture and a few clear words on every slide, the place named, a reason that starts with “because,” and honest words: what the evidence shows, and “I’m not sure” when that is true.</p>
+    </section>
+    <section class="card">
+      <div class="card-head"><span class="ico">🏡</span><h2>Try at Home</h2><span class="tag">5 minutes</span></div>
+      <ul class="check">
+        <li><strong>Be the audience.</strong> Let your student present all six slides to the family, then ask one question they might not know. Listen for an honest answer.</li>
+        <li><strong>Shows, not proves.</strong> Look at a family photo together. Say one thing it shows, and one thing it can’t tell you.</li>
+        <li><strong>Habit of the week.</strong> Pick one of the four habits and do one thing that shows it, like helping a neighbor (serve the common good).</li>
+        <li><strong>Find home from space.</strong> Look at a globe or a world map and find North America, the Caribbean, and Florida.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- THE WHOLE YEAR -->
+  <section class="card next">
+    <div class="card-head"><span class="ico">🌍</span><h2>The Whole Year in the Museum</h2></div>
+    <p>Your student started the year as a <strong>Junior Curator</strong> in the Curator Training Hall and walked through eleven rooms:</p>
+    <ul style="list-style:none;columns:2;margin:8px 0 10px 0;padding:0;"><li style="margin:2px 0;color:#F4ECDC;font-size:14px"><b style="color:#E9C878">1</b> Curator Training Hall</li><li style="margin:2px 0;color:#F4ECDC;font-size:14px"><b style="color:#E9C878">2</b> Exploration Wing</li><li style="margin:2px 0;color:#F4ECDC;font-size:14px"><b style="color:#E9C878">3</b> Great Map Room</li><li style="margin:2px 0;color:#F4ECDC;font-size:14px"><b style="color:#E9C878">4</b> Cartographer’s Review</li><li style="margin:2px 0;color:#F4ECDC;font-size:14px"><b style="color:#E9C878">5</b> World Map Hall</li><li style="margin:2px 0;color:#F4ECDC;font-size:14px"><b style="color:#E9C878">6</b> North America and Caribbean Gallery</li><li style="margin:2px 0;color:#F4ECDC;font-size:14px"><b style="color:#E9C878">7</b> United States Regions Gallery</li><li style="margin:2px 0;color:#F4ECDC;font-size:14px"><b style="color:#E9C878">8</b> Regional Council Chamber</li><li style="margin:2px 0;color:#F4ECDC;font-size:14px"><b style="color:#E9C878">9</b> Marketplace Hall</li><li style="margin:2px 0;color:#F4ECDC;font-size:14px"><b style="color:#E9C878">10</b> Citizenship Hall</li><li style="margin:2px 0;color:#F4ECDC;font-size:14px"><b style="color:#E9C878">11</b> Grand Exhibition Hall</li></ul>
+    <p>Every room trained one of four habits your student can use anywhere: <strong>see the world carefully</strong>, <strong>use evidence honestly</strong>, <strong>make wise choices</strong>, and <strong>serve the common good</strong>. Ask your student to show you their six slides, and keep the PowerPoint file if they downloaded it. As the director said on the last day, the museum will always be open to them.</p>
+  </section>
+
+  <p class="foot">Optima Academy Online · 3rd Grade Social Studies · Unit 11 Family Guide<br>Questions? Reach out to your student’s teacher anytime.</p>
+</div>
+</body>
+</html>
