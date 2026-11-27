@@ -226,6 +226,20 @@
    - fixslide      Gallery main attraction: a weak map slide; a visitor's questions, one fix at a time; too many words and she walks off
    - exhibitstudio Exhibit Floor (Curator Task): mounts MSStudio (5 slides, plan picks pre-chosen, .pptx); slides fill the five label boxes
    - hangpanel     Exhibit Floor: hang the five slides, lamps on, a visitor understands; Download my slides
+   Added for 3.11_03 (Unit 11 visitor day; the studio in show mode, with notes and a visitor in present mode):
+   - guidesteps    Lobby: your five slides on your panel; tap each one and its walk-through step lights; 2 questions
+   - catchline     Gallery main attraction: a helper guide talks one line at a time; Keep going or Stop!; fix the polished / made-up line
+   - showsnot      Gallery source room: the real source from your own Source slide; what it shows vs a stretch
+   - audioguide    Workroom: root aud; each right word lights a stop on a museum audio-guide handset
+   - guidestudio   Exhibit Floor (Curator Task): the studio in show mode; your script box under each slide; practice, voice, video
+   - bowfinale     Exhibit Floor: present to the visitors; they clap; the MUSEUM GUIDE pin
+   Added for 3.11_04 (the last lesson, opening day; the studio gets a sixth slide, Who I became):
+   - directorwords Lobby: the director's speech line by line; a spotlight finds the mirror: THE REAL EXHIBIT + your name
+   - fourwings     Gallery main attraction: the floor plan in four habit wings; six badges go in the wing they trained
+   - earthview     Gallery source room: NASA's Western Hemisphere; numbered rings: North America, the Caribbean, Florida
+   - finbanner     Workroom: root fin; each right word unrolls one piece of the GRAND OPENING banner
+   - reflectsix    Exhibit Floor (Curator Task): four reflection prompts one at a time, then the sixth slide in the studio
+   - doorsopen     Exhibit Floor: open the doors; the community; 11 room lights; the Young Geographer-Citizen badge
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -1283,7 +1297,7 @@
     G.forEach(function(g){ [g.t].concat(g.alt||[]).forEach(function(w){ map[w.toLowerCase()] = g; alts.push(w); }); });
     alts.sort(function(x,y){ return y.length - x.length; });
     var re = new RegExp('\\b(' + alts.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ /g,'\\s+'); }).join('|') + ')(s|es)?\\b', 'gi');
-    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my,.ms-xr-stage,.ms-fx-stage,.ms-tj-stage,.ms-fl-stage,.ms-tj-note,.ms-rb-stage,.ms-pw-stage,.ms-kq-stands,.ms-lp-case,.ms-bt-stage,.ms-lp-note,.ms-en-stage,.ms-el-stage,.ms-el-panel,.ms-el-tix,.ms-sx-stage,.ms-bq-wall,.ms-tn-stage,.ms-tn-word,.ms-pk-stage,.ms-pk-chips,.ms-sx-note,.ms-nl-stage,.ms-gb-stage,.ms-sf-pair,.ms-hn-stage,.ms-bb-stage,.ms-fc-stage,.ms-bb-word,.ms-cu-stage,.ms-fm-stage,.ms-ck-stage,.ms-fg-stage,.ms-pp-photo,.ms-es-stage,.ms-vb-stage,.ms-es-word,.ms-fw-stage,.ms-ht-stage,.ms-ht-cart,.ms-pd-stage,.ms-pd-clip,.ms-sv-stage,.ms-sv-read,.ms-ar-photo,.ms-ar-total,.ms-mf-stage,.ms-yl-stage,.ms-yl-q,.ms-dp-stage,.ms-dp-read,.ms-wk-stage,.ms-wk-card,.ms-ds-stage,.ms-tg-photo,.ms-su-stage,.ms-hh-stage,.ms-sd-stage,.ms-fp-stage,.ms-bc-stage,.ms-pe-photo,.ms-un-sky,.ms-ob-stage,.ms-bd-stage,.ms-ow-stage,.ms-ow-look,.ms-rg-photo,.ms-nm-wall,.ms-xp-stage,.ms-xp-packs,.ms-xp-list,.ms-pf-stage,.ms-gx-stage,.ms-hp-stage,.msst';
+    var SKIP = '.intro-card-head,.ms-mod-h,.step-badge,.ms-opti .ms-on,.ms-part-k,.ms-pl-m,.ms-credit,.source-label-bar,button,.quiz-opt,textarea,input,select,label,a,script,style,svg,.ms-term,.ms-tip,.ms-ocard,.ms-crate,.ms-tagcard .acc,.ms-gstep,.ms-tabs,.ms-thumbs,.header,.ms-sign,.ms-plate,.video-wrap,.ms-hd-panel,.ms-label,.ms-excheck,.ms-phtag,summary,.ms-sheet,.ms-shelf,.ms-exp,.ms-dplinth,.gathered-box,#gatheredAnswers,.ms-gi-wall,.ms-gi-row,.ms-gi-sent,.ms-gi-dirs,.ms-cc-tagn,.ms-cc-plate,.ms-cm-key,.ms-cm-card b,.ms-vd-case,.ms-wr-word,.ms-wr-card,.ms-tr-ev,.ms-tr-sc b,.ms-ce-label,.ms-ce-show,.ms-tr-wall,.ms-tk,.ms-tk-scene,.ms-tt-svg,.ms-tt-count,.ms-mg-clue,.ms-pm-map,.ms-spn-show,.ms-pm-tk,.ms-spn-city,.ms-wp-wall,.ms-wp-strip,.ms-wp-picks,.ms-th-map,.ms-lm-map,.ms-lm-key,.ms-cp-show,.ms-chipbtn,.ms-cp-notes,.ms-alc-row,.ms-dir-show,.ms-dir-sent,.ms-fs-chips,.ms-fs-list,.ms-lk-mini,.ms-lk-kind,.ms-lt-card,.ms-lt-stack,.ms-dir-regs,.ms-cr-crate,.ms-cr-tray,.ms-cr-map,.ms-sw-wheel,.ms-sw-chips,.ms-om-svg,.ms-hb-date,.ms-ne-picks,.ms-ne-shelf,.ms-ne-sign,.ms-ne-chosen,.ms-wt-win figcaption,.ms-wt-therm,.ms-st-months,.ms-st-line,.ms-sp-res,.ms-tl-chips,.ms-tl-pair,.ms-cr-tray,.ms-sh-shelf,.ms-sh-scan,.ms-ws-panel,.ms-ws-cap,.ms-ws-list,.ms-lk5-homes,.ms-mw-shelf,.ms-rj-jars,.ms-rj-map,.ms-cy-svg,.ms-cy-list,.ms-cy-tag,.ms-wl-svg,.ms-wl-tab,.ms-sws-chips,.ms-sws-alcove,.ms-ak-map,.ms-ak-tray,.ms-rsh-svg,.ms-hs-svg,.ms-wf-show,.ms-rd-wrap,.ms-td-stage,.ms-np-paper,.ms-oa-show,.ms-who-cart,.ms-cw-stage,.ms-syl-stage,.ms-fd-show,.ms-ev-table,.ms-lg-book,.ms-eo-desk,.ms-cs-show,.ms-sl-room,.ms-rv-stage,.ms-wg-stage,.ms-rc-show,.ms-bl-stage,.ms-cb-stage,.ms-dr-stage,.ms-ho-stage,.ms-tw-stage,.ms-tro-stage,.ms-ts-stage,.ms-ft-stage,.ms-wb-stage,.ms-bp-stage,.ms-cr-stage,.ms-bs-stage,.ms-bx-stage,.ms-tb-stage,.ms-tsw-stage,.ms-ch-stage,.ms-sn-stage,.ms-xt-stage,.ms-is-stage,.ms-nb-stage,.ms-gw-stage,.ms-rm-stage,.ms-bk-stage,.ms-sg-stage,.ms-ty-stage,.ms-db-stage,.ms-pu-stage,.ms-mt-stage,.ms-pu-note,.ms-hb-stage,.ms-tm-stage,.ms-in-stage,.ms-pq-stage,.ms-pq-words,.ms-pq-my,.ms-xr-stage,.ms-fx-stage,.ms-tj-stage,.ms-fl-stage,.ms-tj-note,.ms-rb-stage,.ms-pw-stage,.ms-kq-stands,.ms-lp-case,.ms-bt-stage,.ms-lp-note,.ms-en-stage,.ms-el-stage,.ms-el-panel,.ms-el-tix,.ms-sx-stage,.ms-bq-wall,.ms-tn-stage,.ms-tn-word,.ms-pk-stage,.ms-pk-chips,.ms-sx-note,.ms-nl-stage,.ms-gb-stage,.ms-sf-pair,.ms-hn-stage,.ms-bb-stage,.ms-fc-stage,.ms-bb-word,.ms-cu-stage,.ms-fm-stage,.ms-ck-stage,.ms-fg-stage,.ms-pp-photo,.ms-es-stage,.ms-vb-stage,.ms-es-word,.ms-fw-stage,.ms-ht-stage,.ms-ht-cart,.ms-pd-stage,.ms-pd-clip,.ms-sv-stage,.ms-sv-read,.ms-ar-photo,.ms-ar-total,.ms-mf-stage,.ms-yl-stage,.ms-yl-q,.ms-dp-stage,.ms-dp-read,.ms-wk-stage,.ms-wk-card,.ms-ds-stage,.ms-tg-photo,.ms-su-stage,.ms-hh-stage,.ms-sd-stage,.ms-fp-stage,.ms-bc-stage,.ms-pe-photo,.ms-un-sky,.ms-ob-stage,.ms-bd-stage,.ms-ow-stage,.ms-ow-look,.ms-rg-photo,.ms-nm-wall,.ms-xp-stage,.ms-xp-packs,.ms-xp-list,.ms-pf-stage,.ms-gx-stage,.ms-hp-stage,.ms-gs-stage,.ms-cl-stage,.ms-cl-act .ms-cl-line,.ms-hx-pic,.ms-ag-dev,.ms-bw-stage,.ms-dw-stage,.ms-hw-plan,.ms-hw-bd,.ms-ew-pic,.ms-fb-ban,.ms-op-stage,.msst';
     var BLOCK = '.ms-opti,.ms-part,.ms-placard,.ms-tag,.ms-why,.ms-intro p,.ms-win,.ms-sortfb,.ms-result,.ms-compare,.ms-exfb,.ms-lens,.ms-mod,.callout,.intro-card,.quiz-q,.key-concept,.activity,.source-card,.evidence-card,p,li';
     var tip = el('div','ms-tip'); tip.setAttribute('role','tooltip'); tip.id = 'ms-tip'; document.body.appendChild(tip);
     var cur = null;
@@ -9610,7 +9624,445 @@
     render(); check();
   }
 
-  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, corner: modCorner, fixtown: modFixtown, townjar: modTownjar, firstlabel: modFirstlabel, recess: modRecess, powerflip: modPowerflip, korp: modKorp, caselamp: modCaselamp, wordbuild: modWordbuild, ballot: modBallot, envelope: modEnvelope, whichfloor: modWhichfloor, schoolxray: modSchoolxray, threebldg: modThreebldg, loctrain: modLoctrain, plaques: modPlaques, nameland: modNameland, greenbook: modGreenbook, spotfix: modSpotfix, heroniche: modHeroniche, bloombranch: modBloombranch, flcase: modFlcase, curtain: modCurtain, fairmachine: modFairmachine, checkin: modCheckin, flagsrules: modFlagsrules, pollphoto: modPollphoto, electstamp: modElectstamp, boothlabel: modBoothlabel, fadewall: modFadewall, hangline: modHangline, parade: modParade, served: modServed, flagcount: modFlagcount, memorfade: modMemorfade, yearlights: modYearlights, dustyplaque: modDustyplaque, weekpolish: modWeekpolish, dayservice: modDayservice, tagphoto: modTagphoto, signup: modSignup, heartplaque: modHeartplaque, shadowwall: modShadowwall, fourpillars: modFourpillars, bravechoices: modBravechoices, thirteens: modThirteens, unistars: modUnistars, onebadge: modOnebadge, badgefolder: modBadgefolder, offthewall: modOffthewall, noborder: modNoborder, nameplate: modNameplate, exhibitplan: modExhibitplan, planframes: modPlanframes, fixslide: modFixslide, exhibitstudio: modExhibitstudio, hangpanel: modHangpanel, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
+  /* ══════════ Added for 3.11_03 (Present the Evidence · Unit 11 visitor day) ══════════
+     - guidesteps  Lobby: the student's five slides on their panel; tap each slide and its walk-through step lights; 2 questions
+     - catchline   Gallery main attraction: a helper guide (Sam) at a Southwest panel, one line at a time; Keep going or Stop!; fix the polished / made-up line
+     - showsnot    Gallery source room: the real source from the student's own Source slide; what it shows; the honest sentence vs a stretch; when it can't answer
+     - audioguide  Workroom: root aud on a museum audio-guide handset; each right word lights a keypad stop
+     - guidestudio Exhibit Floor (Curator Task): the Exhibit Studio in show mode; the five script boxes (journal-step1..5) sit under their slides; notes + a visitor in present mode
+     - bowfinale   Exhibit Floor (after the Chronicle): Present to the visitors; after the last slide the visitors clap and a MUSEUM GUIDE pin lands */
+
+  var GS_API = null, GS_WAIT = [];
+  function gsReady(fn){ if (GS_API) fn(GS_API); else GS_WAIT.push(fn); }
+  /* pos = display position of the right answer (choiceQ shows data [1], [2], [0]) */
+  function q113(title, text, pos, right, w1, w2){ var r = {t:right[0], ok:true, fb:right[1]}, a = {t:w1[0], ok:false, fb:w1[1]}, b = {t:w2[0], ok:false, fb:w2[1]};
+    return {title:title, text:text, opts: pos === 0 ? [a, r, b] : pos === 1 ? [a, b, r] : [r, a, b]}; }
+  function words113(t){ return (String(t || '').replace(/_+/g, ' ').trim().match(/[A-Za-z0-9'’]+/g) || []).length; }
+  function studio113(){ return sget(DATA.studioKey || 'oao.ms.studio', {}) || {}; }
+  function packs113(){ var g = (DATA.modules || []).filter(function(x){ return x.type === 'guidestudio'; })[0]; return (g && g.studio && g.studio.packs) || []; }
+  function pack113(st){ var p = st && st.plan; return p ? packs113().filter(function(x){ return x.k === p.place; })[0] || null : null; }
+  /* a slide's picture: maps are 'map-<pack>-<phys|pol>', sources are their pack id */
+  function pic113(id, thumb){ if (!id) return ''; var m = /^map-([a-z]+)-(phys|pol)$/.exec(id); if (m) return img((thumb ? 'th-3-11-02-map-' : 'map-3-11-02-') + m[1] + '-' + m[2] + '.jpg');
+    if (thumb) return img('th-3-11-01-' + id + '.jpg'); var f = null; packs113().forEach(function(p){ (p.sources || []).forEach(function(s){ if (s.id === id) f = s.file; }); }); return f ? img(f) : img('th-3-11-01-' + id + '.jpg'); }
+  /* a word from the student's own sentence for the visitor's reply (a name, else the place) */
+  function pick113(t, place){ t = String(t || ''); var re = /(?:^|[a-z0-9,;:]\s+)((?:[A-Z][A-Za-z'’\-]+)(?:\s+(?:of|the|and|[A-Z][A-Za-z'’\-]+))*)/g, x;
+    while ((x = re.exec(t))) { var w = x[1].replace(/\s+(?:of|the|and)$/, ''); if (x.index === 0 && !/\s/.test(w)) continue; if (/^(I|It|This|That|The|A|An|My|In|On|We|He|She|They|Because|Hi|Welcome|Do)$/.test(w)) continue; return w; }
+    return place || ''; }
+  function guide113SVG(){ return '<svg viewBox="0 0 60 150" aria-hidden="true"><g class="gb"><ellipse cx="30" cy="146" rx="20" ry="3.5" fill="rgba(0,0,0,.18)"/><rect x="21" y="98" width="7" height="46" rx="3" fill="#2E3E64"/><rect x="32" y="98" width="7" height="46" rx="3" fill="#2E3E64"/><path d="M14 60 Q30 50 46 60 L48 102 L12 102 Z" fill="#1E8C8C"/><rect x="21" y="68" width="14" height="10" rx="2" fill="#F1D58C" stroke="#8A6A28" stroke-width=".8"/><rect x="8" y="62" width="7" height="34" rx="3.5" fill="#1E8C8C"/><g class="arm"><rect x="45" y="62" width="7" height="34" rx="3.5" fill="#1E8C8C"/></g><g class="hd"><circle cx="30" cy="40" r="13" fill="#C98E62"/><path d="M17 37 Q19 21 30 22 Q42 21 43 37 Q39 28 30 28 Q21 28 17 37 Z" fill="#2A1A10"/><circle cx="25.5" cy="41" r="1.6" fill="#222"/><circle cx="34.5" cy="41" r="1.6" fill="#222"/><path class="mo" d="M25 46.5 Q30 50.5 35 46.5" stroke="#6A2E22" stroke-width="1.6" fill="none"/></g></g></svg>'; }
+
+  /* ══ MODULE: guidesteps (Lobby · five slides, five steps) ══ */
+  function modGuidesteps(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var SP = cfg.steps || [], NF = SP.length, N = NF + 2;
+    ST.gs = ST.gs || {i:0, q1:false, q2:false}; var S = ST.gs;
+    var m = shell('ms-gs-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-gs-wrap"><div class="ms-gs-stage">' + panelHTML(cfg, 'ms-gs') +
+      '<div class="ms-gs-rail"><div class="hd">'+esc(cfg.railT || 'MY WALK-THROUGH')+'</div><ol>' + SP.map(function(s, i){ return '<li class="r'+i+'"><span class="n">'+(i+1)+'</span><div><b>'+s.icon+' '+esc(s.n)+'</b><span class="say">'+esc(s.say)+'</span></div></li>'; }).join('') + '</ol></div><div class="floor"></div></div><div class="ms-gs-act" aria-live="polite"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-gs-act', m), stg = $('.ms-gs-stage', m), panel = $('.ms-gs-panel', m), F = $$('.fr', panel), R = $$('.ms-gs-rail li', m);
+    F.forEach(function(f, i){ f.setAttribute('role', 'button'); f.tabIndex = 0; f.setAttribute('aria-label', (cfg.frames || [])[i] + ' slide');
+      f.addEventListener('click', function(){ tap(i); }); f.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tap(i); } }); });
+    function view(){ var st = studio113(), sl = st.slides || [], has = sl.some(function(s){ return s && (s.text || '').trim(); });
+      $('.np b', panel).textContent = plateName(cfg); stg.classList.toggle('noslides', !has);
+      F.forEach(function(f, i){ var u = has && sl[i] ? pic113(sl[i].img, true) : ''; var o = $('.in', f); o.style.backgroundImage = u ? 'url("'+u+'")' : ''; f.classList.toggle('pic', !!u);
+        f.classList.toggle('lit', i < S.i); f.classList.toggle('glow', i === S.i && S.i < NF); });
+      R.forEach(function(r, i){ r.classList.toggle('on', i < S.i); r.classList.toggle('next', i === S.i && S.i < NF); }); return has; }
+    function tap(i){ if (S.i >= NF) return; var fb = $('.ms-exfb', act);
+      if (i !== S.i) { SFX.miss(); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 That is the '+esc(cfg.frames[i])+' slide. Tap the glowing '+esc(cfg.frames[S.i])+' slide.</div>'; return; }
+      SFX.chime(); S.i++; save(); if (!calm()) { var r = R[i]; r.classList.remove('pop'); void r.offsetWidth; r.classList.add('pop'); } render(); }
+    function render(){ var has = view();
+      if (S.i < NF) { var nm = cfg.frames[S.i];
+        act.innerHTML = stepCard(S.i + 1, N, (cfg.tapT || '').replace('{name}', nm), (S.i > 0 ? '<p class="ms-gs-done">✅ '+esc(cfg.frames[S.i - 1])+' slide = step '+S.i+', '+esc(SP[S.i - 1].n)+': '+esc(SP[S.i - 1].say)+'</p>' : '') + (S.i === 0 && !has ? '<div class="ms-notyet">🗂️ <b>'+esc(cfg.noSlidesT)+'</b> '+esc(cfg.noSlidesP)+'</div>' : '') +
+          '<p>'+esc((cfg.tapP || '').replace('{n}', S.i + 1).replace(/\{name\}/g, nm))+'</p><button type="button" class="ms-btn big ms-gs-b">'+cfg.icons[S.i]+' '+esc((cfg.tapT || '').replace('{name}', nm))+'</button><div class="ms-exfb" aria-live="polite"></div>');
+        $('.ms-gs-b', act).onclick = function(){ tap(S.i); }; return; }
+      if (!S.q1) { var c1 = choiceQ(cfg.q1, 1, function(){ S.q1 = true; save(); setTimeout(render, calm() ? 0 : 900); }); act.innerHTML = stepCard(NF + 1, N, cfg.q1.title, c1.html); c1.bind(act); return; }
+      if (!S.q2) { var c2 = choiceQ(cfg.q2, 2, function(){ S.q2 = true; save(); SFX.fanfare(); markDone('scene'); setTimeout(render, calm() ? 0 : 1100); }); act.innerHTML = stepCard(NF + 2, N, cfg.q2.title, c2.html); c2.bind(act); return; }
+      act.innerHTML = '<div class="ms-win show">'+(cfg.doneT || '')+'</div>';
+    }
+    render(); if (S.q2) markDone('scene');
+  }
+
+  /* ══ MODULE: catchline (Gallery · a helper guide, one line at a time; stop the polished or made-up line) ══ */
+  function modCatchline(cfg){
+    var anchor = $(cfg.anchor || '#panel-explore .callout-think'); if (!anchor) return;
+    var L = cfg.lines || [], N = L.length; ST.cl = ST.cl || {i:0, ph:0, fixed:{}, done:false}; var S = ST.cl;
+    var m = shell('ms-cl-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-cl-wrap"><div class="ms-cl-stage"><div class="ms-cl-pan"><div class="hd">'+esc(cfg.panelHT)+'</div><div class="ph"><img alt="'+esc(cfg.cap)+'" src="'+img(cfg.img)+'"></div><div class="mini"><i></i><i></i><i></i><i></i></div></div>' +
+      '<div class="ms-cl-guide"><div class="bub" aria-live="polite"></div>'+guide113SVG()+'<span class="vt">'+esc(cfg.guideT)+'</span></div>' +
+      '<div class="ms-gx-vis ms-cl-vis"><div class="bub"></div>'+gxVisitorSVG()+'<span class="vt">'+esc(cfg.visT)+'</span></div><div class="floor"></div></div><div class="ms-cl-act"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-cl-act', m), stg = $('.ms-cl-stage', m), gb = $('.ms-cl-guide .bub', m), vis = $('.ms-cl-vis', m), vb = $('.bub', vis), gd = $('.ms-cl-guide', m);
+    function line(i){ return S.fixed[i] || L[i].t; }
+    function view(){ var l = L[Math.min(S.i, N - 1)];
+      if (S.done) { gb.textContent = ''; gb.classList.remove('on', 'bad'); vb.textContent = cfg.nodT; vb.classList.add('on'); vis.className = 'ms-gx-vis ms-cl-vis nod'; gd.className = 'ms-cl-guide'; return; }
+      gb.textContent = line(S.i); gb.classList.add('on'); gb.classList.toggle('bad', S.ph === 1); gb.classList.toggle('fixed', !!S.fixed[S.i]);
+      vb.textContent = l.ask || ''; vb.classList.toggle('on', !!l.ask); vis.className = 'ms-gx-vis ms-cl-vis' + (l.ask ? ' ask' : '');
+      gd.className = 'ms-cl-guide talk'; }
+    function next(){ setTimeout(function(){ if (S.i + 1 < N) { S.i++; S.ph = 0; save(); render(); return; }
+      S.done = true; save(); ST.gal = ST.gal || {}; ST.gal.catch = 1; save(); SFX.fanfare(); render(); galleryCheck(); }, calm() ? 0 : 1100); }
+    function render(){ view();
+      if (S.done) { act.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>'; return; }
+      var l = L[S.i], tl = (cfg.lineT || '').replace('{n}', S.i + 1).replace('{t}', N).replace('{step}', l.step);
+      var said = (l.ask ? '<p class="ms-cl-ask"><b>'+esc(cfg.askT)+'</b> "'+esc(l.ask)+'"</p>' : '') + '<blockquote class="ms-cl-line"><b>'+esc(cfg.saysT)+'</b> "'+esc(l.t)+'"</blockquote>';
+      if (S.ph === 1) { var cq = choiceQ(l.fix, S.i, function(){ var r = l.fix.opts.filter(function(o){ return o.ok; })[0]; S.fixed[S.i] = r.t; S.ph = 2; save(); SFX.glass(); view(); next(); });
+        act.innerHTML = stepCard(S.i + 1, N, tl, said + '<p class="ms-cl-stop">✋ '+esc(l.kind === 'made up' ? 'Stopped: that answer was made up.' : 'Stopped: that line was polished.')+'</p>' + cq.html); cq.bind(act); return; }
+      if (S.ph === 2) { act.innerHTML = stepCard(S.i + 1, N, tl, '<blockquote class="ms-cl-line ok"><b>✅ '+esc(cfg.fixedT)+'</b> "'+esc(line(S.i))+'"</blockquote>'); return; }
+      act.innerHTML = stepCard(S.i + 1, N, tl, said + '<div class="ms-pchoices"><button type="button" class="ms-btn ms-cl-k">'+esc(cfg.keepB)+'</button><button type="button" class="ms-btn alt ms-cl-s">'+esc(cfg.stopB)+'</button></div><div class="ms-exfb" aria-live="polite"></div>');
+      var fb = $('.ms-exfb', act);
+      $('.ms-cl-k', act).onclick = function(){ if (l.ok) { SFX.chime(); this.classList.add('ok'); fb.innerHTML = '<div class="ms-vd-thanks">✅ '+esc(l.keepFb)+'</div>'; $$('button', act).forEach(function(b){ b.disabled = true; }); next(); }
+        else { SFX.miss(); var b = this; b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); fb.innerHTML = '<div class="ms-notyet">🤔 '+esc(l.keepFb)+'</div>'; if (!calm()) { vis.classList.add('doubt'); setTimeout(function(){ vis.classList.remove('doubt'); }, 1200); } } };
+      $('.ms-cl-s', act).onclick = function(){ if (!l.ok) { SFX.stamp(); S.ph = 1; save(); render(); }
+        else { SFX.miss(); var b = this; b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); fb.innerHTML = '<div class="ms-notyet">🤔 '+esc(l.stopFb)+'</div>'; } };
+    }
+    render(); if (S.done) galleryCheck();
+  }
+
+  /* ══ MODULE: showsnot (Gallery · the student's own source: shows, not proves) ══ */
+  function modShowsnot(cfg){
+    var anchor = $(cfg.anchor || '#panel-explore .callout-tip'); if (!anchor) return;
+    ST.hx = ST.hx || {i:0, done:false}; var S = ST.hx, SRC = cfg.src || {}, N = 3;
+    function which(){ var st = studio113(), sl = (st.slides || [])[2], id = sl && sl.img, own = true;
+      if (!id || !SRC[id]) { id = st.plan && st.plan.source && st.plan.source.id; }
+      if (!id || !SRC[id]) { id = cfg.fallback; own = false; }
+      var meta = null; packs113().forEach(function(p){ (p.sources || []).forEach(function(s){ if (s.id === id) meta = s; }); });
+      return {id:id, own:own, e:SRC[id], m:meta || {}}; }
+    var m = shell('ms-hx-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-hx-wrap"><figure class="ms-hx-pic"><img alt=""><figcaption></figcaption></figure><div class="ms-hx-act"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-hx-act', m), fig = $('.ms-hx-pic', m);
+    function hash(s){ var h = 0; for (var k = 0; k < s.length; k++) h = (h * 31 + s.charCodeAt(k)) % 997; return h; }
+    function render(){ var w = which(), e = w.e, mt = w.m, h = hash(w.id);
+      $('img', fig).src = pic113(w.id, false); $('img', fig).alt = (mt.t || '') + ', ' + (mt.meta || '');
+      $('figcaption', fig).innerHTML = '📷 <b>'+esc(mt.t || '')+'</b>, '+esc(mt.meta || '')+'<small>'+esc(mt.credit || '')+'</small>';
+      var note = w.own ? '' : '<div class="ms-notyet">🗂️ '+esc(cfg.noSlideT)+'</div>';
+      if (S.done) { act.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>'; return; }
+      var q;
+      if (S.i === 0) q = q113(cfg.q1T, cfg.q1, h % 3, [e.see, 'Yes! That is what the picture shows.'], [e.no[0], 'Look again at the picture. Is that in it?'], [e.no[1], 'Look again at the picture. Is that in it?']);
+      else if (S.i === 1) q = q113(cfg.q2T, cfg.q2, (h + 1) % 3, [e.honest, cfg.q2rightFb], [e.over, cfg.q2overFb], [(cfg.opinT || '').replace('{kind}', e.kind).replace('{place}', e.place.replace(/^The /, 'the ')), cfg.q2opinFb]);
+      else q = cfg.q3;
+      var cq = choiceQ(q, S.i, function(){ setTimeout(function(){ if (S.i + 1 < N) { S.i++; save(); render(); return; }
+        S.done = true; save(); ST.gal = ST.gal || {}; ST.gal.src = 1; save(); SFX.fanfare(); render(); galleryCheck(); }, calm() ? 0 : 1000); });
+      act.innerHTML = stepCard(S.i + 1, N, q.title, (S.i === 0 ? note : '') + cq.html); cq.bind(act);
+    }
+    render(); if (S.done) galleryCheck();
+  }
+
+  /* ══ MODULE: audioguide (Workroom · root aud; each right word lights a stop on an audio-guide handset) ══ */
+  function modAudioguide(cfg){
+    var anchor = $(cfg.anchor || '#panel-check .quiz-card'); if (!anchor) return;
+    var L = cfg.lines || []; ST.ag = ST.ag || {i:0, ok:false}; var S = ST.ag;
+    var m = shell('ms-ag-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-wr-card"><span class="ms-wr-root">'+esc(cfg.root)+'</span><span class="ms-wr-eq">=</span><span class="ms-wr-mean">'+esc(cfg.means)+'</span></div>' +
+      '<div class="ms-ag-wrap"><div class="ms-ag-dev" aria-hidden="true"><div class="spk"><i></i><i></i><i></i><i></i></div><div class="scr"><b></b><span></span></div><div class="keys">'+L.map(function(l, j){ return '<span class="k k'+j+'">'+(j+1)+'</span>'; }).join('')+'<span class="k play">▶</span></div><div class="brand">'+esc(cfg.devT)+'</div><div class="waves"><i></i><i></i><i></i></div></div><div class="ms-ag-act" aria-live="polite"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-ag-act', m), dev = $('.ms-ag-dev', m);
+    function told(){ window._rootMatchDone = S.i >= L.length; if (typeof window.gatherAnswers === 'function') try { window.gatherAnswers(); } catch(e){} }
+    function paint(fresh){ var n = S.i + (S.ok ? 1 : 0), last = n ? L[Math.min(n, L.length) - 1] : null;
+      $$('.k', dev).forEach(function(k, j){ k.classList.toggle('on', j < n || (k.classList.contains('play') && n >= L.length)); });
+      $('.scr b', dev).textContent = last ? (Math.min(n, L.length)) + ' · ' + last.w.toUpperCase() : (cfg.readyT || 'READY'); $('.scr span', dev).textContent = last ? last.ok.split(':').slice(1).join(':').trim() : (cfg.readyP || '');
+      dev.classList.toggle('all', n >= L.length); if (fresh && !calm()) { dev.classList.remove('beep'); void dev.offsetWidth; dev.classList.add('beep'); } }
+    function render(fresh){ told(); paint(fresh);
+      if (S.i >= L.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>'; return; }
+      var l = L[S.i], body = '<div class="ms-es-word">🎧 '+esc(l.s).replace('___', S.ok ? '<u>'+esc(l.w)+'</u>' : '<u>______</u>')+'</div><p>Which <b>'+esc(cfg.root)+'</b> word fills the blank?</p>' +
+        '<div class="ms-pchoices">'+l.opts.map(function(o, k){ return '<button type="button" class="ms-btn ms-ag-o'+(S.ok && o === l.w ? ' ok' : '')+'" data-k="'+k+'">'+esc(o)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite">'+(S.ok ? '<div class="ms-vd-thanks">✅ '+esc(l.ok)+'</div>' : '')+'</div>';
+      if (S.ok) body += '<button type="button" class="ms-btn big ms-ag-nx">'+(S.i + 1 < L.length ? 'Next word ➡️' : 'Light the last stop ✓')+'</button>';
+      act.innerHTML = stepCard(S.i + 1, L.length, 'Word '+(S.i + 1)+' of '+L.length, body);
+      $$('.ms-ag-o', act).forEach(function(b){ b.onclick = function(){ var o = l.opts[+b.dataset.k];
+        if (o === l.w) { if (!S.ok) { SFX.chime(); S.ok = true; save(); render(true); } } else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if (!S.ok) $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc(l.fb)+'</div>'; } }; });
+      var nx = $('.ms-ag-nx', act); if (nx) nx.onclick = function(){ SFX.click(); S.i++; S.ok = false; save(); if (S.i >= L.length) SFX.fanfare(); render(); };
+    }
+    render();
+  }
+
+  /* ══ MODULE: guidestudio (Exhibit Floor · the Curator Task: the studio in show mode; a script box under each slide) ══ */
+  function modGuidestudio(cfg){
+    var TA = (cfg.ta || []).map(function(id){ return document.getElementById(id); }).filter(Boolean); if (TA.length !== (cfg.ta || []).length || !TA.length) return;
+    var blk = TA[0].closest('.activity-body'); if (!blk) return;
+    var MIN = cfg.minWords || 5, SP = cfg.steps || [];
+    var homes = TA.map(function(t){ var h = document.createComment('pz-home'); t.parentNode.insertBefore(h, t); return h; });
+    function goHome(){ TA.forEach(function(t, i){ if (t.previousSibling !== homes[i]) homes[i].parentNode.insertBefore(t, homes[i].nextSibling); }); }
+    var m = shell('ms-pz-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="msst" id="msst-root"><p class="msst-load">'+esc(cfg.loadT || '')+'</p></div><p class="ms-pz-note">📝 '+esc(cfg.boxNoteT || '')+'</p>');
+    var p0 = blk.querySelector('p'); if (p0 && p0.nextSibling) blk.insertBefore(m, p0.nextSibling); else blk.insertBefore(m, blk.firstChild);
+    blk.classList.add('ms-pz-blk'); $$('p, .textbox-prompt', blk).forEach(function(e){ if (!m.contains(e)) e.classList.add('ms-hide-on'); });
+    function cnt(i){ var w = words113(TA[i].value); return '📝 ' + esc((cfg.countT || '{w} words').replace('{w}', w)) + (w >= MIN ? ' ✓' : ' · ' + esc((cfg.needT || 'at least {n}').replace('{n}', MIN))); }
+    TA.forEach(function(t, i){ t.addEventListener('input', function(){ var c = t.parentNode && t.parentNode.querySelector('.ms-pz-cnt'); if (c) { c.innerHTML = cnt(i); c.classList.toggle('good', words113(t.value) >= MIN); }
+      var sb = t.parentNode && t.parentNode.querySelector('.ms-pz-start'); if (sb && t.value.trim()) sb.remove(); if (typeof window.MS_BW_REFRESH === 'function') window.MS_BW_REFRESH(); }); });
+    function slot(i, el){ if (i < 0 || !el) { goHome(); return; } var s = SP[i] || {}, t = TA[i];
+      el.innerHTML = '<p class="msst-lab ms-pz-lab">'+esc((cfg.sayT || '').replace('{n}', i + 1).replace('{step}', s.n || ''))+'</p><p class="ms-pz-say">'+esc(s.say || '')+'</p>' +
+        (!t.value.trim() ? '<button type="button" class="msst-mini ms-pz-start">✏️ '+esc(cfg.startB || 'Start with:')+' '+esc((cfg.starters || [])[i] || '')+'…</button>' : '') + '<div class="ms-pz-cnt'+(words113(t.value) >= MIN ? ' good' : '')+'">'+cnt(i)+'</div>';
+      el.insertBefore(t, $('.ms-pz-cnt', el));
+      var sb = $('.ms-pz-start', el); if (sb) sb.onclick = function(){ t.value = (cfg.starters || [])[i] || ''; t.dispatchEvent(new Event('input', {bubbles:true})); try { if (typeof window.autoSave === 'function') window.autoSave(t, 'dot-step' + (i + 1)); } catch(e){} t.focus({preventScroll:true}); t.setSelectionRange(t.value.length, t.value.length); }; }
+    function canPresent(){ for (var i = 0; i < TA.length; i++) if (words113(TA[i].value) < MIN) return {i:i, t:(cfg.notYetT || '').replace('{n}', i + 1).replace('{name}', (cfg.studio.criteria[i] || {}).name || '').replace('{min}', MIN)}; return null; }
+    window.MS_PZ_CAN = canPresent;
+    var api = null;
+    function react(i, slide, crit){ var R = cfg.react || {}, tpl = R[crit && crit.k] || R['*'] || ''; var p = api && api.pack && api.pack(); var place = p ? p.name.replace(/^The /, 'the ') : '';
+      return tpl.replace('{place}', place).replace('{pick}', pick113((TA[i] && TA[i].value) || (slide && slide.text), place)); }
+    function go(){ if (!window.MSStudio || api) return; var root2 = $('#msst-root', m); root2.innerHTML = '';
+      api = window.MSStudio.mount(root2, Object.assign({lesson: DATA.lesson}, cfg.studio || {}), {img: img, name: function(){ return sget(NAMEK, '') || ''; }, setName: function(v){ sset(NAMEK, v); },
+        calm: calm, slot: slot, notes: function(i){ return TA[i] ? TA[i].value : ''; }, react: react, doorAv: gxVisitorSVG, canPresent: canPresent,
+        closed: function(all){ if (typeof window.MS_PZ_CLOSED === 'function') window.MS_PZ_CLOSED(all); },
+        change: function(){ if (typeof window.MS_BW_REFRESH === 'function') window.MS_BW_REFRESH(); },
+        sfx: function(k){ try { (SFX[k === 'win' ? 'chime' : k] || SFX.click)(); } catch(e){} }});
+      GS_API = api; GS_WAIT.splice(0).forEach(function(fn){ fn(api); }); }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else if (api) api.redraw(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    if (!document.querySelector('link[data-msst],style[data-msst]')) { var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = cfg.css || 'assets/sparkle/ms-studio.css'; l.dataset.msst = 1; document.head.appendChild(l); }
+    if (window.MSStudio) go(); else { var sc = document.createElement('script'); sc.src = cfg.js || 'assets/sparkle/ms-studio.js'; sc.onload = go; sc.onerror = function(){ $('#msst-root', m).innerHTML = '<p class="msst-load">'+esc(cfg.failT || '')+'</p>'; goHome(); blk.classList.remove('ms-pz-blk'); $$('.ms-hide-on', blk).forEach(function(e){ e.classList.remove('ms-hide-on'); }); }; document.head.appendChild(sc); }
+  }
+
+  /* ══ MODULE: bowfinale (Exhibit Floor · present to the visitors; they clap; the MUSEUM GUIDE pin) ══ */
+  function modBowfinale(cfg){
+    var chron = document.getElementById('journal-chronicle'); var anchor = chron && chron.closest('.activity'); if (!anchor) return;
+    ST.bw = ST.bw || {bowed:false}; var S = ST.bw, want = false;
+    var m = shell('ms-bw-mod ms-exhibit-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-bw-wrap"><div class="ms-bw-stage">' + panelHTML(cfg, 'ms-bw') +
+      '<div class="ms-bw-crowd">' + [['#C0504D', '#E8B896', '#4A3020'], ['#F2C14E', '#8A5A3A', '#1E1410'], ['#5B7DB1', '#D9A37E', '#9A9A9A']].map(function(c, j){ return '<div class="v v'+j+'"><span class="cl" aria-hidden="true">'+esc(cfg.clapT || '👏')+'</span>'+gxVisitorSVG().replace(/#C0504D/g, c[0]).replace(/#E8B896/g, c[1]).replace(/#4A3020/g, c[2])+'</div>'; }).join('') + '<div class="bub" aria-live="polite"></div></div>' +
+      '<div class="ms-bw-pin" aria-hidden="true"><span>★</span><b>'+esc(cfg.pinT)+'</b></div><div class="floor"></div></div><div class="ms-bw-act" aria-live="polite"></div><div class="ms-bw-end"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-bw-act', m), end = $('.ms-bw-end', m), stg = $('.ms-bw-stage', m), panel = $('.ms-bw-panel', m);
+    function view(api){ $('.np b', panel).textContent = plateName(cfg); stg.classList.toggle('bowed', !!S.bowed);
+      $$('.fr', panel).forEach(function(f, i){ var u = api ? api.picSrc(i) : ''; var o = $('.in', f); o.style.backgroundImage = u ? 'url("'+u+'")' : ''; f.classList.toggle('on', !!u); });
+      var p = api && api.pack && api.pack(); $('.ms-bw-crowd .bub', m).textContent = S.bowed ? (cfg.sayT || '').replace('{place}', p ? p.name.replace(/^The /, 'the ') : '') : ''; }
+    function msg(h){ var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = h; }
+    function render(){ var api = GS_API; view(api);
+      if (!S.bowed) { act.innerHTML = stepCard(1, 2, cfg.s1T, '<p>'+esc(cfg.s1)+'</p><button type="button" class="ms-btn big ms-bw-b1">'+esc(cfg.goB)+'</button><div class="ms-exfb"></div>'); end.innerHTML = '';
+        $('.ms-bw-b1', act).onclick = function(){ if (!api) return; var goShow = function(i){ var b = $('.ms-bw-go', act); if (b) b.onclick = function(){ if (i != null && api.go) api.go(i); var t = $('#msst-root'); if (t) t.scrollIntoView({behavior: calm() ? 'auto' : 'smooth', block:'start'}); }; };
+          if (!api.done()) { SFX.miss(); msg('<div class="ms-notyet">🔎 '+esc((cfg.notSlidesT || '').replace('{n}', api.n()))+' <button type="button" class="ms-btn alt ms-bw-go">'+esc(cfg.goShowB)+'</button></div>'); goShow(null); return; }
+          var why = window.MS_PZ_CAN && window.MS_PZ_CAN(); if (why) { SFX.miss(); msg('<div class="ms-notyet">🔎 '+esc(why.t)+' <button type="button" class="ms-btn alt ms-bw-go">'+esc(cfg.goShowB)+'</button></div>'); goShow(why.i); return; }
+          want = true; api.present(); }; return; }
+      act.innerHTML = stepCard(2, 2, cfg.s2T, '<p>'+esc(cfg.s2)+'</p>'); end.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>';
+    }
+    window.MS_PZ_CLOSED = function(all){ if (!want) return; want = false;
+      if (!all) { render(); msg('<div class="ms-notyet">🔎 '+esc(cfg.earlyT || '')+'</div>'); return; }
+      S.bowed = true; save(); SFX.fanfare(); if (!calm()) { stg.classList.add('clapping'); setTimeout(function(){ stg.classList.remove('clapping'); }, 3200); }
+      render(); bdSee(stg); if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 1600); optiNod('assignment'); check(); };
+    window.MS_BW_REFRESH = function(){ view(GS_API); };
+    gsReady(function(){ render(); });
+    var its = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.bowed && its.length && its.every(on)) markDone('assignment'); }
+    its.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  /* ══════════ Added for 3.11_04 (Final Historian-Citizen Reflection · the last lesson, opening day) ══════════
+     - directorwords Lobby: the director's speech one line at a time; a spotlight swings onto a mirror: THE REAL EXHIBIT + your name; 2 questions
+     - fourwings     Gallery main attraction: the floor plan in four habit wings; put six badges in the wing they trained; 2 questions
+     - earthview     Gallery source room: NASA's Western Hemisphere with six numbered rings; find North America, the Caribbean, Florida; what it can't show
+     - finbanner     Workroom: root fin; each right word unrolls one piece of the banner over the doors (GRAND OPENING)
+     - reflectsix    Exhibit Floor (Curator Task): the four reflection boxes one at a time in the step, then the sixth slide (Who I became) in the studio
+     - doorsopen     Exhibit Floor (after the Chronicle): open the doors; the community walks past your six slides; 11 room lights; the badge */
+
+  var RF_API = null, RF_WAIT = [];
+  function rfReady(fn){ if (RF_API) fn(RF_API); else RF_WAIT.push(fn); }
+  function person114(shirt, skin, hair, cls){ return '<svg viewBox="0 0 60 150" class="'+(cls || '')+'" aria-hidden="true"><ellipse cx="30" cy="146" rx="18" ry="3.5" fill="rgba(0,0,0,.18)"/><rect x="21" y="96" width="7" height="48" rx="3" fill="#33415E"/><rect x="32" y="96" width="7" height="48" rx="3" fill="#33415E"/><path d="M15 60 Q30 50 45 60 L47 100 L13 100 Z" fill="'+shirt+'"/><rect x="9" y="62" width="7" height="34" rx="3.5" fill="'+shirt+'"/><rect x="44" y="62" width="7" height="34" rx="3.5" fill="'+shirt+'"/><circle cx="30" cy="40" r="13" fill="'+skin+'"/><path d="M17 38 Q19 22 30 23 Q42 22 43 38 Q40 30 30 30 Q21 30 17 38 Z" fill="'+hair+'"/><circle cx="25.5" cy="41" r="1.6" fill="#222"/><circle cx="34.5" cy="41" r="1.6" fill="#222"/><path d="M25.5 47 Q30 50 34.5 47" stroke="#7A3B2E" stroke-width="1.6" fill="none"/></svg>'; }
+
+  /* ══ MODULE: directorwords (Lobby · the director's words; the mirror) ══ */
+  function modDirectorwords(cfg){
+    var anchor = $(cfg.anchor || '#panel-scene .ms-sign'); if (!anchor) return;
+    var L = cfg.lines || [], N = 3; ST.dw = ST.dw || {i:0, heard:false, q1:false, q2:false}; var S = ST.dw;
+    var m = shell('ms-dw-mod', cfg);
+    var crowd = [['#1E8C8C','#C98E62','#2A1A10'], ['#C0504D','#E8B896','#4A3020'], ['#5B7DB1','#8A5A3A','#1E1410'], ['#F2C14E','#D9A37E','#6A4A2A']];
+    m.insertAdjacentHTML('beforeend', '<div class="ms-dw-wrap"><div class="ms-dw-stage"><div class="ms-dw-dir"><div class="bub" aria-live="polite"></div>' + person114('#14213D', '#B57B54', '#3A2A1A', 'dir') + '<span class="vt">'+esc(cfg.dirT)+'</span></div>' +
+      '<div class="ms-dw-mir"><div class="fr"><div class="gl"><b>'+esc(cfg.mirrorT)+'</b><span class="nm"></span></div></div><i class="st"></i></div>' +
+      '<div class="ms-dw-crowd">' + crowd.map(function(c, j){ return '<span class="p p'+j+'">'+person114(c[0], c[1], c[2])+'</span>'; }).join('') + '</div>' +
+      '<div class="ms-dw-spot"></div><div class="floor"></div></div><div class="ms-dw-act" aria-live="polite"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-dw-act', m), stg = $('.ms-dw-stage', m), bub = $('.ms-dw-dir .bub', m);
+    function nm(){ var n = sget(NAMEK, ''); return n ? String(n).slice(0, 22) : cfg.youT; }
+    function view(){ var k = Math.min(S.i, L.length) - 1; bub.textContent = k >= 0 ? L[k] : ''; bub.classList.toggle('on', k >= 0);
+      $('.ms-dw-mir .nm', m).textContent = nm(); stg.classList.toggle('mirror', S.i > (cfg.mirrorAt || 3)); }
+    function render(){ view();
+      if (!S.heard) { var last = S.i >= L.length;
+        act.innerHTML = stepCard(1, N, cfg.s1T, '<p class="ms-dw-ct">'+(S.i ? 'Line '+Math.min(S.i, L.length)+' of '+L.length : '')+'</p>' + (S.i ? '<blockquote class="ms-cl-line"><b>Director:</b> "'+esc(L[S.i - 1])+'"</blockquote>' : '') +
+          '<button type="button" class="ms-btn big ms-dw-b">'+esc(last ? cfg.lastB : cfg.nextB)+'</button>');
+        $('.ms-dw-b', act).onclick = function(){ if (S.i >= L.length) { S.heard = true; save(); SFX.chime(); render(); return; }
+          S.i++; save(); SFX.click(); if (S.i === (cfg.mirrorAt || 3) + 1) { SFX.glass(); if (!calm()) { stg.classList.add('swing'); setTimeout(function(){ stg.classList.remove('swing'); }, 1600); } bdSee(stg); }
+          render(); }; return; }
+      if (!S.q1) { var c1 = choiceQ(cfg.q1, 1, function(){ S.q1 = true; save(); setTimeout(render, calm() ? 0 : 900); }); act.innerHTML = stepCard(2, N, cfg.q1.title, c1.html); c1.bind(act); return; }
+      if (!S.q2) { var c2 = choiceQ(cfg.q2, 2, function(){ S.q2 = true; save(); SFX.fanfare(); markDone('scene'); setTimeout(render, calm() ? 0 : 1100); }); act.innerHTML = stepCard(3, N, cfg.q2.title, c2.html); c2.bind(act); return; }
+      act.innerHTML = '<div class="ms-win show">'+(cfg.doneT || '')+'</div>';
+    }
+    render(); if (S.q2) markDone('scene');
+  }
+
+  /* ══ MODULE: fourwings (Gallery · the floor plan in four habit wings; place six badges) ══ */
+  function modFourwings(cfg){
+    var anchor = $(cfg.anchor || '#panel-explore .callout-think'); if (!anchor) return;
+    var H = cfg.habits || [], B = cfg.badges || [], NB = B.length, N = NB + 2;
+    ST.hw = ST.hw || {i:0, q1:false, q2:false}; var S = ST.hw;
+    var m = shell('ms-hw-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-hw-wrap"><div class="ms-hw-plan">' + H.map(function(h, j){ return '<div class="wg w'+j+'" data-k="'+h.k+'" role="button" tabindex="0" style="--wc:'+h.color+'"><div class="hd"><span>'+h.ic+'</span>'+esc(h.n)+'</div><div class="bs"></div></div>'; }).join('') +
+      '<div class="hub"><b>'+esc(cfg.hubT)+'</b><div class="ms-hw-card" aria-live="polite"></div></div></div><div class="ms-hw-act"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-hw-act', m), plan = $('.ms-hw-plan', m), card = $('.ms-hw-card', m), W = $$('.wg', plan);
+    function hab(k){ return H.filter(function(h){ return h.k === k; })[0]; }
+    function view(){ W.forEach(function(w){ var k = w.dataset.k, got = B.slice(0, S.i).filter(function(b){ return b.h === k; });
+        $('.bs', w).innerHTML = got.map(function(b){ return '<span class="bg" title="'+esc(b.b)+'"><i>'+b.ic+'</i>'+esc(b.room)+'</span>'; }).join('');
+        w.classList.toggle('lit', S.i >= NB || got.length > 0); w.classList.toggle('full', S.i >= NB); });
+      var b = B[S.i]; card.innerHTML = b ? '<span class="ic">'+b.ic+'</span><b>'+esc(b.b)+'</b><small>'+esc(b.room)+'</small>' : '<span class="ic">🏛️</span><b>All six placed</b>'; plan.classList.toggle('done', S.i >= NB); }
+    function place(k){ if (S.i >= NB) return; var b = B[S.i], fb = $('.ms-exfb', act);
+      if (k !== b.h) { SFX.miss(); if (fb) fb.innerHTML = '<div class="ms-notyet">🤔 '+esc((cfg.missT || '').replace('{room}', b.room).replace('{did}', b.did))+'</div>'; return; }
+      SFX.chime(); var w = plan.querySelector('.wg[data-k="'+k+'"]'); if (!calm()) { w.classList.remove('pop'); void w.offsetWidth; w.classList.add('pop'); }
+      S.i++; save(); render(); }
+    W.forEach(function(w){ w.addEventListener('click', function(){ place(w.dataset.k); }); w.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); place(w.dataset.k); } }); });
+    function render(){ view();
+      if (S.i < NB) { var b = B[S.i];
+        act.innerHTML = stepCard(S.i + 1, N, (cfg.tapT || '').replace('{n}', S.i + 1).replace('{t}', NB), '<div class="ms-hw-bd"><span>'+b.ic+'</span><div><b>'+esc(b.b)+'</b><small>'+esc(b.room)+': '+esc(b.did)+'</small></div></div><p>Which habit did this room train?</p>' +
+          '<div class="ms-pchoices col">' + H.map(function(h){ return '<button type="button" class="ms-btn ms-hw-o" data-k="'+h.k+'">'+h.ic+' '+esc(h.n)+'</button>'; }).join('') + '</div><div class="ms-exfb" aria-live="polite"></div>');
+        $$('.ms-hw-o', act).forEach(function(o){ o.onclick = function(){ place(o.dataset.k); }; }); return; }
+      if (!S.q1) { var c1 = choiceQ(cfg.q1, 1, function(){ S.q1 = true; save(); setTimeout(render, calm() ? 0 : 900); }); act.innerHTML = stepCard(NB + 1, N, cfg.q1.title, c1.html); c1.bind(act); return; }
+      if (!S.q2) { var c2 = choiceQ(cfg.q2, 2, function(){ S.q2 = true; save(); SFX.fanfare(); ST.gal = ST.gal || {}; ST.gal.wings = 1; save(); galleryCheck(); setTimeout(render, calm() ? 0 : 1100); }); act.innerHTML = stepCard(NB + 2, N, cfg.q2.title, c2.html); c2.bind(act); return; }
+      act.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>';
+    }
+    render(); if (S.q2) galleryCheck();
+  }
+
+  /* ══ MODULE: earthview (Gallery · Earth from space; numbered rings) ══ */
+  function modEarthview(cfg){
+    var anchor = $(cfg.anchor || '#panel-explore .callout-tip'); if (!anchor) return;
+    var Q = cfg.qs || [], N = Q.length, RG = cfg.rings || []; ST.ew = ST.ew || {i:0, done:false}; var S = ST.ew;
+    var m = shell('ms-ew-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-ew-wrap"><figure class="ms-ew-pic"><div class="im"><img alt="'+esc(cfg.cap)+'" src="'+img(cfg.img)+'">' +
+      RG.map(function(r){ return '<button type="button" class="rg" data-n="'+r.n+'" style="left:'+(r.x * 100)+'%;top:'+(r.y * 100)+'%" aria-label="Ring '+r.n+'">'+r.n+'</button>'; }).join('') + '</div><figcaption>📷 <b>'+esc(cfg.cap)+'</b><small>'+esc(cfg.credit)+'</small></figcaption></figure><div class="ms-ew-act"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-ew-act', m), pic = $('.ms-ew-pic', m);
+    var POS = [1, 2, 0];
+    function qOf(i){ var q = Q[i]; if (q.q) return q.q; var r = q.opts[0], a = q.opts[1], b = q.opts[2];
+      return q113(q.title, q.text, POS[i % 3], ['Ring ' + r[0] + '.', r[1]], ['Ring ' + a[0] + '.', a[1]], ['Ring ' + b[0] + '.', b[1]]); }
+    function render(){
+      $$('.rg', pic).forEach(function(b){ b.classList.toggle('hide', S.done || !!(Q[S.i] && Q[S.i].q)); b.classList.remove('ok', 'no'); });
+      if (S.done) { act.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>'; return; }
+      var q = qOf(S.i), cq = choiceQ(q, S.i, function(){ var r = Q[S.i].ring; if (r) { var rb = pic.querySelector('.rg[data-n="'+r+'"]'); if (rb) rb.classList.add('ok'); }
+        setTimeout(function(){ if (S.i + 1 < N) { S.i++; save(); render(); return; } S.done = true; save(); ST.gal = ST.gal || {}; ST.gal.earth = 1; save(); SFX.fanfare(); render(); galleryCheck(); }, calm() ? 0 : 1100); });
+      act.innerHTML = stepCard(S.i + 1, N, q.title, cq.html); cq.bind(act);
+    }
+    $$('.rg', pic).forEach(function(b){ b.onclick = function(){ var t = 'Ring ' + b.dataset.n + '.'; var o = $$('.ms-choice', act).filter(function(x){ return x.textContent.trim().slice(-t.length) === t; })[0];
+      if (o) o.click(); else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); var fb = $('.ms-exfb', act); if (fb && !act.querySelector('.ms-choice.ok')) fb.innerHTML = '<div class="ms-notyet">🤔 That ring is not one of the three choices. Look at the buttons.</div>'; } }; });
+    render(); if (S.done) galleryCheck();
+  }
+
+  /* ══ MODULE: finbanner (Workroom · root fin; the banner over the doors unrolls) ══ */
+  function modFinbanner(cfg){
+    var anchor = $(cfg.anchor || '#panel-check .quiz-card'); if (!anchor) return;
+    var L = cfg.lines || []; ST.fb = ST.fb || {i:0, ok:false}; var S = ST.fb;
+    var m = shell('ms-fb-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-wr-card"><span class="ms-wr-root">'+esc(cfg.root)+'</span><span class="ms-wr-eq">=</span><span class="ms-wr-mean">'+esc(cfg.means)+'</span></div>' +
+      '<div class="ms-fb-ban" aria-hidden="true"><div class="top">'+esc(cfg.topT)+'</div><div class="rod"></div><div class="segs">'+L.map(function(l, j){ return '<div class="sg s'+j+'"><span></span></div>'; }).join('')+'</div><div class="doors"><i></i><i></i></div></div><div class="ms-fb-act" aria-live="polite"></div>');
+    after(anchor, m);
+    var act = $('.ms-fb-act', m), ban = $('.ms-fb-ban', m);
+    function told(){ window._rootMatchDone = S.i >= L.length; if (typeof window.gatherAnswers === 'function') try { window.gatherAnswers(); } catch(e){} }
+    function mark(w){ var k = w.toLowerCase().indexOf(cfg.root); return k < 0 ? esc(w) : esc(w.slice(0, k)) + '<b>' + esc(w.slice(k, k + cfg.root.length)) + '</b>' + esc(w.slice(k + cfg.root.length)); }
+    function paint(fresh){ var n = S.i + (S.ok ? 1 : 0);
+      $$('.sg', ban).forEach(function(s, j){ var on = j < n; s.classList.toggle('on', on); $('span', s).innerHTML = on ? mark(L[j].w.toUpperCase()) : ''; if (on && fresh && j === n - 1 && !calm()) { s.classList.remove('un'); void s.offsetWidth; s.classList.add('un'); } });
+      ban.classList.toggle('all', n >= L.length); }
+    function render(fresh){ told(); paint(fresh);
+      if (S.i >= L.length) { act.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>'; return; }
+      var l = L[S.i], body = '<div class="ms-es-word">🎀 '+esc(l.s).replace('___', S.ok ? '<u>'+esc(l.w)+'</u>' : '<u>______</u>')+'</div><p>Which <b>'+esc(cfg.root)+'</b> word fills the blank?</p>' +
+        '<div class="ms-pchoices">'+l.opts.map(function(o, k){ return '<button type="button" class="ms-btn ms-fb-o'+(S.ok && o === l.w ? ' ok' : '')+'" data-k="'+k+'">'+esc(o)+'</button>'; }).join('')+'</div><div class="ms-exfb" aria-live="polite">'+(S.ok ? '<div class="ms-vd-thanks">✅ '+esc(l.ok)+'</div>' : '')+'</div>';
+      if (S.ok) body += '<button type="button" class="ms-btn big ms-fb-nx">'+(S.i + 1 < L.length ? 'Next word ➡️' : 'Hang the banner ✓')+'</button>';
+      act.innerHTML = stepCard(S.i + 1, L.length, 'Word '+(S.i + 1)+' of '+L.length, body);
+      $$('.ms-fb-o', act).forEach(function(b){ b.onclick = function(){ var o = l.opts[+b.dataset.k];
+        if (o === l.w) { if (!S.ok) { SFX.chime(); S.ok = true; save(); render(true); } } else { SFX.miss(); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if (!S.ok) $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🤔 '+esc(l.fb)+'</div>'; } }; });
+      var nx = $('.ms-fb-nx', act); if (nx) nx.onclick = function(){ SFX.click(); S.i++; S.ok = false; save(); if (S.i >= L.length) SFX.fanfare(); render(); };
+    }
+    render();
+  }
+
+  /* ══ MODULE: reflectsix (Exhibit Floor · the Curator Task: four reflection prompts one at a time, then the sixth slide) ══ */
+  function modReflectsix(cfg){
+    var TA = (cfg.ta || []).map(function(id){ return document.getElementById(id); }).filter(Boolean); if (TA.length !== (cfg.ta || []).length || !TA.length) return;
+    var blk = TA[0].closest('.activity-body'); if (!blk) return;
+    var MIN = cfg.minWords || 5, HB = cfg.habits || [], NT = TA.length, N = NT + 1;
+    ST.rf = ST.rf || {step:1}; var S = ST.rf;
+    var homes = TA.map(function(t){ var h = document.createComment('rf-home'); t.parentNode.insertBefore(h, t); return h; });
+    function goHome(){ TA.forEach(function(t, i){ if (t.previousSibling !== homes[i]) homes[i].parentNode.insertBefore(t, homes[i].nextSibling); }); }
+    var m = shell('ms-rf-mod', cfg);
+    m.insertAdjacentHTML('beforeend', '<div class="ms-rf-act" aria-live="polite"></div><div class="ms-rf-studio" hidden><div class="msst" id="msst-root"><p class="msst-load">'+esc(cfg.loadT || '')+'</p></div></div>');
+    var p0 = blk.querySelector('p'); if (p0 && p0.nextSibling) blk.insertBefore(m, p0.nextSibling); else blk.insertBefore(m, blk.firstChild);
+    blk.classList.add('ms-rf-blk'); $$('p, .textbox-prompt', blk).forEach(function(e){ if (!m.contains(e)) e.classList.add('ms-hide-on'); });
+    var act = $('.ms-rf-act', m), box = $('.ms-rf-studio', m), api = null;
+    function okT(i){ return words113(TA[i].value) >= MIN; }
+    function cnt(i){ var w = words113(TA[i].value); return '📝 ' + esc((cfg.countT || '{w} words').replace('{w}', w)) + (w >= MIN ? ' ✓' : ' · ' + esc((cfg.needT || 'at least {n}').replace('{n}', MIN))); }
+    function reflOk(){ return TA.every(function(t, i){ return okT(i); }); }
+    function allOk(){ return reflOk() && api && api.ready() && api.ok(5); }
+    window.MS_RF_STATE = function(){ return {refl: reflOk(), api: api, firstMissing: TA.map(function(t, i){ return okT(i); }).indexOf(false)}; };
+    TA.forEach(function(t, i){ t.addEventListener('input', function(){ var c = act.querySelector('.ms-rf-cnt'); if (c && S.step === i + 1) { c.innerHTML = cnt(i); c.classList.toggle('good', okT(i)); }
+      var sb = act.querySelector('.ms-rf-start'); if (sb && t.value.trim()) sb.remove(); if (typeof window.MS_OP_REFRESH === 'function') window.MS_OP_REFRESH(); }); });
+    function render(){
+      if (S.step <= NT) { var i = S.step - 1, h = HB[i] || {}, t = TA[i]; box.hidden = true; goHome();
+        act.innerHTML = stepCard(S.step, N, (cfg.stepT || '').replace('{n}', S.step).replace('{name}', h.n || ''), '<p class="ms-rf-h" style="--wc:'+(h.color || '#1E8C8C')+'">'+(h.ic || '')+' <b>'+esc(h.n || '')+'</b></p><p class="ms-rf-say">'+esc((cfg.says || [])[i] || '')+'</p>' +
+          (!t.value.trim() ? '<button type="button" class="ms-btn alt ms-rf-start">✏️ '+esc(cfg.startB)+' '+esc((cfg.starters || [])[i] || '')+'…</button>' : '') + '<div class="ms-rf-slot"></div><div class="ms-rf-cnt'+(okT(i) ? ' good' : '')+'">'+cnt(i)+'</div>' +
+          '<div class="ms-exbtns">'+(S.step > 1 ? '<button type="button" class="ms-btn alt ms-rf-bk">◂ Back</button>' : '')+'<button type="button" class="ms-btn big ms-rf-nx">'+esc(S.step < NT ? cfg.nextB : cfg.toSlideB)+'</button></div><div class="ms-exfb" aria-live="polite"></div>');
+        $('.ms-rf-slot', act).appendChild(t);
+        var sb = $('.ms-rf-start', act); if (sb) sb.onclick = function(){ t.value = (cfg.starters || [])[i] || ''; t.dispatchEvent(new Event('input', {bubbles:true})); try { if (typeof window.autoSave === 'function') window.autoSave(t, 'dot-' + cfg.ta[i].replace('journal-', '')); } catch(e){} t.focus({preventScroll:true}); t.setSelectionRange(t.value.length, t.value.length); };
+        var bk = $('.ms-rf-bk', act); if (bk) bk.onclick = function(){ S.step--; save(); render(); };
+        $('.ms-rf-nx', act).onclick = function(){ if (!okT(i)) { SFX.miss(); $('.ms-exfb', act).innerHTML = '<div class="ms-notyet">🔎 '+esc((cfg.notYetT || '').replace('{n}', MIN))+'</div>'; return; }
+          SFX.chime(); S.step++; save(); render(); if (S.step > NT) { var r = m.getBoundingClientRect(); if (r.top < 0) m.scrollIntoView({block:'start', behavior: calm() ? 'auto' : 'smooth'}); } };
+        return; }
+      goHome(); box.hidden = false; mount();
+      var done = allOk();
+      act.innerHTML = stepCard(N, N, cfg.slideT, '<p>'+esc(cfg.slideP)+'</p><p class="ms-rf-ch">'+esc(cfg.chipsT)+'</p><div class="ms-pchoices">' + HB.map(function(h){ return '<button type="button" class="ms-btn alt ms-rf-chip" data-k="'+h.k+'">'+h.ic+' '+esc(h.n)+'</button>'; }).join('') + '</div>' +
+        (done ? '<div class="ms-vd-thanks">'+esc(cfg.doneT)+'</div>' : '') + '<div class="ms-exbtns"><button type="button" class="ms-btn alt ms-rf-bk">'+esc(cfg.backT)+'</button></div>');
+      $('.ms-rf-bk', act).onclick = function(){ S.step = NT; save(); render(); };
+      $$('.ms-rf-chip', act).forEach(function(c){ c.onclick = function(){ rfReady(function(a){ if (!a.ready()) return; var sl = a.slides()[5]; if (!sl) return;
+        var t = (cfg.chipStart || '').replace('{h}', (cfg.chipH || {})[c.dataset.k] || '');
+        if (!sl.text.trim() || /^I became a young geographer-citizen who [a-z ]+ because\s*$/.test(sl.text)) { sl.text = t; sl.st = 2; }
+        SFX.click(); a.go(5); var ta = document.getElementById('msst-text'); if (ta) { ta.focus({preventScroll:true}); ta.setSelectionRange(ta.value.length, ta.value.length); } }); }; });
+    }
+    function mount(){ if (api) return; function go(){ if (!window.MSStudio || api) return; var r2 = $('#msst-root', m); r2.innerHTML = '';
+        api = window.MSStudio.mount(r2, Object.assign({lesson: DATA.lesson}, cfg.studio || {}), {img: img, name: function(){ return sget(NAMEK, '') || ''; }, setName: function(v){ sset(NAMEK, v); }, calm: calm,
+          change: function(){ if (S.step > NT) { var d = act.querySelector('.ms-vd-thanks'); if (!!d !== !!allOk()) render(); } if (typeof window.MS_OP_REFRESH === 'function') window.MS_OP_REFRESH(); },
+          slideDone: function(){ render(); }, sfx: function(k){ try { (SFX[k === 'win' ? 'chime' : k] || SFX.click)(); } catch(e){} }});
+        RF_API = api; RF_WAIT.splice(0).forEach(function(fn){ fn(api); }); }
+      if (!document.querySelector('link[data-msst],style[data-msst]')) { var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = cfg.css || 'assets/sparkle/ms-studio.css'; l.dataset.msst = 1; document.head.appendChild(l); }
+      if (window.MSStudio) go(); else { var sc = document.createElement('script'); sc.src = cfg.js || 'assets/sparkle/ms-studio.js'; sc.onload = go; sc.onerror = function(){ $('#msst-root', m).innerHTML = '<p class="msst-load">'+esc(cfg.failT || '')+'</p>'; }; document.head.appendChild(sc); } }
+    new MutationObserver(function(){ if (!root.classList.contains('ms-on')) goHome(); else render(); }).observe(root, {attributes:true, attributeFilter:['class']});
+    render(); mount();
+  }
+
+  /* ══ MODULE: doorsopen (Exhibit Floor · open the doors; the community; 11 room lights; the badge) ══ */
+  function modDoorsopen(cfg){
+    var chron = document.getElementById('journal-chronicle'); var anchor = chron && chron.closest('.activity'); if (!anchor) return;
+    ST.op = ST.op || {open:false}; var S = ST.op, NR = cfg.n || 11;
+    var m = shell('ms-op-mod ms-exhibit-mod', cfg);
+    var crowd = [['#C0504D','#E8B896','#4A3020'], ['#F2C14E','#8A5A3A','#1E1410'], ['#5B7DB1','#D9A37E','#9A9A9A'], ['#2E8B57','#C98E62','#2A1A10'], ['#8B6FC0','#E8B896','#B5651D']];
+    var lights = ''; for (var k = 0; k < NR; k++) lights += '<i style="--d:'+(k * 160)+'ms">'+(k + 1)+'</i>';
+    m.insertAdjacentHTML('beforeend', '<div class="ms-op-wrap"><div class="ms-op-stage"><div class="lights"><b>'+esc(cfg.roomsT)+'</b>'+lights+'</div>' +
+      '<div class="ms-op-folder"><span class="f">🗂️</span><img class="bdg" alt="" src="'+img('th-3-11-04-badge.jpg')+'"><small>'+esc(cfg.badgeT)+'</small></div><div class="ms-op-in">' + panelHTML(cfg, 'ms-op') + '</div>' +
+      '<div class="ms-op-door"><div class="out"><span class="sun"></span><span class="ot">'+esc(cfg.outT)+'</span>' + crowd.map(function(c, j){ return '<span class="p p'+j+'">'+person114(c[0], c[1], c[2])+'</span>'; }).join('') + '</div><i class="lf"></i><i class="rt"></i><div class="bub" aria-live="polite"></div></div><div class="floor"></div></div>' +
+      '<div class="ms-op-act" aria-live="polite"></div><div class="ms-op-end"></div></div>');
+    after(anchor, m);
+    var act = $('.ms-op-act', m), end = $('.ms-op-end', m), stg = $('.ms-op-stage', m), panel = $('.ms-op-panel', m);
+    function view(a){ $('.np b', panel).textContent = plateName(cfg); stg.classList.toggle('open', !!S.open);
+      $$('.fr', panel).forEach(function(f, i){ var u = a && a.ready() ? a.picSrc(i) : ''; var o = $('.in', f); o.style.backgroundImage = u ? 'url("'+u+'")' : ''; f.classList.toggle('on', !!u); });
+      $('.ms-op-door .bub', m).textContent = S.open ? cfg.sayT : ''; }
+    function msg(h){ var fb = $('.ms-exfb', act); if (fb) fb.innerHTML = h; }
+    function render(){ var a = RF_API; view(a);
+      if (!S.open) { act.innerHTML = stepCard(1, 2, cfg.s1T, '<p>'+esc(cfg.s1)+'</p><button type="button" class="ms-btn big ms-op-b1">'+esc(cfg.goB)+'</button><div class="ms-exfb"></div>'); end.innerHTML = '';
+        $('.ms-op-b1', act).onclick = function(){ var st = window.MS_RF_STATE ? window.MS_RF_STATE() : null, F = cfg.frames || [];
+          var goTo = function(){ var b = $('.ms-op-go', act); if (b) b.onclick = function(){ var t = $('.ms-rf-mod'); if (t) t.scrollIntoView({behavior: calm() ? 'auto' : 'smooth', block:'start'}); }; };
+          if (!st || !st.refl) { SFX.miss(); if (st) { ST.rf = ST.rf || {}; ST.rf.step = Math.max(1, st.firstMissing + 1); save(); } msg('<div class="ms-notyet">🔎 '+esc(cfg.notReflT)+' <button type="button" class="ms-btn alt ms-op-go">'+esc(cfg.goB2)+'</button></div>'); goTo(); return; }
+          var A = st.api; if (!A || !A.done()) { SFX.miss(); var k = 0; while (A && A.ready() && k < F.length - 1 && A.ok(k)) k++; if (A && A.ready()) A.go(k);
+            msg('<div class="ms-notyet">🔎 '+esc((cfg.notSlidesT || '').replace('{n}', k + 1).replace('{name}', F[k] || ''))+' <button type="button" class="ms-btn alt ms-op-go">'+esc(cfg.goB2)+'</button></div>'); goTo(); return; }
+          S.open = true; save(); SFX.fanfare(); if (!calm()) { stg.classList.add('opening'); setTimeout(function(){ stg.classList.remove('opening'); }, 3400); }
+          render(); bdSee(stg); if (!calm() && typeof window.fireConfetti === 'function') setTimeout(function(){ try { window.fireConfetti(); } catch(e){} }, 2000); optiNod('assignment'); check(); }; return; }
+      act.innerHTML = stepCard(2, 2, cfg.s2T, '<p>'+esc(cfg.s2)+'</p><div class="ms-exbtns col"><button type="button" class="ms-btn ms-op-pr">'+esc(cfg.presentB)+'</button><button type="button" class="ms-btn alt ms-op-vid">'+esc(cfg.videoB)+'</button><button type="button" class="ms-btn alt ms-op-dl">'+esc(cfg.dlB)+'</button><button type="button" class="ms-btn alt ms-op-print">'+esc(cfg.printB)+'</button></div>');
+      end.innerHTML = '<div class="ms-win show">'+(cfg.win || '')+'</div>';
+      $('.ms-op-pr', act).onclick = function(){ if (a) a.present(); }; $('.ms-op-vid', act).onclick = function(){ if (a) a.movie(); };
+      var dl = $('.ms-op-dl', act); dl.onclick = function(){ if (!a) return; dl.disabled = true; dl.textContent = cfg.busyT || '⏳'; a.download(); setTimeout(function(){ dl.disabled = false; dl.textContent = cfg.dlB; }, 4000); };
+      $('.ms-op-print', act).onclick = function(){ if (a) a.print(); };
+    }
+    window.MS_OP_REFRESH = function(){ view(RF_API); };
+    rfReady(function(){ render(); });
+    var its = $$('#panel-assignment .turn-in-item');
+    function on(i){ return /checked|done|active|complete/.test(i.className); }
+    function check(){ if (S.open && its.length && its.every(on)) markDone('assignment'); }
+    its.forEach(function(i){ i.addEventListener('click', function(){ setTimeout(check, 0); }); });
+    render(); check();
+  }
+
+  var MODS = { cart: modCart, relief: modRelief, reliefsrc: modReliefsrc, rain: modRain, crates: modCrates, timecase: modTimecase, dial: modDial, wind: modWind, cases: modCases, exhibit: modExhibit, galintro: modGalintro, cultcart: modCultcart, timerail: modTimerail, cultmap: modCultmap, visitors: modVisitors, wordroot: modWordroot, caseex: modCaseex, tokens: modTokens, towntable: modTowntable, magnify: modMagnify, pinmap: modPinmap, storypin: modStorypin, wallpanels: modWallpanels, threads: modThreads, langmap: modLangmap, compare2: modCompare2, findstate: modFindstate, lighttable: modLighttable, landmarks: modLandmarks, nightmap: modNightmap, directory: modDirectory, cratepin: modCratepin, seasons: modSeasons, oldmtn: modOldmtn, harbor: modHarbor, nelabel: modNelabel, wxtwin: modWxtwin, storm: modStorm, sponge: modSponge, twinlab: modTwinlab, shelf: modShelf, window: modWindow, lakes5: modLakes5, mwlabel: modMwlabel, rainjars: modRainjars, canyon: modCanyon, walls: modWalls, swsign: modSwsign, akhi: modAkhi, rainshadow: modRainshadow, hotspot: modHotspot, westfinale: modWestfinale, radio: modRadio, tapedeck: modTapedeck, newspaper: modNewspaper, onair: modOnair, who: modWho, cwall: modCwall, syllabary: modSyllabary, founder: modFounder, evcards: modEvcards, ledger: modLedger, evop: modEvop, council: modCouncil, sealq: modSealq, river: modRiver, weigh: modWeigh, recommend: modRecommend, breadline: modBreadline, choicebasket: modChoicebasket, dayring: modDayring, hallopen: modHallopen, twotables: modTwotables, traderoad: modTraderoad, tradesort: modTradesort, fairtrade: modFairtrade, wrongbooth: modWrongbooth, backpack: modBackpack, coinring: modCoinring, boothsigns: modBoothsigns, barter: modBarter, testbench: modTestbench, trustswitch: modTrustswitch, chococase: modChococase, snackstand: modSnackstand, exchtrip: modExchtrip, islandmap: modIslandmap, neighborpanels: modNeighborpanels, growtest: modGrowtest, routemap: modRoutemap, breakfast: modBreakfast, shiptag: modShiptag, toystand: modToystand, decboard: modDecboard, freepuppy: modFreepuppy, mytiles: modMytiles, honestybox: modHonestybox, twomarkets: modTwomarkets, inspector: modInspector, plaque: modPlaque, corner: modCorner, fixtown: modFixtown, townjar: modTownjar, firstlabel: modFirstlabel, recess: modRecess, powerflip: modPowerflip, korp: modKorp, caselamp: modCaselamp, wordbuild: modWordbuild, ballot: modBallot, envelope: modEnvelope, whichfloor: modWhichfloor, schoolxray: modSchoolxray, threebldg: modThreebldg, loctrain: modLoctrain, plaques: modPlaques, nameland: modNameland, greenbook: modGreenbook, spotfix: modSpotfix, heroniche: modHeroniche, bloombranch: modBloombranch, flcase: modFlcase, curtain: modCurtain, fairmachine: modFairmachine, checkin: modCheckin, flagsrules: modFlagsrules, pollphoto: modPollphoto, electstamp: modElectstamp, boothlabel: modBoothlabel, fadewall: modFadewall, hangline: modHangline, parade: modParade, served: modServed, flagcount: modFlagcount, memorfade: modMemorfade, yearlights: modYearlights, dustyplaque: modDustyplaque, weekpolish: modWeekpolish, dayservice: modDayservice, tagphoto: modTagphoto, signup: modSignup, heartplaque: modHeartplaque, shadowwall: modShadowwall, fourpillars: modFourpillars, bravechoices: modBravechoices, thirteens: modThirteens, unistars: modUnistars, onebadge: modOnebadge, badgefolder: modBadgefolder, offthewall: modOffthewall, noborder: modNoborder, nameplate: modNameplate, exhibitplan: modExhibitplan, planframes: modPlanframes, fixslide: modFixslide, exhibitstudio: modExhibitstudio, hangpanel: modHangpanel, guidesteps: modGuidesteps, catchline: modCatchline, showsnot: modShowsnot, audioguide: modAudioguide, guidestudio: modGuidestudio, bowfinale: modBowfinale, directorwords: modDirectorwords, fourwings: modFourwings, earthview: modEarthview, finbanner: modFinbanner, reflectsix: modReflectsix, doorsopen: modDoorsopen, globe: modGlobe, wallmap: modWallmap, spacemap: modSpacemap, sizescale: modSizescale };
 
   function bindSay(){
     document.addEventListener('click', function(e){

@@ -7,6 +7,11 @@
    One key, oao.ms.studio: .plan comes from 3.11_01 (or is picked right here when it is missing), .slides are added here.
    3.11_03 can PRESENT the same slides (cfg.mode 'show', cfg.present: present mode, a voice per slide kept in memory
    only, Make my video), ported unchanged from ff-studio.js.
+   Added for 3.11_03 (hooks; nothing changes without them): H.slot(i, el) puts the lesson's script box for slide i in the
+   show view; H.notes(i) = the presenter's notes under the slide in present mode; H.doorAv() = the reacting visitor;
+   H.canPresent() = {i, t} when the show is not ready yet; H.closed(all) when present mode closes.
+   Added for 3.11_04: a lesson that adds a slide (Who I became) keeps the saved slides and adds the new one; cfg.extras +
+   criterion.pics give a slide its own pictures ('hero' = the pack's Welcome photo); criterion.pick0; cfg.startAt.
    No lesson content lives here: everything comes from the lesson's DATA (module type "exhibitstudio").
    Mounted by the Museum layer: MSStudio.mount(root, cfg, hooks) → {done, n, lines, slides, plan, download, …}.
    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════ */
@@ -30,12 +35,14 @@
       (p.sources || []).forEach(function (s) { out.push(BYID[s.id] = { id: s.id, kind: 'src', file: s.file, thumbFile: 'th-3-11-01-' + s.id + '.jpg', cap: s.t + ', ' + s.meta, credit: s.credit, short: s.t }); });
       return out; }
     PK.forEach(bank);
-    function opts(i) { var c = CR[i], b = bank(pack()); return b.filter(function (x) { return c.k === 'map' ? x.kind === 'map' : x.kind === 'src'; }); }
+    (ST.extras || []).forEach(function (x) { BYID[x.id] = { id: x.id, kind: 'extra', file: x.file, thumbFile: x.thumbFile, cap: x.cap, credit: x.credit, short: x.short }; });
+    function opts(i) { var c = CR[i]; if (c.pics) { var pp = pack(); return c.pics.map(function (id) { return BYID[id === 'hero' ? (pp && pp.hero) : id]; }).filter(Boolean); } var b = bank(pack()); return b.filter(function (x) { return c.k === 'map' ? x.kind === 'map' : x.kind === 'src'; }); }
     function idxOf(arr, t) { for (var j = 0; j < arr.length; j++) if (arr[j] === t || (arr[j] && t && arr[j].v && arr[j].v === t.v)) return j; return 0; }
     /* first picture for each slide, from the plan */
     function defaults() { var p = pack(), pl = S.plan; if (!p) return [];
       var ci = idxOf(p.comms, pl.comm), vi = idxOf(p.virtues, pl.virtue);
       return CR.map(function (c) {
+        if (c.pick0) return c.pick0;
         if (c.k === 'welcome') return p.hero;
         if (c.k === 'map') return 'map-' + p.k + '-' + ((pl.map && pl.map.k) || p.maps[0].k);
         if (c.k === 'source') return (pl.source && pl.source.id) || p.sources[0].id;
@@ -44,8 +51,9 @@
         return null; }); }
     function fresh() { var d = defaults(); S.slides = CR.map(function (c, i) { return { text: '', img: d[i] || null, st: 1 }; }); S.slidesFor = S.plan.place; S.cur = 0; S.dl = false; }
     function ready() { return !!(S.plan && pack()); }
-    if (ready() && (!S.slides || S.slides.length !== CR.length || S.slidesFor !== S.plan.place)) fresh();
-    cur = Math.min(S.cur || 0, CR.length - 1);
+    if (ready() && (!S.slides || S.slidesFor !== S.plan.place)) fresh();
+    else if (ready() && S.slides.length < CR.length) { var d0 = defaults(); for (var k0 = S.slides.length; k0 < CR.length; k0++) S.slides.push({ text: '', img: d0[k0] || null, st: 1 }); }
+    cur = ST.startAt != null && ready() ? Math.min(ST.startAt, CR.length - 1) : Math.min(S.cur || 0, CR.length - 1);
     function hasAny() { return !!(S.slides && S.slides.some(function (s) { return (s.text || '').trim(); })); }
     function save() { S.v = 2; S.lesson = ST.lesson || ''; try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { if (!warned) { warned = true; toast(ST.fullT || 'Your slides could not be saved in this browser. Download them before you close the page.'); } } if (H.change) H.change(); }
     function toast(m) { var t = document.createElement('div'); t.className = 'msst-toast'; t.setAttribute('role', 'status'); t.innerHTML = esc(m) + '<button type="button" aria-label="Close">✕</button>'; document.body.appendChild(t); t.querySelector('button').onclick = function () { t.remove(); }; setTimeout(function () { t.remove(); }, 6000); }
@@ -104,6 +112,7 @@
 
     /* ---------- the studio: five slides, three steps each, one step at a time ---------- */
     function draw() {
+      if (H.slot) H.slot(-1);
       if (ST.mode === 'show' && !editing) { drawShow(); return; }
       if (!ready()) { drawPlan(); return; }
       var s = S.slides[cur], c = CR[cur], n = nDone(), st = s.st || 1, T = ST.stepsT || ['Pick the picture', 'Write your words', 'Slide ready'];
@@ -166,15 +175,16 @@
       var meter = '<div class="msst-meter" role="img" aria-label="' + n + ' of ' + CR.length + ' slides ready">' + CR.map(function (x, i) { return '<i class="' + (slideOk(i) ? 'on' : '') + '" title="' + esc(x.name) + '">' + esc(x.icon || '') + '</i>'; }).join('') + '<span>' + n + ' of ' + CR.length + ' ' + esc(ST.readyT || 'slides ready') + '</span></div>';
       var rail = '<div class="msst-rail" role="tablist" aria-label="My slides">' + CR.map(function (x, i) { return '<button type="button" role="tab" class="msst-th' + (i === cur ? ' cur' : '') + (slideOk(i) ? ' ok' : '') + (REC[i] ? ' rec' : '') + '" data-i="' + i + '" aria-selected="' + (i === cur) + '"><span>' + (i + 1) + '</span>' + esc(x.icon || '') + '<small>' + esc(x.short || x.name) + '</small>' + (REC[i] ? '<em aria-label="voice recorded">🎙️</em>' : '') + '</button>'; }).join('') + '</div>';
       var warn = all ? '' : '<p class="msst-ev">🔧 ' + esc((ST.fixT || '{n} of 6 slides are ready. Fix the others before you present: tap Edit my slides.').replace('{n}', n)) + '</p>';
-      root.innerHTML = '<div class="msst-top"><b>' + esc(ST.deckT || 'My exhibit') + (name() ? ' <small>' + esc(ST.byT || 'by') + ' ' + esc(name()) + '</small>' : '') + '</b>' + meter + '</div>' + rail +
-        '<div class="msst-main"><div class="msst-view" aria-live="polite">' + slideHTML(cur) + '</div><div class="msst-tools"><p class="msst-lab">' + esc((ST.slideT || 'Slide') + ' ' + (cur + 1) + ' of ' + CR.length + ': ' + CR[cur].name) + '</p>' + warn + rec() +
+      root.innerHTML = '<div class="msst-top"><b>' + esc(fill(ST.deckT || 'My exhibit')) + (name() ? ' <small>' + esc(ST.byT || 'by') + ' ' + esc(name()) + '</small>' : '') + '</b>' + meter + '</div>' + rail +
+        '<div class="msst-main"><div class="msst-view" aria-live="polite">' + slideHTML(cur) + '</div><div class="msst-tools"><p class="msst-lab">' + esc((ST.slideT || 'Slide') + ' ' + (cur + 1) + ' of ' + CR.length + ': ' + CR[cur].name) + '</p>' + warn + (H.slot ? '<div class="msst-slot"></div>' : '') + rec() +
         '<div class="msst-navrow">' + (cur ? '<button type="button" class="msst-mini" id="msst-prev">◂ ' + esc(ST.slideT || 'Slide') + ' ' + cur + '</button>' : '') + (cur < CR.length - 1 ? '<button type="button" class="msst-mini" id="msst-next">' + esc(ST.nextT || 'Next: slide') + ' ' + (cur + 2) + ' ▸</button>' : '') + '</div></div></div>' +
         '<div class="msst-acts"><button type="button" class="msst-btn gold" id="msst-show"' + (all ? '' : ' aria-disabled="true"') + '>▶ ' + esc(ST.presentT || 'Present') + '</button><button type="button" class="msst-btn" id="msst-vid"' + (all ? '' : ' aria-disabled="true"') + '>🎬 ' + esc(ST.videoT || 'Make my video') + '</button><button type="button" class="msst-btn ghost" id="msst-edit">✏️ ' + esc(ST.editT || 'Edit my slides') + '</button><button type="button" class="msst-btn ghost" id="msst-dl">⬇️ ' + esc(ST.dlT || 'Download my slides') + '</button></div>' +
         '<p class="msst-foot">' + (S.shown ? '✅ ' + esc(ST.shownT || 'You presented your exhibit.') + ' ' : '') + (recN ? '🎙️ ' + esc((ST.recCountT || '{n} of 6 slides have your voice.').replace('{n}', recN)) + ' ' : '') + esc(ST.showFootT || '') + '</p>';
       var q = function (sel) { return root.querySelector(sel); };
+      if (H.slot) H.slot(cur, q('.msst-slot'));
       [].forEach.call(root.querySelectorAll('.msst-th'), function (b) { b.onclick = function () { cur = S.cur = +b.dataset.i; save(); draw(); }; });
       var pv = q('#msst-prev'), nx = q('#msst-next'); if (pv) pv.onclick = function () { cur = S.cur = cur - 1; save(); draw(); }; if (nx) nx.onclick = function () { cur = S.cur = cur + 1; save(); draw(); };
-      q('#msst-show').onclick = function () { if (!all) { toast((ST.fixT || '').replace('{n}', n)); return; } show(); };
+      q('#msst-show').onclick = function () { if (!all) { toast((ST.fixT || '').replace('{n}', n)); return; } var why = H.canPresent && H.canPresent(); if (why) { cur = S.cur = why.i; save(); draw(); toast(why.t); return; } show(); };
       q('#msst-vid').onclick = function () { if (!all) { toast((ST.fixT || '').replace('{n}', n)); return; } movie(); };
       q('#msst-edit').onclick = function () { editing = true; draw(); if (H.change) H.change(); };
       q('#msst-dl').onclick = download;
@@ -199,17 +209,18 @@
 
     /* ---------- present mode (4.13.02) ---------- */
     function show() { var i = 0, left = (ST.minutes || 3) * 60, o = document.createElement('div'); o.className = 'msst-show'; o.setAttribute('role', 'dialog'); o.setAttribute('aria-label', ST.presentT || 'Present');
-      o.innerHTML = '<div class="stage"></div>' + (H.react ? '<div class="door" aria-live="polite"><span class="av" aria-hidden="true">👩‍🏫</span><span class="tx"></span></div>' : '') + '<div class="bar"><button type="button" data-a="prev" aria-label="Previous slide">◂</button><span class="n"></span><button type="button" data-a="next" aria-label="Next slide">▸</button><button type="button" data-a="say" class="say" hidden>🔊 ' + esc(ST.myVoiceT || 'My voice') + '</button><span class="clock"></span><button type="button" data-a="x">✕ Done</button></div>';
+      o.innerHTML = '<div class="stage"></div>' + (H.notes ? '<div class="notes" aria-live="polite"></div>' : '') + (H.react ? '<div class="door' + (H.doorAv ? ' drawn' : '') + '" aria-live="polite"><span class="av" aria-hidden="true">' + (H.doorAv ? H.doorAv() : '👩‍🏫') + '</span><span class="tx"></span></div>' : '') + '<div class="bar">' + (H.notes ? '<button type="button" data-a="notes" class="nb" aria-pressed="true">📝 ' + esc(ST.notesBT || 'My notes') + '</button>' : '') + '<button type="button" data-a="prev" aria-label="Previous slide">◂</button><span class="n"></span><button type="button" data-a="next" aria-label="Next slide">▸</button><button type="button" data-a="say" class="say" hidden>🔊 ' + esc(ST.myVoiceT || 'My voice') + '</button><span class="clock"></span><button type="button" data-a="x">✕ Done</button></div>';
       document.body.appendChild(o); var stage = o.querySelector('.stage'), clock = o.querySelector('.clock');
-      var door = o.querySelector('.door'), dt = 0, au = null, seen = {};
+      var door = o.querySelector('.door'), dt = 0, au = null, seen = {}, notesOn = ST.notesOn !== false, nbox = o.querySelector('.notes');
+      function paintNotes() { if (!nbox) return; var t = String(H.notes(i) || '').trim(); nbox.innerHTML = '<b>📝 ' + esc(ST.notesBT || 'My notes') + ':</b> ' + (t ? esc(t) : '<i>' + esc(ST.noNotesT || 'No notes for this slide yet.') + '</i>'); nbox.hidden = !notesOn; var nb = o.querySelector('.nb'); if (nb) nb.setAttribute('aria-pressed', String(notesOn)); }
       function paint() { stage.innerHTML = slideHTML(i); o.querySelector('.n').textContent = (ST.slideT || 'Slide') + ' ' + (i + 1) + ' of ' + CR.length;
         if (au) { au.pause(); au = null; } var sb = o.querySelector('.say'); sb.hidden = !REC[i]; sb.textContent = '🔊 ' + (ST.myVoiceT || 'My voice');
-        seen[i] = 1; if (door) { door.classList.remove('on'); clearTimeout(dt); var t = H.react(i, S.slides[i], CR[i]); if (t) dt = setTimeout(function () { door.querySelector('.tx').textContent = t; door.classList.add('on'); }, 1100); }
+        paintNotes(); seen[i] = 1; if (door) { door.classList.remove('on'); clearTimeout(dt); var t = H.react(i, S.slides[i], CR[i]); if (t) dt = setTimeout(function () { door.querySelector('.tx').textContent = t; door.classList.add('on'); }, 1100); }
         if (i === CR.length - 1 && Object.keys(seen).length === CR.length && !S.shown) { S.shown = true; save(); if (H.shown) H.shown(); } }
       function tick() { left--; var m = Math.max(0, left); clock.textContent = '⏱ ' + Math.floor(m / 60) + ':' + ('0' + m % 60).slice(-2); clock.classList.toggle('low', m <= 20); if (left === 0) clock.textContent = '⏰ ' + (ST.timeT || 'Time!'); }
-      function close() { clearInterval(tm); clearTimeout(dt); if (au) au.pause(); if (ST.mode === 'show') draw(); document.removeEventListener('keydown', key); if (document.fullscreenElement) document.exitFullscreen().catch(function () {}); o.remove(); }
+      function close() { clearInterval(tm); clearTimeout(dt); if (au) au.pause(); if (ST.mode === 'show') draw(); document.removeEventListener('keydown', key); if (document.fullscreenElement) document.exitFullscreen().catch(function () {}); o.remove(); if (H.closed) H.closed(Object.keys(seen).length === CR.length); }
       function key(e) { if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); i = Math.min(CR.length - 1, i + 1); paint(); } else if (e.key === 'ArrowLeft') { i = Math.max(0, i - 1); paint(); } else if (e.key === 'Escape') close(); }
-      o.addEventListener('click', function (e) { var a = e.target.closest('[data-a]'); if (!a) return; if (a.dataset.a === 'say') { if (!REC[i]) return; if (au) { au.pause(); au = null; a.textContent = '🔊 ' + (ST.myVoiceT || 'My voice'); return; } au = new Audio(REC[i].url); au.onended = function () { au = null; a.textContent = '🔊 ' + (ST.myVoiceT || 'My voice'); }; var pr = au.play(); if (pr && pr.catch) pr.catch(function () {}); a.textContent = '⏸ ' + (ST.myVoiceT || 'My voice'); return; } if (a.dataset.a === 'x') close(); else { i = Math.max(0, Math.min(CR.length - 1, i + (a.dataset.a === 'next' ? 1 : -1))); paint(); } });
+      o.addEventListener('click', function (e) { var a = e.target.closest('[data-a]'); if (!a) return; if (a.dataset.a === 'say') { if (!REC[i]) return; if (au) { au.pause(); au = null; a.textContent = '🔊 ' + (ST.myVoiceT || 'My voice'); return; } au = new Audio(REC[i].url); au.onended = function () { au = null; a.textContent = '🔊 ' + (ST.myVoiceT || 'My voice'); }; var pr = au.play(); if (pr && pr.catch) pr.catch(function () {}); a.textContent = '⏸ ' + (ST.myVoiceT || 'My voice'); return; } if (a.dataset.a === 'notes') { notesOn = !notesOn; paintNotes(); return; } if (a.dataset.a === 'x') close(); else { i = Math.max(0, Math.min(CR.length - 1, i + (a.dataset.a === 'next' ? 1 : -1))); paint(); } });
       document.addEventListener('keydown', key); paint(); left++; tick(); var tm = setInterval(tick, 1000); try { if (o.requestFullscreen) o.requestFullscreen().catch(function () {}); } catch (e) {} }
 
 
@@ -240,6 +251,8 @@
       document.body.appendChild(o); var cv = o.querySelector('canvas'), x = cv.getContext('2d'), bar = o.querySelector('.bar2 i'), msg = o.querySelector('.mkt'), stop = false, mr = null, AC = null, tk = 0;
       o.querySelector('[data-x]').onclick = function () { stop = true; clearInterval(tk); if (mr && mr.state === 'recording') mr.stop(); o.remove(); try { AC && AC.close(); } catch (e) {} };
       var AudioC = window.AudioContext || window.webkitAudioContext; try { AC = AudioC ? new AudioC() : null; } catch (e) { AC = null; } var dest = AC && AC.createMediaStreamDestination ? AC.createMediaStreamDestination() : null;
+      /* 3.11_04: a silent tone keeps the audio track running, so a video with no recorded voice keeps its full length */
+      if (AC && dest) { try { var hum = AC.createOscillator(), hz = AC.createGain(); hz.gain.value = 0; hum.connect(hz); hz.connect(dest); hum.start(); } catch (e) {} }
       Promise.all(CR.map(function (c, i) { return loadImg(picSrc(S.slides[i])); })).then(function (ims) {
         return Promise.all(CR.map(function (c, i) { var r = REC[i]; return r && AC ? r.blob.arrayBuffer().then(function (b) { return AC.decodeAudioData(b); }).catch(function () { return null; }) : Promise.resolve(null); })).then(function (bufs) { return [ims, bufs]; });
       }).then(function (res) { if (stop) return; var ims = res[0], bufs = res[1];
